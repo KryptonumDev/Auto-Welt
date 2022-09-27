@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: ".env",
+})
+
 module.exports = {
   siteMetadata: {
     title: `auto-welt`,
@@ -15,27 +19,6 @@ module.exports = {
     "gatsby-transformer-sharp", 
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        resolveEnv: () => NETLIFY_ENV,
-        env: {
-          production: {
-            policy: [{ userAgent: "*" }],
-          },
-          "branch-deploy": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
-          },
-          "deploy-preview": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
-          },
-        },
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
