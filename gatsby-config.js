@@ -3,10 +3,16 @@ module.exports = {
     title: `auto-welt`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: [{
-    resolve: 'gatsby-source-wordpress',
-    options: {
-      "url": ""
-    }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components"]
+  plugins: [
+    // {
+    //   resolve: 'gatsby-source-wordpress',
+    //   options: {
+    //     "url": ""
+    //   }
+    // }, 
+    "gatsby-plugin-image", 
+    "gatsby-plugin-sharp", 
+    "gatsby-transformer-sharp", 
+    "gatsby-plugin-styled-components"
+  ]
 };
