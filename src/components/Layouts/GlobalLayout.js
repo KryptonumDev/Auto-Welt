@@ -1,7 +1,7 @@
 import React from "react"
 import { MenuProvider } from "../../context/menuContext"
 import GlobalStyle from "../../styles/GlobalStyle"
-import SEO from "../../seo/seo"
+import SEO from "../SEO/SEO"
 
 const GlobalLayout = ({ children }) => {
   return (
