@@ -40,6 +40,7 @@ const Style = createGlobalStyle`
         --warning500: #F99D00;
         --warning100: #FEB331;
         --warning50: #FEC96E;
+        --black: #000;
     }
     body {
       &.no-js {
