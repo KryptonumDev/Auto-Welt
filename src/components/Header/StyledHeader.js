@@ -75,4 +75,6 @@ export const StyledRightWrapper = styled.div`
 `
 export const StyledLogoWrapper = styled.div`
     padding-top: 15px;
+    position: relative;
+    z-index: 2;
 `

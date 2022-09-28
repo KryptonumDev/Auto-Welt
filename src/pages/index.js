@@ -1,10 +1,12 @@
 import * as React from "react"
 
+import HomeHeroSection from "../components/HomeHeroSection/HomeHeroSection"
+
 const IndexPage = () => {
   return (
-    <main>
-      <h1>Strona główna</h1>
-    </main>
+    <>
+      <HomeHeroSection />
+    </>
   )
 }
 
