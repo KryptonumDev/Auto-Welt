@@ -41,6 +41,7 @@ const Style = createGlobalStyle`
         --warning100: #FEB331;
         --warning50: #FEC96E;
         --black: #000;
+        --white: #fff;
     }
     body {
       background-color: var(--background500);
