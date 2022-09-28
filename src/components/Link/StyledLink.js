@@ -5,7 +5,7 @@ export const StyledLink = styled(Link)`
   font-size: ${({ hasdeclaredfontsize }) =>
     hasdeclaredfontsize ? hasdeclaredfontsize : "16px"};
   font-weight: ${({ hasdeclaredfontweight }) =>
-    hasdeclaredfontweight ? hasdeclaredfontweight : "normal"};
+    hasdeclaredfontweight ? hasdeclaredfontweight : "400"};
   color: ${({ hasdeclaredfontcolor }) =>
     hasdeclaredfontcolor ? hasdeclaredfontcolor : "var(--black)"};
   letter-spacing: ${({ hasdeclaredletterspacing }) =>
