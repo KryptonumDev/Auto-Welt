@@ -43,6 +43,7 @@ const Style = createGlobalStyle`
         --black: #000;
     }
     body {
+      background-color: var(--background500);
       &.no-js {
         visibility: hidden;
       }
