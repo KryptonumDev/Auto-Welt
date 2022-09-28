@@ -9,11 +9,9 @@ import {
     StyledLogoWrapper
 } from "./StyledHeader"
 
-import getWindowSize from "../../utils/getWindowSize"
-import logo from "../../images/Logo.svg"
+import Logo from "../../images/Logo.svg"
 
 const Header = () => {
-    const width = getWindowSize();
     return (
         <StyledHeader>
             <StyledNav>
@@ -49,7 +47,7 @@ const Header = () => {
                 </StyledLeftWrapper>
                 <StyledLogoWrapper>
                     <StyledLink to='/'>
-                        <img src={logo} alt="auto-welt" />
+                        <Logo />
                     </StyledLink>
                 </StyledLogoWrapper>
                 <StyledRightWrapper>
