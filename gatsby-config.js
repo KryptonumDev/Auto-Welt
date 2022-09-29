@@ -36,6 +36,10 @@ module.exports = {
           {
             name: "Roboto",
             file: "https://fonts.googleapis.com/css2?family=Roboto",
+          },
+          {
+            name: "Nocturne Serif",
+            file: "https://fonts.googleapis.com/css2?family=PT+Serif"
           }
         ],
       },

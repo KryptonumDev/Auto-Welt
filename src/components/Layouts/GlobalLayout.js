@@ -3,17 +3,19 @@ import { MenuProvider } from "../../context/menuContext"
 import GlobalStyle from "../../styles/GlobalStyle"
 import Header from "../Header/Header"
 
-import { StyledMainChildren } from './StyledGlobalLayout'
+import { StyledMainChildren, StyledOverflowWrapper } from './StyledGlobalLayout'
 
 const GlobalLayout = ({ children }) => {
   return (
     <>
       <MenuProvider>
         <GlobalStyle />
-        <StyledMainChildren>
-          <Header />
-          {children}
-        </StyledMainChildren>
+        <StyledOverflowWrapper>
+          <StyledMainChildren>
+            <Header />
+            {children}
+          </StyledMainChildren>
+        </StyledOverflowWrapper>
       </MenuProvider>
     </>
   )

@@ -8,12 +8,14 @@ export const StyledButtonLink = styled(StyledLink)`
     border: ${({ hasborder }) => hasborder ? hasborder : "2px solid var(--primary500)"};
     outline: 0;
     background-color: ${({ bgcolor }) => bgcolor ? bgcolor : "var(--white)"};
-    color: ${({ textcolor }) => textcolor ? textcolor : "var(--primary500)"};
-    height: ${({ hasheight }) => hasheight ? hasheight : "44px"};
-    width: ${({ haswidth }) => haswidth ? haswidth : "200px"};
+    height: ${({ hasheight }) => hasheight ? hasheight : "auto"};
+    padding: 10px 22px;
     transform: skew(-26deg);
     > span {
         display: inline-block;
         transform: skew(26deg);
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.3em;
     }
 `
