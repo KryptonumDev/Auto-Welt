@@ -42,6 +42,7 @@ const Style = createGlobalStyle`
         --warning50: #FEC96E;
         --black: #000;
         --white: #fff;
+        --creamText: #F2EBD8;
     }
     body {
       background-color: var(--background500);
