@@ -44,6 +44,7 @@ const Style = createGlobalStyle`
         --white: #fff;
         --creamText: #F2EBD8;
         --borderTopOrange: #EDAC29;
+        --creamBg: #faf7f1;
     }
     body {
       background-color: var(--background500);
@@ -63,7 +64,7 @@ const Style = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
-`
+`;
 
 const GlobalStyle = () => {
   const { show } = useMenuState()

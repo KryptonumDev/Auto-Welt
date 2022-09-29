@@ -22,73 +22,95 @@ const HomeHeroSection = () => {
         <StyledHomeHeroSection>
             <StyledImagesLeftWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
-                        alt="A dinosaur" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
+                        alt="A dinosaur"
                     />
                 </StyledImageWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
-                        alt="A dinosaur" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
+                        alt="A dinosaur"
                     />
                 </StyledImageWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
                         alt="A dinosaur"
                     />
                 </StyledImageWrapper>
             </StyledImagesLeftWrapper>
             <StyledHeroImageWrapper>
                 <StyledHeroImage>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/heroSectionCar.png" 
-                        alt="Open car" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/heroSectionCar.png"
+                        alt="Open car"
                     />
                 </StyledHeroImage>
                 {width > 768 ? (
                     <StyledButtonsWrapper>
-                        <Button whereGo="/kolekcje-modeli" text="KOLEKCJE" hasBorder="2px solid var(--primary500)" hasWidth="175px" />
-                        <Button whereGo="/kontakt" text="KONTAKT" textColor="var(--white)" bgColor="var(--primary500)" hasWidth="175px" />
+                        <Button
+                            whereGo="/kolekcje-modeli"
+                            text="KOLEKCJE"
+                            hasBorder="2px solid var(--primary500)"
+                            hasWidth="175px"
+                        />
+                        <Button
+                            whereGo="/kontakt"
+                            text="KONTAKT"
+                            textColor="var(--white)"
+                            bgColor="var(--primary500)"
+                            hasWidth="175px"
+                        />
                     </StyledButtonsWrapper>
                 ) : null}
             </StyledHeroImageWrapper>
             <StyledImagesRightWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
-                        alt="A dinosaur" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
+                        alt="A dinosaur"
                     />
                 </StyledImageWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
-                        alt="A dinosaur" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
+                        alt="A dinosaur"
                     />
                 </StyledImageWrapper>
                 <StyledImageWrapper>
-                    <StaticImage 
-                        placeholder="blurred" 
-                        src="../../images/exampleImage.png" 
-                        alt="A dinosaur" 
+                    <StaticImage
+                        placeholder="blurred"
+                        src="../../images/exampleImage.png"
+                        alt="A dinosaur"
                     />
                 </StyledImageWrapper>
             </StyledImagesRightWrapper>
             {width < 769 ? (
                 <StyledButtonsWrapper>
-                    <Button whereGo="/kolekcje-modeli" text="KOLEKCJE" hasBorder="2px solid var(--primary500)" hasWidth="175px" />
-                    <Button whereGo="/kontakt" text="KONTAKT" textColor="var(--white)" bgColor="var(--primary500)" hasWidth="175px" />
+                    <Button
+                        whereGo="/kolekcje-modeli"
+                        text="KOLEKCJE"
+                        hasBorder="2px solid var(--primary500)"
+                        hasMaxWidth="175px"
+                    />
+                    <Button
+                        whereGo="/kontakt"
+                        text="KONTAKT"
+                        textColor="var(--white)"
+                        bgColor="var(--primary500)"
+                        hasMaxWidth="175px"
+                    />
                 </StyledButtonsWrapper>
             ) : null}
         </StyledHomeHeroSection>
-    )
+    );
 }
 
 export default HomeHeroSection
