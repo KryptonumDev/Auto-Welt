@@ -11,6 +11,7 @@ export const StyledBackground = styled.div`
     width: 294px;
     height: 192px;
     margin-bottom: 43px;
+    
     img {
         width: 100%;
         height: 100%;

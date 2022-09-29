@@ -11,6 +11,7 @@ export const StyledButtonLink = styled(StyledLink)`
     height: ${({ hasheight }) => hasheight ? hasheight : "auto"};
     padding: 10px 22px;
     transform: skew(-26deg);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     > span {
         display: inline-block;
         transform: skew(26deg);

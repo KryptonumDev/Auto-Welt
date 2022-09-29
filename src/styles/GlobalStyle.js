@@ -43,6 +43,7 @@ const Style = createGlobalStyle`
         --black: #000;
         --white: #fff;
         --creamText: #F2EBD8;
+        --borderTopOrange: #EDAC29;
     }
     body {
       background-color: var(--background500);
