@@ -57,14 +57,15 @@ const HomeHeroSection = () => {
                             whereGo="/kolekcje-modeli"
                             text="KOLEKCJE"
                             hasBorder="2px solid var(--primary500)"
-                            hasWidth="175px"
+                            hasMaxWidth="175px"
+                            textColor="var(--primary500)"
                         />
                         <Button
                             whereGo="/kontakt"
                             text="KONTAKT"
                             textColor="var(--white)"
                             bgColor="var(--primary500)"
-                            hasWidth="175px"
+                            hasMaxWidth="175px"
                         />
                     </StyledButtonsWrapper>
                 ) : null}
@@ -99,6 +100,7 @@ const HomeHeroSection = () => {
                         text="KOLEKCJE"
                         hasBorder="2px solid var(--primary500)"
                         hasMaxWidth="175px"
+                        textColor="var(--primary500)"
                     />
                     <Button
                         whereGo="/kontakt"
