@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Question from "../Question/Question"
+import Question from "../Question/Question";
+import QuestionContact from "../QuestionContact/QuestionContact";
 
 import { StyledQuestions, StyledQuestionsWrapper } from "./StyledQuestions";
 import { StyledText } from "../Text/StyledText";
@@ -20,7 +21,18 @@ const Questions = () => {
             </StyledText>
             <StyledQuestionsWrapper>
                 <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
             </StyledQuestionsWrapper>
+            <QuestionContact />
         </StyledQuestions>
     );
 }

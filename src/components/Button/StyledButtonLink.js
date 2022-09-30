@@ -36,6 +36,7 @@ export const StyledButtonLinkNoHref = styled.p`
     transform: skew(-26deg);
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    color: ${({ hasdeclaredfontcolor }) => hasdeclaredfontcolor ? hasdeclaredfontcolor : "#000"};
     > span {
         display: inline-block;
         transform: skew(26deg);
