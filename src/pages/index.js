@@ -6,6 +6,7 @@ import HomeExhibitions from "../components/HomeExhibitions/HomeExhibitions"
 import HomeRecommendations from "../components/HomeRecommendations/HomeRecommendations"
 import HomeContact from "../components/HomeContact/HomeContact"
 import Questions from "../components/Questions/Questions";
+import HomeArticles from "../components/HomeArticles/HomeArticles"
 
 const IndexPage = () => {
   return (
@@ -16,6 +17,7 @@ const IndexPage = () => {
       <HomeRecommendations />
       <HomeContact />
       <Questions />
+      <HomeArticles />
     </>
   )
 }
