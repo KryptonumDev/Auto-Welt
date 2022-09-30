@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const FooterCenterWrapper = styled.div``
+export const StyledFooterCenterWrapper = styled.div`
+    width: 30%;
+`
