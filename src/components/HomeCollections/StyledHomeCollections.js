@@ -61,3 +61,6 @@ export const StyledFooterImageWrapper = styled.div`
         transform: translateY(5px);
     }
 `
+export const StyledContentWrapper = styled.div`
+    margin-top: 72px;
+`
