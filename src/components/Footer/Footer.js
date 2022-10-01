@@ -5,7 +5,7 @@ import FooterLeftWrapper from "../FooterLeftWrapper/FooterLeftWrapper"
 import FooterCenterWrapper from "../FooterCenterWrapper/FooterCenterWrapper"
 import FooterRightWrapper from "../FooterRightWrapper/FooterRightWrapper"
 
-import { StyledFooter, StyledImageWrapper } from "./StyledFooter"
+import { StyledFooter, StyledImageWrapper, StyledFooterMainWrapper } from "./StyledFooter"
 
 const Footer = () => {
     return (
@@ -17,9 +17,11 @@ const Footer = () => {
                     alt="background"
                 />
             </StyledImageWrapper>
-            <FooterLeftWrapper />
-            <FooterCenterWrapper />
-            <FooterRightWrapper />
+            <StyledFooterMainWrapper>
+                <FooterLeftWrapper />
+                <FooterCenterWrapper />
+                <FooterRightWrapper />
+            </StyledFooterMainWrapper>
         </StyledFooter>
     );
 }

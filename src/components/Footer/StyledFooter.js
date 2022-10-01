@@ -18,3 +18,11 @@ export const StyledImageWrapper = styled.div`
         height: 100%;
     }
 `
+export const StyledFooterMainWrapper = styled.div`
+    width: 100%;
+    max-width: 1112px;
+    margin: 0 auto;
+    padding: 52px 16px 89px 16px;
+    display: flex;
+    justify-content: space-between;
+`;
