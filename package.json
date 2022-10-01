@@ -33,6 +33,7 @@
     "gbimage-bridge": "^0.2.2",
     "gsap": "^3.11.2",
     "react": "^18.1.0",
+    "react-calendar": "^3.9.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.4.1",
