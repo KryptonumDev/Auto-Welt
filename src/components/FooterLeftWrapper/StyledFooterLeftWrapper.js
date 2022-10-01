@@ -31,12 +31,9 @@ export const StyledIconsWrapper = styled.div`
     > a {
         width: 42px;
         height: 42px;
-        background-color: red;
         > svg {
             width: 100%;
             height: 100%;
-            position: relative;
-            z-index: 2;
         }
     }
 `

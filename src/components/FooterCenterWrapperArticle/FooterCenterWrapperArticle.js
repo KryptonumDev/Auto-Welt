@@ -12,7 +12,11 @@ const FooterCenterWrapperArticle = () => {
         <StyledFooterCenterWrapperArticle>
             <StyledTop></StyledTop>
             <StyledBottom>
-                <StyledText>
+                <StyledText
+                    hasdeclaredfontsize="16px"
+                    hasdeclaredlineheight="19px"
+                    hasdeclaredfontcolor="var(--primary500)"
+                >
                     Charakterystyka czasów PRL przez pryzmat motoryzacji
                 </StyledText>
             </StyledBottom>

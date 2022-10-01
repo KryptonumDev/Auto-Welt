@@ -12,7 +12,10 @@ export const StyledImageWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-
+    .gatsby-image-wrapper{
+        width: 100%;
+        height: 100%;
+    }
     img {
         width: 100%;
         height: 100%;
@@ -25,4 +28,6 @@ export const StyledFooterMainWrapper = styled.div`
     padding: 52px 16px 89px 16px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
 `;

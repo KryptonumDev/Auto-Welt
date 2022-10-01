@@ -18,6 +18,7 @@ const FooterCenterWrapper = () => {
                 hasdeclaredfontsize="24px"
                 hasdeclaredfontweight="400"
                 hasdeclaredlineheight="29px"
+                hasdeclaredmargin="0 0 16px"
                 hasdeclaredfontcolor="var(--secondary500)"
             >
                 Szybkie linki
@@ -101,7 +102,7 @@ const FooterCenterWrapper = () => {
                 hasdeclaredfontsize="24px"
                 hasdeclaredfontweight="400"
                 hasdeclaredlineheight="29px"
-                hasdeclaredmargin="42px 0 0 0"
+                hasdeclaredmargin="42px 0 16px"
                 hasdeclaredfontcolor="var(--secondary500)"
             >
                 Artykuły

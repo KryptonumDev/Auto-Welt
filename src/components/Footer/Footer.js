@@ -15,6 +15,7 @@ const Footer = () => {
                     placeholder="blurred"
                     src="../../images/footerBg.jpg"
                     alt="background"
+                    objectFit="cover"
                 />
             </StyledImageWrapper>
             <StyledFooterMainWrapper>
