@@ -15,6 +15,7 @@ export const StyledRecommendationsWrapper = styled.div`
 `
 export const StyledButtonsWrapper = styled.div`
     display: flex;
+    justify-content: center;
     gap: 30px;
     margin-top: 40px;
 `
