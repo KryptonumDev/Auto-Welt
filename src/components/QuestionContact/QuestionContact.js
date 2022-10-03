@@ -7,23 +7,37 @@ import {
     StyledQuestionContact,
     StyledInfoWrapper,
     StyledImageContactWrapper,
+    StyledContactInfoWrapper
 } from "./StyledQuestionContact";
 import { StyledText } from '../Text/StyledText';
 
-const QuestionContact = ({ isContactPage }) => {
+const QuestionContact = ({ isContactPage, banerImg }) => {
     return (
         <StyledQuestionContact>
             <StyledImageContactWrapper>
                 <StaticImage
                     placeholder="blurred"
-                    src="../../images/questionContact.jpg"
+                    src={banerImg}
                     alt="A dinosaur"
                 />
             </StyledImageContactWrapper>
             {isContactPage ? 
-                (<div>
-                    dasdsa
-                </div>) 
+                (<StyledContactInfoWrapper>
+                    <Button
+                        whereGo="/terminarz"
+                        text="ZOBACZ TERMINARZ"
+                        hasBorder="2px solid var(--primary500)"
+                        textColor="var(--primary500)"
+                        hasFontSize="21px"
+                    />
+                    <Button
+                        whereGo="/kontakt"
+                        text="DOWIEDZ SIĘ WIĘCEJ O MNIE"
+                        textColor="var(--white)"
+                        bgColor="var(--primary500)"
+                        hasFontSize="21px"
+                    />
+                </StyledContactInfoWrapper>) 
                 :
                 (<StyledInfoWrapper>
                     <StyledText

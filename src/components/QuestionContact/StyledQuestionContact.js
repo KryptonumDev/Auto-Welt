@@ -25,4 +25,14 @@ export const StyledInfoWrapper = styled.div`
     jusityf-content: center;
     flex-direction: column;
 `;
-export const StyledImageContactWrapper = styled.div``
+export const StyledImageContactWrapper = styled.div`
+    min-height: 372px;
+    width: 100%;
+`
+export const StyledContactInfoWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+`
