@@ -1,18 +1,13 @@
 import React from 'react'
-import { StaticImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 import HomeArticleElement from '../HomeArticleElement/HomeArticleElement';
-
+import ReqInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
 import {
     StyledHomeArticles,
     StyledArticlesWrapper,
     StyledButtonWrapper
 } from "./StyledHomeArticles";
-import {
-    StyledCollectionFooter,
-    StyledFooterImageWrapper,
-} from "../HomeCollections/StyledHomeCollections";
 import { StyledText } from "../Text/StyledText";
 
 const HomeArticles = ({ iscollection }) => {
@@ -33,33 +28,9 @@ const HomeArticles = ({ iscollection }) => {
                 <HomeArticleElement index={1} />
             </StyledArticlesWrapper>
             {!iscollection ? 
-                (<StyledCollectionFooter>
-                    <StyledFooterImageWrapper>
-                        <StaticImage
-                            placeholder="blurred"
-                            src="../../images/collectionRectangle.png"
-                            alt="background"
-                            objectFit="fill"
-                        />
-                    </StyledFooterImageWrapper>
-                    <StyledText
-                        hasdeclaredfontsize="clamp(18px, 28px, 32px)"
-                        hasdeclaredfontcolor="var(--creamText)"
-                        hasdeclaredfontfamily="Nocturne Serif"
-                        hasdeclaredfontweight="400"
-                        hasdeclaredpadding="0 18px 0 57px"
-                    >
-                        Więcej artykułów znajdziesz na
-                    </StyledText>
-                    <Button
-                        text="BLOGU"
-                        whereGo="/blog"
-                        bgColor="var(--secondary500)"
-                        hasBorder="2px solid var(--secondary500)"
-                        hasHeight="44px"
-                        textColor="var(--primary900)"
-                    />
-                </StyledCollectionFooter>)
+                (
+                    <ReqInfoWithButton />
+                )
                 :
                 (<StyledButtonWrapper>
                     <Button
