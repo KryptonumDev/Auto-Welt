@@ -12,14 +12,14 @@ import {
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
 
-const HomeContact = () => {
+const HomeContact = ({ hasMaxWidth, leftImageSrc }) => {
     return (
-        <StyledHomeContact>
+        <StyledHomeContact hasmaxwidth={hasMaxWidth}>
             <StyledLeftWrapper>
                 <StyledModel>
                     <StaticImage
                         placeholder="blurred"
-                        src="../../images/ContactCar.png"
+                        src={leftImageSrc}
                         alt="A dinosaur"
                     />
                 </StyledModel>

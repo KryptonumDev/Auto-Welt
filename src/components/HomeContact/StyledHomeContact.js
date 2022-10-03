@@ -3,11 +3,11 @@ import styled from "styled-components"
 export const StyledHomeContact = styled.section`
     border-top: 6px solid var(--secondary500);
     width: 100%;
-    max-width: 1031px;
+    max-width: ${({ hasmaxwidth }) => hasmaxwidth ? "1031px" : "unset"};
     height: 550px;
     margin-bottom: 120px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-    margin-left: 30px;
+    margin-left:  ${({ hasmaxwidth }) => hasmaxwidth ? "30px" : "0"};
     display: flex;
     background-color: var(--creamBg);
 `;

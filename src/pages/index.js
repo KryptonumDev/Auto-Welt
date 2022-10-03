@@ -8,6 +8,7 @@ import HomeContact from "../components/HomeContact/HomeContact";
 import Questions from "../components/Questions/Questions";
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
+import QuestionContact from "../components/QuestionContact/QuestionContact";
 
 const IndexPage = () => {
   return (
@@ -16,8 +17,9 @@ const IndexPage = () => {
       <HomeCollections />
       <HomeExhibitions />
       <HomeRecommendations />
-      <HomeContact />
+      <HomeContact hasMaxWidth leftImageSrc="../../images/ContactCar.png"/>
       <Questions />
+      <QuestionContact />
       <HomeArticles />
       <HomeCalendar />
     </>

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Question from "../Question/Question";
-import QuestionContact from "../QuestionContact/QuestionContact";
 
 import { StyledQuestions, StyledQuestionsWrapper } from "./StyledQuestions";
 import { StyledText } from "../Text/StyledText";
@@ -32,7 +31,6 @@ const Questions = () => {
                 <Question />
                 <Question />
             </StyledQuestionsWrapper>
-            <QuestionContact />
         </StyledQuestions>
     );
 }
