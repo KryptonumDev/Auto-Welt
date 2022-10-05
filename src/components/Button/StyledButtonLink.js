@@ -8,9 +8,8 @@ export const StyledButtonLink = styled(StyledLink)`
     border: ${({ hasborder }) =>
         hasborder ? hasborder : "2px solid var(--primary500)"};
     outline: 0;
-    background-color: ${({ bgcolor }) => (bgcolor ? bgcolor : "var(--white)")};
+    background: ${({ bgcolor }) => (bgcolor ? bgcolor : "var(--white)")};
     height: ${({ hasheight }) => (hasheight ? hasheight : "auto")};
-    padding: 10px 22px;
     transform: skew(-26deg);
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -33,7 +32,7 @@ export const StyledButtonLinkNoHref = styled.p`
     outline: 0;
     background-color: ${({ bgcolor }) => (bgcolor ? bgcolor : "var(--white)")};
     height: ${({ hasheight }) => (hasheight ? hasheight : "auto")};
-    padding: 10px 22px;
+    padding: ${({ hasdeclaredpadding }) => (hasdeclaredpadding ? hasdeclaredpadding : "10px 22px")};
     transform: skew(-26deg);
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -44,5 +43,6 @@ export const StyledButtonLinkNoHref = styled.p`
         text-transform: uppercase;
         text-align: center;
         line-height: 1.3em;
+        font-weight: ${({ hasfontweight }) => hasfontweight ? hasfontweight : "500"};
     }
 `;

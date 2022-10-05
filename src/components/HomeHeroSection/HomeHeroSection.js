@@ -1,6 +1,7 @@
-import React, { useState } from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import getWindowSize from "../../utils/getWindowSize"
+import React, { useState, useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 import Button from "../Button/Button";
 
 import { 
@@ -13,101 +14,128 @@ import {
     StyledImageWrapper
 } from "./StyledHomeHeroSection"
 
+import getWindowSize from "../../utils/getWindowSize"
+
 const HomeHeroSection = () => {
+    const { wpPage } = useStaticQuery(graphql`
+     query heroSectionQuery {
+        wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+          homepage {
+            duzeZdjecieSrodkowe {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            gdzieMaPrzeniescLinkLewy {
+              title
+              url
+            }
+            gdzieMaPrzeniescLinkPrawy {
+              title
+              url
+            }
+            maleZdjecia {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
     const width = getWindowSize();
-    const [leftImages, setLeftImages] = useState([]);
-    const [rightImages, setRightImages] = useState([]);
-    
+    const heroImage = getImage(wpPage.homepage.duzeZdjecieSrodkowe.localFile);
+    const [leftImages, setLeftImages] = useState([])
+    const [rightImages, setRightImages] = useState([])
+
+    useEffect(() => {
+        const lImages = [];
+        const rImages = [];
+        wpPage.homepage.maleZdjecia.map((image, index) => {
+            if(index < 3){
+                lImages.push({
+                    localFile: getImage(image.localFile),
+                    alt: image.altText
+                })
+            }else{
+                rImages.push({
+                    localFile: getImage(image.localFile),
+                    alt: image.altText
+                })
+            }
+        })
+        setLeftImages(lImages);
+        setRightImages(rImages);
+    }, [wpPage])
+
     return (
         <StyledHomeHeroSection>
             <StyledImagesLeftWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
+                {leftImages.map(image => 
+                    <StyledImageWrapper>
+                        <GatsbyImage image={image.localFile} alt={image.altText} objectFit="fill"/>
+                    </StyledImageWrapper>
+                )}
             </StyledImagesLeftWrapper>
             <StyledHeroImageWrapper>
                 <StyledHeroImage>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/heroSectionCar.png"
-                        alt="Open car"
-                    />
+                    <GatsbyImage image={heroImage} alt={wpPage.homepage.duzeZdjecieSrodkowe.altText} />
                 </StyledHeroImage>
                 {width > 768 ? (
                     <StyledButtonsWrapper>
                         <Button
-                            whereGo="/kolekcje-modeli"
-                            text="KOLEKCJE"
+                            whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
+                            text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
+                            bgColor="var(--creamBg)"
                             hasBorder="2px solid var(--primary500)"
-                            hasMaxWidth="175px"
                             textColor="var(--primary500)"
+                            hasDeclaredPadding="10px 36px"
+                            hasFontWeight="500"
+                            hasFontSize="21px"
                         />
                         <Button
-                            whereGo="/kontakt"
-                            text="KONTAKT"
+                            whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
+                            text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
                             textColor="var(--white)"
                             bgColor="var(--primary500)"
-                            hasMaxWidth="175px"
+                            hasDeclaredPadding="10px 36px"
+                            hasFontSize="21px"
+                            hasFontWeight="500"
                         />
                     </StyledButtonsWrapper>
                 ) : null}
             </StyledHeroImageWrapper>
             <StyledImagesRightWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
-                <StyledImageWrapper>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/exampleImage.png"
-                        alt="A dinosaur"
-                    />
-                </StyledImageWrapper>
+                {rightImages.map(image => 
+                    <StyledImageWrapper>
+                        <GatsbyImage image={image.localFile} alt={image.altText} objectFit="fill" />
+                    </StyledImageWrapper>
+                )}
             </StyledImagesRightWrapper>
             {width < 769 ? (
                 <StyledButtonsWrapper>
                     <Button
-                        whereGo="/kolekcje-modeli"
-                        text="KOLEKCJE"
+                        whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
+                        text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
+                        bgColor="var(--creamBg)"
                         hasBorder="2px solid var(--primary500)"
-                        hasMaxWidth="175px"
                         textColor="var(--primary500)"
+                        hasDeclaredPadding="10px 41px"
+                        hasFontSize={width < 376 ? "15px" : "21px"}
                     />
                     <Button
-                        whereGo="/kontakt"
-                        text="KONTAKT"
+                        whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
+                        text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
                         textColor="var(--white)"
                         bgColor="var(--primary500)"
-                        hasMaxWidth="175px"
+                        hasDeclaredPadding="10px 41px"
+                        hasFontSize={width < 376 ? "15px" : "21px"}
                     />
                 </StyledButtonsWrapper>
             ) : null}

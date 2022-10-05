@@ -2,7 +2,17 @@ import React from "react"
 
 import { StyledButtonLink, StyledButtonLinkNoHref } from "./StyledButtonLink";
 
-const Button = ({ text, whereGo, hasBorder, bgColor, textColor, hasMaxWidth, hasFontSize }) => {
+const Button = ({ 
+    text, 
+    whereGo, 
+    hasBorder, 
+    bgColor, 
+    textColor, 
+    hasMaxWidth, 
+    hasFontSize, 
+    hasDeclaredPadding,
+    hasFontWeight
+}) => {
     return (
         <>
             {whereGo ? (
@@ -12,8 +22,9 @@ const Button = ({ text, whereGo, hasBorder, bgColor, textColor, hasMaxWidth, has
                     bgcolor={bgColor}
                     hasdeclaredfontcolor={textColor}
                     hasdeclaredfontsize={hasFontSize}
-                    hasdeclaredfontweight="500"
+                    hasdeclaredfontweight={hasFontWeight ? hasFontWeight : "500"}
                     hasdeclaredmaxwidth={hasMaxWidth}
+                    hasdeclaredpadding={hasDeclaredPadding}
                 >
                     <span>{text}</span>
                 </StyledButtonLink>
@@ -23,8 +34,9 @@ const Button = ({ text, whereGo, hasBorder, bgColor, textColor, hasMaxWidth, has
                     bgcolor={bgColor}
                     hasdeclaredfontcolor={textColor}
                     hasdeclaredfontsize={hasFontSize}
-                    hasdeclaredfontweight="500"
+                    hasfontweight={hasFontWeight ? hasFontWeight : "500"}
                     hasdeclaredmaxwidth={hasMaxWidth}
+                    hasdeclaredpadding={hasDeclaredPadding}
                 >
                     <span>{text}</span>
                 </StyledButtonLinkNoHref>

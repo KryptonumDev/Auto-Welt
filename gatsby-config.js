@@ -8,14 +8,23 @@ module.exports = {
         siteUrl: `https://www.yourdomain.tld`,
     },
     plugins: [
-        // {
-        //   resolve: 'gatsby-source-wordpress',
-        //   options: {
-        //     "url": ""
-        //   }
-        // },
+        {
+          resolve: 'gatsby-source-wordpress',
+          options: {
+            "url": "https://data.auto-welt.info/graphql"
+          }
+        },
         "gatsby-plugin-image",
-        "gatsby-plugin-sharp",
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+              defaults: {
+                formats: [`auto`, `webp`],
+                placeholder: `blurred`,
+                quality: 90,
+              }
+            }
+        },
         "gatsby-transformer-sharp",
         "gatsby-plugin-styled-components",
         "gatsby-plugin-react-helmet",
@@ -36,7 +45,7 @@ module.exports = {
                 web: [
                     {
                         name: "Roboto",
-                        file: "https://fonts.googleapis.com/css2?family=Roboto",
+                        file: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap",
                     },
                     {
                         name: "Nocturne Serif",

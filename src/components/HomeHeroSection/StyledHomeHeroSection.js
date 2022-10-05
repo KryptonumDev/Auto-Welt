@@ -11,10 +11,14 @@ export const StyledHomeHeroSection = styled.section`
     }
 
     @media only screen and (max-width: 768px){
+        margin-top: 0;
         grid-template-areas: 
             "center"
             "left"
             "right";
+    }
+    @media only screen and (max-width: 489px){
+        gap: 8px;
     }
 `
 export const StyledImagesLeftWrapper = styled.div`
@@ -31,6 +35,9 @@ export const StyledImagesLeftWrapper = styled.div`
         max-width: unset;
         width: 100%;
     }
+    @media only screen and (max-width: 489px){
+        gap: 8px;
+    }
 `
 export const StyledHeroImageWrapper = styled.div`
     display: flex;
@@ -38,6 +45,10 @@ export const StyledHeroImageWrapper = styled.div`
     align-items: center;
     transform: translateY(-70px);
     grid-area: center;
+
+    @media only screen and (max-width: 768px){
+        transform: translateY(0);
+    }
 `
 export const StyledImagesRightWrapper = styled.div`
     width: 100%;
@@ -53,11 +64,17 @@ export const StyledImagesRightWrapper = styled.div`
         max-width: unset;
         width: 100%;
     }
+    @media only screen and (max-width: 489px){
+        gap: 8px;
+    }
 `
 export const StyledHeroImage = styled.div`
     width: 100%;
-    transform: scale(1.25);
     img {
+        width: 100%;
+        height: 100%;
+    }
+    .gatsby-image-wrapper{
         width: 100%;
         height: 100%;
     }
@@ -66,23 +83,35 @@ export const StyledButtonsWrapper = styled.div`
     display: flex;
     gap: 20px;
     margin-top: 60px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media only screen and (max-width: 768px){
+        margin-top: 30px;
+    }
+    @media only screen and (max-width: 375px){
+        flex-direction: column;
+        gap: 12px;
+        > div {
+            width: 100%;
+        }
+    }
 `
 export const StyledImageWrapper = styled.div`
     width: 167px;
     height: 128px;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-
-    .gatsby-image-wrapper{
-        width: 100%;
-        height: 100%;
-    }
     img {
         width: 100%;
         height: 100%;
     }
-
+    .gatsby-image-wrapper{
+        width: 100%;
+        height: 100%;
+    }
     @media only screen and (max-width: 768px){
         width: 33.33%;
+        height: auto;
         max-width: 211px;
+        max-height: 164px;
     }
 `
