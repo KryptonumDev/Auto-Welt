@@ -9,6 +9,5 @@ export const StyledMainChildren = styled.div`
 export const StyledOverflowWrapper = styled.main`
     width: 100%;
     max-width: 1440px;
-    overflow: hidden;
     margin: 0 auto;
 `

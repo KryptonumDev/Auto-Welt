@@ -47,6 +47,8 @@ const Style = createGlobalStyle`
         --creamBg: #faf7f1;
     }
     body {
+      overflow-x: hidden;
+      width: 100%;
       background-color: var(--background500);
       &.no-js {
         visibility: hidden;
