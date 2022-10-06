@@ -32,10 +32,12 @@ const HomeHeroSection = () => {
             gdzieMaPrzeniescLinkLewy {
               title
               url
+              target
             }
             gdzieMaPrzeniescLinkPrawy {
               title
               url
+              target
             }
             maleZdjecia {
               altText
@@ -98,6 +100,7 @@ const HomeHeroSection = () => {
                             hasDeclaredPadding="10px 36px"
                             hasFontWeight="500"
                             hasFontSize="21px"
+                            hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
                         />
                         <Button
                             whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
@@ -107,6 +110,7 @@ const HomeHeroSection = () => {
                             hasDeclaredPadding="10px 36px"
                             hasFontSize="21px"
                             hasFontWeight="500"
+                            hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
                         />
                     </StyledButtonsWrapper>
                 ) : null}
@@ -128,6 +132,7 @@ const HomeHeroSection = () => {
                         textColor="var(--primary500)"
                         hasDeclaredPadding="10px 41px"
                         hasFontSize={width < 376 ? "15px" : "21px"}
+                        hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
                     />
                     <Button
                         whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
@@ -136,6 +141,7 @@ const HomeHeroSection = () => {
                         bgColor="var(--primary500)"
                         hasDeclaredPadding="10px 41px"
                         hasFontSize={width < 376 ? "15px" : "21px"}
+                        hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
                     />
                 </StyledButtonsWrapper>
             ) : null}
