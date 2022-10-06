@@ -7,12 +7,13 @@ import { StyledRecInfoWithButton, StyledFooterImageWrapper } from "./StyledRecIn
 import { StyledText } from "../Text/StyledText"
 
 const RecInfoWithButton = ({ 
-    bgImage, 
     text, 
     btnText,
     btnBgColor, 
     btnColor,
-    btnWhereGo
+    btnWhereGo,
+    btnPadding,
+    btnFontSize
 }) => {
   return (
     <StyledRecInfoWithButton>
@@ -31,15 +32,17 @@ const RecInfoWithButton = ({
             hasdeclaredfontweight="400"
             hasdeclaredpadding="0 18px 0 57px"
         >
-            Poznaj wszystkie
+            {text}
         </StyledText>
         <Button
-            text="KOLEKCJE"
-            whereGo="/kolekcje-modeli"
-            bgColor="var(--secondary500)"
+            text={btnText}
+            whereGo={btnWhereGo}
+            bgColor={btnBgColor}
             hasBorder="2px solid var(--secondary500)"
             hasHeight="44px"
-            textColor="var(--primary900)"
+            textColor={btnColor}
+            hasDeclaredPadding={btnPadding}
+            hasFontSize={btnFontSize}
         />
     </StyledRecInfoWithButton>
   )
