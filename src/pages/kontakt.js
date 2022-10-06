@@ -3,7 +3,7 @@ import React from "react"
 import HomeContact from "../components/HomeContact/HomeContact"
 import Questions from "../components/Questions/Questions"
 import QuestionContact from "../components/QuestionContact/QuestionContact";
-import GoogleMapsContact from "../components/GoogleMapsContact/GoogleMapsContact";
+// import GoogleMapsContact from "../components/GoogleMapsContact/GoogleMapsContact";
 
 import { StyledText } from "../components/Text/StyledText"
 
@@ -32,7 +32,7 @@ const Contact = () => {
                 okresie PRL-u? Skontaktuj się ze mną!
             </StyledText>
             <HomeContact leftImageSrc="../../images/kontaktImage.jpg" />
-            <GoogleMapsContact />
+            {/* <GoogleMapsContact /> */}
             <Questions />
             <QuestionContact isContactPage />
         </>
