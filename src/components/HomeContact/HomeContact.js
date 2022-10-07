@@ -1,45 +1,45 @@
-import React from "react"
+import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 import HomeContactForm from "../HomeContactForm/HomeContactForm";
 
 import {
-    StyledHomeContact,
-    StyledLeftWrapper,
-    StyledRightWrapper,
-    StyledHeading,
-    StyledModel,
+  StyledHomeContact,
+  StyledLeftWrapper,
+  StyledRightWrapper,
+  StyledHeading,
+  StyledModel,
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
 
 const HomeContact = ({ hasMaxWidth, leftImageSrc }) => {
-    return (
-        <StyledHomeContact hasmaxwidth={hasMaxWidth}>
-            <StyledLeftWrapper>
-                <StyledModel>
-                    <StaticImage
-                        placeholder="blurred"
-                        src={leftImageSrc}
-                        alt="A dinosaur"
-                    />
-                </StyledModel>
-            </StyledLeftWrapper>
-            <StyledRightWrapper>
-                <StyledHeading>
-                    <StyledText
-                        as="h2"
-                        hasdeclaredfontsize="clamp(16px, 28px, 32px)"
-                        hasdeclaredtextalign="center"
-                        hasdeclaredfontcolor="var(--primary500)"
-                        hasdeclaredfontfamily="Nocturne Serif"
-                    >
-                        Skontakuj się ze mną
-                    </StyledText>
-                </StyledHeading>
-                <HomeContactForm />
-            </StyledRightWrapper>
-        </StyledHomeContact>
-    );
-}
+  return (
+    <StyledHomeContact hasmaxwidth={hasMaxWidth}>
+      <StyledLeftWrapper>
+        <StyledModel>
+          <StaticImage
+            placeholder="blurred"
+            src={leftImageSrc}
+            alt="A dinosaur"
+          />
+        </StyledModel>
+      </StyledLeftWrapper>
+      <StyledRightWrapper>
+        <StyledHeading>
+          <StyledText
+            as="h2"
+            hasdeclaredfontsize="clamp(16px, 28px, 32px)"
+            hasdeclaredtextalign="center"
+            hasdeclaredfontcolor="var(--primary500)"
+            hasdeclaredfontfamily="Nocturne Serif"
+          >
+            Skontakuj się ze mną
+          </StyledText>
+        </StyledHeading>
+        <HomeContactForm />
+      </StyledRightWrapper>
+    </StyledHomeContact>
+  );
+};
 
-export default HomeContact
+export default HomeContact;

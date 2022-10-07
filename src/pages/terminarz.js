@@ -1,11 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Shedule = () => {
-    return (
-        <>
-            Terminarz
-        </>
-    )
-}
+  return <>Terminarz</>;
+};
 
 export default Shedule;

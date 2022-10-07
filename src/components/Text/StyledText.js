@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { motion } from "framer-motion"
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledText = styled(motion.p)`
   font-size: ${({ hasdeclaredfontsize }) =>
@@ -33,4 +33,4 @@ export const StyledText = styled(motion.p)`
   height: ${({ hasdeclaredheight }) =>
     hasdeclaredheight ? hasdeclaredheight : "auto"};
   overflow: ${({ hasoverflow }) => (hasoverflow ? hasoverflow : "visible")};
-`
+`;

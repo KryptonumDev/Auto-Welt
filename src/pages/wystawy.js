@@ -1,11 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Exhibitions = () => {
-    return (
-        <>
-            Terminarz
-        </>
-    )
-}
+  return <>Terminarz</>;
+};
 
 export default Exhibitions;

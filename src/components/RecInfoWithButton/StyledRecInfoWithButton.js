@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledRecInfoWithButton = styled.div`
     width: 100%;
@@ -11,7 +11,8 @@ export const StyledRecInfoWithButton = styled.div`
     align-items: center;
 
     @media only screen and (max-width: 936px){
-        transform: translateX(${({ ismoveleft }) => ismoveleft ? "-32px" : "0"})
+        transform: translateX(${({ ismoveleft }) =>
+          ismoveleft ? "-32px" : "0"})
     }
     @media only screen and (max-width: 580px){
         flex-direction: column;
@@ -28,15 +29,15 @@ export const StyledRecInfoWithButton = styled.div`
             margin 12px 26px 0;
         }
     }
-`
+`;
 
 export const StyledFooterImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
-    position: absolute;
-    .gatsby-image-wrapper{
-        width: 100%;
-        height: 100%;
-        transform: translateY(5px);
-    }
-`
+    transform: translateY(5px);
+  }
+`;

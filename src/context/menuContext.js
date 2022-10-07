@@ -20,7 +20,9 @@ const MenuProvider = ({ children }) => {
   const [state, dispatch] = useReducer(MenuReducer, { show: false });
   return (
     <MenuStateContext.Provider value={state}>
-      <MenuDispatchContext.Provider value={dispatch}>{children}</MenuDispatchContext.Provider>
+      <MenuDispatchContext.Provider value={dispatch}>
+        {children}
+      </MenuDispatchContext.Provider>
     </MenuStateContext.Provider>
   );
 };

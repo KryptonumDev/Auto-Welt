@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import HomeHeroSection from "../components/HomeHeroSection/HomeHeroSection";
 import HomeCollections from "../components/HomeCollections/HomeCollections";
@@ -17,13 +17,13 @@ const IndexPage = () => {
       <HomeCollections />
       <HomeExhibitions />
       <HomeRecommendations />
-      <HomeContact hasMaxWidth leftImageSrc="../../images/ContactCar.png"/>
+      <HomeContact hasMaxWidth leftImageSrc="../../images/ContactCar.png" />
       <Questions />
       <QuestionContact />
       <HomeArticles />
       <HomeCalendar />
     </>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

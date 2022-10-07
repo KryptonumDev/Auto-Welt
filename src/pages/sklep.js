@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
 
-import ShopInProgress from "../components/ShopInProgress/ShopInProgress"
+import ShopInProgress from "../components/ShopInProgress/ShopInProgress";
 
 const Shop = () => {
-    return (
-        <>
-            <ShopInProgress />
-        </>
-    )
-}
+  return (
+    <>
+      <ShopInProgress />
+    </>
+  );
+};
 
 export default Shop;

@@ -1,14 +1,16 @@
-import React from 'react'
-import { StyledText } from '../Text/StyledText'
+import React from "react";
+import { StyledText } from "../Text/StyledText";
 
-import { StyledFooterEvent, StyledFooterEventContent, StyledFooterEventImage } from "./StyledFooterEvent"
+import {
+  StyledFooterEvent,
+  StyledFooterEventContent,
+  StyledFooterEventImage,
+} from "./StyledFooterEvent";
 
 const FooterEvent = () => {
   return (
     <StyledFooterEvent>
-      <StyledFooterEventImage>
-
-      </StyledFooterEventImage>
+      <StyledFooterEventImage></StyledFooterEventImage>
       <StyledFooterEventContent>
         <StyledText
           hasdeclaredfontsize="16px"
@@ -20,7 +22,7 @@ const FooterEvent = () => {
         </StyledText>
       </StyledFooterEventContent>
     </StyledFooterEvent>
-  )
-}
+  );
+};
 
-export default FooterEvent
+export default FooterEvent;

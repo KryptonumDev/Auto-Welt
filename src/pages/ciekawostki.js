@@ -1,11 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Curiosities = () => {
-    return (
-        <>
-            Curiosities
-        </>
-    )
-}
+  return <>Curiosities</>;
+};
 
 export default Curiosities;

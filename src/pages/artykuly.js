@@ -1,11 +1,7 @@
-import React from "react"
+import React from "react";
 
 const Articles = () => {
-    return (
-        <>
-            Articles
-        </>
-    )
-}
+  return <>Articles</>;
+};
 
 export default Articles;

@@ -1,26 +1,30 @@
-import React from 'react'
-import parse from 'html-react-parser';
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import React from "react";
+import parse from "html-react-parser";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import { 
-    StyledCollectionTemplateDesc,
-    StyledTextWrapper,
-    StyledImageWrapper
- } from "./StyledCollectionTemplateDesc"
+import {
+  StyledCollectionTemplateDesc,
+  StyledTextWrapper,
+  StyledImageWrapper,
+} from "./StyledCollectionTemplateDesc";
 
 const CollectionTemplateDesc = ({ descData }) => {
-    return (
-        <StyledCollectionTemplateDesc>
-            <StyledTextWrapper>
-                {descData.opisKolekcji && parse(descData.opisKolekcji)}
-            </StyledTextWrapper>
-            <StyledImageWrapper>
-                {descData.zdjecie &&
-                    <GatsbyImage image={getImage(descData.zdjecie.localFile)} alt={descData.zdjecie.altText} objectFit="cover" />
-                }
-            </StyledImageWrapper>
-        </StyledCollectionTemplateDesc>
-    )
-}
+  return (
+    <StyledCollectionTemplateDesc>
+      <StyledTextWrapper>
+        {descData.opisKolekcji && parse(descData.opisKolekcji)}
+      </StyledTextWrapper>
+      <StyledImageWrapper>
+        {descData.zdjecie && (
+          <GatsbyImage
+            image={getImage(descData.zdjecie.localFile)}
+            alt={descData.zdjecie.altText}
+            objectFit="cover"
+          />
+        )}
+      </StyledImageWrapper>
+    </StyledCollectionTemplateDesc>
+  );
+};
 
-export default CollectionTemplateDesc
+export default CollectionTemplateDesc;
