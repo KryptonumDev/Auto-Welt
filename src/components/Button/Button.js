@@ -12,7 +12,8 @@ const Button = ({
     hasFontSize, 
     hasDeclaredPadding,
     hasFontWeight,
-    hasTarget
+    hasTarget,
+    hasDeclaredMinHeight
 }) => {
     return (
         <>
@@ -26,6 +27,7 @@ const Button = ({
                     hasdeclaredfontweight={hasFontWeight ? hasFontWeight : "500"}
                     hasdeclaredmaxwidth={hasMaxWidth}
                     hasdeclaredpadding={hasDeclaredPadding}
+                    hasdeclaredminheight={hasDeclaredMinHeight}
                     target={hasTarget}
                 >
                     <span>{text}</span>
@@ -39,6 +41,7 @@ const Button = ({
                     hasfontweight={hasFontWeight ? hasFontWeight : "500"}
                     hasdeclaredmaxwidth={hasMaxWidth}
                     hasdeclaredpadding={hasDeclaredPadding}
+                    hasdeclaredminheight={hasDeclaredMinHeight}
                 >
                     <span>{text}</span>
                 </StyledButtonLinkNoHref>

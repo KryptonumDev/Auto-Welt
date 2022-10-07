@@ -14,6 +14,7 @@ export const StyledButtonLink = styled(StyledLink)`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     flex: none;
+    min-height: ${({ hasdeclaredminheight }) => hasdeclaredminheight ? hasdeclaredminheight : "unset"};
     > span {
         display: block;
         transform: skew(26deg);
@@ -37,6 +38,8 @@ export const StyledButtonLinkNoHref = styled.p`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     color: ${({ hasdeclaredfontcolor }) => hasdeclaredfontcolor ? hasdeclaredfontcolor : "#000"};
+    max-width: ${({ hasdeclaredmaxwidth }) => hasdeclaredmaxwidth ? hasdeclaredmaxwidth : "unset"};
+    min-height: ${({ hasdeclaredminheight }) => hasdeclaredminheight ? hasdeclaredminheight : "unset"};
     > span {
         display: block;
         transform: skew(26deg);

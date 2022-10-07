@@ -1,19 +1,73 @@
-import React, { useState } from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 
-import HomeCollectionElement from "../HomeCollectionElement/HomeCollectionElement"
 import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton"
+import HomeCollectionElement from "../HomeCollectionElement/HomeCollectionElement"
 
 import {
     StyledHomeCollections, 
     StyledImagesWrapper, 
     StyledImage,
+
 } from "./StyledHomeCollections"
 import { StyledText } from "../Text/StyledText"
 
-const HomeCollections = () => {
-    const [retImages, setRetImages] = useState([]);
+import useWindowSize from "../../utils/getWindowSize"
 
+const HomeCollections = () => {
+    const width = useWindowSize();
+    const { allWpKolekcje, wpPage } = useStaticQuery(graphql`
+    query kolekcjeHomePage {
+        allWpKolekcje {
+          nodes {
+            kolekcja {
+              informacjeGlowne {
+                trescPrzyciskuPrzenoszacegoDoStronyKolekcji
+                nazwaKolekcji
+                miniaturka {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+                tloDlaMiniaturkiNaStroneGlowna {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
+                  }
+              }
+            }
+            slug
+          }
+        }
+        wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+            homepage {
+              kolekcje {
+                duzeZdjeciePrzyczepioneDoPrawejKrawedzi {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+                trescTekstuWZielonymProstokacie
+                gdzieMaPrzenosicPrzycisk {
+                  title
+                  url
+                  target
+                }
+              }
+            }
+          }
+      }
+    `)
     return (
         <StyledHomeCollections>
             <StyledText
@@ -27,50 +81,32 @@ const HomeCollections = () => {
                 Kolekcje:
             </StyledText>
             <StyledImagesWrapper>
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="KULTOWE SAMOCHODY PRL"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="SAMOCHODY CIĘŻAROWE"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="Autobusy"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="SAMOCHODY DOSTAWCZE I TERENOWE"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="PROTOTYPY POLSKIEJ MOTORYZACJI"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="SAMOCHODY Z OKRESU II WOJNY ŚWIATOWEJ"
-                />
-                <HomeCollectionElement
-                    bgImage="../../images/2.png"
-                    image="../../images/example.png"
-                    buttonText="SAMOCHODY EUROPY ZACHODNIEJ"
-                />
+                {allWpKolekcje.nodes.map((kolekcja) => (
+                    <HomeCollectionElement
+                        bgImage={kolekcja.kolekcja.informacjeGlowne.tloDlaMiniaturkiNaStroneGlowna}
+                        image={kolekcja.kolekcja.informacjeGlowne.miniaturka}
+                        buttonText={kolekcja.kolekcja.informacjeGlowne.trescPrzyciskuPrzenoszacegoDoStronyKolekcji}
+                        whereGo={kolekcja.slug}
+                    />
+                ))}
                 <StyledImage>
-                    <StaticImage
-                        placeholder="blurred"
-                        src="../../images/MPRL-25 1.png"
-                        alt="Car Polonez 1500"
+                    <GatsbyImage 
+                        image={getImage(wpPage.homepage.kolekcje.duzeZdjeciePrzyczepioneDoPrawejKrawedzi.localFile)} 
+                        alt={wpPage.homepage.kolekcje.duzeZdjeciePrzyczepioneDoPrawejKrawedzi.altText} 
+                        objectFit="fill"
                     />
                 </StyledImage>
             </StyledImagesWrapper>
-            <RecInfoWithButton />
+            <RecInfoWithButton 
+                text={wpPage.homepage.kolekcje.trescTekstuWZielonymProstokacie}
+                btnText={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.title}
+                btnWhereGo={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.url}
+                hasTarget={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.target}
+                btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
+                btnBgColor="var(--secondary500)"
+                btnColor="var(--primary900)"
+                isMoveLeft
+            />
         </StyledHomeCollections>
     );
 }

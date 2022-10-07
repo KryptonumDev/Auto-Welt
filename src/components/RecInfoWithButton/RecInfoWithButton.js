@@ -13,10 +13,12 @@ const RecInfoWithButton = ({
     btnColor,
     btnWhereGo,
     btnPadding,
-    btnFontSize
+    btnFontSize,
+    hasTarget,
+    isMoveLeft
 }) => {
   return (
-    <StyledRecInfoWithButton>
+    <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
         <StyledFooterImageWrapper>
             <StaticImage
                 placeholder="blurred"
@@ -43,6 +45,7 @@ const RecInfoWithButton = ({
             textColor={btnColor}
             hasDeclaredPadding={btnPadding}
             hasFontSize={btnFontSize}
+            hasTarget={hasTarget}
         />
     </StyledRecInfoWithButton>
   )
