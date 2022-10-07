@@ -1,10 +1,18 @@
 import React from "react"
-import { StyledHamburgerButton } from "./StyledHamburgerButton"
+import { 
+    StyledHamburgerButton,
+    StyledHamburgerBox,
+    StyledHamburgerInner
+ } from "./StyledHamburgerButton"
 
-const HamburgerButton = () => {
+const HamburgerButton = ({ menuOpen }) => {
     return (
         <StyledHamburgerButton>
-            button
+             <StyledHamburgerBox>
+                <StyledHamburgerInner
+                    hamburger={menuOpen}
+                />
+            </StyledHamburgerBox>
         </StyledHamburgerButton>
     )
 }

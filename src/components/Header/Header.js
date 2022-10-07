@@ -1,15 +1,22 @@
 import React from "react"
 
+import HamburgerButton from "../HamburgerButton/HamburgerButton"
+
 import { StyledLink } from "../Link/StyledLink"
 import { 
     StyledHeader, 
     StyledNav,
     StyledLeftWrapper,
     StyledRightWrapper,
-    StyledLogoWrapper
+    StyledLogoWrapper,
+    StyledIconsWrapper,
+    StyledLogoMobileWrapper
 } from "./StyledHeader"
 
 import Logo from "../../images/Logo.svg"
+
+import InstagramIcon from "../../images/headerIcons/instagram.svg"
+import FacebookIcon from "../../images/headerIcons/facebook.svg"
 
 const Header = () => {
     return (
@@ -38,11 +45,11 @@ const Header = () => {
                         O mnie
                     </StyledLink>
                     <StyledLink 
-                        to='/ciekawostki'
+                        to='/oferta'
                         hasdeclaredmargin="0 10px 0 0"
                         hasdeclaredfontcolor="var(--background500)"
                     >
-                        Ciekawostki
+                        Oferta
                     </StyledLink>
                 </StyledLeftWrapper>
                 <StyledLogoWrapper>
@@ -63,24 +70,31 @@ const Header = () => {
                         hasdeclaredmargin="0 0 0 35px"
                         hasdeclaredfontcolor="var(--background500)"
                     >
-                        Artykuły
+                        Blog
                     </StyledLink>
                     <StyledLink 
                         to='/wystawy'
                         hasdeclaredmargin="0 0 0 35px"
                         hasdeclaredfontcolor="var(--background500)"
                     >
-                        Wystawy
-                    </StyledLink>
-                    <StyledLink 
-                        to='/kontakt'
-                        hasdeclaredmargin="0 0 0 35px"
-                        hasdeclaredfontcolor="var(--background500)"
-                    >
                         Kontakt
                     </StyledLink>
+                    <StyledIconsWrapper>
+                        <a href="#">
+                            <FacebookIcon />
+                        </a>
+                        <a href="#">
+                            <InstagramIcon />
+                        </a>
+                    </StyledIconsWrapper>
                 </StyledRightWrapper>
             </StyledNav>
+            <StyledLogoMobileWrapper>
+                <StyledLink to='/'>
+                    <Logo />
+                </StyledLink>
+            </StyledLogoMobileWrapper>
+            <HamburgerButton />
         </StyledHeader>
     )
 }

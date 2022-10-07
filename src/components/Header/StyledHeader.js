@@ -10,6 +10,10 @@ export const StyledNav = styled.nav`
     width: 100%;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 768px){
+        display: none;
+    }
 `
 export const StyledLeftWrapper = styled.div`
     background: var(--primary500);
@@ -77,4 +81,36 @@ export const StyledLogoWrapper = styled.div`
     padding-top: 15px;
     position: relative;
     z-index: 2;
+
+    @media only screen and (max-width: 768px){
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        z-index: 2;
+    }
+`
+export const StyledLogoMobileWrapper = styled.div`
+    display: none;
+    width: 158px;
+    height: 63px;
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+    @media only screen and (max-width: 768px){
+        display: block;
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        z-index: 2;
+    }
+`
+export const StyledIconsWrapper = styled.div`
+    display: flex;
+    gap: 10px;
+
+    > svg {
+        width: 24px;
+        height: 24px;
+    }
 `
