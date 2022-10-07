@@ -8,16 +8,23 @@ import {
 } from "./StyledCollectionImageUnderDescImages"
 
 const CollectionImageUnderDescImages = ({ imagesData }) => {
-    const topImage = getImage(imagesData.prostokatneZdjeciePodOpisem.localFile);
-    const rightImage = getImage(imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.localFile);
-
     return (
         <StyledCollectionImageUnderDescImages>
             <StyledTopImage>
-                <GatsbyImage image={topImage} alt={imagesData.prostokatneZdjeciePodOpisem.altText} />
+                {imagesData.prostokatneZdjeciePodOpisem &&
+                    <GatsbyImage 
+                        image={getImage(imagesData.prostokatneZdjeciePodOpisem.localFile)} 
+                        alt={imagesData.prostokatneZdjeciePodOpisem.altText} 
+                    />
+                }
             </StyledTopImage>
             <StyledBottomImage>
-                <GatsbyImage image={rightImage} alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.altText} />
+                {imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi &&
+                    <GatsbyImage 
+                        image={getImage(imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.localFile)} 
+                        alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.altText} 
+                    />
+                }
             </StyledBottomImage>
         </StyledCollectionImageUnderDescImages>
     )

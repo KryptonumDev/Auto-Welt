@@ -9,14 +9,15 @@ import {
 const ThreeCollectionImages = ({ imagesData }) => {
     return (
         <StyledThreeCollectionImages>
-            {imagesData.map((image, index)=> {
-                const convertImage = getImage(image.localFile)
-                return (
-                    <StyledImageWrapper key={index}>
-                        <GatsbyImage image={convertImage} alt={image.altText} />
-                    </StyledImageWrapper>
-                )
-            })}
+            {imagesData &&
+                imagesData.map((image, index)=> {
+                    return (
+                        <StyledImageWrapper key={index}>
+                            <GatsbyImage image={getImage(image.localFile)} alt={image.altText} />
+                        </StyledImageWrapper>
+                    )
+                })
+            }
         </StyledThreeCollectionImages>
     )
 }

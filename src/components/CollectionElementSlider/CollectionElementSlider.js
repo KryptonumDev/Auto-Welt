@@ -36,29 +36,31 @@ const CollectionElementSlider = ({ imagesData }) => {
     )
 
     useEffect(() => {
-        const sliderElements = imagesData.slice(index, index + 2);
+        const sliderElements = imagesData ? imagesData.slice(index, index + 2) : [];
 
         setRenderElements(sliderElements);
     }, [index])
 
     return (
         <StyledCollectionElementSlider>
-            <StyledLeftArrow onClick={handlePrev}>
-                <LeftArrow />
-            </StyledLeftArrow>
-            <StyledImagesWrapper>
-                {renderElements.map((e, index) => {
-                    const convertImage = getImage(e.localFile)
-                    return (
-                        <StyledImage key={index}>
-                            <GatsbyImage image={convertImage} alt={e.altText} />
-                        </StyledImage>
-                    )
-                })}
-            </StyledImagesWrapper>
-            <StyledRightArrow onClick={handleNext}>
-                <RightArrow />
-            </StyledRightArrow>
+            {imagesData &&
+                <>
+                    <StyledLeftArrow onClick={handlePrev}>
+                        <LeftArrow />
+                    </StyledLeftArrow>
+                    <StyledImagesWrapper>
+                        {renderElements.map((e, index) => (
+                                <StyledImage key={index}>
+                                    <GatsbyImage image={getImage(e.localFile)} alt={e.altText} />
+                                </StyledImage>
+                            )
+                        )}
+                    </StyledImagesWrapper>
+                    <StyledRightArrow onClick={handleNext}>
+                        <RightArrow />
+                    </StyledRightArrow>
+                </>
+            }
         </StyledCollectionElementSlider>
     )
 }

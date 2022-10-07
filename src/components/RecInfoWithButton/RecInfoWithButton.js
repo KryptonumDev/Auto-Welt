@@ -38,7 +38,7 @@ const RecInfoWithButton = ({
         </StyledText>
         <Button
             text={btnText}
-            whereGo={btnWhereGo}
+            whereGo={btnWhereGo ? btnWhereGo : '/'}
             bgColor={btnBgColor}
             hasBorder="2px solid var(--secondary500)"
             hasHeight="44px"

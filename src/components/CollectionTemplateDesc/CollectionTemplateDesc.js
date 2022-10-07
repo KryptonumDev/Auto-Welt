@@ -9,14 +9,15 @@ import {
  } from "./StyledCollectionTemplateDesc"
 
 const CollectionTemplateDesc = ({ descData }) => {
-    const convertImage = getImage(descData.zdjecie.localFile)
     return (
         <StyledCollectionTemplateDesc>
             <StyledTextWrapper>
-                {parse(descData.opisKolekcji)}
+                {descData.opisKolekcji && parse(descData.opisKolekcji)}
             </StyledTextWrapper>
             <StyledImageWrapper>
-                <GatsbyImage image={convertImage} alt={descData.zdjecie.altText} objectFit="cover" />
+                {descData.zdjecie &&
+                    <GatsbyImage image={getImage(descData.zdjecie.localFile)} alt={descData.zdjecie.altText} objectFit="cover" />
+                }
             </StyledImageWrapper>
         </StyledCollectionTemplateDesc>
     )

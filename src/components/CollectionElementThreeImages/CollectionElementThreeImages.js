@@ -9,13 +9,13 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
   return (
     <StyledCollectionElementThreeImages>
         <div>
-            {imagesData.map((image, index) => {
-                const convertImage = getImage(image.localFile)
+            {imagesData && imagesData.map((image, index) => {
                 return (
-                    <GatsbyImage key={index} image={convertImage} alt={image.altText} />
+                    <GatsbyImage key={index} image={getImage(image.localFile)} alt={image.altText} />
                 )
             })}
         </div>
+        {linkData && 
         <Button
             whereGo={linkData.url}
             text={linkData.title}
@@ -25,7 +25,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
             hasFontSize="21px"
             hasFontWeight="500"
             hasTarget={linkData.target}
-        />
+        />}
     </StyledCollectionElementThreeImages>
   )
 }
