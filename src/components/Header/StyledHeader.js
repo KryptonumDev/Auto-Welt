@@ -23,8 +23,8 @@ export const StyledLeftWrapper = styled.div`
     align-items: center;
     padding-left: 40px;
     clip-path: polygon(0 0, 94.5% 0, 100% 100%, 0% 100%);
-    width: 439px;
-
+    max-width: 439px;
+    width: 50%;
     @media only screen and (max-width: 1107px){
         width: 100%;
         justify-content: space-evenly;
@@ -55,25 +55,24 @@ export const StyledRightWrapper = styled.div`
     padding-right: 50px;
     clip-path: polygon(5.5% 0, 100% 0, 100% 100%, 0% 100%);
     max-width: 439px;
-
+    width: 50%;
     @media only screen and (max-width: 1107px){
         width: 100%;
         justify-content: space-evenly;
         padding-right: 0;
-        > a {
-            margin: 0;
-        }
     }
 
     @media only screen and (max-width: 998px){
         > a {
             font-size: 14px;
+            margin-left: 25px;
         }
     }
 
     @media only screen and (max-width: 903px){
         > a {
             font-size: 12px;
+            margin-left: 18px;
         }
     }
 `
@@ -104,13 +103,27 @@ export const StyledLogoMobileWrapper = styled.div`
         left: 32px;
         z-index: 2;
     }
+    @media only screen and (max-width: 375px){
+        width: 150px;
+        height: 59px;
+        top: 22px;
+        left: 16px;
+    }
 `
 export const StyledIconsWrapper = styled.div`
     display: flex;
     gap: 10px;
-
+    align-items: center;
+    margin-left: 55px;
     > svg {
         width: 24px;
         height: 24px;
+    }
+
+    @media only screen and (max-width: 1107px){
+        margin-left: 25px;
+    }
+    @media only screen and (max-width: 903px){
+        margin-left: 18px;
     }
 `

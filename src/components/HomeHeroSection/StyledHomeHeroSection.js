@@ -2,13 +2,8 @@ import styled from "styled-components"
 
 export const StyledHomeHeroSection = styled.section`
     display: grid;
-    gap: 40px;
     margin-top: 52px;
     grid-template-areas: "left center center center right";
-    
-    @media only screen and (max-width: 829px){
-        gap: 10px;
-    }
 
     @media only screen and (max-width: 768px){
         margin-top: 0;
@@ -16,9 +11,6 @@ export const StyledHomeHeroSection = styled.section`
             "center"
             "left"
             "right";
-    }
-    @media only screen and (max-width: 489px){
-        gap: 8px;
     }
 `
 export const StyledImagesLeftWrapper = styled.div`
@@ -36,7 +28,7 @@ export const StyledImagesLeftWrapper = styled.div`
         width: 100%;
     }
     @media only screen and (max-width: 489px){
-        gap: 8px;
+        gap: 16px;
     }
 `
 export const StyledHeroImageWrapper = styled.div`
@@ -63,9 +55,10 @@ export const StyledImagesRightWrapper = styled.div`
         justify-content: space-between;
         max-width: unset;
         width: 100%;
+        margin-top: 16px;
     }
     @media only screen and (max-width: 489px){
-        gap: 8px;
+        gap: 16px;
     }
 `
 export const StyledHeroImage = styled.div`
@@ -78,18 +71,21 @@ export const StyledHeroImage = styled.div`
         width: 100%;
         height: 100%;
     }
+
+    @media only screen and (max-width: 434px){
+        margin-top: 30px;
+    }
 `
 export const StyledButtonsWrapper = styled.div`
     display: flex;
     gap: 20px;
-    margin-top: 60px;
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     @media only screen and (max-width: 768px){
         margin-top: 30px;
     }
-    @media only screen and (max-width: 375px){
+    @media only screen and (max-width: 450px){
         flex-direction: column;
         gap: 12px;
         > div {

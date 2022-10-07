@@ -17,6 +17,9 @@ export const StyledHamburgerButton = styled.button`
         display: flex;
         justify-content: flex-end;
     }
+    @media only screen and (max-width: 375px){
+        right: 16px;
+    }
 `
 
 export const StyledHamburgerBox = styled.span`

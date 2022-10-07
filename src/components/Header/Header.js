@@ -25,21 +25,21 @@ const Header = () => {
                 <StyledLeftWrapper>
                     <StyledLink 
                         to='/kolekcje-modeli'
-                        hasdeclaredmargin="0 27px 0 0"
+                        hasdeclaredmargin="0 29px 0 0"
                         hasdeclaredfontcolor="var(--background500)"
                     >
                         Kolekcje modeli
                     </StyledLink>
                     <StyledLink 
                         to='/sklep'
-                        hasdeclaredmargin="0 27px 0 0"
+                        hasdeclaredmargin="0 29px 0 0"
                         hasdeclaredfontcolor="var(--background500)"
                     >
                         Sklep
                     </StyledLink>
                     <StyledLink 
                         to='/o-mnie'
-                        hasdeclaredmargin="0 27px 0 0"
+                        hasdeclaredmargin="0 29px 0 0"
                         hasdeclaredfontcolor="var(--background500)"
                     >
                         O mnie
@@ -60,7 +60,7 @@ const Header = () => {
                 <StyledRightWrapper>
                     <StyledLink 
                         to='/terminarz'
-                        hasdeclaredmargin="0 0 0 34px"
+                        hasdeclaredmargin="0 0 0 55px"
                         hasdeclaredfontcolor="var(--background500)"
                     >
                         Terminarz
