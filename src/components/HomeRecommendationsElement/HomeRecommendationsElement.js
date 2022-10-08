@@ -15,25 +15,22 @@ const HomeRecommendationsElement = ({ data }) => {
         hasdeclaredlineheight="1.3em"
         hasdeclaredfontcolor="var(--primary500)"
       >
-        PAN MAREK {data.id}
+        {data.rekomendacje.imieNazwisko}
       </StyledText>
-      <StyledText
-        hasdeclaredfontsize="16px"
-        hasdeclaredfontcolor="var(--secondary500)"
-        hasdeclaredlineheight="1.1em"
-        hasdeclaredpadding="2px 0 0"
+      {/* hasdeclaredfontcolor="var(--secondary500)" */}
+      <a
+        href={data.rekomendacje.linkPodImieniem.url}
+        target={data.rekomendacje.linkPodImieniem.target}
       >
-        www.linkdogry.com
-      </StyledText>
+        {data.rekomendacje.linkPodImieniem.title}
+      </a>
       <StyledText
         hasdeclaredmaxwidth="275px"
         hasdeclaredfontsize="14px"
         hasdeclaredlineheight="1.4em"
         hasdeclaredmargin="10px 0 0"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
-        libero et velit interdum, ac aliquet odio mattis. Class aptent taciti
-        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        {data.rekomendacje.rekomendacja}
       </StyledText>
       <StyledImageWrapper>
         <StyledText

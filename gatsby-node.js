@@ -16,7 +16,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   kolekcjeData.data.allWpKolekcje.edges.map(({ node }) => {
     createPage({
-      path: `kolekcje/${node.slug}`,
+      path: `kolekcje-modeli/${node.slug}`,
       component: require.resolve(
         "./src/components/Templates/CollectionTemplate/CollectionTemplate.js"
       ),

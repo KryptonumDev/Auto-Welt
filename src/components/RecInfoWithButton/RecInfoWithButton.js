@@ -24,7 +24,6 @@ const RecInfoWithButton = ({
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
       <StyledFooterImageWrapper>
         <StaticImage
-          placeholder="blurred"
           src="../../images/collectionRectangle.png"
           alt="background"
           objectFit="fill"

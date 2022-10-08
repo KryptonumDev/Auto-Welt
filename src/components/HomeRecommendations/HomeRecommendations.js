@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
 import HomeRecommendationsElement from "../HomeRecommendationsElement/HomeRecommendationsElement";
 import Button from "../Button/Button";
@@ -15,46 +16,53 @@ import { StyledText } from "../Text/StyledText";
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 
-const elements = [
-  {
-    id: 1,
-    text: "Pierwszy",
-  },
-  {
-    id: 2,
-    text: "Drugi",
-  },
-  {
-    id: 3,
-    text: "Trzeci",
-  },
-  {
-    id: 4,
-    text: "Czwarty",
-  },
-  {
-    id: 5,
-    text: "Piąty",
-  },
-  {
-    id: 6,
-    text: "szósty",
-  },
-];
-
 const HomeRecommendations = () => {
+  const {allWpRekomendacja, wpPage} = useStaticQuery(graphql`
+  query rekomendacje {
+    allWpRekomendacja {
+      nodes {
+        rekomendacje {
+          imieNazwisko
+          rekomendacja
+          linkPodImieniem {
+            target
+            title
+            url
+          }
+        }
+      }
+    }
+    wpPage(id: {eq: "cG9zdDozMw=="}) {
+      globalConfig {
+        informacjeDoRekomendacjiNaStronieGlownej {
+          przyciskLewy {
+            target
+            title
+            url
+          }
+          przyciskPrawy {
+            target
+            title
+            url
+          }
+          tytulSekcji
+        }
+      }
+    }
+  }
+  `)
   const [renderElements, setRenderElements] = useState([]);
   const [index, setIndex] = useState(0);
 
   const handlePrev = () => {
     if (index === 0) {
-      setIndex(elements.length - 2);
+      setIndex(renderElements.length - 1);
     } else {
       setIndex(index - 1);
     }
   };
   const handleNext = () => {
-    if (index === elements.length - 2) {
+    if (index === allWpRekomendacja.nodes.length - 2) {
       setIndex(0);
     } else {
       setIndex(index + 1);
@@ -62,7 +70,7 @@ const HomeRecommendations = () => {
   };
 
   useEffect(() => {
-    const sliderElements = elements.slice(index, index + 2);
+    const sliderElements = allWpRekomendacja.nodes.slice(index, index + 2);
 
     setRenderElements(sliderElements);
   }, [index]);
@@ -77,7 +85,7 @@ const HomeRecommendations = () => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Rekomendacje:
+        {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.tytulSekcji}
       </StyledText>
       <StyledRecommendationsWrapper>
         <StyledArrowWrapper onClick={handlePrev}>
@@ -85,7 +93,7 @@ const HomeRecommendations = () => {
         </StyledArrowWrapper>
         <StyledSlides>
           {renderElements.map((e) => (
-            <HomeRecommendationsElement key={e.id} data={e} />
+            <HomeRecommendationsElement key={e.rekomendacje.imieNazwisko} data={e} />
           ))}
         </StyledSlides>
         <StyledArrowWrapper onClick={handleNext}>
@@ -94,20 +102,23 @@ const HomeRecommendations = () => {
       </StyledRecommendationsWrapper>
       <StyledButtonsWrapper>
         <Button
-          whereGo="/kolekcje-modeli"
-          text="KULTOWE SAMOCHODY PRL"
+          whereGo={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.url}
+          text={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.title}
           hasBorder="2px solid var(--primary500)"
-          hasMaxWidth="330px"
           textColor="var(--primary500)"
           hasFontSize="21px"
+          hasDeclaredPadding="10px 22px"
+          bgColor="var(--creamBg)"
+          hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.target}
         />
         <Button
-          whereGo="/kontakt"
-          text="NAPISZ DO MNIE"
+          whereGo={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.url}
+          text={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.title}
           textColor="var(--white)"
           bgColor="var(--primary500)"
-          hasMaxWidth="220px"
           hasFontSize="21px"
+          hasDeclaredPadding="10px 22px"
+          hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.target}
         />
       </StyledButtonsWrapper>
     </StyledHomeRecommendations>
