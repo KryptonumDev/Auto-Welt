@@ -25,4 +25,27 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  const wystawyData = await graphql(`
+    {
+      allWpWystawa {
+        edges {
+          node {
+            slug
+            id
+          }
+        }
+      }
+    }
+  `)
+
+  wystawyData.data.allWpWystawa.edges.map(({ node }) => {
+    createPage({
+      path: `wystawy/${node.slug}`,
+      component: require.resolve("./src/components/Templates/TemplateExhibitions/TemplateExhibitions.js"),
+      context: {
+        wystawaId: node.id
+      }
+    })
+  })
 };

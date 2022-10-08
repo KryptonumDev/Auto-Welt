@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -15,7 +15,8 @@ import {
 
 import ListIcon from "../../images/ListIcon.svg";
 
-const HomeExhibitionsElement = () => {
+const HomeExhibitionsElement = ({ exhibitionData }) => {
+  const convertedData = exhibitionData.wystawa.data.split(' ');
   return (
     <StyledHomeExhibitionsElement>
       <StyledDataInformationWrapper>
@@ -25,7 +26,7 @@ const HomeExhibitionsElement = () => {
             hasdeclaredfontcolor="var(--secondary500)"
             hasdeclaredlineheight="1.2em"
           >
-            23
+            {convertedData[0]}
           </StyledText>
           <StyledText
             hasdeclaredfontsize="26px"
@@ -33,16 +34,17 @@ const HomeExhibitionsElement = () => {
             hasdeclaredlineheight="1.2em"
             hasdeclaredpadding="0 0 1.5px 0"
           >
-            września 2022
+            {convertedData[1]}{' '}{convertedData[2]}
           </StyledText>
         </StyledDataWrapper>
-        <StyledText>Warszawa</StyledText>
+        <StyledText>
+          {exhibitionData.wystawa.miejsce}
+        </StyledText>
       </StyledDataInformationWrapper>
       <StyledLogoWrapper>
-        <StaticImage
-          placeholder="blurred"
-          src="../../images/RectangleExample.png"
-          alt="A dinosaur"
+        <GatsbyImage
+          image={getImage(exhibitionData.wystawa.zdjecieDoMiniaturki.localFile)}
+          alt={exhibitionData.wystawa.zdjecieDoMiniaturki.altText}
         />
       </StyledLogoWrapper>
       <StyledContentWrapper>
@@ -50,46 +52,32 @@ const HomeExhibitionsElement = () => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontsize="20px"
         >
-          Kultowe samochody osobowe z czasów PRL-u.
+          {exhibitionData.wystawa.tytulPodZdjeciem}
         </StyledText>
         <StyledContentList>
-          <div>
-            <ListIcon />
-            <StyledText
-              hasdeclaredfontsize="14px"
-              hasdeclaredlineheight="1.2em"
-            >
-              samochody osobowe bloku Wschodniego z okresu PRL
-            </StyledText>
-          </div>
-          <div>
-            <ListIcon />
-            <StyledText
-              hasdeclaredfontsize="14px"
-              hasdeclaredlineheight="1.2em"
-            >
-              pojazdy polskiej produkcji
-            </StyledText>
-          </div>
-          <div>
-            <ListIcon />
-            <StyledText
-              hasdeclaredfontsize="14px"
-              hasdeclaredlineheight="1.2em"
-            >
-              samochody z Niemiec Wschodnich, Rumunii, Związku Radzieckiego,
-              byłej Jugosławii
-            </StyledText>
-          </div>
+          {exhibitionData.wystawa.elementyListy.map(element => 
+            (
+              <div>
+                <ListIcon />
+                <StyledText
+                  hasdeclaredfontsize="14px"
+                  hasdeclaredlineheight="1.2em"
+                >
+                  {element.elementListy}
+                </StyledText>
+              </div>
+            )
+          )}
         </StyledContentList>
       </StyledContentWrapper>
       <Button
-        text="CZYTAM WIĘCEJ"
+        text={exhibitionData.wystawa.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
+        whereGo={`/wystawy/${exhibitionData.slug}`}
         bgColor="var(--secondary500)"
-        hasBorder="2px solid var(--secondary500)"
         textColor="var(--primary900)"
-        hasMaxWidth="228px"
         hasFontSize="21px"
+        hasDeclaredPadding="10px 33px"
+        hasBorder="1px solid transparent"
       />
     </StyledHomeExhibitionsElement>
   );
