@@ -1,30 +1,38 @@
 import React, { useState } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
 import {
   StyledQuestion,
   StyledQuestionWrapper,
   StyledAnswerWrapper,
   StyledBgWrapper,
+  StyledQuestionText
 } from "./StyledQuestion";
-import { StyledText } from "../Text/StyledText";
 
 import ArrowQuestion from "../../images/arrowQuestion.svg";
 
-const Question = () => {
+const Question = ({ faqData }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <StyledQuestion isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />
-        <StyledText>Z ILU MODELI SKŁADA SIĘ WYSTAWA?</StyledText>
+        <StyledQuestionText>{parse(faqData.pytanie)}</StyledQuestionText>
+        <StyledBgWrapper>
+          <GatsbyImage
+            image={getImage(faqData.zdjecieTla.localFile)}
+            alt={faqData.zdjecieTla.altText}
+          />
+        </StyledBgWrapper>
       </StyledQuestionWrapper>
       {isOpen && (
-        <StyledAnswerWrapper>
-          Na wystawie zobaczyć można modele w liczbie przekraczającej 1000
-          egzemplarzy. Liczba prezentowanych modeli ciągle się powiększa i z
-          miesiąca na miesiąca oferta jest coraz bogatsza.
+        <StyledAnswerWrapper
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "100%", opacity: 1}}
+        >
+          {parse(faqData.odpowiedz)}
         </StyledAnswerWrapper>
       )}
     </StyledQuestion>

@@ -1,4 +1,6 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby"
+import { AnimatePresence } from "framer-motion";
 
 import Question from "../Question/Question";
 
@@ -6,6 +8,29 @@ import { StyledQuestions, StyledQuestionsWrapper } from "./StyledQuestions";
 import { StyledText } from "../Text/StyledText";
 
 const Questions = () => {
+  const data = useStaticQuery(graphql`
+  query faqQuery {
+    wpPage(id: {eq: "cG9zdDozMw=="}) {
+      globalConfig {
+        faq {
+          faqTutul
+          faq {
+            pytanie
+            odpowiedz
+            zdjecieTla {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
     <StyledQuestions>
       <StyledText
@@ -16,20 +41,12 @@ const Questions = () => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Masz pytania?
+        {data.wpPage.globalConfig.faq.faqTutul}
       </StyledText>
       <StyledQuestionsWrapper>
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
+        <AnimatePresence>
+          {data.wpPage.globalConfig.faq.faq.map(faq => <Question faqData={faq} />)}
+        </AnimatePresence>
       </StyledQuestionsWrapper>
     </StyledQuestions>
   );
