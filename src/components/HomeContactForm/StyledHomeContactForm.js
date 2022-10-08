@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ErrorMessage } from "formik";
+
 export const StyledHomeContactForm = styled.div`
   width: 100%;
   padding: 44px;

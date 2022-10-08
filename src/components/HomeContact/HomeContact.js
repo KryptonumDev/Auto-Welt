@@ -1,5 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import HomeContactForm from "../HomeContactForm/HomeContactForm";
 
@@ -9,23 +10,64 @@ import {
   StyledRightWrapper,
   StyledHeading,
   StyledModel,
+  StyledTitleImage
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
 
-const HomeContact = ({ hasMaxWidth, leftImageSrc }) => {
+const HomeContact = () => {
+  const data = useStaticQuery(graphql`
+  query homeContact {
+    wpPage(id: { eq: "cG9zdDoxNQ==" }) {
+      homepage {
+        formularzKontaktowy {
+          tytul
+          tytulPola
+          tytulPolaImie
+          tytulPolaEMail
+          tytulPolaNrTelefonu
+          tytulPolaNazwisko
+          trescPrzyciskuPotwierdzajacegoWyslanie
+          podpisPodObszaremDoWyslaniaWiadomosci
+          lewyObrazek {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieTytulu {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
-    <StyledHomeContact hasmaxwidth={hasMaxWidth}>
+    <StyledHomeContact>
       <StyledLeftWrapper>
         <StyledModel>
-          <StaticImage
-            placeholder="blurred"
-            src={leftImageSrc}
-            alt="A dinosaur"
+          <GatsbyImage
+            image={getImage(data.wpPage.homepage.formularzKontaktowy.lewyObrazek.localFile)}
+            alt={data.wpPage.homepage.formularzKontaktowy.lewyObrazek.altText}
           />
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>
         <StyledHeading>
+          <StyledTitleImage>
+            <GatsbyImage
+              image={getImage(data.wpPage.homepage.formularzKontaktowy.zdjecieTytulu.localFile)}
+              alt={data.wpPage.homepage.formularzKontaktowy.zdjecieTytulu.altText}
+              objectFit="fill"
+            />
+          </StyledTitleImage>
           <StyledText
             as="h2"
             hasdeclaredfontsize="clamp(16px, 28px, 32px)"
@@ -33,10 +75,10 @@ const HomeContact = ({ hasMaxWidth, leftImageSrc }) => {
             hasdeclaredfontcolor="var(--primary500)"
             hasdeclaredfontfamily="Nocturne Serif"
           >
-            Skontakuj się ze mną
+            {data.wpPage.homepage.formularzKontaktowy.tytul}
           </StyledText>
         </StyledHeading>
-        <HomeContactForm />
+        <HomeContactForm data={data} />
       </StyledRightWrapper>
     </StyledHomeContact>
   );
