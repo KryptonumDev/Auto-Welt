@@ -1,12 +1,43 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { useStaticQuery, graphql } from "gatsby";
 
 import CalendarComponent from "../CalendarComponent/CalendarComponent";
+import Button from "../Button/Button";
 
-import { StyledHomeCalendar, StyledFooterCar } from "./StyledHomeCalendar";
+import { 
+  StyledHomeCalendar, 
+  StyledFooterCar,
+  StyledButtonWrapper
+} from "./StyledHomeCalendar";
 import { StyledText } from "../Text/StyledText";
 
+
 const HomeCalendar = () => {
+  const data = useStaticQuery(graphql`
+  query calendarHome {
+    wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+      homepage {
+        kalendarz {
+          tytulSekcji
+          przyciskPrzenoszacyDoTerminarza {
+            target
+            title
+            url
+          }
+        }
+        zdjecieSamochoduNadStopka {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
     <StyledHomeCalendar>
       <StyledText
@@ -17,14 +48,24 @@ const HomeCalendar = () => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Zobacz nasze wystawy:
+        {data.wpPage.homepage.kalendarz.tytulSekcji}
       </StyledText>
       <CalendarComponent />
+      <StyledButtonWrapper>
+        <Button 
+          text={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.title}
+          whereGo={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.url}
+          bgColor="var(--primary500)"
+          textColor="var(--background50)"
+          hasFontSize="21px"
+          hasDeclaredPadding="10px 33px"
+          hasTarget={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.target}
+        />
+      </StyledButtonWrapper>
       <StyledFooterCar>
-        <StaticImage
-          placeholder="blurred"
-          src="../../images/footerCar.png"
-          alt="A dinosaur"
+        <GatsbyImage
+          image={getImage(data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile)}
+          alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText}
         />
       </StyledFooterCar>
     </StyledHomeCalendar>
