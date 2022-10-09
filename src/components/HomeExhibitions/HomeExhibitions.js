@@ -11,6 +11,8 @@ import {
   StyledElementsWrapper,
 } from "./StyledHomeExhibitions";
 
+import useWindowSize from "../../utils/getWindowSize";
+
 const HomeExhibitions = () => {
   const data = useStaticQuery(graphql`
   query currentExhibition {
@@ -35,6 +37,14 @@ const HomeExhibitions = () => {
                 }
               }
             }
+            tloDlaMiejscaIDaty {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
@@ -49,6 +59,8 @@ const HomeExhibitions = () => {
     }
   }
   `)
+  const width = useWindowSize();
+
   return (
     <StyledHomeExhibitions>
       <StyledText
@@ -69,9 +81,8 @@ const HomeExhibitions = () => {
         whereGo="/wystawy"
         textColor="var(--white)"
         bgColor="var(--primary500)"
-        hasMaxWidth="188px"
-        hasFontSize="clamp(12px, 21px, 24px)"
-        hasDeclaredPadding="10px 33px"
+        hasFontSize={width < 376 ? "15px" : "21px"}
+        hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
       />
     </StyledHomeExhibitions>
   );

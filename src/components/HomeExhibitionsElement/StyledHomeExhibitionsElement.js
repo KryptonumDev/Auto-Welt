@@ -8,15 +8,23 @@ export const StyledHomeExhibitionsElement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 16px;
+  background-color: #FAF7F1;
+
+  @media only screen and (max-width: 1080px){
+    width: 100%;
+  }
 `;
 export const StyledDataInformationWrapper = styled.div`
   padding: 24px 34px;
   width: 100%;
+  position: relative;
+  min-height: 100px;
 `;
 export const StyledDataWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+  justify-content: flex-start;
   gap: 8px;
 `;
 export const StyledLogoWrapper = styled.div`
@@ -50,3 +58,19 @@ export const StyledContentList = styled.div`
     }
   }
 `;
+export const StyledImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%;
+  }
+`

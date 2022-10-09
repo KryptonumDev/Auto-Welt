@@ -11,15 +11,26 @@ import {
   StyledLogoWrapper,
   StyledContentWrapper,
   StyledContentList,
+  StyledImageWrapper
 } from "./StyledHomeExhibitionsElement";
+
+import useWindowSize from "../../utils/getWindowSize";
 
 import ListIcon from "../../images/ListIcon.svg";
 
 const HomeExhibitionsElement = ({ exhibitionData }) => {
+  const width = useWindowSize();
   const convertedData = exhibitionData.wystawa.data.split(' ');
   return (
     <StyledHomeExhibitionsElement>
       <StyledDataInformationWrapper>
+        <StyledImageWrapper>
+          <GatsbyImage 
+            image={getImage(exhibitionData.wystawa.tloDlaMiejscaIDaty.localFile)}
+            alt={exhibitionData.wystawa.tloDlaMiejscaIDaty.altText}
+            objectFit="cover"
+          />
+        </StyledImageWrapper>
         <StyledDataWrapper>
           <StyledText
             hasdeclaredfontsize="32px"
@@ -37,7 +48,12 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
             {convertedData[1]}{' '}{convertedData[2]}
           </StyledText>
         </StyledDataWrapper>
-        <StyledText>
+        <StyledText
+          hasdeclaredfontsize="16px"
+          hasdeclaredfontcolor="#000"
+          hasdeclaredlineheight="19px"
+          hasdeclaredfontweight="400"
+        >
           {exhibitionData.wystawa.miejsce}
         </StyledText>
       </StyledDataInformationWrapper>
@@ -51,6 +67,8 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         <StyledText
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontsize="20px"
+          hasdeclaredlineheight="24px"
+          hasdeclaredfontweight="500"
         >
           {exhibitionData.wystawa.tytulPodZdjeciem}
         </StyledText>
@@ -61,7 +79,9 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
                 <ListIcon />
                 <StyledText
                   hasdeclaredfontsize="14px"
-                  hasdeclaredlineheight="1.2em"
+                  hasdeclaredlineheight="17px"
+                  hasdeclaredfontweight="500"
+                  hasdeclaredfontcolor="#000"
                 >
                   {element.elementListy}
                 </StyledText>
@@ -75,7 +95,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         whereGo={`/wystawy/${exhibitionData.slug}`}
         bgColor="var(--secondary500)"
         textColor="var(--primary900)"
-        hasFontSize="21px"
+        hasFontSize={width < 376 ? "15px" : "21px"}
         hasDeclaredPadding="10px 33px"
         hasBorder="1px solid transparent"
       />
