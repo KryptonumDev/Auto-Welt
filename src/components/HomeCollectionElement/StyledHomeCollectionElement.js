@@ -6,6 +6,19 @@ export const StyledHomeCollectionElement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+      max-width: 289px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    max-width: 339px;
+    a{
+      font-size: 15px;
+    }
+  }
 `;
 export const StyledBackground = styled.div`
   width: 294px;

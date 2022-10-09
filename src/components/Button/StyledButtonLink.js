@@ -35,7 +35,7 @@ export const StyledButtonLinkNoHref = styled.p`
   background-color: ${({ bgcolor }) => (bgcolor ? bgcolor : "var(--white)")};
   height: ${({ hasheight }) => (hasheight ? hasheight : "auto")};
   padding: ${({ hasdeclaredpadding }) =>
-    hasdeclaredpadding ? hasdeclaredpadding : "10px 22px"};
+    hasdeclaredpadding ? hasdeclaredpadding : "0"};
   transform: skew(-26deg);
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;

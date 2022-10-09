@@ -16,12 +16,13 @@ export const StyledImagesWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-
+  align-items: center;
   @media only screen and (max-width: 936px) {
     margin-bottom: 260px;
   }
-  @media only screen and (max-width: 674px) {
+  @media only screen and (max-width: 685px) {
     justify-content: center;
+    flex-direction: column;
   }
   @media only screen and (max-width: 587px) {
     margin-bottom: 166px;
@@ -48,7 +49,7 @@ export const StyledImage = styled.div`
     right: -150px;
     bottom: -350px;
   }
-  @media only screen and (max-width: 580px) {
+  @media only screen and (max-width: 587px) {
     width: 402px;
     bottom: -350px;
   }

@@ -10,7 +10,7 @@ import {
 } from "./StyledHomeCollectionElement";
 
 const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
-  console.log(bgImage, image, buttonText);
+
   return (
     <StyledHomeCollectionElement>
       <StyledBackground>
@@ -32,9 +32,10 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
         whereGo={`/kolekcje/${whereGo}`}
         textColor="var(--white)"
         bgColor="var(--primary500)"
-        hasMaxWidth="258px"
-        hasFontSize="clamp(12px, 16px, 24px)"
-        hasDeclaredPadding="9px 23px"
+        hasMaxWidth="323px"
+        hasFontSize="21px"
+        hasDeclaredPadding="10px 18px"
+        hasFontWeight="500"
       />
     </StyledHomeCollectionElement>
   );

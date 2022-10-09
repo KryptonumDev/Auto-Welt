@@ -35,6 +35,7 @@ const RecInfoWithButton = ({
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontweight="400"
         hasdeclaredpadding="0 18px 0 57px"
+        as="p"
       >
         {text}
       </StyledText>

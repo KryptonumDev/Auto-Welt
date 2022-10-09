@@ -48,6 +48,7 @@ const HomeCollections = () => {
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
         homepage {
           kolekcje {
+            tytulSekcji
             duzeZdjeciePrzyczepioneDoPrawejKrawedzi {
               altText
               localFile {
@@ -85,7 +86,7 @@ const HomeCollections = () => {
         hasdeclaredmargin="80px 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Kolekcje:
+        {wpPage.homepage.kolekcje.tytulSekcji}
       </StyledText>
       <StyledImagesWrapper>
         {allWpKolekcje.nodes.map((kolekcja) => (
@@ -125,6 +126,7 @@ const HomeCollections = () => {
         btnColor="var(--primary900)"
         bgImage={wpPage.homepage.kolekcje.tloDlaZielonegoProstokatu}
         isMoveLeft={true}
+        btnFontSize="21px"
       />
     </StyledHomeCollections>
   );

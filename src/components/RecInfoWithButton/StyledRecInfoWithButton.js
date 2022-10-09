@@ -19,10 +19,18 @@ export const StyledRecInfoWithButton = styled.div`
         align-items: flex-start;
         justify-content: center;
         min-height: 141px;
-
-        > p
-            padding-left: 16px;
+        p{
+          padding: 16px;
         }
+        a{
+          min-width: 255px;
+          margin-left: 26px;
+        }
+    }
+    @media only screen and (max-width: 375px){
+      a, p{
+        font-size: 15px;
+      }
     }
 `;
 
