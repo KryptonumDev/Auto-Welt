@@ -17,22 +17,21 @@ export const StyledInfoWrapper = styled.div`
   border-style: solid;
   border-color: var(--primary500);
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  background: #fff;
 
   display: flex;
   gap: 15px;
   align-items: center;
   jusityf-content: center;
   flex-direction: column;
+  position: relative;
 `;
 export const StyledImageContactWrapper = styled.div`
-  min-height: 372px;
   width: 100%;
 `;
-export const StyledContactInfoWrapper = styled.div`
+export const StyledImageInfoWrapper = styled.div`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-`;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+`

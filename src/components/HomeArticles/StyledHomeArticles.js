@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledHomeArticles = styled.section`
   width: 100%;
   margin-bottom: 120px;
-  margin-top: ${({ iscollection }) => (iscollection ? "120px" : "0")};
   display: flex;
   flex-direction: column;
   align-items: center;

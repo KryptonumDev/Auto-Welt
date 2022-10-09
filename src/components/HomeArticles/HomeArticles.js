@@ -1,4 +1,5 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Button from "../Button/Button";
 import HomeArticleElement from "../HomeArticleElement/HomeArticleElement";
@@ -10,9 +11,48 @@ import {
 } from "./StyledHomeArticles";
 import { StyledText } from "../Text/StyledText";
 
-const HomeArticles = ({ iscollection }) => {
+const HomeArticles = () => {
+  const data = useStaticQuery(graphql`
+  query homeArticle {
+    allWpArtykul(limit: 2) {
+      edges {
+        node {
+          slug
+          artykul {
+            informacjeDoMiniaturki {
+              opis
+              tekstWPrzycisku
+              tytul
+              miniaturka {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+      homepage {
+        artykuly {
+          napisWZielonymProstokaciePodArtykulami
+          tytulSekcji
+          linkDoBloga {
+            target
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
-    <StyledHomeArticles iscollection={iscollection}>
+    <StyledHomeArticles>
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"
@@ -21,26 +61,26 @@ const HomeArticles = ({ iscollection }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Artykuły:
+        {data.wpPage.homepage.artykuly.tytulSekcji}
       </StyledText>
       <StyledArticlesWrapper>
-        <HomeArticleElement index={0} />
-        <HomeArticleElement index={1} />
-      </StyledArticlesWrapper>
-      {!iscollection ? (
-        <ReqInfoWithButton />
-      ) : (
-        <StyledButtonWrapper>
-          <Button
-            whereGo="/kolekcje-modeli"
-            text="WIĘCEJ ARTYKUŁÓW"
-            hasBorder="2px solid var(--primary500)"
-            textColor="var(--primary500)"
-            hasFontSize="21px"
-            bgColor="var(--creamBg)"
+        {data.allWpArtykul.edges.map(({node}) => 
+          <HomeArticleElement 
+            slug={node.slug} 
+            articleData={node.artykul.informacjeDoMiniaturki} 
           />
-        </StyledButtonWrapper>
-      )}
+        )}
+      </StyledArticlesWrapper>
+      <ReqInfoWithButton 
+        text={data.wpPage.homepage.artykuly.napisWZielonymProstokaciePodArtykulami}
+        btnText={data.wpPage.homepage.artykuly.linkDoBloga.title}
+        hasTarget={data.wpPage.homepage.artykuly.linkDoBloga.target}
+        btnWhereGo={data.wpPage.homepage.artykuly.linkDoBloga.url}
+        btnBgColor="var(--secondary500)"
+        btnColor="var(--primary900)"
+        btnPadding="10px 33px"
+        btnFontSize="21px"
+      />
     </StyledHomeArticles>
   );
 };

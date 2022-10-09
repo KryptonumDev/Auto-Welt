@@ -1,18 +1,32 @@
 import React from "react";
 import Button from "../Button/Button";
+import parse from "html-react-parser"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+
 import {
   StyledHomeArticleElement,
   StyledImageWrapper,
   StyledTitleWrapper,
   StyledTextWrapper,
+  StyledTitleBgWrapper
 } from "./StyledHomeArticleElement";
 import { StyledText } from "../Text/StyledText";
 
-const HomeArticleElement = ({ index }) => {
+const HomeArticleElement = ({ articleData, slug }) => {
   return (
     <StyledHomeArticleElement>
-      <StyledImageWrapper></StyledImageWrapper>
+      <StyledImageWrapper>
+        <GatsbyImage
+          image={getImage(articleData.miniaturka.localFile)}
+          alt={articleData.miniaturka.altText}
+        />
+      </StyledImageWrapper>
       <StyledTitleWrapper>
+        <StyledTitleBgWrapper>
+          <StaticImage
+            src="../../images/articleMinBackground.png"
+          />
+        </StyledTitleBgWrapper>
         <StyledText
           hasdeclaredfontsize="18px"
           hasdeclaredfontweight="600"
@@ -20,7 +34,7 @@ const HomeArticleElement = ({ index }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="20px 46px"
         >
-          SAMOCHODY PRL JAKO DOBRO LUKSUSOWE
+          {articleData.tytul}
         </StyledText>
       </StyledTitleWrapper>
       <StyledTextWrapper>
@@ -31,21 +45,18 @@ const HomeArticleElement = ({ index }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="8px 46px 26px 46px"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. turpis
-          molestie, dictum est a, mattis tellus. Sed dignissim, Etiam nec
-          fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus
-          elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
-          lectus. Class aptent taciti sociosqu ad litora torquent per conubia
-          nostra, per inceptos himenaeos.
+          {parse(articleData.opis)}
         </StyledText>
         <Button
-          whereGo="/kontakt"
-          text={index === 0 ? "CZYTAJ WIĘCEJ" : "DOWIEDZ SIĘ WIĘCEJ"}
+          whereGo={`/artykuly/${slug}`}
+          text={articleData.tekstWPrzycisku}
           bgColor="var(--secondary500)"
           hasBorder="2px solid var(--secondary500)"
           hasHeight="44px"
           textColor="var(--primary900)"
-          hasMaxWidth={index === 0 ? "170px" : "210px"}
+          hasDeclaredPadding="10px 33px"
+          hasFontSize="21px"
+
         />
       </StyledTextWrapper>
     </StyledHomeArticleElement>

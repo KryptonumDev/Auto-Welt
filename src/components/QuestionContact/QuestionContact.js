@@ -1,5 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -7,53 +8,78 @@ import {
   StyledQuestionContact,
   StyledInfoWrapper,
   StyledImageContactWrapper,
-  StyledContactInfoWrapper,
+  StyledImageInfoWrapper
 } from "./StyledQuestionContact";
 import { StyledText } from "../Text/StyledText";
 
-const QuestionContact = ({ isContactPage, banerImg }) => {
+const QuestionContact = () => {
+  const data = useStaticQuery(graphql`
+    query questionContactQuery {
+      wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+        homepage {
+          sekcjaSkontaktujSieZeMna {
+            zdjecieTla {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            tloWProstokacie {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            tekstWProstokacie
+            linkWPrzycisku {
+              target
+              title
+              url
+            }
+          }
+        }
+      }
+    }
+  `)
   return (
     <StyledQuestionContact>
       <StyledImageContactWrapper>
-        <StaticImage placeholder="blurred" src={banerImg} alt="A dinosaur" />
+        <GatsbyImage
+          image={getImage(data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.localFile)}
+          alt={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.altText}
+        />
       </StyledImageContactWrapper>
-      {isContactPage ? (
-        <StyledContactInfoWrapper>
-          <Button
-            whereGo="/terminarz"
-            text="ZOBACZ TERMINARZ"
-            hasBorder="2px solid var(--primary500)"
-            textColor="var(--primary500)"
-            hasFontSize="21px"
+      <StyledInfoWrapper>
+        <StyledImageInfoWrapper>
+          <GatsbyImage
+            image={getImage(data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie.localFile)}
+            alt={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie.altText}
           />
-          <Button
-            whereGo="/kontakt"
-            text="DOWIEDZ SIĘ WIĘCEJ O MNIE"
-            textColor="var(--white)"
-            bgColor="var(--primary500)"
-            hasFontSize="21px"
-          />
-        </StyledContactInfoWrapper>
-      ) : (
-        <StyledInfoWrapper>
-          <StyledText
-            hasdeclaredfontsize="18px"
-            hasdeclaredfontweight="600"
-            hasdeclaredlineheight="21px"
-            hasdeclaredfontcolor="var(--primary500)"
-          >
-            NIE ZNALAZŁEŚ ODPOWIEDZI NA SWOJE PYTANIE?
-          </StyledText>
-          <Button
-            whereGo="/kontakt"
-            text="SKONTAKTUJ SIĘ ZE MNĄ"
-            bgColor="var(--secondary500)"
-            hasBorder="2px solid var(--secondary500)"
-            hasHeight="44px"
-            textColor="var(--primary900)"
-          />
-        </StyledInfoWrapper>
-      )}
+        </StyledImageInfoWrapper>
+        <StyledText
+          hasdeclaredfontsize="18px"
+          hasdeclaredfontweight="600"
+          hasdeclaredlineheight="21px"
+          hasdeclaredfontcolor="var(--primary500)"
+        >
+          {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie}
+        </StyledText>
+        <Button
+          whereGo={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.url}
+          text={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.title}
+          bgColor="var(--secondary500)"
+          hasBorder="2px solid var(--secondary500)"
+          hasHeight="44px"
+          textColor="var(--primary900)"
+          hasTarget={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.target}
+          hasDeclaredPadding="10px 33px"
+          hasFontSize="21px"
+        />
+      </StyledInfoWrapper>
     </StyledQuestionContact>
   );
 };

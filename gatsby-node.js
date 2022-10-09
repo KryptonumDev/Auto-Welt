@@ -48,4 +48,27 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     })
   })
+
+  const artykulData = await graphql(`
+    {
+      allWpArtykul {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  artykulData.data.allWpArtykul.edges.map(({ node }) => {
+    createPage({
+      path: `artykuly/${node.slug}`,
+      component: require.resolve("./src/components/Templates/ArticlesTemplate/ArticlesTemplate.js"),
+      context: {
+        articleId: node.id
+      }
+    })
+  })
 };

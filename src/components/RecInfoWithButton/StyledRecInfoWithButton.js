@@ -23,11 +23,6 @@ export const StyledRecInfoWithButton = styled.div`
         > p
             padding-left: 16px;
         }
-        a {
-            width: 100%;
-            max-width: 255px;
-            margin 12px 26px 0;
-        }
     }
 `;
 
