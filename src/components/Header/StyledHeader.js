@@ -12,7 +12,15 @@ export const StyledNav = styled.nav`
   align-items: center;
 
   @media only screen and (max-width: 768px) {
-    display: none;
+    display: ${({ isopen }) => isopen ? "flex" : "none"};
+
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: var(--primary800);
   }
 `;
 export const StyledLeftWrapper = styled.div`
@@ -45,6 +53,19 @@ export const StyledLeftWrapper = styled.div`
       font-size: 12px;
     }
   }
+  @media only screen and (max-width: 768px) {
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    gap: 20px;
+    clip-path: none;
+    background-color: var(--primary300);
+    > a {
+      font-size: 21px;
+    }
+  }
 `;
 export const StyledRightWrapper = styled.div`
   background: var(--primary500);
@@ -75,6 +96,21 @@ export const StyledRightWrapper = styled.div`
       margin-left: 18px;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    gap: 20px;
+    clip-path: none;
+    background-color: var(--primary300);
+
+    > a {
+      font-size: 21px;
+    }
+  }
 `;
 export const StyledLogoWrapper = styled.div`
   padding-top: 15px;
@@ -82,10 +118,7 @@ export const StyledLogoWrapper = styled.div`
   z-index: 2;
 
   @media only screen and (max-width: 768px) {
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    z-index: 2;
+    display: none;
   }
 `;
 export const StyledLogoMobileWrapper = styled.div`
@@ -97,7 +130,7 @@ export const StyledLogoMobileWrapper = styled.div`
     height: 100%;
   }
   @media only screen and (max-width: 768px) {
-    display: block;
+    display: ${({ isopen }) => isopen ? "none" : "block"};
     position: absolute;
     top: 32px;
     left: 32px;

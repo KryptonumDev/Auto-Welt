@@ -30,6 +30,10 @@ export const StyledFooterImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+  .img{
+    widht: 100%;
+    height: 100%;
+  }
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -19,14 +19,14 @@ const RecInfoWithButton = ({
   btnFontSize,
   hasTarget,
   isMoveLeft,
+  bgImage
 }) => {
   return (
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
       <StyledFooterImageWrapper>
-        <StaticImage
-          src="../../images/collectionRectangle.png"
-          alt="background"
-          objectFit="fill"
+        <GatsbyImage
+          image={getImage(bgImage.localFile)}
+          alt={bgImage.altText}
         />
       </StyledFooterImageWrapper>
       <StyledText

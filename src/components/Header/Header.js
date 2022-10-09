@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
@@ -19,9 +19,16 @@ import InstagramIcon from "../../images/headerIcons/instagram.svg";
 import FacebookIcon from "../../images/headerIcons/facebook.svg";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpenMenu = () => {
+    setIsOpen(!isOpen)
+    console.log('siema elo')
+  }
+
   return (
     <StyledHeader>
-      <StyledNav>
+      <StyledNav isopen={isOpen}>
         <StyledLeftWrapper>
           <StyledLink
             to="/kolekcje-modeli"
@@ -52,7 +59,7 @@ const Header = () => {
             Oferta
           </StyledLink>
         </StyledLeftWrapper>
-        <StyledLogoWrapper>
+        <StyledLogoWrapper isopen={isOpen}>
           <StyledLink to="/">
             <Logo />
           </StyledLink>
@@ -89,12 +96,12 @@ const Header = () => {
           </StyledIconsWrapper>
         </StyledRightWrapper>
       </StyledNav>
-      <StyledLogoMobileWrapper>
+      <StyledLogoMobileWrapper isopen={isOpen}>
         <StyledLink to="/">
           <Logo />
         </StyledLink>
       </StyledLogoMobileWrapper>
-      <HamburgerButton />
+      <HamburgerButton openMenu={handleOpenMenu} isOpen={isOpen}/>
     </StyledHeader>
   );
 };

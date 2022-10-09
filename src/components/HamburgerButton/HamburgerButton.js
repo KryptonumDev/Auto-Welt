@@ -5,11 +5,11 @@ import {
   StyledHamburgerInner,
 } from "./StyledHamburgerButton";
 
-const HamburgerButton = ({ menuOpen }) => {
+const HamburgerButton = ({ openMenu, isOpen }) => {
   return (
-    <StyledHamburgerButton>
+    <StyledHamburgerButton onClick={openMenu} isopen={isOpen}>
       <StyledHamburgerBox>
-        <StyledHamburgerInner hamburger={menuOpen} />
+        <StyledHamburgerInner />
       </StyledHamburgerBox>
     </StyledHamburgerButton>
   );

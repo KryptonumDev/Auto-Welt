@@ -62,6 +62,14 @@ const HomeCollections = () => {
               url
               target
             }
+            tloDlaZielonegoProstokatu {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
@@ -115,7 +123,8 @@ const HomeCollections = () => {
         btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
         btnBgColor="var(--secondary500)"
         btnColor="var(--primary900)"
-        isMoveLeft
+        bgImage={wpPage.homepage.kolekcje.tloDlaZielonegoProstokatu}
+        isMoveLeft={true}
       />
     </StyledHomeCollections>
   );
