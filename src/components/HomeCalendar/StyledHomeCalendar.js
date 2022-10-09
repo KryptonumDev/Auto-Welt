@@ -11,7 +11,7 @@ export const StyledHomeCalendar = styled.section`
 `;
 export const StyledFooterCar = styled.div`
   position: absolute;
-  bottom: -30px;
+  bottom: -20px;
   left: -260px;
   z-index: 2;
 `;

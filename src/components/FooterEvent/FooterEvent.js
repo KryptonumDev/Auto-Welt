@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledText } from "../Text/StyledText";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
   StyledFooterEvent,
@@ -7,10 +8,16 @@ import {
   StyledFooterEventImage,
 } from "./StyledFooterEvent";
 
-const FooterEvent = () => {
+const FooterEvent = ({ articleData, slug }) => {
   return (
-    <StyledFooterEvent>
-      <StyledFooterEventImage></StyledFooterEventImage>
+    <StyledFooterEvent to={`/wystawy/${slug}`}>
+      <StyledFooterEventImage>
+        <GatsbyImage
+          image={getImage(articleData.zdjecieDoMiniaturki.localFile)}
+          alt={articleData.zdjecieDoMiniaturki.altText}
+          objecFit="cover"
+        />
+      </StyledFooterEventImage>
       <StyledFooterEventContent>
         <StyledText
           hasdeclaredfontsize="16px"
@@ -18,7 +25,7 @@ const FooterEvent = () => {
           hasdeclaredfontweight="500"
           hasdeclaredfontcolor="var(--primary500)"
         >
-          Samochody Wojskowe II Wojny Światowej oraz pojazdy wojskowe
+          {articleData.tytulPodZdjeciem}
         </StyledText>
       </StyledFooterEventContent>
     </StyledFooterEvent>

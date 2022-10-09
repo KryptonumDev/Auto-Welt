@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useStaticQuery, graphql } from "gatsby"
 import FooterCenterWrapperArticle from "../FooterCenterWrapperArticle/FooterCenterWrapperArticle";
 
 import {
@@ -10,7 +10,31 @@ import {
 import { StyledText } from "../Text/StyledText";
 import { StyledLink } from "../Link/StyledLink";
 
-const FooterCenterWrapper = () => {
+const FooterCenterWrapper = ({ footerData }) => {
+  const articleQuery = useStaticQuery(graphql`
+  query footerArticle {
+    allWpArtykul(limit: 2) {
+      edges {
+        node {
+          slug
+          artykul {
+            informacjeDoMiniaturki {
+              tytul
+              miniaturka {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
     <StyledFooterCenterWrapper>
       <StyledText
@@ -21,7 +45,7 @@ const FooterCenterWrapper = () => {
         hasdeclaredmargin="0 0 16px"
         hasdeclaredfontcolor="var(--secondary500)"
       >
-        Szybkie linki
+        {footerData.szybkieLinkiTytul}
       </StyledText>
       <StyledFastLinks>
         <StyledLink
@@ -108,8 +132,9 @@ const FooterCenterWrapper = () => {
         Artykuły
       </StyledText>
       <StyledArticlesWrapper>
-        <FooterCenterWrapperArticle />
-        <FooterCenterWrapperArticle />
+        {articleQuery.allWpArtykul.edges.map(({node}) => (
+          <FooterCenterWrapperArticle articleData={node.artykul} slug={node.slug} />
+        ))}
       </StyledArticlesWrapper>
     </StyledFooterCenterWrapper>
   );

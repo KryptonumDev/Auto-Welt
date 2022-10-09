@@ -1,14 +1,22 @@
 import styled from "styled-components";
-
-export const StyledFooterCenterWrapperArticle = styled.div`
+import { Link } from "gatsby"
+export const StyledFooterCenterWrapperArticle = styled(Link)`
   width: 100%;
   border-bottom: 4px solid var(--secondary500);
   margin-bottom: 12px;
+  display: block;
 `;
 export const StyledTop = styled.div`
   width: 100%;
   min-height: 85px;
-  background-color: red;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const StyledBottom = styled.div`
   width: 100%;

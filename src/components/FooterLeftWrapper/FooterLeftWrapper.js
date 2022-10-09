@@ -1,5 +1,8 @@
 import React from "react";
 import { StyledLink } from "../Link/StyledLink";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
+
 import {
   StyledFooterLeftWrapper,
   StyledLogoWrapper,
@@ -9,16 +12,18 @@ import {
 } from "./StyledFooterLeftWrapper";
 import { StyledText } from "../Text/StyledText";
 
-import Logo from "../../images/logoFooter.svg";
-import FacebookIcon from "../../images/facebookIcon.svg";
-import InstagramIcon from "../../images/instagramIcon.svg";
+import FacebookIcon from "../../images/headerIcons/facebook.svg";
+import InstagramIcon from "../../images/headerIcons/instagram.svg";
 
-const FooterLeftWrapper = () => {
+const FooterLeftWrapper = ({ footerData }) => {
   return (
     <StyledFooterLeftWrapper>
       <StyledLogoWrapper>
         <StyledLink to="/">
-          <Logo />
+          <GatsbyImage
+            image={getImage(footerData.logo.localFile)}
+            alt={footerData.logo.altText}
+          />
         </StyledLink>
       </StyledLogoWrapper>
       <StyledSubLogoText>
@@ -28,11 +33,7 @@ const FooterLeftWrapper = () => {
           hasdeclaredfontweight="400"
           hasdeclaredlineheight="21px"
         >
-          Wehikuł czasu, który przeniesie Państwa do{" "}
-          <span style={{ color: "rgba(237, 172, 42, 1)" }}>
-            historii motoryzacji XX wieku
-          </span>
-          , zapewniając tym samym wyjątkową podróż pełną wspomnień.
+          {parse(footerData.tekstPodLogiem)}
         </StyledText>
       </StyledSubLogoText>
       <StyledContactWrapper>
@@ -41,20 +42,21 @@ const FooterLeftWrapper = () => {
           hasdeclaredfontsize="24px"
           hasdeclaredfontweight="400"
           hasdeclaredlineheight="29px"
+          hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
-          Kontakt
+          {footerData.kontaktTytul}
         </StyledText>
         <div>
-          <StyledText
-            hasdeclaredfontsize="18px"
-            hasdeclaredlineheight="21px"
-            hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
-            hasdeclaredmargin="16px 0 0 0"
-          >
-            Auto-Welt Sp. z o. o. <br /> Plac 11 Listopada 27 lok. 4 piętro II
-            98-100 Łask
-          </StyledText>
+          {footerData.adres.map(line => (
+            <StyledText
+              hasdeclaredfontsize="18px"
+              hasdeclaredlineheight="21px"
+              hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
+            >
+              {line.linijkaAdresu}
+            </StyledText>
+          ))}
         </div>
         <div>
           <StyledText
@@ -62,28 +64,28 @@ const FooterLeftWrapper = () => {
             hasdeclaredlineheight="21px"
             hasdeclaredfontcolor="rgba(237, 172, 42, 1)"
           >
-            Bartosz Janicki
+            {footerData.imie}
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="21px"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
           >
-            Tel.:+48 504 704 112
+            {footerData.telefon}
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="21px"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
           >
-            E-mail: kontakt@auto-welt.info
+            {footerData.email}
           </StyledText>
         </div>
         <StyledIconsWrapper>
-          <a href="#">
+          <a href={footerData.linkDoFacebooka}>
             <FacebookIcon />
           </a>
-          <a href="#">
+          <a href={footerData.linkDoInstagrama}>
             <InstagramIcon />
           </a>
         </StyledIconsWrapper>

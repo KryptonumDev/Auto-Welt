@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
   StyledFooterCenterWrapperArticle,
@@ -7,17 +8,23 @@ import {
 } from "./StyledFooterCenterWrapperArticle";
 import { StyledText } from "../Text/StyledText";
 
-const FooterCenterWrapperArticle = () => {
+const FooterCenterWrapperArticle = ({ articleData, slug }) => {
   return (
-    <StyledFooterCenterWrapperArticle>
-      <StyledTop></StyledTop>
+    <StyledFooterCenterWrapperArticle to={`/artykuly/${slug}`}>
+      <StyledTop>
+        <GatsbyImage
+          image={getImage(articleData.informacjeDoMiniaturki.miniaturka.localFile)}
+          alt={articleData.informacjeDoMiniaturki.miniaturka.altText}
+          objectFit="fill"
+        />
+      </StyledTop>
       <StyledBottom>
         <StyledText
           hasdeclaredfontsize="16px"
           hasdeclaredlineheight="19px"
           hasdeclaredfontcolor="var(--primary500)"
         >
-          Charakterystyka czasów PRL przez pryzmat motoryzacji
+          {articleData.informacjeDoMiniaturki.tytul}
         </StyledText>
       </StyledBottom>
     </StyledFooterCenterWrapperArticle>

@@ -17,7 +17,7 @@ const IndexPage = () => {
       <HomeCollections />
       <HomeExhibitions />
       <HomeRecommendations />
-      <HomeContact hasMaxWidth leftImageSrc="../../images/ContactCar.png" />
+      <HomeContact />
       <Questions />
       <QuestionContact />
       <HomeArticles />

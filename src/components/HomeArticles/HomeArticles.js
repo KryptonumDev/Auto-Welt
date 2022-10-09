@@ -1,13 +1,12 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import Button from "../Button/Button";
 import HomeArticleElement from "../HomeArticleElement/HomeArticleElement";
 import ReqInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
+
 import {
   StyledHomeArticles,
   StyledArticlesWrapper,
-  StyledButtonWrapper,
 } from "./StyledHomeArticles";
 import { StyledText } from "../Text/StyledText";
 
