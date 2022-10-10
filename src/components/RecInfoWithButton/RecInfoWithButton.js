@@ -19,7 +19,8 @@ const RecInfoWithButton = ({
   btnFontSize,
   hasTarget,
   isMoveLeft,
-  bgImage
+  bgImage,
+  btnHoverBg
 }) => {
   return (
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
@@ -43,12 +44,13 @@ const RecInfoWithButton = ({
         text={btnText}
         whereGo={btnWhereGo ? btnWhereGo : "/"}
         bgColor={btnBgColor}
-        hasBorder="2px solid var(--secondary500)"
+        hasBorder="0px solid transparent"
         hasHeight="44px"
         textColor={btnColor}
         hasDeclaredPadding={btnPadding}
         hasFontSize={btnFontSize}
         hasTarget={hasTarget}
+        hoverBgColor={btnHoverBg}
       />
     </StyledRecInfoWithButton>
   );

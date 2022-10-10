@@ -83,6 +83,7 @@ const HomeExhibitions = () => {
         bgColor="var(--primary500)"
         hasFontSize={width < 376 ? "15px" : "21px"}
         hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
+        hoverBgColor="var(--primary900)"
       />
     </StyledHomeExhibitions>
   );

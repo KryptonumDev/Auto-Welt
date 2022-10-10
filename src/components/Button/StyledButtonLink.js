@@ -6,7 +6,7 @@ export const StyledButtonLink = styled(StyledLink)`
   align-items: center;
   justify-content: center;
   border: ${({ hasborder }) =>
-    hasborder ? hasborder : "2px solid var(--primary500)"};
+    hasborder ? hasborder : "0px solid transparent"};
   outline: 0;
   background: ${({ bgcolor }) => (bgcolor ? bgcolor : "var(--white)")};
   height: ${({ hasheight }) => (hasheight ? hasheight : "auto")};
@@ -16,12 +16,17 @@ export const StyledButtonLink = styled(StyledLink)`
   flex: none;
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
+  transition: background 250ms;
   > span {
     display: block;
     transform: skew(26deg);
     text-transform: uppercase;
     text-align: center;
     line-height: 1.3em;
+  }
+
+  &:hover{
+    background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
   }
 `;
 
@@ -45,6 +50,7 @@ export const StyledButtonLinkNoHref = styled.p`
     hasdeclaredmaxwidth ? hasdeclaredmaxwidth : "unset"};
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
+  transition: background-color 250ms;
   > span {
     display: block;
     transform: skew(26deg);
@@ -53,5 +59,8 @@ export const StyledButtonLinkNoHref = styled.p`
     line-height: 1.3em;
     font-weight: ${({ hasfontweight }) =>
       hasfontweight ? hasfontweight : "500"};
+  }
+  &:hover{
+    background-color: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
   }
 `;

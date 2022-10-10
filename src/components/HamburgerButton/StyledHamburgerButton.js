@@ -2,20 +2,23 @@ import styled from "styled-components";
 
 export const StyledHamburgerButton = styled.button`
   display: none;
-  position: ${({ isopen }) => isopen ? "fixed" : "absolute"};
-  z-index: 3;
-  right: ${({ isopen }) => isopen ? "0" : "32px"};
-  top: ${({ isopen }) => isopen ? "0" : "32px"};
-  cursor: pointer;
-  border: 0;
-  width: 70px;
-  height: 38px;
-  background-color: var(--primary500);
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
-  display: flex;
-  justify-content: flex-end;
-  transition: all 250ms;
+  
+  @media only screen and (max-width: 768px){
+    position: ${({ isopen }) => isopen ? "fixed" : "absolute"};
+    z-index: 3;
+    right: ${({ isopen }) => isopen ? "0" : "32px"};
+    top: ${({ isopen }) => isopen ? "0" : "32px"};
+    cursor: pointer;
+    border: 0;
+    width: 70px;
+    height: 38px;
+    background-color: var(--primary500);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+    display: flex;
+    justify-content: flex-end;
+    transition: all 250ms;
+  }
   @media only screen and (max-width: 375px) {
     right: 16px;
   }

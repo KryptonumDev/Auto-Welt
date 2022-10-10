@@ -33,6 +33,14 @@ export const StyledLeftWrapper = styled.div`
   clip-path: polygon(0 0, 94.5% 0, 100% 100%, 0% 100%);
   max-width: 439px;
   width: 50%;
+
+  a{
+    transition: color 250ms;
+    &:hover{
+      color: var(--secondary300);
+    }
+  }
+  
   @media only screen and (max-width: 1107px) {
     width: 100%;
     justify-content: space-evenly;
@@ -77,6 +85,14 @@ export const StyledRightWrapper = styled.div`
   clip-path: polygon(5.5% 0, 100% 0, 100% 100%, 0% 100%);
   max-width: 439px;
   width: 50%;
+
+  a{
+    transition: color 250ms;
+    &:hover{
+      color: var(--secondary300);
+    }
+  }
+
   @media only screen and (max-width: 1107px) {
     width: 100%;
     justify-content: space-evenly;
@@ -148,10 +164,20 @@ export const StyledIconsWrapper = styled.div`
   gap: 10px;
   align-items: center;
   margin-left: 55px;
-  > svg {
-    width: 24px;
-    height: 24px;
+  a{
+    > svg {
+      width: 24px;
+      height: 24px;
+      fill: #FAF1DE;
+      transition: fill 250ms;
+    }
+    &:hover{
+      > svg {
+        fill: #EDAB26;
+      }
+    }
   }
+
 
   @media only screen and (max-width: 1107px) {
     margin-left: 25px;

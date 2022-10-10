@@ -14,6 +14,7 @@ const Button = ({
   hasFontWeight,
   hasTarget,
   hasDeclaredMinHeight,
+  hoverBgColor
 }) => {
   return (
     <>
@@ -28,6 +29,7 @@ const Button = ({
           hasdeclaredmaxwidth={hasMaxWidth}
           hasdeclaredpadding={hasDeclaredPadding}
           hasdeclaredminheight={hasDeclaredMinHeight}
+          hasdeclaredhoverbgcolor={hoverBgColor}
           target={hasTarget}
         >
           <span>{text}</span>
@@ -42,6 +44,7 @@ const Button = ({
           hasdeclaredmaxwidth={hasMaxWidth}
           hasdeclaredpadding={hasDeclaredPadding}
           hasdeclaredminheight={hasDeclaredMinHeight}
+          hasdeclaredhoverbgcolor={hoverBgColor}
         >
           <span>{text}</span>
         </StyledButtonLinkNoHref>

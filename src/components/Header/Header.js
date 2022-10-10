@@ -34,6 +34,7 @@ const Header = () => {
             to="/kolekcje-modeli"
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Kolekcje modeli
           </StyledLink>
@@ -41,6 +42,7 @@ const Header = () => {
             to="/sklep"
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Sklep
           </StyledLink>
@@ -48,6 +50,7 @@ const Header = () => {
             to="/o-mnie"
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             O mnie
           </StyledLink>
@@ -55,6 +58,7 @@ const Header = () => {
             to="/oferta"
             hasdeclaredmargin="0 10px 0 0"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Oferta
           </StyledLink>
@@ -69,6 +73,7 @@ const Header = () => {
             to="/terminarz"
             hasdeclaredmargin="0 0 0 55px"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Terminarz
           </StyledLink>
@@ -76,6 +81,7 @@ const Header = () => {
             to="/artykuly"
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Blog
           </StyledLink>
@@ -83,6 +89,7 @@ const Header = () => {
             to="/wystawy"
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
+            activeClassName="activeLink"
           >
             Kontakt
           </StyledLink>

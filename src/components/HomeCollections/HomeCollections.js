@@ -127,6 +127,7 @@ const HomeCollections = () => {
         bgImage={wpPage.homepage.kolekcje.tloDlaZielonegoProstokatu}
         isMoveLeft={true}
         btnFontSize="21px"
+        btnHoverBg="var(--secondary700)"
       />
     </StyledHomeCollections>
   );

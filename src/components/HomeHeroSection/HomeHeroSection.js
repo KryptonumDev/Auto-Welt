@@ -120,6 +120,7 @@ const HomeHeroSection = () => {
               hasFontSize="21px"
               hasFontWeight="500"
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
+              hoverBgColor="var(--primary900)"
             />
           </StyledButtonsWrapper>
         ) : null}
@@ -155,6 +156,7 @@ const HomeHeroSection = () => {
             hasDeclaredPadding="10px 41px"
             hasFontSize={width < 376 ? "15px" : "21px"}
             hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
+            hoverBgColor="var(--primary900)"
           />
         </StyledButtonsWrapper>
       ) : null}

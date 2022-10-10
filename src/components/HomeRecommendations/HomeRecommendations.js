@@ -130,6 +130,7 @@ const HomeRecommendations = () => {
           hasFontSize="21px"
           hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
           hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.target}
+          hoverBgColor="var(--primary900)"
         />
       </StyledButtonsWrapper>
     </StyledHomeRecommendations>

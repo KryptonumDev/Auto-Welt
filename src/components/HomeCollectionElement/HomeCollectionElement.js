@@ -36,6 +36,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
         hasFontSize="21px"
         hasDeclaredPadding="10px 18px"
         hasFontWeight="500"
+        hoverBgColor="var(--primary900)"
       />
     </StyledHomeCollectionElement>
   );
