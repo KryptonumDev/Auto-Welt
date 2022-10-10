@@ -6,7 +6,6 @@ export const StyledHomeRecommendations = styled.section`
   align-items: center;
   width: 100%;
   margin-bottom: 120px;
-  padding: 0 32px;
 
   @media only screen and (max-width: 768px){
     padding: 0;

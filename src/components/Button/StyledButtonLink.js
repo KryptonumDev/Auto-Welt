@@ -51,6 +51,7 @@ export const StyledButtonLinkNoHref = styled.p`
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
   transition: background-color 250ms;
+  margin: ${({ hasdeclaredmargin }) => hasdeclaredmargin ? hasdeclaredmargin : "0"};
   > span {
     display: block;
     transform: skew(26deg);

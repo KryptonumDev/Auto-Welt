@@ -37,105 +37,136 @@ const FooterCenterWrapper = ({ footerData }) => {
   `)
   return (
     <StyledFooterCenterWrapper>
-      <StyledText
-        hasdeclaredfontfamily="Nocturne Serif"
-        hasdeclaredfontsize="24px"
-        hasdeclaredfontweight="400"
-        hasdeclaredlineheight="29px"
-        hasdeclaredmargin="0 0 16px"
-        hasdeclaredfontcolor="var(--secondary500)"
-      >
-        {footerData.szybkieLinkiTytul}
-      </StyledText>
-      <StyledFastLinks>
-        <StyledLink
-          to="/kolekcje-modeli"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
+      <div>
+        <StyledText
+          hasdeclaredfontfamily="Nocturne Serif"
+          hasdeclaredfontsize="24px"
+          hasdeclaredfontweight="400"
+          hasdeclaredlineheight="29px"
+          hasdeclaredmargin="0 0 16px"
+          hasdeclaredfontcolor="var(--secondary500)"
         >
-          Kolekcje modeli
-        </StyledLink>
-        <StyledLink
-          to="/sklep"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          Sklep
-        </StyledLink>
-        <StyledLink
-          to="/o-mnie"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          O mnie
-        </StyledLink>
-        <StyledLink
-          to="/ciekawostki"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          Ciekawostki
-        </StyledLink>
-        <StyledLink
-          to="/terminarz"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          Terminarz
-        </StyledLink>
-        <StyledLink
-          to="/artykuly"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
+          {footerData.szybkieLinkiTytul}
+        </StyledText>
+        <StyledFastLinks>
+          <StyledLink
+            to="/kolekcje-modeli"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Kolekcje modeli
+          </StyledLink>
+          <StyledLink
+            to="/sklep"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Sklep
+          </StyledLink>
+          <StyledLink
+            to="/o-mnie"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            O mnie
+          </StyledLink>
+          <StyledLink
+            to="/oferta"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Oferta
+          </StyledLink>
+          <StyledLink
+            to="/terminarz"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Terminarz
+          </StyledLink>
+          <StyledLink
+            to="/artykuly"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Blog
+          </StyledLink>
+          <StyledLink
+            to="/kontakt"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Kontakt
+          </StyledLink>
+          <StyledLink
+            to="/regulamin-wystaw"
+            hasdeclaredmargin="0 35px 10px 0"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Regulamin wystaw
+          </StyledLink>
+          <StyledLink
+            to="/polityka-prywatnosci"
+            hasdeclaredmargin="0 0 10px"
+            hasdeclaredfontcolor="var(--creamText)"
+            hasdeclaredfontsize="16px"
+            hasdeclaredtextdecoration="default"
+            hasdeclaredfontweight="400"
+            activeClassName="activeLink"
+          >
+            Polityka prywatności
+          </StyledLink>
+        </StyledFastLinks>
+      </div>
+      <div>
+        <StyledText
+          hasdeclaredfontfamily="Nocturne Serif"
+          hasdeclaredfontsize="24px"
+          hasdeclaredfontweight="400"
+          hasdeclaredlineheight="29px"
+          hasdeclaredmargin="42px 0 16px"
+          hasdeclaredfontcolor="var(--secondary500)"
         >
           Artykuły
-        </StyledLink>
-        <StyledLink
-          to="/wystawy"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          Wystawy
-        </StyledLink>
-        <StyledLink
-          to="/polityka-prywatnosci"
-          hasdeclaredmargin="0 35px 10px 0"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontsize="16px"
-          hasdeclaredtextdecoration="default"
-        >
-          Polityka prywatności
-        </StyledLink>
-      </StyledFastLinks>
-      <StyledText
-        hasdeclaredfontfamily="Nocturne Serif"
-        hasdeclaredfontsize="24px"
-        hasdeclaredfontweight="400"
-        hasdeclaredlineheight="29px"
-        hasdeclaredmargin="42px 0 16px"
-        hasdeclaredfontcolor="var(--secondary500)"
-      >
-        Artykuły
-      </StyledText>
-      <StyledArticlesWrapper>
-        {articleQuery.allWpArtykul.edges.map(({node}) => (
-          <FooterCenterWrapperArticle articleData={node.artykul} slug={node.slug} />
-        ))}
-      </StyledArticlesWrapper>
+        </StyledText>
+        <StyledArticlesWrapper>
+          {articleQuery.allWpArtykul.edges.map(({node}) => (
+            <FooterCenterWrapperArticle articleData={node.artykul} slug={node.slug} />
+          ))}
+        </StyledArticlesWrapper>
+      </div>
     </StyledFooterCenterWrapper>
   );
 };

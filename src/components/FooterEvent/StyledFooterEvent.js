@@ -6,6 +6,7 @@ export const StyledFooterEvent = styled(Link)`
   background: var(--background500);
   border-left: 6px solid var(--secondary500);
   display: flex;
+  text-decoration: none;
 `;
 export const StyledFooterEventContent = styled.div`
   padding: 35px 12px;

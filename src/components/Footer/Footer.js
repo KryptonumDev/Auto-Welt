@@ -18,6 +18,7 @@ const Footer = () => {
     wpPage(id: {eq: "cG9zdDozMw=="}) {
       globalConfig {
         stopka {
+          stworzonePrzezKryptonumTekst
           adres {
             linijkaAdresu
           }

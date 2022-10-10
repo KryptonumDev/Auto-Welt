@@ -26,8 +26,6 @@ export const StyledFooterMainWrapper = styled.div`
   max-width: 1112px;
   margin: 0 auto;
   padding: 52px 16px 89px 16px;
-  display: flex;
-  justify-content: space-between;
   position: relative;
   z-index: 1;
 `;

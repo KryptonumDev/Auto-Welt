@@ -58,6 +58,7 @@ const FooterRightWrapper = ({ footerData }) => {
         hasTarget={footerData.przyciskPrzenoszacyDoTerminarza.target}
         hasDeclaredPadding="10px 33px"
         hasFontSize="21px"
+        hasdeclaredmargin="0 0 0 15px"
       />
     </StyledFooterRightWrapper>
   );

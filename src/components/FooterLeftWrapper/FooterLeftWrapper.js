@@ -9,6 +9,8 @@ import {
   StyledSubLogoText,
   StyledContactWrapper,
   StyledIconsWrapper,
+  StyledAddressWrapper,
+  StyledTextKryptonum
 } from "./StyledFooterLeftWrapper";
 import { StyledText } from "../Text/StyledText";
 
@@ -29,7 +31,7 @@ const FooterLeftWrapper = ({ footerData }) => {
       <StyledSubLogoText>
         <StyledText
           hasdeclaredfontsize="18px"
-          hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
+          hasdeclaredfontcolor="#FAF6EE"
           hasdeclaredfontweight="400"
           hasdeclaredlineheight="21px"
         >
@@ -47,22 +49,27 @@ const FooterLeftWrapper = ({ footerData }) => {
         >
           {footerData.kontaktTytul}
         </StyledText>
-        <div>
+        <StyledAddressWrapper>
           {footerData.adres.map(line => (
-            <StyledText
-              hasdeclaredfontsize="18px"
-              hasdeclaredlineheight="21px"
-              hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
-            >
-              {line.linijkaAdresu}
-            </StyledText>
+            <div>
+              <StyledText
+                hasdeclaredfontsize="18px"
+                hasdeclaredlineheight="21px"
+                hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
+                as="p"
+              >
+                {line.linijkaAdresu}
+              </StyledText>
+            </div>
           ))}
-        </div>
+        </StyledAddressWrapper>
         <div>
           <StyledText
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="21px"
             hasdeclaredfontcolor="rgba(237, 172, 42, 1)"
+            hasdeclaredfontweight="500"
+            hasdeclaredpadding="16px 0 0"
           >
             {footerData.imie}
           </StyledText>
@@ -89,6 +96,9 @@ const FooterLeftWrapper = ({ footerData }) => {
             <InstagramIcon />
           </a>
         </StyledIconsWrapper>
+        <StyledTextKryptonum>
+          {parse(footerData.stworzonePrzezKryptonumTekst)}
+        </StyledTextKryptonum>
       </StyledContactWrapper>
     </StyledFooterLeftWrapper>
   );

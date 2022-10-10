@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFooterLeftWrapper = styled.div`
-  width: 30%;
-  max-width: 268px;
+  max-width: 295px;
 `;
 export const StyledLogoWrapper = styled.div`
   width: 100%;
@@ -28,12 +27,41 @@ export const StyledContactWrapper = styled.div`
 export const StyledIconsWrapper = styled.div`
   width: 100%;
   display: flex;
+  margin-top: 16px;
+  gap: 30px;
   > a {
     width: 42px;
     height: 42px;
     > svg {
+      fill: #FAF1DE;
       width: 100%;
       height: 100%;
+      transition: fill 250ms;
+      &:hover{
+        fill: #EDAC2A;
+      }
     }
   }
 `;
+export const StyledAddressWrapper = styled.div`
+  > div {
+    p {
+      font-wieght: 400;
+    }
+    &:first-child{
+      p {
+        font-wieght: 500;
+      }
+    }
+  }
+`
+export const StyledTextKryptonum = styled.div`
+  margin-top: 32px;
+  color: #fff;
+  font-family: "Roboto";
+  font-weight: 400;
+  line-height: 21px;
+  strong{
+    font-weight: 600;
+  }
+`
