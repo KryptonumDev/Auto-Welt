@@ -19,12 +19,12 @@ export const StyledInputWrapper = styled.div`
   position: relative;
   label {
     font: 500 16px/19px Roboto;
-    color: var(--primary500);
+    color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
   }
   input {
     width: 100%;
     height: 38px;
-    border: 2px solid var(--primary500);
+    border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     padding: 0 14px;
@@ -32,7 +32,7 @@ export const StyledInputWrapper = styled.div`
   textarea {
     width: 100%;
     height: 164px;
-    border: 2px solid var(--primary500);
+    border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     resize: none;
@@ -43,7 +43,7 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   bottom: -16px;
   left: 0;
   font: 12px Roboto;
-  color: red;
+  color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"}
 `;
 export const StyledButtonWrapper = styled.div`
   width: 100%;
@@ -55,3 +55,40 @@ export const StyledButtonWrapper = styled.div`
     border: none;
   }
 `;
+export const StyledCustomCheckbox = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
+  label{
+    position: relative;
+    padding-left: 26px;
+    &:after{
+      content: '';
+      border: 2px solid #3E635D;
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: ${({ value }) => value ? "red" : "transparent"};
+    }
+  }
+  input{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  label {
+    font: 500 16px/19px Roboto;
+    color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
+    a{
+      font-family: "Roboto";
+      font-size: 16px;
+      line-height: 19px;
+      color: #23423D;
+      font-weight: 500;
+    }
+  }
+`
