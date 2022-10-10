@@ -1,6 +1,7 @@
 import React from "react";
-import { StyledText } from "../Text/StyledText";
+import parse from "html-react-parser"
 
+import { StyledText } from "../Text/StyledText";
 import {
   StyledHomeRecommendationsElement,
   StyledImageWrapper,
@@ -12,12 +13,11 @@ const HomeRecommendationsElement = ({ data }) => {
       <StyledText
         hasdeclaredfontsize="20px"
         hasdeclaredfontweight="600"
-        hasdeclaredlineheight="1.3em"
-        hasdeclaredfontcolor="var(--primary500)"
+        hasdeclaredlineheight="24px"
+        hasdeclaredfontcolor="var(--primary800)"
       >
         {data.rekomendacje.imieNazwisko}
       </StyledText>
-      {/* hasdeclaredfontcolor="var(--secondary500)" */}
       <a
         href={data.rekomendacje.linkPodImieniem.url}
         target={data.rekomendacje.linkPodImieniem.target}
@@ -27,10 +27,11 @@ const HomeRecommendationsElement = ({ data }) => {
       <StyledText
         hasdeclaredmaxwidth="275px"
         hasdeclaredfontsize="14px"
-        hasdeclaredlineheight="1.4em"
+        hasdeclaredlineheight="19px"
         hasdeclaredmargin="10px 0 0"
+        hasdeclaredfontweight="400"
       >
-        {data.rekomendacje.rekomendacja}
+        {parse(data.rekomendacje.rekomendacja)}
       </StyledText>
       <StyledImageWrapper>
         <StyledText

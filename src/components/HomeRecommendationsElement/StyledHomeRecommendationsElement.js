@@ -12,10 +12,29 @@ export const StyledHomeRecommendationsElement = styled.div`
   background: var(--creamBg);
   padding: 43px;
   position: relative;
+
+  a{
+    text-decoration: none;
+    color: var(--primary500);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    font-family: "Roboto";
+  }
+
+  @media only screen and (max-width: 599px){
+    width: 96%;
+    max-width: unset;
+  }
 `;
 
 export const StyledImageWrapper = styled.div`
   position: absolute;
   right: 34px;
   top: 20px;
+
+  @media only screen and (max-width: 768px){
+    top: 16px;
+    right: 8px;
+  }
 `;

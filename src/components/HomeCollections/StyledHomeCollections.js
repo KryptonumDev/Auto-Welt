@@ -3,9 +3,8 @@ import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
 
 export const StyledHomeCollections = styled.section`
   width: 100%;
-  padding-right: 23px;
   margin-bottom: 120px;
-
+  padding: 0 55px 0 32px;
   @media only screen and (max-width: 768px) {
     padding-right: 0;
   }

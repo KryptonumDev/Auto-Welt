@@ -4,7 +4,7 @@ export const StyledHomeHeroSection = styled.section`
   display: grid;
   margin-top: 52px;
   grid-template-areas: "left center center center right";
-
+  padding: 0 32px;
   @media only screen and (max-width: 768px) {
     margin-top: 0;
     grid-template-areas:

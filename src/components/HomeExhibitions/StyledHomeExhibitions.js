@@ -6,7 +6,7 @@ export const StyledHomeExhibitions = styled.section`
   align-items: center;
   width: 100%;
   margin-bottom: 120px;
-
+  padding: 0 32px;
   > h2 {
     align-self: flex-start;
   }

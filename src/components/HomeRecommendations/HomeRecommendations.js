@@ -15,8 +15,13 @@ import { StyledText } from "../Text/StyledText";
 
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
+import LeftLightArrow from "../../images/leftLightArrow.svg";
+import RightLightArrow from "../../images/rightLightArrow.svg";
+
+import useWindowSize from "../../utils/getWindowSize";
 
 const HomeRecommendations = () => {
+  const width = useWindowSize();
   const {allWpRekomendacja, wpPage} = useStaticQuery(graphql`
   query rekomendacje {
     allWpRekomendacja {
@@ -70,10 +75,10 @@ const HomeRecommendations = () => {
   };
 
   useEffect(() => {
-    const sliderElements = allWpRekomendacja.nodes.slice(index, index + 2);
+    const sliderElements = allWpRekomendacja.nodes.slice(index, index + (width < 600 ? 1 : 2));
 
     setRenderElements(sliderElements);
-  }, [index]);
+  }, [index, width]);
 
   return (
     <StyledHomeRecommendations>
@@ -88,16 +93,22 @@ const HomeRecommendations = () => {
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.tytulSekcji}
       </StyledText>
       <StyledRecommendationsWrapper>
-        <StyledArrowWrapper onClick={handlePrev}>
-          <LeftArrow />
+        <StyledArrowWrapper 
+          onClick={handlePrev}
+          hasdeclaredtransform="20px"
+        >
+          {width <= 768 ? width < 600 ? <LeftArrow /> : <LeftLightArrow /> : <LeftArrow />}
         </StyledArrowWrapper>
         <StyledSlides>
           {renderElements.map((e) => (
             <HomeRecommendationsElement key={e.rekomendacje.imieNazwisko} data={e} />
           ))}
         </StyledSlides>
-        <StyledArrowWrapper onClick={handleNext}>
-          <RightArrow />
+        <StyledArrowWrapper 
+          onClick={handleNext} 
+          hasdeclaredtransform="-20px"
+        >
+          {width <= 768 ? width < 600 ? <RightArrow /> : <RightLightArrow /> : <RightArrow />}
         </StyledArrowWrapper>
       </StyledRecommendationsWrapper>
       <StyledButtonsWrapper>
@@ -107,8 +118,8 @@ const HomeRecommendations = () => {
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
           hasFontSize="21px"
-          hasDeclaredPadding="10px 22px"
-          bgColor="var(--creamBg)"
+          hasDeclaredPadding={width < 769 ? "10px 53px" : "10px 33px"}
+          bgColor="var(--background500)"
           hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.target}
         />
         <Button
@@ -117,7 +128,7 @@ const HomeRecommendations = () => {
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasFontSize="21px"
-          hasDeclaredPadding="10px 22px"
+          hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
           hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.target}
         />
       </StyledButtonsWrapper>
