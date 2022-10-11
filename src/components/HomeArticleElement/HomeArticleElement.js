@@ -30,7 +30,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
         <StyledText
           hasdeclaredfontsize="18px"
           hasdeclaredfontweight="600"
-          hasdeclaredlineheight="21px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="20px 46px"
         >
@@ -41,7 +41,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
         <StyledText
           hasdeclaredfontsize="16px"
           hasdeclaredfontweight="400"
-          hasdeclaredlineheight="22px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="8px 46px 26px 46px"
         >

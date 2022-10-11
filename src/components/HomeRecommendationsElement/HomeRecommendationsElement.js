@@ -13,7 +13,7 @@ const HomeRecommendationsElement = ({ data }) => {
       <StyledText
         hasdeclaredfontsize="20px"
         hasdeclaredfontweight="600"
-        hasdeclaredlineheight="24px"
+        hasdeclaredlineheight="1.2em"
         hasdeclaredfontcolor="var(--primary800)"
       >
         {data.rekomendacje.imieNazwisko}
@@ -27,7 +27,7 @@ const HomeRecommendationsElement = ({ data }) => {
       <StyledText
         hasdeclaredmaxwidth="275px"
         hasdeclaredfontsize="14px"
-        hasdeclaredlineheight="19px"
+        hasdeclaredlineheight="1.2em"
         hasdeclaredmargin="10px 0 0"
         hasdeclaredfontweight="400"
       >

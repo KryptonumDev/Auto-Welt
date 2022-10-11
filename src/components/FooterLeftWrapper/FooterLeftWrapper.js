@@ -33,7 +33,7 @@ const FooterLeftWrapper = ({ footerData }) => {
           hasdeclaredfontsize="18px"
           hasdeclaredfontcolor="#FAF6EE"
           hasdeclaredfontweight="400"
-          hasdeclaredlineheight="21px"
+          hasdeclaredlineheight="1.2em"
         >
           {parse(footerData.tekstPodLogiem)}
         </StyledText>
@@ -43,7 +43,7 @@ const FooterLeftWrapper = ({ footerData }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
           hasdeclaredfontweight="400"
-          hasdeclaredlineheight="29px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
@@ -54,7 +54,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             <div>
               <StyledText
                 hasdeclaredfontsize="18px"
-                hasdeclaredlineheight="21px"
+                hasdeclaredlineheight="1.2em"
                 hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
                 as="p"
               >
@@ -66,7 +66,7 @@ const FooterLeftWrapper = ({ footerData }) => {
         <div>
           <StyledText
             hasdeclaredfontsize="18px"
-            hasdeclaredlineheight="21px"
+            hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(237, 172, 42, 1)"
             hasdeclaredfontweight="500"
             hasdeclaredpadding="16px 0 0"
@@ -75,14 +75,14 @@ const FooterLeftWrapper = ({ footerData }) => {
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
-            hasdeclaredlineheight="21px"
+            hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
           >
             {footerData.telefon}
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
-            hasdeclaredlineheight="21px"
+            hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
           >
             {footerData.email}

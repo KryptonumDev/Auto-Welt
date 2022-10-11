@@ -21,7 +21,7 @@ const Contact = () => {
       </StyledText>
       <StyledText
         hasdeclaredfontsize="24px"
-        hasdeclaredlineheight="28px"
+        hasdeclaredlineheight="1.2em"
         hasdeclaredtextalign="left"
         hasdeclaredmargin="0 0 65px"
         hasdeclaredmaxwidth="870px"

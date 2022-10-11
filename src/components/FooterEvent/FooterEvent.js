@@ -21,7 +21,7 @@ const FooterEvent = ({ articleData, slug }) => {
       <StyledFooterEventContent>
         <StyledText
           hasdeclaredfontsize="16px"
-          hasdeclaredlineheight="19px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="500"
           hasdeclaredfontcolor="var(--primary500)"
         >

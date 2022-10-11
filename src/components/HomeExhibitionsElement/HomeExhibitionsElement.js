@@ -51,7 +51,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         <StyledText
           hasdeclaredfontsize="16px"
           hasdeclaredfontcolor="#000"
-          hasdeclaredlineheight="19px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="400"
         >
           {exhibitionData.wystawa.miejsce}
@@ -67,7 +67,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         <StyledText
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontsize="20px"
-          hasdeclaredlineheight="24px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="500"
         >
           {exhibitionData.wystawa.tytulPodZdjeciem}
@@ -79,7 +79,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
                 <ListIcon />
                 <StyledText
                   hasdeclaredfontsize="14px"
-                  hasdeclaredlineheight="17px"
+                  hasdeclaredlineheight="1.2em"
                   hasdeclaredfontweight="500"
                   hasdeclaredfontcolor="#000"
                 >

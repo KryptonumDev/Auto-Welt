@@ -22,7 +22,7 @@ const NotFoundPage = ({ data }) => {
         <StyledTextWrapper>
           <StyledText
             hasdeclaredfontsize="48px"
-            hasdeclaredlineheight="58px"
+            hasdeclaredlineheight="1.2em"
             hasdeclaredfontweight="400"
             hasdeclaredfontfamily="Nocturne Serif"
             hasdeclaredfontcolor="var(--primary500)"

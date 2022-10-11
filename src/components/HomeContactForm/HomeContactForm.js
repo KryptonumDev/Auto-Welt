@@ -71,7 +71,7 @@ const HomeContactForm = ({ data }) => {
               <StyledText
                 hasdeclaredfontsize="18px"
                 hasdeclaredfontweight="400"
-                hasdeclaredlineheight="21px"
+                hasdeclaredlineheight="1.2em"
                 hasdeclaredfontcolor="var(--primary500)"
               >
                 {data.wpPage.homepage.formularzKontaktowy.podpisPodObszaremDoWyslaniaWiadomosci}

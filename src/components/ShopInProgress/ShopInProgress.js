@@ -52,14 +52,14 @@ const ShopInProgress = () => {
         </StyledText>
         <StyledText
           hasdeclaredfontsize="24px"
-          hasdeclaredlineheight="28px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredtextalign="center"
         >
           to co najmniej tak trudne i czasochłonne jak składanie…
         </StyledText>
         <StyledText
           hasdeclaredfontsize="24px"
-          hasdeclaredlineheight="28px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredtextalign="center"
           hasdeclaredmargin="20px 0 80px"
         >

@@ -21,7 +21,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
       <StyledBottom>
         <StyledText
           hasdeclaredfontsize="16px"
-          hasdeclaredlineheight="19px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontweight="500"
         >

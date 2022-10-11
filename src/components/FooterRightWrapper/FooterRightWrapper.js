@@ -39,7 +39,7 @@ const FooterRightWrapper = ({ footerData }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontsize="24px"
         hasdeclaredfontweight="400"
-        hasdeclaredlineheight="29px"
+        hasdeclaredlineheight="1.2em"
         hasdeclaredmargin="0 0 16px"
         hasdeclaredfontcolor="var(--secondary500)"
       >

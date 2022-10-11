@@ -42,7 +42,7 @@ const FooterCenterWrapper = ({ footerData }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
           hasdeclaredfontweight="400"
-          hasdeclaredlineheight="29px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
@@ -155,7 +155,7 @@ const FooterCenterWrapper = ({ footerData }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
           hasdeclaredfontweight="400"
-          hasdeclaredlineheight="29px"
+          hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="42px 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
