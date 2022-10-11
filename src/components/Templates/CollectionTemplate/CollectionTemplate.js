@@ -10,64 +10,42 @@ import RecInfoWithButton from "../../RecInfoWithButton/RecInfoWithButton";
 import CollectionElementThreeImages from "../../CollectionElementThreeImages/CollectionElementThreeImages";
 
 const CollectionTemplate = ({ data }) => {
+  const shortCollectionData = data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji;
   return (
     <>
       <CollectionTemplateHeroImage
-        heroData={data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji}
+        heroData={shortCollectionData}
       />
       <ThreeCollectionImages
-        imagesData={
-          data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-            .trzyMaleZdjeciaModeli
-        }
+        imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
       />
       <CollectionTemplateDesc
-        descData={data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji}
+        descData={shortCollectionData}
       />
       <CollectionImageUnderDescImages
-        imagesData={data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji}
+        imagesData={shortCollectionData}
       />
       <CollectionElementSlider
-        imagesData={
-          data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji.zdjeciaDoSlidera
-        }
+        imagesData={shortCollectionData.zdjeciaDoSlidera}
       />
-      {data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
+      {shortCollectionData
         .ktoraKolekcjePolecic && (
         <RecInfoWithButton
-          text={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .tekstWZielonymProstokaciePolecajacyInnaKolekcje
-          }
-          btnText={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .ktoraKolekcjePolecic.title
-          }
+          text={shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje}
+          btnText={shortCollectionData.ktoraKolekcjePolecic.title}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
-          btnWhereGo={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .ktoraKolekcjePolecic.url
-          }
+          btnWhereGo={shortCollectionData.ktoraKolekcjePolecic.url}
           btnPadding="10px 32px"
           btnFontSize="21px"
-          hasTarget={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .ktoraKolekcjePolecic.target
-          }
+          hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
         />
       )}
-      {data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
+      {shortCollectionData
         .trzyZdjeciaNaSamymSpodzieStrony && (
         <CollectionElementThreeImages
-          imagesData={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .trzyZdjeciaNaSamymSpodzieStrony
-          }
-          linkData={
-            data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji
-              .wszystkieKolekcjieLink
-          }
+          imagesData={shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony}
+          linkData={shortCollectionData.wszystkieKolekcjieLink}
         />
       )}
     </>
