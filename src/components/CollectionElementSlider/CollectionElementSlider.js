@@ -12,7 +12,10 @@ import {
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 
+import useWindowSize from "../../utils/getWindowSize"
+
 const CollectionElementSlider = ({ imagesData }) => {
+  const width = useWindowSize();
   const [renderElements, setRenderElements] = useState([]);
   const [index, setIndex] = useState(0);
 
@@ -32,7 +35,7 @@ const CollectionElementSlider = ({ imagesData }) => {
   }, [index]);
 
   useEffect(() => {
-    const sliderElements = imagesData ? imagesData.slice(index, index + 2) : [];
+    const sliderElements = imagesData ? imagesData.slice(index, width <= 768 ? (index + 1) : (index + 2)) : [];
 
     setRenderElements(sliderElements);
   }, [index]);
@@ -47,7 +50,11 @@ const CollectionElementSlider = ({ imagesData }) => {
           <StyledImagesWrapper>
             {renderElements.map((e, index) => (
               <StyledImage key={index}>
-                <GatsbyImage image={getImage(e.localFile)} alt={e.altText} />
+                <GatsbyImage 
+                  image={getImage(e.localFile)} 
+                  alt={e.altText} 
+                  objectFit="cover"
+                />
               </StyledImage>
             ))}
           </StyledImagesWrapper>

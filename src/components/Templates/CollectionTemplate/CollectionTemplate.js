@@ -20,7 +20,7 @@ const CollectionTemplate = ({ data }) => {
         imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
       />
       <CollectionTemplateDesc
-        descData={shortCollectionData}
+        descData={shortCollectionData.informacjeOKolekcji}
       />
       <CollectionImageUnderDescImages
         imagesData={shortCollectionData}
@@ -31,6 +31,7 @@ const CollectionTemplate = ({ data }) => {
       {shortCollectionData
         .ktoraKolekcjePolecic && (
         <RecInfoWithButton
+          bgImage={shortCollectionData.zdjecieWZielonymProstokaciePolecajacyInnaKolekcje}
           text={shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje}
           btnText={shortCollectionData.ktoraKolekcjePolecic.title}
           btnBgColor="var(--secondary500)"
@@ -39,6 +40,7 @@ const CollectionTemplate = ({ data }) => {
           btnPadding="10px 32px"
           btnFontSize="21px"
           hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
+          btnHoverBg="var(--secondary700)"
         />
       )}
       {shortCollectionData
@@ -59,28 +61,7 @@ export const query = graphql`
     wpKolekcje(id: { eq: $kolekcjaId }) {
       kolekcja {
         dedykowanaStronaDlaKolekcji {
-          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
-            target
-            title
-            url
-          }
-          informacjeOKolekcji {
-            opisKolekcji
-            zdjecie {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
-          ktoraKolekcjePolecic {
-            target
-            title
-            url
-          }
-          prostokatneZdjeciePodOpisem {
+          zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
             localFile {
               childImageSharp {
@@ -88,17 +69,23 @@ export const query = graphql`
               }
             }
           }
-          tekstWZielonymProstokaciePolecajacyInnaKolekcje
-          trescPrzyciskuPodZdjeciemGlownym
           zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData
               }
             }
-            altText
           }
           zdjecieGlowne {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
             altText
             localFile {
               childImageSharp {
@@ -115,12 +102,11 @@ export const query = graphql`
             }
           }
           wszystkieKolekcjieLink {
-            target
-            title
             url
+            title
+            target
           }
           trzyZdjeciaNaSamymSpodzieStrony {
-            altText
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -135,9 +121,36 @@ export const query = graphql`
               }
             }
           }
-        }
-        informacjeGlowne {
-          nazwaKolekcji
+          trescPrzyciskuPodZdjeciemGlownym
+          tekstWZielonymProstokaciePolecajacyInnaKolekcje
+          prostokatneZdjeciePodOpisem {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          ktoraKolekcjePolecic {
+            url
+            title
+            target
+          }
+          informacjeOKolekcji {
+            zdjecie {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            opisKolekcji
+          }
+          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+            target
+            title
+            url
+          }
         }
       }
     }

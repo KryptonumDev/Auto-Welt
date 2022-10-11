@@ -10,15 +10,13 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
     <StyledCollectionElementThreeImages>
       <div>
         {imagesData &&
-          imagesData.map((image, index) => {
-            return (
-              <GatsbyImage
-                key={index}
-                image={getImage(image.localFile)}
-                alt={image.altText}
-              />
-            );
-          })}
+          imagesData.map((image, index) => 
+            <GatsbyImage
+              key={index}
+              image={getImage(image.localFile)}
+              alt={image.altText}
+            />
+          )}
       </div>
       {linkData && (
         <Button
@@ -30,6 +28,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
           hasFontSize="21px"
           hasFontWeight="500"
           hasTarget={linkData.target}
+          hoverBgColor="var(--primary900)"
         />
       )}
     </StyledCollectionElementThreeImages>
