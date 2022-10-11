@@ -97,12 +97,6 @@ export const StyledTextWrapper = styled.div`
         }
     }
 `
-export const StyledImageLeftWrapper = styled.div`
-    transform: translateY(-44px);
-    @media only screen and (max-width: 768px){
-        display: none;
-    }
-`
 export const StyledImageRightWrapper = styled.div`
     width: 100%;
     max-width: 456px;
@@ -118,32 +112,5 @@ export const StyledImageRightWrapper = styled.div`
             width: 100%;
             height: 100%;
         }
-    }
-`
-export const StyledImageRightFirstWrapper = styled.div`
-    position: absolute;
-    top: 0;
-    left: -100px;
-    z-index: 1;
-
-    @media only screen and (max-width: 1024px){
-        height: 140px;
-        width: 140px;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-        .gatsby-image-wrapper{
-            width: 100%;
-            height: 100%;
-        }
-    }
-    @media only screen and (max-width: 877px){
-        height: 110px;
-        width: 110px;
-        left: -60px;
-    }
-    @media only screen and (max-width: 768px){
-        display: none;
     }
 `

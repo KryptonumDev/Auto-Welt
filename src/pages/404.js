@@ -9,13 +9,12 @@ import {
   StyledLeftWrapper,
   StyledRightWrapper,
   StyledTextWrapper,
-  StyledImageLeftWrapper,
-  StyledImageRightWrapper,
-  StyledImageRightFirstWrapper
+  StyledImageRightWrapper
 } from "../components/404/Styled404";
 import { StyledText } from "../components/Text/StyledText";
 
 const NotFoundPage = ({ data }) => {
+  const queryData = data.wpPage.page404;
   return (
     <StyledMainContainer>
       <StyledLeftWrapper>
@@ -29,38 +28,26 @@ const NotFoundPage = ({ data }) => {
             hasdeclaredmargin="0 0 30px"
             as="h1"
           >
-            {data.wpPage.page404.tytul}
+            {queryData.tytul}
           </StyledText>
           <Button
-            text={data.wpPage.page404.przycisk.title}
-            whereGo={data.wpPage.page404.przycisk.url}
+            text={queryData.przycisk.title}
+            whereGo={queryData.przycisk.url}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
             hasFontSize="21px"
             hasDeclaredPadding="10px 33px"
             hasFontWeight="500"
-            hasTarget={data.wpPage.page404.przycisk.target}
+            hasTarget={queryData.przycisk.target}
             hoverBgColor="var(--secondary700)"
           />
         </StyledTextWrapper>
-        <StyledImageLeftWrapper>
-          <GatsbyImage
-            image={getImage(data.wpPage.page404.zdjeciePodPrzyciskiem.localFile)}
-            alt={data.wpPage.page404.zdjeciePodPrzyciskiem.altText}
-          />
-        </StyledImageLeftWrapper>
       </StyledLeftWrapper>
       <StyledRightWrapper>
-        <StyledImageRightFirstWrapper>
-          <GatsbyImage
-            image={getImage(data.wpPage.page404.zdjeciePoPrawo.localFile)}
-            alt={data.wpPage.page404.zdjeciePoPrawo.altText}
-          />
-        </StyledImageRightFirstWrapper>
         <StyledImageRightWrapper>
           <GatsbyImage
-            image={getImage(data.wpPage.page404.drugieZdjeciePoPrawo.localFile)}
-            alt={data.wpPage.page404.drugieZdjeciePoPrawo.altText}
+            image={getImage(queryData.zdjeciePoPrawo.localFile)}
+            alt={queryData.zdjeciePoPrawo.altText}
           />
         </StyledImageRightWrapper>
       </StyledRightWrapper>
@@ -80,23 +67,7 @@ query page404Query {
         title
         url
       }
-      drugieZdjeciePoPrawo {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
       zdjeciePoPrawo {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-      zdjeciePodPrzyciskiem {
         altText
         localFile {
           childImageSharp {
