@@ -14,11 +14,9 @@ export const StyledTitleWrapper = styled.div`
   width: 100%;
   max-width: 845px;
   min-height: 131px;
-  background-color: green;
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 48px;
-  font-family: "Nocturne Serif";
+  font: 48px "Nocturne Serif";
 `;

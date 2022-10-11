@@ -11,10 +11,7 @@ export const StyledCollectionTemplateDesc = styled.section`
 export const StyledTextWrapper = styled.div`
   width: 55%;
   padding: 68px 58px;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 124%;
+  font: 400 24px/1.2em "Roboto";
 `;
 export const StyledImageWrapper = styled.div`
   width: 45%;

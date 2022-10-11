@@ -84,11 +84,8 @@ export const StyledCustomCheckbox = styled.div`
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
     a{
-      font-family: "Roboto";
-      font-size: 16px;
-      line-height: 19px;
       color: #23423D;
-      font-weight: 500;
+      font: 500 16px/19px "Roboto"
     }
   }
 `

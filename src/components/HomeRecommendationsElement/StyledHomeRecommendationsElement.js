@@ -16,10 +16,7 @@ export const StyledHomeRecommendationsElement = styled.div`
   a{
     text-decoration: none;
     color: var(--primary500);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19px;
-    font-family: "Roboto";
+    font: 500 16px/19px "Roboto";
   }
 
   @media only screen and (max-width: 599px){
