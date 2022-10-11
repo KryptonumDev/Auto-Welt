@@ -56,26 +56,26 @@ export const StyledTextWrapper = styled.div`
     }
 
     @media only screen and (max-width: 1024px){
-        p {
+        h1 {
             font-size: 40px;
             max-width: 494px;
         }
     }
     @media only screen and (max-width: 877px){
-        p {
+        h1 {
             font-size: 36px;
             max-width: 400px;
         }
     }
     @media only screen and (max-width: 768px){
         margin-top: 0;
-        p {
+        h1 {
             font-size: 38px;
             line-height: 46px;
         }
     }
     @media only screen and (max-width: 717px){
-        p{
+        h1{
             max-width: unset;
         }
     }
@@ -84,7 +84,7 @@ export const StyledTextWrapper = styled.div`
         a {
             width: 100%;
         }
-        p{
+        h1{
             text-align: center;
         }
     }
@@ -92,7 +92,7 @@ export const StyledTextWrapper = styled.div`
         a {
             font-size: 15px;
         }
-        p{
+        h1{
             font-size: 34px;
         }
     }

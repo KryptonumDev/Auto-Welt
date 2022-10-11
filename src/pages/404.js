@@ -27,6 +27,7 @@ const NotFoundPage = ({ data }) => {
             hasdeclaredfontfamily="Nocturne Serif"
             hasdeclaredfontcolor="var(--primary500)"
             hasdeclaredmargin="0 0 30px"
+            as="h1"
           >
             {data.wpPage.page404.tytul}
           </StyledText>
