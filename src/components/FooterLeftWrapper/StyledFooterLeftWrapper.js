@@ -19,6 +19,8 @@ export const StyledLogoWrapper = styled.div`
 export const StyledSubLogoText = styled.div`
   width: 100%;
   margin-top: 32px;
+  font: 400 18px/1.2em;
+  color: #FAF6EE;
 `;
 export const StyledContactWrapper = styled.div`
   width: 100%;

@@ -38,15 +38,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
         </StyledText>
       </StyledTitleWrapper>
       <StyledTextWrapper>
-        <StyledText
-          hasdeclaredfontsize="16px"
-          hasdeclaredfontweight="400"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredpadding="8px 46px 26px 46px"
-        >
-          {parse(articleData.opis)}
-        </StyledText>
+        {parse(articleData.opis)}
         <Button
           whereGo={`/artykuly/${slug}`}
           text={articleData.tekstWPrzycisku}

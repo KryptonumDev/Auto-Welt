@@ -46,6 +46,9 @@ export const StyledTextWrapper = styled.div`
   align-items: center;
   margin-top: 10px;
   > p {
+    font: 400 16px/1.2em
+    padding: 8px 46px 26px 46px;
+    color: var(--primary500);
     &:first-letter {
       font-size: 44px;
       color: #edac29;

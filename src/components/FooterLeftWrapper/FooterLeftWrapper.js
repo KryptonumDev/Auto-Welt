@@ -29,14 +29,7 @@ const FooterLeftWrapper = ({ footerData }) => {
         </StyledLink>
       </StyledLogoWrapper>
       <StyledSubLogoText>
-        <StyledText
-          hasdeclaredfontsize="18px"
-          hasdeclaredfontcolor="#FAF6EE"
-          hasdeclaredfontweight="400"
-          hasdeclaredlineheight="1.2em"
-        >
-          {parse(footerData.tekstPodLogiem)}
-        </StyledText>
+        {parse(footerData.tekstPodLogiem)}
       </StyledSubLogoText>
       <StyledContactWrapper>
         <StyledText
@@ -50,8 +43,8 @@ const FooterLeftWrapper = ({ footerData }) => {
           {footerData.kontaktTytul}
         </StyledText>
         <StyledAddressWrapper>
-          {footerData.adres.map(line => (
-            <div>
+          {footerData.adres.map((line, index) => (
+            <div key={index}>
               <StyledText
                 hasdeclaredfontsize="18px"
                 hasdeclaredlineheight="1.2em"
