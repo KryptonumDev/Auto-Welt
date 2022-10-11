@@ -162,8 +162,8 @@ const FooterCenterWrapper = ({ footerData }) => {
           Artykuły
         </StyledText>
         <StyledArticlesWrapper>
-          {articleQuery.allWpArtykul.edges.map(({node}) => (
-            <FooterCenterWrapperArticle articleData={node.artykul} slug={node.slug} />
+          {articleQuery.allWpArtykul.edges.map(({node}, index) => (
+            <FooterCenterWrapperArticle key={index} articleData={node.artykul} slug={node.slug} />
           ))}
         </StyledArticlesWrapper>
       </div>

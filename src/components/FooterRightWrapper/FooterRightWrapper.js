@@ -46,7 +46,7 @@ const FooterRightWrapper = ({ footerData }) => {
         {footerData.wydarzeniaTytul}
       </StyledText>
       <StyledEventWrapper>
-        {articleData.allWpWystawa.edges.map(({node}) => <FooterEvent articleData={node.wystawa} slug={node.slug} />)}
+        {articleData.allWpWystawa.edges.map(({node}, index) => <FooterEvent key={index} articleData={node.wystawa} slug={node.slug} />)}
       </StyledEventWrapper>
       <Button
         text={footerData.przyciskPrzenoszacyDoTerminarza.title}
