@@ -22,11 +22,9 @@ export const StyledContentWrapper = styled.div`
 `
 export const StyledTextWrapper = styled.div`
     color: #000;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.2em;
+    font: 400 24px/1.2em 'Roboto';
     margin-top: 20px;
+
     @media only screen and (max-width: 768px){
         font-size: 20px;
     }
@@ -41,10 +39,7 @@ export const StyledLinkWrapper = styled.div`
     gap: 10px;
 
     a{
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.2em;
         color: var(--primary500);
-        font-family: 'Roboto';
+        font: 500 16px/1.2em 'Roboto';
     }
 `

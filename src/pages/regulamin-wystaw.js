@@ -11,6 +11,7 @@ import {
 import { StyledText } from "../components/Text/StyledText"
 
 const ExhibitionRegulations = ({ data }) => {
+  const queryData = data.wpPage.regulaminWystaw;
   return (
     <StyledExhibitionRegulations>
         <StyledContentWrapper>
@@ -22,23 +23,23 @@ const ExhibitionRegulations = ({ data }) => {
                 hasdeclaredfontfamily="Nocturne Serif"
                 as="h1"
             >
-                {data.wpPage.regulaminWystaw.tytulStrony}
+                {queryData.tytulStrony}
             </StyledText>
             <StyledTextWrapper>
-                {parse(data.wpPage.regulaminWystaw.tekstPodTytulem)}
+                {parse(queryData.tekstPodTytulem)}
             </StyledTextWrapper>
             <StyledLinkWrapper>
                 <Link 
-                    to={data.wpPage.regulaminWystaw.pierwszyLink.url} 
-                    target={data.wpPage.regulaminWystaw.pierwszyLink.target}
+                    to={queryData.pierwszyLink.url} 
+                    target={queryData.pierwszyLink.target}
                 >
-                    {data.wpPage.regulaminWystaw.pierwszyLink.title}
+                    {queryData.pierwszyLink.title}
                 </Link>
                 <Link 
-                    to={data.wpPage.regulaminWystaw.drugiLink.url} 
-                    target={data.wpPage.regulaminWystaw.drugiLink.target}
+                    to={queryData.drugiLink.url} 
+                    target={queryData.drugiLink.target}
                 >
-                    {data.wpPage.regulaminWystaw.drugiLink.title}
+                    {queryData.drugiLink.title}
                 </Link>
             </StyledLinkWrapper>
         </StyledContentWrapper>
