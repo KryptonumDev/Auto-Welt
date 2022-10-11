@@ -17,12 +17,13 @@ import { StyledText } from '../components/Text/StyledText'
 const PrivacyPolicy = ({ data }) => {
     const [leftData, setLeftData] = useState([]);
     const [rightData, setRightData] = useState([]);
-
+    const queryData = data.wpPage.politykaPrywatnosCi;
+    
     useEffect(()=>{
         const left = [];
         const right = [];
 
-        data.wpPage.politykaPrywatnosCi.pytanieIOdpowiedz.forEach((e, index) => {
+        queryData.pytanieIOdpowiedz.forEach((e, index) => {
             if(index % 2 == 0){
                 left.push(e);
             }else{
@@ -32,9 +33,6 @@ const PrivacyPolicy = ({ data }) => {
 
         setLeftData(left);
         setRightData(right);
-
-        console.log(left);
-        console.log(right);
     }, [data])
 
 
@@ -47,18 +45,18 @@ const PrivacyPolicy = ({ data }) => {
                 hasdeclaredlineheight="1.2em"
                 hasdeclaredfontcolor="var(--primary500)"
             >
-                {data.wpPage.politykaPrywatnosCi.tytulStrony}
+                {queryData.tytulStrony}
             </StyledText>
             <StyledOneLineWrapper>
                 <StyledTitleWrapper>
-                    {parse(data.wpPage.politykaPrywatnosCi.pierwszePytanieNaCalaStrone)}
+                    {parse(queryData.pierwszePytanieNaCalaStrone)}
                 </StyledTitleWrapper>
                 <StyledOneLineContent>
                     <StyledTextOut>
-                        {parse(data.wpPage.politykaPrywatnosCi.lewaOdpowiedzDo)}
+                        {parse(queryData.lewaOdpowiedzDo)}
                     </StyledTextOut>
                     <StyledTextOut>
-                        {parse(data.wpPage.politykaPrywatnosCi.prawaOdpowiedzDoDlugiegoPytania)}
+                        {parse(queryData.prawaOdpowiedzDoDlugiegoPytania)}
                     </StyledTextOut>
                 </StyledOneLineContent>
             </StyledOneLineWrapper>

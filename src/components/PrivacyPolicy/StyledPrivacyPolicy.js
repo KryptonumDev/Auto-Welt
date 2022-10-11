@@ -47,14 +47,11 @@ export const StyledOneLineContent = styled.div`
     }
 `
 export const StyledTextOut = styled.div`
-    font-size: 24px;
-    font-family: "Roboto";
-    line-height: 1.2em;
     color: #000;
-    font-weight: 400;
     width: 49%;
     max-width: 530px;
     margin-top: 30px;
+    font: 400 24px/1.2em 'Roboto';
 
     @media only screen and (max-width: 768px){
         width: 100%;
@@ -71,20 +68,14 @@ export const StyledElement = styled.div`
 `
 export const StyledTitleWrapper = styled.div`
     color: #23423D;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.2em;
-    font-family: 'Nocturne Serif';
+    font: 400 28px/1.2em 'Nocturne Serif';
 
     @media only screen and (max-width: 375px){
         font-size: 24px;
     }
 `
 export const StyledContentWrapper = styled.div`
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.2em;
+    font: 400 24px/1.2em 'Roboto';
     margin-top: 20px;
 
     @media only screen and (max-width: 768px){
