@@ -1,58 +1,90 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 
 import HomeArticles from "../components/HomeArticles/HomeArticles";
-import Button from "../components/Button/Button";
 import ModelCollection from "../components/ModelCollection/ModelCollection";
+import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
 
-import {
-  StyledCollectionFooter,
-  StyledFooterImageWrapper,
+import { 
   StyledContentWrapper,
-} from "../components/HomeCollections/StyledHomeCollections";
-import { StyledText } from "../components/Text/StyledText";
+} from "../components/Collections/StyledCollections";
 
-const ModelCollections = () => {
+import useWindowSize from "../utils/getWindowSize";
+
+const ModelCollections = ({ data }) => {
+  const width = useWindowSize();
+  const greenData = data.wpPage.kolekcjeModeli;
   return (
     <>
       <StyledContentWrapper>
-        <ModelCollection />
-        <ModelCollection />
-        <ModelCollection />
-        <ModelCollection />
-        <ModelCollection />
-        <ModelCollection />
+        {data.allWpKolekcje.edges.map(({ node }) => <ModelCollection collectionData={node.kolekcja} slug={node.slug}/>)}
       </StyledContentWrapper>
-      <StyledCollectionFooter>
-        <StyledFooterImageWrapper>
-          <StaticImage
-            placeholder="blurred"
-            src="../../images/collectionRectangle.png"
-            alt="background"
-            objectFit="fill"
-          />
-        </StyledFooterImageWrapper>
-        <StyledText
-          hasdeclaredfontsize="clamp(18px, 28px, 32px)"
-          hasdeclaredfontcolor="var(--creamText)"
-          hasdeclaredfontfamily="Nocturne Serif"
-          hasdeclaredfontweight="400"
-          hasdeclaredpadding="0 18px 0 57px"
-        >
-          Skontaktuj się ze mną
-        </StyledText>
-        <Button
-          text="KONTAKT"
-          whereGo="/kontakt"
-          bgColor="var(--secondary500)"
-          hasBorder="2px solid var(--secondary500)"
-          hasHeight="44px"
-          textColor="var(--primary900)"
-        />
-      </StyledCollectionFooter>
-      <HomeArticles iscollection />
+      <RecInfoWithButton
+        text={greenData.tekstWZielonymInpucie}
+        btnText={greenData.linkWZielonymInpucie.title}
+        btnWhereGo={greenData.linkWZielonymInpucie.url}
+        hasTarget={greenData.linkWZielonymInpucie.target}
+        btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
+        btnBgColor="var(--secondary500)"
+        btnColor="var(--primary900)"
+        bgImage={greenData.tloDlaZielonegoProstokataPodKolekcjami}
+        btnFontSize="21px"
+        btnHoverBg="var(--secondary700)"
+      />
     </>
   );
 };
 
 export default ModelCollections;
+
+export const query = graphql`
+query collectionsQueryD {
+  allWpKolekcje {
+    edges {
+      node {
+        slug
+        kolekcja {
+          informacjeGlowne {
+            duzaMiniaturka {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            nazwaKolekcji
+            tekstPrzyciskuPrzenoszacegoDlaStronyKolekcjiNaDuzejMiniaturce
+            tloDlaTytuluWDuzejMiniaturce {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  wpPage(id: {eq: "cG9zdDo0MDQ="}) {
+    kolekcjeModeli {
+      tekstWZielonymInpucie
+      linkWZielonymInpucie {
+        target
+        title
+        url
+      }
+      tloDlaZielonegoProstokataPodKolekcjami {
+        altText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+}
+`
