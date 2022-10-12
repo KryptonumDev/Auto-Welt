@@ -31,6 +31,7 @@ const ModelCollections = ({ data }) => {
         btnFontSize="21px"
         btnHoverBg="var(--secondary700)"
       />
+      <HomeArticles isCollectionsModelPage={true} buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}/>
     </>
   );
 };
@@ -70,6 +71,11 @@ query collectionsQueryD {
   }
   wpPage(id: {eq: "cG9zdDo0MDQ="}) {
     kolekcjeModeli {
+      przyciskPodArtykulamiNaDoleStrony{
+        target
+        title
+        url
+      }
       tekstWZielonymInpucie
       linkWZielonymInpucie {
         target

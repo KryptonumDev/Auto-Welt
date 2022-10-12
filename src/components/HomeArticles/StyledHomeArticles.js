@@ -6,6 +6,7 @@ export const StyledHomeArticles = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: ${({ iscollectionpage }) => iscollectionpage ? "120px" : "0"};
 `;
 export const StyledArticlesWrapper = styled.div`
   width: 100%;

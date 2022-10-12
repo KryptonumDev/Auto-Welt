@@ -3,14 +3,16 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import HomeArticleElement from "../HomeArticleElement/HomeArticleElement";
 import ReqInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
+import Button from "../Button/Button";
 
 import {
   StyledHomeArticles,
   StyledArticlesWrapper,
+  StyledButtonWrapper
 } from "./StyledHomeArticles";
 import { StyledText } from "../Text/StyledText";
 
-const HomeArticles = () => {
+const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
   const data = useStaticQuery(graphql`
   query homeArticle {
     allWpArtykul(limit: 2) {
@@ -51,7 +53,7 @@ const HomeArticles = () => {
   }
   `)
   return (
-    <StyledHomeArticles>
+    <StyledHomeArticles iscollectionpage={isCollectionsModelPage}>
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"
@@ -70,16 +72,31 @@ const HomeArticles = () => {
           />
         )}
       </StyledArticlesWrapper>
-      <ReqInfoWithButton 
-        text={data.wpPage.homepage.artykuly.napisWZielonymProstokaciePodArtykulami}
-        btnText={data.wpPage.homepage.artykuly.linkDoBloga.title}
-        hasTarget={data.wpPage.homepage.artykuly.linkDoBloga.target}
-        btnWhereGo={data.wpPage.homepage.artykuly.linkDoBloga.url}
-        btnBgColor="var(--secondary500)"
-        btnColor="var(--primary900)"
-        btnPadding="10px 33px"
-        btnFontSize="21px"
-      />
+      {isCollectionsModelPage ? 
+        <StyledButtonWrapper>
+          <Button 
+            text={buttonData.title}
+            whereGo={buttonData.url}
+            hasTarget={buttonData.target}
+            hasBorder="2px solid var(--primary500)"
+            textColor="var(--primary500)"
+            hasFontSize="21px"
+            hasDeclaredPadding="10px 33px"
+            bgColor="var(--background500)"
+          />
+        </StyledButtonWrapper> 
+        :
+        <ReqInfoWithButton 
+          text={data.wpPage.homepage.artykuly.napisWZielonymProstokaciePodArtykulami}
+          btnText={data.wpPage.homepage.artykuly.linkDoBloga.title}
+          hasTarget={data.wpPage.homepage.artykuly.linkDoBloga.target}
+          btnWhereGo={data.wpPage.homepage.artykuly.linkDoBloga.url}
+          btnBgColor="var(--secondary500)"
+          btnColor="var(--primary900)"
+          btnPadding="10px 33px"
+          btnFontSize="21px"
+        />
+      }
     </StyledHomeArticles>
   );
 };
