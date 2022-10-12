@@ -54,7 +54,7 @@ query collectionsQueryD {
               }
             }
             nazwaKolekcji
-            tekstPrzyciskuPrzenoszacegoDlaStronyKolekcjiNaDuzejMiniaturce
+            trescPrzyciskuNaDuzejMiniaturce
             tloDlaTytuluWDuzejMiniaturce {
               altText
               localFile {

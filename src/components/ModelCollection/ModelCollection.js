@@ -44,7 +44,7 @@ const ModelCollection = ({ collectionData, slug }) => {
       <StyledButtonSpace>
         <Button
           whereGo={`/kolekcje-modeli/${slug}`}
-          text={shortDataKey.tekstPrzyciskuPrzenoszacegoDlaStronyKolekcjiNaDuzejMiniaturce}
+          text={shortDataKey.trescPrzyciskuNaDuzejMiniaturce}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hoverBgColor="#1D2B29"

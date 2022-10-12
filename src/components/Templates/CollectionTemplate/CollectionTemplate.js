@@ -14,7 +14,7 @@ const CollectionTemplate = ({ data }) => {
   return (
     <>
       <CollectionTemplateHeroImage
-        heroData={shortCollectionData}
+        heroData={shortCollectionData.pierwszaSekcja}
       />
       <ThreeCollectionImages
         imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
@@ -77,22 +77,6 @@ export const query = graphql`
               }
             }
           }
-          zdjecieGlowne {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
           zdjeciaDoSlidera {
             altText
             localFile {
@@ -121,7 +105,6 @@ export const query = graphql`
               }
             }
           }
-          trescPrzyciskuPodZdjeciemGlownym
           tekstWZielonymProstokaciePolecajacyInnaKolekcje
           prostokatneZdjeciePodOpisem {
             localFile {
@@ -146,10 +129,29 @@ export const query = graphql`
             }
             opisKolekcji
           }
-          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
-            target
-            title
-            url
+          pierwszaSekcja {
+            zdjecieGlowne {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            trescPrzyciskuPodZdjeciemGlownym
+            gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+              url
+              title
+              target
+            }
           }
         }
       }

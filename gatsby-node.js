@@ -16,7 +16,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   kolekcjeData.data.allWpKolekcje.edges.map(({ node }) => {
     createPage({
-      path: `kolekcje-modeli/${node.slug}`,
+      path: `/kolekcje-modeli/${node.slug}/`,
       component: require.resolve(
         "./src/components/Templates/CollectionTemplate/CollectionTemplate.js"
       ),
@@ -41,7 +41,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   wystawyData.data.allWpWystawa.edges.map(({ node }) => {
     createPage({
-      path: `wystawy/${node.slug}`,
+      path: `/wystawy/${node.slug}/`,
       component: require.resolve("./src/components/Templates/TemplateExhibitions/TemplateExhibitions.js"),
       context: {
         wystawaId: node.id
@@ -64,7 +64,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   artykulData.data.allWpArtykul.edges.map(({ node }) => {
     createPage({
-      path: `artykuly/${node.slug}`,
+      path: `/artykuly/${node.slug}/`,
       component: require.resolve("./src/components/Templates/ArticlesTemplate/ArticlesTemplate.js"),
       context: {
         articleId: node.id
