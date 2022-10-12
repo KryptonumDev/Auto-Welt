@@ -1,5 +1,7 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
+
 import Button from "../Button/Button";
 
 import {
@@ -9,79 +11,65 @@ import {
   StyledHeroImage,
   StyledCarImage,
   StyledShopInfoWrapper,
+  StyledTitleWrapper,
+  StyledSubTitleWrapper,
+  StyledDescription,
+  StyledButtonsWrapper
 } from "./StyledShopInProgress";
-import { StyledText } from "../Text/StyledText";
-import { StyledButtonsWrapper } from "../HomeRecommendations/StyledHomeRecommendations";
 
-const ShopInProgress = () => {
+const ShopInProgress = ({ shopData }) => {
   return (
     <StyledShopInProgress>
       <StyledImagesWrapper>
         <StyledIconWrapper>
-          <StaticImage
-            placeholder="blurred"
-            src="../../images/plaster.png"
-            alt="A dinosaur"
+        <GatsbyImage
+            image={getImage(shopData.zdjeciePlastra.localFile)}
+            alt={shopData.zdjeciePlastra.altText}
           />
         </StyledIconWrapper>
         <StyledHeroImage>
-          <StaticImage
-            placeholder="blurred"
-            src="../../images/shopHeroImage.png"
-            alt="A dinosaur"
+          <GatsbyImage
+            image={getImage(shopData.glowneZdjecie.localFile)}
+            alt={shopData.glowneZdjecie.altText}
           />
         </StyledHeroImage>
         <StyledCarImage>
-          <StaticImage
-            placeholder="blurred"
-            src="../../images/shopCar.png"
-            alt="A dinosaur"
+          <GatsbyImage
+            image={getImage(shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.localFile)}
+            alt={shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.altText}
           />
         </StyledCarImage>
       </StyledImagesWrapper>
       <StyledShopInfoWrapper>
-        <StyledText
-          as="h2"
-          hasdeclaredfontsize="clamp(24px, 48px, 60px)"
-          hasdeclaredtextalign="center"
-          hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredmargin="80px 0 8px"
-          hasdeclaredfontfamily="Nocturne Serif"
-        >
-          Skelp w trakcie budowy
-        </StyledText>
-        <StyledText
-          hasdeclaredfontsize="24px"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredtextalign="center"
-        >
-          to co najmniej tak trudne i czasochłonne jak składanie…
-        </StyledText>
-        <StyledText
-          hasdeclaredfontsize="24px"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredtextalign="center"
-          hasdeclaredmargin="20px 0 80px"
-        >
-          Jesteśmy pewni, że warto, gdyż dobry plan, oryginalny projekt i
-          solidne wykonanie zapewni efekt WOW! Tak jak przy składaniu modeli –
-          sklep już wkrótce. Proszę o cierpliwość.
-        </StyledText>
+        <StyledTitleWrapper>
+          {parse(shopData.tytulPodZdjeciami)}
+        </StyledTitleWrapper>
+        <StyledSubTitleWrapper>
+          {parse(shopData.podTytul)}
+        </StyledSubTitleWrapper>
+        <StyledDescription>
+          {parse(shopData.opisPodTytulami)}
+        </StyledDescription>
         <StyledButtonsWrapper>
           <Button
-            whereGo="/kolekcje-modeli"
-            text="ZOBACZ KOLEKCJE MODELI"
+            whereGo={shopData.lewyPrzycisk.url}
+            text={shopData.lewyPrzycisk.title}
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
             hasFontSize="21px"
             bgColor="var(--creamBg)"
+            hasTarget={shopData.lewyPrzycisk.target}
+            hasDeclaredPadding="10px 33px"
           />
           <Button
-            whereGo="/kontakt"
-            text="SKONTAKTUJ SIĘ ZE MNĄ"
+            whereGo={shopData.prawyPrzycisk.url}
+            text={shopData.prawyPrzycisk.title}
             textColor="var(--white)"
             bgColor="var(--primary500)"
             hasFontSize="21px"
+            hasTarget={shopData.prawyPrzycisk.target}
+            hasDeclaredPadding="10px 33px"
+            hoverBgColor="var(--primary900)"
           />
         </StyledButtonsWrapper>
       </StyledShopInfoWrapper>
