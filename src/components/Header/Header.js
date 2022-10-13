@@ -86,7 +86,7 @@ const Header = () => {
             Blog
           </StyledLink>
           <StyledLink
-            to="/wystawy"
+            to="/kontakt"
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
