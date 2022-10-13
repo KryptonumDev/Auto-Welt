@@ -15,12 +15,15 @@ export const StyledNav = styled.nav`
     display: ${({ isopen }) => isopen ? "flex" : "none"};
 
     height: 100vh;
+    overflow-y: scroll;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
     background: var(--primary800);
+    flex-direction: column;
+    min-height: 600px;
   }
 `;
 export const StyledLeftWrapper = styled.div`
@@ -33,7 +36,6 @@ export const StyledLeftWrapper = styled.div`
   clip-path: polygon(0 0, 94.5% 0, 100% 100%, 0% 100%);
   max-width: 439px;
   width: 50%;
-
   a{
     transition: color 250ms;
     &:hover{
@@ -62,16 +64,20 @@ export const StyledLeftWrapper = styled.div`
     }
   }
   @media only screen and (max-width: 768px) {
-    width: 50%;
-    height: 100%;
+    width: 70%;
+    height: auto;
     flex-direction: column;
     justify-content: center;
     box-shadow: none;
-    gap: 20px;
+    gap: 30px;
     clip-path: none;
-    background-color: var(--primary300);
+    background-color: transparent;
+    align-self: flex-start;
+
     > a {
+      width: 100%;
       font-size: 21px;
+      text-align: right;
     }
   }
 `;
@@ -114,17 +120,21 @@ export const StyledRightWrapper = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    width: 50%;
-    height: 100%;
+    background-color: transparent;
+    width: 70%;
+    height: auto;
     flex-direction: column;
     justify-content: center;
     box-shadow: none;
-    gap: 20px;
+    gap: 30px;
     clip-path: none;
-    background-color: var(--primary300);
-
+    align-self: flex-start;
+    margin-top: 30px;
     > a {
       font-size: 21px;
+      margin-left: 0;
+      text-align: right;
+      width: 100%;
     }
   }
 `;
@@ -184,5 +194,17 @@ export const StyledIconsWrapper = styled.div`
   }
   @media only screen and (max-width: 903px) {
     margin-left: 18px;
+  }
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 8px;
+    gap: 20px;
+    a {
+      > svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 `;

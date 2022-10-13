@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { graphql, useStaticQuery } from "gatsby"
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
@@ -19,12 +20,31 @@ import InstagramIcon from "../../images/headerIcons/instagram.svg";
 import FacebookIcon from "../../images/headerIcons/facebook.svg";
 
 const Header = () => {
+  const data = useStaticQuery(graphql`
+    query headerQuery {
+      wpPage(id: {eq: "cG9zdDozMw=="}) {
+        globalConfig {
+          naglowek {
+            linkDoFacebooka
+            linkDoInstagrama
+          }
+        }
+      }
+    }
+  `)
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenMenu = () => {
     setIsOpen(!isOpen)
-    console.log('siema elo')
   }
+
+  useEffect(() => {
+    if(isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else { 
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   return (
     <StyledHeader>
@@ -35,6 +55,7 @@ const Header = () => {
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Kolekcje modeli
           </StyledLink>
@@ -43,6 +64,7 @@ const Header = () => {
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Sklep
           </StyledLink>
@@ -51,6 +73,7 @@ const Header = () => {
             hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             O mnie
           </StyledLink>
@@ -59,6 +82,7 @@ const Header = () => {
             hasdeclaredmargin="0 10px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Oferta
           </StyledLink>
@@ -74,6 +98,7 @@ const Header = () => {
             hasdeclaredmargin="0 0 0 55px"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Terminarz
           </StyledLink>
@@ -82,6 +107,7 @@ const Header = () => {
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Blog
           </StyledLink>
@@ -90,14 +116,15 @@ const Header = () => {
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            onClick={() => setIsOpen(false)}
           >
             Kontakt
           </StyledLink>
           <StyledIconsWrapper>
-            <a href="#">
+            <a href={data.wpPage.globalConfig.naglowek.linkDoFacebooka} target="_blank">
               <FacebookIcon />
             </a>
-            <a href="#">
+            <a href={data.wpPage.globalConfig.naglowek.linkDoInstagrama} target="_blank">
               <InstagramIcon />
             </a>
           </StyledIconsWrapper>
