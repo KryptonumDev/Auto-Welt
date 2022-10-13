@@ -19,6 +19,7 @@ import LeftLightArrow from "../../images/leftLightArrow.svg";
 import RightLightArrow from "../../images/rightLightArrow.svg";
 
 import useWindowSize from "../../utils/getWindowSize";
+import { AnimatePresence } from "framer-motion";
 
 const HomeRecommendations = () => {
   const width = useWindowSize();
@@ -58,25 +59,39 @@ const HomeRecommendations = () => {
   `)
   const [renderElements, setRenderElements] = useState([]);
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0)
+  const [isPrev, setIsPrev] = useState(false);
 
   const handlePrev = () => {
+    setIsPrev(true);
+    setPrevIndex(index);
     if (index === 0) {
-      setIndex(renderElements.length - 1);
+      setIndex(allWpRekomendacja.nodes.length - 1);
     } else {
       setIndex(index - 1);
-    }
+    } 
   };
   const handleNext = () => {
-    if (index === allWpRekomendacja.nodes.length - 2) {
-      setIndex(0);
-    } else {
+    setIsPrev(false);
+    setPrevIndex(index);
+    if(index === allWpRekomendacja.nodes.length - 1){
+      setIndex(0)
+    }else{
       setIndex(index + 1);
     }
   };
 
   useEffect(() => {
-    const sliderElements = allWpRekomendacja.nodes.slice(index, index + (width < 600 ? 1 : 2));
-
+    let sliderElements = allWpRekomendacja.nodes.slice(index, index + (width < 649 ? 1 : 2));
+    if(width > 648){
+      if(index === allWpRekomendacja.nodes.length - 1){
+        sliderElements = [allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1], allWpRekomendacja.nodes[0]];
+      }
+      if((index === 0 && isPrev) && (prevIndex !== 1)){
+        sliderElements = [allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1], allWpRekomendacja.nodes[0]];
+      }
+    }
+    
     setRenderElements(sliderElements);
   }, [index, width]);
 
@@ -96,19 +111,33 @@ const HomeRecommendations = () => {
         <StyledArrowWrapper 
           onClick={handlePrev}
           hasdeclaredtransform="20px"
+          initial={{ x: width < 463 ? 0 : 20 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.5 },
+          }}
+          whileTap={{ scale: 0.9 }}
         >
-          {width <= 768 ? width < 600 ? <LeftArrow /> : <LeftLightArrow /> : <LeftArrow />}
+          {width <= 768 ? width < 463 ? <LeftArrow /> : <LeftLightArrow /> : <LeftArrow />}
         </StyledArrowWrapper>
         <StyledSlides>
           {renderElements.map((e) => (
-            <HomeRecommendationsElement key={e.rekomendacje.imieNazwisko} data={e} />
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <HomeRecommendationsElement key={e.rekomendacje.imieNazwisko} data={e} isPrev={isPrev}/>
+            </AnimatePresence>
           ))}
         </StyledSlides>
         <StyledArrowWrapper 
           onClick={handleNext} 
           hasdeclaredtransform="-20px"
+          initial={{ x: width < 463 ? 0 : -20 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.5 },
+          }}
+          whileTap={{ scale: 0.9 }}
         >
-          {width <= 768 ? width < 600 ? <RightArrow /> : <RightLightArrow /> : <RightArrow />}
+          {width <= 768 ? width < 463 ? <RightArrow /> : <RightLightArrow /> : <RightArrow />}
         </StyledArrowWrapper>
       </StyledRecommendationsWrapper>
       <StyledButtonsWrapper>

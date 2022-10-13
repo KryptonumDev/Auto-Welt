@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledHomeRecommendations = styled.section`
   display: flex;
@@ -9,9 +10,14 @@ export const StyledHomeRecommendations = styled.section`
 
   @media only screen and (max-width: 768px){
     padding: 0;
+    > h2{
+      font-size: 38px;
+    }
   }
-  @media only screen and (max-width: 599px){
-    padding: 0 16px;
+  @media only screen and (max-width: 375px){
+    > h2{
+      font-size: 34px;
+    }
   }
 `;
 export const StyledRecommendationsWrapper = styled.div`
@@ -19,6 +25,9 @@ export const StyledRecommendationsWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  @media only screen and (max-width: 462px){
+    gap: 10px;
+  }
 `;
 export const StyledButtonsWrapper = styled.div`
   display: flex;
@@ -32,10 +41,15 @@ export const StyledButtonsWrapper = styled.div`
     gap: 12px;
   }
 
-  @media only screen and (max-width: 599px){
+  @media only screen and (max-width: 462px){
     width: 92%;
     a{
       width: 100%;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    a{
+      font-size: 15px;
     }
   }
 `;
@@ -44,14 +58,14 @@ export const StyledSlides = styled.div`
   width: 87%;
   display: flex;
   justify-content: space-between;
-
-  @media only screen and (max-width: 599px){
-    width: 100%;
+  overflow: hidden;
+  gap: 10px;
+  @media only screen and (max-width: 462px){
     justify-content: center;
   }
 `;
 
-export const StyledArrowWrapper = styled.div`
+export const StyledArrowWrapper = styled(motion.div)`
   width: 30px;
   height: 55px;
   cursor: pointer;
@@ -69,7 +83,7 @@ export const StyledArrowWrapper = styled.div`
     padding: 6px;
     transform: translateX(${({ hasdeclaredtransform }) => hasdeclaredtransform ? hasdeclaredtransform : "0"});
   }
-  @media only screen and (max-width: 599px){
+  @media only screen and (max-width: 462px){
     background: transparent;
     transform: translateX(0);
   }

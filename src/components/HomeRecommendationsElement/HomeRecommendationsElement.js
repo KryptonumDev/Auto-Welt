@@ -1,15 +1,21 @@
 import React from "react";
 import parse from "html-react-parser"
+import { motion } from "framer-motion"
 
 import { StyledText } from "../Text/StyledText";
 import {
   StyledHomeRecommendationsElement,
   StyledImageWrapper,
+  StyledTextWrapper
 } from "./StyledHomeRecommendationsElement";
 
-const HomeRecommendationsElement = ({ data }) => {
+const HomeRecommendationsElement = ({ data, key, isPrev }) => {
   return (
-    <StyledHomeRecommendationsElement>
+    <StyledHomeRecommendationsElement
+      key={key}
+      initial={{ x: isPrev ? -100 : 100 }}
+      animate={{ x: 0 }}
+    >
       <StyledText
         hasdeclaredfontsize="20px"
         hasdeclaredfontweight="600"
@@ -18,21 +24,15 @@ const HomeRecommendationsElement = ({ data }) => {
       >
         {data.rekomendacje.imieNazwisko}
       </StyledText>
-      <a
+      <motion.a
         href={data.rekomendacje.linkPodImieniem.url}
         target={data.rekomendacje.linkPodImieniem.target}
       >
         {data.rekomendacje.linkPodImieniem.title}
-      </a>
-      <StyledText
-        hasdeclaredmaxwidth="275px"
-        hasdeclaredfontsize="14px"
-        hasdeclaredlineheight="1.2em"
-        hasdeclaredmargin="10px 0 0"
-        hasdeclaredfontweight="400"
-      >
+      </motion.a>
+      <StyledTextWrapper>
         {parse(data.rekomendacje.rekomendacja)}
-      </StyledText>
+      </StyledTextWrapper>
       <StyledImageWrapper>
         <StyledText
           hasdeclaredfontsize="128px"
