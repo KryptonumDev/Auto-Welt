@@ -13,6 +13,11 @@ export const StyledArticlesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 21px;
+
+  @media only screen and (max-width: 640px){
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const StyledButtonWrapper = styled.div`
   margin-top: 40px;

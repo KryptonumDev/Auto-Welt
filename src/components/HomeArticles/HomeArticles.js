@@ -40,6 +40,14 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
     wpPage(id: {eq: "cG9zdDoxNQ=="}) {
       homepage {
         artykuly {
+          zdjecieTlaWZielonymProstokacie{
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
           napisWZielonymProstokaciePodArtykulami
           tytulSekcji
           linkDoBloga {
@@ -91,10 +99,12 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
           btnText={data.wpPage.homepage.artykuly.linkDoBloga.title}
           hasTarget={data.wpPage.homepage.artykuly.linkDoBloga.target}
           btnWhereGo={data.wpPage.homepage.artykuly.linkDoBloga.url}
+          bgImage={data.wpPage.homepage.artykuly.zdjecieTlaWZielonymProstokacie}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
           btnPadding="10px 33px"
           btnFontSize="21px"
+          btnHoverBg="var(--secondary700)"
         />
       }
     </StyledHomeArticles>

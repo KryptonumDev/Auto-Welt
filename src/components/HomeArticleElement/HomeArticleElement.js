@@ -32,7 +32,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
           hasdeclaredfontweight="600"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredpadding="20px 46px"
+          hasdeclaredpadding="20px 40px"
         >
           {articleData.tytul}
         </StyledText>
@@ -43,12 +43,10 @@ const HomeArticleElement = ({ articleData, slug }) => {
           whereGo={`/artykuly/${slug}`}
           text={articleData.tekstWPrzycisku}
           bgColor="var(--secondary500)"
-          hasBorder="2px solid var(--secondary500)"
-          hasHeight="44px"
           textColor="var(--primary900)"
           hasDeclaredPadding="10px 33px"
           hasFontSize="21px"
-
+          hoverBgColor="var(--secondary700)"
         />
       </StyledTextWrapper>
     </StyledHomeArticleElement>
