@@ -8,9 +8,11 @@ import {
 
 const CalendarComponent = () => {
   const now = new Date(),
+    futureMonths = 3,
     minDate = startOfAdjacentMonth({ date: now, month: -1 }),
-    maxDate = endOfAdjacentMonth({ date: now, month: 3 }),
-    [currentDate, setCurrentDate] = useState(now);
+    maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
+    [currentDate, setCurrentDate] = useState(now),
+    [pagination, setPagination] = useState(1);
 
   return (
     <StyledCalendarComponent>
@@ -23,8 +25,15 @@ const CalendarComponent = () => {
           onClick={() => {
             setCurrentDate((date) => {
               const newDate = new Date(date.getTime());
+
               newDate.setMonth(newDate.getMonth()-1);
-              return newDate.getTime() < minDate.getTime() ? date : newDate;
+
+              if (newDate.getTime() < minDate.getTime()) {
+                return date;
+              }
+
+              setPagination(val => (val - 1));
+              return newDate;
             })
           }}
         >
@@ -62,13 +71,36 @@ const CalendarComponent = () => {
           onClick={() => {
             setCurrentDate((date) => {
               const newDate = new Date(date.getTime());
+
               newDate.setMonth(newDate.getMonth()+1);
-              return newDate.getTime() > maxDate.getTime() ? date : newDate;
+
+              if (newDate.getTime() > maxDate.getTime()) {
+                return date;
+              }
+
+              setPagination(val => (val + 1));
+              return newDate;
             })
           }}
         >
           {'>'}
         </div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row", marginTop: "10px" }}>
+        {[...Array(2+futureMonths).keys()].map(
+          key => (
+            <div
+              key={key}
+              style={{
+                minWidth: "20px",
+                minHeight: "2s0px",
+                backgroundColor: (key === pagination) ? "blue" : "red"
+              }}
+            >
+              &nbsp;
+            </div>
+          )
+        )}
       </div>
     </StyledCalendarComponent>
   );
