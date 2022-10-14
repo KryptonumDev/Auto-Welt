@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import { Link } from "gatsby"
 import * as Yup from "yup";
 import Button from "../Button/Button";

@@ -1,10 +1,4 @@
 import React from "react";
-import {
-  GoogleMap,
-  Marker,
-  withGoogleMap,
-  withScriptjs,
-} from "react-google-maps";
 
 import {
   StyledGoogleMapsContact,
@@ -12,17 +6,8 @@ import {
 } from "./StyledGoogleMapsContact";
 import { StyledText } from "../Text/StyledText";
 
-const MyMapComponent = withScriptjs(
-  withGoogleMap((props) => {
-    return (
-      <GoogleMap>
-        <Marker />
-      </GoogleMap>
-    );
-  })
-);
 
-const GoogleMapsContact = () => {
+const GoogleMapsContact = ({ mapData }) => {
   return (
     <StyledGoogleMapsContact>
       <StyledText
@@ -35,15 +20,17 @@ const GoogleMapsContact = () => {
         Tu nas znajdziesz:
       </StyledText>
       <StyledGoogleMapsWrapper>
-        <MyMapComponent
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `411px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
+        <iframe
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          style={{ border: 0 }}
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&q='Auto-welt', center${mapData.langtitude}, ${mapData.longtitude}&zoom=5`}
+          allowFullScreen
         />
       </StyledGoogleMapsWrapper>
     </StyledGoogleMapsContact>
   );
 };
 
-export default GoogleMapsContact;
+export default GoogleMapsContact
