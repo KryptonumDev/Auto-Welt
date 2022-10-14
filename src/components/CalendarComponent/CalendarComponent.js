@@ -19,24 +19,17 @@ const CalendarComponent = () => {
           new Date(2022, 10, 3),
         ]}
         defaultView="month"
-        formatShortWeekday={(locale, date) => {
-          switch (date.getDay()) {
-            case 0:
-              return "NIEDZIELA";
-            case 1:
-              return "PONIEDZIAŁEK";
-            case 2:
-              return "WTOREK";
-            case 3:
-              return "ŚRODA";
-            case 4:
-              return "CZWARTE";
-            case 5:
-              return "PIĄTEK";
-            case 6:
-              return "SOBOTA";
-          }
-        }}
+        formatShortWeekday={(locale, date) => (
+          [
+            "NIEDZIELA",
+            "PONIEDZIAŁEK",
+            "WTOREK",
+            "ŚRODA",
+            "CZWARTEK",
+            "PIĄTEK",
+            "SOBOTA"
+          ][date.getDay()]
+        )}
         tileContent={({ activeStartDate, date, view }) =>
           view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
         }
