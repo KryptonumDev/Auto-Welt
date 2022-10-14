@@ -59,7 +59,7 @@ const CalendarComponent = () => {
           )}
           tileDisabled={() => true}
           tileContent={({ activeStartDate, date, view }) =>
-            view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
+            view === "month" && date.getMonth() === currentDate.getMonth() && date.getDay() === 0 ? <p>It's Sunday!</p> : null
           }
           showNavigation={false}
           formatDay={(locale, date) =>
