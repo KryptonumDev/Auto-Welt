@@ -14,31 +14,46 @@ const CalendarComponent = () => {
 
   return (
     <StyledCalendarComponent>
-      <StyledCalendar
-        minDate={minDate}
-        maxDate={maxDate}
-        onChange={setCurrentDate}
-        value={currentDate}
-        defaultValue={now}
-        defaultView="month"
-        formatShortWeekday={(locale, date) => (
-          [
-            "NIEDZIELA",
-            "PONIEDZIAŁEK",
-            "WTOREK",
-            "ŚRODA",
-            "CZWARTEK",
-            "PIĄTEK",
-            "SOBOTA"
-          ][date.getDay()]
-        )}
-        tileContent={({ activeStartDate, date, view }) =>
-          view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
-        }
-        navigationLabel={({ date, label, locale, view }) =>
-          `Current view: ${view}, date: ${date.toLocaleDateString(locale)}`
-        }
-      />
+      <p>{currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}</p>
+      <div
+        style={{ display: "flex", flexDirection: "row" }}
+      >
+        <div
+          style={{ backgroundColor: "red", minWidth: "50px" }}
+          onClick={() => setCurrentDate((date) => new Date(date.setMonth(date.getMonth()-1)))}
+        >
+          {'<'}
+        </div>
+        <StyledCalendar
+          minDate={minDate}
+          maxDate={maxDate}
+          onChange={setCurrentDate}
+          value={currentDate}
+          defaultValue={now}
+          defaultView="month"
+          formatShortWeekday={(locale, date) => (
+            [
+              "NIEDZIELA",
+              "PONIEDZIAŁEK",
+              "WTOREK",
+              "ŚRODA",
+              "CZWARTEK",
+              "PIĄTEK",
+              "SOBOTA"
+            ][date.getDay()]
+          )}
+          tileContent={({ activeStartDate, date, view }) =>
+            view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
+          }
+          showNavigation={false}
+        />
+        <div
+          style={{ backgroundColor: "red", minWidth: "50px" }}
+          onClick={() => setCurrentDate((date) => new Date(date.setMonth(date.getMonth()+1)))}
+        >
+          {'>'}
+        </div>
+      </div>
     </StyledCalendarComponent>
   );
 };
