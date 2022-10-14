@@ -12,6 +12,10 @@ export const StyledAnswerWrapper = styled(motion.div)`
   line-height: 21px;
   font-weight: 600;
   font-family: 'Roboto';
+
+  @media only screen and (max-width: 768px){
+    color: #23423D;
+  }
 `;
 export const StyledQuestionWrapper = styled.div`
   display: flex;
@@ -32,6 +36,14 @@ export const StyledBgWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%;
+  }
 `
 export const StyledQuestionText = styled.div`
   position: relative;
@@ -41,4 +53,5 @@ export const StyledQuestionText = styled.div`
   font-size: 18px;
   line-height: 21px;
   color: #fff;
+  max-width: 70%;
 `

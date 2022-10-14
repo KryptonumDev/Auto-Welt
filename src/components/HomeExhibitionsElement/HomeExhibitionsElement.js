@@ -97,7 +97,6 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         textColor="var(--primary900)"
         hasFontSize={width < 376 ? "15px" : "21px"}
         hasDeclaredPadding="10px 33px"
-        hasBorder="1px solid transparent"
         hoverBgColor="var(--secondary700)"
       />
     </StyledHomeExhibitionsElement>

@@ -12,6 +12,7 @@ import {
   StyledCustomCheckbox
 } from "./StyledHomeContactForm";
 import { StyledText } from "../Text/StyledText";
+import useWindowSize from "../../utils/getWindowSize";
 
 const ContactSchema = Yup.object().shape({
   firstName: Yup.string().min(2, "*za krótkie!").required("*pole wymagane"),
@@ -23,6 +24,7 @@ const ContactSchema = Yup.object().shape({
 });
 
 const HomeContactForm = ({ data }) => {
+  const width = useWindowSize();
   const handleSubmit = () => {
     console.log("elo siema");
   };
@@ -87,9 +89,11 @@ const HomeContactForm = ({ data }) => {
                 <Button
                   text={data.wpPage.homepage.formularzKontaktowy.trescPrzyciskuPotwierdzajacegoWyslanie}
                   bgColor="var(--secondary500)"
-                  hasBorder="2px solid var(--secondary500)"
-                  hasHeight="44px"
                   textColor="var(--primary900)"
+                  hasBorder="2px solid var(--secondary500)"
+                  hasFontSize={width < 376 ? "15px" : "21px"}
+                  hasDeclaredPadding="10px 33px"
+                  hoverBgColor="var(--secondary700)"
                 />
               </button>
             </StyledButtonWrapper>

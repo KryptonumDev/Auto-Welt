@@ -12,6 +12,10 @@ export const StyledHomeContactForm = styled.div`
     justify-content: space-between;
     gap: 15px;
   }
+
+  @media only screen and (max-width: 1119px){
+    padding: 22px;
+  }
 `;
 export const StyledInputWrapper = styled.div`
   width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
@@ -36,6 +40,13 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     resize: none;
+  }
+
+  @media only screen and (max-width: 1119px){
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
+  }
+  @media only screen and (max-width: 972px){
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
   }
 `;
 export const StyledErrorMessage = styled(ErrorMessage)`

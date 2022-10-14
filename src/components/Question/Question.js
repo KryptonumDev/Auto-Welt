@@ -14,7 +14,6 @@ import ArrowQuestion from "../../images/arrowQuestion.svg";
 
 const Question = ({ faqData }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <StyledQuestion isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
       <StyledQuestionWrapper isopen={isOpen}>
@@ -24,6 +23,7 @@ const Question = ({ faqData }) => {
           <GatsbyImage
             image={getImage(faqData.zdjecieTla.localFile)}
             alt={faqData.zdjecieTla.altText}
+            objectFit="fill"
           />
         </StyledBgWrapper>
       </StyledQuestionWrapper>

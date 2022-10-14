@@ -34,6 +34,7 @@ export const StyledButtonLinkNoHref = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: ${({ hasdeclaredfontsize }) => hasdeclaredfontsize ? hasdeclaredfontsize : "21px"};
   border: ${({ hasborder }) =>
     hasborder ? hasborder : "2px solid var(--primary500)"};
   outline: 0;
