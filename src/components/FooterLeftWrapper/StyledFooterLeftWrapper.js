@@ -2,6 +2,33 @@ import styled from "styled-components";
 
 export const StyledFooterLeftWrapper = styled.div`
   max-width: 295px;
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    max-width: unset;
+    display: flex;
+    justify-content: space-between;
+    > div {
+      width: 42%;
+      &:first-child{
+        width: 55%;
+      }
+    }
+  }
+  @media only screen and (max-width: 500px){
+    width: 100%;
+    flex-wrap: wrap;
+    order 1;
+    > div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      &:first-child{
+        width: 100%;
+      }
+    }
+  }
 `;
 export const StyledLogoWrapper = styled.div`
   width: 100%;
@@ -21,10 +48,25 @@ export const StyledSubLogoText = styled.div`
   margin-top: 32px;
   font: 400 18px/1.2em;
   color: #FAF6EE;
+  font-family: 'Roboto';
+  @media only screen and (max-width: 500px){
+    text-align: center;
+    margin-bottom: 40px;
+  }
 `;
 export const StyledContactWrapper = styled.div`
   width: 100%;
   margin-top: 48px;
+  @media only screen and (max-width: 768px){
+    margin-top: 0;
+  }
+  @media only screen and (max-width: 500px){
+    > div {
+      p{
+        text-align: center;
+      }
+    }
+  }
 `;
 export const StyledIconsWrapper = styled.div`
   width: 100%;
@@ -44,6 +86,15 @@ export const StyledIconsWrapper = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 500px){
+    justify-content: center;
+    > a{
+      svg{
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
 `;
 export const StyledAddressWrapper = styled.div`
   > div {
@@ -53,6 +104,13 @@ export const StyledAddressWrapper = styled.div`
     &:first-child{
       p {
         font-wieght: 500;
+      }
+    }
+  }
+  @media only screen and (max-width: 500px){
+    > div {
+      p{
+        text-align: center;
       }
     }
   }

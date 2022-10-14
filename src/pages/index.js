@@ -10,6 +10,8 @@ import HomeArticles from "../components/HomeArticles/HomeArticles";
 import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 import QuestionContact from "../components/QuestionContact/QuestionContact";
 
+import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContact";
+
 const IndexPage = () => {
   return (
     <>
@@ -17,11 +19,13 @@ const IndexPage = () => {
       <HomeCollections />
       <HomeExhibitions />
       <HomeRecommendations />
-      <HomeContact />
+      <StyledContactWrapper>
+        <HomeContact />
+      </StyledContactWrapper>
       <Questions />
       <QuestionContact />
-      <HomeArticles />
-      <HomeCalendar />
+      {/* <HomeArticles /> */}
+      {/* <HomeCalendar /> */}
     </>
   );
 };

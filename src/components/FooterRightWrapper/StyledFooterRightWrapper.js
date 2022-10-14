@@ -6,6 +6,24 @@ export const StyledFooterRightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media only screen and (max-width: 768px){
+    width: 55%;
+    max-width: unset;
+  }
+  @media only screen and (max-width: 500px){
+    width: 100%;
+    order 3;
+    align-items: center;
+    > p {
+      text-align: center;
+      font-size: 24px;
+    }
+    > a{
+      width: 95%;
+      margin-left: 0;
+    }
+  }
 `;
 export const StyledEventWrapper = styled.div`
   margin-bottom: 30px;

@@ -4,6 +4,10 @@ import { motion } from "framer-motion"
 export const StyledQuestion = styled.div`
   width: 100%;
   padding-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
+  
+  @media only screen and (max-width: 768px){
+    padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};
+  }
 `;
 export const StyledAnswerWrapper = styled(motion.div)`
   width: 100%;

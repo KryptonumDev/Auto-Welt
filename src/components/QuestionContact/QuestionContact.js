@@ -58,13 +58,15 @@ const QuestionContact = () => {
           <GatsbyImage
             image={getImage(data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie.localFile)}
             alt={data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie.altText}
+            objectFit="fill"
           />
         </StyledImageInfoWrapper>
         <StyledText
           hasdeclaredfontsize="18px"
-          hasdeclaredfontweight="600"
+          hasdeclaredfontweight= "600"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
+          hasdeclaredtextalign="center"
         >
           {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie}
         </StyledText>

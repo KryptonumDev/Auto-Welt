@@ -20,17 +20,19 @@ import InstagramIcon from "../../images/headerIcons/instagram.svg";
 const FooterLeftWrapper = ({ footerData }) => {
   return (
     <StyledFooterLeftWrapper>
-      <StyledLogoWrapper>
-        <StyledLink to="/">
-          <GatsbyImage
-            image={getImage(footerData.logo.localFile)}
-            alt={footerData.logo.altText}
-          />
-        </StyledLink>
-      </StyledLogoWrapper>
-      <StyledSubLogoText>
-        {parse(footerData.tekstPodLogiem)}
-      </StyledSubLogoText>
+      <div>
+        <StyledLogoWrapper>
+          <StyledLink to="/">
+            <GatsbyImage
+              image={getImage(footerData.logo.localFile)}
+              alt={footerData.logo.altText}
+            />
+          </StyledLink>
+        </StyledLogoWrapper>
+        <StyledSubLogoText>
+          {parse(footerData.tekstPodLogiem)}
+        </StyledSubLogoText>
+      </div>
       <StyledContactWrapper>
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"

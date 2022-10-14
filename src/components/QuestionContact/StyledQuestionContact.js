@@ -12,6 +12,7 @@ export const StyledInfoWrapper = styled.div`
   max-width: 621px;
   width: 100%;
   padding: 20px;
+  height: 100%;
   transform: translateY(-40px);
   border-width: 0px 6px 6px 0px;
   border-style: solid;
@@ -24,6 +25,22 @@ export const StyledInfoWrapper = styled.div`
   jusityf-content: center;
   flex-direction: column;
   position: relative;
+
+  @media only screen and (max-width: 768px){
+    max-width: 70%;
+  }
+  @media only screen and (max-width: 583px){
+    max-width: 95%;
+  }
+  @media only screen and (max-width: 439px){
+    > p {
+      font-size: 13px;
+    }
+    > a {
+      font-size: 15px;
+      width: 100%;
+    }
+  }
 `;
 export const StyledImageContactWrapper = styled.div`
   width: 100%;
@@ -34,4 +51,13 @@ export const StyledImageInfoWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%:
+  }
 `

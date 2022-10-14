@@ -28,4 +28,12 @@ export const StyledFooterMainWrapper = styled.div`
   padding: 52px 16px 89px 16px;
   position: relative;
   z-index: 1;
+
+  display: flex;
+  gap: 20px;
+
+  @media only screen and (max-width: 768px){
+    flex-wrap: wrap;
+    padding-top: 70px;
+  }
 `;
