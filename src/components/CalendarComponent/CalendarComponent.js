@@ -47,6 +47,9 @@ const CalendarComponent = () => {
             view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
           }
           showNavigation={false}
+          formatDay={(locale, date) =>
+            date.getMonth() === currentDate.getMonth() ? date.getDate() : ""
+          }
         />
         <div
           style={{ backgroundColor: "red", minWidth: "50px" }}
