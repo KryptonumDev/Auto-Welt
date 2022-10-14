@@ -42,6 +42,7 @@ const CalendarComponent = () => {
               "SOBOTA"
             ][date.getDay()]
           )}
+          tileDisabled={() => true}
           tileContent={({ activeStartDate, date, view }) =>
             view === "month" && date.getDay() === 0 ? <p>It's Sunday!</p> : null
           }
