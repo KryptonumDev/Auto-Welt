@@ -45,5 +45,7 @@ export const StyledImageWrapper = styled.div`
   }
   @media only screen and (max-width: 688px){
     width: 100%;
+    min-width: unset;
+    max-height: unset;
   }
 `;

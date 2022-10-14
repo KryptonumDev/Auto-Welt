@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledCollectionElementSlider = styled.section`
   margin-top: 120px;
@@ -17,10 +18,12 @@ export const StyledCollectionElementSlider = styled.section`
   @media only screen and (max-width: 546px){
     min-height: unset;
     margin-top: 60px;
-    padding-bottom: 60px;
+  }
+  @media only screen and (max-width: 375px){
+    margin-bottom: 60px;
   }
 `;
-export const StyledLeftArrow = styled.div`
+export const StyledLeftArrow = styled(motion.div)`
   background: var(--primary500);
   padding: 5px;
   cursor: pointer;
@@ -35,20 +38,20 @@ export const StyledLeftArrow = styled.div`
   @media only screen and (max-width: 768px){
     width: 40px;
     height: 56px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
+    margin-right: -18px;
+    position: relative;
     z-index: 1;
   }
   @media only screen and (max-width: 546px){
-    bottom: 0;
+    position: absolute;
+    bottom: -20px;
     top: auto;
     transform: translateY(0);
-    left: 38%;
+    left: 34%;
+    margin-right: 0;
   }
 `;
-export const StyledRightArrow = styled.div`
+export const StyledRightArrow = styled(motion.div)`
   background: var(--primary500);
   padding: 5px;
   cursor: pointer;
@@ -64,26 +67,28 @@ export const StyledRightArrow = styled.div`
   @media only screen and (max-width: 768px){
     width: 40px;
     height: 56px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
+    margin-left: -18px;
+    position: relative;
+    z-index: 1;
   }
   @media only screen and (max-width: 546px){
-    bottom: 0;
+    position: absolute;
+    bottom: -20px;
     top: auto;
     transform: translateY(0);
-    right: 38%;
+    right: 34%;
+    margin-left: 0;
   }
 `;
-export const StyledImagesWrapper = styled.div`
+export const StyledImagesWrapper = styled(motion.div)`
   width: 100%;
   max-width: 943px;
   min-height: 346px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 27px;
-
+  overflow: hidden;
   @media only screen and (max-width: 768px){
     height: 100%;
     gap: 0;
@@ -93,10 +98,10 @@ export const StyledImagesWrapper = styled.div`
     width: 100%;
   }
 `;
-export const StyledImage = styled.div`
+export const StyledImage = styled(motion.div)`
   max-width: 457px;
   width: 50%;
-  
+  height: 100%;
   img{
     width: 100%;
     height: 100%;

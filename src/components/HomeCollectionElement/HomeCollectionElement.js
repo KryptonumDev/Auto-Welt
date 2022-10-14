@@ -29,7 +29,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
       </StyledImage>
       <Button
         text={buttonText}
-        whereGo={`/kolekcje/${whereGo}`}
+        whereGo={`/kolekcje-modeli/${whereGo}`}
         textColor="var(--white)"
         bgColor="var(--primary500)"
         hasMaxWidth="323px"
