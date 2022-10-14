@@ -20,7 +20,13 @@ const CalendarComponent = () => {
       >
         <div
           style={{ backgroundColor: "red", minWidth: "50px" }}
-          onClick={() => setCurrentDate((date) => new Date(date.setMonth(date.getMonth()-1)))}
+          onClick={() => {
+            setCurrentDate((date) => {
+              const newDate = new Date(date.getTime());
+              newDate.setMonth(newDate.getMonth()-1);
+              return newDate.getTime() < minDate.getTime() ? date : newDate;
+            })
+          }}
         >
           {'<'}
         </div>
@@ -53,7 +59,13 @@ const CalendarComponent = () => {
         />
         <div
           style={{ backgroundColor: "red", minWidth: "50px" }}
-          onClick={() => setCurrentDate((date) => new Date(date.setMonth(date.getMonth()+1)))}
+          onClick={() => {
+            setCurrentDate((date) => {
+              const newDate = new Date(date.getTime());
+              newDate.setMonth(newDate.getMonth()+1);
+              return newDate.getTime() > maxDate.getTime() ? date : newDate;
+            })
+          }}
         >
           {'>'}
         </div>
