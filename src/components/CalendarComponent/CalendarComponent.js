@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { startOfAdjacentMonth, endOfAdjacentMonth } from "../../utils/date";
 
 import {
   StyledCalendarComponent,
@@ -6,18 +7,19 @@ import {
 } from "./StyledCalendarComponent";
 
 const CalendarComponent = () => {
-  const [value, onChange] = useState(new Date());
+  const now = new Date(),
+    minDate = startOfAdjacentMonth({ date: now, month: -1 }),
+    maxDate = endOfAdjacentMonth({ date: now, month: 3 }),
+    [currentDate, setCurrentDate] = useState(now);
 
   return (
     <StyledCalendarComponent>
       <StyledCalendar
-        onChange={onChange}
-        value={value}
-        defaultValue={[
-          new Date(2022, 10, 1),
-          new Date(2022, 10, 2),
-          new Date(2022, 10, 3),
-        ]}
+        minDate={minDate}
+        maxDate={maxDate}
+        onChange={setCurrentDate}
+        value={currentDate}
+        defaultValue={now}
         defaultView="month"
         formatShortWeekday={(locale, date) => (
           [

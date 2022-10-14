@@ -25,7 +25,7 @@ const IndexPage = () => {
       <Questions />
       <QuestionContact />
       {/* <HomeArticles /> */}
-      {/* <HomeCalendar /> */}
+      <HomeCalendar />
     </>
   );
 };
