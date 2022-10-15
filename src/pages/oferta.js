@@ -8,10 +8,10 @@ import CheckOutWithOffer from "../components/CheckOutWithOffer/CheckOutWithOffer
 const Offer = () => {
   return (
     <>
-      <OfferHeroSection />
+      {/* <OfferHeroSection />
       <OfferEvents />
       <CheckOutWithOffer />
-      <HomeArticles />
+      <HomeArticles /> */}
     </>
   );
 };

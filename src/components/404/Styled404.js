@@ -4,11 +4,12 @@ export const StyledMainContainer = styled.section`
     display: flex;
     justify-content: space-between;
     width: 100%;
-
-    padding-bottom: 60px;
-
+    max-width: 1144px;
+    padding: 0 32px 60px;
+    margin: 0 auto;
     @media only screen and (max-width: 768px){
         margin-top: 134px;
+        padding: 0 16px 60px;
     }
     @media only screen and (max-width: 617px){
         flex-direction: column-reverse;

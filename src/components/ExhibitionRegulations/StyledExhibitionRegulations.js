@@ -2,9 +2,12 @@ import styled from "styled-components"
 
 export const StyledExhibitionRegulations = styled.section`
     width: 100%;
-    padding-bottom: 120px;
+    margin: 0 auto 120px;
+    max-width: 1144px;
+    padding: 0 32px;
     @media only screen and (max-width: 768px){
         margin-top: 120px;
+        padding: 0 16px
     }
 `
 export const StyledContentWrapper = styled.div`

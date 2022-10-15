@@ -2,9 +2,11 @@ import styled from "styled-components"
 
 export const StyledPrivacyPolicy = styled.section`
     width: 100%;
-    margin: 30px 0 60px;
-
+    margin: 30px auto 60px;
+    max-width: 1144px;
+    padding: 0 32px;
     @media only screen and (max-width: 768px){
+        padding: 0 16px;
         margin-top: 134px;
         h1{
             font-size: 38px;

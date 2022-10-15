@@ -14,35 +14,35 @@ const ExhibitionRegulations = ({ data }) => {
   const queryData = data.wpPage.regulaminWystaw;
   return (
     <StyledExhibitionRegulations>
-        <StyledContentWrapper>
-            <StyledText
-                hasdeclaredfontsize="48px"
-                hasdeclaredfontweight="400"
-                hasdeclaredlineheight="1.2em"
-                hasdeclaredfontcolor="var(--primary500)"
-                hasdeclaredfontfamily="Nocturne Serif"
-                as="h1"
-            >
-                {queryData.tytulStrony}
-            </StyledText>
-            <StyledTextWrapper>
-                {parse(queryData.tekstPodTytulem)}
-            </StyledTextWrapper>
-            <StyledLinkWrapper>
-                <Link 
-                    to={queryData.pierwszyLink.url} 
-                    target={queryData.pierwszyLink.target}
-                >
-                    {queryData.pierwszyLink.title}
-                </Link>
-                <Link 
-                    to={queryData.drugiLink.url} 
-                    target={queryData.drugiLink.target}
-                >
-                    {queryData.drugiLink.title}
-                </Link>
-            </StyledLinkWrapper>
-        </StyledContentWrapper>
+      <StyledContentWrapper>
+          <StyledText
+              hasdeclaredfontsize="48px"
+              hasdeclaredfontweight="400"
+              hasdeclaredlineheight="1.2em"
+              hasdeclaredfontcolor="var(--primary500)"
+              hasdeclaredfontfamily="Nocturne Serif"
+              as="h1"
+          >
+              {queryData.tytulStrony}
+          </StyledText>
+          <StyledTextWrapper>
+              {parse(queryData.tekstPodTytulem)}
+          </StyledTextWrapper>
+          <StyledLinkWrapper>
+              <Link 
+                  to={queryData.pierwszyLink.url} 
+                  target={queryData.pierwszyLink.target}
+              >
+                  {queryData.pierwszyLink.title}
+              </Link>
+              <Link 
+                  to={queryData.drugiLink.url} 
+                  target={queryData.drugiLink.target}
+              >
+                  {queryData.drugiLink.title}
+              </Link>
+          </StyledLinkWrapper>
+      </StyledContentWrapper>
     </StyledExhibitionRegulations>
   )
 }

@@ -35,7 +35,6 @@ const PrivacyPolicy = ({ data }) => {
         setRightData(right);
     }, [data])
 
-
     return (
         <StyledPrivacyPolicy>
             <StyledText
