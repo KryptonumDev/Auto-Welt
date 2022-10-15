@@ -36,6 +36,16 @@ const HomeCalendar = () => {
         }
       }
     }
+    allWpWystawa {
+      edges {
+        node {
+          wystawa {
+            data
+            miejsce
+          }
+        }
+      }
+    }
   }
   `)
   return (
@@ -50,7 +60,7 @@ const HomeCalendar = () => {
       >
         {data.wpPage.homepage.kalendarz.tytulSekcji}
       </StyledText>
-      <CalendarComponent />
+      <CalendarComponent exhibitions={data.allWpWystawa.edges.map(edge => edge.node.wystawa)} />
       <StyledButtonWrapper>
         <Button 
           text={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.title}
