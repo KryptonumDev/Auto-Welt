@@ -6,7 +6,7 @@ import {
   StyledCalendar,
 } from "./StyledCalendarComponent";
 
-const CalendarComponent = () => {
+const CalendarComponent = ({ exhibitions = [] }) => {
   const now = new Date(),
     futureMonths = 3,
     minDate = startOfAdjacentMonth({ date: now, month: -1 }),
@@ -58,12 +58,28 @@ const CalendarComponent = () => {
             ][date.getDay()]
           )}
           tileDisabled={() => true}
-          tileContent={({ activeStartDate, date, view }) =>
-            view === "month" && date.getMonth() === currentDate.getMonth() && date.getDay() === 0 ? <p>It's Sunday!</p> : null
-          }
+          tileContent={({ activeStartDate, date, view }) => (
+            date.getMonth() === currentDate.getMonth() ? (
+              (() => {
+                const exhibition = exhibitions.find(
+                  exhibition => (
+                    exhibition.data === `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+                  )
+                );
+
+                return (
+                  (exhibition) ? (
+                    <p style={{ backgroundColor: "red" }}>
+                      Wystawa {exhibition.data} w {exhibition.miejsce}
+                    </p>
+                  ) : (undefined)
+                );
+              })()
+            ) : (undefined)
+          )}
           showNavigation={false}
           formatDay={(locale, date) =>
-            date.getMonth() === currentDate.getMonth() ? date.getDate() : ""
+            (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") + '\n'
           }
         />
         <div
