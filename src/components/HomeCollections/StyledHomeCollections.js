@@ -3,10 +3,11 @@ import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
 
 export const StyledHomeCollections = styled.section`
   width: 100%;
-  margin-bottom: 120px;
+  max-width: 1144px;
+  margin: 0 auto 120px auto;
   padding: 0 55px 0 32px;
   @media only screen and (max-width: 768px) {
-    padding-right: 0;
+    padding: 0 16px;
   }
 `;
 export const StyledImagesWrapper = styled.div`

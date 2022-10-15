@@ -15,10 +15,8 @@ const GlobalLayout = ({ children }) => {
       <MenuProvider>
         <GlobalStyle />
         <StyledOverflowWrapper>
-          <StyledMainChildren>
-            <Header />
-            {children}
-          </StyledMainChildren>
+          <Header />
+          {children}
           <Footer />
         </StyledOverflowWrapper>
       </MenuProvider>

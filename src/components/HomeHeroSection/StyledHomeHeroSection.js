@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const StyledHomeHeroSection = styled.section`
+  max-width: 1144px;
   display: grid;
-  margin-top: 52px;
+  padding: 0 32px;
+  margin: 52px auto 0 auto;
   grid-template-areas: "left center center center right";
   @media only screen and (max-width: 768px) {
     margin-top: 0;
+    padding: 0 16px;
     grid-template-areas:
       "center"
       "left"

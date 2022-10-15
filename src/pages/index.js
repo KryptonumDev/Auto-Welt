@@ -24,7 +24,7 @@ const IndexPage = () => {
       </StyledContactWrapper>
       <Questions />
       <QuestionContact />
-      {/* <HomeArticles /> */}
+      <HomeArticles />
       <HomeCalendar />
     </>
   );

@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 export const StyledQuestionContact = styled.div`
-  margin-top: 60px;
-  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 80px;
+
+  width: 100%;
+  max-width: 1144px;
+  margin: 60px auto 80px auto;
+  padding: 0 32px;
+  @media only screen and (max-width: 768px){
+    padding: 0 16px;
+  }
 `;
 export const StyledInfoWrapper = styled.div`
   max-width: 621px;

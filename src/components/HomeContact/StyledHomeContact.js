@@ -94,10 +94,15 @@ export const StyledTitleImage = styled.div`
   }
 `
 export const StyledContactWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
+
+  width: 100%;
+  max-width: 1144px;
+  margin: 0 auto;
+  padding: 0 32px;
   @media only screen and (max-width: 843px){
     justify-content: flex-end;
+    padding: 0 16px;
   }
 `

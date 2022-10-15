@@ -47,8 +47,8 @@ const AboutMeHeroSection = ({ heroData }) => {
                 </StyledBottomPlaster>
                 <StyledBottomImage>
                     <GatsbyImage 
-                        image={getImage(heroData.pierwszeZdjecie.localFile)}
-                        alt={heroData.pierwszeZdjecie.altText}
+                        image={getImage(heroData.drugieZdjecie.localFile)}
+                        alt={heroData.drugieZdjecie.altText}
                     />
                 </StyledBottomImage>
             </StyledBottomImages>
@@ -58,7 +58,7 @@ const AboutMeHeroSection = ({ heroData }) => {
                 {parse(heroData.tytul)}
             </StyledTitleWrapper>
             <StyledSubTitleWrapper>
-                {parse(heroData.opisPodCzesc)}
+                {parse(heroData.zielonyOpisPodTytulem)}
             </StyledSubTitleWrapper>
             <StyledDescWrapper>
                 {parse(heroData.opis)}
@@ -68,6 +68,11 @@ const AboutMeHeroSection = ({ heroData }) => {
                     text={heroData.przyciskPodOpisem.title}
                     whereGo={heroData.przyciskPodOpisem.url}
                     hasTarget={heroData.przyciskPodOpisem.target}
+                    hasDeclaredPadding="10px 33px"
+                    bgColor="var(--secondary500)"
+                    textColor="var(--primary900)"
+                    hasFontSize="21px"
+                    hoverBgColor="var(--secondary700)"
                 />
             </StyledButtonWrapper>
         </StyledTextWrapper>

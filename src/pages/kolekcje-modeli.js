@@ -7,6 +7,7 @@ import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton
 
 import { 
   StyledContentWrapper,
+  StyledModelCollections
 } from "../components/Collections/StyledCollections";
 
 import useWindowSize from "../utils/getWindowSize";
@@ -16,21 +17,23 @@ const ModelCollections = ({ data }) => {
   const greenData = data.wpPage.kolekcjeModeli;
   return (
     <>
-      <StyledContentWrapper>
-        {data.allWpKolekcje.edges.map(({ node }) => <ModelCollection collectionData={node.kolekcja} slug={node.slug}/>)}
-      </StyledContentWrapper>
-      <RecInfoWithButton
-        text={greenData.tekstWZielonymInpucie}
-        btnText={greenData.linkWZielonymInpucie.title}
-        btnWhereGo={greenData.linkWZielonymInpucie.url}
-        hasTarget={greenData.linkWZielonymInpucie.target}
-        btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
-        btnBgColor="var(--secondary500)"
-        btnColor="var(--primary900)"
-        bgImage={greenData.tloDlaZielonegoProstokataPodKolekcjami}
-        btnFontSize="21px"
-        btnHoverBg="var(--secondary700)"
-      />
+      <StyledModelCollections>
+        <StyledContentWrapper>
+          {data.allWpKolekcje.edges.map(({ node }) => <ModelCollection collectionData={node.kolekcja} slug={node.slug}/>)}
+        </StyledContentWrapper>
+        <RecInfoWithButton
+          text={greenData.tekstWZielonymInpucie}
+          btnText={greenData.linkWZielonymInpucie.title}
+          btnWhereGo={greenData.linkWZielonymInpucie.url}
+          hasTarget={greenData.linkWZielonymInpucie.target}
+          btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
+          btnBgColor="var(--secondary500)"
+          btnColor="var(--primary900)"
+          bgImage={greenData.tloDlaZielonegoProstokataPodKolekcjami}
+          btnFontSize="21px"
+          btnHoverBg="var(--secondary700)"
+        />
+      </StyledModelCollections>
       <HomeArticles isCollectionsModelPage={true} buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}/>
     </>
   );

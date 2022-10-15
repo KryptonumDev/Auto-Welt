@@ -8,11 +8,12 @@ import CollectionImageUnderDescImages from "../../CollectionImageUnderDescImages
 import CollectionElementSlider from "../../CollectionElementSlider/CollectionElementSlider";
 import RecInfoWithButton from "../../RecInfoWithButton/RecInfoWithButton";
 import CollectionElementThreeImages from "../../CollectionElementThreeImages/CollectionElementThreeImages";
+import { StyledCollectionTemplate } from "./StyledCollectionTemplate";
 
 const CollectionTemplate = ({ data }) => {
   const shortCollectionData = data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji;
   return (
-    <>
+    <StyledCollectionTemplate>
       <CollectionTemplateHeroImage
         heroData={shortCollectionData.pierwszaSekcja}
       />
@@ -50,7 +51,7 @@ const CollectionTemplate = ({ data }) => {
           linkData={shortCollectionData.wszystkieKolekcjieLink}
         />
       )}
-    </>
+    </StyledCollectionTemplate>
   );
 };
 

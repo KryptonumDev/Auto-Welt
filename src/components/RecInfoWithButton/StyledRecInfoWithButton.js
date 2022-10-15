@@ -10,10 +10,6 @@ export const StyledRecInfoWithButton = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    @media only screen and (max-width: 936px){
-        transform: translateX(${({ ismoveleft }) =>
-          ismoveleft ? "-32px" : "0"})
-    }
     @media only screen and (max-width: 580px){
         flex-direction: column;
         align-items: flex-start;
