@@ -30,10 +30,15 @@ export const StyledTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   @media only screen and (max-width: 594px){
     h2{
       font-size: 34px;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    h2{
+      font-size: 30px;
     }
   }
 `;

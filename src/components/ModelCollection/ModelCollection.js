@@ -20,6 +20,7 @@ const ModelCollection = ({ collectionData, slug }) => {
         <GatsbyImage
           image={getImage(shortDataKey.duzaMiniaturka.localFile)}
           alt={shortDataKey.duzaMiniaturka.altText}
+          objectFit="fill"
         />
       </StyledImage>
       <StyledTitle>
@@ -35,6 +36,7 @@ const ModelCollection = ({ collectionData, slug }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
+          hasdeclaredpadding="0 20px"
           hasdeclaredtextalign="center"
           as="h2"
         >

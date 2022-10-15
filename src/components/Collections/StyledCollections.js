@@ -20,3 +20,12 @@ export const StyledContentWrapper = styled.div`
         margin-top: 130px;
     }
 `
+export const StyledReqButton = styled.section`
+    width: 100%;
+    max-width: 1144px;
+    padding: 0 32px;
+    margin: 0 auto;
+    @media only screen and (max-width: 768px){
+        padding: 0 16px 0 0;
+    }
+`

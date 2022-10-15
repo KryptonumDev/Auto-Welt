@@ -22,7 +22,7 @@ const ShopInProgress = ({ shopData }) => {
     <StyledShopInProgress>
       <StyledImagesWrapper>
         <StyledIconWrapper>
-        <GatsbyImage
+          <GatsbyImage
             image={getImage(shopData.zdjeciePlastra.localFile)}
             alt={shopData.zdjeciePlastra.altText}
           />
@@ -65,6 +65,7 @@ const ShopInProgress = ({ shopData }) => {
             whereGo={shopData.prawyPrzycisk.url}
             text={shopData.prawyPrzycisk.title}
             textColor="var(--white)"
+            hasBorder="2px solid var(--primary500)"
             bgColor="var(--primary500)"
             hasFontSize="21px"
             hasTarget={shopData.prawyPrzycisk.target}

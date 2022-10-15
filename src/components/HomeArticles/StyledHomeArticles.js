@@ -7,7 +7,7 @@ export const StyledHomeArticles = styled.section`
   align-items: center;
 
   max-width: 1144px;
-  margin: ${({ iscollectionpage }) => iscollectionpage ? "120px auto" : "0 auto"};
+  margin: ${({ iscollectionpage }) => iscollectionpage ? "120px auto 0" : "0 auto"};
   padding: 0 32px;
 
   @media only screen and (max-width: 768px){
@@ -27,7 +27,35 @@ export const StyledArticlesWrapper = styled.div`
   }
 `;
 export const StyledButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 40px;
+  padding: 0 32px 120px;
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    margin-top: 30px;
+    padding: 0 16px 60px;
+  }
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 594px){
+    a{
+      width: 95%;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    a{
+      font-size: 15px;
+    }
+  }
 `;
 export const StyledPaddingWrapper = styled.div`
   max-width: 1144px;

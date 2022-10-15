@@ -1,13 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-
+import { getImage, withArtDirection } from "gatsby-plugin-image";
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 import ModelCollection from "../components/ModelCollection/ModelCollection";
 import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
 
 import { 
   StyledContentWrapper,
-  StyledModelCollections
+  StyledModelCollections,
+  StyledReqButton
 } from "../components/Collections/StyledCollections";
 
 import useWindowSize from "../utils/getWindowSize";
@@ -15,12 +16,25 @@ import useWindowSize from "../utils/getWindowSize";
 const ModelCollections = ({ data }) => {
   const width = useWindowSize();
   const greenData = data.wpPage.kolekcjeModeli;
+
+  const images = withArtDirection(getImage(greenData.tloDlaZielonegoProstokataPodKolekcjami.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(greenData.tloMobileDlaZielonegoProstokataPodKolekcjami.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(greenData.tloTabletDlaZielonegoProstokataPodKolekcjami.localFile),
+    }
+  ])
   return (
     <>
       <StyledModelCollections>
         <StyledContentWrapper>
           {data.allWpKolekcje.edges.map(({ node }) => <ModelCollection collectionData={node.kolekcja} slug={node.slug}/>)}
         </StyledContentWrapper>
+      </StyledModelCollections>
+      <StyledReqButton>
         <RecInfoWithButton
           text={greenData.tekstWZielonymInpucie}
           btnText={greenData.linkWZielonymInpucie.title}
@@ -29,11 +43,11 @@ const ModelCollections = ({ data }) => {
           btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
-          bgImage={greenData.tloDlaZielonegoProstokataPodKolekcjami}
+          bgImage={images}
           btnFontSize="21px"
           btnHoverBg="var(--secondary700)"
         />
-      </StyledModelCollections>
+      </StyledReqButton>
       <HomeArticles isCollectionsModelPage={true} buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}/>
     </>
   );
@@ -74,7 +88,7 @@ query collectionsQueryD {
   }
   wpPage(id: {eq: "cG9zdDo0MDQ="}) {
     kolekcjeModeli {
-      przyciskPodArtykulamiNaDoleStrony{
+      przyciskPodArtykulamiNaDoleStrony {
         target
         title
         url
@@ -86,6 +100,22 @@ query collectionsQueryD {
         url
       }
       tloDlaZielonegoProstokataPodKolekcjami {
+        altText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      tloMobileDlaZielonegoProstokataPodKolekcjami {
+        altText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      tloTabletDlaZielonegoProstokataPodKolekcjami {
         altText
         localFile {
           childImageSharp {
