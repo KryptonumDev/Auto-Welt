@@ -81,11 +81,6 @@ query AboutMeQuery {
             }
           }
         }
-        linkPrzyIkonceAparatu {
-          target
-          title
-          url
-        }
         tekstPrzyIkonceAparatu
         trzyZdjecia {
           altText

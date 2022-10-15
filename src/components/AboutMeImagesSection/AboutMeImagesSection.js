@@ -40,12 +40,6 @@ const AboutMeImagesSection = ({ imagesData }) => {
             </StyledIconWrapper>
             <StyledTextWrapper>
                 {parse(imagesData.tekstPrzyIkonceAparatu)}
-                <a 
-                    href={imagesData.linkPrzyIkonceAparatu.url} 
-                    target={imagesData.linkPrzyIkonceAparatu.target}
-                >
-                    {imagesData.linkPrzyIkonceAparatu.title}
-                </a>
             </StyledTextWrapper>
         </StyledAparatWrapper>
     </StyledAboutMeImagesSection>
