@@ -10,6 +10,16 @@ export const StyledRecInfoWithButton = styled.div`
     justify-content: flex-start;
     align-items: center;
 
+    @media only screen and (max-width: 1065px){
+      a{
+        font-size: 18px;
+      }
+    }
+    @media only screen and (max-width: 685px){
+      a{
+        font-size: 16px;
+      }
+    }
     @media only screen and (max-width: 580px){
         flex-direction: column;
         align-items: flex-start;
@@ -17,6 +27,7 @@ export const StyledRecInfoWithButton = styled.div`
         min-height: 141px;
         p{
           padding: 16px;
+          font-size: 24px;
         }
         a{
           min-width: 255px;
@@ -24,7 +35,9 @@ export const StyledRecInfoWithButton = styled.div`
         }
     }
     @media only screen and (max-width: 375px){
-      a, p{
+      a{
+        width: 65%;
+        min-width: unset;
         font-size: 15px;
       }
     }

@@ -46,7 +46,7 @@ export const StyledLogoWrapper = styled.div`
 export const StyledSubLogoText = styled.div`
   width: 100%;
   margin-top: 32px;
-  font: 400 18px/1.2em;
+  font: 300 18px/1.2em;
   color: #FAF6EE;
   font-family: 'Roboto';
   @media only screen and (max-width: 500px){

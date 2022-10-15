@@ -18,13 +18,15 @@ const StyledAboutMe = styled.div`
   overflow: hidden;
 `
 const AboutMe = ({ data }) => {
-  return <StyledAboutMe>
-    <AboutMeHeroSection heroData={data.wpPage.oMnie.pierwszaSekcjaStrony} />
-    <AboutMeSecondSection secondData={data.wpPage.oMnie.drugaSekcja} />
-    <AboutMeImagesSection imagesData={data.wpPage.oMnie.trzeciaSekcja} />
-    <HomeRecommendations />
-    <HomeExhibitions />
-  </StyledAboutMe>;
+  return (
+    <StyledAboutMe>
+      <AboutMeHeroSection heroData={data.wpPage.oMnie.pierwszaSekcjaStrony} />
+      <AboutMeSecondSection secondData={data.wpPage.oMnie.drugaSekcja} />
+      <AboutMeImagesSection imagesData={data.wpPage.oMnie.trzeciaSekcja} />
+      <HomeRecommendations />
+      <HomeExhibitions />
+    </StyledAboutMe>
+  );
 };
 
 export default AboutMe;

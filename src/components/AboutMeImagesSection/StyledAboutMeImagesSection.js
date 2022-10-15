@@ -19,6 +19,7 @@ export const StyledImagesWrapper = styled.div`
 `
 export const StyledImage = styled.div`
     width: 49%;
+    margin-bottom: 20px;
     img{
         width: 100%;
         height: 100%;
@@ -32,12 +33,20 @@ export const StyledRightImage = styled.div`
     position: absolute;
     bottom: -100px;
     right: -200px;
+
+    @media only screen and (max-width: 960px){
+        max-width: 720px;
+    }
 `
 export const StyledAparatWrapper = styled.div`
     display: flex;
     margin-top: 100px;
     align-items: center;
     gap: 20px;
+
+    @media only screen and (max-width: 960px){
+        margin-top: 140px;
+    }
 `
 export const StyledIconWrapper = styled.div``
 export const StyledTextWrapper = styled.div`

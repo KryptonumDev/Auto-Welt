@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const StyledAboutMeSecondSection = styled.section`
-    width: 100%;
+    width: calc(100% - 32px);
     background: #FAF7F1;
     border-top: 6px solid #EDAC2A;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
@@ -11,11 +11,13 @@ export const StyledAboutMeSecondSection = styled.section`
     display: flex;
     justify-content: space-between;
     gap: 40px;
+
     @media only screen and (max-width: 948px){
         padding-right: 30px;
     }
     @media only screen and (max-width: 768px){
         padding: 52px 30px 80px 16px;
+        width: calc(100% - 16px);
     }
     @media only screen and (max-width: 574px){
         flex-direction: column-reverse;
@@ -102,6 +104,25 @@ export const StyledButtonsWrapper = styled.div`
     justify-content: center;
     gap: 20px;
     margin-top: 40px;
+
+    @media only screen and (max-width: 768px){
+        padding: 0 16px;
+    }
+    @media only screen and (max-width: 672px){
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 25px;   
+        > a {
+            width: 95%;
+        }
+    }
+    @media only screen and (max-width: 375px){
+        margin-top: 20px;
+        > a {
+            font-size: 15px;
+        }
+    }
 `
 export const StyledGreetingImage = styled.div`
     width: 100%;
@@ -131,4 +152,7 @@ export const StyledGreetingText = styled.div`
     font-size: 28px;
     line-height: 1.2em;
     padding: 48px 0 48px 59px;
+    @media only screen and (max-width: 542px){
+        font-size: 24px;
+    }
 `

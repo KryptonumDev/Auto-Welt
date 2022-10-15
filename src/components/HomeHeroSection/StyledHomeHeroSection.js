@@ -84,8 +84,18 @@ export const StyledButtonsWrapper = styled.div`
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px) {
     margin-top: 30px;
+  }
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
+    }
   }
   @media only screen and (max-width: 450px) {
     flex-direction: column;
@@ -94,10 +104,16 @@ export const StyledButtonsWrapper = styled.div`
       width: 100%;
     }
   }
+  @media only screen and (max-width: 375px){
+    a{
+      font-size: 15px;
+    }
+  }
 `;
 export const StyledImageWrapper = styled.div`
   width: 167px;
   height: 128px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   img {
     width: 100%;
     height: 100%;

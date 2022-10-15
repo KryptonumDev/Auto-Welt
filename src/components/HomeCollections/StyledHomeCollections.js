@@ -4,8 +4,9 @@ import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
 export const StyledHomeCollections = styled.section`
   width: 100%;
   max-width: 1144px;
-  margin: 0 auto 120px auto;
+  margin: 0 auto;
   padding: 0 55px 0 32px;
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
   }
@@ -16,12 +17,12 @@ export const StyledImagesWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  align-items: center;
+  align-items: flex-start;
   @media only screen and (max-width: 936px) {
     margin-bottom: 260px;
   }
   @media only screen and (max-width: 685px) {
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
   }
   @media only screen and (max-width: 587px) {
@@ -46,26 +47,28 @@ export const StyledImage = styled.div`
   @media only screen and (max-width: 936px) {
     width: 620px;
     height: 350px;
-    right: -150px;
+    right: -120px;
     bottom: -350px;
   }
   @media only screen and (max-width: 587px) {
     width: 402px;
     bottom: -350px;
+    right: -70px;
   }
   @media only screen and (max-width: 375px) {
-    right: -120px;
+    right: -80px;
   }
 `;
 
 export const StyledContentWrapper = styled.div`
   margin-top: 72px;
 `;
-export const StyledInfoWrapper = styled(RecInfoWithButton)`
-  background-color: red;
-  margin-top: 200px;
-  @media only screen and (max-width: 936px) {
-    transform: translateX(-32px);
-    background-color: red;
+export const StyledRecButtonWrapper = styled.div`
+  max-width: 1144px;
+  padding: 0 32px 0 0;
+  margin: 0 auto;
+  width: 100%;
+  @media only screen and (max-width: 768px){
+    padding: 0 16px 0 0;
   }
-`;
+`

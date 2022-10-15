@@ -26,12 +26,13 @@ const RecInfoWithButton = ({
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
       <StyledFooterImageWrapper>
         <GatsbyImage
-          image={getImage(bgImage.localFile)}
+          image={bgImage}
           alt={bgImage.altText}
+          objectFit="fill"
         />
       </StyledFooterImageWrapper>
       <StyledText
-        hasdeclaredfontsize="clamp(18px, 28px, 32px)"
+        hasdeclaredfontsize="28px"
         hasdeclaredfontcolor="var(--creamText)"
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontweight="400"
