@@ -15,6 +15,9 @@ export const StyledHomeContact = styled.section`
     align-self: right;
     max-width: 659px;
   }
+  @media only screen and (max-width: 768px){
+    margin-bottom: 60px;
+  }
 `;
 export const StyledLeftWrapper = styled.div`
   max-width: 410px;

@@ -12,6 +12,7 @@ export const StyledHomeRecommendations = styled.section`
 
   @media only screen and (max-width: 768px){
     padding: 0;
+    margin-bottom: 60px;
     > h2{
       font-size: 38px;
     }

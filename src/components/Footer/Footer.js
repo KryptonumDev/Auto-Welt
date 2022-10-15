@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby"
 
 import FooterLeftWrapper from "../FooterLeftWrapper/FooterLeftWrapper";
@@ -44,18 +44,51 @@ const Footer = () => {
           }
           wydarzeniaTytul
           szybkieLinkiTytul
+          tloDlaStopkiWersjaDesktop {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          tloDlaStopkiWersjaMobile {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          tloDlaStopkiWersjaTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
       }
     }
-  }
+  }  
   `)
+  const imageShort = data.wpPage.globalConfig.stopka;
+  const images = withArtDirection(getImage(imageShort.tloDlaStopkiWersjaDesktop.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(imageShort.tloDlaStopkiWersjaMobile.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(imageShort.tloDlaStopkiWersjaTablet.localFile),
+    }
+  ])
   return (
     <StyledFooter>
       <StyledImageWrapper>
-        <StaticImage
-          src="../../images/footerBg.jpg"
-          alt="background"
-          objectFit="cover"
+        <GatsbyImage
+          image={images}
+          objectFit="fill"
         />
       </StyledImageWrapper>
       <StyledFooterMainWrapper>

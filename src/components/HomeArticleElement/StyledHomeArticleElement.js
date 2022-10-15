@@ -70,10 +70,20 @@ export const StyledTextWrapper = styled.div`
     margin-top: 30px;
   }
 
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px){
     padding: 10px 26px 25px;
     > a {
       width: 95%;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
     }
   }
   @media only screen and (max-width: 375px){

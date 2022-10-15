@@ -20,7 +20,8 @@ import ListIcon from "../../images/ListIcon.svg";
 
 const HomeExhibitionsElement = ({ exhibitionData }) => {
   const width = useWindowSize();
-  const convertedData = exhibitionData.wystawa.data.split(' ');
+  const convertedData = new Date(exhibitionData.wystawa.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
+
   return (
     <StyledHomeExhibitionsElement>
       <StyledDataInformationWrapper>

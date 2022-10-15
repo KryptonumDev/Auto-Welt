@@ -17,6 +17,7 @@ export const StyledInfoWrapper = styled.div`
   max-width: 621px;
   width: 100%;
   padding: 20px;
+  min-height: 120px;
   height: 100%;
   transform: translateY(-40px);
   border-width: 0px 6px 6px 0px;
@@ -46,6 +47,9 @@ export const StyledInfoWrapper = styled.div`
       width: 100%;
     }
   }
+  @media only screen and (max-width: 375px){
+    padding-bottom: 30px;
+  }
 `;
 export const StyledImageContactWrapper = styled.div`
   width: 100%;
@@ -63,6 +67,8 @@ export const StyledImageInfoWrapper = styled.div`
   }
   .gatsby-image-wrapper{
     width: 100%;
-    height: 100%:
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 `

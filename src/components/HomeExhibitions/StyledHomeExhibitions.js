@@ -5,7 +5,7 @@ export const StyledHomeExhibitions = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1047px;
+  max-width: 1100px;
   margin: 120px auto;
   padding: 0 32px;
   > h2 {

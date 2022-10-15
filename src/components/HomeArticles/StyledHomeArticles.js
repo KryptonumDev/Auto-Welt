@@ -7,7 +7,7 @@ export const StyledHomeArticles = styled.section`
   align-items: center;
 
   max-width: 1144px;
-  margin: ${({ iscollectionpage }) => iscollectionpage ? "120px auto" : "0 auto 120px auto"};
+  margin: ${({ iscollectionpage }) => iscollectionpage ? "120px auto" : "0 auto"};
   padding: 0 32px;
 
   @media only screen and (max-width: 768px){
@@ -29,3 +29,12 @@ export const StyledArticlesWrapper = styled.div`
 export const StyledButtonWrapper = styled.div`
   margin-top: 40px;
 `;
+export const StyledPaddingWrapper = styled.div`
+  max-width: 1144px;
+  padding: 0 32px;
+  margin: 0 auto 120px;
+  @media only screen and (max-width: 768px){
+    padding: 0 16px 0 0;
+    margin: 0 auto 60px;
+  }
+`

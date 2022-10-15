@@ -7,20 +7,21 @@ export const StyledRecInfoWithButton = styled.div`
     position: relative;
 
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-
+    flex-wrap: wrap;
+    padding-right: 100px;
     @media only screen and (max-width: 1065px){
       a{
         font-size: 18px;
       }
     }
     @media only screen and (max-width: 685px){
+      padding-right: 40px;
       a{
         font-size: 16px;
       }
     }
-    @media only screen and (max-width: 580px){
+    @media only screen and (max-width: 664px){
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
