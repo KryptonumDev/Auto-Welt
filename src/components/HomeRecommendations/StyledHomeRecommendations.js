@@ -11,10 +11,13 @@ export const StyledHomeRecommendations = styled.section`
   padding: 0 32px;
 
   @media only screen and (max-width: 768px){
-    padding: 0 16px;
+    padding: 0;
     > h2{
       font-size: 38px;
     }
+  }
+  @media only screen and (max-width: 462px){
+    padding: 0 16px;
   }
   @media only screen and (max-width: 375px){
     > h2{
@@ -27,9 +30,6 @@ export const StyledRecommendationsWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  @media only screen and (max-width: 462px){
-    gap: 10px;
-  }
 `;
 export const StyledButtonsWrapper = styled.div`
   display: flex;
@@ -38,11 +38,20 @@ export const StyledButtonsWrapper = styled.div`
   gap: 30px;
   margin-top: 40px;
 
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px){
     flex-direction: column;
     gap: 12px;
   }
-
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
+    }
+  }
   @media only screen and (max-width: 462px){
     width: 92%;
     a{
@@ -87,6 +96,5 @@ export const StyledArrowWrapper = styled(motion.div)`
   }
   @media only screen and (max-width: 462px){
     background: transparent;
-    transform: translateX(0);
   }
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, withArtDirection  } from "gatsby-plugin-image";
 
 import HomeContactForm from "../HomeContactForm/HomeContactForm";
 
@@ -17,7 +17,7 @@ import { StyledText } from "../Text/StyledText";
 const HomeContact = () => {
   const data = useStaticQuery(graphql`
   query homeContact {
-    wpPage(id: { eq: "cG9zdDoxNQ==" }) {
+    wpPage(id: {eq: "cG9zdDoxNQ=="}) {
       homepage {
         formularzKontaktowy {
           tytul
@@ -44,18 +44,45 @@ const HomeContact = () => {
               }
             }
           }
+          lewyObrazekMobile {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          lewyObrazekTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
       }
     }
   }
-  `)
+  `);
+  const imageShort = data.wpPage.homepage.formularzKontaktowy;
+  const images = withArtDirection(getImage(imageShort.lewyObrazek.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(imageShort.lewyObrazekMobile.localFile),
+    },
+    {
+      media: "(max-width: 972px)",
+      image: getImage(imageShort.lewyObrazekTablet.localFile),
+    }
+  ])
   return (
     <StyledHomeContact>
       <StyledLeftWrapper>
         <StyledModel>
           <GatsbyImage
-            image={getImage(data.wpPage.homepage.formularzKontaktowy.lewyObrazek.localFile)}
-            alt={data.wpPage.homepage.formularzKontaktowy.lewyObrazek.altText}
+            image={images}
+            objectFit="fill"
           />
         </StyledModel>
       </StyledLeftWrapper>

@@ -38,6 +38,9 @@ export const StyledImageWrapper = styled(motion.div)`
     top: 16px;
     right: 8px;
   }
+  @media only screen and (max-width: 414px){
+    display: none;
+  }
 `;
 export const StyledTextWrapper = styled.div`
   width: 100%;
@@ -52,5 +55,8 @@ export const StyledTextWrapper = styled.div`
 
   @media only screen and (max-width: 768px){
     max-width: 80%;
+  }
+  @media only screen and (max-width: 414px){
+    max-width: unset;
   }
 `

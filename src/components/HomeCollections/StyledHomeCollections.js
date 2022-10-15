@@ -65,7 +65,7 @@ export const StyledContentWrapper = styled.div`
 `;
 export const StyledRecButtonWrapper = styled.div`
   max-width: 1144px;
-  padding: 0 32px 0 0;
+  padding: 0 32px;
   margin: 0 auto;
   width: 100%;
   @media only screen and (max-width: 768px){

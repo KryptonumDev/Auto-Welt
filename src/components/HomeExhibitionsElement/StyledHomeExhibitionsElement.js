@@ -14,6 +14,22 @@ export const StyledHomeExhibitionsElement = styled.div`
   @media only screen and (max-width: 1080px){
     width: 100%;
   }
+
+  @media only screen and (max-width: 1065px){
+    > a{
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    > a{
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    > a{
+      font-size: 15px;
+    }
+  }
 `;
 export const StyledDataInformationWrapper = styled.div`
   padding: 24px 34px;

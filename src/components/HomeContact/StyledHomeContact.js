@@ -68,10 +68,10 @@ export const StyledModel = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
   }
   @media only screen and (max-width: 972px){
     width: 100%;
+    max-width: 708px;
     height: 100%;
   }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { StyledLink } from "../Link/StyledLink";
 
 export const StyledButtonLink = styled(StyledLink)`
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +32,7 @@ export const StyledButtonLink = styled(StyledLink)`
 `;
 
 export const StyledButtonLinkNoHref = styled.p`
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -10,7 +10,7 @@ export const StyledHomeContactForm = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 15px;
+    gap: 25px;
   }
 
   @media only screen and (max-width: 1119px){
@@ -32,6 +32,8 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     padding: 0 14px;
+    outline-color: var(--primary500);
+    font-family: 'Roboto';
   }
   textarea {
     width: 100%;
@@ -40,6 +42,8 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     resize: none;
+    font-family: 'Roboto';
+    padding: 10px;
   }
 
   @media only screen and (max-width: 1119px){
@@ -51,9 +55,9 @@ export const StyledInputWrapper = styled.div`
 `;
 export const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
-  bottom: -16px;
+  bottom: -20px;
   left: 0;
-  font: 12px Roboto;
+  font: 14px 'Roboto';
   color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"}
 `;
 export const StyledButtonWrapper = styled.div`
@@ -65,6 +69,28 @@ export const StyledButtonWrapper = styled.div`
     background-color: transparent;
     border: none;
   }
+
+  @media only screen and (max-width: 1065px){
+    > button{
+      p{
+        font-size: 18px;
+      }
+    }
+  }
+  @media only screen and (max-width: 685px){
+    > button{
+      p{
+        font-size: 16px;
+      }
+    }
+  }
+  @media only screen and (max-width: 375px){
+    > button{
+      p{
+        font-size: 15px;
+      }
+    }
+  }
 `;
 export const StyledCustomCheckbox = styled.div`
   display: flex;
@@ -75,14 +101,14 @@ export const StyledCustomCheckbox = styled.div`
     padding-left: 26px;
     &:after{
       content: '';
-      border: 2px solid #3E635D;
+      border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "#3E635D"};
       width: 20px;
       height: 20px;
       display: block;
       position: absolute;
       left: 0;
       top: 0;
-      background-color: ${({ value }) => value ? "red" : "transparent"};
+      background-color: ${({ value }) => value ? "#3E635D" : "transparent"};
     }
   }
   input{
@@ -95,7 +121,7 @@ export const StyledCustomCheckbox = styled.div`
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
     a{
-      color: #23423D;
+      color: ${({ iserror }) => iserror ? "#D63D3D" : "#23423D"};
       font: 500 16px/19px "Roboto"
     }
   }

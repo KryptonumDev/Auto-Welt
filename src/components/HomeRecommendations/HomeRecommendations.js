@@ -111,7 +111,7 @@ const HomeRecommendations = () => {
         <StyledArrowWrapper 
           onClick={handlePrev}
           hasdeclaredtransform="20px"
-          initial={{ x: width < 463 ? 0 : 20 }}
+          initial={{ x: width < 463 ? 2 : 20 }}
           whileHover={{
             scale: 1.2,
             transition: { duration: 0.5 },
@@ -130,7 +130,7 @@ const HomeRecommendations = () => {
         <StyledArrowWrapper 
           onClick={handleNext} 
           hasdeclaredtransform="-20px"
-          initial={{ x: width < 463 ? 0 : -20 }}
+          initial={{ x: width < 463 ? -2 : -20 }}
           whileHover={{
             scale: 1.2,
             transition: { duration: 0.5 },

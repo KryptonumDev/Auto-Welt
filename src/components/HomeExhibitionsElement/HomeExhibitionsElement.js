@@ -28,7 +28,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
           <GatsbyImage 
             image={getImage(exhibitionData.wystawa.tloDlaMiejscaIDaty.localFile)}
             alt={exhibitionData.wystawa.tloDlaMiejscaIDaty.altText}
-            objectFit="cover"
+            objectFit="fill"
           />
         </StyledImageWrapper>
         <StyledDataWrapper>

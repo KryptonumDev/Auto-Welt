@@ -79,10 +79,10 @@ const HomeContactForm = ({ data }) => {
                 {data.wpPage.homepage.formularzKontaktowy.podpisPodObszaremDoWyslaniaWiadomosci}
               </StyledText>
             </div>
-            <StyledCustomCheckbox value={values.termsAndConditions}>
+            <StyledCustomCheckbox value={values.termsAndConditions} iserror={errors.termsAndConditions}>
               <Field type="checkbox" name="termsAndConditions" id="termsAndConditions" />
               <label htmlFor="termsAndConditions" style={{ fontWeight: "400" }}>Akceptuję <Link to="/">politykę prywatności</Link></label>
-              <StyledErrorMessage name="termsAndConditions" component="div" />
+              <StyledErrorMessage name="termsAndConditions" component="div" iserror={errors.termsAndConditions} />
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
               <button type="submit" disabled={isSubmitting}>
@@ -91,7 +91,7 @@ const HomeContactForm = ({ data }) => {
                   bgColor="var(--secondary500)"
                   textColor="var(--primary900)"
                   hasBorder="2px solid var(--secondary500)"
-                  hasFontSize={width < 376 ? "15px" : "21px"}
+                  hasFontSize="21px"
                   hasDeclaredPadding="10px 33px"
                   hoverBgColor="var(--secondary700)"
                 />
