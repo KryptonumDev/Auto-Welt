@@ -11,6 +11,7 @@ export const StyledCollectionElementSlider = styled.section`
   
   @media only screen and (max-width: 768px){
     margin-top: 0;
+    padding-left: 16px;
     gap: 0;
     position: relative;
     justify-content: center;
@@ -93,9 +94,13 @@ export const StyledImagesWrapper = styled(motion.div)`
     height: 100%;
     gap: 0;
     width: 92%;
+    padding-bottom: 40px;
   }
   @media only screen and (max-width: 546px){
     width: 100%;
+  }
+  @media only screen and (max-width: 375px){
+    padding-bottom: 0;
   }
 `;
 export const StyledImage = styled(motion.div)`

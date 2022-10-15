@@ -9,13 +9,16 @@ export const StyledRecInfoWithButton = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-right: 100px;
+    padding-right: 80px;
     @media only screen and (max-width: 1065px){
       a{
         font-size: 18px;
       }
+      p{
+        padding-left: 20px;
+      }
     }
-    @media only screen and (max-width: 685px){
+    @media only screen and (max-width: 714px){
       padding-right: 40px;
       a{
         font-size: 16px;

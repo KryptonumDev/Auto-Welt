@@ -16,6 +16,7 @@ export const StyledCollectionElementThreeImages = styled.section`
     > div {
       width: calc(50% - 20px);
       min-height: 316px;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
       &:last-child{
         width: 100%;
         min-height: 499px;
@@ -23,7 +24,13 @@ export const StyledCollectionElementThreeImages = styled.section`
     }
   }
 
+  @media only screen and (max-width: 1065px){
+    > a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px){
+    padding-left: 16px;
     margin: 60px 0;
     > div{
       margin-bottom: 25px;
@@ -34,6 +41,11 @@ export const StyledCollectionElementThreeImages = styled.section`
           min-height: 327px;
         }
       }
+    }
+  }
+  @media only screen and (max-width: 685px){
+    > a{
+      font-size: 16px;
     }
   }
   @media only screen and (max-width: 588px){

@@ -10,6 +10,8 @@ export const StyledCollectionTemplateDesc = styled.section`
   position: relative;
   @media only screen and (max-width: 768px){
     margin-top: 30px;
+    width: calc(100% - 16px);
+    margin: 30px auto 0 16px;
   }
   @media only screen and (max-width: 688px){
     flex-direction: column-reverse;

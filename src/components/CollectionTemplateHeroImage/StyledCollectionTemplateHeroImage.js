@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { GatsbyImage } from "gatsby-plugin-image";
 export const StyledCollectionTemplateHeroImage = styled.section`
   width: 100%;
   margin-top: 40px;
@@ -7,11 +7,21 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   flex-direction: column;
   align-items: center;
 
+  @media only screen and (max-width: 1065px){
+    > a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px){
     margin-top: 130px;
-
+    padding-left: 16px;
     > a {
       margin-top: -20px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    > a{
+      font-size: 16px;
     }
   }
   @media only screen and (max-width: 588px){
@@ -30,6 +40,7 @@ export const StyledCollectionTemplateHeroImage = styled.section`
     }
   }
 `;
+export const StyledGatsbyImage = styled(GatsbyImage)``
 export const StyledHeroImage = styled.div`
   width: 100%;
 
@@ -54,6 +65,12 @@ export const StyledTitleWrapper = styled.div`
       position: relative;
       text-align: center;
       padding: 16px;
+      @media only screen and (max-width: 768px){
+        font-size: 38px;
+      }
+      @media only screen and (max-width: 375px){
+        font-size: 34px;
+      }
     }
   }
 

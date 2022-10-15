@@ -8,6 +8,7 @@ export const StyledCollectionImageUnderDescImages = styled.section`
 
   @media only screen and (max-width: 768px){
     margin-top: 60px;
+    padding-left: 16px;
   }
   @media only screen and (max-width: 600px){
     min-height: 500px;
@@ -22,7 +23,9 @@ export const StyledCollectionImageUnderDescImages = styled.section`
     min-height: 230px;
   }
 `;
-export const StyledTopImage = styled.div``;
+export const StyledTopImage = styled.div`
+  transform: translateX(-6px);
+`;
 export const StyledBottomImage = styled.div`
   position: absolute;
   bottom: -50px;

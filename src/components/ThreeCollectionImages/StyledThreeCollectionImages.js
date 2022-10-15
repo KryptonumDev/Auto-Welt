@@ -8,6 +8,7 @@ export const StyledThreeCollectionImages = styled.div`
 
   @media only screen and (max-width: 768px){
     margin-top: 50px;
+    padding-left: 16px;
   }
   @media only screen and (max-width: 488px){
     flex-direction: column;
@@ -18,6 +19,7 @@ export const StyledThreeCollectionImages = styled.div`
 export const StyledImageWrapper = styled.div`
   width: 33.33%;
   max-width: 343px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   @media only screen and (max-width: 488px){
     width: 100%;
     max-width: unset;

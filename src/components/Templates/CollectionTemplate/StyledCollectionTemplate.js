@@ -6,6 +6,6 @@ export const StyledCollectionTemplate = styled.section`
     margin: 0 auto;
     padding: 0 32px;
     @media only screen and (max-width: 768px){
-        padding: 0 16px;
+        padding: 0 16px 0 0;
     }
 `
