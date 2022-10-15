@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage, withArtDirection, GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser"
+import { AnimatePresence } from "framer-motion";
 
 import {
   StyledQuestion,
@@ -14,23 +15,41 @@ import ArrowQuestion from "../../images/arrowQuestion.svg";
 
 const Question = ({ faqData }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const images = withArtDirection(getImage(faqData.zdjecieTla.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(faqData.zdjecieTlaMobile.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(faqData.zdjecieTlaTablet.localFile),
+    }
+  ])
+
   return (
-    <StyledQuestion isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+    <StyledQuestion 
+      itemscope 
+      itemprop="mainEntity" 
+      itemtype="https://schema.org/Question" 
+      isopen={isOpen}
+      onClick={() => setIsOpen(!isOpen)}
+    >
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />
-        <StyledQuestionText>{parse(faqData.pytanie)}</StyledQuestionText>
+        <StyledQuestionText itemprop="name">{parse(faqData.pytanie)}</StyledQuestionText>
         <StyledBgWrapper>
           <GatsbyImage
-            image={getImage(faqData.zdjecieTla.localFile)}
-            alt={faqData.zdjecieTla.altText}
+            image={images}
             objectFit="fill"
           />
         </StyledBgWrapper>
       </StyledQuestionWrapper>
       {isOpen && (
         <StyledAnswerWrapper
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "100%", opacity: 1}}
+          itemscope 
+          itemprop="acceptedAnswer"
+          itemtype="https://schema.org/Answer"
         >
           {parse(faqData.odpowiedz)}
         </StyledAnswerWrapper>

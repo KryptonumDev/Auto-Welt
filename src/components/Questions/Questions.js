@@ -25,6 +25,22 @@ const Questions = () => {
                 }
               }
             }
+            zdjecieTlaMobile {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            zdjecieTlaTablet {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
@@ -44,9 +60,11 @@ const Questions = () => {
         {data.wpPage.globalConfig.faq.faqTutul}
       </StyledText>
       <StyledQuestionsWrapper>
-        <AnimatePresence>
-          {data.wpPage.globalConfig.faq.faq.map(faq => <Question faqData={faq} />)}
-        </AnimatePresence>
+        {data.wpPage.globalConfig.faq.faq.map((faq, index) => 
+          (<AnimatePresence>
+            <Question faqData={faq} key={index}/>
+          </AnimatePresence>)
+        )}
       </StyledQuestionsWrapper>
     </StyledQuestions>
   );
