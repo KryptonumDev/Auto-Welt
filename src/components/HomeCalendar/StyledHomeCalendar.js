@@ -26,4 +26,20 @@ export const StyledButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    a{
+      font-size: 15px;
+    }
+  }
 `

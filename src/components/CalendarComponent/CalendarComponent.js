@@ -6,6 +6,10 @@ import {
   StyledCalendar,
 } from "./StyledCalendarComponent";
 
+import PrevCalendar from "../../images/prevCalendar.svg";
+import NextCalendar from "../../images/nextCalendar.svg";
+import ActiveCalendar from "../../images/activeCalendar.svg";
+
 const CalendarComponent = ({ exhibitions = [] }) => {
   const now = new Date(),
     futureMonths = 3,
@@ -16,12 +20,15 @@ const CalendarComponent = ({ exhibitions = [] }) => {
 
   return (
     <StyledCalendarComponent>
-      <p>{currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}</p>
+      <p className="calendarTitle">
+        {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
+      </p>
       <div
         style={{ display: "flex", flexDirection: "row" }}
+        className="calendarWrapper"
       >
         <div
-          style={{ backgroundColor: "red", minWidth: "50px" }}
+          className="prevArrow"
           onClick={() => {
             setCurrentDate((date) => {
               const newDate = new Date(date.getTime());
@@ -37,7 +44,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             })
           }}
         >
-          {'<'}
+          <PrevCalendar />
         </div>
         <StyledCalendar
           minDate={minDate}
@@ -66,10 +73,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     exhibition.data === `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
                   )
                 );
-
                 return (
                   (exhibition) ? (
-                    <p style={{ backgroundColor: "red" }}>
+                    <p className="activeDay">
+                      <ActiveCalendar />
                       Wystawa {exhibition.data} w {exhibition.miejsce}
                     </p>
                   ) : (undefined)
@@ -83,7 +90,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           }
         />
         <div
-          style={{ backgroundColor: "red", minWidth: "50px" }}
+          className="nextArrow"
           onClick={() => {
             setCurrentDate((date) => {
               const newDate = new Date(date.getTime());
@@ -99,18 +106,27 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             })
           }}
         >
-          {'>'}
+          <NextCalendar />
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "row", marginTop: "10px" }}>
+      <div style={{ 
+        width: "100%", 
+        justifyContent: "center", 
+        display: "flex", 
+        alignItems: "center", 
+        marginTop: "25px", 
+        gap: "6px" }}
+      >
         {[...Array(2+futureMonths).keys()].map(
           key => (
             <div
+              className="paginationElement"
               key={key}
               style={{
-                minWidth: "20px",
-                minHeight: "2s0px",
-                backgroundColor: (key === pagination) ? "blue" : "red"
+                width: (key === pagination) ? "12px" : "10px",
+                height: (key === pagination) ? "12px" : "10px",
+                backgroundColor: (key === pagination) ? "#DA9610" : "#EDC169",
+                borderRadius: "50%"
               }}
             >
               &nbsp;

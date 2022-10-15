@@ -43,6 +43,7 @@ const HomeCalendar = () => {
             data
             miejsce
           }
+          title
         }
       }
     }
@@ -60,7 +61,9 @@ const HomeCalendar = () => {
       >
         {data.wpPage.homepage.kalendarz.tytulSekcji}
       </StyledText>
-      <CalendarComponent exhibitions={data.allWpWystawa.edges.map(edge => edge.node.wystawa)} />
+      <CalendarComponent 
+        exhibitions={data.allWpWystawa.edges.map(edge => edge.node.wystawa)}
+      />
       <StyledButtonWrapper>
         <Button 
           text={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.title}
@@ -70,6 +73,7 @@ const HomeCalendar = () => {
           hasFontSize="21px"
           hasDeclaredPadding="10px 33px"
           hasTarget={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.target}
+          hoverBgColor="var(--primary900)"
         />
       </StyledButtonWrapper>
       <StyledFooterCar>
