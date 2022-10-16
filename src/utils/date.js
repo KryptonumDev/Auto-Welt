@@ -10,7 +10,14 @@ const endOfAdjacentMonth = ({ date, month = 0 }) => (
   )(date instanceof Date ? date : !!date ? new Date(date) : new Date())
 );
 
+const areDatesEqual = (a, b) => (
+  a.getFullYear() === b.getFullYear() &&
+  a.getMonth() === b.getMonth() &&
+  a.getDate() === b.getDate()
+);
+
 module.exports = {
   startOfAdjacentMonth,
-  endOfAdjacentMonth
+  endOfAdjacentMonth,
+  areDatesEqual
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { startOfAdjacentMonth, endOfAdjacentMonth } from "../../utils/date";
+import { startOfAdjacentMonth, endOfAdjacentMonth, areDatesEqual } from "../../utils/date";
 
 import {
   StyledCalendarComponent,
@@ -92,11 +92,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               ({ activeStartDate, date, view }) => (
                 !Boolean(
                   exhibitions.find(
-                    ({ data: exhibition_date }) => (
-                      exhibition_date.getFullYear() === date.getFullYear() &&
-                      exhibition_date.getMonth() === date.getMonth() &&
-                      exhibition_date.getDate() === date.getDate()
-                    )
+                    ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
                   )
                 )
               )
@@ -106,11 +102,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             date.getMonth() === currentDate.getMonth() ? (
               (() => {
                 const exhibitions_today = exhibitions.filter(
-                  ({ data: exhibition_date }) => (
-                    exhibition_date.getFullYear() === date.getFullYear() &&
-                    exhibition_date.getMonth() === date.getMonth() &&
-                    exhibition_date.getDate() === date.getDate()
-                  )
+                  ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
                 );
                 return (
                   (exhibitions_today.length) ? (
