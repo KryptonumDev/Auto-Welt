@@ -4,11 +4,23 @@ import { startOfAdjacentMonth, endOfAdjacentMonth } from "../../utils/date";
 import {
   StyledCalendarComponent,
   StyledCalendar,
+  StyledExhibitionTitle
 } from "./StyledCalendarComponent";
 
 import PrevCalendar from "../../images/prevCalendar.svg";
 import NextCalendar from "../../images/nextCalendar.svg";
 import ActiveCalendar from "../../images/activeCalendar.svg";
+import useWindowSize from "../../utils/getWindowSize";
+
+const CalendarTitle = ({ title }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <StyledExhibitionTitle isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      {title}
+      <br />
+    </StyledExhibitionTitle>
+  )
+}
 
 const CalendarComponent = ({ exhibitions = [] }) => {
   const now = new Date(),
@@ -16,7 +28,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
     minDate = startOfAdjacentMonth({ date: now, month: -1 }),
     maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
     [currentDate, setCurrentDate] = useState(now),
-    [pagination, setPagination] = useState(1);
+    [pagination, setPagination] = useState(1),
+    width = useWindowSize();
 
   return (
     <StyledCalendarComponent>
@@ -53,7 +66,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           value={currentDate}
           defaultValue={now}
           defaultView="month"
-          formatShortWeekday={(locale, date) => (
+          formatShortWeekday={(locale, date) => ( 
+            width > 986 ?
             [
               "NIEDZIELA",
               "PONIEDZIAŁEK",
@@ -62,9 +76,18 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZWARTEK",
               "PIĄTEK",
               "SOBOTA"
+            ][date.getDay()] :
+            [
+              "ND",
+              "PON",
+              "WT",
+              "ŚR",
+              "CZW",
+              "PT",
+              "SO"
             ][date.getDay()]
           )}
-          tileDisabled={() => true}
+          tileDisabled={() => false}
           tileContent={({ activeStartDate, date, view }) => (
             date.getMonth() === currentDate.getMonth() ? (
               (() => {
@@ -81,10 +104,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       <ActiveCalendar />
                       {exhibitions_today.map(
                         exhibition => (
-                          <>
-                            {exhibition.title}
-                            <br />
-                          </>
+                          <CalendarTitle title={exhibition.title} />
                         )
                       )}
                     </p>

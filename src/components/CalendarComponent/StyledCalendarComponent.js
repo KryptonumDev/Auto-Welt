@@ -49,7 +49,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
         width: 148px;
         height: 97px;
         border-right: 2px solid #23423D;
-        border-top: 1px solid #23423D;
+        border-top: 1px solid transparent;
         border-bottom: 1px solid #23423D;
         border-left: none;
         background-color: var(--background500);
@@ -87,10 +87,10 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
         }
     }
     .react-calendar__month-view__days__day--weekend:nth-child(7n) {
-        background-color: red;
+        background-color: #F6E2BA;
     }
     .react-calendar__month-view__days__day--weekend:last-child {
-        background-color: ${({ markLastSunday }) => (markLastSunday ? "red" : "blue")};
+        background-color: ${({ markLastSunday }) => (markLastSunday ? "#F6E2BA" : "var(--background500)")};
     }
     .activeDay{
         position: relative;
@@ -108,6 +108,8 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
         align-items: center;
         justify-center;
         padding: 30px 30px 0 5px;
+        display: flex;
+        flex-direction: column;
         svg {
             position: absolute;
             top: -10px;
@@ -116,3 +118,37 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
         }
     }
 `;
+export const StyledExhibitionTitle = styled.p`
+    @media only screen and (max-width: 986px){
+        background-color: #23423D;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.2em;
+        color: #FEFDFB;
+        width: 193px;
+        height: 70px;
+        display: ${({ isopen }) => isopen ? "flex" : "none"};
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 20px;
+        bottom: -40px;
+        z-index: 2;
+        &:hover{
+            display: flex;
+        }
+        &:after{
+            content: '';
+            width: 0; 
+            height: 0; 
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #23423D;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+        }
+    }
+`
