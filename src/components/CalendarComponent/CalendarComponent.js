@@ -68,16 +68,23 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileContent={({ activeStartDate, date, view }) => (
             date.getMonth() === currentDate.getMonth() ? (
               (() => {
-                const exhibition = exhibitions.find(
+                const exhibitions_today = exhibitions.filter(
                   exhibition => (
                     exhibition.data === `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
                   )
                 );
                 return (
-                  (exhibition) ? (
+                  (exhibitions_today.length) ? (
                     <p className="activeDay">
                       <ActiveCalendar />
-                      {exhibition.title}
+                      {exhibitions_today.map(
+                        exhibition => (
+                          <>
+                            {exhibition.title}
+                            <br />
+                          </>
+                        )
+                      )}
                     </p>
                   ) : (undefined)
                 );
