@@ -66,6 +66,7 @@ const HomeCalendar = () => {
           data.allWpWystawa.edges.map(
             edge => ({
               ...edge.node.wystawa,
+              data: new Date(edge.node.wystawa.data),
               title: edge.node.title
             })
           )

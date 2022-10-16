@@ -69,8 +69,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             date.getMonth() === currentDate.getMonth() ? (
               (() => {
                 const exhibitions_today = exhibitions.filter(
-                  exhibition => (
-                    exhibition.data === `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+                  ({ data: exhibition_date }) => (
+                    exhibition_date.getFullYear() === date.getFullYear() &&
+                    exhibition_date.getMonth() === date.getMonth() &&
+                    exhibition_date.getDate() === date.getDate()
                   )
                 );
                 return (
