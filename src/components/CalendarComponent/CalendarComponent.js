@@ -68,7 +68,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
-          onChange={setCurrentDate}
           value={currentDate}
           defaultView="month"
           formatShortWeekday={(locale, date) => ( 
