@@ -97,6 +97,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           formatDay={(locale, date) =>
             (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") + '\n'
           }
+          markLastSunday={maxDate.getDay() === 0}
         />
         <div
           className="nextArrow"
