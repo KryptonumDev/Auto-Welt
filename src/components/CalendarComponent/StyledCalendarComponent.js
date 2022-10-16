@@ -85,6 +85,9 @@ export const StyledCalendar = styled(Calendar)`
             }
         }
     }
+    .react-calendar__month-view__days__day--weekend:nth-child(7n) {
+        background-color: red;
+    }
     .activeDay{
         position: relative;
         width: 100%;
