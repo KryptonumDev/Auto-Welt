@@ -87,7 +87,21 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "SO"
             ][date.getDay()]
           )}
-          tileDisabled={() => false}
+          tileDisabled={
+            width > 986 ? (() => true) : (
+              ({ activeStartDate, date, view }) => (
+                !Boolean(
+                  exhibitions.find(
+                    ({ data: exhibition_date }) => (
+                      exhibition_date.getFullYear() === date.getFullYear() &&
+                      exhibition_date.getMonth() === date.getMonth() &&
+                      exhibition_date.getDate() === date.getDate()
+                    )
+                  )
+                )
+              )
+            )
+          }
           tileContent={({ activeStartDate, date, view }) => (
             date.getMonth() === currentDate.getMonth() ? (
               (() => {
