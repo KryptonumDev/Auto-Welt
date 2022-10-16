@@ -55,6 +55,7 @@ export const StyledButtonLinkNoHref = styled.p`
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
   transition: background-color 250ms;
   margin: ${({ hasdeclaredmargin }) => hasdeclaredmargin ? hasdeclaredmargin : "0"};
+  font-family: 'Roboto';
   > span {
     display: block;
     transform: skew(26deg);

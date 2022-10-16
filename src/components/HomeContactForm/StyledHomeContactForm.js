@@ -16,6 +16,16 @@ export const StyledHomeContactForm = styled.div`
   @media only screen and (max-width: 1119px){
     padding: 22px;
   }
+  @media only screen and (max-width: 1087px){
+    form{
+      gap: 10px;
+    }
+  }
+  @media only screen and (max-width: 972px){
+    form{
+      gap: 20px;
+    }
+  }
 `;
 export const StyledInputWrapper = styled.div`
   width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
@@ -46,11 +56,17 @@ export const StyledInputWrapper = styled.div`
     padding: 10px;
   }
 
-  @media only screen and (max-width: 1119px){
+  @media only screen and (max-width: 1087px){
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
   }
   @media only screen and (max-width: 972px){
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
+    max-width: unset;
+  }
+  @media only screen and (max-width: 657px){
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
+  }
+  @media only screen and (max-width: 469px){
+    width: 100%;
   }
 `;
 export const StyledErrorMessage = styled(ErrorMessage)`

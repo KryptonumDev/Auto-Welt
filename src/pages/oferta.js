@@ -1,17 +1,18 @@
 import React from "react";
+
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 
 import OfferEvents from "../components/OfferEvents/OfferEvents";
 import OfferHeroSection from "../components/OfferHeroSection/OfferHeroSection";
 import CheckOutWithOffer from "../components/CheckOutWithOffer/CheckOutWithOffer";
 
-const Offer = () => {
+const Offer = ({ data }) => {
   return (
     <>
-      {/* <OfferHeroSection />
+      <OfferHeroSection />
       <OfferEvents />
       <CheckOutWithOffer />
-      <HomeArticles /> */}
+      <HomeArticles />
     </>
   );
 };

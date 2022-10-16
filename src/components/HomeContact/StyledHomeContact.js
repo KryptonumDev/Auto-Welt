@@ -13,10 +13,15 @@ export const StyledHomeContact = styled.section`
   @media only screen and (max-width: 972px){
     flex-direction: column;
     align-self: right;
-    max-width: 659px;
+    max-width: 621px;
+    max-height: unset;
   }
   @media only screen and (max-width: 768px){
     margin-bottom: 60px;
+  }
+  @media only screen and (max-width: 751px){
+    width: 87%;
+    max-width: unset;
   }
 `;
 export const StyledLeftWrapper = styled.div`
@@ -27,17 +32,10 @@ export const StyledLeftWrapper = styled.div`
   position: relative;
   @media only screen and (max-width: 972px){
     max-width: unset;
-
-    .gatsby-image-wrapper{
-      width: 100%;
-      height: 100%;
-    }
-    img{
-      width: 100%;
-      height: 100%;
-    }
   }
-
+  @media only screen and (max-width: 657px){
+    min-height: 410px;
+  }
 `;
 export const StyledRightWrapper = styled.div`
   width: calc(100% - 410px);
@@ -63,19 +61,20 @@ export const StyledModel = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-
   img {
     width: 100%;
     height: 100%;
   }
   @media only screen and (max-width: 972px){
-    width: 100%;
-    max-width: 708px;
-    height: 100%;
+    width: 732px;
+  }
+  @media only screen and (max-width: 751px){
+    width: 110%;
   }
 `;
 export const StyledTitleImage = styled.div`
@@ -104,7 +103,7 @@ export const StyledContactWrapper = styled.div`
   max-width: 1144px;
   margin: 0 auto;
   padding: 0 32px;
-  @media only screen and (max-width: 843px){
+  @media only screen and (max-width: 972px){
     justify-content: flex-end;
     padding: 0 16px;
   }

@@ -69,7 +69,12 @@ const ContactPageForm = ({ data }) => {
                         onSubmit={handleSubmit}
                     >
                         {({ isSubmitting, errors, values }) => (
-                        <Form>
+                        <Form 
+                            method="post" 
+                            netlify-honeypot="bot-field" 
+                            data-netlify="true" 
+                            name="contact"
+                        >
                             <StyledInputWrapper iserror={errors.firstName}>
                             <label>{data.wpPage.homepage.formularzKontaktowy.tytulPolaImie}</label>
                             <Field type="text" name="firstName" />
