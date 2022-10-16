@@ -43,7 +43,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
       </p>
       <div
-        style={{ display: "flex", flexDirection: "row" }}
+        style={{ display: "flex" }}
         className="calendarWrapper"
       >
         <div
