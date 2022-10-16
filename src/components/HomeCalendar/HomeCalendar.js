@@ -62,7 +62,14 @@ const HomeCalendar = () => {
         {data.wpPage.homepage.kalendarz.tytulSekcji}
       </StyledText>
       <CalendarComponent 
-        exhibitions={data.allWpWystawa.edges.map(edge => edge.node.wystawa)}
+        exhibitions={
+          data.allWpWystawa.edges.map(
+            edge => ({
+              ...edge.node.wystawa,
+              title: edge.node.title
+            })
+          )
+        }
       />
       <StyledButtonWrapper>
         <Button 
