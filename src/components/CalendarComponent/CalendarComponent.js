@@ -112,20 +112,27 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                   (exhibitions_today.length) ? (
                     <p className="activeDay">
                       <ActiveCalendar />
-                      {exhibitions_today.map(
-                        exhibition => (
-                          <StyledExhibitionTitle
-                            isopen={
-                              (width > 986) ? (false) :(
-                                (activeDate instanceof Date) ? (areDatesEqual(exhibition.data, activeDate)) : (false)
+                      <StyledExhibitionTitle
+                        isopen={
+                          (width > 986) ? (false) :(
+                            (activeDate instanceof Date) ? (
+                              exhibitions_today.map(
+                                exhibition => areDatesEqual(exhibition.data, activeDate)
                               )
-                            }
-                          >
-                            {exhibition.title}
-                            <br />
-                          </StyledExhibitionTitle>
-                        )
-                      )}
+                              .find(val => val)
+                            ) : (false)
+                          )
+                        }
+                      >
+                        {exhibitions_today.map(
+                          exhibition => (
+                            <>
+                              {exhibition.title}
+                              <br />
+                            </>
+                          )
+                        )}
+                      </StyledExhibitionTitle>
                     </p>
                   ) : (undefined)
                 );
