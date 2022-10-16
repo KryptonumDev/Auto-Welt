@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Calendar from "react-calendar";
 
@@ -37,7 +38,7 @@ export const StyledCalendarComponent = styled.div`
         }
     }
 `;
-export const StyledCalendar = styled(Calendar)`
+export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar {...props} />)`
     width: 100%;
     position: relative;
     border-width: 6px 0 2px 2px;
@@ -87,6 +88,9 @@ export const StyledCalendar = styled(Calendar)`
     }
     .react-calendar__month-view__days__day--weekend:nth-child(7n) {
         background-color: red;
+    }
+    .react-calendar__month-view__days__day--weekend:last-child {
+        background-color: ${({ markLastSunday }) => (markLastSunday ? "red" : "blue")};
     }
     .activeDay{
         position: relative;

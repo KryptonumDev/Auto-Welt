@@ -6,14 +6,7 @@ const startOfAdjacentMonth = ({ date, month = 0 }) => (
 
 const endOfAdjacentMonth = ({ date, month = 0 }) => (
   (
-    (date) => {
-      const ret = new Date(Date.UTC(date.getFullYear(), date.getMonth()+month, 31));
-
-      if (ret.getDate() != 31)
-        ret.setDate(ret.getDate()-1);
-
-      return ret;
-    }
+    (date) => new Date(Date.UTC(date.getFullYear(), date.getMonth()+1+month, 0))
   )(date instanceof Date ? date : !!date ? new Date(date) : new Date())
 );
 
