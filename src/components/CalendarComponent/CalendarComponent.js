@@ -43,7 +43,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
       </p>
       <div
-        style={{ display: "flex", flexDirection: "row" }}
+        style={{ display: "flex" }}
         className="calendarWrapper"
       >
         <div
@@ -68,11 +68,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
-          activeStartDate={currentDate}
+          onChange={setCurrentDate}
           value={currentDate}
+          defaultValue={now}
           defaultView="month"
           formatShortWeekday={(locale, date) => ( 
-            (width > 986 ?
+            width > 986 ?
             [
               "NIEDZIELA",
               "PONIEDZIAŁEK",
@@ -81,7 +82,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZWARTEK",
               "PIĄTEK",
               "SOBOTA"
-            ] : [
+            ][date.getDay()] :
+            [
               "ND",
               "PON",
               "WT",
@@ -89,7 +91,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZW",
               "PT",
               "SO"
-            ])[date.getDay()]
+            ][date.getDay()]
           )}
           tileDisabled={
             width > 986 ? (() => true) : (
