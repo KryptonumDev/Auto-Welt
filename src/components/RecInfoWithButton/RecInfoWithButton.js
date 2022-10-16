@@ -27,7 +27,6 @@ const RecInfoWithButton = ({
       <StyledFooterImageWrapper>
         <GatsbyImage
           image={bgImage}
-          alt={bgImage.altText}
           objectFit="fill"
         />
       </StyledFooterImageWrapper>
