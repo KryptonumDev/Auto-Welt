@@ -77,7 +77,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                   (exhibition) ? (
                     <p className="activeDay">
                       <ActiveCalendar />
-                      Wystawa {exhibition.data} w {exhibition.miejsce}
+                      {exhibition.title}
                     </p>
                   ) : (undefined)
                 );
