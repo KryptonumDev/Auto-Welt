@@ -73,7 +73,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           maxDate={maxDate}
           onChange={setCurrentDate}
           value={currentDate}
-          defaultValue={now}
           defaultView="month"
           formatShortWeekday={(locale, date) =>
             width > 986
