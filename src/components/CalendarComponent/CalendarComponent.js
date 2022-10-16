@@ -12,16 +12,6 @@ import NextCalendar from "../../images/nextCalendar.svg";
 import ActiveCalendar from "../../images/activeCalendar.svg";
 import useWindowSize from "../../utils/getWindowSize";
 
-const CalendarTitle = ({ title }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <StyledExhibitionTitle isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-      {title}
-      <br />
-    </StyledExhibitionTitle>
-  )
-}
-
 const CalendarComponent = ({ exhibitions = [] }) => {
   const now = new Date(),
     futureMonths = 3,
@@ -29,7 +19,23 @@ const CalendarComponent = ({ exhibitions = [] }) => {
     maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
     [currentDate, setCurrentDate] = useState(now),
     [pagination, setPagination] = useState(1),
-    width = useWindowSize();
+    width = useWindowSize(),
+    [activeDate, setActiveDate] = useState(undefined),
+    toggleActiveDate = (
+      (new_date) => (
+        setActiveDate(
+          (new_date instanceof Date) ? (
+            (date) => (
+              (date instanceof Date) ? (
+                areDatesEqual(new_date, date) ? (undefined) : (new_date)
+              ) : (new_date)
+            )
+          ) : (
+            undefined
+          )
+        )
+      )
+    );
 
   return (
     <StyledCalendarComponent>
@@ -110,7 +116,16 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       <ActiveCalendar />
                       {exhibitions_today.map(
                         exhibition => (
-                          <CalendarTitle title={exhibition.title} />
+                          <StyledExhibitionTitle
+                            isopen={
+                              (width > 986) ? (false) :(
+                                (activeDate instanceof Date) ? (areDatesEqual(exhibition.data, activeDate)) : (false)
+                              )
+                            }
+                          >
+                            {exhibition.title}
+                            <br />
+                          </StyledExhibitionTitle>
                         )
                       )}
                     </p>
@@ -124,6 +139,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") + '\n'
           }
           markLastSunday={maxDate.getDay() === 0}
+          onClickDay={(value, event) => toggleActiveDate(value)}
         />
         <div
           className="nextArrow"
