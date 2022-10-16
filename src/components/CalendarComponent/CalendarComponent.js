@@ -71,7 +71,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           value={currentDate}
           defaultView="month"
           formatShortWeekday={(locale, date) => ( 
-            width > 986 ?
+            (width > 986 ?
             [
               "NIEDZIELA",
               "PONIEDZIAŁEK",
@@ -80,8 +80,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZWARTEK",
               "PIĄTEK",
               "SOBOTA"
-            ][date.getDay()] :
-            [
+            ] : [
               "ND",
               "PON",
               "WT",
@@ -89,7 +88,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZW",
               "PT",
               "SO"
-            ][date.getDay()]
+            ])[date.getDay()]
           )}
           tileDisabled={
             width > 986 ? (() => true) : (
