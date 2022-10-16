@@ -68,12 +68,11 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
-          onChange={setCurrentDate}
+          activeStartDate={currentDate}
           value={currentDate}
-          defaultValue={now}
           defaultView="month"
           formatShortWeekday={(locale, date) => ( 
-            width > 986 ?
+            (width > 986 ?
             [
               "NIEDZIELA",
               "PONIEDZIAŁEK",
@@ -82,8 +81,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZWARTEK",
               "PIĄTEK",
               "SOBOTA"
-            ][date.getDay()] :
-            [
+            ] : [
               "ND",
               "PON",
               "WT",
@@ -91,7 +89,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               "CZW",
               "PT",
               "SO"
-            ][date.getDay()]
+            ])[date.getDay()]
           )}
           tileDisabled={
             width > 986 ? (() => true) : (
