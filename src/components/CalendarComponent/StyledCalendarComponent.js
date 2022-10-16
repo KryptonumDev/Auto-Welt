@@ -37,6 +37,37 @@ export const StyledCalendarComponent = styled.div`
             height: 100%;
         }
     }
+    @media only screen and (max-width: 786px){
+        .calendarTitle{
+            font-size: 30px;
+        }
+        .calendarWrapper{
+            position: relative;
+        }
+        .prevArrow{
+            position: absolute;
+            left: 0;
+            top: -52px;
+            svg {
+                width: 27px;
+                height: 34px;
+            }
+        }
+        .nextArrow{
+            position: absolute;
+            right: 0;
+            top: -52px;
+            svg {
+                width: 27px;
+                height: 34px;
+            }
+        }
+    }
+    @media only screen and (max-width: 516px){
+        .calendarTitle{
+            font-size: 26px;
+        }
+    }
 `;
 export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar {...props} />)`
     width: 100%;
@@ -68,6 +99,26 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
             font-size: 32px;
             color: #23423D;
         }
+
+        @media only screen and (max-width: 768px){
+            height: 77px;
+            width: 99px;
+            > abbr{
+                font-size: 24px;
+                top: 5px;
+                right: 12px;
+            }
+        }
+        @media only screen and (max-width: 516px){
+            height: auto;
+            width: auto;
+            height: 38px;
+            width: 38px;
+            > abbr {
+                font-size: 14px;
+                right: 6px;
+            }
+        }
     }
     .react-calendar__month-view__weekdays{
         > div {
@@ -81,8 +132,19 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
             line-height: 1.2em;
             color: #23423D;
             padding: 18px 0;
+            background-color: red;
             abbr[title]{
                 text-decoration: none;
+            }
+            @media only screen and (max-width: 768px){
+                font-size: 24px;
+                max-height: 40px;
+                padding: 9px 0;
+                line-height: 1em;
+            }
+            @media only screen and (max-width: 517px){
+                font-size: 13px;
+                padding: 9px 0;
             }
         }
     }
@@ -116,6 +178,14 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
             left: -30px;
             z-index: 1;
         }
+        @media only screen and (max-width: 768px){
+            svg{
+                width: 120%;
+                height: 120%;
+                top: 0;
+                left: 0;
+            }
+        }
     }
 `;
 export const StyledExhibitionTitle = styled.p`
@@ -130,12 +200,12 @@ export const StyledExhibitionTitle = styled.p`
         width: 193px;
         height: 70px;
         display: ${({ isopen }) => isopen ? "flex" : "none"};
-        justify-content: center;
         align-items: center;
         position: absolute;
         left: 20px;
         bottom: -40px;
         z-index: 2;
+        padding-left: 11px;
         &:hover{
             display: flex;
         }
@@ -150,5 +220,9 @@ export const StyledExhibitionTitle = styled.p`
             top: -15px;
             left: 20px;
         }
+    }
+    @media only screen and (max-width: 516px){
+        left: 0;
+        bottom: -60px;
     }
 `
