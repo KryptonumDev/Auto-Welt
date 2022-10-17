@@ -22,6 +22,9 @@ export const StyledHomeExhibitions = styled.section`
   @media only screen and (max-width: 768px){
     padding: 0 16px;
     margin: 60px auto;
+    > h2{
+      font-size: 38px;
+    }
   }
   @media only screen and (max-width: 685px){
     > a{
@@ -38,6 +41,9 @@ export const StyledHomeExhibitions = styled.section`
       width: 95%;
       font-size: 15px;
     }
+    > h2{
+      font-size: 34px;
+    }
   }
 `;
 export const StyledElementsWrapper = styled.div`
@@ -50,4 +56,7 @@ export const StyledElementsWrapper = styled.div`
   @media only screen and (max-width: 1080px){
     flex-wrap: wrap;
   } 
+  @media only screen and (max-width: 768px){
+    margin-bottom: 20px;
+  }
 `;

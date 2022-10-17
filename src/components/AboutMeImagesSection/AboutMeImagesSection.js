@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import parse from "html-react-parser"
 
 import {
@@ -33,9 +33,8 @@ const AboutMeImagesSection = ({ imagesData }) => {
         </StyledImagesWrapper>
         <StyledAparatWrapper>
             <StyledIconWrapper>
-                <GatsbyImage 
-                    image={getImage(imagesData.ikonkaAparatu.localFile)}
-                    alt={imagesData.ikonkaAparatu.altText}
+                <StaticImage 
+                    src="../../images/Aparat.png"
                 />
             </StyledIconWrapper>
             <StyledTextWrapper>

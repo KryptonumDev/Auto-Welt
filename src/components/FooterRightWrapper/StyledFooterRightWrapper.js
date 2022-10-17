@@ -7,9 +7,19 @@ export const StyledFooterRightWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
+  @media only screen and (max-width: 1065px){
+    > a{
+      font-size: 18px;
+    }
+  }
   @media only screen and (max-width: 768px){
     width: 55%;
     max-width: unset;
+  }
+  @media only screen and (max-width: 685px){
+    > a{
+      font-size: 16px;
+    }
   }
   @media only screen and (max-width: 500px){
     width: 100%;
@@ -22,6 +32,11 @@ export const StyledFooterRightWrapper = styled.div`
     > a{
       width: 95%;
       margin-left: 0;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    > a{
+      font-size: 15px;
     }
   }
 `;

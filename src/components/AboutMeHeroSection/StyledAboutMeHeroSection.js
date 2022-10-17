@@ -39,17 +39,24 @@ export const StyledTitleWrapper = styled.div`
     font: 400 48px/1.2em 'Nocturne Serif';
     color: #233532;
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 1036px){
         font-size: 38px;
     }
+    @media only screen and (max-width: 450px){
+        font-size: 34px;
+    }
+    
 `
 export const StyledSubTitleWrapper = styled.div`
     font: 400 28px/1.2em 'Nocturne Serif';
     color: #23423D;
     margin-top: 10px;
     
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 1036px){
         font-size: 28px;
+    }
+    @media only screen and (max-width: 816px){
+        font-size: 24px;
     }
 `
 export const StyledDescWrapper = styled.div`
@@ -57,13 +64,25 @@ export const StyledDescWrapper = styled.div`
     color: #000;
     margin: 30px 0 42px;
     
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 1036px){
         font-size: 20px;
+    }
+    @media only screen and (max-width: 816px){
+        font-size: 18px;
+    }
+    @media only screen and (max-width: 450px){
+        font-size: 16px;
     }
 `
 export const StyledButtonWrapper = styled.div`
-    @media only screen and (max-width: 670px){
+    @media only screen and (max-width: 1065px){
         a{
+            font-size: 18px;
+        }
+    }
+    @media only screen and (max-width: 685px){
+        a{
+            font-size: 16px;
             margin-left: 12px;
         }
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
@@ -18,12 +19,23 @@ const StyledAboutMe = styled.div`
   overflow: hidden;
 `
 const AboutMe = ({ data }) => {
+  const imageShort = data.wpPage.oMnie.drugaSekcja;
+  const images = withArtDirection(getImage(imageShort.zdjecieDlaZielonegoElementuPodOpisem.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(imageShort.zdjecieMobileDlaZielonegoElementuPodOpisem.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(imageShort.zdjecieTabletDlaZielonegoElementuPodOpisem.localFile),
+    }
+  ])
   return (
     <StyledAboutMe>
       <AboutMeHeroSection heroData={data.wpPage.oMnie.pierwszaSekcjaStrony} />
-      <AboutMeSecondSection secondData={data.wpPage.oMnie.drugaSekcja} />
+      <AboutMeSecondSection secondData={data.wpPage.oMnie.drugaSekcja} images={images} />
       <AboutMeImagesSection imagesData={data.wpPage.oMnie.trzeciaSekcja} />
-      <HomeRecommendations />
+      <HomeRecommendations isAboutPage />
       <HomeExhibitions />
     </StyledAboutMe>
   );
@@ -73,9 +85,7 @@ query AboutMeQuery {
             }
           }
         }
-      }
-      trzeciaSekcja {
-        ikonkaAparatu {
+        zdjecieMobileDlaZielonegoElementuPodOpisem {
           altText
           localFile {
             childImageSharp {
@@ -83,6 +93,16 @@ query AboutMeQuery {
             }
           }
         }
+        zdjecieTabletDlaZielonegoElementuPodOpisem {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+      trzeciaSekcja {
         tekstPrzyIkonceAparatu
         trzyZdjecia {
           altText

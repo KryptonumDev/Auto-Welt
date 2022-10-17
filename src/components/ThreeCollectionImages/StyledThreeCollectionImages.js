@@ -5,7 +5,7 @@ export const StyledThreeCollectionImages = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 120px;
-
+  gap: 10px;
   @media only screen and (max-width: 768px){
     margin-top: 50px;
     padding-left: 16px;

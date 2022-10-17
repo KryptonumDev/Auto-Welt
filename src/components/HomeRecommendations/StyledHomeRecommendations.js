@@ -12,7 +12,7 @@ export const StyledHomeRecommendations = styled.section`
 
   @media only screen and (max-width: 768px){
     padding: 0;
-    margin-bottom: 60px;
+    margin-bottom: ${({ isaboutpage }) => isaboutpage ? "0" : "60px"};
     > h2{
       font-size: 38px;
     }
@@ -47,6 +47,7 @@ export const StyledButtonsWrapper = styled.div`
   @media only screen and (max-width: 768px){
     flex-direction: column;
     gap: 12px;
+    margin-top: 30px;
   }
   @media only screen and (max-width: 685px){
     a{

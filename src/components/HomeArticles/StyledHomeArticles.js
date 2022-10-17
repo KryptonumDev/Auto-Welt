@@ -48,7 +48,7 @@ export const StyledButtonWrapper = styled.div`
   }
   @media only screen and (max-width: 594px){
     a{
-      width: 95%;
+      width: 70%;
     }
   }
   @media only screen and (max-width: 375px){

@@ -16,6 +16,9 @@ export const StyledCollectionElementSlider = styled.section`
     position: relative;
     justify-content: center;
   }
+  @media only screen and (max-width: 600px){
+    margin-top: 80px;
+  }
   @media only screen and (max-width: 546px){
     min-height: unset;
     margin-top: 60px;
@@ -51,6 +54,9 @@ export const StyledLeftArrow = styled(motion.div)`
     left: 34%;
     margin-right: 0;
   }
+  @media only screen and (max-width: 341px){
+    bottom: 0;
+  }
 `;
 export const StyledRightArrow = styled(motion.div)`
   background: var(--primary500);
@@ -80,6 +86,9 @@ export const StyledRightArrow = styled(motion.div)`
     right: 34%;
     margin-left: 0;
   }
+  @media only screen and (max-width: 341px){
+    bottom: 0;
+  }
 `;
 export const StyledImagesWrapper = styled(motion.div)`
   width: 100%;
@@ -107,6 +116,7 @@ export const StyledImage = styled(motion.div)`
   max-width: 457px;
   width: 50%;
   height: 100%;
+  flex: 1;
   img{
     width: 100%;
     height: 100%;
@@ -118,5 +128,6 @@ export const StyledImage = styled(motion.div)`
   @media only screen and (max-width: 768px){
     width: 100%;
     max-width: unset;
+    min-height: 260px;
   }
 `;

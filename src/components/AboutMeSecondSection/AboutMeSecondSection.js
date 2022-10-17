@@ -19,7 +19,7 @@ import {
     StyledGreetingText
 } from "./StyledAboutMeSecondSection"
 
-const AboutMeSecondSection = ({ secondData }) => {
+const AboutMeSecondSection = ({ secondData, images }) => {
   return (
     <>
         <StyledAboutMeSecondSection>
@@ -50,8 +50,7 @@ const AboutMeSecondSection = ({ secondData }) => {
             <StyledGreetingPanel>
                 <StyledGreetingImage>
                     <GatsbyImage 
-                        image={getImage(secondData.zdjecieDlaZielonegoElementuPodOpisem.localFile)}
-                        alt={secondData.zdjecieDlaZielonegoElementuPodOpisem.altText}
+                        image={images}
                         objectFit="fill"
                     />
                 </StyledGreetingImage>
@@ -77,6 +76,7 @@ const AboutMeSecondSection = ({ secondData }) => {
                     hasTarget={secondData.prawyPrzycisk.target}
                     textColor="var(--white)"
                     bgColor="var(--primary500)"
+                    hasBorder="2px solid var(--primary500)"
                     hasDeclaredPadding="10px 36px"
                     hasFontSize="21px"
                     hasFontWeight="500"

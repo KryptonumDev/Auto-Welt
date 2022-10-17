@@ -11,13 +11,17 @@ export const StyledAboutMeSecondSection = styled.section`
     display: flex;
     justify-content: space-between;
     gap: 40px;
-
+    
     @media only screen and (max-width: 948px){
         padding-right: 30px;
     }
     @media only screen and (max-width: 768px){
         padding: 52px 30px 80px 16px;
         width: calc(100% - 16px);
+    }
+    @media only screen and (max-width: 670px){
+        flex-direction: column-reverse;
+        gap: 0;
     }
     @media only screen and (max-width: 574px){
         flex-direction: column-reverse;
@@ -30,7 +34,7 @@ export const StyledLeftWrapper = styled.div`
     @media only screen and (max-width: 948px){
         width: 50%;
     }
-    @media only screen and (max-width: 574px){
+    @media only screen and (max-width: 670px){
         width: 100%;
     }
 `
@@ -41,7 +45,7 @@ export const StyledRightWrapper = styled.div`
         width: 50%;
         flex-shrink: 1;
     }
-    @media only screen and (max-width: 574px){
+    @media only screen and (max-width: 670px){
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -56,10 +60,10 @@ export const StyledTitleWrapper = styled.div`
     line-height: 1.2em;
     color: #23423D;
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 1036px){
         font-size: 38px;
     }
-    @media only screen and (max-width: 375px){
+    @media only screen and (max-width: 450px){
         font-size: 34px;
     }
 `
@@ -71,8 +75,11 @@ export const StyledDescWrapper = styled.div`
     line-height: 1.2em;
     margin-top: 30px;
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width:1036px){
         font-size: 20px;
+    }
+    @media only screen and (max-width: 816px){
+        font-size: 18px;
     }
     @media only screen and (max-width: 375px){
         font-size: 16px;
@@ -104,17 +111,22 @@ export const StyledButtonsWrapper = styled.div`
     justify-content: center;
     gap: 20px;
     margin-top: 40px;
-
+    @media only screen and (max-width: 1065px){
+        a{
+            font-size: 18px;
+        }
+    }
     @media only screen and (max-width: 768px){
         padding: 0 16px;
     }
-    @media only screen and (max-width: 672px){
+    @media only screen and (max-width: 685px){
         flex-direction: column;
         align-items: center;
         gap: 12px;
         margin-top: 25px;   
         > a {
             width: 95%;
+            font-size: 16px;
         }
     }
     @media only screen and (max-width: 375px){

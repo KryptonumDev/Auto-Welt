@@ -48,11 +48,24 @@ export const StyledButtonSpace = styled.div`
   display: flex;
   justify-content: center;
 
-  @media only screen and (max-width: 594px){
-    padding: 11px 20px 40px; 
+  @media only screen and (max-width: 1065px){
+    a{
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    a{
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 375px){
     a{
       font-size: 15px;
-      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 594px){
+    a{
+      font-size: 15px;
     }
   }
 `;

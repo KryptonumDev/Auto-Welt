@@ -21,7 +21,7 @@ import RightLightArrow from "../../images/rightLightArrow.svg";
 import useWindowSize from "../../utils/getWindowSize";
 import { AnimatePresence } from "framer-motion";
 
-const HomeRecommendations = () => {
+const HomeRecommendations = ({ isAboutPage }) => {
   const width = useWindowSize();
   const {allWpRekomendacja, wpPage} = useStaticQuery(graphql`
   query rekomendacje {
@@ -96,7 +96,7 @@ const HomeRecommendations = () => {
   }, [index, width]);
 
   return (
-    <StyledHomeRecommendations>
+    <StyledHomeRecommendations isaboutpage={isAboutPage}>
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"
@@ -157,6 +157,7 @@ const HomeRecommendations = () => {
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasFontSize="21px"
+          hasBorder="2px solid var(--primary500)"
           hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
           hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.target}
           hoverBgColor="var(--primary900)"
