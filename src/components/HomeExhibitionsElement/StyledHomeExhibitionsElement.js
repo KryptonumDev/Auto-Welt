@@ -44,6 +44,9 @@ export const StyledDataWrapper = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   gap: 8px;
+  @media only screen and (max-width: 375px){
+    align-items: flex-start;
+  }
 `;
 export const StyledLogoWrapper = styled.div`
   width: 100%;
