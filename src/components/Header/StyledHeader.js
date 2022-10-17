@@ -159,7 +159,7 @@ export const StyledLogoMobileWrapper = styled.div`
     display: ${({ isopen }) => isopen ? "none" : "block"};
     position: absolute;
     top: 32px;
-    left: 32px;
+    left: 16px;
     z-index: 2;
   }
   @media only screen and (max-width: 375px) {

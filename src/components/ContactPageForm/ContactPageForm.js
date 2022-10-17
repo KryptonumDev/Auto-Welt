@@ -1,7 +1,7 @@
 import React from 'react'
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { Link } from "gatsby"
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import Button from "../Button/Button";
@@ -13,10 +13,10 @@ import {
     StyledRightWrapper,
     StyledHeading,
     StyledTitleImage,
+    StyledInputWrapper,
     StyledHomeContactForm
 } from "./StyledContactPageForm"
 import {
-    StyledInputWrapper,
     StyledErrorMessage,
     StyledButtonWrapper,
     StyledCustomCheckbox
@@ -36,23 +36,49 @@ const ContactSchema = Yup.object().shape({
 
 const ContactPageForm = ({ data }) => {
     const width = useWindowSize();
+
+    const images = withArtDirection(getImage(data.zdjecieDlaFormularza.localFile), [
+      {
+        media: "(max-width: 560px)",
+        image: getImage(data.zdjecieDoFormularzaMobile.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(data.zdjecieDoFormularzaTablet.localFile),
+      }
+    ])
+
     const handleSubmit = () => {
         console.log("elo siema");
-      };
+    };
     return (
         <StyledContactPageForm>
             <StyledLeftWrapper>
                 <StyledModel>
-
+                    <GatsbyImage
+                        image={images}
+                        objectFit="fill"
+                    />
                 </StyledModel>
             </StyledLeftWrapper>
             <StyledRightWrapper>
                 <StyledHeading>
                     <StyledTitleImage>
-
+                        <GatsbyImage
+                            image={getImage(data.zdjecieDlaTytuluFormularza.localFile)}
+                            alt={data.zdjecieDlaTytuluFormularza.altText}
+                            objectFit="fill"
+                        />
                     </StyledTitleImage>
-                    <StyledText>
-
+                    <StyledText
+                        hasdeclaredfontsize="48px"
+                        hasdeclaredfontfamily="Nocturne Serif"
+                        hasdeclaredfontcolor="#23423D"
+                        hasdeclaredtextalign="center"
+                        hasdeclaredpadding="0 20px"
+                        hasdeclaredlineheight="1.2em"
+                    >
+                        {data.tytulFormularza}
                     </StyledText>
                 </StyledHeading>
                 <StyledHomeContactForm>
@@ -76,29 +102,29 @@ const ContactPageForm = ({ data }) => {
                             name="contact"
                         >
                             <StyledInputWrapper iserror={errors.firstName}>
-                            <label>{data.wpPage.homepage.formularzKontaktowy.tytulPolaImie}</label>
-                            <Field type="text" name="firstName" />
-                            <StyledErrorMessage iserror={errors.firstName} name="firstName" component="div" />
+                                <label>{data.tytulPolaImie}</label>
+                                <Field type="text" name="firstName" />
+                                <StyledErrorMessage iserror={errors.firstName} name="firstName" component="div" />
                             </StyledInputWrapper>
                             <StyledInputWrapper iserror={errors.lastName}>
-                            <label>{data.wpPage.homepage.formularzKontaktowy.tytulPolaNazwisko}</label>
-                            <Field type="text" name="lastName" />
-                            <StyledErrorMessage iserror={errors.lastName} name="lastName" component="div" />
+                                <label>{data.tytulPolaNazwisko}</label>
+                                <Field type="text" name="lastName" />
+                                <StyledErrorMessage iserror={errors.lastName} name="lastName" component="div" />
                             </StyledInputWrapper>
                             <StyledInputWrapper iserror={errors.email}>
-                            <label>{data.wpPage.homepage.formularzKontaktowy.tytulPolaEMail}</label>
-                            <Field type="email" name="email" />
-                            <StyledErrorMessage iserror={errors.email} name="email" component="div" />
+                                <label>{data.tytulPolaEmail}</label>
+                                <Field type="email" name="email" />
+                                <StyledErrorMessage iserror={errors.email} name="email" component="div" />
                             </StyledInputWrapper>
                             <StyledInputWrapper iserror={errors.tel}>
-                            <label>{data.wpPage.homepage.formularzKontaktowy.tytulPolaNrTelefonu}</label>
-                            <Field type="text" placeholder="_ _ _  _ _ _  _ _ _" name="tel" />
-                            <StyledErrorMessage iserror={errors.tel} name="tel" component="div" />
+                                <label>{data.tytulPolaNrTelefonu}</label>
+                                <Field type="text" placeholder="_ _ _  _ _ _  _ _ _" name="tel" />
+                                <StyledErrorMessage iserror={errors.tel} name="tel" component="div" />
                             </StyledInputWrapper>
                             <StyledInputWrapper fullwidth iserror={errors.message}>
-                            <label>{data.wpPage.homepage.formularzKontaktowy.tytulPola}</label>
-                            <Field as="textarea" name="message" />
-                            <StyledErrorMessage iserror={errors.message} name="message" component="div" />
+                                <label>{data.tytulPolaTrescWiadomosci}</label>
+                                <Field as="textarea" name="message" />
+                                <StyledErrorMessage iserror={errors.message} name="message" component="div" />
                             </StyledInputWrapper>
                             <div>
                             <StyledText
@@ -107,7 +133,7 @@ const ContactPageForm = ({ data }) => {
                                 hasdeclaredlineheight="1.2em"
                                 hasdeclaredfontcolor="var(--primary500)"
                             >
-                                {data.wpPage.homepage.formularzKontaktowy.podpisPodObszaremDoWyslaniaWiadomosci}
+                                {data.podpisPodObszaremDoWyslaniaWiadomosci}
                             </StyledText>
                             </div>
                             <StyledCustomCheckbox value={values.termsAndConditions}>
@@ -118,7 +144,7 @@ const ContactPageForm = ({ data }) => {
                             <StyledButtonWrapper>
                             <button type="submit" disabled={isSubmitting}>
                                 <Button
-                                    text={data.wpPage.homepage.formularzKontaktowy.trescPrzyciskuPotwierdzajacegoWyslanie}
+                                    text={data.trescPrzyciskuPotwierdzajacegoWyslanie}
                                     bgColor="var(--secondary500)"
                                     textColor="var(--primary900)"
                                     hasBorder="2px solid var(--secondary500)"

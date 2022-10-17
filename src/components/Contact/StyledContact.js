@@ -1,7 +1,22 @@
 import styled from "styled-components"
 
 export const StyledContact = styled.section`
-    padding-bottom: 120px;
+    padding: 0 32px 120px;
+    max-width: 1144px;
+    width: 100%;
+    margin: 0 auto;
+    @media only screen and (max-width: 768px){
+        padding: 134px 16px 60px;
+        > h1{
+            font-size: 38px;
+        }
+    }
+    @media only screen and (max-width: 375px){
+        padding-top: 120px;
+        > h1{
+            font-size: 34;
+        }
+    }
 `
 export const StyledDesc = styled.div`
     font-size: 24px;
@@ -10,6 +25,14 @@ export const StyledDesc = styled.div`
     font-family: 'Roboto';
     padding-bottom: 60px;
     width: 100%;
+
+    @media only screen and (max-width: 768px){
+        font-size: 20px;
+        padding-bottom: 30px;
+    }
+    @media only screen and (max-width: 375px){
+        font-size: 16px;
+    }
 `
 export const StyledBigImage = styled.div``
 export const StyledButtonsWrapper = styled.div`
@@ -19,11 +42,30 @@ export const StyledButtonsWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 40px;
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 1065px){
+        a{
+          font-size: 18px;
+        }
+    }
+    @media only screen and (max-width: 768px){
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 685px){
+        a{
+          font-size: 16px;
+        }
+    }
+    @media only screen and (max-width: 624px) {
         flex-direction: column;
         gap: 12px;
-        > div {
-            width: 100%;
+        align-items: center;
+        > a {
+            width: 95%;
+        }
+    }
+    @media only screen and (max-width: 375px){
+        a{
+          font-size: 15px;
         }
     }
 `
@@ -32,4 +74,5 @@ export const StyledBottomSection = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
 `

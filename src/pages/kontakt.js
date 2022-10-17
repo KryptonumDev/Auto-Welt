@@ -20,6 +20,7 @@ import useWindowSize from "../utils/getWindowSize";
 
 const Contact = ({ data }) => {
   const width = useWindowSize();
+
   return (
     <StyledContact>
       <StyledText
@@ -34,9 +35,9 @@ const Contact = ({ data }) => {
       <StyledDesc>
         {parse(data.wpPage.kontakt.pierwszaSekcja.opisPodPierwszymTekstem)}
       </StyledDesc>
-      {/* <ContactPageForm /> */}
+      <ContactPageForm data={data.wpPage.kontakt.pierwszaSekcja} />
       <GoogleMapsContact mapData={data.wpPage.kontakt.mapa}/>
-      <Questions />
+      <Questions isContactPage />
       <StyledBottomSection>
         <StyledBigImage>
           <GatsbyImage
@@ -64,6 +65,7 @@ const Contact = ({ data }) => {
             hasFontSize={width < 376 ? "15px" : "21px"}
             hasTarget={data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.linkPoPrawo.target}
             hoverBgColor="var(--primary900)"
+            hasBorder="2px solid var(--primary500)"
           />
         </StyledButtonsWrapper>
       </StyledBottomSection>
@@ -78,15 +80,68 @@ query contactQuery {
   wpPage(id: {eq: "cG9zdDo1NzM="}) {
     kontakt {
       mapa {
-        langtitude
-        longtitude
         tytulNadMapka
+        linkDoStronyZAdresemFirmy
+        zdjecieMapyDesktop {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieMapyMobile {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieMapyTablet {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
       }
       pierwszaSekcja {
         tytulFormularza
         pierwszyDuzyTekst
         opisPodPierwszymTekstem
+        podpisPodObszaremDoWyslaniaWiadomosci
+        trescPrzyciskuPotwierdzajacegoWyslanie
         zdjecieDlaFormularza {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieDlaTytuluFormularza {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        tytulPolaEmail
+        tytulPolaImie
+        tytulPolaNazwisko
+        tytulPolaNrTelefonu
+        tytulPolaTrescWiadomosci
+        zdjecieDoFormularzaMobile {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieDoFormularzaTablet {
           altText
           localFile {
             childImageSharp {

@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 
 import {
   StyledGoogleMapsContact,
@@ -8,6 +9,16 @@ import { StyledText } from "../Text/StyledText";
 
 
 const GoogleMapsContact = ({ mapData }) => {
+  const images = withArtDirection(getImage(mapData.zdjecieMapyDesktop.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(mapData.zdjecieMapyMobile.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(mapData.zdjecieMapyTablet.localFile),
+    }
+  ])
   return (
     <StyledGoogleMapsContact>
       <StyledText
@@ -16,19 +27,17 @@ const GoogleMapsContact = ({ mapData }) => {
         hasdeclaredfontcolor="var(--primary500)"
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
+        hasdeclaredlineheight="1.2em"
       >
-        Tu nas znajdziesz:
+        {mapData.tytulNadMapka}
       </StyledText>
-      <StyledGoogleMapsWrapper>
-        <iframe
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          style={{ border: 0 }}
-          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&q='Auto-welt', center${mapData.langtitude}, ${mapData.longtitude}&zoom=5`}
-          allowFullScreen
-        />
-      </StyledGoogleMapsWrapper>
+      <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank">
+        <StyledGoogleMapsWrapper>
+          <GatsbyImage
+            image={images}
+          />
+        </StyledGoogleMapsWrapper>
+      </a>
     </StyledGoogleMapsContact>
   );
 };

@@ -7,7 +7,7 @@ export const StyledQuestions = styled.section`
   padding: 0 32px;
 
   @media only screen and (max-width: 768px){
-    padding: 0 16px;
+    padding: ${({ iscontactpage }) => iscontactpage ? "0" : "0 16px"};
     > h2{
       font-size: 38px;
     }

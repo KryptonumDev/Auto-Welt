@@ -7,7 +7,7 @@ import Question from "../Question/Question";
 import { StyledQuestions, StyledQuestionsWrapper } from "./StyledQuestions";
 import { StyledText } from "../Text/StyledText";
 
-const Questions = () => {
+const Questions = ({ isContactPage }) => {
   const data = useStaticQuery(graphql`
   query faqQuery {
     wpPage(id: {eq: "cG9zdDozMw=="}) {
@@ -48,7 +48,7 @@ const Questions = () => {
   }
   `)
   return (
-    <StyledQuestions>
+    <StyledQuestions iscontactpage={isContactPage}>
       <StyledText
         as="h2"
         hasdeclaredfontsize="48px"
