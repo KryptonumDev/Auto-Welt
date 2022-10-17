@@ -41,8 +41,8 @@ const CollectionTemplate = ({ data }) => {
       <CollectionElementSlider
         imagesData={shortCollectionData.zdjeciaDoSlidera}
       />
-      {shortCollectionData
-        .ktoraKolekcjePolecic && (
+      {(shortCollectionData
+        .ktoraKolekcjePolecic && images) && (
         <RecInfoWithButton
           bgImage={images}
           text={shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje}

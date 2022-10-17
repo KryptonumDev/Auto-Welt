@@ -6,7 +6,7 @@ export const StyledHomeExhibitions = styled.section`
   align-items: center;
   width: 100%;
   max-width: 1100px;
-  margin: 120px auto;
+  margin: ${({ isaboutpage }) => isaboutpage ? "0 auto 120px" : "120px auto"};
   padding: 0 32px;
   > h2 {
     align-self: flex-start;
@@ -21,7 +21,7 @@ export const StyledHomeExhibitions = styled.section`
   }
   @media only screen and (max-width: 768px){
     padding: 0 16px;
-    margin: 60px auto;
+    margin: ${({ isaboutpage }) => isaboutpage ? "0 auto 60px" : "60px auto"};
     > h2{
       font-size: 38px;
     }

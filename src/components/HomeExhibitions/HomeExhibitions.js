@@ -13,7 +13,7 @@ import {
 
 import useWindowSize from "../../utils/getWindowSize";
 
-const HomeExhibitions = () => {
+const HomeExhibitions = ({ isAboutPage }) => {
   const data = useStaticQuery(graphql`
   query currentExhibition {
     allWpWystawa {
@@ -62,7 +62,7 @@ const HomeExhibitions = () => {
   const width = useWindowSize();
 
   return (
-    <StyledHomeExhibitions>
+    <StyledHomeExhibitions isaboutpage={isAboutPage}>
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"

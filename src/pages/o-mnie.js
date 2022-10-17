@@ -36,7 +36,7 @@ const AboutMe = ({ data }) => {
       <AboutMeSecondSection secondData={data.wpPage.oMnie.drugaSekcja} images={images} />
       <AboutMeImagesSection imagesData={data.wpPage.oMnie.trzeciaSekcja} />
       <HomeRecommendations isAboutPage />
-      <HomeExhibitions />
+      <HomeExhibitions isAboutPage />
     </StyledAboutMe>
   );
 };
