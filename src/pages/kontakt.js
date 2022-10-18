@@ -35,7 +35,7 @@ const Contact = ({ data }) => {
       <StyledDesc>
         {parse(data.wpPage.kontakt.pierwszaSekcja.opisPodPierwszymTekstem)}
       </StyledDesc>
-      <ContactPageForm data={data.wpPage.kontakt.pierwszaSekcja} />
+      <ContactPageForm dataForm={data.wpPage.kontakt.pierwszaSekcja} />
       <GoogleMapsContact mapData={data.wpPage.kontakt.mapa}/>
       <Questions isContactPage />
       <StyledBottomSection>

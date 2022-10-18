@@ -25,9 +25,11 @@ const ContactSchema = Yup.object().shape({
 
 const HomeContactForm = ({ data }) => {
   const width = useWindowSize();
+
   const handleSubmit = () => {
     console.log("elo siema");
   };
+
   return (
     <StyledHomeContactForm>
       <Formik

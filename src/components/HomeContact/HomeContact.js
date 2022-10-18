@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage, withArtDirection  } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
 import HomeContactForm from "../HomeContactForm/HomeContactForm";
+import Button from "../Button/Button";
 
 import {
   StyledHomeContact,
@@ -10,7 +12,12 @@ import {
   StyledRightWrapper,
   StyledHeading,
   StyledModel,
-  StyledTitleImage
+  StyledTitleImage,
+  StyledMessageWrapper,
+  StyledTitle,
+  StyledSubTitle,
+  StyledDesc,
+  StyledButtonsWrapper
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
 
@@ -60,11 +67,23 @@ const HomeContact = () => {
               }
             }
           }
+          trescWiadomosciPoPoprawnymPrzeslaniu {
+            opis
+            podTytul
+            przyciskPoPrawo
+            tytul
+            przyciskPoLewo {
+              target
+              title
+              url
+            }
+          }
         }
       }
     }
-  }
+  }  
   `);
+  const [isSend, setIsSend] = useState(true);
   const imageShort = data.wpPage.homepage.formularzKontaktowy;
   const images = withArtDirection(getImage(imageShort.lewyObrazek.localFile), [
     {
@@ -87,25 +106,67 @@ const HomeContact = () => {
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>
-        <StyledHeading>
-          <StyledTitleImage>
-            <GatsbyImage
-              image={getImage(data.wpPage.homepage.formularzKontaktowy.zdjecieTytulu.localFile)}
-              alt={data.wpPage.homepage.formularzKontaktowy.zdjecieTytulu.altText}
-              objectFit="fill"
-            />
-          </StyledTitleImage>
-          <StyledText
-            as="h2"
-            hasdeclaredfontsize="clamp(16px, 28px, 32px)"
-            hasdeclaredtextalign="center"
-            hasdeclaredfontcolor="var(--primary500)"
-            hasdeclaredfontfamily="Nocturne Serif"
-          >
-            {data.wpPage.homepage.formularzKontaktowy.tytul}
-          </StyledText>
-        </StyledHeading>
-        <HomeContactForm data={data} />
+        {isSend ? 
+        <>
+          <StyledMessageWrapper>
+            <StyledTitle>
+              {parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.tytul)}
+            </StyledTitle>
+            <StyledSubTitle>
+              {parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.podTytul)}
+            </StyledSubTitle>
+            <StyledDesc>
+              {parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.opis)}
+            </StyledDesc>
+            <StyledButtonsWrapper>
+              <Button
+                whereGo={imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.przyciskPoLewo.url}
+                text={imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.przyciskPoLewo.title}
+                textColor="var(--white)"
+                bgColor="var(--primary500)"
+                hasDeclaredPadding="10px 36px"
+                hasFontSize="21px"
+                hasFontWeight="500"
+                hasTarget={imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.przyciskPoLewo.target}
+                hoverBgColor="var(--primary900)"
+                hasBorder="2px solid var(--primary500)"
+              />
+              <Button
+                text={imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.przyciskPoPrawo}
+                bgColor="var(--creamBg)"
+                hasBorder="2px solid var(--primary500)"
+                textColor="var(--primary500)"
+                hasDeclaredPadding="10px 36px"
+                hasFontWeight="500"
+                hasFontSize="21px"
+              />
+            </StyledButtonsWrapper>
+          </StyledMessageWrapper>
+        </> 
+        :
+        <>
+          (
+            <StyledHeading>
+              <StyledTitleImage>
+                <GatsbyImage
+                  image={getImage(imageShort.zdjecieTytulu.localFile)}
+                  alt={imageShort.formularzKontaktowy.zdjecieTytulu.altText}
+                  objectFit="fill"
+                />
+              </StyledTitleImage>
+              <StyledText
+                as="h2"
+                hasdeclaredfontsize="clamp(16px, 28px, 32px)"
+                hasdeclaredtextalign="center"
+                hasdeclaredfontcolor="var(--primary500)"
+                hasdeclaredfontfamily="Nocturne Serif"
+              >
+                {imageShort.formularzKontaktowy.tytul}
+              </StyledText>
+            </StyledHeading>
+            <HomeContactForm data={data}/>
+          )
+        </>}
       </StyledRightWrapper>
     </StyledHomeContact>
   );

@@ -108,3 +108,73 @@ export const StyledContactWrapper = styled.div`
     padding: 0 16px;
   }
 `
+export const StyledMessageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 74px;
+  height: 100%;
+  min-height: 345px;
+
+  @media only screen and (max-width: 972px){
+    padding: 61px 67px;
+  }
+  @media only screen and (max-width: 592px){
+    padding: 61px 26px;
+  }
+`
+export const StyledTitle = styled.div`
+  font: 400 36px/1.2rem 'Nocturne Serif';
+  color: #23423D;
+
+  @media only screen and (max-width: 375px){
+    font-size: 34px;
+  }
+`
+export const StyledSubTitle = styled.div`
+  font: 400 24px/1.2em 'Nocturne Serif';
+  color: #1D2B29;
+  margin-top: 10px;
+  @media only screen and (max-width: 375px){
+    font-size: 22px;
+  }
+`
+export const StyledDesc = styled.div`
+  font: 400 20px/1.4em 'Roboto';
+  color: #000;
+  margin-top: 20px;
+  @media only screen and (max-width: 375px){
+    font-size: 16px;
+  }
+`
+export const StyledButtonsWrapper = styled.div`
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  @media only screen and (max-width: 1065px){
+    a, p{
+      font-size: 18px;
+    }
+  }
+  @media only screen and (max-width: 685px){
+    a, p{
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 592px){
+    width: 100%;
+    align-items: center;
+    a, p{
+      width: 95%;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    a, p{
+      font-size: 15px;
+    }
+  }
+`
