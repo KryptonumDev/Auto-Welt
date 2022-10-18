@@ -132,7 +132,6 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
             line-height: 1.2em;
             color: #23423D;
             padding: 18px 0;
-            background-color: red;
             abbr[title]{
                 text-decoration: none;
             }
