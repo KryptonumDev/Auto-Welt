@@ -25,7 +25,7 @@ const Offer = ({ data }) => {
   ])
   return (
     <>
-      {/* <OfferHeroSection dataOffer={shortData.pierwszaSekcja} /> */}
+      <OfferHeroSection dataOffer={shortData.sekcjaPowitalnaStrony} />
       <StyledReqWrapper>
         <RecInfoWithButton
           text={shortData.zielonyElementZTekstem.tekst}
@@ -127,9 +127,9 @@ query ofertaQueryPage {
           url
         }
       }
-      pierwszaSekcjaStrony {
+      sekcjaPowitalnaStrony {
         tytulPoPrawo
-        trzecieDlugieZdjeciePoLewo {
+        trzecieZdjeciePoLewo {
           altText
           localFile {
             childImageSharp {
@@ -137,12 +137,12 @@ query ofertaQueryPage {
             }
           }
         }
-        przyciskPodTekstem {
+        przyciskPodOpisem {
           target
           title
           url
         }
-        pierwszeMaleZdjeciePoLewo {
+        pierwszeZdjeciePoLewo {
           altText
           localFile {
             childImageSharp {
@@ -150,8 +150,32 @@ query ofertaQueryPage {
             }
           }
         }
-        opisPoPrawo
-        drugieMaleZdjeciePoLewo {
+        opis
+        drugieZdjeciePoLewo {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        tloDesktopDlaOpisu {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        tloMobileDlaOpisu {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        tloTabletDlaOpisu {
           altText
           localFile {
             childImageSharp {
@@ -163,5 +187,4 @@ query ofertaQueryPage {
     }
   }
 }
-
 `

@@ -27,7 +27,7 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#EDAC2A"
         >
-          <span style={{ color: "#23423D", fontSize: "32px"}}>{convertedData[0]}</span>
+          <span style={{ color: "#23423D", fontSize: "32px"}}>{convertedData[0]}{' '}</span>
           {convertedData[1]}
         </StyledText>
         <StyledText
@@ -41,16 +41,18 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredfontsize="48px"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontfamily="Nocturne Serif"
+          hasdeclaredmargin="16px 0 20px"
         >
           {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.tytulZUwzglednieniemMiasta}
         </StyledText>
         <Button
           text={offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia}
           whereGo={`wystawy/${slug}`}
+          hasDeclaredPadding="10px 33px"
           bgColor="var(--secondary500)"
-          hasBorder="2px solid var(--secondary500)"
-          hasHeight="44px"
           textColor="var(--primary900)"
+          hasFontSize="21px"
+          hoverBgColor="var(--secondary700)"
         />
       </StyledOfferEventInfo>
     </StyledOfferEvent>

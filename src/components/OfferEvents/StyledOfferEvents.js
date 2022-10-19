@@ -15,11 +15,16 @@ export const StyledEventsWrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 60px 0 40px;
+
+  @media only screen and (max-width: 488px){
+    margin: 40px 0 20px;
+  }
 `;
 export const StyledEventsButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 
   @media only screen and (max-width: 1065px){
@@ -30,6 +35,13 @@ export const StyledEventsButtonWrapper = styled.div`
   @media only screen and (max-width: 685px){
     a{
       font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 488px){
+    flex-direction: column;
+    gap: 12px;
+    a {
+      width: 95%;
     }
   }
   @media only screen and (max-width: 375px){

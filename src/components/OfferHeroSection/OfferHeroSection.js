@@ -1,5 +1,7 @@
 import React from "react";
-import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
+import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image"
+import parse from "html-react-parser"
+
 import Button from "../Button/Button";
 
 import { StyledText } from "../Text/StyledText";
@@ -9,34 +11,75 @@ import {
   StyledImagesWrapper,
   StyledTextWrapper,
   StyledMoreInfoWrapper,
+  StyledButtonWrapper,
+  StyledBgWrapper
 } from "./StyledOfferHeroSection";
 
-const OfferHeroSection = () => {
+const OfferHeroSection = ({ dataOffer }) => {
+  const images = withArtDirection(getImage(dataOffer.tloDesktopDlaOpisu.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(dataOffer.tloMobileDlaOpisu.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(dataOffer.tloTabletDlaOpisu.localFile),
+    }
+  ])
   return (
     <StyledOfferHeroSection>
       <StyledTimeInfo>
-        <StyledImagesWrapper></StyledImagesWrapper>
+        <StyledBgWrapper>
+          <GatsbyImage image={getImage(images)} />
+        </StyledBgWrapper>
+        <StyledImagesWrapper>
+          <div>
+            <GatsbyImage 
+              image={getImage(dataOffer.pierwszeZdjeciePoLewo.localFile)}
+              alt={dataOffer.pierwszeZdjeciePoLewo.altText}
+            />
+          </div>
+          <div>
+            <GatsbyImage 
+              image={getImage(dataOffer.drugieZdjeciePoLewo.localFile)}
+              alt={dataOffer.drugieZdjeciePoLewo.altText}
+            />
+          </div>
+          <div>
+            <GatsbyImage 
+              image={getImage(dataOffer.trzecieZdjeciePoLewo.localFile)}
+              alt={dataOffer.trzecieZdjeciePoLewo.altText}
+            />
+          </div>
+        </StyledImagesWrapper>
         <StyledTextWrapper>
           <StyledText
             as="h2"
-            hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+            hasdeclaredfontsize="48px"
             hasdeclaredfontcolor="var(--primary500)"
             hasdeclaredmargin="0 0 40px"
             hasdeclaredfontfamily="Nocturne Serif"
           >
-            Wystawy czasowe
+            {dataOffer.tytulPoPrawo}
           </StyledText>
-          <StyledMoreInfoWrapper></StyledMoreInfoWrapper>
-          <Button
-            whereGo="/"
-            text="ZAPLANUJ WYSTAWE"
-            textColor="var(--white)"
-            bgColor="var(--primary500)"
-            hasFontSize="21px"
-          />
+          <StyledMoreInfoWrapper>
+            {parse(dataOffer.opis)}
+          </StyledMoreInfoWrapper>
+          <StyledButtonWrapper>
+            <Button
+              whereGo={dataOffer.przyciskPodOpisem.url}
+              text={dataOffer.przyciskPodOpisem.title}
+              textColor="var(--white)"
+              bgColor="var(--primary500)"
+              hasDeclaredPadding="10px 36px"
+              hasFontSize="21px"
+              hasFontWeight="500"
+              hoverBgColor="var(--primary900)"
+              hasTarget={dataOffer.przyciskPodOpisem.target}
+            />
+          </StyledButtonWrapper>
         </StyledTextWrapper>
       </StyledTimeInfo>
-      <RecInfoWithButton />
     </StyledOfferHeroSection>
   );
 };

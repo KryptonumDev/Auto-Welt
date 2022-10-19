@@ -1,4 +1,7 @@
 import React from "react";
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
+
+import Button from "../Button/Button";
 
 import { StyledText } from "../Text/StyledText";
 import {
@@ -7,7 +10,7 @@ import {
   StyledCheckOutButtonsWrapper,
 } from "./StyledCheckOutWithOffer";
 
-const CheckOutWithOffer = () => {
+const CheckOutWithOffer = ({ dataOffer }) => {
   return (
     <StyledCheckOutWithOffer>
       <StyledText
@@ -18,10 +21,30 @@ const CheckOutWithOffer = () => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Zapoznaj się z naszym katalogiem:
+        {dataOffer.tytul}
       </StyledText>
-      <StyledImageWrapper></StyledImageWrapper>
-      <StyledCheckOutButtonsWrapper></StyledCheckOutButtonsWrapper>
+      <StyledImageWrapper>
+        <GatsbyImage
+          image={getImage(dataOffer.zdjecieKsiazki.localFile)}
+          alt={dataOffer.zdjecieKsiazki.altText}
+        />
+      </StyledImageWrapper>
+      <StyledCheckOutButtonsWrapper>
+        <Button
+          whereGo={dataOffer.przyciskPoLewo.url}
+          text={dataOffer.przyciskPoLewo.title}
+          textColor="var(--white)"
+          bgColor="var(--primary500)"
+          hasDeclaredPadding="10px 36px"
+          hasFontSize="21px"
+          hasFontWeight="500"
+          hoverBgColor="var(--primary900)"
+          hasTarget={dataOffer.przyciskPoLewo.target}
+        />
+        <a href="#">
+          {dataOffer.tekstDoPobraniaTekstu}
+        </a>
+      </StyledCheckOutButtonsWrapper>
     </StyledCheckOutWithOffer>
   );
 };
