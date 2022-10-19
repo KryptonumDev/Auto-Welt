@@ -1,49 +1,86 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby"
+
 import Button from "../Button/Button";
 import OfferEvent from "../OfferEvent/OfferEvent";
+
+import parse from "html-react-parser";
 
 import { StyledText } from "../Text/StyledText";
 import {
   StyledOfferEvents,
   StyledEventsWrapper,
   StyledEventsButtonWrapper,
+  StyledTextWrapper
 } from "./StyledOfferEvents";
 
-const OfferEvents = () => {
+const OfferEvents = ({ dataEvents }) => {
+  const data = useStaticQuery(graphql`
+  query currentOfferExhibition {
+    allWpWystawa {
+      edges {
+        node {
+          slug
+          wystawa {
+            stronaOfertaInformacjeDlaElementowWSekcjiEventy {
+              tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia
+              tytulZUwzglednieniemMiasta
+              wiekszaMiniaturkaNaStroneOferty {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+            informacjeOgolne {
+              data
+              miejsce
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
   return (
     <StyledOfferEvents>
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"
         hasdeclaredfontcolor="var(--primary500)"
-        hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        Eventy:
+        {dataEvents.tytul}
       </StyledText>
-      <StyledText>
-        Biorę udział w wymienionych wydarzeniach. Wystawiam się przez kilka dni
-        i osobiście jestem na miejscu. Serdecznie zapraszam do odwiedzin,
-        zobaczenia wystawy oraz odbycia przyjemnej rozmowy.
-      </StyledText>
+      <StyledTextWrapper>
+        {parse(dataEvents.tekstPodTytulem)}
+      </StyledTextWrapper>
       <StyledEventsWrapper>
-        <OfferEvent />
-        <OfferEvent />
+        {data.allWpWystawa.edges.map(({ node }, index) => <OfferEvent key={index} offerData={node.wystawa} slug={node.slug} />)}
       </StyledEventsWrapper>
       <StyledEventsButtonWrapper>
         <Button
-          whereGo="/kontakt"
-          text="SKONTAKTUJ SIĘ"
+          whereGo={dataEvents.przyciskPoLewo.url}
+          text={dataEvents.przyciskPoLewo.title}
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
           hasFontSize="21px"
+          hasDeclaredPadding="10px 33px"
+          hasTarget={dataEvents.przyciskPoLewo.target}
+          bgColor="var(--background500)"
         />
         <Button
-          whereGo="/kolekcje-modeli"
-          text="ZOBACZ KOLEKCJE"
+          whereGo={dataEvents.przyciskPoPrawo.url}
+          text={dataEvents.przyciskPoPrawo.title}
+          hasTarget={dataEvents.przyciskPoPrawo.target}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasFontSize="21px"
+          hasDeclaredPadding="10px 33px"
+          hoverBgColor="var(--primary900)"
+          hasBorder="2px solid var(--primary500)"
         />
       </StyledEventsButtonWrapper>
     </StyledOfferEvents>

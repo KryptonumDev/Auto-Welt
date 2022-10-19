@@ -10,7 +10,15 @@ export const StyledOfferEvent = styled.div`
 `;
 export const StyledOfferEventImage = styled.div`
   width: 50%;
-  background-color: aqua;
+  height: 100%;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const StyledOfferEventInfo = styled.div`
   width: 50%;

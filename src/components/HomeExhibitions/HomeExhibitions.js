@@ -21,27 +21,28 @@ const HomeExhibitions = ({ isAboutPage }) => {
         node {
           slug
           wystawa {
-            data
-            tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
-            elementyListy {
-              elementListy
-            }
-            informacjeDlaMiniaturki
-            miejsce
-            tytulPodZdjeciem
-            zdjecieDoMiniaturki {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+            informacjeOgolne {
+              data
+              elementyListy {
+                elementListy
+              }
+              miejsce
+              tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
+              tloDlaMiejscaIDaty {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
-            }
-            tloDlaMiejscaIDaty {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+              tytulPodZdjeciem
+              zdjecieDoMiniaturki {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
             }
@@ -84,6 +85,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
         hasFontSize={width < 376 ? "15px" : "21px"}
         hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
         hoverBgColor="var(--primary900)"
+        hasBorder="2px solid var(--primary500)"
       />
     </StyledHomeExhibitions>
   );

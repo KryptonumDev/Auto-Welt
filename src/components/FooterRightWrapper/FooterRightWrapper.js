@@ -12,11 +12,12 @@ import {
 
 const FooterRightWrapper = ({ footerData }) => {
   const articleData = useStaticQuery(graphql`
-    query articleFooter {
-      allWpWystawa {
-        edges {
-          node {
-            wystawa {
+  query articleFooter {
+    allWpWystawa {
+      edges {
+        node {
+          wystawa {
+            informacjeOgolne {
               tytulPodZdjeciem
               zdjecieDoMiniaturki {
                 altText
@@ -27,11 +28,12 @@ const FooterRightWrapper = ({ footerData }) => {
                 }
               }
             }
-            slug
           }
+          slug
         }
       }
     }
+  }
   `)
   return (
     <StyledFooterRightWrapper>
@@ -46,7 +48,7 @@ const FooterRightWrapper = ({ footerData }) => {
         {footerData.wydarzeniaTytul}
       </StyledText>
       <StyledEventWrapper>
-        {articleData.allWpWystawa.edges.map(({node}, index) => <FooterEvent key={index} articleData={node.wystawa} slug={node.slug} />)}
+        {articleData.allWpWystawa.edges.map(({node}, index) => <FooterEvent key={index} articleData={node.wystawa.informacjeOgolne} slug={node.slug} />)}
       </StyledEventWrapper>
       <Button
         text={footerData.przyciskPrzenoszacyDoTerminarza.title}

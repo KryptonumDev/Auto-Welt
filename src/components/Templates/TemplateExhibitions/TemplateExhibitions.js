@@ -12,21 +12,22 @@ const TemplateExhibitions = () => {
 export default TemplateExhibitions
 
 export const query = graphql`
-query wystawy($wystawaId: String) {
+query wystawyQuerPage($wystawaId: String) {
     wpWystawa(id: { eq: $wystawaId }) {
       wystawa {
-        miejsce
-        tytulPodZdjeciem
-        informacjeDlaMiniaturki
-        data
-        elementyListy {
-          elementListy
-        }
-        zdjecieDoMiniaturki {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+        informacjeOgolne{
+          miejsce
+          tytulPodZdjeciem
+          data
+          elementyListy {
+            elementListy
+          }
+          zdjecieDoMiniaturki {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { startOfAdjacentMonth, endOfAdjacentMonth, areDatesEqual } from "../../utils/date";
-
+import { motion } from "framer-motion";
 import {
   StyledCalendarComponent,
   StyledCalendar,
@@ -46,7 +46,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         style={{ display: "flex" }}
         className="calendarWrapper"
       >
-        <div
+        <motion.div
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.5 },
+          }}
+          whileTap={{ scale: 0.9 }}
           className="prevArrow"
           onClick={() => {
             setCurrentDate((date) => {
@@ -64,7 +69,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           }}
         >
           <PrevCalendar />
-        </div>
+        </motion.div>
         <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
@@ -148,7 +153,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
         />
-        <div
+        <motion.div
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.5 },
+          }}
+          whileTap={{ scale: 0.9 }}
           className="nextArrow"
           onClick={() => {
             setCurrentDate((date) => {
@@ -166,7 +176,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           }}
         >
           <NextCalendar />
-        </div>
+        </motion.div>
       </div>
       <div style={{ 
         width: "100%", 

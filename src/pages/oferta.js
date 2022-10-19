@@ -1,20 +1,167 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { getImage, withArtDirection } from "gatsby-plugin-image";
 
+import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
 import HomeArticles from "../components/HomeArticles/HomeArticles";
-
 import OfferEvents from "../components/OfferEvents/OfferEvents";
 import OfferHeroSection from "../components/OfferHeroSection/OfferHeroSection";
 import CheckOutWithOffer from "../components/CheckOutWithOffer/CheckOutWithOffer";
 
+import { StyledReqWrapper } from "../components/Offer/StyledOffer";
+
 const Offer = ({ data }) => {
+  const shortData = data.wpPage.oferta;
+  const imageShort = data.wpPage.oferta.zielonyElementZTekstem;
+  const images = withArtDirection(getImage(imageShort.zdjecieTlaDesktop.localFile), [
+    {
+      media: "(max-width: 375px)",
+      image: getImage(imageShort.zdjecieTlaMobile.localFile),
+    },
+    {
+      media: "(max-width: 768px)",
+      image: getImage(imageShort.zdjecieTlaTablet.localFile),
+    }
+  ])
   return (
     <>
-      <OfferHeroSection />
-      <OfferEvents />
-      <CheckOutWithOffer />
-      <HomeArticles />
+      {/* <OfferHeroSection dataOffer={shortData.pierwszaSekcja} /> */}
+      <StyledReqWrapper>
+        <RecInfoWithButton
+          text={shortData.zielonyElementZTekstem.tekst}
+          btnText={shortData.zielonyElementZTekstem.przycisk.title}
+          btnWhereGo={shortData.zielonyElementZTekstem.przycisk.url}
+          hasTarget={shortData.zielonyElementZTekstem.przycisk.target}
+          btnPadding="10px 33px"
+          btnBgColor="var(--secondary500)"
+          btnColor="var(--primary900)"
+          bgImage={images}
+          isMoveLeft={true}
+          btnFontSize="21px"
+          btnHoverBg="var(--secondary700)"
+        />
+      </StyledReqWrapper>
+      <OfferEvents dataEvents={shortData.sekcjaZWydarzeniami} />
+      <CheckOutWithOffer dataOffer={shortData.sekcjaZapoznajSieZNaszymKatalogiem} />
+      <HomeArticles 
+        isCollectionsModelPage 
+        buttonData={shortData.sekcjaZArtykulami.daneDoPrzycisku} 
+      />
     </>
   );
 };
 
 export default Offer;
+
+export const query = graphql`
+query ofertaQueryPage {
+  wpPage(id: {eq: "cG9zdDo5OTA="}) {
+    oferta {
+      sekcjaZWydarzeniami {
+        przyciskPoLewo {
+          title
+          target
+          url
+        }
+        przyciskPoPrawo {
+          target
+          title
+          url
+        }
+        tekstPodTytulem
+        tytul
+      }
+      sekcjaZapoznajSieZNaszymKatalogiem {
+        przyciskPoLewo {
+          target
+          title
+          url
+        }
+        tekstDoPobraniaTekstu
+        tytul
+        zdjecieKsiazki {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+      zielonyElementZTekstem {
+        tekst
+        przycisk {
+          target
+          title
+          url
+        }
+        zdjecieTlaDesktop {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieTlaMobile {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjecieTlaTablet {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+      sekcjaZArtykulami {
+        daneDoPrzycisku {
+          target
+          title
+          url
+        }
+      }
+      pierwszaSekcjaStrony {
+        tytulPoPrawo
+        trzecieDlugieZdjeciePoLewo {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        przyciskPodTekstem {
+          target
+          title
+          url
+        }
+        pierwszeMaleZdjeciePoLewo {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        opisPoPrawo
+        drugieMaleZdjeciePoLewo {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+`

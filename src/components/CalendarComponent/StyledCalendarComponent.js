@@ -24,6 +24,7 @@ export const StyledCalendarComponent = styled.div`
     .prevArrow{
         width: 26px;
         height: 56px;
+        cursor: pointer;
         > svg {
             width: 100%;
             height: 100%;
@@ -32,6 +33,7 @@ export const StyledCalendarComponent = styled.div`
     .nextArrow{
         width: 26px;
         height: 56px;
+        cursor: pointer;
         > svg {
             width: 100%;
             height: 100%;

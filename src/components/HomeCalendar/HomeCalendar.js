@@ -40,8 +40,10 @@ const HomeCalendar = () => {
       edges {
         node {
           wystawa {
-            data
-            miejsce
+            informacjeOgolne{
+              data
+              miejsce
+            }
           }
           title
         }
@@ -82,6 +84,7 @@ const HomeCalendar = () => {
           hasDeclaredPadding="10px 33px"
           hasTarget={data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza.target}
           hoverBgColor="var(--primary900)"
+          hasBorder="2px solid var(--primary500);"
         />
       </StyledButtonWrapper>
       <StyledFooterCar>

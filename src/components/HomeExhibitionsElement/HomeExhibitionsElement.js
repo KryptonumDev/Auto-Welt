@@ -20,15 +20,15 @@ import ListIcon from "../../images/ListIcon.svg";
 
 const HomeExhibitionsElement = ({ exhibitionData }) => {
   const width = useWindowSize();
-  const convertedData = new Date(exhibitionData.wystawa.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
+  const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
 
   return (
     <StyledHomeExhibitionsElement>
       <StyledDataInformationWrapper>
         <StyledImageWrapper>
           <GatsbyImage 
-            image={getImage(exhibitionData.wystawa.tloDlaMiejscaIDaty.localFile)}
-            alt={exhibitionData.wystawa.tloDlaMiejscaIDaty.altText}
+            image={getImage(exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty.localFile)}
+            alt={exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty.altText}
             objectFit="fill"
           />
         </StyledImageWrapper>
@@ -55,13 +55,13 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="400"
         >
-          {exhibitionData.wystawa.miejsce}
+          {exhibitionData.wystawa.informacjeOgolne.miejsce}
         </StyledText>
       </StyledDataInformationWrapper>
       <StyledLogoWrapper>
         <GatsbyImage
-          image={getImage(exhibitionData.wystawa.zdjecieDoMiniaturki.localFile)}
-          alt={exhibitionData.wystawa.zdjecieDoMiniaturki.altText}
+          image={getImage(exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki.localFile)}
+          alt={exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki.altText}
         />
       </StyledLogoWrapper>
       <StyledContentWrapper>
@@ -71,10 +71,10 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="500"
         >
-          {exhibitionData.wystawa.tytulPodZdjeciem}
+          {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem}
         </StyledText>
         <StyledContentList>
-          {exhibitionData.wystawa.elementyListy.map(element => 
+          {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(element => 
             (
               <div>
                 <ListIcon />
@@ -92,7 +92,7 @@ const HomeExhibitionsElement = ({ exhibitionData }) => {
         </StyledContentList>
       </StyledContentWrapper>
       <Button
-        text={exhibitionData.wystawa.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
+        text={exhibitionData.wystawa.informacjeOgolne.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
         whereGo={`/wystawy/${exhibitionData.slug}`}
         bgColor="var(--secondary500)"
         textColor="var(--primary900)"
