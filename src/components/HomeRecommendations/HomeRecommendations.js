@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { AnimatePresence } from "framer-motion";
 
 import HomeRecommendationsElement from "../HomeRecommendationsElement/HomeRecommendationsElement";
 import Button from "../Button/Button";
@@ -19,7 +20,6 @@ import LeftLightArrow from "../../images/leftLightArrow.svg";
 import RightLightArrow from "../../images/rightLightArrow.svg";
 
 import useWindowSize from "../../utils/getWindowSize";
-import { AnimatePresence } from "framer-motion";
 
 const HomeRecommendations = ({ isAboutPage }) => {
   const width = useWindowSize();

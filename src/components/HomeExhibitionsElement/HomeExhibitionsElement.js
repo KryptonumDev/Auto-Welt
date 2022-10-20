@@ -18,12 +18,18 @@ import useWindowSize from "../../utils/getWindowSize";
 
 import ListIcon from "../../images/ListIcon.svg";
 
-const HomeExhibitionsElement = ({ exhibitionData }) => {
+const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVariant, isPrev, key }) => {
   const width = useWindowSize();
+  console.log(exhibitionData.wystawa);
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
 
   return (
-    <StyledHomeExhibitionsElement>
+    <StyledHomeExhibitionsElement
+      key={key}
+      initial={{ x: isPrev ? -100 : 100 }}
+      animate={{ x: 0 }}
+      isscheduleelement={isSchdeuleElement}
+    >
       <StyledDataInformationWrapper>
         <StyledImageWrapper>
           <GatsbyImage 

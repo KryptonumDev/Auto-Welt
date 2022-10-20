@@ -157,6 +157,7 @@ const HomeHeroSection = () => {
             hasFontSize={width < 376 ? "15px" : "21px"}
             hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
             hoverBgColor="var(--primary900)"
+            hasBorder="2px solid var(--primary500)"
           />
         </StyledButtonsWrapper>
       ) : null}

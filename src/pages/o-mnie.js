@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
+import { getImage, withArtDirection } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 

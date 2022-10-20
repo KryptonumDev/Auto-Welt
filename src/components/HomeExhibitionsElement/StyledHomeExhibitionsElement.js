@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const StyledHomeExhibitionsElement = styled.div`
-  width: 33%;
-  max-width: 340px;
+export const StyledHomeExhibitionsElement = styled(motion.div)`
+  width: ${({ isscheduleelement }) => isscheduleelement ? "calc(50% - 15px)" : "33%"};
+  max-width: ${({ isscheduleelement }) => isscheduleelement ? "532px" : "340px"};
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-top: 6px solid var(--borderTopOrange);
   display: flex;
@@ -12,7 +13,7 @@ export const StyledHomeExhibitionsElement = styled.div`
   background-color: #FAF7F1;
 
   @media only screen and (max-width: 1080px){
-    width: 100%;
+    width: ${({ isscheduleelement }) => isscheduleelement ? "50%" : "100%"};
   }
 
   @media only screen and (max-width: 1065px){
@@ -62,13 +63,14 @@ export const StyledLogoWrapper = styled.div`
 `;
 export const StyledContentWrapper = styled.div`
   padding: 26px 34px;
+  width: 100%;
 `;
 export const StyledContentList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
   margin-top: 14px;
-
+  width: 100%;
   > div {
     display: flex;
     justify-content: flex-start;
