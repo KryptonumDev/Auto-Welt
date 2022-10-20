@@ -7,18 +7,20 @@ import {
 } from "./StyledGoogleMapsContact";
 import { StyledText } from "../Text/StyledText";
 
-
 const GoogleMapsContact = ({ mapData }) => {
-  const images = withArtDirection(getImage(mapData.zdjecieMapyDesktop.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(mapData.zdjecieMapyMobile.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(mapData.zdjecieMapyTablet.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(mapData.zdjecieMapyDesktop.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(mapData.zdjecieMapyMobile.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(mapData.zdjecieMapyTablet.localFile),
+      },
+    ]
+  );
   return (
     <StyledGoogleMapsContact>
       <StyledText
@@ -29,17 +31,17 @@ const GoogleMapsContact = ({ mapData }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredlineheight="1.2em"
       >
-        {mapData.tytulNadMapka}
+        {mapData.tytulNadMapka && mapData.tytulNadMapka}
       </StyledText>
-      <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank">
-        <StyledGoogleMapsWrapper>
-          <GatsbyImage
-            image={images}
-          />
-        </StyledGoogleMapsWrapper>
-      </a>
+      {mapData.linkDoStronyZAdresemFirmy && (
+        <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank">
+          <StyledGoogleMapsWrapper>
+            <GatsbyImage image={images} />
+          </StyledGoogleMapsWrapper>
+        </a>
+      )}
     </StyledGoogleMapsContact>
   );
 };
 
-export default GoogleMapsContact
+export default GoogleMapsContact;

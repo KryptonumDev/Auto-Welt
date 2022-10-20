@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 export const StyledFooterEvent = styled(Link)`
   width: 100%;
   min-height: 122px;
@@ -15,11 +15,11 @@ export const StyledFooterEventContent = styled.div`
 export const StyledFooterEventImage = styled.div`
   width: 120px;
   min-height: 122px;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }

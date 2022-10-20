@@ -6,7 +6,7 @@ export const StyledCollectionElementThreeImages = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  > div{
+  > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -17,54 +17,54 @@ export const StyledCollectionElementThreeImages = styled.section`
       width: calc(50% - 20px);
       min-height: 316px;
       box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-      &:last-child{
+      &:last-child {
         width: 100%;
         min-height: 499px;
       }
     }
   }
 
-  @media only screen and (max-width: 1065px){
-    > a{
+  @media only screen and (max-width: 1065px) {
+    > a {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding-left: 16px;
     margin: 60px 0;
-    > div{
+    > div {
       margin-bottom: 25px;
       gap: 20px;
-      > div{
+      > div {
         min-height: 205px;
-        &:last-child{
+        &:last-child {
           min-height: 327px;
         }
       }
     }
   }
-  @media only screen and (max-width: 685px){
-    > a{
+  @media only screen and (max-width: 685px) {
+    > a {
       font-size: 16px;
     }
   }
-  @media only screen and (max-width: 588px){
-    > div{
+  @media only screen and (max-width: 588px) {
+    > div {
       margin-bottom: 25px;
-      > div{
+      > div {
         min-height: unset;
         width: 100%;
-        &:last-child{
+        &:last-child {
           width: 100%;
           min-height: unset;
         }
       }
     }
-    > a{
+    > a {
       width: 95%;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;
     }

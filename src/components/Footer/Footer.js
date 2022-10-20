@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 import FooterLeftWrapper from "../FooterLeftWrapper/FooterLeftWrapper";
 import FooterCenterWrapper from "../FooterCenterWrapper/FooterCenterWrapper";
@@ -14,82 +14,82 @@ import {
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-  query footerQuery {
-    wpPage(id: {eq: "cG9zdDozMw=="}) {
-      globalConfig {
-        stopka {
-          stworzonePrzezKryptonumTekst
-          adres {
-            linijkaAdresu
-          }
-          email
-          imie
-          kontaktTytul
-          linkDoFacebooka
-          linkDoInstagrama
-          logo {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+    query footerQuery {
+      wpPage(id: { eq: "cG9zdDozMw==" }) {
+        globalConfig {
+          stopka {
+            stworzonePrzezKryptonumTekst
+            adres {
+              linijkaAdresu
+            }
+            email
+            imie
+            kontaktTytul
+            linkDoFacebooka
+            linkDoInstagrama
+            logo {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
-          }
-          tekstPodLogiem
-          telefon
-          przyciskPrzenoszacyDoTerminarza {
-            target
-            title
-            url
-          }
-          wydarzeniaTytul
-          szybkieLinkiTytul
-          tloDlaStopkiWersjaDesktop {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+            tekstPodLogiem
+            telefon
+            przyciskPrzenoszacyDoTerminarza {
+              target
+              title
+              url
+            }
+            wydarzeniaTytul
+            szybkieLinkiTytul
+            tloDlaStopkiWersjaDesktop {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
-          }
-          tloDlaStopkiWersjaMobile {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+            tloDlaStopkiWersjaMobile {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
-          }
-          tloDlaStopkiWersjaTablet {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
+            tloDlaStopkiWersjaTablet {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
           }
         }
       }
     }
-  }  
-  `)
+  `);
   const imageShort = data.wpPage.globalConfig.stopka;
-  const images = withArtDirection(getImage(imageShort.tloDlaStopkiWersjaDesktop.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(imageShort.tloDlaStopkiWersjaMobile.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(imageShort.tloDlaStopkiWersjaTablet.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(imageShort.tloDlaStopkiWersjaDesktop.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(imageShort.tloDlaStopkiWersjaMobile.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(imageShort.tloDlaStopkiWersjaTablet.localFile),
+      },
+    ]
+  );
   return (
     <StyledFooter>
       <StyledImageWrapper>
-        <GatsbyImage
-          image={images}
-          objectFit="fill"
-        />
+        {images && <GatsbyImage image={images} objectFit="fill" />}
       </StyledImageWrapper>
       <StyledFooterMainWrapper>
         <FooterLeftWrapper footerData={data.wpPage.globalConfig.stopka} />

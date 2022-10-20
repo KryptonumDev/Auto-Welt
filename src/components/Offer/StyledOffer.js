@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledReqWrapper = styled.div`
     max-width: 1144px;
@@ -10,4 +10,4 @@ export const StyledReqWrapper = styled.div`
         padding: 0 16px 0 0;
         margin: 60px auto;
     }
-`
+`;

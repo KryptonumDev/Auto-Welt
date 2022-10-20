@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
 import Button from "../Button/Button";
 import FooterEvent from "../FooterEvent/FooterEvent";
@@ -12,29 +12,29 @@ import {
 
 const FooterRightWrapper = ({ footerData }) => {
   const articleData = useStaticQuery(graphql`
-  query articleFooter {
-    allWpWystawa {
-      edges {
-        node {
-          wystawa {
-            informacjeOgolne {
-              tytulPodZdjeciem
-              zdjecieDoMiniaturki {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
+    query articleFooter {
+      allWpWystawa {
+        edges {
+          node {
+            wystawa {
+              informacjeOgolne {
+                tytulPodZdjeciem
+                zdjecieDoMiniaturki {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
                   }
                 }
               }
             }
+            slug
           }
-          slug
         }
       }
     }
-  }
-  `)
+  `);
   return (
     <StyledFooterRightWrapper>
       <StyledText
@@ -45,24 +45,32 @@ const FooterRightWrapper = ({ footerData }) => {
         hasdeclaredmargin="0 0 16px"
         hasdeclaredfontcolor="var(--secondary500)"
       >
-        {footerData.wydarzeniaTytul}
+        {footerData.wydarzeniaTytul && footerData.wydarzeniaTytul}
       </StyledText>
       <StyledEventWrapper>
-        {articleData.allWpWystawa.edges.map(({node}, index) => <FooterEvent key={index} articleData={node.wystawa.informacjeOgolne} slug={node.slug} />)}
+        {articleData.allWpWystawa?.edges.map(({ node }, index) => (
+          <FooterEvent
+            key={index}
+            articleData={node.wystawa.informacjeOgolne}
+            slug={node.slug}
+          />
+        ))}
       </StyledEventWrapper>
-      <Button
-        text={footerData.przyciskPrzenoszacyDoTerminarza.title}
-        whereGo={footerData.przyciskPrzenoszacyDoTerminarza.url}
-        bgColor="var(--secondary500)"
-        hasBorder="2px solid var(--secondary500)"
-        hasHeight="44px"
-        textColor="var(--primary900)"
-        hasTarget={footerData.przyciskPrzenoszacyDoTerminarza.target}
-        hasDeclaredPadding="10px 33px"
-        hasFontSize="21px"
-        hasdeclaredmargin="0 0 0 15px"
-        hoverBgColor="var(--secondary700)"
-      />
+      {footerData.przyciskPrzenoszacyDoTerminarza.title && (
+        <Button
+          text={footerData.przyciskPrzenoszacyDoTerminarza.title}
+          whereGo={footerData.przyciskPrzenoszacyDoTerminarza.url}
+          bgColor="var(--secondary500)"
+          hasBorder="2px solid var(--secondary500)"
+          hasHeight="44px"
+          textColor="var(--primary900)"
+          hasTarget={footerData.przyciskPrzenoszacyDoTerminarza.target}
+          hasDeclaredPadding="10px 33px"
+          hasFontSize="21px"
+          hasdeclaredmargin="0 0 0 15px"
+          hoverBgColor="var(--secondary700)"
+        />
+      )}
     </StyledFooterRightWrapper>
   );
 };

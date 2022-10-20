@@ -11,14 +11,25 @@ import {
 import { StyledText } from "../Text/StyledText";
 
 const OfferEvent = ({ offerData, slug }) => {
-  const convertedData = new Date(offerData.informacjeOgolne.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
+  const convertedData = new Date(offerData.informacjeOgolne.data)
+    .toLocaleString("pl", { dateStyle: "long" })
+    .split(" ");
   return (
     <StyledOfferEvent>
       <StyledOfferEventImage>
-        <GatsbyImage
-          image={getImage(offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty.localFile)}
-          alt={offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty.altText}
-        />
+        {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+          .wiekszaMiniaturkaNaStroneOferty?.localFile && (
+          <GatsbyImage
+            image={getImage(
+              offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                .wiekszaMiniaturkaNaStroneOferty.localFile
+            )}
+            alt={
+              offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                .wiekszaMiniaturkaNaStroneOferty.altText
+            }
+          />
+        )}
       </StyledOfferEventImage>
       <StyledOfferEventInfo>
         <StyledText
@@ -27,14 +38,14 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#EDAC2A"
         >
-          <span style={{ color: "#23423D", fontSize: "32px"}}>{convertedData[0]}{' '}</span>
+          <span style={{ color: "#23423D", fontSize: "32px" }}>
+            {convertedData[0]}{" "}
+          </span>
           {convertedData[1]}
         </StyledText>
-        <StyledText
-          hasdeclaredfontsize="16px"
-          hasdeclaredfontweight="400"
-        >
-          {offerData.informacjeOgolne.miejsce}
+        <StyledText hasdeclaredfontsize="16px" hasdeclaredfontweight="400">
+          {offerData.informacjeOgolne.miejsce &&
+            offerData.informacjeOgolne.miejsce}
         </StyledText>
         <StyledText
           hasdeclaredfontcolor="#23423D"
@@ -43,17 +54,26 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredmargin="16px 0 20px"
         >
-          {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.tytulZUwzglednieniemMiasta}
+          {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+            .tytulZUwzglednieniemMiasta &&
+            offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+              .tytulZUwzglednieniemMiasta}
         </StyledText>
-        <Button
-          text={offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy.tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia}
-          whereGo={`wystawy/${slug}`}
-          hasDeclaredPadding="10px 33px"
-          bgColor="var(--secondary500)"
-          textColor="var(--primary900)"
-          hasFontSize="21px"
-          hoverBgColor="var(--secondary700)"
-        />
+        {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+          .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia && (
+          <Button
+            text={
+              offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia
+            }
+            whereGo={`wystawy/${slug}`}
+            hasDeclaredPadding="10px 33px"
+            bgColor="var(--secondary500)"
+            textColor="var(--primary900)"
+            hasFontSize="21px"
+            hoverBgColor="var(--secondary700)"
+          />
+        )}
       </StyledOfferEventInfo>
     </StyledOfferEvent>
   );

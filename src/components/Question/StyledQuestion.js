@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export const StyledQuestion = styled.div`
   width: 100%;
   padding-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
   trainsition: padding 250ms;
   cursor: pointer;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};
   }
 `;
@@ -16,19 +16,20 @@ export const StyledAnswerWrapper = styled(motion.div)`
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 500;
-  font-family: 'Roboto';
-  ul,ol{
+  font-family: "Roboto";
+  ul,
+  ol {
     margin-left: 20px;
   }
-  @media only screen and (max-width: 768px){
-    color: #23423D;
+  @media only screen and (max-width: 768px) {
+    color: #23423d;
     font-size: 16px;
   }
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 420px) {
     padding: 15px 23px 20px 23px;
     max-width: 90%;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 14px;
   }
 `;
@@ -51,26 +52,26 @@ export const StyledBgWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-`
+`;
 export const StyledQuestionText = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 500;
   color: #fff;
   max-width: 70%;
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 15px;
   }
-`
+`;

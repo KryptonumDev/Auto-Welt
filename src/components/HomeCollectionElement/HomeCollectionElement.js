@@ -10,34 +10,39 @@ import {
 } from "./StyledHomeCollectionElement";
 
 const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
-
   return (
     <StyledHomeCollectionElement>
       <StyledBackground>
-        <GatsbyImage
-          image={getImage(bgImage.localFile)}
-          alt={bgImage.altText}
-          objectFit="fill"
-        />
+        {bgImage.localFile && (
+          <GatsbyImage
+            image={getImage(bgImage.localFile)}
+            alt={bgImage.altText}
+            objectFit="fill"
+          />
+        )}
       </StyledBackground>
       <StyledImage>
-        <GatsbyImage
-          image={getImage(image.localFile)}
-          alt={image.altText}
-          objectFit="fill"
-        />
+        {image.localFile && (
+          <GatsbyImage
+            image={getImage(image.localFile)}
+            alt={image.altText}
+            objectFit="fill"
+          />
+        )}
       </StyledImage>
-      <Button
-        text={buttonText}
-        whereGo={`/kolekcje-modeli/${whereGo}`}
-        textColor="var(--white)"
-        bgColor="var(--primary500)"
-        hasMaxWidth="323px"
-        hasFontSize="21px"
-        hasDeclaredPadding="10px 18px"
-        hasFontWeight="500"
-        hoverBgColor="var(--primary900)"
-      />
+      {buttonText && (
+        <Button
+          text={buttonText}
+          whereGo={`/kolekcje-modeli/${whereGo}`}
+          textColor="var(--white)"
+          bgColor="var(--primary500)"
+          hasMaxWidth="323px"
+          hasFontSize="21px"
+          hasDeclaredPadding="10px 18px"
+          hasFontWeight="500"
+          hoverBgColor="var(--primary900)"
+        />
+      )}
     </StyledHomeCollectionElement>
   );
 };

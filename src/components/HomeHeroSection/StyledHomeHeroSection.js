@@ -84,16 +84,16 @@ export const StyledButtonsWrapper = styled.div`
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  @media only screen and (max-width: 1065px){
-    a{
+  @media only screen and (max-width: 1065px) {
+    a {
       font-size: 18px;
     }
   }
   @media only screen and (max-width: 768px) {
     margin-top: 30px;
   }
-  @media only screen and (max-width: 685px){
-    a{
+  @media only screen and (max-width: 685px) {
+    a {
       font-size: 16px;
     }
   }
@@ -104,8 +104,8 @@ export const StyledButtonsWrapper = styled.div`
       width: 100%;
     }
   }
-  @media only screen and (max-width: 375px){
-    a{
+  @media only screen and (max-width: 375px) {
+    a {
       font-size: 15px;
     }
   }

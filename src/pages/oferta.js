@@ -13,16 +13,19 @@ import { StyledReqWrapper } from "../components/Offer/StyledOffer";
 const Offer = ({ data }) => {
   const shortData = data.wpPage.oferta;
   const imageShort = data.wpPage.oferta.zielonyElementZTekstem;
-  const images = withArtDirection(getImage(imageShort.zdjecieTlaDesktop.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(imageShort.zdjecieTlaMobile.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(imageShort.zdjecieTlaTablet.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(imageShort.zdjecieTlaDesktop.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(imageShort.zdjecieTlaMobile.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(imageShort.zdjecieTlaTablet.localFile),
+      },
+    ]
+  );
   return (
     <>
       <OfferHeroSection dataOffer={shortData.sekcjaPowitalnaStrony} />
@@ -42,10 +45,12 @@ const Offer = ({ data }) => {
         />
       </StyledReqWrapper>
       <OfferEvents dataEvents={shortData.sekcjaZWydarzeniami} />
-      <CheckOutWithOffer dataOffer={shortData.sekcjaZapoznajSieZNaszymKatalogiem} />
-      <HomeArticles 
-        isCollectionsModelPage 
-        buttonData={shortData.sekcjaZArtykulami.daneDoPrzycisku} 
+      <CheckOutWithOffer
+        dataOffer={shortData.sekcjaZapoznajSieZNaszymKatalogiem}
+      />
+      <HomeArticles
+        isCollectionsModelPage
+        buttonData={shortData.sekcjaZArtykulami.daneDoPrzycisku}
       />
     </>
   );
@@ -54,137 +59,137 @@ const Offer = ({ data }) => {
 export default Offer;
 
 export const query = graphql`
-query ofertaQueryPage {
-  wpPage(id: {eq: "cG9zdDo5OTA="}) {
-    oferta {
-      sekcjaZWydarzeniami {
-        przyciskPoLewo {
-          title
-          target
-          url
+  query ofertaQueryPage {
+    wpPage(id: { eq: "cG9zdDo5OTA=" }) {
+      oferta {
+        sekcjaZWydarzeniami {
+          przyciskPoLewo {
+            title
+            target
+            url
+          }
+          przyciskPoPrawo {
+            target
+            title
+            url
+          }
+          tekstPodTytulem
+          tytul
         }
-        przyciskPoPrawo {
-          target
-          title
-          url
-        }
-        tekstPodTytulem
-        tytul
-      }
-      sekcjaZapoznajSieZNaszymKatalogiem {
-        przyciskPoLewo {
-          target
-          title
-          url
-        }
-        tekstDoPobraniaTekstu
-        tytul
-        zdjecieKsiazki {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+        sekcjaZapoznajSieZNaszymKatalogiem {
+          przyciskPoLewo {
+            target
+            title
+            url
+          }
+          tekstDoPobraniaTekstu
+          tytul
+          zdjecieKsiazki {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
-      }
-      zielonyElementZTekstem {
-        tekst
-        przycisk {
-          target
-          title
-          url
-        }
-        zdjecieTlaDesktop {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+        zielonyElementZTekstem {
+          tekst
+          przycisk {
+            target
+            title
+            url
+          }
+          zdjecieTlaDesktop {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieTlaMobile {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieTlaTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
-        zdjecieTlaMobile {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
+        sekcjaZArtykulami {
+          daneDoPrzycisku {
+            target
+            title
+            url
           }
         }
-        zdjecieTlaTablet {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+        sekcjaPowitalnaStrony {
+          tytulPoPrawo
+          trzecieZdjeciePoLewo {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-      }
-      sekcjaZArtykulami {
-        daneDoPrzycisku {
-          target
-          title
-          url
-        }
-      }
-      sekcjaPowitalnaStrony {
-        tytulPoPrawo
-        trzecieZdjeciePoLewo {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          przyciskPodOpisem {
+            target
+            title
+            url
+          }
+          pierwszeZdjeciePoLewo {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        przyciskPodOpisem {
-          target
-          title
-          url
-        }
-        pierwszeZdjeciePoLewo {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          opis
+          drugieZdjeciePoLewo {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        opis
-        drugieZdjeciePoLewo {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          tloDesktopDlaOpisu {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        tloDesktopDlaOpisu {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          tloMobileDlaOpisu {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        tloMobileDlaOpisu {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        tloTabletDlaOpisu {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          tloTabletDlaOpisu {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   }
-}
-`
+`;

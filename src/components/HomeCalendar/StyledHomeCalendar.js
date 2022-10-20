@@ -10,18 +10,18 @@ export const StyledHomeCalendar = styled.section`
   max-width: 1144px;
   margin: 0 auto;
   padding: 0 32px 435px 32px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 0 16px 285px 16px;
     > h2 {
       font-size: 38px;
     }
   }
-  @media only screen and (max-width: 516px){
+  @media only screen and (max-width: 516px) {
     > h2 {
       font-size: 34px;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     padding-bottom: 180px;
   }
 `;
@@ -31,12 +31,12 @@ export const StyledFooterCar = styled.div`
   left: -260px;
   z-index: 2;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 464px;
     left: -100px;
     bottom: -10px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     width: 292px;
     left: -50px;
   }
@@ -48,19 +48,19 @@ export const StyledButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media only screen and (max-width: 1065px){
-    a{
+  @media only screen and (max-width: 1065px) {
+    a {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 685px){
-    a{
+  @media only screen and (max-width: 685px) {
+    a {
       font-size: 16px;
     }
   }
-  @media only screen and (max-width: 375px){
-    a{
+  @media only screen and (max-width: 375px) {
+    a {
       font-size: 15px;
     }
   }
-`
+`;

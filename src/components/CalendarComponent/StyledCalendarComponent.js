@@ -3,75 +3,77 @@ import styled from "styled-components";
 import Calendar from "react-calendar";
 
 export const StyledCalendarComponent = styled.div`
+  width: 100%;
+  .calendarTitle {
+    text-align: center;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2em;
+    color: #23423d;
+    text-transform: uppercase;
+    padding-bottom: 18px;
+  }
+  .calendarWrapper {
     width: 100%;
-    .calendarTitle{
-        text-align: center;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 36px;
-        line-height: 1.2em;
-        color: #23423D;
-        text-transform: uppercase;
-        padding-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .prevArrow {
+    width: 26px;
+    height: 56px;
+    cursor: pointer;
+    > svg {
+      width: 100%;
+      height: 100%;
     }
-    .calendarWrapper{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 20px;
+  }
+  .nextArrow {
+    width: 26px;
+    height: 56px;
+    cursor: pointer;
+    > svg {
+      width: 100%;
+      height: 100%;
     }
-    .prevArrow{
-        width: 26px;
-        height: 56px;
-        cursor: pointer;
-        > svg {
-            width: 100%;
-            height: 100%;
-        }
+  }
+  @media only screen and (max-width: 786px) {
+    .calendarTitle {
+      font-size: 30px;
     }
-    .nextArrow{
-        width: 26px;
-        height: 56px;
-        cursor: pointer;
-        > svg {
-            width: 100%;
-            height: 100%;
-        }
+    .calendarWrapper {
+      position: relative;
     }
-    @media only screen and (max-width: 786px){
-        .calendarTitle{
-            font-size: 30px;
-        }
-        .calendarWrapper{
-            position: relative;
-        }
-        .prevArrow{
-            position: absolute;
-            left: 0;
-            top: -52px;
-            svg {
-                width: 27px;
-                height: 34px;
-            }
-        }
-        .nextArrow{
-            position: absolute;
-            right: 0;
-            top: -52px;
-            svg {
-                width: 27px;
-                height: 34px;
-            }
-        }
+    .prevArrow {
+      position: absolute;
+      left: 0;
+      top: -52px;
+      svg {
+        width: 27px;
+        height: 34px;
+      }
     }
-    @media only screen and (max-width: 516px){
-        .calendarTitle{
-            font-size: 26px;
-        }
+    .nextArrow {
+      position: absolute;
+      right: 0;
+      top: -52px;
+      svg {
+        width: 27px;
+        height: 34px;
+      }
     }
+  }
+  @media only screen and (max-width: 516px) {
+    .calendarTitle {
+      font-size: 26px;
+    }
+  }
 `;
-export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar {...props} />)`
+export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
+  <Calendar {...props} />
+))`
     width: 100%;
     position: relative;
     border-width: 6px 0 2px 2px;
@@ -153,7 +155,8 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
         background-color: #F6E2BA;
     }
     .react-calendar__month-view__days__day--weekend:last-child {
-        background-color: ${({ markLastSunday }) => (markLastSunday ? "#F6E2BA" : "var(--background500)")};
+        background-color: ${({ markLastSunday }) =>
+          markLastSunday ? "#F6E2BA" : "var(--background500)"};
     }
     .activeDay{
         position: relative;
@@ -190,40 +193,40 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => <Calendar
     }
 `;
 export const StyledExhibitionTitle = styled.p`
-    @media only screen and (max-width: 986px){
-        background-color: #23423D;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.2em;
-        color: #FEFDFB;
-        width: 193px;
-        height: 70px;
-        display: ${({ isopen }) => isopen ? "flex" : "none"};
-        align-items: center;
-        position: absolute;
-        left: 20px;
-        bottom: -40px;
-        z-index: 2;
-        padding-left: 11px;
-        &:hover{
-            display: flex;
-        }
-        &:after{
-            content: '';
-            width: 0; 
-            height: 0; 
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 15px solid #23423D;
-            position: absolute;
-            top: -15px;
-            left: 20px;
-        }
+  @media only screen and (max-width: 986px) {
+    background-color: #23423d;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2em;
+    color: #fefdfb;
+    width: 193px;
+    height: 70px;
+    display: ${({ isopen }) => (isopen ? "flex" : "none")};
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    bottom: -40px;
+    z-index: 2;
+    padding-left: 11px;
+    &:hover {
+      display: flex;
     }
-    @media only screen and (max-width: 516px){
-        left: 0;
-        bottom: -60px;
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid #23423d;
+      position: absolute;
+      top: -15px;
+      left: 20px;
     }
-`
+  }
+  @media only screen and (max-width: 516px) {
+    left: 0;
+    bottom: -60px;
+  }
+`;

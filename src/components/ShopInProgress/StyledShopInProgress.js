@@ -5,7 +5,7 @@ export const StyledShopInProgress = styled.section`
   max-width: 1144px;
   margin: 0 auto;
   padding: 0 32px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 0 16px;
   }
 `;
@@ -17,10 +17,10 @@ export const StyledImagesWrapper = styled.div`
   position: relative;
   margin-top: 142px;
   padding-bottom: 290px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-top: 170px;
   }
-  @media only screen and (max-width: 434px){
+  @media only screen and (max-width: 434px) {
     padding-bottom: 210px;
   }
 `;
@@ -30,16 +30,16 @@ export const StyledIconWrapper = styled.div`
   top: -68px;
   transform: translateX(-60%);
   z-index: 1;
-  @media only screen and (max-width: 434px){
+  @media only screen and (max-width: 434px) {
     max-width: 83px;
     top: -20px;
   }
 `;
 export const StyledHeroImage = styled.div`
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     max-width: 673px;
   }
-  @media only screen and (max-width: 434px){
+  @media only screen and (max-width: 434px) {
     max-width: 324px;
   }
 `;
@@ -47,12 +47,12 @@ export const StyledCarImage = styled.div`
   position: absolute;
   left: -180px;
   bottom: 0;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     max-width: 571px;
     bottom: 40px;
     left: -120px;
   }
-  @media only screen and (max-width: 434px){
+  @media only screen and (max-width: 434px) {
     max-width: 395px;
     bottom: 10px;
     left: -110px;
@@ -60,7 +60,7 @@ export const StyledCarImage = styled.div`
 `;
 export const StyledShopInfoWrapper = styled.div`
   margin-bottom: 120px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-bottom: 60px;
   }
 `;
@@ -69,37 +69,37 @@ export const StyledTitleWrapper = styled.div`
   margin: 80px 0 8px;
   text-align: center;
   color: var(--primary500);
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-top: 10px;
     font-size: 38px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     margin-top: 0;
     font-size: 34px;
   }
-`
+`;
 export const StyledSubTitleWrapper = styled.div`
-  font: 24px/1.2em 'Roboto';
+  font: 24px/1.2em "Roboto";
   text-align: center;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     font-size: 20px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
-`
+`;
 export const StyledDescription = styled.div`
-  font: 24px/1.2em 'Roboto';
+  font: 24px/1.2em "Roboto";
   margin: 80px 0 20px;
   text-align: center;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     font-size: 20px;
     margin-top: 20px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
-`
+`;
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -107,32 +107,32 @@ export const StyledButtonsWrapper = styled.div`
   gap: 30px;
   margin-top: 40px;
 
-  @media only screen and (max-width: 1065px){
-    a{
+  @media only screen and (max-width: 1065px) {
+    a {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     flex-wrap: wrap;
   }
-  @media only screen and (max-width: 685px){
+  @media only screen and (max-width: 685px) {
     flex-direction: column;
     gap: 10px;
     align-items: center;
     margin: 40px auto;
-    a{
+    a {
       font-size: 16px;
     }
   }
-  @media only screen and (max-width: 599px){
+  @media only screen and (max-width: 599px) {
     width: 92%;
-    a{
+    a {
       width: 100%;
     }
   }
-  @media only screen and (max-width: 375px){
-    a{
+  @media only screen and (max-width: 375px) {
+    a {
       font-size: 15px;
     }
   }
-`
+`;

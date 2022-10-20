@@ -10,13 +10,13 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
     <StyledCollectionElementThreeImages>
       <div>
         {imagesData &&
-          imagesData.map((image, index) => 
+          imagesData.map((image, index) => (
             <GatsbyImage
               key={index}
               image={getImage(image.localFile)}
               alt={image.altText}
             />
-          )}
+          ))}
       </div>
       {linkData && (
         <Button

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
@@ -22,7 +22,7 @@ import FacebookIcon from "../../images/headerIcons/facebook.svg";
 const Header = () => {
   const data = useStaticQuery(graphql`
     query headerQuery {
-      wpPage(id: {eq: "cG9zdDozMw=="}) {
+      wpPage(id: { eq: "cG9zdDozMw==" }) {
         globalConfig {
           naglowek {
             linkDoFacebooka
@@ -31,20 +31,20 @@ const Header = () => {
         }
       }
     }
-  `)
+  `);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
-    if(isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else { 
-      document.body.style.overflow = 'unset'
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   return (
     <StyledHeader>
@@ -121,12 +121,22 @@ const Header = () => {
             Kontakt
           </StyledLink>
           <StyledIconsWrapper>
-            <a href={data.wpPage.globalConfig.naglowek.linkDoFacebooka} target="_blank">
-              <FacebookIcon />
-            </a>
-            <a href={data.wpPage.globalConfig.naglowek.linkDoInstagrama} target="_blank">
-              <InstagramIcon />
-            </a>
+            {data.wpPage.globalConfig.naglowek.linkDoFacebooka && (
+              <a
+                href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
+                target="_blank"
+              >
+                <FacebookIcon />
+              </a>
+            )}
+            {data.wpPage.globalConfig.naglowek.linkDoInstagrama && (
+              <a
+                href={data.wpPage.globalConfig.naglowek.linkDoInstagrama}
+                target="_blank"
+              >
+                <InstagramIcon />
+              </a>
+            )}
           </StyledIconsWrapper>
         </StyledRightWrapper>
       </StyledNav>
@@ -135,7 +145,7 @@ const Header = () => {
           <Logo />
         </StyledLink>
       </StyledLogoMobileWrapper>
-      <HamburgerButton openMenu={handleOpenMenu} isOpen={isOpen}/>
+      <HamburgerButton openMenu={handleOpenMenu} isOpen={isOpen} />
     </StyledHeader>
   );
 };

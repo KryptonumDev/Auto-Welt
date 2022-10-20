@@ -14,47 +14,47 @@ const Shop = ({ data }) => {
 export default Shop;
 
 export const query = graphql`
-query shopQuery {
-  wpPage(id: {eq: "cG9zdDo0NjU="}) {
-    sklep {
-      tytulPodZdjeciami
-      podTytul
-      opisPodTytulami
-      glowneZdjecie {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+  query shopQuery {
+    wpPage(id: { eq: "cG9zdDo0NjU=" }) {
+      sklep {
+        tytulPodZdjeciami
+        podTytul
+        opisPodTytulami
+        glowneZdjecie {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-      }
-      lewyPrzycisk {
-        target
-        title
-        url
-      }
-      prawyPrzycisk {
-        target
-        title
-        url
-      }
-      zdjeciePlastra {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+        lewyPrzycisk {
+          target
+          title
+          url
+        }
+        prawyPrzycisk {
+          target
+          title
+          url
+        }
+        zdjeciePlastra {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-      }
-      zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+        zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
   }
-}
-`
+`;

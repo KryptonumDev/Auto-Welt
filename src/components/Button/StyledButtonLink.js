@@ -26,7 +26,7 @@ export const StyledButtonLink = styled(StyledLink)`
     line-height: 1.3em;
   }
 
-  &:hover{
+  &:hover {
     background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
   }
 `;
@@ -36,7 +36,8 @@ export const StyledButtonLinkNoHref = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${({ hasdeclaredfontsize }) => hasdeclaredfontsize ? hasdeclaredfontsize : "21px"};
+  font-size: ${({ hasdeclaredfontsize }) =>
+    hasdeclaredfontsize ? hasdeclaredfontsize : "21px"};
   border: ${({ hasborder }) =>
     hasborder ? hasborder : "2px solid var(--primary500)"};
   outline: 0;
@@ -54,8 +55,9 @@ export const StyledButtonLinkNoHref = styled.p`
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
   transition: background-color 250ms;
-  margin: ${({ hasdeclaredmargin }) => hasdeclaredmargin ? hasdeclaredmargin : "0"};
-  font-family: 'Roboto';
+  margin: ${({ hasdeclaredmargin }) =>
+    hasdeclaredmargin ? hasdeclaredmargin : "0"};
+  font-family: "Roboto";
   > span {
     display: block;
     transform: skew(26deg);
@@ -65,7 +67,8 @@ export const StyledButtonLinkNoHref = styled.p`
     font-weight: ${({ hasfontweight }) =>
       hasfontweight ? hasfontweight : "500"};
   }
-  &:hover{
-    background-color: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
+  &:hover {
+    background-color: ${({ hasdeclaredhoverbgcolor }) =>
+      hasdeclaredhoverbgcolor};
   }
 `;

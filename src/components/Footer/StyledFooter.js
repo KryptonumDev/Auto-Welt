@@ -32,7 +32,7 @@ export const StyledFooterMainWrapper = styled.div`
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     flex-wrap: wrap;
     padding-top: 70px;
   }

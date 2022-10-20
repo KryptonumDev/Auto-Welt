@@ -81,7 +81,7 @@ const HomeHeroSection = () => {
   return (
     <StyledHomeHeroSection>
       <StyledImagesLeftWrapper>
-        {leftImages.map((image) => (
+        {leftImages?.map((image) => (
           <StyledImageWrapper>
             <GatsbyImage
               image={image.localFile}
@@ -95,38 +95,42 @@ const HomeHeroSection = () => {
         <StyledHeroImage>
           <GatsbyImage
             image={heroImage}
-            alt={wpPage.homepage.duzeZdjecieSrodkowe.altText}
+            alt={wpPage.homepage?.duzeZdjecieSrodkowe.altText}
           />
         </StyledHeroImage>
         {width > 768 ? (
           <StyledButtonsWrapper>
-            <Button
-              whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
-              text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
-              bgColor="var(--creamBg)"
-              hasBorder="2px solid var(--primary500)"
-              textColor="var(--primary500)"
-              hasDeclaredPadding="10px 36px"
-              hasFontWeight="500"
-              hasFontSize="21px"
-              hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
-            />
-            <Button
-              whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
-              text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
-              textColor="var(--white)"
-              bgColor="var(--primary500)"
-              hasDeclaredPadding="10px 36px"
-              hasFontSize="21px"
-              hasFontWeight="500"
-              hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
-              hoverBgColor="var(--primary900)"
-            />
+            {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title && (
+              <Button
+                whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
+                text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
+                bgColor="var(--creamBg)"
+                hasBorder="2px solid var(--primary500)"
+                textColor="var(--primary500)"
+                hasDeclaredPadding="10px 36px"
+                hasFontWeight="500"
+                hasFontSize="21px"
+                hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
+              />
+            )}
+            {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title && (
+              <Button
+                whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
+                text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
+                textColor="var(--white)"
+                bgColor="var(--primary500)"
+                hasDeclaredPadding="10px 36px"
+                hasFontSize="21px"
+                hasFontWeight="500"
+                hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
+                hoverBgColor="var(--primary900)"
+              />
+            )}
           </StyledButtonsWrapper>
         ) : null}
       </StyledHeroImageWrapper>
       <StyledImagesRightWrapper>
-        {rightImages.map((image) => (
+        {rightImages?.map((image) => (
           <StyledImageWrapper>
             <GatsbyImage
               image={image.localFile}
@@ -138,27 +142,31 @@ const HomeHeroSection = () => {
       </StyledImagesRightWrapper>
       {width < 769 ? (
         <StyledButtonsWrapper>
-          <Button
-            whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
-            text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
-            bgColor="var(--creamBg)"
-            hasBorder="2px solid var(--primary500)"
-            textColor="var(--primary500)"
-            hasDeclaredPadding="10px 41px"
-            hasFontSize={width < 376 ? "15px" : "21px"}
-            hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
-          />
-          <Button
-            whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
-            text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
-            textColor="var(--white)"
-            bgColor="var(--primary500)"
-            hasDeclaredPadding="10px 41px"
-            hasFontSize={width < 376 ? "15px" : "21px"}
-            hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
-            hoverBgColor="var(--primary900)"
-            hasBorder="2px solid var(--primary500)"
-          />
+          {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title && (
+            <Button
+              whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
+              text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
+              bgColor="var(--creamBg)"
+              hasBorder="2px solid var(--primary500)"
+              textColor="var(--primary500)"
+              hasDeclaredPadding="10px 41px"
+              hasFontSize={width < 376 ? "15px" : "21px"}
+              hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
+            />
+          )}
+          {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url && (
+            <Button
+              whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
+              text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
+              textColor="var(--white)"
+              bgColor="var(--primary500)"
+              hasDeclaredPadding="10px 41px"
+              hasFontSize={width < 376 ? "15px" : "21px"}
+              hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
+              hoverBgColor="var(--primary900)"
+              hasBorder="2px solid var(--primary500)"
+            />
+          )}
         </StyledButtonsWrapper>
       ) : null}
     </StyledHomeHeroSection>

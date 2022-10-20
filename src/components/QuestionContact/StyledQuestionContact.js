@@ -9,7 +9,7 @@ export const StyledQuestionContact = styled.div`
   max-width: 1144px;
   margin: 60px auto 80px auto;
   padding: 0 32px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 0 16px;
   }
 `;
@@ -32,13 +32,13 @@ export const StyledInfoWrapper = styled.div`
   flex-direction: column;
   position: relative;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     max-width: 70%;
   }
-  @media only screen and (max-width: 583px){
+  @media only screen and (max-width: 583px) {
     max-width: 95%;
   }
-  @media only screen and (max-width: 439px){
+  @media only screen and (max-width: 439px) {
     > p {
       font-size: 13px;
     }
@@ -47,7 +47,7 @@ export const StyledInfoWrapper = styled.div`
       width: 100%;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     padding-bottom: 30px;
   }
 `;
@@ -60,15 +60,15 @@ export const StyledImageInfoWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  
-  img{
+
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
   }
-`
+`;

@@ -12,18 +12,31 @@ import CollectionElementThreeImages from "../../CollectionElementThreeImages/Col
 import { StyledCollectionTemplate } from "./StyledCollectionTemplate";
 
 const CollectionTemplate = ({ data }) => {
-  const shortCollectionData = data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji;
+  const shortCollectionData =
+    data.wpKolekcje.kolekcja.dedykowanaStronaDlaKolekcji;
 
-  const images = withArtDirection(getImage(shortCollectionData.zdjecieWZielonymProstokaciePolecajacyInnaKolekcje.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(shortCollectionData.zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(shortCollectionData.zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(
+      shortCollectionData.zdjecieWZielonymProstokaciePolecajacyInnaKolekcje
+        .localFile
+    ),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(
+          shortCollectionData
+            .zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje.localFile
+        ),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(
+          shortCollectionData
+            .zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje.localFile
+        ),
+      },
+    ]
+  );
   return (
     <StyledCollectionTemplate>
       <CollectionTemplateHeroImage
@@ -35,17 +48,16 @@ const CollectionTemplate = ({ data }) => {
       <CollectionTemplateDesc
         descData={shortCollectionData.informacjeOKolekcji}
       />
-      <CollectionImageUnderDescImages
-        imagesData={shortCollectionData}
-      />
+      <CollectionImageUnderDescImages imagesData={shortCollectionData} />
       <CollectionElementSlider
         imagesData={shortCollectionData.zdjeciaDoSlidera}
       />
-      {(shortCollectionData
-        .ktoraKolekcjePolecic && images) && (
+      {shortCollectionData.ktoraKolekcjePolecic && images && (
         <RecInfoWithButton
           bgImage={images}
-          text={shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje}
+          text={
+            shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje
+          }
           btnText={shortCollectionData.ktoraKolekcjePolecic.title}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
@@ -56,8 +68,7 @@ const CollectionTemplate = ({ data }) => {
           btnHoverBg="var(--secondary700)"
         />
       )}
-      {shortCollectionData
-        .trzyZdjeciaNaSamymSpodzieStrony && (
+      {shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony && (
         <CollectionElementThreeImages
           imagesData={shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony}
           linkData={shortCollectionData.wszystkieKolekcjieLink}
@@ -70,70 +81,11 @@ const CollectionTemplate = ({ data }) => {
 export default CollectionTemplate;
 
 export const query = graphql`
-query kolekcja($kolekcjaId: String) {
-  wpKolekcje(id: {eq: $kolekcjaId}) {
-    kolekcja {
-      dedykowanaStronaDlaKolekcji {
-        zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        zdjeciaDoSlidera {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        wszystkieKolekcjieLink {
-          url
-          title
-          target
-        }
-        trzyZdjeciaNaSamymSpodzieStrony {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          altText
-        }
-        trzyMaleZdjeciaModeli {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        tekstWZielonymProstokaciePolecajacyInnaKolekcje
-        prostokatneZdjeciePodOpisem {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        ktoraKolekcjePolecic {
-          url
-          title
-          target
-        }
-        informacjeOKolekcji {
-          zdjecie {
+  query kolekcja($kolekcjaId: String) {
+    wpKolekcje(id: { eq: $kolekcjaId }) {
+      kolekcja {
+        dedykowanaStronaDlaKolekcji {
+          zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
             localFile {
               childImageSharp {
@@ -141,11 +93,7 @@ query kolekcja($kolekcjaId: String) {
               }
             }
           }
-          opisKolekcji
-        }
-        pierwszaSekcja {
-          kolorowyTytulNaZieloneTlo
-          zdjecieGlowne {
+          zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
             altText
             localFile {
               childImageSharp {
@@ -153,7 +101,7 @@ query kolekcja($kolekcjaId: String) {
               }
             }
           }
-          zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
+          zdjeciaDoSlidera {
             altText
             localFile {
               childImageSharp {
@@ -161,30 +109,93 @@ query kolekcja($kolekcjaId: String) {
               }
             }
           }
-          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+          wszystkieKolekcjieLink {
             url
             title
             target
           }
-        }
-        zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          trzyZdjeciaNaSamymSpodzieStrony {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            altText
+          }
+          trzyMaleZdjeciaModeli {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          tekstWZielonymProstokaciePolecajacyInnaKolekcje
+          prostokatneZdjeciePodOpisem {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          ktoraKolekcjePolecic {
+            url
+            title
+            target
+          }
+          informacjeOKolekcji {
+            zdjecie {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            opisKolekcji
+          }
+          pierwszaSekcja {
+            kolorowyTytulNaZieloneTlo
+            zdjecieGlowne {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+              url
+              title
+              target
+            }
+          }
+          zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   }
-}
 `;

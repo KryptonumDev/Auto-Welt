@@ -5,10 +5,10 @@ import HomeArticles from "../components/HomeArticles/HomeArticles";
 import ModelCollection from "../components/ModelCollection/ModelCollection";
 import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
 
-import { 
+import {
   StyledContentWrapper,
   StyledModelCollections,
-  StyledReqButton
+  StyledReqButton,
 } from "../components/Collections/StyledCollections";
 
 import useWindowSize from "../utils/getWindowSize";
@@ -17,21 +17,30 @@ const ModelCollections = ({ data }) => {
   const width = useWindowSize();
   const greenData = data.wpPage.kolekcjeModeli;
 
-  const images = withArtDirection(getImage(greenData.tloDlaZielonegoProstokataPodKolekcjami.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(greenData.tloMobileDlaZielonegoProstokataPodKolekcjami.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(greenData.tloTabletDlaZielonegoProstokataPodKolekcjami.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(greenData.tloDlaZielonegoProstokataPodKolekcjami.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(
+          greenData.tloMobileDlaZielonegoProstokataPodKolekcjami.localFile
+        ),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(
+          greenData.tloTabletDlaZielonegoProstokataPodKolekcjami.localFile
+        ),
+      },
+    ]
+  );
   return (
     <>
       <StyledModelCollections>
         <StyledContentWrapper>
-          {data.allWpKolekcje.edges.map(({ node }) => <ModelCollection collectionData={node.kolekcja} slug={node.slug}/>)}
+          {data.allWpKolekcje.edges.map(({ node }) => (
+            <ModelCollection collectionData={node.kolekcja} slug={node.slug} />
+          ))}
         </StyledContentWrapper>
       </StyledModelCollections>
       <StyledReqButton>
@@ -48,7 +57,10 @@ const ModelCollections = ({ data }) => {
           btnHoverBg="var(--secondary700)"
         />
       </StyledReqButton>
-      <HomeArticles isCollectionsModelPage={true} buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}/>
+      <HomeArticles
+        isCollectionsModelPage={true}
+        buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}
+      />
     </>
   );
 };
@@ -56,28 +68,29 @@ const ModelCollections = ({ data }) => {
 export default ModelCollections;
 
 export const query = graphql`
-query collectionsQueryD {
-  allWpKolekcje {
-    edges {
-      node {
-        slug
-        kolekcja {
-          informacjeGlowne {
-            duzaMiniaturka {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+  query collectionsQueryD {
+    allWpKolekcje {
+      edges {
+        node {
+          slug
+          kolekcja {
+            informacjeGlowne {
+              duzaMiniaturka {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
-            }
-            nazwaKolekcji
-            trescPrzyciskuNaDuzejMiniaturce
-            tloDlaTytuluWDuzejMiniaturce {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+              nazwaKolekcji
+              trescPrzyciskuNaDuzejMiniaturce
+              tloDlaTytuluWDuzejMiniaturce {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
             }
@@ -85,45 +98,44 @@ query collectionsQueryD {
         }
       }
     }
-  }
-  wpPage(id: {eq: "cG9zdDo0MDQ="}) {
-    kolekcjeModeli {
-      przyciskPodArtykulamiNaDoleStrony {
-        target
-        title
-        url
-      }
-      tekstWZielonymInpucie
-      linkWZielonymInpucie {
-        target
-        title
-        url
-      }
-      tloDlaZielonegoProstokataPodKolekcjami {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+    wpPage(id: { eq: "cG9zdDo0MDQ=" }) {
+      kolekcjeModeli {
+        przyciskPodArtykulamiNaDoleStrony {
+          target
+          title
+          url
+        }
+        tekstWZielonymInpucie
+        linkWZielonymInpucie {
+          target
+          title
+          url
+        }
+        tloDlaZielonegoProstokataPodKolekcjami {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-      }
-      tloMobileDlaZielonegoProstokataPodKolekcjami {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+        tloMobileDlaZielonegoProstokataPodKolekcjami {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-      }
-      tloTabletDlaZielonegoProstokataPodKolekcjami {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+        tloTabletDlaZielonegoProstokataPodKolekcjami {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
   }
-}
-`
+`;

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 
 import {
@@ -8,7 +8,7 @@ import {
   StyledImageWrapper,
   StyledTitleWrapper,
   StyledTextWrapper,
-  StyledTitleBgWrapper
+  StyledTitleBgWrapper,
 } from "./StyledHomeArticleElement";
 import { StyledText } from "../Text/StyledText";
 
@@ -16,16 +16,16 @@ const HomeArticleElement = ({ articleData, slug }) => {
   return (
     <StyledHomeArticleElement>
       <StyledImageWrapper>
-        <GatsbyImage
-          image={getImage(articleData.miniaturka.localFile)}
-          alt={articleData.miniaturka.altText}
-        />
+        {articleData.miniaturka.localFile && (
+          <GatsbyImage
+            image={getImage(articleData.miniaturka.localFile)}
+            alt={articleData.miniaturka.altText}
+          />
+        )}
       </StyledImageWrapper>
       <StyledTitleWrapper>
         <StyledTitleBgWrapper>
-          <StaticImage
-            src="../../images/articleMinBackground.png"
-          />
+          <StaticImage src="../../images/articleMinBackground.png" />
         </StyledTitleBgWrapper>
         <StyledText
           hasdeclaredfontsize="18px"
@@ -34,20 +34,22 @@ const HomeArticleElement = ({ articleData, slug }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="20px 40px"
         >
-          {articleData.tytul}
+          {articleData.tytul && articleData.tytul}
         </StyledText>
       </StyledTitleWrapper>
       <StyledTextWrapper>
-        {parse(articleData.opis)}
-        <Button
-          whereGo={`/artykuly/${slug}`}
-          text={articleData.tekstWPrzycisku}
-          bgColor="var(--secondary500)"
-          textColor="var(--primary900)"
-          hasDeclaredPadding="10px 33px"
-          hasFontSize="21px"
-          hoverBgColor="var(--secondary700)"
-        />
+        {articleData.opis && parse(articleData.opis)}
+        {articleData.tekstWPrzycisku && (
+          <Button
+            whereGo={`/artykuly/${slug}`}
+            text={articleData.tekstWPrzycisku}
+            bgColor="var(--secondary500)"
+            textColor="var(--primary900)"
+            hasDeclaredPadding="10px 33px"
+            hasFontSize="21px"
+            hoverBgColor="var(--secondary700)"
+          />
+        )}
       </StyledTextWrapper>
     </StyledHomeArticleElement>
   );

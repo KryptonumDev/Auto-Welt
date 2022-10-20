@@ -21,74 +21,74 @@ const Shedule = ({ data }) => {
 export default Shedule;
 
 export const query = graphql`
-query scheduleQuery {
-  wpPage(id: {eq: "cG9zdDoxMDk1"}) {
-    terminarz {
-      sekcjaPowitalna {
-        powitalneZdjecieMobile {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+  query scheduleQuery {
+    wpPage(id: { eq: "cG9zdDoxMDk1" }) {
+      terminarz {
+        sekcjaPowitalna {
+          powitalneZdjecieMobile {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          powitalneZdjecieTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          tekstNaTlePowitalnegoZdjecia
+          tloDlaTekstuNaTlePowitalnegoZdjecia {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          powitalneZdjecieDesktop {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
-        powitalneZdjecieTablet {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
+        wystawyAktualne {
+          tytulNadSliderem
+          przyciskPodSliderem {
+            target
+            title
+            url
           }
         }
-        tekstNaTlePowitalnegoZdjecia
-        tloDlaTekstuNaTlePowitalnegoZdjecia {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
+        wystawyArchiwalne {
+          lewyPrzyciskPodSliderem {
+            target
+            title
+            url
           }
-        }
-        powitalneZdjecieDesktop {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
+          prawyPrzyciskPodSliderem {
+            target
+            title
+            url
           }
+          tytulNadSliderem
         }
-      }
-      wystawyAktualne {
-        tytulNadSliderem
-        przyciskPodSliderem {
-          target
-          title
-          url
+        wystawyPlanowane {
+          przyciskPodSliderem {
+            target
+            title
+            url
+          }
+          tytulSekcji
         }
-      }
-      wystawyArchiwalne {
-        lewyPrzyciskPodSliderem {
-          target
-          title
-          url
-        }
-        prawyPrzyciskPodSliderem {
-          target
-          title
-          url
-        }
-        tytulNadSliderem
-      }
-      wystawyPlanowane {
-        przyciskPodSliderem {
-          target
-          title
-          url
-        }
-        tytulSekcji
       }
     }
   }
-}
 `;

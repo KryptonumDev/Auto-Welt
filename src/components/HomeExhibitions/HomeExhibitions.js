@@ -15,33 +15,34 @@ import useWindowSize from "../../utils/getWindowSize";
 
 const HomeExhibitions = ({ isAboutPage }) => {
   const data = useStaticQuery(graphql`
-  query currentExhibition {
-    allWpWystawa {
-      edges {
-        node {
-          slug
-          wystawa {
-            informacjeOgolne {
-              data
-              elementyListy {
-                elementListy
-              }
-              miejsce
-              tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
-              tloDlaMiejscaIDaty {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
+    query currentExhibition {
+      allWpWystawa {
+        edges {
+          node {
+            slug
+            wystawa {
+              informacjeOgolne {
+                data
+                elementyListy {
+                  elementListy
+                }
+                miejsce
+                tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
+                tloDlaMiejscaIDaty {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
                   }
                 }
-              }
-              tytulPodZdjeciem
-              zdjecieDoMiniaturki {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
+                tytulPodZdjeciem
+                zdjecieDoMiniaturki {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
                   }
                 }
               }
@@ -49,17 +50,16 @@ const HomeExhibitions = ({ isAboutPage }) => {
           }
         }
       }
-    }
-    wpPage(id: { eq: "cG9zdDoxNQ==" }) {
-      homepage {
-        wystawy {
-          trescPrzyciskuPrzenoszacegoDo
-          tytulSekcji
+      wpPage(id: { eq: "cG9zdDoxNQ==" }) {
+        homepage {
+          wystawy {
+            trescPrzyciskuPrzenoszacegoDo
+            tytulSekcji
+          }
         }
       }
     }
-  }
-  `)
+  `);
   const width = useWindowSize();
 
   return (
@@ -72,21 +72,26 @@ const HomeExhibitions = ({ isAboutPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.homepage.wystawy.tytulSekcji}
+        {data.wpPage.homepage.wystawy.tytulSekcji &&
+          data.wpPage.homepage.wystawy.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper>
-        {data.allWpWystawa.edges.map(({ node }) => <HomeExhibitionsElement exhibitionData={node} />)}
+        {data.allWpWystawa.edges.map(({ node }) => (
+          <HomeExhibitionsElement exhibitionData={node} />
+        ))}
       </StyledElementsWrapper>
-      <Button
-        text={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo}
-        whereGo="/wystawy"
-        textColor="var(--white)"
-        bgColor="var(--primary500)"
-        hasFontSize={width < 376 ? "15px" : "21px"}
-        hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
-        hoverBgColor="var(--primary900)"
-        hasBorder="2px solid var(--primary500)"
-      />
+      {data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo && (
+        <Button
+          text={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo}
+          whereGo="/wystawy"
+          textColor="var(--white)"
+          bgColor="var(--primary500)"
+          hasFontSize={width < 376 ? "15px" : "21px"}
+          hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
+          hoverBgColor="var(--primary900)"
+          hasBorder="2px solid var(--primary500)"
+        />
+      )}
     </StyledHomeExhibitions>
   );
 };

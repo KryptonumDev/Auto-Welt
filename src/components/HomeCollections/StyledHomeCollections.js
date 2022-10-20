@@ -68,7 +68,7 @@ export const StyledRecButtonWrapper = styled.div`
   padding: 0 32px;
   margin: 0 auto;
   width: 100%;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 0 16px 0 0;
   }
-`
+`;

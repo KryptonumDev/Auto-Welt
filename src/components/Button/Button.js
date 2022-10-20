@@ -15,7 +15,7 @@ const Button = ({
   hasTarget,
   hasDeclaredMinHeight,
   hoverBgColor,
-  hasdeclaredmargin
+  hasdeclaredmargin,
 }) => {
   return (
     <>

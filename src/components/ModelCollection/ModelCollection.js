@@ -9,7 +9,7 @@ import {
   StyledImage,
   StyledTitle,
   StyledButtonSpace,
-  StyledTitleImage
+  StyledTitleImage,
 } from "./StyledModelCollection";
 
 const ModelCollection = ({ collectionData, slug }) => {
@@ -17,18 +17,24 @@ const ModelCollection = ({ collectionData, slug }) => {
   return (
     <StyledModelCollection>
       <StyledImage>
-        <GatsbyImage
-          image={getImage(shortDataKey.duzaMiniaturka.localFile)}
-          alt={shortDataKey.duzaMiniaturka.altText}
-          objectFit="fill"
-        />
+        {shortDataKey.duzaMiniaturka.localFile && (
+          <GatsbyImage
+            image={getImage(shortDataKey.duzaMiniaturka.localFile)}
+            alt={shortDataKey.duzaMiniaturka.altText}
+            objectFit="fill"
+          />
+        )}
       </StyledImage>
       <StyledTitle>
         <StyledTitleImage>
-          <GatsbyImage
-            image={getImage(shortDataKey.tloDlaTytuluWDuzejMiniaturce.localFile)}
-            alt={shortDataKey.tloDlaTytuluWDuzejMiniaturce.altText}
-          />
+          {shortDataKey.tloDlaTytuluWDuzejMiniaturce.localFile && (
+            <GatsbyImage
+              image={getImage(
+                shortDataKey.tloDlaTytuluWDuzejMiniaturce.localFile
+              )}
+              alt={shortDataKey.tloDlaTytuluWDuzejMiniaturce.altText}
+            />
+          )}
         </StyledTitleImage>
         <StyledText
           hasdeclaredfontsize="48px"
@@ -40,20 +46,22 @@ const ModelCollection = ({ collectionData, slug }) => {
           hasdeclaredtextalign="center"
           as="h2"
         >
-          {shortDataKey.nazwaKolekcji}
+          {shortDataKey.nazwaKolekcji && shortDataKey.nazwaKolekcji}
         </StyledText>
       </StyledTitle>
       <StyledButtonSpace>
-        <Button
-          whereGo={`/kolekcje-modeli/${slug}`}
-          text={shortDataKey.trescPrzyciskuNaDuzejMiniaturce}
-          textColor="var(--white)"
-          bgColor="var(--primary500)"
-          hoverBgColor="#1D2B29"
-          hasFontSize="21px"
-          hasFontWeight="500"
-          hasDeclaredPadding="10px 33px"
-        />
+        {shortDataKey.trescPrzyciskuNaDuzejMiniaturce && (
+          <Button
+            whereGo={`/kolekcje-modeli/${slug}`}
+            text={shortDataKey.trescPrzyciskuNaDuzejMiniaturce}
+            textColor="var(--white)"
+            bgColor="var(--primary500)"
+            hoverBgColor="#1D2B29"
+            hasFontSize="21px"
+            hasFontWeight="500"
+            hasDeclaredPadding="10px 33px"
+          />
+        )}
       </StyledButtonSpace>
     </StyledModelCollection>
   );

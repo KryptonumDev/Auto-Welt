@@ -10,16 +10,16 @@ export const StyledHomeContact = styled.section`
   background-color: var(--creamBg);
   margin-left: 30px;
 
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     flex-direction: column;
     align-self: right;
     max-width: 621px;
     max-height: unset;
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-bottom: 60px;
   }
-  @media only screen and (max-width: 751px){
+  @media only screen and (max-width: 751px) {
     width: 87%;
     max-width: unset;
   }
@@ -30,10 +30,10 @@ export const StyledLeftWrapper = styled.div`
   min-height: 659px;
   height: 100%;
   position: relative;
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     max-width: unset;
   }
-  @media only screen and (max-width: 657px){
+  @media only screen and (max-width: 657px) {
     min-height: 410px;
   }
 `;
@@ -43,7 +43,7 @@ export const StyledRightWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     width: 100%;
   }
 `;
@@ -70,10 +70,10 @@ export const StyledModel = styled.div`
     width: 100%;
     height: 100%;
   }
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     width: 732px;
   }
-  @media only screen and (max-width: 751px){
+  @media only screen and (max-width: 751px) {
     width: 110%;
   }
 `;
@@ -83,18 +83,18 @@ export const StyledTitleImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper-constrained{
+  .gatsby-image-wrapper-constrained {
     display: block;
   }
-`
+`;
 export const StyledContactWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -103,11 +103,11 @@ export const StyledContactWrapper = styled.div`
   max-width: 1144px;
   margin: 0 auto;
   padding: 0 32px;
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     justify-content: flex-end;
     padding: 0 16px;
   }
-`
+`;
 export const StyledMessageWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -117,37 +117,37 @@ export const StyledMessageWrapper = styled.div`
   height: 100%;
   min-height: 345px;
 
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     padding: 61px 67px;
   }
-  @media only screen and (max-width: 592px){
+  @media only screen and (max-width: 592px) {
     padding: 61px 26px;
   }
-`
+`;
 export const StyledTitle = styled.div`
-  font: 400 36px/1.2rem 'Nocturne Serif';
-  color: #23423D;
+  font: 400 36px/1.2rem "Nocturne Serif";
+  color: #23423d;
 
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 34px;
   }
-`
+`;
 export const StyledSubTitle = styled.div`
-  font: 400 24px/1.2em 'Nocturne Serif';
-  color: #1D2B29;
+  font: 400 24px/1.2em "Nocturne Serif";
+  color: #1d2b29;
   margin-top: 10px;
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 22px;
   }
-`
+`;
 export const StyledDesc = styled.div`
-  font: 400 20px/1.4em 'Roboto';
+  font: 400 20px/1.4em "Roboto";
   color: #000;
   margin-top: 20px;
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
-`
+`;
 export const StyledButtonsWrapper = styled.div`
   margin-top: 40px;
   display: flex;
@@ -155,26 +155,30 @@ export const StyledButtonsWrapper = styled.div`
   align-items: flex-start;
   gap: 20px;
 
-  @media only screen and (max-width: 1065px){
-    a, p{
+  @media only screen and (max-width: 1065px) {
+    a,
+    p {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 685px){
-    a, p{
+  @media only screen and (max-width: 685px) {
+    a,
+    p {
       font-size: 16px;
     }
   }
-  @media only screen and (max-width: 592px){
+  @media only screen and (max-width: 592px) {
     width: 100%;
     align-items: center;
-    a, p{
+    a,
+    p {
       width: 95%;
     }
   }
-  @media only screen and (max-width: 375px){
-    a, p{
+  @media only screen and (max-width: 375px) {
+    a,
+    p {
       font-size: 15px;
     }
   }
-`
+`;

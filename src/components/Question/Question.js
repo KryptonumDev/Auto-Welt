@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getImage, withArtDirection, GatsbyImage } from "gatsby-plugin-image";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 import { AnimatePresence } from "framer-motion";
 
 import {
@@ -8,7 +8,7 @@ import {
   StyledQuestionWrapper,
   StyledAnswerWrapper,
   StyledBgWrapper,
-  StyledQuestionText
+  StyledQuestionText,
 } from "./StyledQuestion";
 
 import ArrowQuestion from "../../images/arrowQuestion.svg";
@@ -24,34 +24,33 @@ const Question = ({ faqData }) => {
     {
       media: "(max-width: 768px)",
       image: getImage(faqData.zdjecieTlaTablet.localFile),
-    }
-  ])
+    },
+  ]);
 
   return (
-    <StyledQuestion 
-      itemscope 
-      itemprop="mainEntity" 
-      itemtype="https://schema.org/Question" 
+    <StyledQuestion
+      itemscope
+      itemprop="mainEntity"
+      itemtype="https://schema.org/Question"
       isopen={isOpen}
       onClick={() => setIsOpen(!isOpen)}
     >
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />
-        <StyledQuestionText itemprop="name">{parse(faqData.pytanie)}</StyledQuestionText>
+        <StyledQuestionText itemprop="name">
+          {faqData.pytanie && parse(faqData.pytanie)}
+        </StyledQuestionText>
         <StyledBgWrapper>
-          <GatsbyImage
-            image={images}
-            objectFit="fill"
-          />
+          {images && <GatsbyImage image={images} objectFit="fill" />}
         </StyledBgWrapper>
       </StyledQuestionWrapper>
       {isOpen && (
         <StyledAnswerWrapper
-          itemscope 
+          itemscope
           itemprop="acceptedAnswer"
           itemtype="https://schema.org/Answer"
         >
-          {parse(faqData.odpowiedz)}
+          {faqData.odpowiedz && parse(faqData.odpowiedz)}
         </StyledAnswerWrapper>
       )}
     </StyledQuestion>

@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const StyledHamburgerButton = styled.button`
   display: none;
-  
-  @media only screen and (max-width: 768px){
-    position: ${({ isopen }) => isopen ? "fixed" : "absolute"};
+
+  @media only screen and (max-width: 768px) {
+    position: ${({ isopen }) => (isopen ? "fixed" : "absolute")};
     z-index: 3;
     right: 16px;
     top: 33px;

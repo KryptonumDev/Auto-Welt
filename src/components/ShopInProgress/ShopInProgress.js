@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 
@@ -14,7 +14,7 @@ import {
   StyledTitleWrapper,
   StyledSubTitleWrapper,
   StyledDescription,
-  StyledButtonsWrapper
+  StyledButtonsWrapper,
 } from "./StyledShopInProgress";
 
 const ShopInProgress = ({ shopData }) => {
@@ -35,7 +35,9 @@ const ShopInProgress = ({ shopData }) => {
         </StyledHeroImage>
         <StyledCarImage>
           <GatsbyImage
-            image={getImage(shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.localFile)}
+            image={getImage(
+              shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.localFile
+            )}
             alt={shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.altText}
           />
         </StyledCarImage>
@@ -47,9 +49,7 @@ const ShopInProgress = ({ shopData }) => {
         <StyledSubTitleWrapper>
           {parse(shopData.podTytul)}
         </StyledSubTitleWrapper>
-        <StyledDescription>
-          {parse(shopData.opisPodTytulami)}
-        </StyledDescription>
+        <StyledDescription>{parse(shopData.opisPodTytulami)}</StyledDescription>
         <StyledButtonsWrapper>
           <Button
             whereGo={shopData.lewyPrzycisk.url}

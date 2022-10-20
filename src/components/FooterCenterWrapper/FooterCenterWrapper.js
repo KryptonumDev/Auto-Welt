@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 import FooterCenterWrapperArticle from "../FooterCenterWrapperArticle/FooterCenterWrapperArticle";
 
 import {
@@ -12,19 +12,20 @@ import { StyledLink } from "../Link/StyledLink";
 
 const FooterCenterWrapper = ({ footerData }) => {
   const articleQuery = useStaticQuery(graphql`
-  query footerArticle {
-    allWpArtykul(limit: 2) {
-      edges {
-        node {
-          slug
-          artykul {
-            informacjeDoMiniaturki {
-              tytul
-              miniaturka {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData
+    query footerArticle {
+      allWpArtykul(limit: 2) {
+        edges {
+          node {
+            slug
+            artykul {
+              informacjeDoMiniaturki {
+                tytul
+                miniaturka {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
                   }
                 }
               }
@@ -33,8 +34,7 @@ const FooterCenterWrapper = ({ footerData }) => {
         }
       }
     }
-  }
-  `)
+  `);
   return (
     <StyledFooterCenterWrapper>
       <div>
@@ -46,7 +46,7 @@ const FooterCenterWrapper = ({ footerData }) => {
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
-          {footerData.szybkieLinkiTytul}
+          {footerData.szybkieLinkiTytul && footerData.szybkieLinkiTytul}
         </StyledText>
         <StyledFastLinks>
           <StyledLink
@@ -162,8 +162,12 @@ const FooterCenterWrapper = ({ footerData }) => {
           Artykuły
         </StyledText>
         <StyledArticlesWrapper>
-          {articleQuery.allWpArtykul.edges.map(({node}, index) => (
-            <FooterCenterWrapperArticle key={index} articleData={node.artykul} slug={node.slug} />
+          {articleQuery.allWpArtykul?.edges.map(({ node }, index) => (
+            <FooterCenterWrapperArticle
+              key={index}
+              articleData={node.artykul}
+              slug={node.slug}
+            />
           ))}
         </StyledArticlesWrapper>
       </div>

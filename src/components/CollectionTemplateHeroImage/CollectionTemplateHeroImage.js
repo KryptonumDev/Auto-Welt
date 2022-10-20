@@ -9,7 +9,7 @@ import {
   StyledHeroImage,
   StyledTitleWrapper,
   StyledTitleImageWraper,
-  StyledGatsbyImage
+  StyledGatsbyImage,
 } from "./StyledCollectionTemplateHeroImage";
 
 const CollectionTemplateHeroImage = ({ heroData }) => {
@@ -26,13 +26,15 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
       <StyledTitleWrapper>
         <StyledTitleImageWraper>
           <GatsbyImage
-            image={getImage(heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.localFile)}
-            alt={heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.altText}
+            image={getImage(
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.localFile
+            )}
+            alt={
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.altText
+            }
           />
         </StyledTitleImageWraper>
-        <div>
-          {parse(heroData?.kolorowyTytulNaZieloneTlo)}
-        </div>
+        <div>{parse(heroData?.kolorowyTytulNaZieloneTlo)}</div>
       </StyledTitleWrapper>
       {heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym && (
         <Button

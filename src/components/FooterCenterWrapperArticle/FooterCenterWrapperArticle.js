@@ -12,11 +12,15 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
   return (
     <StyledFooterCenterWrapperArticle to={`/artykuly/${slug}`}>
       <StyledTop>
-        <GatsbyImage
-          image={getImage(articleData.informacjeDoMiniaturki.miniaturka.localFile)}
-          alt={articleData.informacjeDoMiniaturki.miniaturka.altText}
-          objectFit="fill"
-        />
+        {articleData.informacjeDoMiniaturki.miniaturka.localFile && (
+          <GatsbyImage
+            image={getImage(
+              articleData.informacjeDoMiniaturki.miniaturka.localFile
+            )}
+            alt={articleData.informacjeDoMiniaturki.miniaturka.altText}
+            objectFit="fill"
+          />
+        )}
       </StyledTop>
       <StyledBottom>
         <StyledText
@@ -25,7 +29,8 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontweight="500"
         >
-          {articleData.informacjeDoMiniaturki.tytul}
+          {articleData.informacjeDoMiniaturki.tytul &&
+            articleData.informacjeDoMiniaturki.tytul}
         </StyledText>
       </StyledBottom>
     </StyledFooterCenterWrapperArticle>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 
 export const StyledFooterCenterWrapperArticle = styled(Link)`
   width: 100%;
@@ -11,11 +11,11 @@ export const StyledFooterCenterWrapperArticle = styled(Link)`
 export const StyledTop = styled.div`
   width: 100%;
   min-height: 85px;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }

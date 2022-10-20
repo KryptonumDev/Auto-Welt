@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -20,15 +20,12 @@ const RecInfoWithButton = ({
   hasTarget,
   isMoveLeft,
   bgImage,
-  btnHoverBg
+  btnHoverBg,
 }) => {
   return (
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
       <StyledFooterImageWrapper>
-        <GatsbyImage
-          image={bgImage}
-          objectFit="fill"
-        />
+        <GatsbyImage image={bgImage} objectFit="fill" />
       </StyledFooterImageWrapper>
       <StyledText
         hasdeclaredfontsize="28px"
@@ -38,7 +35,7 @@ const RecInfoWithButton = ({
         hasdeclaredpadding="0 18px 0 57px"
         as="p"
       >
-        {text}
+        {text && text}
       </StyledText>
       <Button
         text={btnText}

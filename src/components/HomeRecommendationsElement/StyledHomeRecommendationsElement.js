@@ -15,15 +15,15 @@ export const StyledHomeRecommendationsElement = styled(motion.div)`
   position: relative;
   flex: 1;
 
-  a{
+  a {
     text-decoration: none;
     color: var(--primary500);
     font: 500 16px/19px "Roboto";
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 43px 33px;
   }
-  @media only screen and (max-width: 648px){
+  @media only screen and (max-width: 648px) {
     width: 96%;
     max-width: unset;
   }
@@ -34,11 +34,11 @@ export const StyledImageWrapper = styled(motion.div)`
   right: 34px;
   top: 20px;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     top: 16px;
     right: 8px;
   }
-  @media only screen and (max-width: 414px){
+  @media only screen and (max-width: 414px) {
     display: none;
   }
 `;
@@ -46,17 +46,17 @@ export const StyledTextWrapper = styled.div`
   width: 100%;
   max-width: 275px;
   margin: 10px 0 0;
-  font: 400 14px/1.2em 'Roboto';
+  font: 400 14px/1.2em "Roboto";
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     max-width: 80%;
   }
-  @media only screen and (max-width: 414px){
+  @media only screen and (max-width: 414px) {
     max-width: unset;
   }
-`
+`;

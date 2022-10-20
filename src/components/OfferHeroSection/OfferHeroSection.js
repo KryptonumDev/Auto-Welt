@@ -1,6 +1,6 @@
 import React from "react";
-import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image"
-import parse from "html-react-parser"
+import { getImage, GatsbyImage, withArtDirection } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 
@@ -12,20 +12,23 @@ import {
   StyledTextWrapper,
   StyledMoreInfoWrapper,
   StyledButtonWrapper,
-  StyledBgWrapper
+  StyledBgWrapper,
 } from "./StyledOfferHeroSection";
 
 const OfferHeroSection = ({ dataOffer }) => {
-  const images = withArtDirection(getImage(dataOffer.tloDesktopDlaOpisu.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(dataOffer.tloMobileDlaOpisu.localFile),
-    },
-    {
-      media: "(max-width: 768px)",
-      image: getImage(dataOffer.tloTabletDlaOpisu.localFile),
-    }
-  ])
+  const images = withArtDirection(
+    getImage(dataOffer.tloDesktopDlaOpisu.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(dataOffer.tloMobileDlaOpisu.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(dataOffer.tloTabletDlaOpisu.localFile),
+      },
+    ]
+  );
   return (
     <StyledOfferHeroSection>
       <StyledTimeInfo>
@@ -34,22 +37,28 @@ const OfferHeroSection = ({ dataOffer }) => {
         </StyledBgWrapper>
         <StyledImagesWrapper>
           <div>
-            <GatsbyImage 
-              image={getImage(dataOffer.pierwszeZdjeciePoLewo.localFile)}
-              alt={dataOffer.pierwszeZdjeciePoLewo.altText}
-            />
+            {dataOffer.pierwszeZdjeciePoLewo.localFile && (
+              <GatsbyImage
+                image={getImage(dataOffer.pierwszeZdjeciePoLewo.localFile)}
+                alt={dataOffer.pierwszeZdjeciePoLewo.altText}
+              />
+            )}
           </div>
           <div>
-            <GatsbyImage 
-              image={getImage(dataOffer.drugieZdjeciePoLewo.localFile)}
-              alt={dataOffer.drugieZdjeciePoLewo.altText}
-            />
+            {dataOffer.drugieZdjeciePoLewo.localFile && (
+              <GatsbyImage
+                image={getImage(dataOffer.drugieZdjeciePoLewo.localFile)}
+                alt={dataOffer.drugieZdjeciePoLewo.altText}
+              />
+            )}
           </div>
           <div>
-            <GatsbyImage 
-              image={getImage(dataOffer.trzecieZdjeciePoLewo.localFile)}
-              alt={dataOffer.trzecieZdjeciePoLewo.altText}
-            />
+            {dataOffer.trzecieZdjeciePoLewo.localFile && (
+              <GatsbyImage
+                image={getImage(dataOffer.trzecieZdjeciePoLewo.localFile)}
+                alt={dataOffer.trzecieZdjeciePoLewo.altText}
+              />
+            )}
           </div>
         </StyledImagesWrapper>
         <StyledTextWrapper>
@@ -60,23 +69,25 @@ const OfferHeroSection = ({ dataOffer }) => {
             hasdeclaredmargin="0 0 40px"
             hasdeclaredfontfamily="Nocturne Serif"
           >
-            {dataOffer.tytulPoPrawo}
+            {dataOffer.tytulPoPrawo && dataOffer.tytulPoPrawo}
           </StyledText>
           <StyledMoreInfoWrapper>
-            {parse(dataOffer.opis)}
+            {dataOffer.opis && parse(dataOffer.opis)}
           </StyledMoreInfoWrapper>
           <StyledButtonWrapper>
-            <Button
-              whereGo={dataOffer.przyciskPodOpisem.url}
-              text={dataOffer.przyciskPodOpisem.title}
-              textColor="var(--white)"
-              bgColor="var(--primary500)"
-              hasDeclaredPadding="10px 36px"
-              hasFontSize="21px"
-              hasFontWeight="500"
-              hoverBgColor="var(--primary900)"
-              hasTarget={dataOffer.przyciskPodOpisem.target}
-            />
+            {dataOffer.przyciskPodOpisem.url && (
+              <Button
+                whereGo={dataOffer.przyciskPodOpisem.url}
+                text={dataOffer.przyciskPodOpisem.title}
+                textColor="var(--white)"
+                bgColor="var(--primary500)"
+                hasDeclaredPadding="10px 36px"
+                hasFontSize="21px"
+                hasFontWeight="500"
+                hoverBgColor="var(--primary900)"
+                hasTarget={dataOffer.przyciskPodOpisem.target}
+              />
+            )}
           </StyledButtonWrapper>
         </StyledTextWrapper>
       </StyledTimeInfo>

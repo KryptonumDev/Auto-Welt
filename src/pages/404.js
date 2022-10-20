@@ -4,12 +4,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../components/Button/Button";
 
-import { 
+import {
   StyledMainContainer,
   StyledLeftWrapper,
   StyledRightWrapper,
   StyledTextWrapper,
-  StyledImageRightWrapper
+  StyledImageRightWrapper,
 } from "../components/404/Styled404";
 import { StyledText } from "../components/Text/StyledText";
 
@@ -58,24 +58,24 @@ const NotFoundPage = ({ data }) => {
 export default NotFoundPage;
 
 export const query = graphql`
-query page404Query {
-  wpPage(id: {eq: "cG9zdDozNTg="}) {
-    page404 {
-      tytul
-      przycisk {
-        target
-        title
-        url
-      }
-      zdjeciePoPrawo {
-        altText
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+  query page404Query {
+    wpPage(id: { eq: "cG9zdDozNTg=" }) {
+      page404 {
+        tytul
+        przycisk {
+          target
+          title
+          url
+        }
+        zdjeciePoPrawo {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
       }
     }
   }
-}
-`
+`;

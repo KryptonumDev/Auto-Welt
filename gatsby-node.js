@@ -37,17 +37,19 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
     }
-  `)
+  `);
 
   wystawyData.data.allWpWystawa.edges.map(({ node }) => {
     createPage({
       path: `/wystawy/${node.slug}/`,
-      component: require.resolve("./src/components/Templates/TemplateExhibitions/TemplateExhibitions.js"),
+      component: require.resolve(
+        "./src/components/Templates/TemplateExhibitions/TemplateExhibitions.js"
+      ),
       context: {
-        wystawaId: node.id
-      }
-    })
-  })
+        wystawaId: node.id,
+      },
+    });
+  });
 
   const artykulData = await graphql(`
     {
@@ -65,10 +67,12 @@ exports.createPages = async ({ actions, graphql }) => {
   artykulData.data.allWpArtykul.edges.map(({ node }) => {
     createPage({
       path: `/artykuly/${node.slug}/`,
-      component: require.resolve("./src/components/Templates/ArticlesTemplate/ArticlesTemplate.js"),
+      component: require.resolve(
+        "./src/components/Templates/ArticlesTemplate/ArticlesTemplate.js"
+      ),
       context: {
-        articleId: node.id
-      }
-    })
-  })
+        articleId: node.id,
+      },
+    });
+  });
 };

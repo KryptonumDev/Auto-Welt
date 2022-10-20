@@ -23,43 +23,43 @@ import useWindowSize from "../../utils/getWindowSize";
 
 const HomeRecommendations = ({ isAboutPage }) => {
   const width = useWindowSize();
-  const {allWpRekomendacja, wpPage} = useStaticQuery(graphql`
-  query rekomendacje {
-    allWpRekomendacja {
-      nodes {
-        rekomendacje {
-          imieNazwisko
-          rekomendacja
-          linkPodImieniem {
-            target
-            title
-            url
+  const { allWpRekomendacja, wpPage } = useStaticQuery(graphql`
+    query rekomendacje {
+      allWpRekomendacja {
+        nodes {
+          rekomendacje {
+            imieNazwisko
+            rekomendacja
+            linkPodImieniem {
+              target
+              title
+              url
+            }
+          }
+        }
+      }
+      wpPage(id: { eq: "cG9zdDozMw==" }) {
+        globalConfig {
+          informacjeDoRekomendacjiNaStronieGlownej {
+            przyciskLewy {
+              target
+              title
+              url
+            }
+            przyciskPrawy {
+              target
+              title
+              url
+            }
+            tytulSekcji
           }
         }
       }
     }
-    wpPage(id: {eq: "cG9zdDozMw=="}) {
-      globalConfig {
-        informacjeDoRekomendacjiNaStronieGlownej {
-          przyciskLewy {
-            target
-            title
-            url
-          }
-          przyciskPrawy {
-            target
-            title
-            url
-          }
-          tytulSekcji
-        }
-      }
-    }
-  }
-  `)
+  `);
   const [renderElements, setRenderElements] = useState([]);
   const [index, setIndex] = useState(0);
-  const [prevIndex, setPrevIndex] = useState(0)
+  const [prevIndex, setPrevIndex] = useState(0);
   const [isPrev, setIsPrev] = useState(false);
 
   const handlePrev = () => {
@@ -69,29 +69,38 @@ const HomeRecommendations = ({ isAboutPage }) => {
       setIndex(allWpRekomendacja.nodes.length - 1);
     } else {
       setIndex(index - 1);
-    } 
+    }
   };
   const handleNext = () => {
     setIsPrev(false);
     setPrevIndex(index);
-    if(index === allWpRekomendacja.nodes.length - 1){
-      setIndex(0)
-    }else{
+    if (index === allWpRekomendacja.nodes.length - 1) {
+      setIndex(0);
+    } else {
       setIndex(index + 1);
     }
   };
 
   useEffect(() => {
-    let sliderElements = allWpRekomendacja.nodes.slice(index, index + (width < 649 ? 1 : 2));
-    if(width > 648){
-      if(index === allWpRekomendacja.nodes.length - 1){
-        sliderElements = [allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1], allWpRekomendacja.nodes[0]];
+    let sliderElements = allWpRekomendacja.nodes.slice(
+      index,
+      index + (width < 649 ? 1 : 2)
+    );
+    if (width > 648) {
+      if (index === allWpRekomendacja.nodes.length - 1) {
+        sliderElements = [
+          allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1],
+          allWpRekomendacja.nodes[0],
+        ];
       }
-      if((index === 0 && isPrev) && (prevIndex !== 1)){
-        sliderElements = [allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1], allWpRekomendacja.nodes[0]];
+      if (index === 0 && isPrev && prevIndex !== 1) {
+        sliderElements = [
+          allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1],
+          allWpRekomendacja.nodes[0],
+        ];
       }
     }
-    
+
     setRenderElements(sliderElements);
   }, [index, width]);
 
@@ -105,10 +114,13 @@ const HomeRecommendations = ({ isAboutPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.tytulSekcji}
+        {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+          .tytulSekcji &&
+          wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+            .tytulSekcji}
       </StyledText>
       <StyledRecommendationsWrapper>
-        <StyledArrowWrapper 
+        <StyledArrowWrapper
           onClick={handlePrev}
           hasdeclaredtransform="20px"
           initial={{ x: width < 463 ? 2 : 20 }}
@@ -118,17 +130,29 @@ const HomeRecommendations = ({ isAboutPage }) => {
           }}
           whileTap={{ scale: 0.9 }}
         >
-          {width <= 768 ? width < 463 ? <LeftArrow /> : <LeftLightArrow /> : <LeftArrow />}
+          {width <= 768 ? (
+            width < 463 ? (
+              <LeftArrow />
+            ) : (
+              <LeftLightArrow />
+            )
+          ) : (
+            <LeftArrow />
+          )}
         </StyledArrowWrapper>
         <StyledSlides>
-          {renderElements.map((e) => (
+          {renderElements?.map((e) => (
             <AnimatePresence initial={false} exitBeforeEnter>
-              <HomeRecommendationsElement key={e.rekomendacje.imieNazwisko} data={e} isPrev={isPrev}/>
+              <HomeRecommendationsElement
+                key={e.rekomendacje.imieNazwisko}
+                data={e}
+                isPrev={isPrev}
+              />
             </AnimatePresence>
           ))}
         </StyledSlides>
-        <StyledArrowWrapper 
-          onClick={handleNext} 
+        <StyledArrowWrapper
+          onClick={handleNext}
           hasdeclaredtransform="-20px"
           initial={{ x: width < 463 ? -2 : -20 }}
           whileHover={{
@@ -137,31 +161,63 @@ const HomeRecommendations = ({ isAboutPage }) => {
           }}
           whileTap={{ scale: 0.9 }}
         >
-          {width <= 768 ? width < 463 ? <RightArrow /> : <RightLightArrow /> : <RightArrow />}
+          {width <= 768 ? (
+            width < 463 ? (
+              <RightArrow />
+            ) : (
+              <RightLightArrow />
+            )
+          ) : (
+            <RightArrow />
+          )}
         </StyledArrowWrapper>
       </StyledRecommendationsWrapper>
       <StyledButtonsWrapper>
-        <Button
-          whereGo={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.url}
-          text={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.title}
-          hasBorder="2px solid var(--primary500)"
-          textColor="var(--primary500)"
-          hasFontSize="21px"
-          hasDeclaredPadding={width < 769 ? "10px 53px" : "10px 33px"}
-          bgColor="var(--background500)"
-          hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskLewy.target}
-        />
-        <Button
-          whereGo={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.url}
-          text={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.title}
-          textColor="var(--white)"
-          bgColor="var(--primary500)"
-          hasFontSize="21px"
-          hasBorder="2px solid var(--primary500)"
-          hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
-          hasTarget={wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej.przyciskPrawy.target}
-          hoverBgColor="var(--primary900)"
-        />
+        {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+          .przyciskLewy.title && (
+          <Button
+            whereGo={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskLewy.url
+            }
+            text={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskLewy.title
+            }
+            hasBorder="2px solid var(--primary500)"
+            textColor="var(--primary500)"
+            hasFontSize="21px"
+            hasDeclaredPadding={width < 769 ? "10px 53px" : "10px 33px"}
+            bgColor="var(--background500)"
+            hasTarget={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskLewy.target
+            }
+          />
+        )}
+        {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+          .przyciskPrawy.url && (
+          <Button
+            whereGo={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskPrawy.url
+            }
+            text={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskPrawy.title
+            }
+            textColor="var(--white)"
+            bgColor="var(--primary500)"
+            hasFontSize="21px"
+            hasBorder="2px solid var(--primary500)"
+            hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
+            hasTarget={
+              wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
+                .przyciskPrawy.target
+            }
+            hoverBgColor="var(--primary900)"
+          />
+        )}
       </StyledButtonsWrapper>
     </StyledHomeRecommendations>
   );

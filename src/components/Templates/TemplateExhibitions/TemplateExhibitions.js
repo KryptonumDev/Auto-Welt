@@ -1,21 +1,17 @@
-import { graphql } from 'gatsby'
-import React from 'react'
+import { graphql } from "gatsby";
+import React from "react";
 
 const TemplateExhibitions = () => {
-  return (
-    <>
-        TemplateExhibitions
-    </>
-  )
-}
+  return <>TemplateExhibitions</>;
+};
 
-export default TemplateExhibitions
+export default TemplateExhibitions;
 
 export const query = graphql`
-query wystawyQuerPage($wystawaId: String) {
+  query wystawyQuerPage($wystawaId: String) {
     wpWystawa(id: { eq: $wystawaId }) {
       wystawa {
-        informacjeOgolne{
+        informacjeOgolne {
           miejsce
           tytulPodZdjeciem
           data
@@ -34,4 +30,4 @@ query wystawyQuerPage($wystawaId: String) {
       }
     }
   }
-`
+`;

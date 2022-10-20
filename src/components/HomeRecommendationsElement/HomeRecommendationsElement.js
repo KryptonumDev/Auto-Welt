@@ -1,12 +1,12 @@
 import React from "react";
-import parse from "html-react-parser"
-import { motion } from "framer-motion"
+import parse from "html-react-parser";
+import { motion } from "framer-motion";
 
 import { StyledText } from "../Text/StyledText";
 import {
   StyledHomeRecommendationsElement,
   StyledImageWrapper,
-  StyledTextWrapper
+  StyledTextWrapper,
 } from "./StyledHomeRecommendationsElement";
 
 const HomeRecommendationsElement = ({ data, key, isPrev }) => {
@@ -22,16 +22,19 @@ const HomeRecommendationsElement = ({ data, key, isPrev }) => {
         hasdeclaredlineheight="1.2em"
         hasdeclaredfontcolor="var(--primary800)"
       >
-        {data.rekomendacje.imieNazwisko}
+        {data.rekomendacje.imieNazwisko && data.rekomendacje.imieNazwisko}
       </StyledText>
-      <motion.a
-        href={data.rekomendacje.linkPodImieniem.url}
-        target={data.rekomendacje.linkPodImieniem.target}
-      >
-        {data.rekomendacje.linkPodImieniem.title}
-      </motion.a>
+      {data.rekomendacje.linkPodImieniem.url && (
+        <motion.a
+          href={data.rekomendacje.linkPodImieniem.url}
+          target={data.rekomendacje.linkPodImieniem.target}
+        >
+          {data.rekomendacje.linkPodImieniem.title}
+        </motion.a>
+      )}
       <StyledTextWrapper>
-        {parse(data.rekomendacje.rekomendacja)}
+        {data.rekomendacje.rekomendacja &&
+          parse(data.rekomendacje.rekomendacja)}
       </StyledTextWrapper>
       <StyledImageWrapper>
         <StyledText

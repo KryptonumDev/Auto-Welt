@@ -30,7 +30,7 @@ export const StyledLink = styled(Link)`
     hasdeclaredmaxwidth ? hasdeclaredmaxwidth : "unset"};
   position: relative;
   cursor: pointer;
-  &.activeLink{
+  &.activeLink {
     color: var(--secondary500);
   }
 `;

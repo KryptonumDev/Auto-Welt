@@ -8,12 +8,12 @@ export const StyledCollectionTemplateDesc = styled.section`
   display: flex;
   margin-top: 60px;
   position: relative;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-top: 30px;
     width: calc(100% - 16px);
     margin: 30px auto 0 16px;
   }
-  @media only screen and (max-width: 688px){
+  @media only screen and (max-width: 688px) {
     flex-direction: column-reverse;
     min-height: unset;
     align-items: center;
@@ -24,11 +24,11 @@ export const StyledTextWrapper = styled.div`
   padding: 68px 58px;
   font: 400 24px/1.2em "Roboto";
   text-align: center;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     font-size: 20px;
     padding: 41px 31px;
   }
-  @media only screen and (max-width: 688px){
+  @media only screen and (max-width: 688px) {
     width: 100%;
     padding: 40px 23px;
   }
@@ -41,11 +41,11 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-  @media only screen and (max-width: 688px){
+  @media only screen and (max-width: 688px) {
     width: 100%;
     min-width: unset;
     max-height: unset;

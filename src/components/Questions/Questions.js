@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 import { AnimatePresence } from "framer-motion";
 
 import Question from "../Question/Question";
@@ -9,35 +9,36 @@ import { StyledText } from "../Text/StyledText";
 
 const Questions = ({ isContactPage }) => {
   const data = useStaticQuery(graphql`
-  query faqQuery {
-    wpPage(id: {eq: "cG9zdDozMw=="}) {
-      globalConfig {
-        faq {
-          faqTutul
+    query faqQuery {
+      wpPage(id: { eq: "cG9zdDozMw==" }) {
+        globalConfig {
           faq {
-            pytanie
-            odpowiedz
-            zdjecieTla {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+            faqTutul
+            faq {
+              pytanie
+              odpowiedz
+              zdjecieTla {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
-            }
-            zdjecieTlaMobile {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+              zdjecieTlaMobile {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
-            }
-            zdjecieTlaTablet {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
+              zdjecieTlaTablet {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
                 }
               }
             }
@@ -45,8 +46,7 @@ const Questions = ({ isContactPage }) => {
         }
       }
     }
-  }
-  `)
+  `);
   return (
     <StyledQuestions iscontactpage={isContactPage}>
       <StyledText
@@ -57,14 +57,15 @@ const Questions = ({ isContactPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.globalConfig.faq.faqTutul}
+        {data.wpPage.globalConfig.faq.faqTutul &&
+          data.wpPage.globalConfig.faq.faqTutul}
       </StyledText>
       <StyledQuestionsWrapper>
-        {data.wpPage.globalConfig.faq.faq.map((faq, index) => 
-          (<AnimatePresence>
-            <Question faqData={faq} key={index}/>
-          </AnimatePresence>)
-        )}
+        {data.wpPage.globalConfig?.faq?.faq.map((faq, index) => (
+          <AnimatePresence>
+            <Question faqData={faq} key={index} />
+          </AnimatePresence>
+        ))}
       </StyledQuestionsWrapper>
     </StyledQuestions>
   );

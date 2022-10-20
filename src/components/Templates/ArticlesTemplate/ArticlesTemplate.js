@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ArticlesTemplate = () => {
-  return (
-    <article>ArticlesTemplate</article>
-  )
-}
+  return <article>ArticlesTemplate</article>;
+};
 
-export default ArticlesTemplate
+export default ArticlesTemplate;

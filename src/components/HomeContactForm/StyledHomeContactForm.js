@@ -13,16 +13,16 @@ export const StyledHomeContactForm = styled.div`
     gap: 25px;
   }
 
-  @media only screen and (max-width: 1119px){
+  @media only screen and (max-width: 1119px) {
     padding: 22px;
   }
-  @media only screen and (max-width: 1087px){
-    form{
+  @media only screen and (max-width: 1087px) {
+    form {
       gap: 10px;
     }
   }
-  @media only screen and (max-width: 972px){
-    form{
+  @media only screen and (max-width: 972px) {
+    form {
       gap: 20px;
     }
   }
@@ -33,39 +33,41 @@ export const StyledInputWrapper = styled.div`
   position: relative;
   label {
     font: 500 16px/19px Roboto;
-    color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
+    color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
   }
   input {
     width: 100%;
     height: 38px;
-    border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
+    border: 2px solid
+      ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     padding: 0 14px;
     outline-color: var(--primary500);
-    font-family: 'Roboto';
+    font-family: "Roboto";
   }
   textarea {
     width: 100%;
     height: 164px;
-    border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
+    border: 2px solid
+      ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     resize: none;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     padding: 10px;
   }
 
-  @media only screen and (max-width: 1087px){
+  @media only screen and (max-width: 1087px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
   }
-  @media only screen and (max-width: 972px){
+  @media only screen and (max-width: 972px) {
     max-width: unset;
   }
-  @media only screen and (max-width: 657px){
+  @media only screen and (max-width: 657px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
   }
-  @media only screen and (max-width: 469px){
+  @media only screen and (max-width: 469px) {
     width: 100%;
   }
 `;
@@ -73,8 +75,8 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
   bottom: -20px;
   left: 0;
-  font: 14px 'Roboto';
-  color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"}
+  font: 14px "Roboto";
+  color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
 `;
 export const StyledButtonWrapper = styled.div`
   width: 100%;
@@ -86,23 +88,23 @@ export const StyledButtonWrapper = styled.div`
     border: none;
   }
 
-  @media only screen and (max-width: 1065px){
-    > button{
-      p{
+  @media only screen and (max-width: 1065px) {
+    > button {
+      p {
         font-size: 18px;
       }
     }
   }
-  @media only screen and (max-width: 685px){
-    > button{
-      p{
+  @media only screen and (max-width: 685px) {
+    > button {
+      p {
         font-size: 16px;
       }
     }
   }
-  @media only screen and (max-width: 375px){
-    > button{
-      p{
+  @media only screen and (max-width: 375px) {
+    > button {
+      p {
         font-size: 15px;
       }
     }
@@ -112,22 +114,22 @@ export const StyledCustomCheckbox = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  label{
+  label {
     position: relative;
     padding-left: 26px;
-    &:after{
-      content: '';
-      border: 2px solid ${({ iserror }) => iserror ? "#D63D3D" : "#3E635D"};
+    &:after {
+      content: "";
+      border: 2px solid ${({ iserror }) => (iserror ? "#D63D3D" : "#3E635D")};
       width: 20px;
       height: 20px;
       display: block;
       position: absolute;
       left: 0;
       top: 0;
-      background-color: ${({ value }) => value ? "#3E635D" : "transparent"};
+      background-color: ${({ value }) => (value ? "#3E635D" : "transparent")};
     }
   }
-  input{
+  input {
     width: 0;
     height: 0;
     opacity: 0;
@@ -135,10 +137,10 @@ export const StyledCustomCheckbox = styled.div`
   }
   label {
     font: 500 16px/19px Roboto;
-    color: ${({ iserror }) => iserror ? "#D63D3D" : "var(--primary500)"};
-    a{
-      color: ${({ iserror }) => iserror ? "#D63D3D" : "#23423D"};
-      font: 500 16px/19px "Roboto"
+    color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
+    a {
+      color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
+      font: 500 16px/19px "Roboto";
     }
   }
-`
+`;

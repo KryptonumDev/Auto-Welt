@@ -2,32 +2,34 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const StyledHomeExhibitionsElement = styled(motion.div)`
-  width: ${({ isscheduleelement }) => isscheduleelement ? "calc(50% - 15px)" : "33%"};
-  max-width: ${({ isscheduleelement }) => isscheduleelement ? "532px" : "340px"};
+  width: ${({ isscheduleelement }) =>
+    isscheduleelement ? "calc(50% - 15px)" : "33%"};
+  max-width: ${({ isscheduleelement }) =>
+    isscheduleelement ? "532px" : "340px"};
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-top: 6px solid var(--borderTopOrange);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 16px;
-  background-color: #FAF7F1;
+  background-color: #faf7f1;
 
-  @media only screen and (max-width: 1080px){
-    width: ${({ isscheduleelement }) => isscheduleelement ? "50%" : "100%"};
+  @media only screen and (max-width: 1080px) {
+    width: ${({ isscheduleelement }) => (isscheduleelement ? "50%" : "100%")};
   }
 
-  @media only screen and (max-width: 1065px){
-    > a{
+  @media only screen and (max-width: 1065px) {
+    > a {
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 685px){
-    > a{
+  @media only screen and (max-width: 685px) {
+    > a {
       font-size: 16px;
     }
   }
-  @media only screen and (max-width: 375px){
-    > a{
+  @media only screen and (max-width: 375px) {
+    > a {
       width: 85%;
       max-width: 300px;
       font-size: 15px;
@@ -45,7 +47,7 @@ export const StyledDataWrapper = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   gap: 8px;
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     align-items: flex-start;
   }
 `;
@@ -88,12 +90,12 @@ export const StyledImageWrapper = styled.div`
   top: 0;
   left: 0;
 
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-`
+`;

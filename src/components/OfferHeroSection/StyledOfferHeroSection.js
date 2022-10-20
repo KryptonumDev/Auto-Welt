@@ -5,7 +5,7 @@ export const StyledOfferHeroSection = styled.section`
   max-width: 1144px;
   margin: 37px auto 0;
   padding: 0 32px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     padding: 0 16px;
     margin-top: 130px;
   }
@@ -18,11 +18,11 @@ export const StyledTimeInfo = styled.div`
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
 
-  @media only screen and (max-width: 908px){
+  @media only screen and (max-width: 908px) {
     flex-direction: column;
     padding: 68px;
   }
-  @media only screen and (max-width: 668px){
+  @media only screen and (max-width: 668px) {
     padding: 40px 25px;
   }
 `;
@@ -33,25 +33,25 @@ export const StyledBgWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-`
+`;
 export const StyledImagesWrapper = styled.div`
   width: 456px;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  div{
+  div {
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   }
-  @media only screen and (max-width: 908px){
+  @media only screen and (max-width: 908px) {
     width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
@@ -59,28 +59,28 @@ export const StyledImagesWrapper = styled.div`
     gap: 17px;
     > div {
       &:first-child,
-      &:nth-child(2){
+      &:nth-child(2) {
         width: calc(50% - 10px);
       }
-      &:last-child{
+      &:last-child {
         width: 100%;
         max-height: 349px;
-        img{
+        img {
           width: 100%;
           height: 100%;
         }
-        .gatsby-image-wrapper{
+        .gatsby-image-wrapper {
           width: 100%;
           height: 100%;
         }
       }
     }
   }
-  @media only screen and (max-width: 584px){
+  @media only screen and (max-width: 584px) {
     gap: 9px;
     > div {
       &:first-child,
-      &:nth-child(2){
+      &:nth-child(2) {
         width: calc(50% - 5px);
       }
     }
@@ -95,39 +95,39 @@ export const StyledTextWrapper = styled.div`
   position: relative;
   z-index: 1;
 
-  @media only screen and (max-width: 1152px){
+  @media only screen and (max-width: 1152px) {
     padding: 40px;
   }
-  @media only screen and (max-width: 1052px){
-    h2{
+  @media only screen and (max-width: 1052px) {
+    h2 {
       font-size: 38px;
     }
   }
-  @media only screen and (max-width: 908px){
+  @media only screen and (max-width: 908px) {
     width: 100%;
     padding: 0;
-    h2{
+    h2 {
       margin-top: 40px;
     }
   }
-  @media only screen and (max-width: 375px){
-    h2{
+  @media only screen and (max-width: 375px) {
+    h2 {
       font-size: 34px;
     }
   }
 `;
 export const StyledMoreInfoWrapper = styled.div`
   font-size: 24px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   line-height: 1.2em;
 
-  @media only screen and (max-width: 1052px){
+  @media only screen and (max-width: 1052px) {
     font-size: 20px;
   }
-  @media only screen and (max-width: 908px){
+  @media only screen and (max-width: 908px) {
     font-size: 24px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
 `;
@@ -137,13 +137,13 @@ export const StyledButtonWrapper = styled.div`
     margin-left: 10px;
   }
 
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     width: 100%;
     display: flex;
     justify-content: center;
-    a{
+    a {
       margin-left: 0;
       width: 95%;
     }
   }
-`
+`;

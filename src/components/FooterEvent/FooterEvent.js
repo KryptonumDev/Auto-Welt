@@ -12,11 +12,13 @@ const FooterEvent = ({ articleData, slug }) => {
   return (
     <StyledFooterEvent to={`/wystawy/${slug}`}>
       <StyledFooterEventImage>
-        <GatsbyImage
-          image={getImage(articleData.zdjecieDoMiniaturki.localFile)}
-          alt={articleData.zdjecieDoMiniaturki.altText}
-          objecFit="cover"
-        />
+        {articleData.zdjecieDoMiniaturki.localFile && (
+          <GatsbyImage
+            image={getImage(articleData.zdjecieDoMiniaturki.localFile)}
+            alt={articleData.zdjecieDoMiniaturki.altText}
+            objecFit="cover"
+          />
+        )}
       </StyledFooterEventImage>
       <StyledFooterEventContent>
         <StyledText
@@ -25,7 +27,7 @@ const FooterEvent = ({ articleData, slug }) => {
           hasdeclaredfontweight="500"
           hasdeclaredfontcolor="var(--primary500)"
         >
-          {articleData.tytulPodZdjeciem}
+          {articleData.tytulPodZdjeciem && articleData.tytulPodZdjeciem}
         </StyledText>
       </StyledFooterEventContent>
     </StyledFooterEvent>

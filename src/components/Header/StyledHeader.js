@@ -12,7 +12,7 @@ export const StyledNav = styled.nav`
   align-items: center;
 
   @media only screen and (max-width: 768px) {
-    display: ${({ isopen }) => isopen ? "flex" : "none"};
+    display: ${({ isopen }) => (isopen ? "flex" : "none")};
 
     height: 100vh;
     overflow-y: scroll;
@@ -36,13 +36,13 @@ export const StyledLeftWrapper = styled.div`
   clip-path: polygon(0 0, 94.5% 0, 100% 100%, 0% 100%);
   max-width: 439px;
   width: 50%;
-  a{
+  a {
     transition: color 250ms;
-    &:hover{
+    &:hover {
       color: var(--secondary300);
     }
   }
-  
+
   @media only screen and (max-width: 1107px) {
     width: 100%;
     justify-content: space-evenly;
@@ -92,9 +92,9 @@ export const StyledRightWrapper = styled.div`
   max-width: 439px;
   width: 50%;
 
-  a{
+  a {
     transition: color 250ms;
-    &:hover{
+    &:hover {
       color: var(--secondary300);
     }
   }
@@ -156,7 +156,7 @@ export const StyledLogoMobileWrapper = styled.div`
     height: 100%;
   }
   @media only screen and (max-width: 768px) {
-    display: ${({ isopen }) => isopen ? "none" : "block"};
+    display: ${({ isopen }) => (isopen ? "none" : "block")};
     position: absolute;
     top: 32px;
     left: 16px;
@@ -174,20 +174,19 @@ export const StyledIconsWrapper = styled.div`
   gap: 10px;
   align-items: center;
   margin-left: 55px;
-  a{
+  a {
     > svg {
       width: 24px;
       height: 24px;
-      fill: #FAF1DE;
+      fill: #faf1de;
       transition: fill 250ms;
     }
-    &:hover{
+    &:hover {
       > svg {
-        fill: #EDAB26;
+        fill: #edab26;
       }
     }
   }
-
 
   @media only screen and (max-width: 1107px) {
     margin-left: 25px;
@@ -195,7 +194,7 @@ export const StyledIconsWrapper = styled.div`
   @media only screen and (max-width: 903px) {
     margin-left: 18px;
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 100%;
     justify-content: flex-end;
     padding-right: 8px;

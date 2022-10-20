@@ -11,17 +11,24 @@ import {
   StyledLogoWrapper,
   StyledContentWrapper,
   StyledContentList,
-  StyledImageWrapper
+  StyledImageWrapper,
 } from "./StyledHomeExhibitionsElement";
 
 import useWindowSize from "../../utils/getWindowSize";
 
 import ListIcon from "../../images/ListIcon.svg";
 
-const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVariant, isPrev, key }) => {
+const HomeExhibitionsElement = ({
+  exhibitionData,
+  isSchdeuleElement,
+  buttonVariant,
+  isPrev,
+  key,
+}) => {
   const width = useWindowSize();
-  console.log(exhibitionData.wystawa);
-  const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data).toLocaleString('pl', {dateStyle: 'long'}).split(' ');
+  const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
+    .toLocaleString("pl", { dateStyle: "long" })
+    .split(" ");
 
   return (
     <StyledHomeExhibitionsElement
@@ -32,11 +39,20 @@ const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVaria
     >
       <StyledDataInformationWrapper>
         <StyledImageWrapper>
-          <GatsbyImage 
-            image={getImage(exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty.localFile)}
-            alt={exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty.altText}
-            objectFit="fill"
-          />
+          {exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
+            .localFile && (
+            <GatsbyImage
+              image={getImage(
+                exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
+                  .localFile
+              )}
+              alt={
+                exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
+                  .altText
+              }
+              objectFit="fill"
+            />
+          )}
         </StyledImageWrapper>
         <StyledDataWrapper>
           <StyledText
@@ -52,7 +68,7 @@ const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVaria
             hasdeclaredlineheight="1.2em"
             hasdeclaredpadding="0 0 1.5px 0"
           >
-            {convertedData[1]}{' '}{convertedData[2]}
+            {convertedData[1]} {convertedData[2]}
           </StyledText>
         </StyledDataWrapper>
         <StyledText
@@ -61,14 +77,24 @@ const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVaria
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="400"
         >
-          {exhibitionData.wystawa.informacjeOgolne.miejsce}
+          {exhibitionData.wystawa.informacjeOgolne.miejsce &&
+            exhibitionData.wystawa.informacjeOgolne.miejsce}
         </StyledText>
       </StyledDataInformationWrapper>
       <StyledLogoWrapper>
-        <GatsbyImage
-          image={getImage(exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki.localFile)}
-          alt={exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki.altText}
-        />
+        {exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
+          .localFile && (
+          <GatsbyImage
+            image={getImage(
+              exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
+                .localFile
+            )}
+            alt={
+              exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
+                .altText
+            }
+          />
+        )}
       </StyledLogoWrapper>
       <StyledContentWrapper>
         <StyledText
@@ -77,11 +103,12 @@ const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVaria
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontweight="500"
         >
-          {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem}
+          {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem &&
+            exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem}
         </StyledText>
         <StyledContentList>
-          {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(element => 
-            (
+          {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(
+            (element) => (
               <div>
                 <ListIcon />
                 <StyledText
@@ -90,22 +117,28 @@ const HomeExhibitionsElement = ({ exhibitionData, isSchdeuleElement, buttonVaria
                   hasdeclaredfontweight="500"
                   hasdeclaredfontcolor="#000"
                 >
-                  {element.elementListy}
+                  {element.elementListy && element.elementListy}
                 </StyledText>
               </div>
             )
           )}
         </StyledContentList>
       </StyledContentWrapper>
-      <Button
-        text={exhibitionData.wystawa.informacjeOgolne.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
-        whereGo={`/wystawy/${exhibitionData.slug}`}
-        bgColor="var(--secondary500)"
-        textColor="var(--primary900)"
-        hasFontSize={width < 376 ? "15px" : "21px"}
-        hasDeclaredPadding="10px 33px"
-        hoverBgColor="var(--secondary700)"
-      />
+      {exhibitionData.wystawa.informacjeOgolne
+        .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy && (
+        <Button
+          text={
+            exhibitionData.wystawa.informacjeOgolne
+              .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
+          }
+          whereGo={`/wystawy/${exhibitionData.slug}`}
+          bgColor="var(--secondary500)"
+          textColor="var(--primary900)"
+          hasFontSize={width < 376 ? "15px" : "21px"}
+          hasDeclaredPadding="10px 33px"
+          hoverBgColor="var(--secondary700)"
+        />
+      )}
     </StyledHomeExhibitionsElement>
   );
 };

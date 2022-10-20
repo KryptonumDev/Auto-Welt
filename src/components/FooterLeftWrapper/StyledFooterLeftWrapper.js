@@ -47,9 +47,9 @@ export const StyledSubLogoText = styled.div`
   width: 100%;
   margin-top: 32px;
   font: 300 18px/1.2em;
-  color: #FAF6EE;
-  font-family: 'Roboto';
-  @media only screen and (max-width: 500px){
+  color: #faf6ee;
+  font-family: "Roboto";
+  @media only screen and (max-width: 500px) {
     text-align: center;
     margin-bottom: 40px;
   }
@@ -57,12 +57,12 @@ export const StyledSubLogoText = styled.div`
 export const StyledContactWrapper = styled.div`
   width: 100%;
   margin-top: 48px;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     margin-top: 0;
   }
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 500px) {
     > div {
-      p{
+      p {
         text-align: center;
       }
     }
@@ -77,19 +77,19 @@ export const StyledIconsWrapper = styled.div`
     width: 42px;
     height: 42px;
     > svg {
-      fill: #FAF1DE;
+      fill: #faf1de;
       width: 100%;
       height: 100%;
       transition: fill 250ms;
-      &:hover{
-        fill: #EDAC2A;
+      &:hover {
+        fill: #edac2a;
       }
     }
   }
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 500px) {
     justify-content: center;
-    > a{
-      svg{
+    > a {
+      svg {
         width: 48px;
         height: 48px;
       }
@@ -101,27 +101,27 @@ export const StyledAddressWrapper = styled.div`
     p {
       font-wieght: 400;
     }
-    &:first-child{
+    &:first-child {
       p {
         font-wieght: 500;
       }
     }
   }
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 500px) {
     > div {
-      p{
+      p {
         text-align: center;
       }
     }
   }
-`
+`;
 export const StyledTextKryptonum = styled.div`
   margin-top: 32px;
   color: #fff;
   font-family: "Roboto";
   font-weight: 400;
   line-height: 21px;
-  strong{
+  strong {
     font-weight: 600;
   }
-`
+`;
