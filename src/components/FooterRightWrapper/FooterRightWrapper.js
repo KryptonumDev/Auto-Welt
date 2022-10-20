@@ -13,7 +13,7 @@ import {
 const FooterRightWrapper = ({ footerData }) => {
   const articleData = useStaticQuery(graphql`
     query articleFooter {
-      allWpWystawa {
+      allWpWystawa(limit: 3) {
         edges {
           node {
             wystawa {

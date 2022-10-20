@@ -7,10 +7,22 @@ export const StyledSchedulePlanExh = styled.section`
   margin: 120px auto 0;
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
+    margin-top: 60px;
+    > h2 {
+      font-size: 38px;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    > h2 {
+      font-size: 34px;
+    }
   }
 `;
 export const StyledSliderWrapper = styled.div`
   margin-top: 60px;
+  @media only screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
 `;
 export const StyledButtonsWrapper = styled.div`
   display: flex;
@@ -23,14 +35,24 @@ export const StyledButtonsWrapper = styled.div`
       font-size: 18px;
     }
   }
-
+  @media only screen and (max-width: 768px){
+    a{
+      font-size: 21px;
+      width: 50%;
+    }
+  }
   @media only screen and (max-width: 685px) {
     a {
       font-size: 16px;
     }
   }
-
+  @media only screen and (max-width: 648px) {
+    a{
+      width: 87%;
+    }
+  }
   @media only screen and (max-width: 375px) {
+    margin-top: 95px;
     a {
       font-size: 15px;
     }

@@ -32,7 +32,7 @@ const ScheduleHeroSection = ({ heroData }) => {
   return (
     <StyledScheduleHeroSection>
       <StyledHeroImage>
-        <GatsbyImage image={images} />
+        <GatsbyImage image={images} objectFit="fill"/>
       </StyledHeroImage>
       <StyledTitleWrapper>
         <StyledTitleImage>
@@ -43,6 +43,7 @@ const ScheduleHeroSection = ({ heroData }) => {
           hasdeclaredfontsize="48px"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#23423D"
+          as="h1"
         >
           {heroData.tekstNaTlePowitalnegoZdjecia}
         </StyledText>

@@ -66,6 +66,7 @@ const ScheduleActualExh = ({ dataActual }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontcolor="#23423D"
         hasdeclaredtextalign="center"
+        as="h2"
       >
         {dataActual.tytulNadSliderem && dataActual.tytulNadSliderem}
       </StyledText>

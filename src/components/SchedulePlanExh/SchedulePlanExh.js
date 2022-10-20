@@ -67,6 +67,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontcolor="#23423D"
         hasdeclaredtextalign="center"
+        as="h2"
       >
         {dataPlan.tytulSekcji}
       </StyledText>

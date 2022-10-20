@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, useImage, StaticImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -9,7 +10,16 @@ import {
   StyledElements,
   StyledbuttonsWrapper,
   StyledElement,
+  StyledImage,
+  StyledInfoWrapper,
+  StyledDataWrapper,
+  StyledContentWrapper,
+  StyledContentList,
+  StyledButtonWrapper,
+  StyledBgWrapper
 } from "./StyledScheduleArchExh";
+
+import ListIcon from "../../images/ListIcon.svg";
 
 const ScheduleArchExh = ({ dataArch }) => {
   const data = useStaticQuery(graphql`
@@ -44,6 +54,16 @@ const ScheduleArchExh = ({ dataArch }) => {
                   }
                 }
               }
+              stronaOfertaInformacjeDlaElementowWSekcjiEventy{
+                wiekszaMiniaturkaNaStroneOferty{
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -58,11 +78,92 @@ const ScheduleArchExh = ({ dataArch }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontcolor="#23423D"
         hasdeclaredtextalign="center"
+        as="h2"
       >
         {dataArch.tytulNadSliderem}
       </StyledText>
       <StyledElements>
-        <StyledElement></StyledElement>
+        {data.allWpWystawa.edges.map(({ node }, index) => 
+          (
+            <StyledElement key={index}>
+              <StyledImage>
+                {node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
+                   &&
+                  <GatsbyImage
+                    image={getImage(node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
+                      .localFile)}
+                    alt={node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
+                      .altText}
+                    objectFit="cover"
+                  />
+                }
+              </StyledImage>
+              <StyledInfoWrapper>
+                <StyledBgWrapper>
+                  <StaticImage
+                    src="../../images/wystawyArchiwalneTło.png"
+                  />
+                </StyledBgWrapper>
+                <StyledDataWrapper>
+                  <StyledText
+                    hasdeclaredfontsize="32px"
+                    hasdeclaredfontcolor="#23423D"
+                  >
+                    dsadsa
+                  </StyledText>
+                </StyledDataWrapper>
+                <StyledText
+                  hasdeclaredfontsize="16px"
+                  hasdeclaredfontcolor="#000"
+                  hasdeclaredlineheight="1.2em"
+                  hasdeclaredfontweight="400"
+                >
+                  {node.wystawa.informacjeOgolne.miejsce &&
+                    node.wystawa.informacjeOgolne.miejsce}
+                </StyledText>
+                <StyledContentWrapper>
+                  <StyledText
+                    hasdeclaredfontcolor="#23423D"
+                    hasdeclaredfontsize="20px"
+                    hasdeclaredlineheight="1.2em"
+                    hasdeclaredfontweight="500"
+                  >
+                    {node.wystawa.informacjeOgolne.tytulPodZdjeciem &&
+                      node.wystawa.informacjeOgolne.tytulPodZdjeciem}
+                  </StyledText>
+                  <StyledContentList>
+                    {node.wystawa.informacjeOgolne.elementyListy.map(
+                      (element) => (
+                        <div>
+                          <ListIcon />
+                          <StyledText
+                            hasdeclaredfontsize="14px"
+                            hasdeclaredlineheight="1.2em"
+                            hasdeclaredfontweight="500"
+                            hasdeclaredfontcolor="#000"
+                          >
+                            {element.elementListy && element.elementListy}
+                          </StyledText>
+                        </div>
+                      )
+                    )}
+                  </StyledContentList>
+                </StyledContentWrapper>
+                <StyledButtonWrapper>
+                  <Button
+                    text={node.wystawa.informacjeOgolne.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
+                    whereGo={`/wystawy/${node.slug}`}
+                    bgColor="var(--secondary500)"
+                    textColor="var(--primary900)"
+                    hasFontSize="21px"
+                    hasDeclaredPadding="10px 33px"
+                    hoverBgColor="var(--secondary700)"
+                  />
+                </StyledButtonWrapper>
+              </StyledInfoWrapper>
+            </StyledElement>
+          )
+        )}
       </StyledElements>
       <StyledbuttonsWrapper>
         <Button

@@ -12,8 +12,6 @@ export const StyledScheduleHeroSection = styled.section`
 `;
 export const StyledHeroImage = styled.div`
   width: 100%;
-  min-height: 540px;
-
   img {
     width: 100%;
     height: 100%;
@@ -37,6 +35,17 @@ export const StyledTitleWrapper = styled.div`
   border-style: solid;
   border-color: #23423d;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+
+  @media only screen and (max-width: 768px){
+    > h1 {
+      font-size: 38px;
+    }
+  }
+  @media only screen and (max-width: 375px){
+    > h1 {
+      font-size: 34px;
+    }
+  }
 `;
 export const StyledTitleImage = styled.div`
   width: 100%;

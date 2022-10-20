@@ -16,7 +16,7 @@ import useWindowSize from "../../utils/getWindowSize";
 const HomeExhibitions = ({ isAboutPage }) => {
   const data = useStaticQuery(graphql`
     query currentExhibition {
-      allWpWystawa {
+      allWpWystawa(limit: 3) {
         edges {
           node {
             slug

@@ -23,10 +23,20 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
       font-size: 18px;
     }
   }
+  @media only screen and (max-width: 768px){
+    a{
+      width: ${({ isscheduleelement }) => (isscheduleelement ? "82%" : "initial")};
+      font-size: 21px;
+    }
+  }
   @media only screen and (max-width: 685px) {
     > a {
       font-size: 16px;
     }
+  }
+  @media only screen and (max-width: 648px) {
+    width: 100%;
+    max-width: unset;
   }
   @media only screen and (max-width: 375px) {
     > a {
@@ -47,7 +57,7 @@ export const StyledDataWrapper = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   gap: 8px;
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 768px) {
     align-items: flex-start;
   }
 `;
