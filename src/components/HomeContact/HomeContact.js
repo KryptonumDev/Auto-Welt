@@ -184,7 +184,7 @@ const HomeContact = () => {
                 {imageShort.formularzKontaktowy.tytul}
               </StyledText>
             </StyledHeading>
-            <HomeContactForm data={data} />)
+            <HomeContactForm data={data} afterSubmit={() => setIsSend(true)} />)
           </>
         )}
       </StyledRightWrapper>

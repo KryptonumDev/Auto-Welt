@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Link } from "gatsby";
 import * as Yup from "yup";
+import axios from "axios";
 import Button from "../Button/Button";
 
 import {
@@ -25,11 +26,22 @@ const ContactSchema = Yup.object().shape({
     .oneOf([true], "*musisz zaakceptować"),
 });
 
-const HomeContactForm = ({ data }) => {
+const HomeContactForm = ({ data, afterSubmit }) => {
   const width = useWindowSize();
 
-  const handleSubmit = () => {
-    console.log("elo siema");
+  const handleSubmit = async (data, { setSubmitting }) => {
+    const formData = new FormData();
+    for (let field of Object.keys(data)) {
+      formData.append(field, data[field]);
+    }
+
+    try {
+      await axios.post(`${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.WORDPRESS_FORM_ID}/feedback`, formData);
+      setSubmitting(false);
+      afterSubmit?.();
+    } catch (err) {
+      console.log("handleSubmit", err);
+    }
   };
 
   return (

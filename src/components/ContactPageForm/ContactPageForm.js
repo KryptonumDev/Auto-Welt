@@ -4,6 +4,7 @@ import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { Formik, Form, Field } from "formik";
 import parse from "html-react-parser";
+import axios from "axios";
 import * as Yup from "yup";
 
 import Button from "../Button/Button";
@@ -44,7 +45,7 @@ const ContactSchema = Yup.object().shape({
 });
 
 const ContactPageForm = ({ dataForm }) => {
-  const [isSend, setIsSend] = useState(true);
+  const [isSend, setIsSend] = useState(false);
   const data = useStaticQuery(graphql`
     query contactPageContactQuery {
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
@@ -84,8 +85,19 @@ const ContactPageForm = ({ dataForm }) => {
     ]
   );
 
-  const handleSubmit = () => {
-    console.log("elo siema");
+  const handleSubmit = async (data, { setSubmitting }) => {
+    const formData = new FormData();
+    for (let field of Object.keys(data)) {
+      formData.append(field, data[field]);
+    }
+
+    try {
+      await axios.post(`${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.WORDPRESS_FORM_ID}/feedback`, formData);
+      setSubmitting(false);
+      setIsSend(true);
+    } catch (err) {
+      console.log("handleSubmit", err);
+    }
   };
   return (
     <StyledContactPageForm>
