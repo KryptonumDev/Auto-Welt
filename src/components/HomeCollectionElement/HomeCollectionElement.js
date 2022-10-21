@@ -41,6 +41,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
           hasDeclaredPadding="10px 18px"
           hasFontWeight="500"
           hoverBgColor="var(--primary900)"
+          hasBorder="2px solid var(--primary500)"
         />
       )}
     </StyledHomeCollectionElement>

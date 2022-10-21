@@ -143,6 +143,7 @@ const HomeExhibitionsElement = ({
               ? "var(--secondary700)"
               : "var(--primary900)"
           }
+          hasBorder="2px solid transparent"
         />
       )}
     </StyledHomeExhibitionsElement>

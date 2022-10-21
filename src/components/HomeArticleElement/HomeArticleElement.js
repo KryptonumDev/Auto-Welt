@@ -48,6 +48,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hasDeclaredPadding="10px 33px"
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
+            hasBorder="2px solid transparent"
           />
         )}
       </StyledTextWrapper>

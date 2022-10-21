@@ -122,6 +122,7 @@ const HomeHeroSection = () => {
                 hasDeclaredPadding="10px 36px"
                 hasFontSize="21px"
                 hasFontWeight="500"
+                hasBorder="2px solid var(--primary500)"
                 hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
                 hoverBgColor="var(--primary900)"
               />
