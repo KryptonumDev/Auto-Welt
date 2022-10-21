@@ -14,14 +14,22 @@ export const StyledArticlesPageArticles = styled.section`
     }
   }
   @media only screen and (max-width: 375px) {
-    padding-top: 120px;
     > h1 {
-      font-size: 34;
+      font-size: 34px;
     }
   }
 `;
 export const StyledArticlesSlider = styled.div``;
-export const StyledSlidesWrapper = styled.div``;
+export const StyledSlidesWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 44px;
+
+  @media only screen and (max-width: 768px){
+    flex-direction: column;
+    gap: 30px;
+  }
+`;
 export const StyledPagginationWrapper = styled.div``;
 export const StyledTopPaggination = styled.div``;
 export const StyledBottomPaggination = styled.div``;

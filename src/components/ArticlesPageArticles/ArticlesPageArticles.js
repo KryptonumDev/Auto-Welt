@@ -22,11 +22,13 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
         hasdeclaredlineheight="1.2em"
         hasdeclaredtextalign="center"
         hasdeclaredfontcolor="#23423D"
+        hasdeclaredpadding="0 0 40px 0"
       >
         {title}
       </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>
+          <ArticleElement articleData />
           <ArticleElement articleData />
         </StyledSlidesWrapper>
         <StyledPagginationWrapper>
