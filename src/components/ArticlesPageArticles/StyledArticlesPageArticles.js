@@ -5,7 +5,7 @@ export const StyledArticlesPageArticles = styled.section`
   max-width: 1144px;
   width: 100%;
   margin: 30px auto 0;
-  
+
   @media only screen and (max-width: 768px) {
     margin: 130px auto 0;
     padding: 0 16px;
@@ -25,7 +25,7 @@ export const StyledSlidesWrapper = styled.div`
   display: flex;
   gap: 44px;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
     gap: 30px;
   }

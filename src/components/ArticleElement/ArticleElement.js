@@ -8,7 +8,7 @@ import {
   StyledDate,
   StyledLinkWrapper,
   StyledTitle,
-  StyledBgWrapper
+  StyledBgWrapper,
 } from "./StyledArticleElement";
 import { StyledText } from "../Text/StyledText";
 import { StyledLink } from "../Link/StyledLink";
@@ -36,7 +36,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(0, 0, 0, 0.8)"
             hasdeclaredfontweight="400"
-          > 
+          >
             tutaj data
           </StyledText>
         </StyledDate>

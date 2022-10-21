@@ -16,7 +16,7 @@ const Button = ({
   hasDeclaredMinHeight,
   hoverBgColor,
   hasdeclaredmargin,
-  onClickHandler
+  onClickHandler,
 }) => {
   return (
     <>

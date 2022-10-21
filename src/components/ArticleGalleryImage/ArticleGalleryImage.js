@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import { StyledArticleGalleryImage } from './StyledArticleGalleryImage'
+import { StyledArticleGalleryImage } from "./StyledArticleGalleryImage";
 
 const ArticleGalleryImage = () => {
   return (
     <StyledArticleGalleryImage>
-        <div>
-            
-        </div>
+      <div></div>
     </StyledArticleGalleryImage>
-  )
-}
+  );
+};
 
-export default ArticleGalleryImage
+export default ArticleGalleryImage;

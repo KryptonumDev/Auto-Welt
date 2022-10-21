@@ -13,7 +13,7 @@ import {
   StyledImageWrapper,
   StyledTitleImage,
   StyledTitleWrapper,
-  StyledReqWrapper
+  StyledReqWrapper,
 } from "./StyledArticlesPageShowCollections";
 
 const ArticlesPageShowCollections = ({ collectionData }) => {
@@ -83,21 +83,29 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           {data.allWpKolekcje.edges.map(({ node }, index) => (
             <StyledSlide key={index}>
               <StyledImageWrapper>
-                {node.informacjeGlowne?.duzaMiniaturka &&
+                {node.informacjeGlowne?.duzaMiniaturka && (
                   <GatsbyImage
-                    image={getImage(node.informacjeGlowne.duzaMiniaturka.localFile)}
+                    image={getImage(
+                      node.informacjeGlowne.duzaMiniaturka.localFile
+                    )}
                     alt={node.informacjeGlowne.duzaMiniaturka.altText}
                   />
-                }
+                )}
               </StyledImageWrapper>
               <StyledTextWrapper>
                 <StyledTitleImage>
-                  {node.informacjeGlowne?.tloDlaTytuluWDuzejMiniaturce &&
+                  {node.informacjeGlowne?.tloDlaTytuluWDuzejMiniaturce && (
                     <GatsbyImage
-                      image={getImage(node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce.localFile)}
-                      alt={node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce.altText}
+                      image={getImage(
+                        node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
+                          .localFile
+                      )}
+                      alt={
+                        node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
+                          .altText
+                      }
                     />
-                  }
+                  )}
                 </StyledTitleImage>
                 <StyledTitleWrapper>
                   <StyledText
@@ -115,8 +123,8 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
         </StyledSlidesWrapper>
       </StyledArticlesPageShowCollections>
       <StyledReqWrapper>
-        <RecInfoWithButton 
-          bgImage={images} 
+        <RecInfoWithButton
+          bgImage={images}
           text={collectionData.tekstWZielonymProstokacie}
           btnText={collectionData.linkWZielonymProstokacie.title}
           btnWhereGo={collectionData.linkWZielonymProstokacie.url}

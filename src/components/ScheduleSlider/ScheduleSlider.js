@@ -69,7 +69,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
   return (
     <StyledScheduleSlider>
       <StyledPrevArrow
-        initial={{ y: "-50%"}}
+        initial={{ y: "-50%" }}
         onClick={handlePrev}
         whileHover={{
           scale: 1.2,
@@ -93,7 +93,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
         ))}
       </StyledSlides>
       <StyledNextArrow
-        initial={{ y: "-50%"}}
+        initial={{ y: "-50%" }}
         onClick={handleNext}
         whileHover={{
           scale: 1.2,

@@ -1,6 +1,11 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, useImage, StaticImage, getImage } from "gatsby-plugin-image";
+import {
+  GatsbyImage,
+  useImage,
+  StaticImage,
+  getImage,
+} from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -16,7 +21,7 @@ import {
   StyledContentWrapper,
   StyledContentList,
   StyledButtonWrapper,
-  StyledBgWrapper
+  StyledBgWrapper,
 } from "./StyledScheduleArchExh";
 
 import ListIcon from "../../images/greenIcon.svg";
@@ -54,8 +59,8 @@ const ScheduleArchExh = ({ dataArch }) => {
                   }
                 }
               }
-              stronaOfertaInformacjeDlaElementowWSekcjiEventy{
-                wiekszaMiniaturkaNaStroneOferty{
+              stronaOfertaInformacjeDlaElementowWSekcjiEventy {
+                wiekszaMiniaturkaNaStroneOferty {
                   altText
                   localFile {
                     childImageSharp {
@@ -84,28 +89,32 @@ const ScheduleArchExh = ({ dataArch }) => {
       </StyledText>
       <StyledElements>
         {data.allWpWystawa.edges.map(({ node }, index) => {
-            const convertedData = new Date(node.wystawa.informacjeOgolne.data)
+          const convertedData = new Date(node.wystawa.informacjeOgolne.data)
             .toLocaleString("pl", { dateStyle: "long" })
             .split(" ");
           return (
             <StyledElement key={index}>
               <StyledImage>
-                {node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
-                   &&
+                {node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                  .wiekszaMiniaturkaNaStroneOferty && (
                   <GatsbyImage
-                    image={getImage(node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
-                      .localFile)}
-                    alt={node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
-                      .altText}
+                    image={getImage(
+                      node.wystawa
+                        .stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                        .wiekszaMiniaturkaNaStroneOferty.localFile
+                    )}
+                    alt={
+                      node.wystawa
+                        .stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                        .wiekszaMiniaturkaNaStroneOferty.altText
+                    }
                     objectFit="cover"
                   />
-                }
+                )}
               </StyledImage>
               <StyledInfoWrapper>
                 <StyledBgWrapper>
-                  <StaticImage
-                    src="../../images/wystawyArchiwalneTło.png"
-                  />
+                  <StaticImage src="../../images/wystawyArchiwalneTło.png" />
                 </StyledBgWrapper>
                 <StyledDataWrapper>
                   <StyledText
@@ -155,7 +164,10 @@ const ScheduleArchExh = ({ dataArch }) => {
                 </StyledContentWrapper>
                 <StyledButtonWrapper>
                   <Button
-                    text={node.wystawa.informacjeOgolne.tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy}
+                    text={
+                      node.wystawa.informacjeOgolne
+                        .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
+                    }
                     whereGo={`/wystawy/${node.slug}`}
                     bgColor="var(--secondary500)"
                     textColor="var(--primary900)"
@@ -166,8 +178,8 @@ const ScheduleArchExh = ({ dataArch }) => {
                 </StyledButtonWrapper>
               </StyledInfoWrapper>
             </StyledElement>
-          )}
-        )}
+          );
+        })}
       </StyledElements>
       <StyledbuttonsWrapper>
         <Button

@@ -28,7 +28,8 @@ export const StyledButtonLink = styled(StyledLink)`
 
   &:hover {
     background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
-    border: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor ? "2px solid transparent" : null}
+    border: ${({ hasdeclaredhoverbgcolor }) =>
+      hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
   }
 `;
 
@@ -71,6 +72,7 @@ export const StyledButtonLinkNoHref = styled.p`
   &:hover {
     background-color: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor};
-      border: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor ? "2px solid transparent" : null}
+    border: ${({ hasdeclaredhoverbgcolor }) =>
+      hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
   }
 `;

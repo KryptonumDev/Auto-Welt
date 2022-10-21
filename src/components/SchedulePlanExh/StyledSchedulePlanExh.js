@@ -12,7 +12,7 @@ export const StyledSchedulePlanExh = styled.section`
       font-size: 38px;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     > h2 {
       font-size: 34px;
     }
@@ -35,8 +35,8 @@ export const StyledButtonsWrapper = styled.div`
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 768px){
-    a{
+  @media only screen and (max-width: 768px) {
+    a {
       font-size: 21px;
       width: 50%;
     }
@@ -47,7 +47,7 @@ export const StyledButtonsWrapper = styled.div`
     }
   }
   @media only screen and (max-width: 648px) {
-    a{
+    a {
       width: 87%;
     }
   }

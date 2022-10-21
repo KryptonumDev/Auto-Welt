@@ -1,22 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import { 
-    StyledCustomAside, 
-    StyledContents, 
-    StyledChooseCollections
-} from "./StyledCustomAside"
+import {
+  StyledCustomAside,
+  StyledContents,
+  StyledChooseCollections,
+} from "./StyledCustomAside";
 
 const CustomAside = () => {
   return (
     <StyledCustomAside>
-        <StyledContents>
-
-        </StyledContents>
-        <StyledChooseCollections>
-
-        </StyledChooseCollections>
+      <StyledContents></StyledContents>
+      <StyledChooseCollections></StyledChooseCollections>
     </StyledCustomAside>
-  )
-}
+  );
+};
 
-export default CustomAside
+export default CustomAside;

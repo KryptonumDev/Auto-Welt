@@ -1,18 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import { StyledArticleCustomQuote, StyledIconWrapper, StyledTextWrapper } from "./StyledArticleCustomQuote"
+import {
+  StyledArticleCustomQuote,
+  StyledIconWrapper,
+  StyledTextWrapper,
+} from "./StyledArticleCustomQuote";
 
 const ArticleCustomQuote = () => {
   return (
     <StyledArticleCustomQuote>
-        <StyledIconWrapper>
-
-        </StyledIconWrapper>
-        <StyledTextWrapper>
-
-        </StyledTextWrapper>
+      <StyledIconWrapper></StyledIconWrapper>
+      <StyledTextWrapper></StyledTextWrapper>
     </StyledArticleCustomQuote>
-  )
-}
+  );
+};
 
-export default ArticleCustomQuote
+export default ArticleCustomQuote;

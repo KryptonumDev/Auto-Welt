@@ -23,9 +23,10 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
       font-size: 18px;
     }
   }
-  @media only screen and (max-width: 768px){
-    a{
-      width: ${({ isscheduleelement }) => (isscheduleelement ? "82%" : "initial")};
+  @media only screen and (max-width: 768px) {
+    a {
+      width: ${({ isscheduleelement }) =>
+        isscheduleelement ? "82%" : "initial"};
       font-size: 21px;
     }
   }

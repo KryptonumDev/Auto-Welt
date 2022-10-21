@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 
-import { 
-    StyledArticlePhotoInfo,
-    StyledTextWrapper
-} from "./StyledArticlePhotoInfo"
+import {
+  StyledArticlePhotoInfo,
+  StyledTextWrapper,
+} from "./StyledArticlePhotoInfo";
 
 const ArticlePhotoInfo = () => {
   return (
     <StyledArticlePhotoInfo>
-        <StyledTextWrapper>
-
-        </StyledTextWrapper>
+      <StyledTextWrapper></StyledTextWrapper>
     </StyledArticlePhotoInfo>
-  )
-}
+  );
+};
 
-export default ArticlePhotoInfo
+export default ArticlePhotoInfo;

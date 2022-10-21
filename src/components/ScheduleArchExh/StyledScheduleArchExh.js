@@ -12,7 +12,7 @@ export const StyledScheduleArchExh = styled.section`
       font-size: 38px;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     > h2 {
       font-size: 34px;
     }
@@ -62,12 +62,12 @@ export const StyledbuttonsWrapper = styled.div`
   }
 `;
 export const StyledElement = styled.div`
-  border-top: 6px solid #23423D;
+  border-top: 6px solid #23423d;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   min-height: 372px;
 
-  @media only screen and (max-width: 648px){
+  @media only screen and (max-width: 648px) {
     flex-direction: column;
   }
 `;
@@ -75,18 +75,18 @@ export const StyledImage = styled.div`
   height: 100%;
   width: 409px;
   min-height: 372px;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-  @media only screen and (max-width: 920px){
+  @media only screen and (max-width: 920px) {
     width: 269px;
   }
-  @media only screen and (max-width: 648px){
+  @media only screen and (max-width: 648px) {
     width: 100%;
     height: auto;
     min-height: 210px;
@@ -101,17 +101,17 @@ export const StyledInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  @media only screen and (max-width: 920px){
+  @media only screen and (max-width: 920px) {
     width: calc(100% - 269px);
   }
-  @media only screen and (max-width: 648px){
+  @media only screen and (max-width: 648px) {
     width: 100%;
   }
 `;
 export const StyledDataWrapper = styled.div`
   padding-bottom: 16px;
 `;
-export const StyledContentWrapper = styled.div``
+export const StyledContentWrapper = styled.div``;
 export const StyledContentList = styled.div`
   display: flex;
   flex-direction: column;
@@ -129,14 +129,14 @@ export const StyledContentList = styled.div`
       margin-right: 8px;
     }
   }
-`
+`;
 export const StyledButtonWrapper = styled.div`
   margin-top: 30px;
   margin-left: 10px;
-  @media only screen and (max-width: 648px){
+  @media only screen and (max-width: 648px) {
     align-self: center;
   }
-`
+`;
 export const StyledBgWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -144,12 +144,12 @@ export const StyledBgWrapper = styled.div`
   top: 0;
   left: 0;
 
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-`
+`;

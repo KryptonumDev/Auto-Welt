@@ -179,22 +179,22 @@ export const StyledBackgroundCar = styled.div`
     width: 100%;
     height: 100%;
   }
-`
+`;
 export const StyledCarBgImage = styled.div`
   position: absolute;
   top: 0;
   right: 144px;
   width: 742px;
-  img{
+  img {
     width: 120%;
     height: 110%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 120%;
     height: 110%;
   }
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 660px;
     right: 130px;
   }
@@ -203,17 +203,16 @@ export const StyledCarBgImage = styled.div`
     width: 570px;
     right: 113px;
     top: -50px;
-    img{
+    img {
       width: 120%;
       height: 110%;
     }
-    .gatsby-image-wrapper{
+    .gatsby-image-wrapper {
       width: 120%;
       height: 110%;
     }
   }
-`
-
+`;
 
 export const StyledModel = styled.div`
   width: 584px;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const StyledArticlePhotoInfo = styled.div``
-export const StyledTextWrapper = styled.div``
+export const StyledArticlePhotoInfo = styled.div``;
+export const StyledTextWrapper = styled.div``;

@@ -1,9 +1,9 @@
 import React from "react";
 
-import ArticleHeroSection from "../../ArticleHeroSection/ArticleHeroSection"
-import ArticleTemplateContent from "../../ArticleTemplateContent/ArticleTemplateContent"
+import ArticleHeroSection from "../../ArticleHeroSection/ArticleHeroSection";
+import ArticleTemplateContent from "../../ArticleTemplateContent/ArticleTemplateContent";
 
-import { StyledArticleTemplate } from "./StyledArticleTemplate"
+import { StyledArticleTemplate } from "./StyledArticleTemplate";
 
 const ArticlesTemplate = () => {
   return (

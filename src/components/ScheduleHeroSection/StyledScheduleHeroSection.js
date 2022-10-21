@@ -36,12 +36,12 @@ export const StyledTitleWrapper = styled.div`
   border-color: #23423d;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     > h1 {
       font-size: 38px;
     }
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     > h1 {
       font-size: 34px;
     }

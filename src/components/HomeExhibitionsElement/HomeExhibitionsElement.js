@@ -132,11 +132,17 @@ const HomeExhibitionsElement = ({
               .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
           }
           whereGo={`/wystawy/${exhibitionData.slug}`}
-          bgColor={buttonVariant === 'orange' ? 'var(--secondary500)' : '#23423D'}
-          textColor={buttonVariant === 'orange' ? 'var(--primary900)' : '#fff'}
+          bgColor={
+            buttonVariant === "orange" ? "var(--secondary500)" : "#23423D"
+          }
+          textColor={buttonVariant === "orange" ? "var(--primary900)" : "#fff"}
           hasFontSize={width < 376 ? "15px" : "21px"}
           hasDeclaredPadding="10px 33px"
-          hoverBgColor={buttonVariant === 'orange' ? 'var(--secondary700)' : 'var(--primary900)'}
+          hoverBgColor={
+            buttonVariant === "orange"
+              ? "var(--secondary700)"
+              : "var(--primary900)"
+          }
         />
       )}
     </StyledHomeExhibitionsElement>
