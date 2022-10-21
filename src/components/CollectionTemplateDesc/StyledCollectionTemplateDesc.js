@@ -32,6 +32,24 @@ export const StyledTextWrapper = styled.div`
     width: 100%;
     padding: 40px 23px;
   }
+
+  p{
+    strong, em{
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+      &:before{
+        content: '';
+        width: 100%;
+        background: #F6E2BA;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
 `;
 export const StyledImageWrapper = styled.div`
   width: 50%;
