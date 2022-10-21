@@ -15,7 +15,16 @@ import { StyledText } from "../Text/StyledText";
 const ArticlesPageArticles = ({ title, allArticles }) => {
   return (
     <StyledArticlesPageArticles>
-      <StyledText>{title}</StyledText>
+      <StyledText
+        hasdeclaredfontsize="48px"
+        as="h1"
+        hasdeclaredfontfamily="Nocturne Serif"
+        hasdeclaredlineheight="1.2em"
+        hasdeclaredtextalign="center"
+        hasdeclaredfontcolor="#23423D"
+      >
+        {title}
+      </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>
           <ArticleElement articleData />

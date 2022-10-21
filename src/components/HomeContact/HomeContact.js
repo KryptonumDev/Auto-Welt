@@ -18,10 +18,14 @@ import {
   StyledSubTitle,
   StyledDesc,
   StyledButtonsWrapper,
+  StyledBackgroundCar,
+  StyledCarBgImage,
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
+import useWindowSize from "../../utils/getWindowSize";
 
 const HomeContact = () => {
+  const width = useWindowSize();
   const data = useStaticQuery(graphql`
     query homeContact {
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
@@ -51,14 +55,6 @@ const HomeContact = () => {
                 }
               }
             }
-            lewyObrazekMobile {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
             lewyObrazekTablet {
               altText
               localFile {
@@ -78,28 +74,51 @@ const HomeContact = () => {
                 url
               }
             }
+            lewyObrazekTabletSamochody {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
     }
   `);
-  const [isSend, setIsSend] = useState(true);
+  const [isSend, setIsSend] = useState(false);
   const imageShort = data.wpPage.homepage.formularzKontaktowy;
-  const images = withArtDirection(getImage(imageShort.lewyObrazek.localFile), [
-    {
-      media: "(max-width: 375px)",
-      image: getImage(imageShort.lewyObrazekMobile.localFile),
-    },
-    {
-      media: "(max-width: 972px)",
-      image: getImage(imageShort.lewyObrazekTablet.localFile),
-    },
-  ]);
   return (
     <StyledHomeContact>
       <StyledLeftWrapper>
         <StyledModel>
-          {images && <GatsbyImage image={images} objectFit="fill" />}
+          {width > 973 ? (
+            imageShort.lewyObrazek.localFile && (
+              <GatsbyImage
+                image={getImage(imageShort.lewyObrazek.localFile)}
+                alt={imageShort.lewyObrazek.altText}
+                objectFit="fill"
+              />
+            )
+          ) : (
+            <>
+              <StyledBackgroundCar>
+                <GatsbyImage
+                  image={getImage(imageShort.lewyObrazekTablet.localFile)}
+                  alt={imageShort.lewyObrazekTablet.altText}
+                />
+              </StyledBackgroundCar>
+              <StyledCarBgImage>
+                <GatsbyImage
+                  image={getImage(
+                    imageShort.lewyObrazekTabletSamochody.localFile
+                  )}
+                  alt={imageShort.lewyObrazekTabletSamochody.altText}
+                />
+              </StyledCarBgImage>
+            </>
+          )}
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>
@@ -158,6 +177,7 @@ const HomeContact = () => {
                     hasDeclaredPadding="10px 36px"
                     hasFontWeight="500"
                     hasFontSize="21px"
+                    onClickHandler={() => setIsSend(false)}
                   />
                 )}
               </StyledButtonsWrapper>
@@ -165,14 +185,15 @@ const HomeContact = () => {
           </>
         ) : (
           <>
-            (
             <StyledHeading>
               <StyledTitleImage>
-                <GatsbyImage
-                  image={getImage(imageShort.zdjecieTytulu.localFile)}
-                  alt={imageShort.formularzKontaktowy.zdjecieTytulu.altText}
-                  objectFit="fill"
-                />
+                {imageShort.zdjecieTytulu.localFile && (
+                  <GatsbyImage
+                    image={getImage(imageShort?.zdjecieTytulu?.localFile)}
+                    alt={imageShort?.zdjecieTytulu.altText}
+                    objectFit="fill"
+                  />
+                )}
               </StyledTitleImage>
               <StyledText
                 as="h2"
@@ -181,10 +202,10 @@ const HomeContact = () => {
                 hasdeclaredfontcolor="var(--primary500)"
                 hasdeclaredfontfamily="Nocturne Serif"
               >
-                {imageShort.formularzKontaktowy.tytul}
+                {imageShort.tytul && imageShort.tytul}
               </StyledText>
             </StyledHeading>
-            <HomeContactForm data={data} afterSubmit={() => setIsSend(true)} />)
+            <HomeContactForm data={data} afterSubmit={() => setIsSend(true)} />
           </>
         )}
       </StyledRightWrapper>

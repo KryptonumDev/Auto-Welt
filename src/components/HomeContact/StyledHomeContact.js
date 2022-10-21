@@ -14,6 +14,7 @@ export const StyledHomeContact = styled.section`
     flex-direction: column;
     align-self: right;
     max-width: 621px;
+    overflow: visible;
     max-height: unset;
   }
   @media only screen and (max-width: 768px) {
@@ -55,28 +56,6 @@ export const StyledHeading = styled.div`
   justify-content: center;
   position: relative;
 `;
-export const StyledModel = styled.div`
-  width: 584px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  @media only screen and (max-width: 972px) {
-    width: 732px;
-  }
-  @media only screen and (max-width: 751px) {
-    width: 110%;
-  }
-`;
 export const StyledTitleImage = styled.div`
   width: 100%;
   height: 100%;
@@ -115,13 +94,17 @@ export const StyledMessageWrapper = styled.div`
   justify-content: center;
   padding: 0 74px;
   height: 100%;
-  min-height: 345px;
+  min-height: 683px;
 
   @media only screen and (max-width: 972px) {
     padding: 61px 67px;
+    min-height: 611px;
   }
   @media only screen and (max-width: 592px) {
     padding: 61px 26px;
+  }
+  @media only screen and (max-width: 469px) {
+    min-height: 762px;
   }
 `;
 export const StyledTitle = styled.div`
@@ -180,5 +163,74 @@ export const StyledButtonsWrapper = styled.div`
     p {
       font-size: 15px;
     }
+  }
+`;
+export const StyledBackgroundCar = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
+export const StyledCarBgImage = styled.div`
+  position: absolute;
+  top: 0;
+  right: 144px;
+  width: 742px;
+  img{
+    width: 120%;
+    height: 110%;
+  }
+  .gatsby-image-wrapper{
+    width: 120%;
+    height: 110%;
+  }
+
+  @media only screen and (max-width: 768px){
+    width: 660px;
+    right: 130px;
+  }
+
+  @media only screen and (max-width: 657px) {
+    width: 570px;
+    right: 113px;
+    top: -50px;
+    img{
+      width: 120%;
+      height: 110%;
+    }
+    .gatsby-image-wrapper{
+      width: 120%;
+      height: 110%;
+    }
+  }
+`
+
+
+export const StyledModel = styled.div`
+  width: 584px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  > .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  > img {
+    width: 100%;
+    height: 100%;
+  }
+  @media only screen and (max-width: 972px) {
+    width: 100%;
   }
 `;

@@ -57,9 +57,16 @@ const HomeContactForm = ({ data, afterSubmit }) => {
         }}
         validationSchema={ContactSchema}
         onSubmit={handleSubmit}
+        validateOnChange={false}
+        validateOnBlur={false}
       >
         {({ isSubmitting, errors, values }) => (
-          <Form>
+          <Form
+            method="post"
+            netlify-honeypot="bot-field"
+            dataForm-netlify="true"
+            name="contact"
+          >
             <StyledInputWrapper iserror={errors.firstName}>
               <label>
                 {data.wpPage.homepage.formularzKontaktowy.tytulPolaImie}

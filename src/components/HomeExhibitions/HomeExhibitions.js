@@ -77,7 +77,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
       </StyledText>
       <StyledElementsWrapper>
         {data.allWpWystawa.edges.map(({ node }) => (
-          <HomeExhibitionsElement exhibitionData={node} />
+          <HomeExhibitionsElement exhibitionData={node} buttonVariant="orange" />
         ))}
       </StyledElementsWrapper>
       {data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo && (

@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Button from "../Button/Button";
-import HomeExhibitionsElement from "../HomeExhibitionsElement/HomeExhibitionsElement";
 
 import { StyledText } from "../Text/StyledText";
 import {

@@ -6,7 +6,6 @@ export const StyledModelCollection = styled.div`
   width: 100%;
 `;
 export const StyledImage = styled.div`
-  min-height: 500px;
   width: 100%;
   img {
     width: 100%;
@@ -15,12 +14,6 @@ export const StyledImage = styled.div`
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
-  }
-  @media only screen and (max-width: 768px) {
-    min-height: 350px;
-  }
-  @media only screen and (max-width: 594px) {
-    min-height: 190px;
   }
 `;
 export const StyledTitle = styled.div`

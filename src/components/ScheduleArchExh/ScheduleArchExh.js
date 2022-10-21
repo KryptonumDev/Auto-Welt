@@ -19,7 +19,7 @@ import {
   StyledBgWrapper
 } from "./StyledScheduleArchExh";
 
-import ListIcon from "../../images/ListIcon.svg";
+import ListIcon from "../../images/greenIcon.svg";
 
 const ScheduleArchExh = ({ dataArch }) => {
   const data = useStaticQuery(graphql`
@@ -83,8 +83,11 @@ const ScheduleArchExh = ({ dataArch }) => {
         {dataArch.tytulNadSliderem}
       </StyledText>
       <StyledElements>
-        {data.allWpWystawa.edges.map(({ node }, index) => 
-          (
+        {data.allWpWystawa.edges.map(({ node }, index) => {
+            const convertedData = new Date(node.wystawa.informacjeOgolne.data)
+            .toLocaleString("pl", { dateStyle: "long" })
+            .split(" ");
+          return (
             <StyledElement key={index}>
               <StyledImage>
                 {node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy.wiekszaMiniaturkaNaStroneOferty
@@ -109,14 +112,14 @@ const ScheduleArchExh = ({ dataArch }) => {
                     hasdeclaredfontsize="32px"
                     hasdeclaredfontcolor="#23423D"
                   >
-                    dsadsa
+                    {`${convertedData[0]} ${convertedData[1]} ${convertedData[2]}`}
                   </StyledText>
                 </StyledDataWrapper>
                 <StyledText
                   hasdeclaredfontsize="16px"
                   hasdeclaredfontcolor="#000"
-                  hasdeclaredlineheight="1.2em"
                   hasdeclaredfontweight="400"
+                  hasdeclaredmargin="-8px 0 25px 0"
                 >
                   {node.wystawa.informacjeOgolne.miejsce &&
                     node.wystawa.informacjeOgolne.miejsce}
@@ -127,6 +130,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                     hasdeclaredfontsize="20px"
                     hasdeclaredlineheight="1.2em"
                     hasdeclaredfontweight="500"
+                    hasdeclaredmargin="0 0 8px 0"
                   >
                     {node.wystawa.informacjeOgolne.tytulPodZdjeciem &&
                       node.wystawa.informacjeOgolne.tytulPodZdjeciem}
@@ -162,7 +166,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                 </StyledButtonWrapper>
               </StyledInfoWrapper>
             </StyledElement>
-          )
+          )}
         )}
       </StyledElements>
       <StyledbuttonsWrapper>

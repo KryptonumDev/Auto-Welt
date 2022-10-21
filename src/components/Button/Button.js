@@ -16,6 +16,7 @@ const Button = ({
   hasDeclaredMinHeight,
   hoverBgColor,
   hasdeclaredmargin,
+  onClickHandler
 }) => {
   return (
     <>
@@ -48,6 +49,7 @@ const Button = ({
           hasdeclaredminheight={hasDeclaredMinHeight}
           hasdeclaredhoverbgcolor={hoverBgColor}
           hasdeclaredmargin={hasdeclaredmargin}
+          onClick={onClickHandler}
         >
           <span>{text}</span>
         </StyledButtonLinkNoHref>

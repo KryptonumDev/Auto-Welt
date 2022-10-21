@@ -44,7 +44,10 @@ export const StyledInputWrapper = styled.div`
     background-color: var(--creamBg);
     padding: 0 14px;
     outline-color: var(--primary500);
-    font-family: "Roboto";
+    &:focus{
+      outline-color: #EDAC2A;
+    }
+    font-family: 'Roboto';
   }
   textarea {
     width: 100%;
@@ -56,6 +59,10 @@ export const StyledInputWrapper = styled.div`
     resize: none;
     font-family: "Roboto";
     padding: 10px;
+    outline-color: var(--primary500);
+    &:focus{
+      outline-color: #EDAC2A;
+    }
   }
 
   @media only screen and (max-width: 1087px) {

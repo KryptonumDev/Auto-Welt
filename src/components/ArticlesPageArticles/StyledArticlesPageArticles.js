@@ -1,6 +1,25 @@
 import styled from "styled-components";
 
-export const StyledArticlesPageArticles = styled.section``;
+export const StyledArticlesPageArticles = styled.section`
+  padding: 0 32px;
+  max-width: 1144px;
+  width: 100%;
+  margin: 30px auto 0;
+  
+  @media only screen and (max-width: 768px) {
+    margin: 130px auto 0;
+    padding: 0 16px;
+    > h1 {
+      font-size: 38px;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    padding-top: 120px;
+    > h1 {
+      font-size: 34;
+    }
+  }
+`;
 export const StyledArticlesSlider = styled.div``;
 export const StyledSlidesWrapper = styled.div``;
 export const StyledPagginationWrapper = styled.div``;

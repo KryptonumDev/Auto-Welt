@@ -112,10 +112,27 @@ export const StyledDataWrapper = styled.div`
   padding-bottom: 16px;
 `;
 export const StyledContentWrapper = styled.div``
-export const StyledContentList = styled.div``
+export const StyledContentList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    > svg {
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+  }
+`
 export const StyledButtonWrapper = styled.div`
   margin-top: 30px;
-  
+  margin-left: 10px;
   @media only screen and (max-width: 648px){
     align-self: center;
   }

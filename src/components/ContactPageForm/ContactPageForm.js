@@ -141,6 +141,7 @@ const ContactPageForm = ({ dataForm }) => {
                     hasDeclaredPadding="10px 36px"
                     hasFontWeight="500"
                     hasFontSize="21px"
+                    onClickHandler={() => setIsSend(false)}
                   />
                 )}
               </StyledButtonsWrapper>
@@ -183,6 +184,8 @@ const ContactPageForm = ({ dataForm }) => {
                 }}
                 validationSchema={ContactSchema}
                 onSubmit={handleSubmit}
+                validateOnChange={false}
+                validateOnBlur={false}
               >
                 {({ isSubmitting, errors, values }) => (
                   <Form
