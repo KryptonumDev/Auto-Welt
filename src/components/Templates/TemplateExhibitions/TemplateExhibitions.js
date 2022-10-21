@@ -1,8 +1,14 @@
 import { graphql } from "gatsby";
 import React from "react";
 
+import ExhibitionHeroSection from "../../ExhibitionHeroSection/ExhibitionHeroSection"
+import ExhibitionTemplateContent from "../../ExhibitionTemplateContent/ExhibitionTemplateContent"
+
 const TemplateExhibitions = () => {
-  return <>TemplateExhibitions</>;
+  return <>
+    <ExhibitionHeroSection />
+    <ExhibitionTemplateContent />
+  </>;
 };
 
 export default TemplateExhibitions;
