@@ -1,16 +1,25 @@
 import React from "react";
 
+import parse from "html-react-parser"
+
 import {
   StyledArticleCustomQuote,
   StyledIconWrapper,
   StyledTextWrapper,
 } from "./StyledArticleCustomQuote";
+import { StaticImage } from "gatsby-plugin-image";
 
-const ArticleCustomQuote = () => {
+const ArticleCustomQuote = ({ quoteText }) => {
   return (
     <StyledArticleCustomQuote>
-      <StyledIconWrapper></StyledIconWrapper>
-      <StyledTextWrapper></StyledTextWrapper>
+      <StyledIconWrapper>
+        <StaticImage
+          src="../../images/quote.png"
+        />
+      </StyledIconWrapper>
+      <StyledTextWrapper>
+        {parse(quoteText)}
+      </StyledTextWrapper>
     </StyledArticleCustomQuote>
   );
 };

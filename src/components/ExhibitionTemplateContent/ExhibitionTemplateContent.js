@@ -1,6 +1,7 @@
 import React from "react";
 
 import ChooseArticle from "../ChooseArticle/ChooseArticle";
+import CustomAside from "../CustomAside/CustomAside";
 
 import {
   StyledExhibitionTemplateContent,
@@ -8,10 +9,12 @@ import {
   StyledContentWrapper,
 } from "./StyledExhibitionTemplateContent";
 
-const ExhibitionTemplateContent = () => {
+const ExhibitionTemplateContent = ({ exhibitionData }) => {
   return (
     <StyledExhibitionTemplateContent>
-      <StyledAsideWrapper></StyledAsideWrapper>
+      <StyledAsideWrapper>
+        <CustomAside asideData={exhibitionData.zielonyElementZKolekcjamiDoPolecenia} />
+      </StyledAsideWrapper>
       <StyledContentWrapper>
         <ChooseArticle />
       </StyledContentWrapper>

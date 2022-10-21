@@ -12,16 +12,16 @@ import {
   StyledTextContent,
 } from "./StyledArticleTemplateContent";
 
-const ArticleTemplateContent = () => {
+const ArticleTemplateContent = ({ contentData }) => {
   return (
     <StyledArticleTemplateContent>
       <StyledAside>
-        <CustomAside />
+        <CustomAside asideData={contentData.artykul.dedykowanaStronaArtykulu.sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony} />
       </StyledAside>
       <StyledTextContent>
-        <ArticleCustomQuote />
-        <ArticleGalleryImage />
-        <ArticlePhotoInfo />
+        <ArticleCustomQuote quoteText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. " />
+        <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu.galeriaNaKoncuArtykulu}/>
+        <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec.opis} />
         <ChooseArticle />
       </StyledTextContent>
     </StyledArticleTemplateContent>
