@@ -12,6 +12,13 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: `${process.env.WORDPRESS_URL}/graphql`,
+        type: {
+          MediaItem: {
+            localFile: {
+              requestConcurrency: 10,
+            },
+          },
+        },
       },
     },
     "gatsby-plugin-image",
