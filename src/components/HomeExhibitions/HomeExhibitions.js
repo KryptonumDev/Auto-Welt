@@ -76,8 +76,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.homepage.wystawy.tytulSekcji &&
-          data.wpPage.homepage.wystawy.tytulSekcji}
+        {data.wpPage.homepage.wystawy.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper>
         {data.allWpWystawa.edges.map(({ node }) => (
