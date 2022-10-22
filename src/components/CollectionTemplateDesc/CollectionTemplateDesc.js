@@ -12,10 +12,10 @@ const CollectionTemplateDesc = ({ descData }) => {
   return (
     <StyledCollectionTemplateDesc>
       <StyledTextWrapper>
-        {descData.opisKolekcji && parse(descData.opisKolekcji)}
+        {descData?.opisKolekcji && parse(descData.opisKolekcji)}
       </StyledTextWrapper>
       <StyledImageWrapper>
-        {descData.zdjecie && (
+        {descData?.zdjecie && (
           <GatsbyImage
             image={getImage(descData.zdjecie.localFile)}
             alt={descData.zdjecie.altText}
