@@ -33,7 +33,6 @@ export const StyledContents = styled.div`
         > a {
             color: #FAF6EE;
             font-size: 18px;
-            line-height: 1.2em;
             font-weight: 600;
             font-family: 'Roboto';
 
@@ -47,7 +46,6 @@ export const StyledContents = styled.div`
             a {
                 color: #FAF6EE;
                 font-size: 16px;
-                line-height: 1.2em;
                 font-weight: 400;
                 font-family: 'Roboto';
                 @media only screen and (max-width: 972px){

@@ -11,6 +11,9 @@ export const StyledArticleTemplateContent = styled.section`
     @media only screen and (max-width: 768px){
         margin: 60px 0;
     }
+    @media only screen and (max-width: 439px){
+        margin: 10px 0 60px;
+    }
 `;
 export const StyledAside = styled.aside`
     width: calc(40% - 35px);
@@ -30,44 +33,70 @@ export const StyledTextContent = styled.div`
     width: calc(60% - 35px);
     font-family: 'Roboto';
     font-size: 24px;
-    
-    .wp-block-columns{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-    ul, ol{
-        margin-left: 25px;
+
+    strong, em {
+        position: relative;
+        font-weight: normal;
+        font-style: normal;
+        &:before{
+          content: '';
+          width: 100%;
+          background: #F6E2BA;
+          height: 15px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+        }
     }
 
-    p{
-        strong, em {
-            position: relative;
-            font-weight: normal;
-            font-style: normal;
-            &:before{
-              content: '';
-              width: 100%;
-              background: #F6E2BA;
-              height: 15px;
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              z-index: -1;
-            }
-        }
+    h1, h2, h3, h4, h5, h6{
+        color: #23423D;
+        font-family: 'Nocturne Serif';
     }
 
     h2{
         font-size: 28px;
     }
+
     h3{
         font-size: 24px;
     }
-    h1, h2, h3, h4, h5, h6{
-        font-family: 'Nocturne Serif';
+
+    ul, ol{
+        margin-left: 25px;
+        padding-left: 12px;
     }
 
+
+    > p{
+        &:first-of-type {
+            &:first-letter{
+                font-size: 48px;
+                color: #edac29;
+                font-family: "Nocturne Serif";
+                float: left;
+                padding-right: 10px;
+            }
+        }
+    }
+    
+    .wp-block-columns{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        > div {
+            width: 48%;
+            filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+            img {
+                width: 100%;
+            }
+            .gatsby-image-wrapper{
+                width: 100%;
+            }
+        }
+    }
 
     @media only screen and (max-width: 972px){
         width: 60%;

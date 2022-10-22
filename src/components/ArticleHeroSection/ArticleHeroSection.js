@@ -39,7 +39,6 @@ const ArticleHeroSection = ({ heroData }) => {
         <StyledTextImage>
           <StaticImage
             src="../../images/artykulTitleImage.png"
-            objectFit="fill"
           />
         </StyledTextImage>
         <StyledText
