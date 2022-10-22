@@ -29,6 +29,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
           hasFontWeight="500"
           hasTarget={linkData.target}
           hoverBgColor="var(--primary900)"
+          hasBorder="2px solid var(--primary500)"
         />
       )}
     </StyledCollectionElementThreeImages>
