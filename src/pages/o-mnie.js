@@ -21,18 +21,18 @@ const StyledAboutMe = styled.div`
 const AboutMe = ({ data }) => {
   const imageShort = data.wpPage.oMnie.drugaSekcja;
   const images = withArtDirection(
-    getImage(imageShort.zdjecieDlaZielonegoElementuPodOpisem.localFile),
+    getImage(imageShort.zdjecieDlaZielonegoElementuPodOpisem?.localFile),
     [
       {
         media: "(max-width: 375px)",
         image: getImage(
-          imageShort.zdjecieMobileDlaZielonegoElementuPodOpisem.localFile
+          imageShort.zdjecieMobileDlaZielonegoElementuPodOpisem?.localFile
         ),
       },
       {
         media: "(max-width: 768px)",
         image: getImage(
-          imageShort.zdjecieTabletDlaZielonegoElementuPodOpisem.localFile
+          imageShort.zdjecieTabletDlaZielonegoElementuPodOpisem?.localFile
         ),
       },
     ]

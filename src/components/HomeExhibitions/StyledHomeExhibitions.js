@@ -21,7 +21,7 @@ export const StyledHomeExhibitions = styled.section`
   }
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin: ${({ isaboutpage }) => (isaboutpage ? "0 auto 60px" : "60px auto")};
+    margin: 60px auto;
     > h2 {
       font-size: 38px;
     }

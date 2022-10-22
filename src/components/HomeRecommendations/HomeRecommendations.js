@@ -115,9 +115,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
         hasdeclaredfontfamily="Nocturne Serif"
       >
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-          .tytulSekcji &&
+          ?.tytulSekcji &&
           wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-            .tytulSekcji}
+            ?.tytulSekcji}
       </StyledText>
       <StyledRecommendationsWrapper>
         <StyledArrowWrapper
@@ -174,15 +174,15 @@ const HomeRecommendations = ({ isAboutPage }) => {
       </StyledRecommendationsWrapper>
       <StyledButtonsWrapper>
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-          .przyciskLewy.title && (
+          ?.przyciskLewy?.title && (
           <Button
             whereGo={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskLewy.url
+                ?.przyciskLewy?.url
             }
             text={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskLewy.title
+                ?.przyciskLewy?.title
             }
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
@@ -191,20 +191,20 @@ const HomeRecommendations = ({ isAboutPage }) => {
             bgColor="var(--background500)"
             hasTarget={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskLewy.target
+                ?.przyciskLewy?.target
             }
           />
         )}
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-          .przyciskPrawy.url && (
+          ?.przyciskPrawy?.url && (
           <Button
             whereGo={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskPrawy.url
+                ?.przyciskPrawy?.url
             }
             text={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskPrawy.title
+                ?.przyciskPrawy?.title
             }
             textColor="var(--white)"
             bgColor="var(--primary500)"
@@ -213,7 +213,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
             hasDeclaredPadding={width < 769 ? "10px 63px" : "10px 33px"}
             hasTarget={
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
-                .przyciskPrawy.target
+                ?.przyciskPrawy?.target
             }
             hoverBgColor="var(--primary900)"
           />

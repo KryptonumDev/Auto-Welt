@@ -74,6 +74,9 @@ export const StyledDescWrapper = styled.div`
   }
 `;
 export const StyledButtonWrapper = styled.div`
+  a {
+    margin-left: 15px;
+  }
   @media only screen and (max-width: 1065px) {
     a {
       font-size: 18px;
@@ -82,7 +85,6 @@ export const StyledButtonWrapper = styled.div`
   @media only screen and (max-width: 685px) {
     a {
       font-size: 16px;
-      margin-left: 12px;
     }
   }
   @media only screen and (max-width: 438px) {

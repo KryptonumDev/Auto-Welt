@@ -25,26 +25,26 @@ const AboutMeSecondSection = ({ secondData, images }) => {
       <StyledAboutMeSecondSection>
         <StyledLeftWrapper>
           <StyledTitleWrapper>
-            {secondData.tytul && parse(secondData.tytul)}
+            {secondData?.tytul && parse(secondData.tytul)}
           </StyledTitleWrapper>
           <StyledDescWrapper>
-            {secondData.opis && parse(secondData.opis)}
+            {secondData?.opis && parse(secondData.opis)}
           </StyledDescWrapper>
         </StyledLeftWrapper>
         <StyledRightWrapper>
           <StyledTopImage>
-            {secondData.pierwszeZdjeciePoPrawo.localFile && (
+            {secondData.pierwszeZdjeciePoPrawo?.localFile && (
               <GatsbyImage
-                image={getImage(secondData.pierwszeZdjeciePoPrawo.localFile)}
-                alt={secondData.pierwszeZdjeciePoPrawo.altText}
+                image={getImage(secondData.pierwszeZdjeciePoPrawo?.localFile)}
+                alt={secondData.pierwszeZdjeciePoPrawo?.altText}
               />
             )}
           </StyledTopImage>
           <StyledBottomImage>
-            {secondData.drugieZdjeciePoPrawo.localFile && (
+            {secondData.drugieZdjeciePoPrawo?.localFile && (
               <GatsbyImage
-                image={getImage(secondData.drugieZdjeciePoPrawo.localFile)}
-                alt={secondData.drugieZdjeciePoPrawo.altText}
+                image={getImage(secondData.drugieZdjeciePoPrawo?.localFile)}
+                alt={secondData.drugieZdjeciePoPrawo?.altText}
               />
             )}
           </StyledBottomImage>
@@ -56,16 +56,16 @@ const AboutMeSecondSection = ({ secondData, images }) => {
             <GatsbyImage image={images} objectFit="fill" />
           </StyledGreetingImage>
           <StyledGreetingText>
-            {secondData.tekstWZielonymElemencie &&
-              parse(secondData.tekstWZielonymElemencie)}
+            {secondData?.tekstWZielonymElemencie &&
+              parse(secondData?.tekstWZielonymElemencie)}
           </StyledGreetingText>
         </StyledGreetingPanel>
         <StyledButtonsWrapper>
-          {secondData.lewyPrzycisk.title && (
+          {secondData.lewyPrzycisk?.title && (
             <Button
-              text={secondData.lewyPrzycisk.title}
-              whereGo={secondData.lewyPrzycisk.url}
-              hasTarget={secondData.lewyPrzycisk.target}
+              text={secondData.lewyPrzycisk?.title}
+              whereGo={secondData.lewyPrzycisk?.url}
+              hasTarget={secondData.lewyPrzycisk?.target}
               bgColor="var(--creamBg)"
               hasBorder="2px solid var(--primary500)"
               textColor="var(--primary500)"
@@ -74,11 +74,11 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               hasFontSize="21px"
             />
           )}
-          {secondData.prawyPrzycisk.title && (
+          {secondData.prawyPrzycisk?.title && (
             <Button
-              text={secondData.prawyPrzycisk.title}
-              whereGo={secondData.prawyPrzycisk.url}
-              hasTarget={secondData.prawyPrzycisk.target}
+              text={secondData.prawyPrzycisk?.title}
+              whereGo={secondData.prawyPrzycisk?.url}
+              hasTarget={secondData.prawyPrzycisk?.target}
               textColor="var(--white)"
               bgColor="var(--primary500)"
               hasBorder="2px solid var(--primary500)"

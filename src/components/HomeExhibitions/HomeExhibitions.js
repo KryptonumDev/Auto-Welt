@@ -76,7 +76,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.homepage.wystawy.tytulSekcji}
+        {data.wpPage.homepage.wystawy?.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper>
         {data.allWpWystawa.edges.map(({ node }) => (
@@ -86,17 +86,17 @@ const HomeExhibitions = ({ isAboutPage }) => {
           />
         ))}
       </StyledElementsWrapper>
-      {data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo && (
+      {data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo && (
         <Button
-          text={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.title}
-          whereGo={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.url}
+          text={data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo?.title}
+          whereGo={data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo?.url}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasFontSize={width < 376 ? "15px" : "21px"}
           hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
-          hasTarget={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.target}
+          hasTarget={data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo?.target}
         />
       )}
     </StyledHomeExhibitions>

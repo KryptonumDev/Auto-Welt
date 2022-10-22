@@ -16,13 +16,13 @@ const AboutMeImagesSection = ({ imagesData }) => {
   return (
     <StyledAboutMeImagesSection>
       <StyledImagesWrapper>
-        {imagesData.trzyZdjecia && (
+        {imagesData?.trzyZdjecia && (
           <>
-            {imagesData.trzyZdjecia.map((image, index) => (
+            {imagesData?.trzyZdjecia.map((image, index) => (
               <StyledImage key={index}>
                 <GatsbyImage
-                  image={getImage(image.localFile)}
-                  alt={image.altText}
+                  image={getImage(image?.localFile)}
+                  alt={image?.altText}
                 />
               </StyledImage>
             ))}
@@ -30,15 +30,15 @@ const AboutMeImagesSection = ({ imagesData }) => {
         )}
         <StyledRightImage>
           {imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-            .localFile && (
+            ?.localFile && (
             <GatsbyImage
               image={getImage(
                 imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-                  .localFile
+                  ?.localFile
               )}
               alt={
                 imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-                  .altText
+                  ?.altText
               }
             />
           )}
@@ -49,8 +49,8 @@ const AboutMeImagesSection = ({ imagesData }) => {
           <StaticImage src="../../images/Aparat.png" />
         </StyledIconWrapper>
         <StyledTextWrapper>
-          {imagesData.tekstPrzyIkonceAparatu &&
-            parse(imagesData.tekstPrzyIkonceAparatu)}
+          {imagesData?.tekstPrzyIkonceAparatu &&
+            parse(imagesData?.tekstPrzyIkonceAparatu)}
         </StyledTextWrapper>
       </StyledAparatWrapper>
     </StyledAboutMeImagesSection>
