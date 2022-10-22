@@ -40,9 +40,9 @@ const CustomAside = ({ asideData }) => {
         </StyledText>
         {asideData?.ktoraKolekcjePolecic.map(({ kolekcja }) => (
           <StyledLink
-            key={kolekcja.url}
-            target={kolekcja.target}
-            to={kolekcja.url}
+            key={kolekcja?.url}
+            target={kolekcja?.target}
+            to={kolekcja?.url}
             hasdeclaredfontcolor="#fff"
             hasdeclaredtextdecoration="underline"
             hasdeclaredlineheight="1.2"
