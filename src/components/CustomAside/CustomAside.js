@@ -13,20 +13,42 @@ import {
   StyledBgContents
 } from "./StyledCustomAside";
 
-const CustomAside = ({ asideData }) => {
+const CustomAside = ({ tableOfContents, asideData }) => {
   return (
     <StyledCustomAside>
-      <StyledContents>
-        <StyledText
-          hasdeclaredfontfamily="Nocturne Serif"
-          hasdeclaredfontsize="28px"
-          hasdeclaredfontweight="400"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontcolor="#EDAC2A"
-        >
-          Spis treści:
-        </StyledText>
-      </StyledContents>
+      {
+        tableOfContents ? (
+          <StyledContents>
+            <StyledText
+              hasdeclaredfontfamily="Nocturne Serif"
+              hasdeclaredfontsize="28px"
+              hasdeclaredfontweight="400"
+              hasdeclaredlineheight="1.2em"
+              hasdeclaredfontcolor="#EDAC2A"
+            >
+              Spis treści:
+            </StyledText>
+            {
+              tableOfContents.map(
+                h2 => (
+                  <div>
+                    <p>{h2.name}</p>
+                    {
+                      h2.children.map(
+                        h3 => (
+                          <div>
+                            <p>{h3.name}</p>
+                          </div>
+                        )
+                      )
+                    }
+                  </div>
+                )
+              )
+            }
+          </StyledContents>
+        ) : (undefined)
+      }
       <StyledChooseCollections>
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"

@@ -59,6 +59,7 @@ const ArticleTemplateContent = ({ contentData }) => {
     <StyledArticleTemplateContent>
       <StyledAside>
         <CustomAside
+          tableOfContents={headers}
           asideData={contentData.artykul.dedykowanaStronaArtykulu.sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony}
         />
       </StyledAside>
