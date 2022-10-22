@@ -86,6 +86,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
           textColor="var(--primary900)"
           hasFontSize="21px"
           hoverBgColor="var(--secondary700)"
+          hasBorder="2px solid transparent"
         />
       </StyledButtonsWrapper>
     </StyledSchedulePlanExh>

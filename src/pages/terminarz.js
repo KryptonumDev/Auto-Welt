@@ -68,11 +68,7 @@ export const query = graphql`
           }
         }
         wystawyArchiwalne {
-          lewyPrzyciskPodSliderem {
-            target
-            title
-            url
-          }
+          lewyPrzyciskPodSliderem
           prawyPrzyciskPodSliderem {
             target
             title

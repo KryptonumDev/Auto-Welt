@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import {
   GatsbyImage,
-  useImage,
   StaticImage,
   getImage,
 } from "gatsby-plugin-image";
@@ -27,6 +26,7 @@ import {
 import ListIcon from "../../images/greenIcon.svg";
 
 const ScheduleArchExh = ({ dataArch }) => {
+  const [imagesIndex, setImagesIndex] = useState(3);
   const data = useStaticQuery(graphql`
     query archExhibi {
       allWpWystawa {
@@ -88,7 +88,7 @@ const ScheduleArchExh = ({ dataArch }) => {
         {dataArch.tytulNadSliderem}
       </StyledText>
       <StyledElements>
-        {data.allWpWystawa.edges.map(({ node }, index) => {
+        {data.allWpWystawa.edges.slice(0, imagesIndex).map(({ node }, index) => {
           const convertedData = new Date(node.wystawa.informacjeOgolne.data)
             .toLocaleString("pl", { dateStyle: "long" })
             .split(" ");
@@ -169,11 +169,12 @@ const ScheduleArchExh = ({ dataArch }) => {
                         .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
                     }
                     whereGo={`/wystawy/${node.slug}`}
-                    bgColor="var(--secondary500)"
-                    textColor="var(--primary900)"
-                    hasFontSize="21px"
+                    bgColor="var(--creamBg)"
+                    hasBorder="2px solid var(--primary500)"
+                    textColor="var(--primary500)"
                     hasDeclaredPadding="10px 33px"
-                    hoverBgColor="var(--secondary700)"
+                    hasFontWeight="500"
+                    hasFontSize="21px"
                   />
                 </StyledButtonWrapper>
               </StyledInfoWrapper>
@@ -183,15 +184,14 @@ const ScheduleArchExh = ({ dataArch }) => {
       </StyledElements>
       <StyledbuttonsWrapper>
         <Button
-          whereGo={dataArch.lewyPrzyciskPodSliderem.url}
-          text={dataArch.lewyPrzyciskPodSliderem.title}
+          text={dataArch.lewyPrzyciskPodSliderem}
           bgColor="var(--creamBg)"
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
           hasDeclaredPadding="10px 36px"
           hasFontWeight="500"
           hasFontSize="21px"
-          hasTarget={dataArch.lewyPrzyciskPodSliderem.target}
+          onClickHandler={() => setImagesIndex(imagesIndex + 3)}
         />
         <Button
           whereGo={dataArch.prawyPrzyciskPodSliderem.url}
