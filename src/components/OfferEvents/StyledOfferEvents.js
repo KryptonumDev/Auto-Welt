@@ -7,6 +7,14 @@ export const StyledOfferEvents = styled.section`
   padding: 0 32px;
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
+    > h2{
+      font-size: 38px;
+    }
+  }   
+  @media only screen and (max-width: 375px) {
+    > h2{
+      font-size: 34px;
+    }
   }
 `;
 export const StyledEventsWrapper = styled.div`
@@ -54,4 +62,11 @@ export const StyledTextWrapper = styled.div`
   font: 400 24px/1.2em "Roboto";
   color: #000;
   margin: 30px 0 60px;
+
+  @media only screen and (max-width: 768px){
+    font-size: 20px;
+  }
+  @media only screen and (max-width: 375px){
+    font-size: 16px;
+  }
 `;

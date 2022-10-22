@@ -35,6 +35,9 @@ export const StyledOfferEventInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  > a {
+    margin-left: 15px;
+  }
 
   @media only screen and (max-width: 1065px) {
     > a {
@@ -55,6 +58,7 @@ export const StyledOfferEventInfo = styled.div`
   @media only screen and (max-width: 488px) {
     padding: 24px 32px;
     > a {
+      margin-left: 0;
       align-self: center;
       width: 95%;
     }

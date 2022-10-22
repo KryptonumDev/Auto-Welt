@@ -7,6 +7,14 @@ export const StyledCheckOutWithOffer = styled.section`
   @media only screen and (max-width: 768px) {
     margin: 60px auto;
     padding: 0 16px;
+    > h2{
+      font-size: 38px;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    > h2{
+      font-size: 34px;
+    }
   }
 `;
 export const StyledImageWrapper = styled.div`

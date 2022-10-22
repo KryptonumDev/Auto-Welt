@@ -15,7 +15,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
     <StyledCheckOutWithOffer>
       <StyledText
         as="h2"
-        hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+        hasdeclaredfontsize="48px"
         hasdeclaredtextalign="center"
         hasdeclaredfontcolor="var(--primary500)"
         hasdeclaredmargin="0 0 40px"
@@ -43,6 +43,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
             hasFontWeight="500"
             hoverBgColor="var(--primary900)"
             hasTarget={dataOffer.przyciskPoLewo.target}
+            hasBorder="2px solid var(--primary500)"
           />
         )}
         {dataOffer.tekstDoPobraniaTekstu && (

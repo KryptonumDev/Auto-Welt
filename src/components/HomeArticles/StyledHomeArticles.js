@@ -15,6 +15,15 @@ export const StyledHomeArticles = styled.section`
     padding: 0 16px;
     margin: ${({ iscollectionpage }) =>
       iscollectionpage ? "60px auto" : "0 auto 60px auto"};
+      
+    > h2{
+      font-size: 38px;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    > h2{
+      font-size: 34px;
+    }
   }
 `;
 export const StyledArticlesWrapper = styled.div`

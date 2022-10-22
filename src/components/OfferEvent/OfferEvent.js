@@ -11,7 +11,7 @@ import {
 import { StyledText } from "../Text/StyledText";
 
 const OfferEvent = ({ offerData, slug }) => {
-  const convertedData = new Date(offerData.informacjeOgolne.data)
+  const convertedData = new Date(offerData.informacjeOgolne?.data)
     .toLocaleString("pl", { dateStyle: "long" })
     .split(" ");
   return (
@@ -59,21 +59,19 @@ const OfferEvent = ({ offerData, slug }) => {
             offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
               .tytulZUwzglednieniemMiasta}
         </StyledText>
-        {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-          .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia && (
-          <Button
-            text={
-              offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia
-            }
-            whereGo={`wystawy/${slug}`}
-            hasDeclaredPadding="10px 33px"
-            bgColor="var(--secondary500)"
-            textColor="var(--primary900)"
-            hasFontSize="21px"
-            hoverBgColor="var(--secondary700)"
-          />
-        )}
+        <Button
+          text={
+            offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+              .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia
+          }
+          whereGo={`wystawy/${slug}`}
+          hasDeclaredPadding="10px 33px"
+          bgColor="var(--secondary500)"
+          textColor="var(--primary900)"
+          hasFontSize="21px"
+          hoverBgColor="var(--secondary700)"
+          hasBorder="2px solid transparent"
+        />
       </StyledOfferEventInfo>
     </StyledOfferEvent>
   );

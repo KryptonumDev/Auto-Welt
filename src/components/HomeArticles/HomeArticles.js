@@ -101,7 +101,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
       <StyledHomeArticles iscollectionpage={isCollectionsModelPage}>
         <StyledText
           as="h2"
-          hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+          hasdeclaredfontsize="48px"
           hasdeclaredtextalign="center"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredmargin="0 0 40px"

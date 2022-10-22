@@ -17,15 +17,15 @@ import {
 
 const OfferHeroSection = ({ dataOffer }) => {
   const images = withArtDirection(
-    getImage(dataOffer.tloDesktopDlaOpisu.localFile),
+    getImage(dataOffer.tloDesktopDlaOpisu?.localFile),
     [
       {
         media: "(max-width: 375px)",
-        image: getImage(dataOffer.tloMobileDlaOpisu.localFile),
+        image: getImage(dataOffer.tloMobileDlaOpisu?.localFile),
       },
       {
         media: "(max-width: 768px)",
-        image: getImage(dataOffer.tloTabletDlaOpisu.localFile),
+        image: getImage(dataOffer.tloTabletDlaOpisu?.localFile),
       },
     ]
   );
@@ -37,26 +37,26 @@ const OfferHeroSection = ({ dataOffer }) => {
         </StyledBgWrapper>
         <StyledImagesWrapper>
           <div>
-            {dataOffer.pierwszeZdjeciePoLewo.localFile && (
+            {dataOffer.pierwszeZdjeciePoLewo?.localFile && (
               <GatsbyImage
-                image={getImage(dataOffer.pierwszeZdjeciePoLewo.localFile)}
-                alt={dataOffer.pierwszeZdjeciePoLewo.altText}
+                image={getImage(dataOffer.pierwszeZdjeciePoLewo?.localFile)}
+                alt={dataOffer.pierwszeZdjeciePoLewo?.altText}
               />
             )}
           </div>
           <div>
-            {dataOffer.drugieZdjeciePoLewo.localFile && (
+            {dataOffer.drugieZdjeciePoLewo?.localFile && (
               <GatsbyImage
-                image={getImage(dataOffer.drugieZdjeciePoLewo.localFile)}
-                alt={dataOffer.drugieZdjeciePoLewo.altText}
+                image={getImage(dataOffer.drugieZdjeciePoLewo?.localFile)}
+                alt={dataOffer.drugieZdjeciePoLewo?.altText}
               />
             )}
           </div>
           <div>
-            {dataOffer.trzecieZdjeciePoLewo.localFile && (
+            {dataOffer.trzecieZdjeciePoLewo?.localFile && (
               <GatsbyImage
-                image={getImage(dataOffer.trzecieZdjeciePoLewo.localFile)}
-                alt={dataOffer.trzecieZdjeciePoLewo.altText}
+                image={getImage(dataOffer.trzecieZdjeciePoLewo?.localFile)}
+                alt={dataOffer.trzecieZdjeciePoLewo?.altText}
               />
             )}
           </div>
@@ -69,23 +69,24 @@ const OfferHeroSection = ({ dataOffer }) => {
             hasdeclaredmargin="0 0 40px"
             hasdeclaredfontfamily="Nocturne Serif"
           >
-            {dataOffer.tytulPoPrawo && dataOffer.tytulPoPrawo}
+            {dataOffer?.tytulPoPrawo && dataOffer?.tytulPoPrawo}
           </StyledText>
           <StyledMoreInfoWrapper>
-            {dataOffer.opis && parse(dataOffer.opis)}
+            {dataOffer?.opis && parse(dataOffer?.opis)}
           </StyledMoreInfoWrapper>
           <StyledButtonWrapper>
-            {dataOffer.przyciskPodOpisem.url && (
+            {dataOffer?.przyciskPodOpisem.url && (
               <Button
-                whereGo={dataOffer.przyciskPodOpisem.url}
-                text={dataOffer.przyciskPodOpisem.title}
+                whereGo={dataOffer.przyciskPodOpisem?.url}
+                text={dataOffer.przyciskPodOpisem?.title}
                 textColor="var(--white)"
                 bgColor="var(--primary500)"
                 hasDeclaredPadding="10px 36px"
                 hasFontSize="21px"
                 hasFontWeight="500"
                 hoverBgColor="var(--primary900)"
-                hasTarget={dataOffer.przyciskPodOpisem.target}
+                hasTarget={dataOffer.przyciskPodOpisem?.target}
+                hasBorder="2px solid var(--primary500)"
               />
             )}
           </StyledButtonWrapper>

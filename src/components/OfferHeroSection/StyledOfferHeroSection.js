@@ -133,10 +133,23 @@ export const StyledMoreInfoWrapper = styled.div`
 `;
 export const StyledButtonWrapper = styled.div`
   margin-top: 40px;
+  
   a {
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
+  @media only screen and (max-width: 1065px) {
+    a {
+      font-size: 18px;
+    }
+  }
+
+  @media only screen and (max-width: 685px) {
+    a {
+      font-size: 16px;
+    }
+  }
+  
   @media only screen and (max-width: 375px) {
     width: 100%;
     display: flex;
@@ -144,6 +157,7 @@ export const StyledButtonWrapper = styled.div`
     a {
       margin-left: 0;
       width: 95%;
+      font-size: 15px;
     }
   }
 `;

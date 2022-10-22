@@ -12,17 +12,17 @@ import { StyledReqWrapper } from "../components/Offer/StyledOffer";
 
 const Offer = ({ data }) => {
   const shortData = data.wpPage.oferta;
-  const imageShort = data.wpPage.oferta.zielonyElementZTekstem;
+  const imageShort = data.wpPage.oferta?.zielonyElementZTekstem;
   const images = withArtDirection(
-    getImage(imageShort.zdjecieTlaDesktop.localFile),
+    getImage(imageShort.zdjecieTlaDesktop?.localFile),
     [
       {
         media: "(max-width: 375px)",
-        image: getImage(imageShort.zdjecieTlaMobile.localFile),
+        image: getImage(imageShort.zdjecieTlaMobile?.localFile),
       },
       {
         media: "(max-width: 768px)",
-        image: getImage(imageShort.zdjecieTlaTablet.localFile),
+        image: getImage(imageShort.zdjecieTlaTablet?.localFile),
       },
     ]
   );
@@ -31,10 +31,10 @@ const Offer = ({ data }) => {
       <OfferHeroSection dataOffer={shortData.sekcjaPowitalnaStrony} />
       <StyledReqWrapper>
         <RecInfoWithButton
-          text={shortData.zielonyElementZTekstem.tekst}
-          btnText={shortData.zielonyElementZTekstem.przycisk.title}
-          btnWhereGo={shortData.zielonyElementZTekstem.przycisk.url}
-          hasTarget={shortData.zielonyElementZTekstem.przycisk.target}
+          text={shortData.zielonyElementZTekstem?.tekst}
+          btnText={shortData.zielonyElementZTekstem.przycisk?.title}
+          btnWhereGo={shortData.zielonyElementZTekstem.przycisk?.url}
+          hasTarget={shortData.zielonyElementZTekstem.przycisk?.target}
           btnPadding="10px 33px"
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"

@@ -17,7 +17,7 @@ import {
 const OfferEvents = ({ dataEvents }) => {
   const data = useStaticQuery(graphql`
     query currentOfferExhibition {
-      allWpWystawa {
+      allWpWystawa(limit: 2) {
         edges {
           node {
             slug
@@ -48,14 +48,14 @@ const OfferEvents = ({ dataEvents }) => {
     <StyledOfferEvents>
       <StyledText
         as="h2"
-        hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+        hasdeclaredfontsize="48px"
         hasdeclaredfontcolor="var(--primary500)"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {dataEvents.tytul && dataEvents.tytul}
+        {dataEvents?.tytul && dataEvents?.tytul}
       </StyledText>
       <StyledTextWrapper>
-        {dataEvents.tekstPodTytulem && parse(dataEvents.tekstPodTytulem)}
+        {dataEvents?.tekstPodTytulem && parse(dataEvents?.tekstPodTytulem)}
       </StyledTextWrapper>
       <StyledEventsWrapper>
         {data.allWpWystawa?.edges.map(({ node }, index) => (
@@ -63,23 +63,23 @@ const OfferEvents = ({ dataEvents }) => {
         ))}
       </StyledEventsWrapper>
       <StyledEventsButtonWrapper>
-        {dataEvents.przyciskPoLewo.url && (
+        {dataEvents?.przyciskPoLewo.url && (
           <Button
-            whereGo={dataEvents.przyciskPoLewo.url}
-            text={dataEvents.przyciskPoLewo.title}
+            whereGo={dataEvents.przyciskPoLewo?.url}
+            text={dataEvents.przyciskPoLewo?.title}
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
             hasFontSize="21px"
             hasDeclaredPadding="10px 33px"
-            hasTarget={dataEvents.przyciskPoLewo.target}
+            hasTarget={dataEvents.przyciskPoLewo?.target}
             bgColor="var(--background500)"
           />
         )}
-        {dataEvents.przyciskPoPrawo.url && (
+        {dataEvents?.przyciskPoPrawo.url && (
           <Button
-            whereGo={dataEvents.przyciskPoPrawo.url}
-            text={dataEvents.przyciskPoPrawo.title}
-            hasTarget={dataEvents.przyciskPoPrawo.target}
+            whereGo={dataEvents.przyciskPoPrawo?.url}
+            text={dataEvents.przyciskPoPrawo?.title}
+            hasTarget={dataEvents.przyciskPoPrawo?.target}
             textColor="var(--white)"
             bgColor="var(--primary500)"
             hasFontSize="21px"
