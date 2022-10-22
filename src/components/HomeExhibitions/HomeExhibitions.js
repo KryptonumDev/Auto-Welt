@@ -53,7 +53,11 @@ const HomeExhibitions = ({ isAboutPage }) => {
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
         homepage {
           wystawy {
-            trescPrzyciskuPrzenoszacegoDo
+            trescPrzyciskuPrzenoszacegoDo{
+              target
+              title
+              url
+            }
             tytulSekcji
           }
         }
@@ -85,14 +89,15 @@ const HomeExhibitions = ({ isAboutPage }) => {
       </StyledElementsWrapper>
       {data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo && (
         <Button
-          text={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo}
-          whereGo="/wystawy"
+          text={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.title}
+          whereGo={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.url}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasFontSize={width < 376 ? "15px" : "21px"}
           hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
+          hasTarget={data.wpPage.homepage.wystawy.trescPrzyciskuPrzenoszacegoDo.target}
         />
       )}
     </StyledHomeExhibitions>
