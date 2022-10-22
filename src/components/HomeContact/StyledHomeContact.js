@@ -34,8 +34,14 @@ export const StyledLeftWrapper = styled.div`
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
-  @media only screen and (max-width: 657px) {
+  @media only screen and (max-width: 675px) {
     min-height: 410px;
+  }
+  @media only screen and (max-width: 510px){
+    min-height: 310px;
+  }
+  @media only screen and (max-width: 375px){
+    min-height: 230px;
   }
 `;
 export const StyledRightWrapper = styled.div`
@@ -199,6 +205,16 @@ export const StyledCarBgImage = styled.div`
     right: 130px;
   }
 
+  @media only screen and (max-width: 723px){
+    width: 620px;
+    right: 123px;
+  }
+
+  @media only screen and (max-width: 675px){
+    width: 540px;
+    right: 102px;
+  }
+
   @media only screen and (max-width: 657px) {
     width: 570px;
     right: 113px;
@@ -211,6 +227,21 @@ export const StyledCarBgImage = styled.div`
       width: 120%;
       height: 110%;
     }
+  }
+
+  @media only screen and (max-width: 617px){
+    width: 500px;
+    right: 98px;
+  }
+
+  @media only screen and (max-width: 510px){
+    width: 400px;
+    right: 78px;
+  }
+
+  @media only screen and (max-width: 375px){
+    width: 310px;
+    right: 61px;
   }
 `;
 
