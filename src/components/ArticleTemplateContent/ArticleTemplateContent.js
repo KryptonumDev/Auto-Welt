@@ -14,26 +14,47 @@ import {
 } from "./StyledArticleTemplateContent";
 
 const ArticleTemplateContent = ({ contentData }) => {
+  let headerIds = {};
   const content = parse(contentData.content, {
     replace: (domNode) => {
-      if (domNode.name === "blockquote")
-        return (
-          <ArticleCustomQuote
-            quoteText={
-              domNode.children
-              .find(
-                child => child.name === "cite"
-              )
-              ?.children?.[0]
-              ?.data
-            }
-          />
-        );
+      if (!domNode.children)
+        return;
+
+      switch (domNode.name) {
+        case "blockquote":
+          return (
+            <ArticleCustomQuote
+              quoteText={
+                domNode.children
+                .find(
+                  child => child.name === "cite"
+                )
+                ?.children?.[0]
+                ?.data
+              }
+            />
+          );
+        case "h2":
+        case "h3":
+          const id = (
+            domNode
+            .children[0]
+            .data
+          )
+          .replace(' ', '_')
+          .normalize("NFKD")
+          .replace(/\u0142/g, "l")
+          .replace(/[^\w]/g, '')
+          .replace('_', '-')
+          .toLowerCase();
+          headerIds[id] = (headerIds[id] ?? 0) + 1;
+          domNode.attribs.id = `${id}-${headerIds[id]}`;
+      }
     }
   }),
     headers = (() => {
       const nav = [],
-        newHeaderObj = (name = "", children = []) => ({ name, children })
+        newHeaderObj = (id, name = "", children = []) => ({ id, name, children })
       for (let header of content.filter(val => [ "h2", "h3" ].includes(val.type))) {
         const headerContent = (
           Array.isArray(header.props.children) ? (
@@ -41,7 +62,8 @@ const ArticleTemplateContent = ({ contentData }) => {
           ) : (
             header.props.children
           )
-        ), headerObj = header.type === "h2" ? newHeaderObj(headerContent) : nav.pop();
+        ), { id } = header.props,
+          headerObj = header.type === "h2" ? newHeaderObj(id, headerContent) : nav.pop();
 
         if (!headerObj) {
           console.warn("ArticleTemplateContent", "Got 'h3' before 'h2'! Aborting!");
@@ -49,7 +71,7 @@ const ArticleTemplateContent = ({ contentData }) => {
         }
 
         if (header.type === "h3")
-          headerObj.children.push(newHeaderObj(headerContent));
+          headerObj.children.push(newHeaderObj(id, headerContent));
         nav.push(headerObj);
       }
       return nav;
