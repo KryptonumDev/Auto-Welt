@@ -256,7 +256,7 @@ const ContactPageForm = ({ dataForm }) => {
                         {dataForm.podpisPodObszaremDoWyslaniaWiadomosci}
                       </StyledText>
                     </div>
-                    <StyledCustomCheckbox value={values.termsAndConditions}>
+                    <StyledCustomCheckbox iserror={errors.termsAndConditions} value={values.termsAndConditions}>
                       <Field
                         type="checkbox"
                         name="termsAndConditions"
@@ -268,10 +268,10 @@ const ContactPageForm = ({ dataForm }) => {
                       >
                         Akceptuję <Link to="/">politykę prywatności</Link>
                       </label>
-                      <StyledErrorMessage
+                      {/* <StyledErrorMessage
                         name="termsAndConditions"
                         component="div"
-                      />
+                      /> */}
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
                       <button type="submit" disabled={isSubmitting}>

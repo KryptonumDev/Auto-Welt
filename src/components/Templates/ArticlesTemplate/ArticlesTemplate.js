@@ -30,11 +30,6 @@ query artykul($articleId: String) {
             }
           }
         }
-        ktoraKolekcjePolecic {
-          target
-          title
-          url
-        }
         pierwszaSekcja {
           duzeZdjecie {
             altText
@@ -67,6 +62,25 @@ query artykul($articleId: String) {
         }
         sekcjaZAutoremZdjec {
           opis
+        }
+        ktoryArtykulPolecicNaDoleStrony {
+          ... on WpArtykul {
+            id
+            artykul {
+              informacjeDoMiniaturki {
+                miniaturka {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+                tytul
+              }
+            }
+            slug
+          }
         }
       }
       informacjeDoMiniaturki {

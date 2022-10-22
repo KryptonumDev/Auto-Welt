@@ -11,8 +11,8 @@ export const StyledArticleTemplateContent = styled.section`
     @media only screen and (max-width: 768px){
         margin: 60px 0;
     }
-    @media only screen and (max-width: 439px){
-        margin: 10px 0 60px;
+    @media only screen and (max-width: 660px){
+        margin: 0 0 60px;
     }
 `;
 export const StyledAside = styled.aside`
@@ -96,8 +96,20 @@ export const StyledTextContent = styled.div`
                 width: 100%;
             }
         }
+
+        @media only screen and (max-width: 768px){
+            > div {
+                width: 100%;
+            }
+        }
     }
 
+    .size-full{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
     @media only screen and (max-width: 972px){
         width: 60%;
     }

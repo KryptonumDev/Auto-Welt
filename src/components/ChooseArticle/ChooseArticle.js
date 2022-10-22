@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 
 import Button from "../Button/Button";
 
@@ -8,65 +8,56 @@ import {
   StyledArticle,
   StyledImageWrapper,
   StyledTextWrapper,
+  StyledBgWrapper
 } from "./StyledChooseArticle";
 import { StyledText } from "../Text/StyledText";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 
 const ChooseArticle = ({ chosenArticle }) => {
-  const [article, setArticle] = useState();
-  const data = useStaticQuery(graphql`
-    query approveArticle{
-      allWpArtykul {
-        edges {
-          node {
-            slug
-            title
-            artykul {
-              informacjeDoMiniaturki {
-                miniaturka {
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
-                  altText
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-  
-  // useEffect(() => {
-  //   const article1 = data.allWpArtykul.edges.filter(({ node }) => node.title == chosenArticle.title)
-  //   console.log(...article1);
-  //   setArticle(...article1)
-  //   // console.log(article1);
-  //   // console.log(article)
-  // }, [chosenArticle, data])
-
   return (
     <StyledChooseArticle>
       <StyledText
-        hasdeclaredfontsize="Nocturne Serif"
+        hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontlineheight="1.2em"
         hasdeclaredpadding="0 0 40px 0"
         hasdeclaredfontcolor="#23423D"
+        hasdeclaredfontsize="48px"
+        as="h2"
       >
-        Zobacz również
+        Zobacz również:
       </StyledText>
       <StyledArticle>
         <StyledImageWrapper>
-          {/* <GatsbyImage 
-            image={getImage(article.node.artykul.informacjeDoMiniaturki.miniaturka.localFile)}
-            alt={article.node.artykul.informacjeDoMiniaturki.miniaturka.altText}
-          /> */}
+          <GatsbyImage 
+            image={getImage(chosenArticle.artykul.informacjeDoMiniaturki.miniaturka.localFile)}
+            alt={chosenArticle.artykul.informacjeDoMiniaturki.miniaturka.altText}
+          />
         </StyledImageWrapper>
         <StyledTextWrapper>
-          <StyledText>dsadsa</StyledText>
-          {/* <Button /> */}
+          <StyledBgWrapper>
+            <StaticImage
+              src="../../images/tloPolecenia.png"
+            />
+          </StyledBgWrapper>
+          <StyledText
+            hasdeclaredfontweight="500"
+            hasdeclaredfontsize="24px"
+            hasdeclaredlineheight="1.2em"
+            hasdeclaredtextalign="center"
+            hasdeclaredfontcolor="#23423D"
+          >
+            {chosenArticle.artykul.informacjeDoMiniaturki.tytul}
+          </StyledText>
+          <Button
+            text="Dowiedz się więcej"
+            whereGo={`/artykuly/${chosenArticle.slug}`}
+            bgColor="var(--secondary500)"
+            textColor="var(--primary900)"
+            hasDeclaredPadding="10px 33px"
+            hasFontSize="21px"
+            hoverBgColor="var(--secondary700)"
+            hasBorder="2px solid transparent"
+          />
         </StyledTextWrapper>
       </StyledArticle>
     </StyledChooseArticle>
