@@ -12,9 +12,18 @@ export const StyledArticleCustomQuote = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 35px;
-    margin: 60px 0;
 `;
 export const StyledIconWrapper = styled.div``;
 export const StyledTextWrapper = styled.div`
+    font-family: 'Nocturne Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
     text-align: center;
+    color: #23423D;
+
+    @media only screen and (max-width: 768px){
+        font-size: 24px;
+    }
 `;

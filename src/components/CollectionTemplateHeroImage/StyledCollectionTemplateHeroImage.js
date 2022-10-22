@@ -41,11 +41,11 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   }
 `;
 export const StyledGatsbyImage = styled(GatsbyImage)`
-filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+
 `;
 export const StyledHeroImage = styled.div`
   width: 100%;
-  
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
   @media only screen and (max-width: 768px) {
     max-height: 428px;
   }
@@ -67,6 +67,14 @@ export const StyledTitleWrapper = styled.div`
       position: relative;
       text-align: center;
       padding: 16px;
+      p{
+        strong, em{
+          color: #EDAC2A;
+          font-weight: normal;
+          font-style: normal;
+        }
+      }
+      color: #fff;
       @media only screen and (max-width: 768px) {
         font-size: 38px;
       }

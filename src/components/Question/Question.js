@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getImage, withArtDirection, GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
-import { AnimatePresence } from "framer-motion";
 
 import {
   StyledQuestion,

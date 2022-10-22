@@ -7,4 +7,22 @@ export const StyledArticlePhotoInfo = styled.div`
     gap: 20px;
     margin: 70px 0 120px;
 `;
-export const StyledTextWrapper = styled.div``;
+export const StyledTextWrapper = styled.div`
+    p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px !important;
+        line-height: 1.2em;
+        color: #000000;
+        a{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.2em
+            text-decoration-line: underline;
+            color: #23423D;
+        }
+    }
+`;

@@ -17,11 +17,11 @@ const ArticleElement = ({ articleData }) => {
   return (
     <StyledArticleElement>
       <StyledImageWrapper>
-        {/* <GatsbyImage
-          image={getImage()}
-          alt={}
+        <GatsbyImage
+          image={getImage(articleData.artykul.informacjeDoMiniaturki.miniaturka.localFile)}
+          alt={articleData.artykul.informacjeDoMiniaturki.miniaturka.altText}
           objectFit="cover"
-        /> */}
+        />
       </StyledImageWrapper>
       <StyledTextWrapper>
         <StyledBgWrapper>
@@ -37,7 +37,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontcolor="rgba(0, 0, 0, 0.8)"
             hasdeclaredfontweight="400"
           >
-            tutaj data
+            {articleData.date}
           </StyledText>
         </StyledDate>
         <StyledTitle>
@@ -47,7 +47,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontcolor="#23423D"
             hasdeclaredfontweight="500"
           >
-            tutaj tytuł
+            {articleData.artykul.informacjeDoMiniaturki.tytul}
           </StyledText>
         </StyledTitle>
         <StyledLinkWrapper>
@@ -57,8 +57,9 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontcolor="#23423D"
             hasdeclaredfontweight="500"
             hasdeclaredtextdecoration="underline"
+            to={articleData.slug}
           >
-            tutaj link
+            Zobacz więcej
           </StyledLink>
         </StyledLinkWrapper>
       </StyledTextWrapper>

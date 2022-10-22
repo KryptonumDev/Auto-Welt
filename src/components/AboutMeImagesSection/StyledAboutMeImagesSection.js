@@ -88,6 +88,7 @@ export const StyledTextWrapper = styled.div`
     text-decoration-line: underline;
     color: #23423d;
   }
+
   @media only screen and (max-width: 420px) {
     font-size: 14px;
   }

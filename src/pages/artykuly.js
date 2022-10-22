@@ -28,6 +28,19 @@ export const query = graphql`
       edges {
         node {
           slug
+          artykul {
+            informacjeDoMiniaturki {
+              tytul
+              miniaturka {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+          date
         }
       }
     }

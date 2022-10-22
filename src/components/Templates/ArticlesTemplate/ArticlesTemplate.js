@@ -30,6 +30,11 @@ query artykul($articleId: String) {
             }
           }
         }
+        ktoraKolekcjePolecic {
+          target
+          title
+          url
+        }
         pierwszaSekcja {
           duzeZdjecie {
             altText

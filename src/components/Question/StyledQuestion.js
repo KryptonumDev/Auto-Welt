@@ -21,6 +21,13 @@ export const StyledAnswerWrapper = styled(motion.div)`
   ol {
     margin-left: 20px;
   }
+  p{
+    strong, em{
+      color: #EDAC2A;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
   @media only screen and (max-width: 768px) {
     color: #23423d;
     font-size: 16px;
@@ -71,6 +78,13 @@ export const StyledQuestionText = styled.div`
   font-weight: 500;
   color: #fff;
   max-width: 70%;
+  p{
+    strong, em{
+      color: #EDAC2A;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
   @media only screen and (max-width: 375px) {
     font-size: 15px;
   }

@@ -72,7 +72,6 @@ export const StyledElement = styled.div`
   }
 `;
 export const StyledImage = styled.div`
-  height: 100%;
   width: 409px;
   min-height: 372px;
   img {

@@ -38,54 +38,117 @@ const CollectionTemplate = ({ data }) => {
     ]
   );
   return (
-    <StyledCollectionTemplate>
-      <CollectionTemplateHeroImage
-        heroData={shortCollectionData.pierwszaSekcja}
-      />
-      <ThreeCollectionImages
-        imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
-      />
-      <CollectionTemplateDesc
-        descData={shortCollectionData.informacjeOKolekcji}
-      />
-      <CollectionImageUnderDescImages imagesData={shortCollectionData} />
-      <CollectionElementSlider
-        imagesData={shortCollectionData.zdjeciaDoSlidera}
-      />
-      {shortCollectionData.ktoraKolekcjePolecic && images && (
-        <RecInfoWithButton
-          bgImage={images}
-          text={
-            shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje
-          }
-          btnText={shortCollectionData.ktoraKolekcjePolecic.title}
-          btnBgColor="var(--secondary500)"
-          btnColor="var(--primary900)"
-          btnWhereGo={shortCollectionData.ktoraKolekcjePolecic.url}
-          btnPadding="10px 32px"
-          btnFontSize="21px"
-          hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
-          btnHoverBg="var(--secondary700)"
+    <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden"}}>
+      <StyledCollectionTemplate>
+        <CollectionTemplateHeroImage
+          heroData={shortCollectionData.pierwszaSekcja}
         />
-      )}
-      {shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony && (
-        <CollectionElementThreeImages
-          imagesData={shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony}
-          linkData={shortCollectionData.wszystkieKolekcjieLink}
+        <ThreeCollectionImages
+          imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
         />
-      )}
-    </StyledCollectionTemplate>
+        {console.log(shortCollectionData)}
+        <CollectionTemplateDesc
+          descData={shortCollectionData.informacjeOKolekcji}
+        />
+        <CollectionImageUnderDescImages imagesData={shortCollectionData} />
+        <CollectionElementSlider
+          imagesData={shortCollectionData.zdjeciaDoSlidera}
+        />
+        {shortCollectionData.ktoraKolekcjePolecic && images && (
+          <RecInfoWithButton
+            bgImage={images}
+            text={
+              shortCollectionData.tekstWZielonymProstokaciePolecajacyInnaKolekcje
+            }
+            btnText={shortCollectionData.ktoraKolekcjePolecic.title}
+            btnBgColor="var(--secondary500)"
+            btnColor="var(--primary900)"
+            btnWhereGo={shortCollectionData.ktoraKolekcjePolecic.url}
+            btnPadding="10px 32px"
+            btnFontSize="21px"
+            hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
+            btnHoverBg="var(--secondary700)"
+          />
+        )}
+        {shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony && (
+          <CollectionElementThreeImages
+            imagesData={shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony}
+            linkData={shortCollectionData.wszystkieKolekcjieLink}
+          />
+        )}
+      </StyledCollectionTemplate>
+    </div>
   );
 };
 
 export default CollectionTemplate;
 
 export const query = graphql`
-  query kolekcja($kolekcjaId: String) {
-    wpKolekcje(id: { eq: $kolekcjaId }) {
-      kolekcja {
-        dedykowanaStronaDlaKolekcji {
-          zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
+query kolekcja($kolekcjaId: String) {
+  wpKolekcje(id: {eq: $kolekcjaId}) {
+    kolekcja {
+      dedykowanaStronaDlaKolekcji {
+        zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        zdjeciaDoSlidera {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        wszystkieKolekcjieLink {
+          url
+          title
+          target
+        }
+        trzyZdjeciaNaSamymSpodzieStrony {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          altText
+        }
+        trzyMaleZdjeciaModeli {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        tekstWZielonymProstokaciePolecajacyInnaKolekcje
+        prostokatneZdjeciePodOpisem {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        ktoraKolekcjePolecic {
+          url
+          title
+          target
+        }
+        pierwszaSekcja {
+          kolorowyTytulNaZieloneTlo
+          zdjecieGlowne {
             altText
             localFile {
               childImageSharp {
@@ -93,7 +156,7 @@ export const query = graphql`
               }
             }
           }
-          zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
+          zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
             altText
             localFile {
               childImageSharp {
@@ -101,92 +164,31 @@ export const query = graphql`
               }
             }
           }
-          zdjeciaDoSlidera {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          wszystkieKolekcjieLink {
+          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
             url
             title
             target
           }
-          trzyZdjeciaNaSamymSpodzieStrony {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-            altText
-          }
-          trzyMaleZdjeciaModeli {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
+        }
+        zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
-          tekstWZielonymProstokaciePolecajacyInnaKolekcje
-          prostokatneZdjeciePodOpisem {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
+        }
+        zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
-          ktoraKolekcjePolecic {
-            url
-            title
-            target
-          }
-          informacjeOKolekcji {
-            zdjecie {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-            opisKolekcji
-          }
-          pierwszaSekcja {
-            kolorowyTytulNaZieloneTlo
-            zdjecieGlowne {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-            zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-            gdzieMaPrzenosicLinkPodZdjeciemGlownym {
-              url
-              title
-              target
-            }
-          }
-          zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
+        }
+        informacjeOKolekcji {
+          opisKolekcji
+          zdjecie {
             altText
             localFile {
               childImageSharp {
@@ -198,4 +200,5 @@ export const query = graphql`
       }
     }
   }
+}
 `;

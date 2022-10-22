@@ -25,6 +25,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
               hasdeclaredfontweight="400"
               hasdeclaredlineheight="1.2em"
               hasdeclaredfontcolor="#EDAC2A"
+              hasdeclaredmargin="0 0 15px 0"
             >
               Spis treści:
             </StyledText>
@@ -36,9 +37,11 @@ const CustomAside = ({ tableOfContents, asideData }) => {
                     {
                       h2.children.map(
                         h3 => (
-                          <div>
-                            <a href={`#${h3.id}`}>{h3.name}</a>
-                          </div>
+                          <ul>
+                            <li>
+                              <a href={`#${h3.id}`}>{h3.name}</a>
+                            </li>
+                          </ul>
                         )
                       )
                     }
@@ -82,6 +85,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             hasFontSize="21px"
             hasTarget={asideData?.pierwszyPrzycisk.target}
             hoverBgColor="var(--secondary700)"
+            hasBorder="2px solid transparent"
           />
           <Button
             whereGo={asideData?.drugiPrzycisk.url}
@@ -93,6 +97,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             hasFontWeight="500"
             hasTarget={asideData?.drugiPrzycisk.target}
             hoverBgColor="var(--primary900)"
+            hasBorder="2px solid var(--primary500)"
           />
         </StyledButtonsWrapper>
       </StyledChooseCollections>

@@ -28,8 +28,7 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
       </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>
-          <ArticleElement articleData />
-          <ArticleElement articleData />
+          {allArticles.map(({ node }) => <ArticleElement articleData={node} />)}
         </StyledSlidesWrapper>
         <StyledPagginationWrapper>
           <StyledTopPaggination></StyledTopPaggination>

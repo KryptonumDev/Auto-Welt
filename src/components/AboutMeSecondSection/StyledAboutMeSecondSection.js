@@ -93,6 +93,23 @@ export const StyledDescWrapper = styled.div`
   line-height: 1.2em;
   margin-top: 30px;
 
+  strong, em{
+    position: relative;
+    z-index: 1;
+    font-weight: normal;
+    font-style: normal;
+    &:before{
+      content: '';
+      width: 100%;
+      background: #F6E2BA;
+      height: 15px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
   @media only screen and (max-width: 1036px) {
     font-size: 20px;
   }
@@ -101,24 +118,6 @@ export const StyledDescWrapper = styled.div`
   }
   @media only screen and (max-width: 375px) {
     font-size: 16px;
-  }
-
-  p{
-    strong, em{
-      position: relative;
-      font-weight: normal;
-      font-style: normal;
-      &:before{
-        content: '';
-        width: 100%;
-        background: #F6E2BA;
-        height: 15px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-      }
-    }
   }
 `;
 export const StyledTopImage = styled.div``;
@@ -200,25 +199,16 @@ export const StyledGreetingText = styled.div`
   font-size: 28px;
   line-height: 1.2em;
   padding: 48px 0 48px 59px;
+  color: #fff;
   @media only screen and (max-width: 542px) {
     font-size: 24px;
   }
 
   p{
     strong, em{
-      position: relative;
+      color: #EDAC2A;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
-        width: 100%;
-        background: #F6E2BA;
-        height: 15px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-      }
     }
   }
 `;
