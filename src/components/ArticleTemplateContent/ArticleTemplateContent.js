@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 import ChooseArticle from "../ChooseArticle/ChooseArticle";
 import CustomAside from "../CustomAside/CustomAside";
@@ -19,6 +20,23 @@ const ArticleTemplateContent = ({ contentData }) => {
         <CustomAside asideData={contentData.artykul.dedykowanaStronaArtykulu.sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony} />
       </StyledAside>
       <StyledTextContent>
+        {parse(contentData.content, {
+          replace: (domNode) => {
+            if (domNode.name === "blockquote")
+              return (
+                <ArticleCustomQuote
+                  quoteText={
+                    domNode.children
+                    .find(
+                      child => child.name === "cite"
+                    )
+                    ?.children?.[0]
+                    ?.data
+                  }
+                />
+              );
+          }
+        })}
         <ArticleCustomQuote quoteText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. " />
         <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu}/>
         <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis} />
