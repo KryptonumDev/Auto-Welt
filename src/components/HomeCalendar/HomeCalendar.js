@@ -65,8 +65,8 @@ const HomeCalendar = () => {
       </StyledText>
       <CalendarComponent
         exhibitions={data.allWpWystawa.edges.map((edge) => ({
-          ...edge.node.wystawa,
-          data: new Date(edge.node.wystawa.data),
+          ...edge.node.wystawa.informacjeOgolne,
+          data: new Date(edge.node.wystawa.informacjeOgolne.data),
           title: edge.node.title,
         }))}
       />
