@@ -18,7 +18,7 @@ const ArticleCustomQuote = ({ quoteText }) => {
         />
       </StyledIconWrapper>
       <StyledTextWrapper>
-        {parse(quoteText)}
+        {quoteText && parse(quoteText)}
       </StyledTextWrapper>
     </StyledArticleCustomQuote>
   );

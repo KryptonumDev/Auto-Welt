@@ -6,11 +6,11 @@ import { StyledArticleGalleryImage } from "./StyledArticleGalleryImage";
 const ArticleGalleryImage = ({ images }) => {
   return (
     <StyledArticleGalleryImage>
-      {images.map(image => (
+      {images?.map(image => (
         <div>
           <GatsbyImage
-            image={getImage(image.localFile)}
-            alt={image.altText}
+            image={getImage(image?.localFile)}
+            alt={image?.altText}
           />
         </div>
       ))}

@@ -20,8 +20,8 @@ const ArticleTemplateContent = ({ contentData }) => {
       </StyledAside>
       <StyledTextContent>
         <ArticleCustomQuote quoteText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. " />
-        <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu.galeriaNaKoncuArtykulu}/>
-        <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec.opis} />
+        <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu}/>
+        <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis} />
         <ChooseArticle />
       </StyledTextContent>
     </StyledArticleTemplateContent>

@@ -77,18 +77,18 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           hasdeclaredtextalign="center"
           hasdeclaredfontcolor="#23423D"
         >
-          {collectionData.tytulSekcji && collectionData.tytulSekcji}
+          {collectionData?.tytulSekcji}
         </StyledText>
         <StyledSlidesWrapper>
-          {data.allWpKolekcje.edges.map(({ node }, index) => (
+          {data.allWpKolekcje.edges?.map(({ node }, index) => (
             <StyledSlide key={index}>
               <StyledImageWrapper>
                 {node.informacjeGlowne?.duzaMiniaturka && (
                   <GatsbyImage
                     image={getImage(
-                      node.informacjeGlowne.duzaMiniaturka.localFile
+                      node.informacjeGlowne.duzaMiniaturka?.localFile
                     )}
-                    alt={node.informacjeGlowne.duzaMiniaturka.altText}
+                    alt={node.informacjeGlowne.duzaMiniaturka?.altText}
                   />
                 )}
               </StyledImageWrapper>
@@ -98,11 +98,11 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                     <GatsbyImage
                       image={getImage(
                         node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
-                          .localFile
+                          ?.localFile
                       )}
                       alt={
                         node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
-                          .altText
+                          ?.altText
                       }
                     />
                   )}
@@ -114,7 +114,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                     hasdeclaredlineheight="1.2em"
                     hasdeclaredfontcolor="#23423D"
                   >
-                    {node.nazwaKolekcji && node.nazwaKolekcji}
+                    {node?.nazwaKolekcji}
                   </StyledText>
                 </StyledTitleWrapper>
               </StyledTextWrapper>
@@ -125,10 +125,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
       <StyledReqWrapper>
         <RecInfoWithButton
           bgImage={images}
-          text={collectionData.tekstWZielonymProstokacie}
-          btnText={collectionData.linkWZielonymProstokacie.title}
-          btnWhereGo={collectionData.linkWZielonymProstokacie.url}
-          hasTarget={collectionData.linkWZielonymProstokacie.target}
+          text={collectionData?.tekstWZielonymProstokacie}
+          btnText={collectionData?.linkWZielonymProstokacie.title}
+          btnWhereGo={collectionData?.linkWZielonymProstokacie.url}
+          hasTarget={collectionData?.linkWZielonymProstokacie.target}
           btnPadding="10px 33px"
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"

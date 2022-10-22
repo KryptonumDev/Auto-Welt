@@ -47,7 +47,7 @@ const CustomAside = ({ asideData }) => {
             hasdeclaredtextdecoration="underline"
             hasdeclaredlineheight="1.2"
           >
-            {kolekcja.title}
+            {kolekcja?.title}
           </StyledLink>
         ))}
         <StyledButtonsWrapper>

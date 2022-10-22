@@ -15,7 +15,7 @@ const ArticlePhotoInfo = ({ desc}) => {
         src="../../images/Aparat.png"
       />
       <StyledTextWrapper>
-        {parse(desc)}
+        {desc && parse(desc)}
       </StyledTextWrapper>
     </StyledArticlePhotoInfo>
   );

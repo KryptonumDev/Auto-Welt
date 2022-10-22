@@ -24,7 +24,7 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
         hasdeclaredfontcolor="#23423D"
         hasdeclaredpadding="0 0 40px 0"
       >
-        {title}
+        {title && title}
       </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>

@@ -16,8 +16,8 @@ const ArticleHeroSection = ({ heroData }) => {
     <StyledArticleHeroSection>
       <StyledImage>
         <GatsbyImage 
-          image={getImage(heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja.duzeZdjecie.localFile)}
-          alt={heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja.duzeZdjecie.altText}
+          image={getImage(heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja?.duzeZdjecie?.localFile)}
+          alt={heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja?.duzeZdjecie?.altText}
         />
       </StyledImage>
       <StyledTag>
@@ -32,7 +32,7 @@ const ArticleHeroSection = ({ heroData }) => {
           hasdeclaredfontweight="600"
           hasdeclaredfontcolor="#EDAC2A"
         >
-          {heroData.terms.nodes[0].name}
+          {heroData?.terms?.nodes[0]?.name}
         </StyledText>
       </StyledTag>
       <StyledTextWrapper>
@@ -50,7 +50,7 @@ const ArticleHeroSection = ({ heroData }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredtextalign="center"
         >
-          {heroData.artykul.informacjeDoMiniaturki.tytul}
+          {heroData.artykul.informacjeDoMiniaturki?.tytul}
         </StyledText>
       </StyledTextWrapper>
     </StyledArticleHeroSection>
