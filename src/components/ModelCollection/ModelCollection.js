@@ -60,6 +60,7 @@ const ModelCollection = ({ collectionData, slug }) => {
             hasFontSize="21px"
             hasFontWeight="500"
             hasDeclaredPadding="10px 33px"
+            hasBorder="2px solid var(--primary500)"
           />
         )}
       </StyledButtonSpace>
