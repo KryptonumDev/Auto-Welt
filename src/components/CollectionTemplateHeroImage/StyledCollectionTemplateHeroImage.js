@@ -40,10 +40,12 @@ export const StyledCollectionTemplateHeroImage = styled.section`
     }
   }
 `;
-export const StyledGatsbyImage = styled(GatsbyImage)``;
+export const StyledGatsbyImage = styled(GatsbyImage)`
+filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+`;
 export const StyledHeroImage = styled.div`
   width: 100%;
-
+  
   @media only screen and (max-width: 768px) {
     max-height: 428px;
   }

@@ -11,10 +11,10 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
   return (
     <StyledCollectionImageUnderDescImages>
       <StyledTopImage>
-        {imagesData.prostokatneZdjeciePodOpisem && (
+        {imagesData?.prostokatneZdjeciePodOpisem && (
           <GatsbyImage
-            image={getImage(imagesData.prostokatneZdjeciePodOpisem.localFile)}
-            alt={imagesData.prostokatneZdjeciePodOpisem.altText}
+            image={getImage(imagesData.prostokatneZdjeciePodOpisem?.localFile)}
+            alt={imagesData.prostokatneZdjeciePodOpisem?.altText}
           />
         )}
       </StyledTopImage>
@@ -22,9 +22,9 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
         {imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi && (
           <GatsbyImage
             image={getImage(
-              imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.localFile
+              imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.localFile
             )}
-            alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi.altText}
+            alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.altText}
           />
         )}
       </StyledBottomImage>

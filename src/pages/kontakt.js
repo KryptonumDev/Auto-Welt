@@ -25,7 +25,7 @@ const Contact = ({ data }) => {
     <StyledContact>
       <StyledText
         as="h1"
-        hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+        hasdeclaredfontsize="48px"
         hasdeclaredfontcolor="var(--primary500)"
         hasdeclaredmargin="45px 0 30px"
         hasdeclaredfontfamily="Nocturne Serif"

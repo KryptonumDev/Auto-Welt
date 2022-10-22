@@ -10,12 +10,12 @@ const ThreeCollectionImages = ({ imagesData }) => {
   return (
     <StyledThreeCollectionImages>
       {imagesData &&
-        imagesData.map((image, index) => {
+        imagesData?.map((image, index) => {
           return (
             <StyledImageWrapper key={index}>
               <GatsbyImage
-                image={getImage(image.localFile)}
-                alt={image.altText}
+                image={getImage(image?.localFile)}
+                alt={image?.altText}
               />
             </StyledImageWrapper>
           );

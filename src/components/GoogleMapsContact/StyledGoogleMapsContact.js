@@ -12,7 +12,7 @@ export const StyledGoogleMapsContact = styled.section`
   }
   @media only screen and (max-width: 375px) {
     > h2 {
-      font-size: 34;
+      font-size: 34px;
     }
   }
 `;

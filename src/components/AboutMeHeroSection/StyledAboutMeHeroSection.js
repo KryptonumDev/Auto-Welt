@@ -45,6 +45,24 @@ export const StyledTitleWrapper = styled.div`
   @media only screen and (max-width: 450px) {
     font-size: 34px;
   }
+
+  p{
+    strong, em{
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+      &:before{
+        content: '';
+        width: 100%;
+        background: #F6E2BA;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
 `;
 export const StyledSubTitleWrapper = styled.div`
   font: 400 28px/1.2em "Nocturne Serif";
@@ -56,6 +74,24 @@ export const StyledSubTitleWrapper = styled.div`
   }
   @media only screen and (max-width: 816px) {
     font-size: 24px;
+  }
+
+  p{
+    strong, em{
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+      &:before{
+        content: '';
+        width: 100%;
+        background: #F6E2BA;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
   }
 `;
 export const StyledDescWrapper = styled.div`
@@ -71,6 +107,24 @@ export const StyledDescWrapper = styled.div`
   }
   @media only screen and (max-width: 450px) {
     font-size: 16px;
+  }
+
+  p{
+    strong, em{
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+      &:before{
+        content: '';
+        width: 100%;
+        background: #F6E2BA;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
   }
 `;
 export const StyledButtonWrapper = styled.div`

@@ -17,8 +17,8 @@ const CollectionTemplateDesc = ({ descData }) => {
       <StyledImageWrapper>
         {descData?.zdjecie && (
           <GatsbyImage
-            image={getImage(descData.zdjecie.localFile)}
-            alt={descData.zdjecie.altText}
+            image={getImage(descData.zdjecie?.localFile)}
+            alt={descData.zdjecie?.altText}
           />
         )}
       </StyledImageWrapper>

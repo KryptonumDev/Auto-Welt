@@ -69,4 +69,22 @@ export const StyledTextWrapper = styled.div`
   @media only screen and (max-width: 375px){
     font-size: 16px;
   }
+
+  p{
+    strong, em{
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+      &:before{
+        content: '';
+        width: 100%;
+        background: #F6E2BA;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
 `;

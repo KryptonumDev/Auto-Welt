@@ -18,8 +18,8 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
       <StyledHeroImage>
         {heroData?.zdjecieGlowne && (
           <StyledGatsbyImage
-            image={getImage(heroData.zdjecieGlowne.localFile)}
-            alt={heroData.zdjecieGlowne.altText}
+            image={getImage(heroData.zdjecieGlowne?.localFile)}
+            alt={heroData.zdjecieGlowne?.altText}
           />
         )}
       </StyledHeroImage>
@@ -27,10 +27,10 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
         <StyledTitleImageWraper>
           <GatsbyImage
             image={getImage(
-              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.localFile
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.localFile
             )}
             alt={
-              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem.altText
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.altText
             }
           />
         </StyledTitleImageWraper>
@@ -38,15 +38,15 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
       </StyledTitleWrapper>
       {heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym && (
         <Button
-          whereGo={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym.url}
-          text={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym.title}
+          whereGo={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.url}
+          text={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.title}
           bgColor="var(--creamBg)"
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
           hasDeclaredPadding="10px 36px"
           hasFontWeight="500"
           hasFontSize="21px"
-          hasTarget={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym.target}
+          hasTarget={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.target}
         />
       )}
     </StyledCollectionTemplateHeroImage>
