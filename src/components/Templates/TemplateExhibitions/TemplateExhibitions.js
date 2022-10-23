@@ -22,6 +22,7 @@ query wystawyQuerPage($wystawaId: String) {
   wpWystawa(id: {eq: $wystawaId}) {
     wystawa {
       informacjeOgolne {
+        data
         czyWystawaJestAktualnaJezeliNieToJestPlanowana
         tytulPodZdjeciem
       }

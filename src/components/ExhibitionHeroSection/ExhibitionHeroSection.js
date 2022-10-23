@@ -17,7 +17,11 @@ import {
 } from "../ArticleHeroSection/StyledArticleHeroSection";
 import { StyledText } from "../Text/StyledText";
 
+import { areDatesEqual } from "../../utils/date";
+
 const ExhibitionHeroSection = ({ heroData }) => {
+  const date = new Date(heroData.wystawa.informacjeOgolne.data),
+    now = new Date();
   console.log(heroData)
   return (
     <StyledExhibitionHeroSection>
@@ -34,7 +38,17 @@ const ExhibitionHeroSection = ({ heroData }) => {
             hasdeclaredfontweight="600"
             hasdeclaredfontcolor="#EDAC2A"
           >
-            WYSTAWA tutaj trzeba warunek
+            Wystawa {
+              heroData.wystawa.informacjeOgolne.czyWystawaJestAktualnaJezeliNieToJestPlanowana ? (
+                "aktualna"
+              ) : (
+                date.getTime() > now.getTime() || areDatesEqual(date, now) ? (
+                  "planowana"
+                ) : (
+                  "archiwalna"
+                )
+              )
+            }
           </StyledText>
         </StyledTag>
         <StyledTextWrapper>
