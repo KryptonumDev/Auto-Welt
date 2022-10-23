@@ -18,6 +18,7 @@ export const StyledButtonLink = styled(StyledLink)`
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
   transition: background 250ms;
+
   > span {
     display: block;
     transform: skew(26deg);
@@ -30,6 +31,12 @@ export const StyledButtonLink = styled(StyledLink)`
     background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
     border: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
+  }
+
+  &:focus{
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #DA9610;
   }
 `;
 
@@ -60,6 +67,7 @@ export const StyledButtonLinkNoHref = styled.p`
   margin: ${({ hasdeclaredmargin }) =>
     hasdeclaredmargin ? hasdeclaredmargin : "0"};
   font-family: "Roboto";
+  
   > span {
     display: block;
     transform: skew(26deg);
@@ -69,10 +77,17 @@ export const StyledButtonLinkNoHref = styled.p`
     font-weight: ${({ hasfontweight }) =>
       hasfontweight ? hasfontweight : "500"};
   }
+
   &:hover {
     background-color: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor};
     border: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
+  }
+
+  &:focus{
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #DA9610;
   }
 `;

@@ -48,7 +48,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           {collectionData?.tytulSekcji}
         </StyledText>
         <StyledSlidesWrapper>
-          <StyledSlide>
+          <StyledSlide to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}>
             <StyledImageWrapper>
               <GatsbyImage
                 image={getImage(
@@ -61,7 +61,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 }
               />
             </StyledImageWrapper>
-            <StyledTextWrapper to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}>
+            <StyledTextWrapper>
               <StyledTitleImage>
                 <StaticImage
                   src="../../images/polecanaKolekcja.png"
@@ -80,7 +80,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
               </StyledTitleWrapper>
             </StyledTextWrapper>
           </StyledSlide>
-          <StyledSlide>
+          <StyledSlide to={`/kolekcje-modeli/${collectionData.drugaKolekcjaKtoraPolecasz.slug}`}>
             <StyledImageWrapper>
               <GatsbyImage
                 image={getImage(
@@ -93,7 +93,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 }
               />
             </StyledImageWrapper>
-            <StyledTextWrapper to={`/kolekcje-modeli/${collectionData.drugaKolekcjaKtoraPolecasz.slug}`}>
+            <StyledTextWrapper>
               <StyledTitleImage>
                 <StaticImage
                   src="../../images/polecanaKolekcja.png"

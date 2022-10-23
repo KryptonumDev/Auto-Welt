@@ -48,10 +48,12 @@ const Style = createGlobalStyle`
         --creamBg: #faf7f1;
         scroll-behavior: smooth;
     }
+
     body {
       overflow-x: hidden;
       width: 100%;
       background-color: var(--background500);
+      
       &.no-js {
         visibility: hidden;
       }
@@ -63,6 +65,7 @@ const Style = createGlobalStyle`
         box-sizing: border-box;
         -webkit-tap-highlight-color: transparent;
     }
+
     *::before,
     *::after{
         box-sizing: inherit;

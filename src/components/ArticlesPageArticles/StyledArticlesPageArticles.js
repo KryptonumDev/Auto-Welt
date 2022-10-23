@@ -80,7 +80,12 @@ export const StyledInput = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    outline-color: #EDAC2A;
+    
+    &:focus{
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #DA9610;
+    }
 
     &:active{
       background: #E9E4D6;
@@ -102,5 +107,10 @@ export const StyledButton = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  outline-color: #EDAC2A;
+  
+  &:focus{
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #DA9610;
+  }
 `

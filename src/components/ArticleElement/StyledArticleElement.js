@@ -19,9 +19,8 @@ export const StyledArticleElement = styled(Link)`
   }
 
   > div {
-
+    
     &:first-child{
-
       img {
         transition: transform 250ms, mix-blend-mode 250ms;
         mix-blend-mode: multiply;
@@ -34,7 +33,6 @@ export const StyledArticleElement = styled(Link)`
     > div {
 
       &:first-child{
-
         img {
           transform: scale(1.1);
           mix-blend-mode: unset;

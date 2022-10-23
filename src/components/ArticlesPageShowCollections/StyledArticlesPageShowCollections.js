@@ -30,7 +30,7 @@ export const StyledSlidesWrapper = styled.div`
     gap: 40px;
   }
 `;
-export const StyledSlide = styled.div`
+export const StyledSlide = styled(Link)`
   width: calc(50% - 8px);
   min-height: 305px;
   position: relative;
@@ -44,20 +44,31 @@ export const StyledImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+
   img {
     width: 100%;
     height: 100%;
+    mix-blend-mode: multiply;
   }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
+  }
+
+  &:hover{
+    img {
+      transition: transform 250ms, mix-blend-mode 250ms;
+      transform: scale(1.1);
+      mix-blend-mode: unset;
+    }
   }
 
   @media only screen and (max-width: 472px){
     height: 230px;
   }
 `;
-export const StyledTextWrapper = styled(Link)`
+export const StyledTextWrapper = styled.div`
   max-width: 386px;
   width: 80%;
   min-height: 111px;

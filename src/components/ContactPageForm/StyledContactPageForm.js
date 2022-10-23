@@ -107,10 +107,12 @@ export const StyledInputWrapper = styled.div`
   width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
   max-width: ${({ fullwidth }) => (fullwidth ? "unset" : "255px")};
   position: relative;
+
   label {
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
   }
+
   input {
     width: 100%;
     height: 38px;
@@ -120,10 +122,13 @@ export const StyledInputWrapper = styled.div`
     background-color: var(--creamBg);
     padding: 0 14px;
     outline-color: var(--primary500);
-    &:focus {
-      outline-color: #edac2a;
-    }
     font-family: "Roboto";
+
+    &:focus{
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #DA9610;
+    }
   }
   textarea {
     width: 100%;
@@ -135,21 +140,26 @@ export const StyledInputWrapper = styled.div`
     resize: none;
     font-family: "Roboto";
     padding: 10px;
-    outline-color: var(--primary500);
-    &:focus {
-      outline-color: #edac2a;
+
+    &:focus{
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #DA9610;
     }
   }
 
   @media only screen and (max-width: 1087px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
   }
+
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
+
   @media only screen and (max-width: 912px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "45%")};
   }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
   }
@@ -167,10 +177,12 @@ export const StyledMessageWrapper = styled.div`
   @media only screen and (max-width: 907px) {
     padding: 0 43px;
   }
+  
   @media only screen and (max-width: 592px) {
     padding: 0 26px;
   }
 `;
+
 export const StyledTitle = styled.div`
   font: 400 36px/1.2rem "Nocturne Serif";
   color: #23423d;
@@ -179,44 +191,53 @@ export const StyledTitle = styled.div`
     font-size: 34px;
   }
 `;
+
 export const StyledSubTitle = styled.div`
   font: 400 24px/1.2em "Nocturne Serif";
   color: #1d2b29;
   margin-top: 10px;
+
   @media only screen and (max-width: 375px) {
     font-size: 22px;
   }
 `;
+
 export const StyledDesc = styled.div`
   font: 400 20px/1.4em "Roboto";
   color: #000;
   margin-top: 20px;
+
   @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
 `;
+
 export const StyledButtonsWrapper = styled.div`
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+
   a,
   p {
     margin-left: 15px;
   }
+
   @media only screen and (max-width: 1065px) {
     a,
     p {
       font-size: 18px;
     }
   }
+
   @media only screen and (max-width: 685px) {
     a,
     p {
       font-size: 16px;
     }
   }
+
   @media only screen and (max-width: 592px) {
     width: 100%;
     align-items: center;
@@ -226,6 +247,7 @@ export const StyledButtonsWrapper = styled.div`
       width: 95%;
     }
   }
+
   @media only screen and (max-width: 375px) {
     a,
     p {

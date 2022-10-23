@@ -35,6 +35,7 @@ export const StyledContents = styled.div`
             font-size: 18px;
             font-weight: 600;
             font-family: 'Roboto';
+            text-decoration: none;
 
             @media only screen and (max-width: 972px){
                 font-size: 14px;
@@ -48,6 +49,8 @@ export const StyledContents = styled.div`
                 font-size: 16px;
                 font-weight: 400;
                 font-family: 'Roboto';
+                text-decoration: none;
+                
                 @media only screen and (max-width: 972px){
                     font-size: 14px;
                 }
