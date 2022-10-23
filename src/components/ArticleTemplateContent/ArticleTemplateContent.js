@@ -15,7 +15,7 @@ import {
 
 const ArticleTemplateContent = ({ contentData }) => {
   let headerIds = {};
-  const content = parse(contentData.content, {
+  const content = contentData.content ? parse(contentData?.content, {
     replace: (domNode) => {
       if (!domNode.children)
         return;
@@ -51,7 +51,7 @@ const ArticleTemplateContent = ({ contentData }) => {
           domNode.attribs.id = `${id}-${headerIds[id]}`;
       }
     }
-  }),
+  }) : null,
     headers = (() => {
       const nav = [],
         newHeaderObj = (id, name = "", children = []) => ({ id, name, children })
@@ -87,10 +87,15 @@ const ArticleTemplateContent = ({ contentData }) => {
       </StyledAside>
       <StyledTextContent>
         {content}
-        <ArticleCustomQuote quoteText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. " />
-        <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu}/>
-        <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis} />
-        <ChooseArticle chosenArticle={contentData.artykul.dedykowanaStronaArtykulu.ktoryArtykulPolecicNaDoleStrony} />
+        {contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu &&
+          <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu}/>
+        }
+        {contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis && 
+          <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis} />
+        }
+        {contentData.artykul.dedykowanaStronaArtykulu.ktoryArtykulPolecicNaDoleStrony &&
+          <ChooseArticle chosenArticle={contentData.artykul.dedykowanaStronaArtykulu.ktoryArtykulPolecicNaDoleStrony} />
+        }
       </StyledTextContent>
     </StyledArticleTemplateContent>
   );

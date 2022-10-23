@@ -9,8 +9,8 @@ import { StyledTemplateExhibitions } from "./StyledTemplateExhibitions";
 const TemplateExhibitions = ({ data }) => {
   return (
     <StyledTemplateExhibitions>
-      <ExhibitionHeroSection />
-      <ExhibitionTemplateContent exhibitionData={data.wpWystawa.wystawa.wydarzenieSzablon} />
+      <ExhibitionHeroSection heroData={data.wpWystawa} />
+      <ExhibitionTemplateContent exhibitionData={data.wpWystawa} />
     </StyledTemplateExhibitions>
   );
 };
@@ -22,31 +22,10 @@ query wystawyQuerPage($wystawaId: String) {
   wpWystawa(id: {eq: $wystawaId}) {
     wystawa {
       informacjeOgolne {
-        miejsce
-        tytulPodZdjeciem
         czyWystawaJestAktualnaJezeliNieToJestPlanowana
+        tytulPodZdjeciem
       }
       wydarzenieSzablon {
-        galeriaNaDoleWydarzenia {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        sekcjaPowitalna {
-          duzeZdjeciePoPrawo {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          krotkiOpisPodTytulem
-          rozwinietaData
-        }
         zielonyElementZKolekcjamiDoPolecenia {
           drugiPrzycisk {
             target
@@ -67,8 +46,49 @@ query wystawyQuerPage($wystawaId: String) {
           }
           tytul
         }
+        sekcjaPowitalna {
+          duzeZdjeciePoPrawo {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          krotkiOpisPodTytulem
+          rozwinietaData
+        }
+        galeriaNaDoleWydarzenia {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        nazwaFotografa
+        ktoryArtykulPolecicNaDoleStrony {
+          ... on WpArtykul {
+            id
+            artykul {
+              informacjeDoMiniaturki {
+                miniaturka {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
+                }
+                tytul
+              }
+            }
+            slug
+          }
+        }
       }
     }
+    content
   }
 }
 `;

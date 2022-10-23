@@ -34,6 +34,15 @@ export const StyledTagImage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    .gatsby-image-wrapper{
+        width: 100%;
+        height: 100%;
+    }
 `;
 export const StyledTextWrapper = styled.div`
     width: 95%;

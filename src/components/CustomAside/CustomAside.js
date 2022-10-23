@@ -30,7 +30,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
               Spis treści:
             </StyledText>
             {
-              tableOfContents.map(
+              tableOfContents?.map(
                 (h2) => (
                   <div>
                     <a href={`#${h2.id}`}>{h2.name}</a>
@@ -63,7 +63,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
         >
           {asideData?.tytul}
         </StyledText>
-        {asideData?.ktoraKolekcjePolecic.map(({ kolekcja }) => (
+        {asideData?.ktoraKolekcjePolecic?.map(({ kolekcja }) => (
           <StyledLink
             key={kolekcja?.url}
             target={kolekcja?.target}
@@ -77,25 +77,25 @@ const CustomAside = ({ tableOfContents, asideData }) => {
         ))}
         <StyledButtonsWrapper>
           <Button
-            text={asideData?.pierwszyPrzycisk.title}
-            whereGo={asideData?.pierwszyPrzycisk.url}
+            text={asideData?.pierwszyPrzycisk?.title}
+            whereGo={asideData?.pierwszyPrzycisk?.url}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
             hasDeclaredPadding="10px 33px"
             hasFontSize="21px"
-            hasTarget={asideData?.pierwszyPrzycisk.target}
+            hasTarget={asideData?.pierwszyPrzycisk?.target}
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
           />
           <Button
-            whereGo={asideData?.drugiPrzycisk.url}
-            text={asideData?.drugiPrzycisk.title}
+            whereGo={asideData?.drugiPrzycisk?.url}
+            text={asideData?.drugiPrzycisk?.title}
             textColor="var(--white)"
             bgColor="var(--primary500)"
             hasDeclaredPadding="10px 36px"
             hasFontSize="21px"
             hasFontWeight="500"
-            hasTarget={asideData?.drugiPrzycisk.target}
+            hasTarget={asideData?.drugiPrzycisk?.target}
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"
           />

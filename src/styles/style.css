@@ -1,5 +1,5 @@
 @font-face {
     font-family: 'Nocturne Serif';
-    src: url("/fonts/NocturneSerif-Regular.ttf") format("ttf"), url("/fonts/NocturneSerif-Regular.woff") format("woff");
+    src: url("/fonts/NocturneSerif-Regular.ttf") format("ttf"), url("/fonts/NocturneSerif-Regular.woff") format("woff") ,url("/fonts/NocturneSerif-Regular.otf") format("otf");;
     font-weight: 400;
   }

@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const StyledChooseArticle = styled.div`
     width: 100%;
+    margin-top: 120px;
     @media only screen and (max-width: 768px){
+        margin-top: 60px;
         > h2 {
             font-size: 38px;
         }

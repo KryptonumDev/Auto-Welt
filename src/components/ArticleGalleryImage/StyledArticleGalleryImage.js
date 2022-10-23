@@ -12,6 +12,15 @@ export const StyledArticleGalleryImage = styled.div`
         &:last-child{
             width: 100%;
         }
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .gatsby-image-wrapper{
+            width: 100%;
+            height: 100%;
+        }
     }
 
     @media only screen and (max-width: 768px){
@@ -28,3 +37,13 @@ export const StyledArticleGalleryImage = styled.div`
         }
     }
 `;
+export const StyledTextWrapper = styled.div`
+    p, a{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.2em;
+        color: #23423D;
+    }
+`

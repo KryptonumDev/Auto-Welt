@@ -1,20 +1,29 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
-import { StyledArticleGalleryImage } from "./StyledArticleGalleryImage";
+import { 
+  StyledArticleGalleryImage,
+  StyledTextWrapper
+} from "./StyledArticleGalleryImage";
 
-const ArticleGalleryImage = ({ images }) => {
+const ArticleGalleryImage = ({ images, photoName }) => {
   return (
-    <StyledArticleGalleryImage>
-      {images?.map(image => (
-        <div>
-          <GatsbyImage
-            image={getImage(image?.localFile)}
-            alt={image?.altText}
-          />
-        </div>
-      ))}
-    </StyledArticleGalleryImage>
+    <>
+      <StyledArticleGalleryImage>
+        {images?.map(image => (
+          <div>
+            <GatsbyImage
+              image={getImage(image?.localFile)}
+              alt={image?.altText}
+            />
+          </div>
+        ))}
+      </StyledArticleGalleryImage>
+      <StyledTextWrapper>
+        {photoName && parse(photoName)}
+      </StyledTextWrapper>
+    </>
   );
 };
 

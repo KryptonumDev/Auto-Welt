@@ -65,7 +65,6 @@ query artykul($articleId: String) {
         }
         ktoryArtykulPolecicNaDoleStrony {
           ... on WpArtykul {
-            id
             artykul {
               informacjeDoMiniaturki {
                 miniaturka {

@@ -29,8 +29,8 @@ const ChooseArticle = ({ chosenArticle }) => {
       <StyledArticle>
         <StyledImageWrapper>
           <GatsbyImage 
-            image={getImage(chosenArticle.artykul.informacjeDoMiniaturki.miniaturka.localFile)}
-            alt={chosenArticle.artykul.informacjeDoMiniaturki.miniaturka.altText}
+            image={getImage(chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.localFile)}
+            alt={chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText}
           />
         </StyledImageWrapper>
         <StyledTextWrapper>
@@ -46,11 +46,11 @@ const ChooseArticle = ({ chosenArticle }) => {
             hasdeclaredtextalign="center"
             hasdeclaredfontcolor="#23423D"
           >
-            {chosenArticle.artykul.informacjeDoMiniaturki.tytul}
+            {chosenArticle?.artykul?.informacjeDoMiniaturki?.tytul}
           </StyledText>
           <Button
             text="Dowiedz się więcej"
-            whereGo={`/artykuly/${chosenArticle.slug}`}
+            whereGo={`/artykuly/${chosenArticle?.slug}`}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
             hasDeclaredPadding="10px 33px"
