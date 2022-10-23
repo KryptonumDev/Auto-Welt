@@ -31,5 +31,8 @@ export const StyledSlidesWrapper = styled.div`
   }
 `;
 export const StyledPagginationWrapper = styled.div``;
-export const StyledTopPaggination = styled.div``;
+export const StyledTopPaggination = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 export const StyledBottomPaggination = styled.div``;
