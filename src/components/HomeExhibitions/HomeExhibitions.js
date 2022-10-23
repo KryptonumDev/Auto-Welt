@@ -13,10 +13,12 @@ import {
 
 import useWindowSize from "../../utils/getWindowSize";
 
+import { areDatesEqual } from "../../utils/date";
+
 const HomeExhibitions = ({ isAboutPage }) => {
   const data = useStaticQuery(graphql`
     query currentExhibition {
-      allWpWystawa(limit: 3) {
+      allWpWystawa {
         edges {
           node {
             slug
@@ -66,6 +68,8 @@ const HomeExhibitions = ({ isAboutPage }) => {
   `);
   const width = useWindowSize();
 
+  const now = new Date();
+
   return (
     <StyledHomeExhibitions isaboutpage={isAboutPage}>
       <StyledText
@@ -79,7 +83,23 @@ const HomeExhibitions = ({ isAboutPage }) => {
         {data.wpPage.homepage.wystawy?.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper>
-        {data.allWpWystawa.edges.map(({ node }) => (
+        {data.allWpWystawa.edges
+        .map(({ node }) => ({
+          ...node,
+          wystawa: {
+            ...node.wystawa,
+            informacjeOgolne: {
+              ...node.wystawa.informacjeOgolne,
+              data: new Date(node.wystawa.informacjeOgolne.data)
+            }
+          }
+        }))
+        .sort(
+          (a, b) => new Date(a.wystawa.informacjeOgolne.data).getTime() - new Date(b.wystawa.informacjeOgolne.data).getTime()
+        )
+        .filter(({ wystawa }) => wystawa.informacjeOgolne.data.getTime() > now.getTime() || areDatesEqual(wystawa.informacjeOgolne.data, now))
+        .slice(0, 3)
+        .map((node) => (
           <HomeExhibitionsElement
             exhibitionData={node}
             buttonVariant="orange"
