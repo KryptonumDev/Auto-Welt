@@ -25,6 +25,8 @@ import {
 
 import ListIcon from "../../images/greenIcon.svg";
 
+import { areDatesEqual } from "../../utils/date";
+
 const ScheduleArchExh = ({ dataArch }) => {
   const [imagesIndex, setImagesIndex] = useState(3);
   const data = useStaticQuery(graphql`
@@ -75,6 +77,9 @@ const ScheduleArchExh = ({ dataArch }) => {
       }
     }
   `);
+
+  const now = new Date();
+
   return (
     <StyledScheduleArchExh>
       <StyledText
@@ -88,8 +93,23 @@ const ScheduleArchExh = ({ dataArch }) => {
         {dataArch.tytulNadSliderem}
       </StyledText>
       <StyledElements>
-        {data.allWpWystawa.edges.slice(0, imagesIndex).map(({ node }, index) => {
-          const convertedData = new Date(node.wystawa.informacjeOgolne.data)
+        {data.allWpWystawa.edges
+        .map(({ node }) => ({
+          ...node,
+          wystawa: {
+            ...node.wystawa,
+            informacjeOgolne: {
+              ...node.wystawa.informacjeOgolne,
+              data: new Date(node.wystawa.informacjeOgolne.data)
+            }
+          }
+        }))
+        .filter(
+          ({ wystawa }) => wystawa.informacjeOgolne.data.getTime() < now.getTime() && !areDatesEqual(wystawa.informacjeOgolne.data, now)
+        )
+        .slice(0, imagesIndex)
+        .map((node, index) => {
+          const convertedData = node.wystawa.informacjeOgolne.data
             .toLocaleString("pl", { dateStyle: "long" })
             .split(" ");
           return (
