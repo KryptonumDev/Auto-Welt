@@ -39,7 +39,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
             hasdeclaredfontcolor="#EDAC2A"
           >
             Wystawa {
-              heroData.wystawa.informacjeOgolne.czyWystawaJestAktualnaJezeliNieToJestPlanowana ? (
+              heroData?.wystawa?.informacjeOgolne?.czyWystawaJestAktualnaJezeliNieToJestPlanowana ? (
                 "aktualna"
               ) : (
                 date.getTime() > now.getTime() || areDatesEqual(date, now) ? (
@@ -61,7 +61,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
           >
             {heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem}
           </StyledText>
-          {heroData.wystawa.wydarzenieSzablon.sekcjaPowitalna.krotkiOpisPodTytulem && parse(heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.krotkiOpisPodTytulem)}
+          {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.krotkiOpisPodTytulem && parse(heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.krotkiOpisPodTytulem)}
         </StyledTextWrapper>
         <StyledDataWrapper>
           <StyledDataImage>
@@ -83,9 +83,8 @@ const ExhibitionHeroSection = ({ heroData }) => {
       <StyledRightWrapper>
         <StyledImageWrapper>
           <GatsbyImage
-            image={getImage(heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo.localFile)}
-            alt={heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo.altText}
-            objectFit="cover"
+            image={getImage(heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo?.localFile)}
+            alt={heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo?.altText}
           />
         </StyledImageWrapper>
       </StyledRightWrapper>

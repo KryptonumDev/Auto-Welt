@@ -9,8 +9,8 @@ import { StyledTemplateExhibitions } from "./StyledTemplateExhibitions";
 const TemplateExhibitions = ({ data }) => {
   return (
     <StyledTemplateExhibitions>
-      <ExhibitionHeroSection heroData={data.wpWystawa} />
-      <ExhibitionTemplateContent exhibitionData={data.wpWystawa} />
+      <ExhibitionHeroSection heroData={data?.wpWystawa} />
+      <ExhibitionTemplateContent exhibitionData={data?.wpWystawa} />
     </StyledTemplateExhibitions>
   );
 };

@@ -14,7 +14,7 @@ import {
 
 const ExhibitionTemplateContent = ({ exhibitionData }) => {
   let headerIds = {};
-  const content = exhibitionData.content ? parse(exhibitionData?.content, {
+  const content = exhibitionData?.content ? parse(exhibitionData?.content, {
     replace: (domNode) => {
       if (!domNode.children)
         return;
@@ -58,7 +58,7 @@ const ExhibitionTemplateContent = ({ exhibitionData }) => {
         <CustomAside asideData={exhibitionData.wystawa.wydarzenieSzablon?.zielonyElementZKolekcjamiDoPolecenia} />
       </StyledAsideWrapper>
       <StyledContentWrapper>
-        {content}
+        {content && content}
         {exhibitionData.wystawa.wydarzenieSzablon?.galeriaNaDoleWydarzenia &&
           <ArticleGalleryImage images={exhibitionData.wystawa.wydarzenieSzablon?.galeriaNaDoleWydarzenia} photoName={exhibitionData.wystawa.wydarzenieSzablon?.nazwaFotografa}/>
         }
