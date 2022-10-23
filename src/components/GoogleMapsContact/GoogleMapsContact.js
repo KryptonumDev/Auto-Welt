@@ -36,7 +36,10 @@ const GoogleMapsContact = ({ mapData }) => {
       {mapData.linkDoStronyZAdresemFirmy && (
         <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank">
           <StyledGoogleMapsWrapper>
-            <GatsbyImage image={images} alt={mapData.zdjecieMapyDesktop.altText} />
+            <GatsbyImage
+              image={images}
+              alt={mapData.zdjecieMapyDesktop.altText}
+            />
           </StyledGoogleMapsWrapper>
         </a>
       )}

@@ -47,7 +47,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
   };
 
   useEffect(() => {
-    if(scheduleData.length < 3){
+    if (scheduleData.length < 3) {
       return setRenderElements(scheduleData);
     }
 
@@ -55,7 +55,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
       index,
       index + (width < 649 ? 1 : 2)
     );
-    
+
     if (width > 648) {
       if (index === scheduleData.length - 1) {
         sliderElements = [
@@ -76,13 +76,11 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
 
   return (
     <StyledScheduleSlider>
-      {renderElements.length < 3 ? null : 
-        <StyledPrevArrow
-          onClick={handlePrev}
-        >
+      {renderElements.length < 3 ? null : (
+        <StyledPrevArrow onClick={handlePrev}>
           {variant === "orange" ? <PrevGreenArrow /> : <PrevYellowArrow />}
         </StyledPrevArrow>
-      }
+      )}
       <StyledSlides>
         {renderElements.map((e) => (
           <AnimatePresence initial={false} exitBeforeEnter>
@@ -96,13 +94,11 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
           </AnimatePresence>
         ))}
       </StyledSlides>
-      {renderElements.length < 3 ? null : 
-        <StyledNextArrow
-          onClick={handleNext}
-        >
+      {renderElements.length < 3 ? null : (
+        <StyledNextArrow onClick={handleNext}>
           {variant === "orange" ? <NextGreenArrow /> : <NextYellowArrow />}
         </StyledNextArrow>
-      }
+      )}
     </StyledScheduleSlider>
   );
 };

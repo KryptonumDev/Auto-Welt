@@ -56,7 +56,6 @@ export const StyledCalendarComponent = styled.div`
   }
 
   @media only screen and (max-width: 786px) {
-
     .calendarTitle {
       font-size: 30px;
     }
@@ -86,7 +85,6 @@ export const StyledCalendarComponent = styled.div`
         height: 34px;
       }
     }
-
   }
   @media only screen and (max-width: 516px) {
     .calendarTitle {
@@ -271,7 +269,7 @@ export const StyledExhibitionTitle = styled.p`
       left: 20px;
     }
   }
-  
+
   @media only screen and (max-width: 516px) {
     left: 0;
     bottom: -60px;

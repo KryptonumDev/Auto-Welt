@@ -56,7 +56,7 @@ export const StyledImageWrapper = styled.div`
     height: 100%;
   }
 
-  &:hover{
+  &:hover {
     img {
       transition: transform 250ms, mix-blend-mode 250ms;
       transform: scale(1.1);
@@ -64,7 +64,7 @@ export const StyledImageWrapper = styled.div`
     }
   }
 
-  @media only screen and (max-width: 472px){
+  @media only screen and (max-width: 472px) {
     height: 230px;
   }
 `;
@@ -92,11 +92,11 @@ export const StyledTitleImage = styled.div`
   top: 0;
   left: 0;
 
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
@@ -108,7 +108,7 @@ export const StyledTitleWrapper = styled.div`
   min-height: 111px;
   width: 100%;
 
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 24px;
   }
 `;

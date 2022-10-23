@@ -74,15 +74,15 @@ export const StyledLogoWrapper = styled.div`
   width: 100%;
   height: 190px;
   overflow: hidden;
-  
-  img{
+
+  img {
     mix-blend-mode: multiply;
     width: 100%;
     height: 100%;
   }
-  
-  &:hover{
-    img{
+
+  &:hover {
+    img {
       transition: transform 250ms, mix-blend-mode 250ms;
       transform: scale(1.1);
       mix-blend-mode: unset;

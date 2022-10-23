@@ -18,20 +18,11 @@ const ArticlesTemplate = ({ data }) => {
 export default ArticlesTemplate;
 
 export const query = graphql`
-query artykul($articleId: String) {
-  wpArtykul(id: { eq: $articleId }) {
-    artykul {
-      dedykowanaStronaArtykulu {
-        galeriaNaKoncuArtykulu {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        pierwszaSekcja {
-          duzeZdjecie {
+  query artykul($articleId: String) {
+    wpArtykul(id: { eq: $articleId }) {
+      artykul {
+        dedykowanaStronaArtykulu {
+          galeriaNaKoncuArtykulu {
             altText
             localFile {
               childImageSharp {
@@ -39,61 +30,70 @@ query artykul($articleId: String) {
               }
             }
           }
-        }
-        sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony {
-          drugiPrzycisk {
-            target
-            title
-            url
+          pierwszaSekcja {
+            duzeZdjecie {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
-          ktoraKolekcjePolecic {
-            kolekcja {
+          sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony {
+            drugiPrzycisk {
               target
               title
               url
             }
-          }
-          pierwszyPrzycisk {
-            target
-            title
-            url
-          }
-          tytul
-        }
-        sekcjaZAutoremZdjec {
-          opis
-        }
-        ktoryArtykulPolecicNaDoleStrony {
-          ... on WpArtykul {
-            artykul {
-              informacjeDoMiniaturki {
-                miniaturka {
-                  altText
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
-                }
-                tytul
+            ktoraKolekcjePolecic {
+              kolekcja {
+                target
+                title
+                url
               }
             }
-            slug
+            pierwszyPrzycisk {
+              target
+              title
+              url
+            }
+            tytul
+          }
+          sekcjaZAutoremZdjec {
+            opis
+          }
+          ktoryArtykulPolecicNaDoleStrony {
+            ... on WpArtykul {
+              artykul {
+                informacjeDoMiniaturki {
+                  miniaturka {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
+                  }
+                  tytul
+                }
+              }
+              slug
+            }
           }
         }
+        informacjeDoMiniaturki {
+          tytul
+        }
       }
-      informacjeDoMiniaturki {
-        tytul
-      }
-    }
-    content
-    terms {
-      nodes {
-        ... on WpCategory {
-          name
+      content
+      terms {
+        nodes {
+          ... on WpCategory {
+            name
+          }
         }
       }
     }
   }
-}
-`
+`;

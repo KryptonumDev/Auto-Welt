@@ -131,15 +131,16 @@ export const StyledMoreInfoWrapper = styled.div`
     font-size: 16px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;
@@ -151,7 +152,7 @@ export const StyledMoreInfoWrapper = styled.div`
 `;
 export const StyledButtonWrapper = styled.div`
   margin-top: 40px;
-  
+
   a {
     margin-left: 15px;
   }
@@ -167,7 +168,7 @@ export const StyledButtonWrapper = styled.div`
       font-size: 16px;
     }
   }
-  
+
   @media only screen and (max-width: 375px) {
     width: 100%;
     display: flex;

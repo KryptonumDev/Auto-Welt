@@ -1,6 +1,6 @@
 import React from "react";
 
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 
 import {
   StyledArticleCustomQuote,
@@ -13,13 +13,9 @@ const ArticleCustomQuote = ({ quoteText }) => {
   return (
     <StyledArticleCustomQuote>
       <StyledIconWrapper>
-        <StaticImage
-          src="../../images/quote.png"
-        />
+        <StaticImage src="../../images/quote.png" />
       </StyledIconWrapper>
-      <StyledTextWrapper>
-        {quoteText && parse(quoteText)}
-      </StyledTextWrapper>
+      <StyledTextWrapper>{quoteText && parse(quoteText)}</StyledTextWrapper>
     </StyledArticleCustomQuote>
   );
 };

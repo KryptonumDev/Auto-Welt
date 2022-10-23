@@ -77,17 +77,16 @@ const ScheduleActualExh = ({ dataActual }) => {
       </StyledText>
       <StyledSliderWrapper>
         <ScheduleSlider
-          scheduleData={
-            data.allWpWystawa.edges
-            .map(edge => ({
+          scheduleData={data.allWpWystawa.edges
+            .map((edge) => ({
               ...edge,
-              date: new Date(edge.node.wystawa.informacjeOgolne.data)
+              date: new Date(edge.node.wystawa.informacjeOgolne.data),
             }))
             .filter(
-              ({ date }) => date.getTime() > now.getTime() || areDatesEqual(date, now)
+              ({ date }) =>
+                date.getTime() > now.getTime() || areDatesEqual(date, now)
             )
-            .sort((a, b) => a.date.getTime() - b.date.getTime())
-          }
+            .sort((a, b) => a.date.getTime() - b.date.getTime())}
           variant="orange"
         />
       </StyledSliderWrapper>

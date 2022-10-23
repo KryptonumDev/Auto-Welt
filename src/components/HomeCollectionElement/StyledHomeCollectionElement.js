@@ -59,7 +59,7 @@ export const StyledImage = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   .gatsby-image-wrapper {
     widht: 100%;
     height: 100%;

@@ -33,10 +33,10 @@ export const StyledButtonLink = styled(StyledLink)`
       hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
   }
 
-  &:focus{
+  &:focus {
     outline-width: 1px;
     outline-style: solid;
-    outline-color: #DA9610;
+    outline-color: #da9610;
   }
 `;
 
@@ -67,7 +67,7 @@ export const StyledButtonLinkNoHref = styled.p`
   margin: ${({ hasdeclaredmargin }) =>
     hasdeclaredmargin ? hasdeclaredmargin : "0"};
   font-family: "Roboto";
-  
+
   > span {
     display: block;
     transform: skew(26deg);
@@ -85,9 +85,9 @@ export const StyledButtonLinkNoHref = styled.p`
       hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
   }
 
-  &:focus{
+  &:focus {
     outline-width: 1px;
     outline-style: solid;
-    outline-color: #DA9610;
+    outline-color: #da9610;
   }
 `;

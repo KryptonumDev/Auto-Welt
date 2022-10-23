@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const StyledArticlePhotoInfo = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin: 70px 0 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 70px 0 0;
 
-    @media only screen and (max-width: 768px){
-        margin: 60px 0 0;
-    }
+  @media only screen and (max-width: 768px) {
+    margin: 60px 0 0;
+  }
 `;
 export const StyledTextWrapper = styled.div`
     p {

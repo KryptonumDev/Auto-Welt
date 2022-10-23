@@ -124,10 +124,10 @@ export const StyledInputWrapper = styled.div`
     outline-color: var(--primary500);
     font-family: "Roboto";
 
-    &:focus{
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
   textarea {
@@ -141,10 +141,10 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto";
     padding: 10px;
 
-    &:focus{
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 
@@ -177,7 +177,7 @@ export const StyledMessageWrapper = styled.div`
   @media only screen and (max-width: 907px) {
     padding: 0 43px;
   }
-  
+
   @media only screen and (max-width: 592px) {
     padding: 0 26px;
   }

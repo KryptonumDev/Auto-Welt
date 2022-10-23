@@ -45,8 +45,8 @@ export const StyledPagginationWrapper = styled.div`
 export const StyledTopPaggination = styled.div`
   display: flex;
   gap: 20px;
-  
-  font-family: 'Nocturne Serif';
+
+  font-family: "Nocturne Serif";
   font-style: normal;
   font-weight: 400;
   font-size: 28px;
@@ -64,53 +64,53 @@ export const StyledBottomPaggination = styled.div`
   gap: 20px;
 `;
 
-export const StyledLeftArrow = styled.div``
+export const StyledLeftArrow = styled.div``;
 
-export const StyledRightArrow = styled.div``
+export const StyledRightArrow = styled.div``;
 
 export const StyledInput = styled.div`
   input {
     width: 49px;
     height: 51px;
-    background: #FAF7F1;
+    background: #faf7f1;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     border: none;
     padding-left: 5px;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    
-    &:focus{
+
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
 
-    &:active{
-      background: #E9E4D6;
+    &:active {
+      background: #e9e4d6;
     }
 
-    &:hover{
-      background: #FAF7F1;
+    &:hover {
+      background: #faf7f1;
     }
   }
-`
+`;
 
 export const StyledButton = styled.button`
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   text-decoration-line: underline;
-  color: #23423D;
+  color: #23423d;
   border: none;
   background: none;
   cursor: pointer;
-  
-  &:focus{
+
+  &:focus {
     outline-width: 1px;
     outline-style: solid;
-    outline-color: #DA9610;
+    outline-color: #da9610;
   }
-`
+`;

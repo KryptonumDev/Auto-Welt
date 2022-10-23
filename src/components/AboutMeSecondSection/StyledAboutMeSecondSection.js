@@ -67,15 +67,16 @@ export const StyledTitleWrapper = styled.div`
     font-size: 34px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;
@@ -93,15 +94,16 @@ export const StyledDescWrapper = styled.div`
   line-height: 1.2em;
   margin-top: 30px;
 
-  strong, em{
+  strong,
+  em {
     position: relative;
     z-index: 1;
     font-weight: normal;
     font-style: normal;
-    &:before{
-      content: '';
+    &:before {
+      content: "";
       width: 100%;
-      background: #F6E2BA;
+      background: #f6e2ba;
       height: 15px;
       position: absolute;
       bottom: 0;
@@ -204,9 +206,10 @@ export const StyledGreetingText = styled.div`
     font-size: 24px;
   }
 
-  p{
-    strong, em{
-      color: #EDAC2A;
+  p {
+    strong,
+    em {
+      color: #edac2a;
       font-weight: normal;
       font-style: normal;
     }

@@ -8,10 +8,9 @@ import {
   StyledArticle,
   StyledImageWrapper,
   StyledTextWrapper,
-  StyledBgWrapper
+  StyledBgWrapper,
 } from "./StyledChooseArticle";
 import { StyledText } from "../Text/StyledText";
-
 
 const ChooseArticle = ({ chosenArticle }) => {
   return (
@@ -28,16 +27,19 @@ const ChooseArticle = ({ chosenArticle }) => {
       </StyledText>
       <StyledArticle>
         <StyledImageWrapper>
-          <GatsbyImage 
-            image={getImage(chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.localFile)}
-            alt={chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText}
+          <GatsbyImage
+            image={getImage(
+              chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka
+                ?.localFile
+            )}
+            alt={
+              chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText
+            }
           />
         </StyledImageWrapper>
         <StyledTextWrapper>
           <StyledBgWrapper>
-            <StaticImage
-              src="../../images/tloPolecenia.png"
-            />
+            <StaticImage src="../../images/tloPolecenia.png" />
           </StyledBgWrapper>
           <StyledText
             hasdeclaredfontweight="500"

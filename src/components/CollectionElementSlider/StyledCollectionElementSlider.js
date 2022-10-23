@@ -83,7 +83,7 @@ export const StyledRightArrow = styled(motion.div)`
       stroke: var(--secondary500);
     }
   }
-  
+
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -150,7 +150,7 @@ export const StyledImage = styled(motion.div)`
     width: 100%;
     height: 100%;
   }
-  
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     max-width: unset;

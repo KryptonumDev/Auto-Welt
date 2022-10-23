@@ -1,6 +1,11 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage, StaticImage, withArtDirection } from "gatsby-plugin-image";
+import {
+  GatsbyImage,
+  getImage,
+  StaticImage,
+  withArtDirection,
+} from "gatsby-plugin-image";
 
 import RecInfoWithButton from "../../components/RecInfoWithButton/RecInfoWithButton";
 
@@ -48,24 +53,24 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           {collectionData?.tytulSekcji}
         </StyledText>
         <StyledSlidesWrapper>
-          <StyledSlide to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}>
+          <StyledSlide
+            to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}
+          >
             <StyledImageWrapper>
               <GatsbyImage
                 image={getImage(
-                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
-                    ?.localFile
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.localFile
                 )}
                 alt={
-                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
-                    ?.altText
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.altText
                 }
               />
             </StyledImageWrapper>
             <StyledTextWrapper>
               <StyledTitleImage>
-                <StaticImage
-                  src="../../images/polecanaKolekcja.png"
-                />
+                <StaticImage src="../../images/polecanaKolekcja.png" />
               </StyledTitleImage>
               <StyledTitleWrapper>
                 <StyledText
@@ -75,29 +80,32 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                   hasdeclaredfontcolor="#23423D"
                   hasdeclaredtextalign="center"
                 >
-                  {collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.nazwaKolekcji}
+                  {
+                    collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
+                      .informacjeGlowne.nazwaKolekcji
+                  }
                 </StyledText>
               </StyledTitleWrapper>
             </StyledTextWrapper>
           </StyledSlide>
-          <StyledSlide to={`/kolekcje-modeli/${collectionData.drugaKolekcjaKtoraPolecasz.slug}`}>
+          <StyledSlide
+            to={`/kolekcje-modeli/${collectionData.drugaKolekcjaKtoraPolecasz.slug}`}
+          >
             <StyledImageWrapper>
               <GatsbyImage
                 image={getImage(
-                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
-                    ?.localFile
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.localFile
                 )}
                 alt={
-                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
-                    ?.altText
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.altText
                 }
               />
             </StyledImageWrapper>
             <StyledTextWrapper>
               <StyledTitleImage>
-                <StaticImage
-                  src="../../images/polecanaKolekcja.png"
-                />
+                <StaticImage src="../../images/polecanaKolekcja.png" />
               </StyledTitleImage>
               <StyledTitleWrapper>
                 <StyledText
@@ -107,7 +115,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                   hasdeclaredfontcolor="#23423D"
                   hasdeclaredtextalign="center"
                 >
-                  {collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.nazwaKolekcji}
+                  {
+                    collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
+                      .informacjeGlowne.nazwaKolekcji
+                  }
                 </StyledText>
               </StyledTitleWrapper>
             </StyledTextWrapper>

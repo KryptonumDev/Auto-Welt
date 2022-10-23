@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
-import parse from "html-react-parser"
+import parse from "html-react-parser";
 
 import {
   StyledExhibitionHeroSection,
@@ -10,11 +10,9 @@ import {
   StyledTextWrapper,
   StyledImageWrapper,
   StyledDataWrapper,
-  StyledDataImage
+  StyledDataImage,
 } from "./StyledExhibitionHeroSection";
-import {
-  StyledTagImage
-} from "../ArticleHeroSection/StyledArticleHeroSection";
+import { StyledTagImage } from "../ArticleHeroSection/StyledArticleHeroSection";
 import { StyledText } from "../Text/StyledText";
 
 import { areDatesEqual } from "../../utils/date";
@@ -38,17 +36,13 @@ const ExhibitionHeroSection = ({ heroData }) => {
             hasdeclaredfontweight="600"
             hasdeclaredfontcolor="#EDAC2A"
           >
-            Wystawa {
-              heroData?.wystawa?.informacjeOgolne?.czyWystawaJestAktualnaJezeliNieToJestPlanowana ? (
-                "aktualna"
-              ) : (
-                date.getTime() > now.getTime() || areDatesEqual(date, now) ? (
-                  "planowana"
-                ) : (
-                  "archiwalna"
-                )
-              )
-            }
+            Wystawa{" "}
+            {heroData?.wystawa?.informacjeOgolne
+              ?.czyWystawaJestAktualnaJezeliNieToJestPlanowana
+              ? "aktualna"
+              : date.getTime() > now.getTime() || areDatesEqual(date, now)
+              ? "planowana"
+              : "archiwalna"}
           </StyledText>
         </StyledTag>
         <StyledTextWrapper>
@@ -61,13 +55,16 @@ const ExhibitionHeroSection = ({ heroData }) => {
           >
             {heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem}
           </StyledText>
-          {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.krotkiOpisPodTytulem && parse(heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.krotkiOpisPodTytulem)}
+          {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+            ?.krotkiOpisPodTytulem &&
+            parse(
+              heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+                ?.krotkiOpisPodTytulem
+            )}
         </StyledTextWrapper>
         <StyledDataWrapper>
           <StyledDataImage>
-            <StaticImage
-              src="../../images/wydarzenieData.png"
-            />
+            <StaticImage src="../../images/wydarzenieData.png" />
           </StyledDataImage>
           <StyledText
             hasdeclaredfontfamily="Nocturne Serif"
@@ -76,15 +73,24 @@ const ExhibitionHeroSection = ({ heroData }) => {
             hasdeclaredlineheight="1.2em"
             hasdeclaredtextalign="center"
           >
-            {heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.rozwinietaData}
+            {
+              heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+                ?.rozwinietaData
+            }
           </StyledText>
         </StyledDataWrapper>
       </StyledLeftWrapper>
       <StyledRightWrapper>
         <StyledImageWrapper>
           <GatsbyImage
-            image={getImage(heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo?.localFile)}
-            alt={heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna?.duzeZdjeciePoPrawo?.altText}
+            image={getImage(
+              heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+                ?.duzeZdjeciePoPrawo?.localFile
+            )}
+            alt={
+              heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+                ?.duzeZdjeciePoPrawo?.altText
+            }
           />
         </StyledImageWrapper>
       </StyledRightWrapper>

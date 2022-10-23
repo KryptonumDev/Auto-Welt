@@ -14,7 +14,7 @@ import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContac
 
 const IndexPage = () => {
   return (
-    <div style={{ overflow: 'hidden'}}>
+    <div style={{ overflow: "hidden" }}>
       <HomeHeroSection />
       <HomeCollections />
       <HomeExhibitions />

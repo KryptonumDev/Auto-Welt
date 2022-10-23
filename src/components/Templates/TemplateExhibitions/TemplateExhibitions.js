@@ -18,37 +18,48 @@ const TemplateExhibitions = ({ data }) => {
 export default TemplateExhibitions;
 
 export const query = graphql`
-query wystawyQuerPage($wystawaId: String) {
-  wpWystawa(id: {eq: $wystawaId}) {
-    wystawa {
-      informacjeOgolne {
-        data
-        czyWystawaJestAktualnaJezeliNieToJestPlanowana
-        tytulPodZdjeciem
-      }
-      wydarzenieSzablon {
-        zielonyElementZKolekcjamiDoPolecenia {
-          drugiPrzycisk {
-            target
-            title
-            url
-          }
-          ktoraKolekcjePolecic {
-            kolekcja {
+  query wystawyQuerPage($wystawaId: String) {
+    wpWystawa(id: { eq: $wystawaId }) {
+      wystawa {
+        informacjeOgolne {
+          data
+          czyWystawaJestAktualnaJezeliNieToJestPlanowana
+          tytulPodZdjeciem
+        }
+        wydarzenieSzablon {
+          zielonyElementZKolekcjamiDoPolecenia {
+            drugiPrzycisk {
               target
+              title
+              url
+            }
+            ktoraKolekcjePolecic {
+              kolekcja {
+                target
+                url
+                title
+              }
+            }
+            pierwszyPrzycisk {
               url
               title
+              target
             }
+            tytul
           }
-          pierwszyPrzycisk {
-            url
-            title
-            target
+          sekcjaPowitalna {
+            duzeZdjeciePoPrawo {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            krotkiOpisPodTytulem
+            rozwinietaData
           }
-          tytul
-        }
-        sekcjaPowitalna {
-          duzeZdjeciePoPrawo {
+          galeriaNaDoleWydarzenia {
             altText
             localFile {
               childImageSharp {
@@ -56,40 +67,29 @@ query wystawyQuerPage($wystawaId: String) {
               }
             }
           }
-          krotkiOpisPodTytulem
-          rozwinietaData
-        }
-        galeriaNaDoleWydarzenia {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        nazwaFotografa
-        ktoryArtykulPolecicNaDoleStrony {
-          ... on WpArtykul {
-            id
-            artykul {
-              informacjeDoMiniaturki {
-                miniaturka {
-                  altText
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
+          nazwaFotografa
+          ktoryArtykulPolecicNaDoleStrony {
+            ... on WpArtykul {
+              id
+              artykul {
+                informacjeDoMiniaturki {
+                  miniaturka {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
                     }
                   }
+                  tytul
                 }
-                tytul
               }
+              slug
             }
-            slug
           }
         }
       }
+      content
     }
-    content
   }
-}
 `;

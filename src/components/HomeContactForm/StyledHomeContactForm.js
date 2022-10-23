@@ -50,10 +50,10 @@ export const StyledInputWrapper = styled.div`
     padding: 0 14px;
     font-family: "Roboto";
 
-    &:focus{  
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 
@@ -68,10 +68,10 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto";
     padding: 10px;
 
-    &:focus{  
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 
@@ -154,7 +154,7 @@ export const StyledCustomCheckbox = styled.div`
     }
 
     &:after {
-      content: '';
+      content: "";
       border: 2px solid ${({ iserror }) => (iserror ? "#D63D3D" : "#3E635D")};
       width: 20px;
       height: 20px;
@@ -172,7 +172,7 @@ export const StyledCustomCheckbox = styled.div`
     opacity: 0;
     pointer-events: none;
   }
-  
+
   label {
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};

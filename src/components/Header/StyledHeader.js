@@ -45,10 +45,10 @@ export const StyledLeftWrapper = styled.div`
       color: var(--secondary300);
     }
 
-    &:focus{  
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 
@@ -56,7 +56,7 @@ export const StyledLeftWrapper = styled.div`
     width: 100%;
     justify-content: space-evenly;
     padding-left: 0;
-    
+
     > a {
       margin: 0;
     }
@@ -111,10 +111,10 @@ export const StyledRightWrapper = styled.div`
       color: var(--secondary300);
     }
 
-    &:focus{  
+    &:focus {
       outline-width: 1px;
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 
@@ -164,10 +164,9 @@ export const StyledLogoWrapper = styled.div`
   z-index: 2;
 
   > a {
-
-    &:focus{  
+    &:focus {
       outline-style: solid;
-      outline-color: #DA9610;
+      outline-color: #da9610;
     }
   }
 

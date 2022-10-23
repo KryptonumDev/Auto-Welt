@@ -107,7 +107,11 @@ const ContactPageForm = ({ dataForm }) => {
     <StyledContactPageForm>
       <StyledLeftWrapper>
         <StyledModel>
-          <GatsbyImage image={images} alt={dataForm.zdjecieDoFormularzaMobile.altText} objectFit="fill" />
+          <GatsbyImage
+            image={images}
+            alt={dataForm.zdjecieDoFormularzaMobile.altText}
+            objectFit="fill"
+          />
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>
@@ -257,7 +261,10 @@ const ContactPageForm = ({ dataForm }) => {
                         {dataForm.podpisPodObszaremDoWyslaniaWiadomosci}
                       </StyledText>
                     </div>
-                    <StyledCustomCheckbox iserror={errors.termsAndConditions} value={values.termsAndConditions}>
+                    <StyledCustomCheckbox
+                      iserror={errors.termsAndConditions}
+                      value={values.termsAndConditions}
+                    >
                       <Field
                         type="checkbox"
                         name="termsAndConditions"

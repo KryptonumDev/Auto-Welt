@@ -15,17 +15,20 @@ const ArticleHeroSection = ({ heroData }) => {
   return (
     <StyledArticleHeroSection>
       <StyledImage>
-        <GatsbyImage 
-          image={getImage(heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja?.duzeZdjecie?.localFile)}
-          alt={heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja?.duzeZdjecie?.altText}
+        <GatsbyImage
+          image={getImage(
+            heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja
+              ?.duzeZdjecie?.localFile
+          )}
+          alt={
+            heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja
+              ?.duzeZdjecie?.altText
+          }
         />
       </StyledImage>
       <StyledTag>
         <StyledTagImage>
-          <StaticImage
-            src="../../images/tagImage.png"
-            objectFit="fill"
-          />
+          <StaticImage src="../../images/tagImage.png" objectFit="fill" />
         </StyledTagImage>
         <StyledText
           hasdeclaredfontsize="18px"
@@ -37,13 +40,11 @@ const ArticleHeroSection = ({ heroData }) => {
       </StyledTag>
       <StyledTextWrapper>
         <StyledTextImage>
-          <StaticImage
-            src="../../images/artykulTitleImage.png"
-          />
+          <StaticImage src="../../images/artykulTitleImage.png" />
         </StyledTextImage>
         <StyledText
           as="h1"
-          hasdeclaredfontfamily='Nocturne Serif'
+          hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="48px"
           hasdeclaredfontcolor="#23423D"
           hasdeclaredlineheight="1.2em"

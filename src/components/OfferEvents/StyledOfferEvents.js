@@ -7,12 +7,12 @@ export const StyledOfferEvents = styled.section`
   padding: 0 32px;
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    > h2{
+    > h2 {
       font-size: 38px;
     }
-  }   
+  }
   @media only screen and (max-width: 375px) {
-    > h2{
+    > h2 {
       font-size: 34px;
     }
   }
@@ -63,22 +63,23 @@ export const StyledTextWrapper = styled.div`
   color: #000;
   margin: 30px 0 60px;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     font-size: 20px;
   }
-  @media only screen and (max-width: 375px){
+  @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;

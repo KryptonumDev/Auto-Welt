@@ -78,15 +78,16 @@ export const StyledTitleWrapper = styled.div`
     font-size: 34px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;
@@ -106,15 +107,16 @@ export const StyledSubTitleWrapper = styled.div`
     font-size: 16px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;

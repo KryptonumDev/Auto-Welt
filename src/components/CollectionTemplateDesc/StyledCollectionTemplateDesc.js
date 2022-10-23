@@ -33,15 +33,16 @@ export const StyledTextWrapper = styled.div`
     padding: 40px 23px;
   }
 
-  p{
-    strong, em{
+  p {
+    strong,
+    em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         width: 100%;
-        background: #F6E2BA;
+        background: #f6e2ba;
         height: 15px;
         position: absolute;
         bottom: 0;

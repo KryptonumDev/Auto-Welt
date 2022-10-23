@@ -66,7 +66,6 @@ export const StyledTitleWrapper = styled.div`
   position: relative;
 
   > div {
-
     &:last-child {
       width: 100%;
       min-height: 131px;
@@ -78,8 +77,9 @@ export const StyledTitleWrapper = styled.div`
       text-align: center;
       padding: 16px;
       color: #fff;
-      strong, em{
-        color: #EDAC2A;
+      strong,
+      em {
+        color: #edac2a;
         font-weight: normal;
         font-style: normal;
       }
@@ -109,7 +109,6 @@ export const StyledTitleWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     > div {
-
       &:last-child {
         font-size: 34px;
       }
@@ -127,7 +126,7 @@ export const StyledTitleImageWraper = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

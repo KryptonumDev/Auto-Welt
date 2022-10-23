@@ -36,13 +36,15 @@ export const StyledbuttonsWrapper = styled.div`
   gap: 20px;
 
   @media only screen and (max-width: 1065px) {
-    a, p {
+    a,
+    p {
       font-size: 18px;
     }
   }
 
   @media only screen and (max-width: 685px) {
-    a, p {
+    a,
+    p {
       font-size: 16px;
     }
   }
@@ -50,13 +52,15 @@ export const StyledbuttonsWrapper = styled.div`
   @media only screen and (max-width: 648px) {
     flex-direction: column;
     gap: 12px;
-    a, p {
+    a,
+    p {
       width: 95%;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    a, p {
+    a,
+    p {
       font-size: 15px;
     }
   }

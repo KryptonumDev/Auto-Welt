@@ -32,7 +32,11 @@ const ScheduleHeroSection = ({ heroData }) => {
   return (
     <StyledScheduleHeroSection>
       <StyledHeroImage>
-        <GatsbyImage image={images} alt={heroData.powitalneZdjecieDesktop.altText} objectFit="fill" />
+        <GatsbyImage
+          image={images}
+          alt={heroData.powitalneZdjecieDesktop.altText}
+          objectFit="fill"
+        />
       </StyledHeroImage>
       <StyledTitleWrapper>
         <StyledTitleImage>

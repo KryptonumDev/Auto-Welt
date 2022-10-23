@@ -21,9 +21,10 @@ export const StyledAnswerWrapper = styled(motion.div)`
   ol {
     margin-left: 20px;
   }
-  p{
-    strong, em{
-      color: #EDAC2A;
+  p {
+    strong,
+    em {
+      color: #edac2a;
       font-weight: normal;
       font-style: normal;
     }
@@ -78,9 +79,10 @@ export const StyledQuestionText = styled.div`
   font-weight: 500;
   color: #fff;
   max-width: 70%;
-  p{
-    strong, em{
-      color: #EDAC2A;
+  p {
+    strong,
+    em {
+      color: #edac2a;
       font-weight: normal;
       font-style: normal;
     }

@@ -19,8 +19,7 @@ export const StyledArticleElement = styled(Link)`
   }
 
   > div {
-    
-    &:first-child{
+    &:first-child {
       img {
         transition: transform 250ms, mix-blend-mode 250ms;
         mix-blend-mode: multiply;
@@ -28,11 +27,9 @@ export const StyledArticleElement = styled(Link)`
     }
   }
 
-  &:hover{
-
+  &:hover {
     > div {
-
-      &:first-child{
+      &:first-child {
         img {
           transform: scale(1.1);
           mix-blend-mode: unset;
@@ -144,7 +141,7 @@ export const StyledBgWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   @media only screen and (max-width: 532px) {
     min-height: 170px;
   }

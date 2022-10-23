@@ -55,28 +55,34 @@ const FooterRightWrapper = ({ footerData }) => {
       </StyledText>
       <StyledEventWrapper>
         {articleData.allWpWystawa?.edges
-        .map(({ node }) => ({
-          ...node,
-          wystawa: {
-            ...node.wystawa,
-            informacjeOgolne: {
-              ...node.wystawa.informacjeOgolne,
-              data: new Date(node.wystawa.informacjeOgolne.data)
-            }
-          }
-        }))
-        .sort(
-          (a, b) => new Date(a.wystawa.informacjeOgolne.data).getTime() - new Date(b.wystawa.informacjeOgolne.data).getTime()
-        )
-        .filter(({ wystawa }) => wystawa.informacjeOgolne.data.getTime() > now.getTime() || areDatesEqual(wystawa.informacjeOgolne.data, now))
-        .slice(0, 3)
-        .map((node, index) => (
-          <FooterEvent
-            key={index}
-            articleData={node.wystawa.informacjeOgolne}
-            slug={node.slug}
-          />
-        ))}
+          .map(({ node }) => ({
+            ...node,
+            wystawa: {
+              ...node.wystawa,
+              informacjeOgolne: {
+                ...node.wystawa.informacjeOgolne,
+                data: new Date(node.wystawa.informacjeOgolne.data),
+              },
+            },
+          }))
+          .sort(
+            (a, b) =>
+              new Date(a.wystawa.informacjeOgolne.data).getTime() -
+              new Date(b.wystawa.informacjeOgolne.data).getTime()
+          )
+          .filter(
+            ({ wystawa }) =>
+              wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
+              areDatesEqual(wystawa.informacjeOgolne.data, now)
+          )
+          .slice(0, 3)
+          .map((node, index) => (
+            <FooterEvent
+              key={index}
+              articleData={node.wystawa.informacjeOgolne}
+              slug={node.slug}
+            />
+          ))}
       </StyledEventWrapper>
       {footerData.przyciskPrzenoszacyDoTerminarza.title && (
         <Button

@@ -38,7 +38,7 @@ const CollectionTemplate = ({ data }) => {
     ]
   );
   return (
-    <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden"}}>
+    <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden" }}>
       <StyledCollectionTemplate>
         <CollectionTemplateHeroImage
           heroData={shortCollectionData.pierwszaSekcja}
@@ -46,9 +46,7 @@ const CollectionTemplate = ({ data }) => {
         <ThreeCollectionImages
           imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
         />
-        <CollectionTemplateDesc
-          descData={shortCollectionData}
-        />
+        <CollectionTemplateDesc descData={shortCollectionData} />
         <CollectionImageUnderDescImages imagesData={shortCollectionData} />
         <CollectionElementSlider
           imagesData={shortCollectionData.zdjeciaDoSlidera}
@@ -83,71 +81,11 @@ const CollectionTemplate = ({ data }) => {
 export default CollectionTemplate;
 
 export const query = graphql`
-query kolekcja($kolekcjaId: String) {
-  wpKolekcje(id: {eq: $kolekcjaId}) {
-    kolekcja {
-      dedykowanaStronaDlaKolekcji {
-        zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        zdjeciaDoSlidera {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        wszystkieKolekcjieLink {
-          url
-          title
-          target
-        }
-        trzyZdjeciaNaSamymSpodzieStrony {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          altText
-        }
-        trzyMaleZdjeciaModeli {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        tekstWZielonymProstokaciePolecajacyInnaKolekcje
-        prostokatneZdjeciePodOpisem {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        ktoraKolekcjePolecic {
-          url
-          title
-          target
-        }
-        pierwszaSekcja {
-          kolorowyTytulNaZieloneTlo
-          zdjecieGlowne {
+  query kolekcja($kolekcjaId: String) {
+    wpKolekcje(id: { eq: $kolekcjaId }) {
+      kolekcja {
+        dedykowanaStronaDlaKolekcji {
+          zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
             localFile {
               childImageSharp {
@@ -155,7 +93,7 @@ query kolekcja($kolekcjaId: String) {
               }
             }
           }
-          zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
+          zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
             altText
             localFile {
               childImageSharp {
@@ -163,39 +101,99 @@ query kolekcja($kolekcjaId: String) {
               }
             }
           }
-          gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+          zdjeciaDoSlidera {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          wszystkieKolekcjieLink {
             url
             title
             target
           }
-        }
-        zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          trzyZdjeciaNaSamymSpodzieStrony {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            altText
+          }
+          trzyMaleZdjeciaModeli {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          tekstWZielonymProstokaciePolecajacyInnaKolekcje
+          prostokatneZdjeciePodOpisem {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
-        }
-        opisKolekcji
-        zdjecieObokOpisu {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+          ktoraKolekcjePolecic {
+            url
+            title
+            target
+          }
+          pierwszaSekcja {
+            kolorowyTytulNaZieloneTlo
+            zdjecieGlowne {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            gdzieMaPrzenosicLinkPodZdjeciemGlownym {
+              url
+              title
+              target
+            }
+          }
+          zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          opisKolekcji
+          zdjecieObokOpisu {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   }
-}
 `;

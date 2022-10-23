@@ -43,7 +43,7 @@ export const query = graphql`
         }
       }
     }
-    wpPage(id: {eq: "cG9zdDo1MzI="}) {
+    wpPage(id: { eq: "cG9zdDo1MzI=" }) {
       artykuly {
         tytulStrony
         zobaczKolekcje {
