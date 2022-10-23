@@ -37,6 +37,10 @@ export const StyledContents = styled.div`
             font-family: 'Roboto';
             text-decoration: none;
 
+            &:hover{
+                color: #F6E2BA;
+            }
+
             @media only screen and (max-width: 972px){
                 font-size: 14px;
             }
@@ -44,12 +48,23 @@ export const StyledContents = styled.div`
         ul{
             color: #FAF6EE;
             margin-left: 45px;
+
+            li{
+                &:hover{
+                    color: #F6E2BA;
+                }
+            }
+
             a {
                 color: #FAF6EE;
                 font-size: 16px;
                 font-weight: 400;
                 font-family: 'Roboto';
                 text-decoration: none;
+
+                &:hover{
+                    color: #F6E2BA;
+                }
                 
                 @media only screen and (max-width: 972px){
                     font-size: 14px;
@@ -71,6 +86,10 @@ export const StyledChooseCollections = styled.div`
     a{
         margin-bottom: 10px;
         display: block;
+
+        &:hover{
+            color: #F6E2BA;
+        }
     }
 
     @media only screen and (max-width: 972px){
