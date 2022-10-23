@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 
 import ArticleElement from "../ArticleElement/ArticleElement";
 import ArticlePaginationNumber from "../ArticlePaginationNumber/ArticlePaginationNumber";
@@ -36,6 +36,8 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
       () => articles.length,
       [ articles ]
     );
+
+  const paginationRef = useRef();
 
   const [page, setPage] = useState(0),
     pageNum = page+1;
@@ -132,7 +134,30 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
             }
             <div onClick={() => setPage((page) => page + 1 >= maxPage ? page : page + 1)}>{'>'}</div>
           </StyledTopPaggination>
-          <StyledBottomPaggination></StyledBottomPaggination>
+          <StyledBottomPaggination>
+            <p>Idź do strony:</p>
+            <input
+              type="number"
+              ref={paginationRef}
+              defaultValue={pageNum}
+              onChange={
+                (e) => {
+                  const val = parseInt(e.target.value)-1;
+                  if (isNaN(val) || val < 0 || val >= maxPage)
+                    e.target.value = pageNum;
+                }
+              }
+            />
+            <button
+              onClick={
+                () => {
+                  const value = parseInt(paginationRef?.current?.value);
+                  if (!isNaN(value))
+                    setPage(value-1);
+                }
+              }
+            >Przejdź</button>
+          </StyledBottomPaggination>
         </StyledPagginationWrapper>
       </StyledArticlesSlider>
     </StyledArticlesPageArticles>

@@ -35,4 +35,7 @@ export const StyledTopPaggination = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const StyledBottomPaggination = styled.div``;
+export const StyledBottomPaggination = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
