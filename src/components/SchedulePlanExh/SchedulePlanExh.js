@@ -86,6 +86,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
             .filter(
               ({ date }) => date.getTime() > now.getTime() || areDatesEqual(date, now)
             )
+            .sort((a, b) => a.date.getTime() - b.date.getTime())
           }
           variant="green"
         />
