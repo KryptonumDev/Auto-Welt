@@ -22,7 +22,7 @@ import { areDatesEqual } from "../../utils/date";
 const ExhibitionHeroSection = ({ heroData }) => {
   const date = new Date(heroData.wystawa.informacjeOgolne.data),
     now = new Date();
-  console.log(heroData)
+
   return (
     <StyledExhibitionHeroSection>
       <StyledLeftWrapper>

@@ -44,7 +44,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
       setSubmitting(false);
       afterSubmit?.();
     } catch (err) {
-      console.log("handleSubmit", err);
+      console.error("handleSubmit", err);
     }
   };
 

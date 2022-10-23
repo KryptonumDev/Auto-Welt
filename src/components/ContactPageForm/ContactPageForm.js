@@ -100,7 +100,7 @@ const ContactPageForm = ({ dataForm }) => {
       setSubmitting(false);
       setIsSend(true);
     } catch (err) {
-      console.log("handleSubmit", err);
+      console.error("handleSubmit", err);
     }
   };
   return (
