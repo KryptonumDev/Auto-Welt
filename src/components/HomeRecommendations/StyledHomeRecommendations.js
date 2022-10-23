@@ -89,6 +89,11 @@ export const StyledArrowWrapper = styled(motion.div)`
     height: 100%;
   }
 
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   @media only screen and (max-width: 768px) {
     background-color: var(--primary500);
     width: 40px;

@@ -46,9 +46,8 @@ const CollectionTemplate = ({ data }) => {
         <ThreeCollectionImages
           imagesData={shortCollectionData.trzyMaleZdjeciaModeli}
         />
-        {console.log(shortCollectionData)}
         <CollectionTemplateDesc
-          descData={shortCollectionData.informacjeOKolekcji}
+          descData={shortCollectionData}
         />
         <CollectionImageUnderDescImages imagesData={shortCollectionData} />
         <CollectionElementSlider
@@ -186,14 +185,12 @@ query kolekcja($kolekcjaId: String) {
             }
           }
         }
-        informacjeOKolekcji {
-          opisKolekcji
-          zdjecie {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
+        opisKolekcji
+        zdjecieObokOpisu {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }

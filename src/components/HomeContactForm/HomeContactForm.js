@@ -14,6 +14,7 @@ import {
 } from "./StyledHomeContactForm";
 import { StyledText } from "../Text/StyledText";
 import useWindowSize from "../../utils/getWindowSize";
+import AcceptIcon from "../../images/acceptSvg.svg";
 
 const ContactSchema = Yup.object().shape({
   firstName: Yup.string().min(2, "*za krótkie!").required("*pole wymagane"),
@@ -148,13 +149,9 @@ const HomeContactForm = ({ data, afterSubmit }) => {
                 id="termsAndConditions"
               />
               <label htmlFor="termsAndConditions" style={{ fontWeight: "400" }}>
+                <AcceptIcon />
                 Akceptuję <Link to="/">politykę prywatności</Link>
               </label>
-              <StyledErrorMessage
-                name="termsAndConditions"
-                component="div"
-                iserror={errors.termsAndConditions}
-              />
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
               <button type="submit" disabled={isSubmitting}>

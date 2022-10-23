@@ -32,6 +32,7 @@ import {
 import { StyledText } from "../Text/StyledText";
 
 import useWindowSize from "../../utils/getWindowSize";
+import AcceptIcon from "../../images/acceptSvg.svg";
 
 const ContactSchema = Yup.object().shape({
   firstName: Yup.string().min(2, "*za krótkie!").required("*pole wymagane"),
@@ -266,12 +267,9 @@ const ContactPageForm = ({ dataForm }) => {
                         htmlFor="termsAndConditions"
                         style={{ fontWeight: "400" }}
                       >
+                        <AcceptIcon />
                         Akceptuję <Link to="/">politykę prywatności</Link>
                       </label>
-                      {/* <StyledErrorMessage
-                        name="termsAndConditions"
-                        component="div"
-                      /> */}
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
                       <button type="submit" disabled={isSubmitting}>

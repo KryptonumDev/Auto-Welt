@@ -14,13 +14,13 @@ import { StyledText } from "../Text/StyledText";
 import { StyledLink } from "../Link/StyledLink";
 
 const ArticleElement = ({ articleData }) => {
+  const convertedData = new Date(articleData.date).toLocaleString("pl", { dateStyle: "long" }).split(" ");
   return (
-    <StyledArticleElement>
+    <StyledArticleElement to={articleData.slug}>
       <StyledImageWrapper>
         <GatsbyImage
           image={getImage(articleData.artykul.informacjeDoMiniaturki.miniaturka.localFile)}
           alt={articleData.artykul.informacjeDoMiniaturki.miniaturka.altText}
-          objectFit="cover"
         />
       </StyledImageWrapper>
       <StyledTextWrapper>
@@ -37,7 +37,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontcolor="rgba(0, 0, 0, 0.8)"
             hasdeclaredfontweight="400"
           >
-            {articleData.date}
+            {convertedData[0]}{" "}{convertedData[1]}{" "}{convertedData[2]}
           </StyledText>
         </StyledDate>
         <StyledTitle>

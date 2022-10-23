@@ -1,12 +1,14 @@
 import React from "react";
 
+import { StyledArticlePaginationNumber } from "./StyledArticlePaginationNumber"
+
 const ArticlePaginationNumber = ({ setPage, number, active = false }) => (
-	<div
+	<StyledArticlePaginationNumber
 		onClick={setPage ? () => setPage(number-1) : undefined}
-		style={active ? { backgroundColor: "red" } : undefined}
+		style={active ? { color: "#23423D", fontSize: "40px" } : undefined}
 	>
-		{number}
-	</div>
+		<p>{number}</p>
+	</StyledArticlePaginationNumber>
 );
 
 export default ArticlePaginationNumber;

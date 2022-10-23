@@ -5,23 +5,28 @@ export const StyledHomeCollectionElement = styled.div`
   margin-bottom: 70px;
   display: flex;
   flex-direction: column;
-  max-width: 317px;
+  max-width: 325px;
   width: 100%;
+
   a {
-    margin-left: 10px;
+    margin: 0 auto;
+    width: 85%;
   }
+
   @media only screen and (max-width: 1065px) {
     a {
       font-size: 18px;
       max-width: 289px;
     }
   }
+
   @media only screen and (max-width: 685px) {
     max-width: 339px;
     a {
       font-size: 16px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     a {
       font-size: 15px;
@@ -37,6 +42,7 @@ export const StyledBackground = styled.div`
     width: 100%;
     height: 100%;
   }
+
   .gatsby-image-wrapper {
     widht: 100%;
     height: 100%;
@@ -53,6 +59,7 @@ export const StyledImage = styled.div`
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     widht: 100%;
     height: 100%;

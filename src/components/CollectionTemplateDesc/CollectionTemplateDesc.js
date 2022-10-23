@@ -15,10 +15,10 @@ const CollectionTemplateDesc = ({ descData }) => {
         {descData?.opisKolekcji && parse(descData.opisKolekcji)}
       </StyledTextWrapper>
       <StyledImageWrapper>
-        {descData?.zdjecie && (
+        {descData?.zdjecieObokOpisu && (
           <GatsbyImage
-            image={getImage(descData.zdjecie?.localFile)}
-            alt={descData.zdjecie?.altText}
+            image={getImage(descData.zdjecieObokOpisu?.localFile)}
+            alt={descData.zdjecieObokOpisu?.altText}
           />
         )}
       </StyledImageWrapper>

@@ -13,6 +13,7 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   align-items: center;
   padding-bottom: 16px;
   background-color: #faf7f1;
+  overflow: hidden;
 
   @media only screen and (max-width: 1080px) {
     width: ${({ isscheduleelement }) => (isscheduleelement ? "50%" : "100%")};
@@ -23,6 +24,7 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
       font-size: 18px;
     }
   }
+
   @media only screen and (max-width: 768px) {
     a {
       width: ${({ isscheduleelement }) =>
@@ -30,15 +32,18 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
       font-size: 21px;
     }
   }
+
   @media only screen and (max-width: 685px) {
     > a {
       font-size: 16px;
     }
   }
+
   @media only screen and (max-width: 648px) {
     width: 100%;
     max-width: unset;
   }
+
   @media only screen and (max-width: 375px) {
     > a {
       width: 85%;
@@ -47,12 +52,14 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
     }
   }
 `;
+
 export const StyledDataInformationWrapper = styled.div`
   padding: 24px 34px;
   width: 100%;
   position: relative;
   min-height: 100px;
 `;
+
 export const StyledDataWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -62,22 +69,37 @@ export const StyledDataWrapper = styled.div`
     align-items: flex-start;
   }
 `;
+
 export const StyledLogoWrapper = styled.div`
   width: 100%;
   height: 190px;
+  overflow: hidden;
+  
+  img{
+    mix-blend-mode: multiply;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &:hover{
+    img{
+      transition: transform 250ms, mix-blend-mode 250ms;
+      transform: scale(1.1);
+      mix-blend-mode: unset;
+    }
+  }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
+
 export const StyledContentWrapper = styled.div`
   padding: 26px 34px;
   width: 100%;
 `;
+
 export const StyledContentList = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,6 +116,7 @@ export const StyledContentList = styled.div`
     }
   }
 `;
+
 export const StyledImageWrapper = styled.div`
   width: 100%;
   height: 100%;

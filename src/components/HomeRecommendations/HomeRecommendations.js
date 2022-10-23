@@ -57,12 +57,14 @@ const HomeRecommendations = ({ isAboutPage }) => {
       }
     }
   `);
+
   const [renderElements, setRenderElements] = useState([]);
   const [index, setIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
   const [isPrev, setIsPrev] = useState(false);
 
-  const handlePrev = () => {
+  const handlePrev = (e) => {
+    e.preventDefault();
     setIsPrev(true);
     setPrevIndex(index);
     if (index === 0) {
@@ -71,7 +73,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
       setIndex(index - 1);
     }
   };
-  const handleNext = () => {
+  
+  const handleNext = (e) => {
+    e.preventDefault();
     setIsPrev(false);
     setPrevIndex(index);
     if (index === allWpRekomendacja.nodes.length - 1) {

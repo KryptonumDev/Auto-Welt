@@ -10,9 +10,16 @@ import {
   StyledPagginationWrapper,
   StyledTopPaggination,
   StyledBottomPaggination,
+  StyledLeftArrow,
+  StyledRightArrow,
+  StyledInput,
+  StyledButton
 } from "./StyledArticlesPageArticles";
 import { StyledText } from "../Text/StyledText";
 import useWindowSize from "../../utils/getWindowSize";
+
+import LewoArt from "../../images/lewoArt.svg";
+import PrawoArt from "../../images/prawoArt.svg";
 
 function sliceIntoChunks(arr, chunkSize) {
   const res = [],
@@ -59,106 +66,119 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
         <StyledSlidesWrapper>
           {articles[page].map(({ node }) => <ArticleElement articleData={node} />)}
         </StyledSlidesWrapper>
-        <StyledPagginationWrapper>
-          <StyledTopPaggination>
-            <div onClick={() => setPage((page) => page - 1 < 0 ? page : page - 1)}>{'<'}</div>
-            {
-              // pierwsza strona i 3 kropki
-              page > 0 ? (
-                // strona 2 i dalej
-                <>
+        {allArticles.length < (width < 768 ? 7: 13) ? null :
+          <StyledPagginationWrapper>
+            <StyledTopPaggination>
+              <StyledLeftArrow onClick={() => setPage((page) => page - 1 < 0 ? page : page - 1)}>
+                <LewoArt />
+              </StyledLeftArrow>
+              {
+                // pierwsza strona i 3 kropki
+                page > 0 ? (
+                  // strona 2 i dalej
+                  <>
+                    <ArticlePaginationNumber
+                      setPage={setPage}
+                      number={1}
+                    />
+                    {
+                      page > 3 ? (
+                        // strona 4 i dalej
+                        <>...</>
+                      ) : (
+                        page > 1 ? (
+                          // strona 3
+                          <ArticlePaginationNumber
+                            setPage={setPage}
+                            number={2}
+                          />
+                        ) : (undefined)
+                      )
+                    }
+                  </>
+                ) : (undefined)
+              }
+              {
+                // poprzednia strona
+                page > 2 ? (
                   <ArticlePaginationNumber
                     setPage={setPage}
-                    number={1}
-                  />
-                  {
-                    page > 3 ? (
-                      // strona 4 i dalej
-                      <>...</>
-                    ) : (
-                      page > 1 ? (
-                        // strona 3
-                        <ArticlePaginationNumber
-                          setPage={setPage}
-                          number={2}
-                        />
-                      ) : (undefined)
-                    )
-                  }
-                </>
-              ) : (undefined)
-            }
-            {
-              // poprzednia strona
-              page > 2 ? (
-                <ArticlePaginationNumber
-                  setPage={setPage}
-                  number={pageNum-1}
-                />
-              ) : (undefined)
-            }
-            <ArticlePaginationNumber
-              setPage={setPage}
-              number={pageNum}
-              active={true}
-            />
-            {
-              // następna strona
-              page + 1 < maxPage ? (
-                <ArticlePaginationNumber
-                  setPage={setPage}
-                  number={pageNum+1}
-                />
-              ) : (undefined)
-            }
-            {
-              // 3 kropki i ostatnia strona
-              page + 4 < maxPage ? (
-                <>...</>
-              ) : (
-                page + 3 < maxPage ? (
-                  <ArticlePaginationNumber
-                    setPage={setPage}
-                    number={pageNum+2}
+                    number={pageNum-1}
                   />
                 ) : (undefined)
-              )
-            }
-            {
-              page + 2 < maxPage ? (
-                <ArticlePaginationNumber
-                  setPage={setPage}
-                  number={maxPage}
-                />
-              ) : (undefined)
-            }
-            <div onClick={() => setPage((page) => page + 1 >= maxPage ? page : page + 1)}>{'>'}</div>
-          </StyledTopPaggination>
-          <StyledBottomPaggination>
-            <p>Idź do strony:</p>
-            <input
-              type="number"
-              ref={paginationRef}
-              defaultValue={pageNum}
-              onChange={
-                (e) => {
-                  const val = parseInt(e.target.value)-1;
-                  if (isNaN(val) || val < 0 || val >= maxPage)
-                    e.target.value = pageNum;
-                }
               }
-            />
-            <button
-              onClick={
-                () => {
-                  const value = parseInt(paginationRef?.current?.value);
-                  if (!isNaN(value))
-                    setPage(value-1);
-                }
+              <ArticlePaginationNumber
+                setPage={setPage}
+                number={pageNum}
+                active={true}
+              />
+              {
+                // następna strona
+                page + 1 < maxPage ? (
+                  <ArticlePaginationNumber
+                    setPage={setPage}
+                    number={pageNum+1}
+                  />
+                ) : (undefined)
               }
-            >Przejdź</button>
-          </StyledBottomPaggination>
-        </StyledPagginationWrapper>
+              {
+                // 3 kropki i ostatnia strona
+                page + 4 < maxPage ? (
+                  <>...</>
+                ) : (
+                  page + 3 < maxPage ? (
+                    <ArticlePaginationNumber
+                      setPage={setPage}
+                      number={pageNum+2}
+                    />
+                  ) : (undefined)
+                )
+              }
+              {
+                page + 2 < maxPage ? (
+                  <ArticlePaginationNumber
+                    setPage={setPage}
+                    number={maxPage}
+                  />
+                ) : (undefined)
+              }
+              <StyledRightArrow onClick={() => setPage((page) => page + 1 >= maxPage ? page : page + 1)}>
+                <PrawoArt />
+              </StyledRightArrow>
+            </StyledTopPaggination>
+            <StyledBottomPaggination>
+              <StyledText
+                hasdeclaredfontsize="24px"
+                hasdeclaredlineheight="1.2em"
+              >
+                Idź do strony:
+              </StyledText>
+              <StyledInput
+                type="number"
+                ref={paginationRef}
+                defaultValue={pageNum}
+                onChange={
+                  (e) => {
+                    const val = parseInt(e.target.value)-1;
+                    if (isNaN(val) || val < 0 || val >= maxPage)
+                      e.target.value = pageNum;
+                  }
+                }
+              />
+              <StyledButton
+                onClick={
+                  () => {
+                    const value = parseInt(paginationRef?.current?.value);
+                    if (!isNaN(value))
+                      setPage(value-1);
+                  }
+                }
+              >
+                Przejdź
+              </StyledButton>
+            </StyledBottomPaggination>
+          </StyledPagginationWrapper>
+        }
       </StyledArticlesSlider>
     </StyledArticlesPageArticles>
   );

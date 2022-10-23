@@ -16,13 +16,16 @@ export const StyledCollectionElementSlider = styled.section`
     position: relative;
     justify-content: center;
   }
+
   @media only screen and (max-width: 600px) {
     margin-top: 80px;
   }
+
   @media only screen and (max-width: 546px) {
     min-height: unset;
     margin-top: 60px;
   }
+
   @media only screen and (max-width: 375px) {
     margin-bottom: 60px;
   }
@@ -32,6 +35,7 @@ export const StyledLeftArrow = styled(motion.div)`
   padding: 5px;
   cursor: pointer;
   height: 56px;
+
   > svg {
     width: 100%;
     height: 100%;
@@ -39,6 +43,12 @@ export const StyledLeftArrow = styled(motion.div)`
       stroke: var(--secondary500);
     }
   }
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   @media only screen and (max-width: 768px) {
     width: 40px;
     height: 56px;
@@ -46,6 +56,7 @@ export const StyledLeftArrow = styled(motion.div)`
     position: relative;
     z-index: 1;
   }
+
   @media only screen and (max-width: 546px) {
     position: absolute;
     bottom: -20px;
@@ -54,6 +65,7 @@ export const StyledLeftArrow = styled(motion.div)`
     left: 34%;
     margin-right: 0;
   }
+
   @media only screen and (max-width: 341px) {
     bottom: 0;
   }
@@ -63,6 +75,7 @@ export const StyledRightArrow = styled(motion.div)`
   padding: 5px;
   cursor: pointer;
   height: 56px;
+
   > svg {
     width: 100%;
     height: 100%;
@@ -70,6 +83,11 @@ export const StyledRightArrow = styled(motion.div)`
       stroke: var(--secondary500);
     }
   }
+  
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   @media only screen and (max-width: 768px) {
     width: 40px;
@@ -78,6 +96,7 @@ export const StyledRightArrow = styled(motion.div)`
     position: relative;
     z-index: 1;
   }
+
   @media only screen and (max-width: 546px) {
     position: absolute;
     bottom: -20px;
@@ -86,6 +105,7 @@ export const StyledRightArrow = styled(motion.div)`
     right: 34%;
     margin-left: 0;
   }
+
   @media only screen and (max-width: 341px) {
     bottom: 0;
   }
@@ -99,15 +119,18 @@ export const StyledImagesWrapper = styled(motion.div)`
   justify-content: space-between;
   gap: 27px;
   overflow: hidden;
+
   @media only screen and (max-width: 768px) {
     height: 100%;
     gap: 0;
     width: 92%;
     padding-bottom: 40px;
   }
+
   @media only screen and (max-width: 546px) {
     width: 100%;
   }
+
   @media only screen and (max-width: 375px) {
     padding-bottom: 0;
   }
@@ -117,14 +140,17 @@ export const StyledImage = styled(motion.div)`
   width: 50%;
   height: 100%;
   flex: 1;
+
   img {
     width: 100%;
     height: 100%;
   }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
+  
   @media only screen and (max-width: 768px) {
     width: 100%;
     max-width: unset;

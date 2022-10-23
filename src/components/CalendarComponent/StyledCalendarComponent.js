@@ -4,6 +4,7 @@ import Calendar from "react-calendar";
 
 export const StyledCalendarComponent = styled.div`
   width: 100%;
+
   .calendarTitle {
     text-align: center;
     font-family: "Roboto";
@@ -15,55 +16,77 @@ export const StyledCalendarComponent = styled.div`
     text-transform: uppercase;
     padding-bottom: 18px;
   }
+
   .calendarWrapper {
     width: 100%;
     display: flex;
     align-items: center;
     gap: 20px;
   }
+
   .prevArrow {
     width: 26px;
     height: 56px;
     cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     > svg {
       width: 100%;
       height: 100%;
     }
   }
+
   .nextArrow {
     width: 26px;
     height: 56px;
     cursor: pointer;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     > svg {
       width: 100%;
       height: 100%;
     }
   }
+
   @media only screen and (max-width: 786px) {
+
     .calendarTitle {
       font-size: 30px;
     }
+
     .calendarWrapper {
       position: relative;
     }
+
     .prevArrow {
       position: absolute;
       left: 0;
       top: -52px;
+
       svg {
         width: 27px;
         height: 34px;
       }
     }
+
     .nextArrow {
       position: absolute;
       right: 0;
       top: -52px;
+
       svg {
         width: 27px;
         height: 34px;
       }
     }
+
   }
   @media only screen and (max-width: 516px) {
     .calendarTitle {
@@ -80,6 +103,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
     border-style: solid;
     border-color: #23423D;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    
     button{
         width: 148px;
         height: 97px;
@@ -90,9 +114,16 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
         background-color: var(--background500);
         position: relative;
         overflow: visible !important;
+
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
         &:disabled{
             border-color: none;
         }
+
         > abbr {
             position: absolute;
             top: 9px;
@@ -107,6 +138,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
         @media only screen and (max-width: 768px){
             height: 77px;
             width: 99px;
+
             > abbr{
                 font-size: 24px;
                 top: 5px;
@@ -118,13 +150,16 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
             width: auto;
             height: 38px;
             width: 38px;
+
             > abbr {
                 font-size: 14px;
                 right: 6px;
             }
         }
     }
+
     .react-calendar__month-view__weekdays{
+
         > div {
             border-right: 2px solid #23423D;
             border-bottom: 1px solid #23423D;
@@ -136,28 +171,34 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
             line-height: 1.2em;
             color: #23423D;
             padding: 18px 0;
+
             abbr[title]{
                 text-decoration: none;
             }
+
             @media only screen and (max-width: 768px){
                 font-size: 24px;
                 max-height: 40px;
                 padding: 9px 0;
                 line-height: 1em;
             }
+
             @media only screen and (max-width: 517px){
                 font-size: 13px;
                 padding: 9px 0;
             }
         }
     }
+
     .react-calendar__month-view__days__day--weekend:nth-child(7n) {
         background-color: #F6E2BA;
     }
+
     .react-calendar__month-view__days__day--weekend:last-child {
         background-color: ${({ markLastSunday }) =>
           markLastSunday ? "#F6E2BA" : "var(--background500)"};
     }
+
     .activeDay{
         position: relative;
         width: 100%;
@@ -176,14 +217,17 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
         padding: 30px 30px 0 5px;
         display: flex;
         flex-direction: column;
+
         svg {
             position: absolute;
             top: -10px;
             left: -30px;
             z-index: 1;
         }
+
         @media only screen and (max-width: 768px){
-            svg{
+            
+          svg{
                 width: 120%;
                 height: 120%;
                 top: 0;
@@ -210,9 +254,11 @@ export const StyledExhibitionTitle = styled.p`
     bottom: -40px;
     z-index: 2;
     padding-left: 11px;
+
     &:hover {
       display: flex;
     }
+
     &:after {
       content: "";
       width: 0;
@@ -225,6 +271,7 @@ export const StyledExhibitionTitle = styled.p`
       left: 20px;
     }
   }
+  
   @media only screen and (max-width: 516px) {
     left: 0;
     bottom: -60px;

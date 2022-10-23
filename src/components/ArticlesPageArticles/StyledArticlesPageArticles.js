@@ -13,13 +13,16 @@ export const StyledArticlesPageArticles = styled.section`
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     > h1 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledArticlesSlider = styled.div``;
+
 export const StyledSlidesWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -30,12 +33,74 @@ export const StyledSlidesWrapper = styled.div`
     gap: 30px;
   }
 `;
-export const StyledPagginationWrapper = styled.div``;
+
+export const StyledPagginationWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+`;
+
 export const StyledTopPaggination = styled.div`
   display: flex;
-  flex-direction: row;
+  gap: 20px;
+  
+  font-family: 'Nocturne Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2em;
+
+  > div {
+    cursor: pointer;
+  }
 `;
+
 export const StyledBottomPaggination = styled.div`
   display: flex;
-  flex-direction: row;
+  margin-top: 40px;
+  align-items: center;
+  gap: 20px;
 `;
+
+export const StyledLeftArrow = styled.div``
+
+export const StyledRightArrow = styled.div``
+
+export const StyledInput = styled.div`
+  input {
+    width: 49px;
+    height: 51px;
+    background: #FAF7F1;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    padding-left: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    outline-color: #EDAC2A;
+
+    &:active{
+      background: #E9E4D6;
+    }
+
+    &:hover{
+      background: #FAF7F1;
+    }
+  }
+`
+
+export const StyledButton = styled.button`
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  text-decoration-line: underline;
+  color: #23423D;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline-color: #EDAC2A;
+`

@@ -16,25 +16,30 @@ export const StyledHomeContactForm = styled.div`
   @media only screen and (max-width: 1119px) {
     padding: 22px;
   }
+
   @media only screen and (max-width: 1087px) {
     form {
       gap: 10px;
     }
   }
+
   @media only screen and (max-width: 972px) {
     form {
       gap: 20px;
     }
   }
 `;
+
 export const StyledInputWrapper = styled.div`
   width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
   max-width: ${({ fullwidth }) => (fullwidth ? "unset" : "255px")};
   position: relative;
+
   label {
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
   }
+
   input {
     width: 100%;
     height: 38px;
@@ -49,6 +54,7 @@ export const StyledInputWrapper = styled.div`
     }
     font-family: "Roboto";
   }
+
   textarea {
     width: 100%;
     height: 164px;
@@ -68,16 +74,20 @@ export const StyledInputWrapper = styled.div`
   @media only screen and (max-width: 1087px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
   }
+
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
+
   @media only screen and (max-width: 657px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
   }
+
   @media only screen and (max-width: 469px) {
     width: 100%;
   }
 `;
+
 export const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
   bottom: -20px;
@@ -85,11 +95,13 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   font: 14px "Roboto";
   color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
 `;
+
 export const StyledButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 6px;
+
   > button {
     background-color: transparent;
     border: none;
@@ -102,6 +114,7 @@ export const StyledButtonWrapper = styled.div`
       }
     }
   }
+
   @media only screen and (max-width: 685px) {
     > button {
       p {
@@ -109,6 +122,7 @@ export const StyledButtonWrapper = styled.div`
       }
     }
   }
+
   @media only screen and (max-width: 375px) {
     > button {
       p {
@@ -121,11 +135,22 @@ export const StyledCustomCheckbox = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+
   label {
     position: relative;
     padding-left: 26px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      z-index: 1;
+    }
+
     &:after {
-      content: "";
+      content: '';
       border: 2px solid ${({ iserror }) => (iserror ? "#D63D3D" : "#3E635D")};
       width: 20px;
       height: 20px;
@@ -136,12 +161,14 @@ export const StyledCustomCheckbox = styled.div`
       background-color: ${({ value }) => (value ? "#3E635D" : "transparent")};
     }
   }
+
   input {
     width: 0;
     height: 0;
     opacity: 0;
     pointer-events: none;
   }
+  
   label {
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
