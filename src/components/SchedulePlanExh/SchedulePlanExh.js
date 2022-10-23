@@ -11,6 +11,8 @@ import {
 } from "./StyledSchedulePlanExh";
 import ScheduleSlider from "../ScheduleSlider/ScheduleSlider";
 
+import { areDatesEqual } from "../../utils/date";
+
 const SchedulePlanExh = ({ dataPlan }) => {
   const data = useStaticQuery(graphql`
     query planExhibit {
@@ -58,6 +60,9 @@ const SchedulePlanExh = ({ dataPlan }) => {
       }
     }
   `);
+
+  const now = new Date();
+
   return (
     <StyledSchedulePlanExh>
       <StyledText
@@ -72,7 +77,16 @@ const SchedulePlanExh = ({ dataPlan }) => {
       </StyledText>
       <StyledSliderWrapper>
         <ScheduleSlider
-          scheduleData={data.allWpWystawa.edges}
+          scheduleData={
+            data.allWpWystawa.edges
+            .map(edge => ({
+              ...edge,
+              date: new Date(edge.node.wystawa.informacjeOgolne.data)
+            }))
+            .filter(
+              ({ date }) => date.getTime() > now.getTime() || areDatesEqual(date, now)
+            )
+          }
           variant="green"
         />
       </StyledSliderWrapper>
