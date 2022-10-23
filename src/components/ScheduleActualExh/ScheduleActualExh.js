@@ -11,6 +11,8 @@ import {
 } from "./StyledScheduleActualExh";
 import ScheduleSlider from "../ScheduleSlider/ScheduleSlider";
 
+import { areDatesEqual } from "../../utils/date";
+
 const ScheduleActualExh = ({ dataActual }) => {
   const data = useStaticQuery(graphql`
     query actualeExhibit {
@@ -58,6 +60,9 @@ const ScheduleActualExh = ({ dataActual }) => {
       }
     }
   `);
+
+  const now = new Date();
+
   return (
     <StyledScheduleActualExh>
       <StyledText
@@ -72,7 +77,16 @@ const ScheduleActualExh = ({ dataActual }) => {
       </StyledText>
       <StyledSliderWrapper>
         <ScheduleSlider
-          scheduleData={data.allWpWystawa.edges}
+          scheduleData={
+            data.allWpWystawa.edges
+            .map(edge => ({
+              ...edge,
+              date: new Date(edge.node.wystawa.informacjeOgolne.data)
+            }))
+            .filter(
+              ({ date }) => date.getTime() > now.getTime() || areDatesEqual(date, now)
+            )
+          }
           variant="orange"
         />
       </StyledSliderWrapper>
