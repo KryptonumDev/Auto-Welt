@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 export const StyledArticlesPageShowCollections = styled.section`
   padding: 0 32px;
@@ -52,7 +53,7 @@ export const StyledImageWrapper = styled.div`
     height: 100%;
   }
 `;
-export const StyledTextWrapper = styled.div`
+export const StyledTextWrapper = styled(Link)`
   max-width: 386px;
   width: 80%;
   min-height: 111px;
@@ -61,6 +62,8 @@ export const StyledTextWrapper = styled.div`
   position: absolute;
   left: 50%;
   transform: translate(-50%, -70%);
+  text-decoration: none;
+  padding: 10px;
 
   @media only screen and (max-width: 768px) {
     transform: translate(-50%, 0);
@@ -73,6 +76,15 @@ export const StyledTitleImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .gatsby-image-wrapper{
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const StyledTitleWrapper = styled.div`
   display: flex;

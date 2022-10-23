@@ -1,5 +1,4 @@
 import React from "react";
-import { getImage, withArtDirection } from "gatsby-plugin-image";
 
 import ArticlesPageArticles from "../components/ArticlesPageArticles/ArticlesPageArticles";
 import ArticlesPageShowCollections from "../components/ArticlesPageShowCollections/ArticlesPageShowCollections";
@@ -44,7 +43,7 @@ export const query = graphql`
         }
       }
     }
-    wpPage(id: { eq: "cG9zdDo1MzI=" }) {
+    wpPage(id: {eq: "cG9zdDo1MzI="}) {
       artykuly {
         tytulStrony
         zobaczKolekcje {
@@ -77,6 +76,44 @@ export const query = graphql`
               childImageSharp {
                 gatsbyImageData
               }
+            }
+          }
+          pierwszaKolekcjaKtoraPolecasz {
+            ... on WpKolekcje {
+              id
+              kolekcja {
+                informacjeGlowne {
+                  duzaMiniaturka {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
+                  }
+                  nazwaKolekcji
+                }
+              }
+              slug
+            }
+          }
+          drugaKolekcjaKtoraPolecasz {
+            ... on WpKolekcje {
+              id
+              kolekcja {
+                informacjeGlowne {
+                  duzaMiniaturka {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
+                  }
+                  nazwaKolekcji
+                }
+              }
+              slug
             }
           }
         }

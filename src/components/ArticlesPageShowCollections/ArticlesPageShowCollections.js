@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage, withArtDirection } from "gatsby-plugin-image";
 
 import RecInfoWithButton from "../../components/RecInfoWithButton/RecInfoWithButton";
 
@@ -17,38 +17,6 @@ import {
 } from "./StyledArticlesPageShowCollections";
 
 const ArticlesPageShowCollections = ({ collectionData }) => {
-  const data = useStaticQuery(graphql`
-    query articlesCollectionData {
-      allWpKolekcje(limit: 2) {
-        edges {
-          node {
-            kolekcja {
-              informacjeGlowne {
-                duzaMiniaturka {
-                  altText
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
-                }
-                nazwaKolekcji
-                tloDlaTytuluWDuzejMiniaturce {
-                  altText
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
-                }
-              }
-            }
-            slug
-          }
-        }
-      }
-    }
-  `);
   const images = withArtDirection(
     getImage(collectionData.zdjecieTlaDlaZielonegoProstokatu.localFile),
     [
@@ -80,46 +48,70 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           {collectionData?.tytulSekcji}
         </StyledText>
         <StyledSlidesWrapper>
-          {data.allWpKolekcje.edges?.map(({ node }, index) => (
-            <StyledSlide key={index}>
-              <StyledImageWrapper>
-                {node.informacjeGlowne?.duzaMiniaturka && (
-                  <GatsbyImage
-                    image={getImage(
-                      node.informacjeGlowne.duzaMiniaturka?.localFile
-                    )}
-                    alt={node.informacjeGlowne.duzaMiniaturka?.altText}
-                  />
+          <StyledSlide>
+            <StyledImageWrapper>
+              <GatsbyImage
+                image={getImage(
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
+                    ?.localFile
                 )}
-              </StyledImageWrapper>
-              <StyledTextWrapper>
-                <StyledTitleImage>
-                  {node.informacjeGlowne?.tloDlaTytuluWDuzejMiniaturce && (
-                    <GatsbyImage
-                      image={getImage(
-                        node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
-                          ?.localFile
-                      )}
-                      alt={
-                        node.informacjeGlowne.tloDlaTytuluWDuzejMiniaturce
-                          ?.altText
-                      }
-                    />
-                  )}
-                </StyledTitleImage>
-                <StyledTitleWrapper>
-                  <StyledText
-                    hasdeclaredfontsize="28px"
-                    hasdeclaredfontfamily="Nocturne Serif"
-                    hasdeclaredlineheight="1.2em"
-                    hasdeclaredfontcolor="#23423D"
-                  >
-                    {node?.nazwaKolekcji}
-                  </StyledText>
-                </StyledTitleWrapper>
-              </StyledTextWrapper>
-            </StyledSlide>
-          ))}
+                alt={
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
+                    ?.altText
+                }
+              />
+            </StyledImageWrapper>
+            <StyledTextWrapper to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}>
+              <StyledTitleImage>
+                <StaticImage
+                  src="../../images/polecanaKolekcja.png"
+                />
+              </StyledTitleImage>
+              <StyledTitleWrapper>
+                <StyledText
+                  hasdeclaredfontsize="28px"
+                  hasdeclaredfontfamily="Nocturne Serif"
+                  hasdeclaredlineheight="1.2em"
+                  hasdeclaredfontcolor="#23423D"
+                  hasdeclaredtextalign="center"
+                >
+                  {collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.nazwaKolekcji}
+                </StyledText>
+              </StyledTitleWrapper>
+            </StyledTextWrapper>
+          </StyledSlide>
+          <StyledSlide>
+            <StyledImageWrapper>
+              <GatsbyImage
+                image={getImage(
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
+                    ?.localFile
+                )}
+                alt={
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.duzaMiniaturka
+                    ?.altText
+                }
+              />
+            </StyledImageWrapper>
+            <StyledTextWrapper to={`/kolekcje-modeli/${collectionData.drugaKolekcjaKtoraPolecasz.slug}`}>
+              <StyledTitleImage>
+                <StaticImage
+                  src="../../images/polecanaKolekcja.png"
+                />
+              </StyledTitleImage>
+              <StyledTitleWrapper>
+                <StyledText
+                  hasdeclaredfontsize="28px"
+                  hasdeclaredfontfamily="Nocturne Serif"
+                  hasdeclaredlineheight="1.2em"
+                  hasdeclaredfontcolor="#23423D"
+                  hasdeclaredtextalign="center"
+                >
+                  {collectionData.drugaKolekcjaKtoraPolecasz.kolekcja.informacjeGlowne.nazwaKolekcji}
+                </StyledText>
+              </StyledTitleWrapper>
+            </StyledTextWrapper>
+          </StyledSlide>
         </StyledSlidesWrapper>
       </StyledArticlesPageShowCollections>
       <StyledReqWrapper>
