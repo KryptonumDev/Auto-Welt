@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 
 import ArticleElement from "../ArticleElement/ArticleElement";
 
@@ -11,8 +11,33 @@ import {
   StyledBottomPaggination,
 } from "./StyledArticlesPageArticles";
 import { StyledText } from "../Text/StyledText";
+import useWindowSize from "../../utils/getWindowSize";
+
+function sliceIntoChunks(arr, chunkSize) {
+  const res = [],
+    copy = arr.map(v => v);
+  for (let i = 0; i < copy.length; i += chunkSize) {
+      const chunk = copy.slice(i, i + chunkSize);
+      res.push(chunk);
+  }
+  return res;
+}
 
 const ArticlesPageArticles = ({ title, allArticles }) => {
+  const width = useWindowSize(),
+    numElements = width < 768 ? 6 : 12;
+
+  const articles = useMemo(
+      () => sliceIntoChunks(allArticles, numElements),
+      [ allArticles ]
+    ),
+    maxPage = useMemo(
+      () => articles.length,
+      [ articles ]
+    );
+
+  const [page, setPage] = useState(0);
+
   return (
     <StyledArticlesPageArticles>
       <StyledText
@@ -28,7 +53,7 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
       </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>
-          {allArticles.map(({ node }) => <ArticleElement articleData={node} />)}
+          {articles[page].map(({ node }) => <ArticleElement articleData={node} />)}
         </StyledSlidesWrapper>
         <StyledPagginationWrapper>
           <StyledTopPaggination></StyledTopPaggination>
