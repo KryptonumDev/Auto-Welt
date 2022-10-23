@@ -107,6 +107,10 @@ const ScheduleArchExh = ({ dataArch }) => {
         .filter(
           ({ wystawa }) => wystawa.informacjeOgolne.data.getTime() < now.getTime() && !areDatesEqual(wystawa.informacjeOgolne.data, now)
         )
+        .sort(
+          // malejąco - 'b-a'
+          (a, b) => b.wystawa.informacjeOgolne.data.getTime() - a.wystawa.informacjeOgolne.data.getTime()
+        )
         .slice(0, imagesIndex)
         .map((node, index) => {
           const convertedData = node.wystawa.informacjeOgolne.data
