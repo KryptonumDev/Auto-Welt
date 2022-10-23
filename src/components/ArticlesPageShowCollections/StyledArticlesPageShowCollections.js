@@ -52,6 +52,10 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media only screen and (max-width: 472px){
+    height: 230px;
+  }
 `;
 export const StyledTextWrapper = styled(Link)`
   max-width: 386px;
@@ -92,6 +96,10 @@ export const StyledTitleWrapper = styled.div`
   justify-content: center;
   min-height: 111px;
   width: 100%;
+
+  @media only screen and (max-width: 375px){
+    font-size: 24px;
+  }
 `;
 export const StyledReqWrapper = styled.div`
   padding: 0 32px;
