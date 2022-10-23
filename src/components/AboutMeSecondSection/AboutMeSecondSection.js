@@ -53,7 +53,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
       <StyledGreetingSection>
         <StyledGreetingPanel>
           <StyledGreetingImage>
-            <GatsbyImage image={images} objectFit="fill" />
+            <GatsbyImage image={images} alt="tło" objectFit="fill" />
           </StyledGreetingImage>
           <StyledGreetingText>
             {secondData?.tekstWZielonymElemencie &&

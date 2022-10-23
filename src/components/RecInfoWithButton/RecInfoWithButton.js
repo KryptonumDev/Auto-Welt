@@ -25,7 +25,7 @@ const RecInfoWithButton = ({
   return (
     <StyledRecInfoWithButton ismoveleft={isMoveLeft}>
       <StyledFooterImageWrapper>
-        <GatsbyImage image={bgImage} objectFit="fill" />
+        <GatsbyImage image={bgImage} alt="tło" objectFit="fill" />
       </StyledFooterImageWrapper>
       <StyledText
         hasdeclaredfontsize="28px"

@@ -40,7 +40,7 @@ const Question = ({ faqData }) => {
           {faqData.pytanie && parse(faqData.pytanie)}
         </StyledQuestionText>
         <StyledBgWrapper>
-          {images && <GatsbyImage image={images} objectFit="fill" />}
+          {images && <GatsbyImage image={images} alt="tło" objectFit="fill" />}
         </StyledBgWrapper>
       </StyledQuestionWrapper>
       {isOpen && (

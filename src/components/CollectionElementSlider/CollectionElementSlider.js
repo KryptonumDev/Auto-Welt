@@ -81,7 +81,6 @@ const CollectionElementSlider = ({ imagesData }) => {
                   <GatsbyImage
                     image={getImage(e.localFile)}
                     alt={e.altText}
-                    objectFit="cover"
                   />
                 </StyledImage>
               </AnimatePresence>

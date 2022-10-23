@@ -89,7 +89,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledImageWrapper>
-        {images && <GatsbyImage image={images} objectFit="fill" />}
+        {images && <GatsbyImage image={images} alt={imageShort.tloDlaStopkiWersjaTablet.altText} objectFit="fill" />}
       </StyledImageWrapper>
       <StyledFooterMainWrapper>
         <FooterLeftWrapper footerData={data.wpPage.globalConfig.stopka} />

@@ -107,7 +107,7 @@ const ContactPageForm = ({ dataForm }) => {
     <StyledContactPageForm>
       <StyledLeftWrapper>
         <StyledModel>
-          <GatsbyImage image={images} objectFit="fill" />
+          <GatsbyImage image={images} alt={dataForm.zdjecieDoFormularzaMobile.altText} objectFit="fill" />
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>

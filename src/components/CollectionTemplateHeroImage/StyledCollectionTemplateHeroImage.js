@@ -47,9 +47,7 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   }
 `;
 
-export const StyledGatsbyImage = styled(GatsbyImage)`
-
-`;
+export const StyledGatsbyImage = styled(GatsbyImage)``;
 
 export const StyledHeroImage = styled.div`
   width: 100%;

@@ -33,7 +33,7 @@ const OfferHeroSection = ({ dataOffer }) => {
     <StyledOfferHeroSection>
       <StyledTimeInfo>
         <StyledBgWrapper>
-          <GatsbyImage image={getImage(images)} />
+          <GatsbyImage image={getImage(images)} alt="tło" />
         </StyledBgWrapper>
         <StyledImagesWrapper>
           <div>

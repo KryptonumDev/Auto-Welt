@@ -16,7 +16,6 @@ const FooterEvent = ({ articleData, slug }) => {
           <GatsbyImage
             image={getImage(articleData.zdjecieDoMiniaturki.localFile)}
             alt={articleData.zdjecieDoMiniaturki.altText}
-            objecFit="cover"
           />
         )}
       </StyledFooterEventImage>
