@@ -55,7 +55,7 @@ const ArticleTemplateContent = ({ contentData }) => {
     headers = (() => {
       const nav = [],
         newHeaderObj = (id, name = "", children = []) => ({ id, name, children })
-      for (let header of content.filter(val => [ "h2", "h3" ].includes(val.type))) {
+      for (let header of content?.filter(val => [ "h2", "h3" ].includes(val.type))) {
         const headerContent = (
           Array.isArray(header.props.children) ? (
             header.props.children?.[0]
@@ -82,19 +82,19 @@ const ArticleTemplateContent = ({ contentData }) => {
       <StyledAside>
         <CustomAside
           tableOfContents={headers}
-          asideData={contentData.artykul.dedykowanaStronaArtykulu.sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony}
+          asideData={contentData?.artykul?.dedykowanaStronaArtykulu?.sekcjaPolecajacaNaszeKolekcjeWLewejCzesciStrony}
         />
       </StyledAside>
       <StyledTextContent>
         {content}
-        {contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu &&
+        {contentData.artykul?.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu &&
           <ArticleGalleryImage images={contentData.artykul.dedykowanaStronaArtykulu?.galeriaNaKoncuArtykulu}/>
         }
-        {contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis && 
-          <ArticlePhotoInfo desc={contentData.artykul.dedykowanaStronaArtykulu.sekcjaZAutoremZdjec?.opis} />
+        {contentData.artykul?.dedykowanaStronaArtykulu?.sekcjaZAutoremZdjec?.opis && 
+          <ArticlePhotoInfo desc={contentData.artykul?.dedykowanaStronaArtykulu?.sekcjaZAutoremZdjec?.opis} />
         }
-        {contentData.artykul.dedykowanaStronaArtykulu.ktoryArtykulPolecicNaDoleStrony &&
-          <ChooseArticle chosenArticle={contentData.artykul.dedykowanaStronaArtykulu.ktoryArtykulPolecicNaDoleStrony} />
+        {contentData.artykul?.dedykowanaStronaArtykulu?.ktoryArtykulPolecicNaDoleStrony &&
+          <ChooseArticle chosenArticle={contentData.artykul?.dedykowanaStronaArtykulu?.ktoryArtykulPolecicNaDoleStrony} />
         }
       </StyledTextContent>
     </StyledArticleTemplateContent>
