@@ -11,7 +11,7 @@ import {
 import { StyledText } from "../Text/StyledText";
 
 const OfferEvent = ({ offerData, slug }) => {
-  const convertedData = new Date(offerData.informacjeOgolne?.data)
+  const convertedData = offerData.informacjeOgolne?.data
     .toLocaleString("pl", { dateStyle: "long" })
     .split(" ");
   return (
