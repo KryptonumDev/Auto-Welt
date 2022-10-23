@@ -127,12 +127,6 @@ const HomeRecommendations = ({ isAboutPage }) => {
         <StyledArrowWrapper
           onClick={handlePrev}
           hasdeclaredtransform="20px"
-          initial={{ x: width < 463 ? 2 : 20 }}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.5 },
-          }}
-          whileTap={{ scale: 0.9 }}
         >
           {width <= 768 ? (
             width < 463 ? (
@@ -158,12 +152,6 @@ const HomeRecommendations = ({ isAboutPage }) => {
         <StyledArrowWrapper
           onClick={handleNext}
           hasdeclaredtransform="-20px"
-          initial={{ x: width < 463 ? -2 : -20 }}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.5 },
-          }}
-          whileTap={{ scale: 0.9 }}
         >
           {width <= 768 ? (
             width < 463 ? (

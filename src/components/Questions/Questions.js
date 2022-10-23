@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { AnimatePresence } from "framer-motion";
 
 import Question from "../Question/Question";
 
@@ -62,9 +61,7 @@ const Questions = ({ isContactPage }) => {
       </StyledText>
       <StyledQuestionsWrapper>
         {data.wpPage.globalConfig?.faq?.faq.map((faq, index) => (
-          <AnimatePresence>
-            <Question faqData={faq} key={index} />
-          </AnimatePresence>
+          <Question faqData={faq} key={index} />
         ))}
       </StyledQuestionsWrapper>
     </StyledQuestions>

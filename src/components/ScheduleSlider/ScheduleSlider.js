@@ -27,15 +27,18 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
   const handlePrev = () => {
     setIsPrev(true);
     setPrevIndex(index);
+
     if (index === 0) {
       setIndex(scheduleData.length - 1);
     } else {
       setIndex(index - 1);
     }
   };
+
   const handleNext = () => {
     setIsPrev(false);
     setPrevIndex(index);
+
     if (index === scheduleData.length - 1) {
       setIndex(0);
     } else {
@@ -44,10 +47,15 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
   };
 
   useEffect(() => {
+    if(scheduleData.length < 3){
+      return setRenderElements(scheduleData);
+    }
+
     let sliderElements = scheduleData.slice(
       index,
       index + (width < 649 ? 1 : 2)
     );
+    
     if (width > 648) {
       if (index === scheduleData.length - 1) {
         sliderElements = [
@@ -68,17 +76,13 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
 
   return (
     <StyledScheduleSlider>
-      <StyledPrevArrow
-        initial={{ y: "-50%" }}
-        onClick={handlePrev}
-        whileHover={{
-          scale: 1.2,
-          transition: { duration: 0.5 },
-        }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {variant === "orange" ? <PrevGreenArrow /> : <PrevYellowArrow />}
-      </StyledPrevArrow>
+      {renderElements.length < 3 ? null : 
+        <StyledPrevArrow
+          onClick={handlePrev}
+        >
+          {variant === "orange" ? <PrevGreenArrow /> : <PrevYellowArrow />}
+        </StyledPrevArrow>
+      }
       <StyledSlides>
         {renderElements.map((e) => (
           <AnimatePresence initial={false} exitBeforeEnter>
@@ -92,17 +96,13 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
           </AnimatePresence>
         ))}
       </StyledSlides>
-      <StyledNextArrow
-        initial={{ y: "-50%" }}
-        onClick={handleNext}
-        whileHover={{
-          scale: 1.2,
-          transition: { duration: 0.5 },
-        }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {variant === "orange" ? <NextGreenArrow /> : <NextYellowArrow />}
-      </StyledNextArrow>
+      {renderElements.length < 3 ? null : 
+        <StyledNextArrow
+          onClick={handleNext}
+        >
+          {variant === "orange" ? <NextGreenArrow /> : <NextYellowArrow />}
+        </StyledNextArrow>
+      }
     </StyledScheduleSlider>
   );
 };
