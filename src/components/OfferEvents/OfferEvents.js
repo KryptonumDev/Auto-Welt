@@ -14,6 +14,8 @@ import {
   StyledTextWrapper,
 } from "./StyledOfferEvents";
 
+import { areDatesEqual } from "../../utils/date";
+
 const OfferEvents = ({ dataEvents }) => {
   const data = useStaticQuery(graphql`
     query currentOfferExhibition {
@@ -44,6 +46,9 @@ const OfferEvents = ({ dataEvents }) => {
       }
     }
   `);
+
+  const now = new Date();
+
   return (
     <StyledOfferEvents>
       <StyledText
@@ -58,7 +63,23 @@ const OfferEvents = ({ dataEvents }) => {
         {dataEvents?.tekstPodTytulem && parse(dataEvents?.tekstPodTytulem)}
       </StyledTextWrapper>
       <StyledEventsWrapper>
-        {data.allWpWystawa?.edges.map(({ node }, index) => (
+        {data.allWpWystawa?.edges
+        .map(({ node }) => ({
+          ...node,
+          wystawa: {
+            ...node.wystawa,
+            informacjeOgolne: {
+              ...node.wystawa.informacjeOgolne,
+              data: new Date(node.wystawa.informacjeOgolne.data)
+            }
+          }
+        }))
+        .filter(({ wystawa }) => wystawa.informacjeOgolne.data.getTime() > now.getTime() || areDatesEqual(wystawa.informacjeOgolne.data, now))
+        .sort(
+          // malejąco - 'b-a'
+          (a, b) => b.wystawa.informacjeOgolne.data.getTime() - a.wystawa.informacjeOgolne.data.getTime()
+        )
+        .map((node, index) => (
           <OfferEvent key={index} offerData={node.wystawa} slug={node.slug} />
         ))}
       </StyledEventsWrapper>
