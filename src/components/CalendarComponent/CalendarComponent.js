@@ -179,6 +179,20 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         {[...Array(2 + futureMonths).keys()].map((key) => (
           <StyledPaginationElement
             key={key}
+            onClick={() => {
+              setCurrentDate((date) => {
+                const newDate = new Date(now.getTime());
+  
+                newDate.setMonth(newDate.getMonth() + (key-1));
+  
+                if (newDate.getTime() > maxDate.getTime()) {
+                  return date;
+                }
+  
+                setPagination(key);
+                return newDate;
+              });
+            }}
             style={{
               width: key === pagination ? "12px" : "10px",
               height: key === pagination ? "12px" : "10px",
