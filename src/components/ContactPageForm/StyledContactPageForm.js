@@ -109,7 +109,7 @@ export const StyledInputWrapper = styled.div`
   position: relative;
 
   label {
-    font: 500 16px/19px Roboto;
+    font: 500 16px/19px Roboto Condensed;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
   }
 
@@ -122,7 +122,7 @@ export const StyledInputWrapper = styled.div`
     background-color: var(--creamBg);
     padding: 0 14px;
     outline-color: var(--primary500);
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
 
     &:focus-visible {
       outline-width: 1px;
@@ -138,7 +138,7 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     background-color: var(--creamBg);
     resize: none;
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     padding: 10px;
 
     &:focus-visible {
@@ -203,7 +203,7 @@ export const StyledSubTitle = styled.div`
 `;
 
 export const StyledDesc = styled.div`
-  font: 400 20px/1.4em "Roboto";
+  font: 400 20px/1.4em "Roboto Condensed";
   color: #000;
   margin-top: 20px;
 

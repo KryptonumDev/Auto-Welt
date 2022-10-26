@@ -59,7 +59,7 @@ export const StyledEventsButtonWrapper = styled.div`
   }
 `;
 export const StyledTextWrapper = styled.div`
-  font: 400 24px/1.2em "Roboto";
+  font: 400 24px/1.2em "Roboto Condensed";
   color: #000;
   margin: 30px 0 60px;
 

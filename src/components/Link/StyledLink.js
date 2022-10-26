@@ -13,7 +13,7 @@ export const StyledLink = styled(Link)`
   line-height: ${({ hasdeclaredlineheight }) =>
     hasdeclaredlineheight ? hasdeclaredlineheight : "1em"};
   font-family: ${({ hasdeclaredfontfamily }) =>
-    hasdeclaredfontfamily ? hasdeclaredfontfamily : "Roboto"};
+    hasdeclaredfontfamily ? hasdeclaredfontfamily : "Roboto Condensed"};
   text-decoration: ${({ hasdeclaredtextdecoration }) =>
     hasdeclaredtextdecoration ? hasdeclaredtextdecoration : "none"};
   text-transform: ${({ hasdeclaredtexttransform }) =>

@@ -53,7 +53,7 @@ export const StyledTextOut = styled.div`
   width: 49%;
   max-width: 530px;
   margin-top: 30px;
-  font: 400 24px/1.2em "Roboto";
+  font: 400 24px/1.2em "Roboto Condensed";
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -77,7 +77,7 @@ export const StyledTitleWrapper = styled.div`
   }
 `;
 export const StyledContentWrapper = styled.div`
-  font: 400 24px/1.2em "Roboto";
+  font: 400 24px/1.2em "Roboto Condensed";
   margin-top: 20px;
 
   @media only screen and (max-width: 768px) {

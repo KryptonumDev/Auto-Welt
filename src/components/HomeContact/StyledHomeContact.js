@@ -130,7 +130,7 @@ export const StyledSubTitle = styled.div`
   }
 `;
 export const StyledDesc = styled.div`
-  font: 400 20px/1.4em "Roboto";
+  font: 400 20px/1.4em "Roboto Condensed";
   color: #000;
   margin-top: 20px;
   @media only screen and (max-width: 375px) {

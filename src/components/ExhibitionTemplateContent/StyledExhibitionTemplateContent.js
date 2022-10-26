@@ -31,7 +31,7 @@ export const StyledAsideWrapper = styled.div`
 `;
 export const StyledContentWrapper = styled.div`
   width: calc(60% - 35px);
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-size: 24px;
 
   strong,

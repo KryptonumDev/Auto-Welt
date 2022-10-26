@@ -28,7 +28,7 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
-          quality: 90,
+          quality: 100,
         },
       },
     },
@@ -50,8 +50,8 @@ module.exports = {
         timeout: 30000,
         web: [
           {
-            name: "Roboto",
-            file: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap",
+            name: "Roboto Condensed Condensed",
+            file: "https://fonts.googleapis.com/css2?family=Roboto Condensed+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap",
           },
         ],
       },

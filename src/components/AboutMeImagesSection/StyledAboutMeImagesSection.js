@@ -73,14 +73,14 @@ export const StyledAparatWrapper = styled.div`
 `;
 export const StyledIconWrapper = styled.div``;
 export const StyledTextWrapper = styled.div`
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2em;
 
   a {
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;

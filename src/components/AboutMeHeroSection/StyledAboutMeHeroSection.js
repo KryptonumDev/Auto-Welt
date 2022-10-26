@@ -97,7 +97,7 @@ export const StyledSubTitleWrapper = styled.div`
   }
 `;
 export const StyledDescWrapper = styled.div`
-  font: 400 24px/1.2em "Roboto";
+  font: 400 24px/1.2em "Roboto Condensed";
   color: #000;
   margin: 30px 0 42px;
 

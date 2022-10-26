@@ -100,7 +100,7 @@ export const StyledTitleWrapper = styled.div`
 `;
 
 export const StyledSubTitleWrapper = styled.div`
-  font: 24px/1.2em "Roboto";
+  font: 24px/1.2em "Roboto Condensed";
   text-align: center;
 
   @media only screen and (max-width: 768px) {
@@ -130,7 +130,7 @@ export const StyledSubTitleWrapper = styled.div`
   }
 `;
 export const StyledDescription = styled.div`
-  font: 24px/1.2em "Roboto";
+  font: 24px/1.2em "Roboto Condensed";
   margin: 80px 0 20px;
   text-align: center;
   @media only screen and (max-width: 768px) {

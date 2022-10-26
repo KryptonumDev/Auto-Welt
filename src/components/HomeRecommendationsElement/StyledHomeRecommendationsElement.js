@@ -18,7 +18,7 @@ export const StyledHomeRecommendationsElement = styled(motion.div)`
   a {
     text-decoration: none;
     color: var(--primary500);
-    font: 500 16px/19px "Roboto";
+    font: 500 16px/19px "Roboto Condensed";
   }
   @media only screen and (max-width: 768px) {
     padding: 43px 33px;
@@ -46,7 +46,7 @@ export const StyledTextWrapper = styled.div`
   width: 100%;
   max-width: 275px;
   margin: 10px 0 0;
-  font: 400 14px/1.2em "Roboto";
+  font: 400 14px/1.2em "Roboto Condensed";
 
   display: -webkit-box;
   -webkit-box-orient: vertical;

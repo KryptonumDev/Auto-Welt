@@ -48,7 +48,7 @@ export const StyledSubLogoText = styled.div`
   margin-top: 32px;
   font: 300 18px/1.2em;
   color: #faf6ee;
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
 
   strong{
     font-weight: 300;
@@ -124,7 +124,7 @@ export const StyledAddressWrapper = styled.div`
 export const StyledTextKryptonum = styled.div`
   margin-top: 32px;
   color: #fff;
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-weight: 400;
   line-height: 21px;
   strong {

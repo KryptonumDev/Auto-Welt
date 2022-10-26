@@ -118,7 +118,7 @@ export const StyledTextWrapper = styled.div`
 `;
 export const StyledMoreInfoWrapper = styled.div`
   font-size: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   line-height: 1.2em;
 
   @media only screen and (max-width: 1052px) {

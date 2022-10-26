@@ -36,7 +36,7 @@ export const StyledInputWrapper = styled.div`
   position: relative;
 
   label {
-    font: 500 16px/19px Roboto;
+    font: 500 16px/19px Roboto Condensed;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
   }
 
@@ -48,7 +48,7 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     padding: 0 14px;
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     margin-top: 4px;
 
     &:focus-visible {
@@ -67,7 +67,7 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     resize: none;
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     padding: 10px;
     margin-top: 4px;
     
@@ -100,7 +100,7 @@ export const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
   bottom: -20px;
   left: 0;
-  font: 14px "Roboto";
+  font: 14px "Roboto Condensed";
   color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
 `;
 
@@ -180,13 +180,13 @@ export const StyledCustomCheckbox = styled.div`
   }
 
   label {
-    font: 500 16px/19px Roboto;
+    font: 500 16px/19px Roboto Condensed;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
     cursor: pointer;
     
     a {
       color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
-      font: 500 16px/19px "Roboto";
+      font: 500 16px/19px "Roboto Condensed";
       transition: color 250ms linear;
 
       &:hover {

@@ -86,6 +86,7 @@ export const query = graphql`
               }
               nazwaKolekcji
               trescPrzyciskuNaDuzejMiniaturce
+              tytulNaDuzejMiniaturce
               tloDlaTytuluWDuzejMiniaturce {
                 altText
                 localFile {

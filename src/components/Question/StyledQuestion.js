@@ -6,18 +6,21 @@ export const StyledQuestion = styled.div`
   padding-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
   trainsition: padding 250ms;
   cursor: pointer;
+  
   @media only screen and (max-width: 768px) {
     padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};
   }
 `;
+
 export const StyledAnswerWrapper = styled(motion.div)`
-  width: 100%;
+  width: 80%;
   padding: 15px 59px 20px 68px;
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 500;
-  font-family: "Roboto";
-
+  font-family: "Roboto Condensed";
+  max-width: 746px;
+  
   ul,
   ol {
     margin-left: 20px;
@@ -83,7 +86,7 @@ export const StyledQuestionText = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 500;

@@ -25,7 +25,7 @@ export const StyledContentWrapper = styled.div`
 `;
 export const StyledTextWrapper = styled.div`
   color: #000;
-  font: 400 24px/1.2em "Roboto";
+  font: 400 24px/1.2em "Roboto Condensed";
   margin-top: 20px;
 
   @media only screen and (max-width: 768px) {
@@ -62,6 +62,6 @@ export const StyledLinkWrapper = styled.div`
 
   a {
     color: var(--primary500);
-    font: 500 16px/1.2em "Roboto";
+    font: 500 16px/1.2em "Roboto Condensed";
   }
 `;

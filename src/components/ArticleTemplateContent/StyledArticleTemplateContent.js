@@ -31,7 +31,7 @@ export const StyledAside = styled.aside`
 `;
 export const StyledTextContent = styled.div`
   width: calc(60% - 35px);
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-size: 24px;
 
   strong,

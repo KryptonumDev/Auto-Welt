@@ -13,14 +13,14 @@ export const StyledArticlePhotoInfo = styled.div`
 `;
 export const StyledTextWrapper = styled.div`
     p {
-        font-family: 'Roboto';
+        font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 400;
         font-size: 16px !important;
         line-height: 1.2em;
         color: #000000;
         a{
-            font-family: 'Roboto';
+            font-family: 'Roboto Condensed';
             font-style: normal;
             font-weight: 500;
             font-size: 16px;

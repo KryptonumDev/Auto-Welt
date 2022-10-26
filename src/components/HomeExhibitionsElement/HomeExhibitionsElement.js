@@ -61,6 +61,7 @@ const HomeExhibitionsElement = ({
             hasdeclaredfontsize="32px"
             hasdeclaredfontcolor="var(--secondary500)"
             hasdeclaredlineheight="1.2em"
+            hasdeclaredfontweight="500"
           >
             {convertedData[0]}
           </StyledText>
@@ -69,6 +70,7 @@ const HomeExhibitionsElement = ({
             hasdeclaredfontcolor="var(--primary500)"
             hasdeclaredlineheight="1.2em"
             hasdeclaredpadding="0 0 1.5px 0"
+            hasdeclaredfontweight="500"
           >
             {convertedData[1]} {convertedData[2]}
           </StyledText>

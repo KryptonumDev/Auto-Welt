@@ -76,7 +76,7 @@ export const StyledInput = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     border: none;
     padding-left: 5px;
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -98,7 +98,7 @@ export const StyledInput = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  font-family: "Roboto";
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
