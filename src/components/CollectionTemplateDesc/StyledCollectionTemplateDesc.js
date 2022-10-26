@@ -23,7 +23,7 @@ export const StyledTextWrapper = styled.div`
   width: 50%;
   padding: 68px 58px;
   font: 400 24px/1.2em "Roboto Condensed";
-  text-align: center;
+
   @media only screen and (max-width: 768px) {
     font-size: 20px;
     padding: 41px 31px;
