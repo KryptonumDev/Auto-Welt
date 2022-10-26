@@ -12,6 +12,7 @@ import {
   StyledContentWrapper,
   StyledContentList,
   StyledImageWrapper,
+  StyledElementLink
 } from "./StyledHomeExhibitionsElement";
 
 import useWindowSize from "../../utils/getWindowSize";
@@ -31,7 +32,8 @@ const HomeExhibitionsElement = ({
     .split(" ");
 
   return (
-    <StyledHomeExhibitionsElement
+    <StyledElementLink isscheduleelement={isSchdeuleElement} to={`/wystawy/${exhibitionData.slug}`}>
+      <StyledHomeExhibitionsElement
       key={key}
       initial={{ x: isPrev ? -100 : 100 }}
       animate={{ x: 0 }}
@@ -137,7 +139,7 @@ const HomeExhibitionsElement = ({
           }
           textColor={buttonVariant === "orange" ? "var(--primary900)" : "#fff"}
           hasFontSize={width < 376 ? "15px" : "21px"}
-          hasDeclaredPadding="10px 33px"
+          hasDeclaredPadding="8px 33px"
           hoverBgColor={
             buttonVariant === "orange"
               ? "var(--secondary700)"
@@ -147,6 +149,7 @@ const HomeExhibitionsElement = ({
         />
       )}
     </StyledHomeExhibitionsElement>
+    </StyledElementLink>
   );
 };
 

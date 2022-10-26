@@ -29,7 +29,7 @@ export const StyledArticle = styled.div`
     > div {
       &:first-of-type {
         img {
-          transition: transform 250ms, mix-blend-mode 250ms;
+          transition: transform 250ms linear, mix-blend-mode 250ms linear;
           transform: scale(1.1);
           mix-blend-mode: unset;
         }
@@ -43,6 +43,10 @@ export const StyledImageWrapper = styled.div`
   img {
     width: 100%;
     mix-blend-mode: multiply;
+
+    &:not(:hover){
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
+    }
   }
 
   .gatsby-image-wrapper {

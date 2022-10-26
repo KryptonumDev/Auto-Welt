@@ -17,11 +17,14 @@ export const StyledAnswerWrapper = styled(motion.div)`
   line-height: 1.2em;
   font-weight: 500;
   font-family: "Roboto";
+
   ul,
   ol {
     margin-left: 20px;
   }
+
   p {
+
     strong,
     em {
       color: #edac2a;
@@ -29,31 +32,38 @@ export const StyledAnswerWrapper = styled(motion.div)`
       font-style: normal;
     }
   }
+
   @media only screen and (max-width: 768px) {
     color: #23423d;
     font-size: 16px;
   }
+  
   @media only screen and (max-width: 420px) {
     padding: 15px 23px 20px 23px;
     max-width: 90%;
   }
+
   @media only screen and (max-width: 375px) {
     font-size: 14px;
   }
 `;
+
 export const StyledQuestionWrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 17px;
   min-height: 59px;
-  padding: 23px;
+  padding: 18px 23px;
   position: relative;
+
   > svg {
     position: relative;
     z-index: 1;
-    transition: transform 250ms ease-in-out;
+    transition: transform 250ms linear;
     transform: ${({ isopen }) => (isopen ? "rotate(0)" : "rotate(180deg)")};
   }
 `;
+
 export const StyledBgWrapper = styled.div`
   width: 100%;
   height: 100%;

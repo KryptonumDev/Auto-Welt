@@ -179,6 +179,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
               wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
                 ?.przyciskLewy?.target
             }
+            hoverBgColor="#F6E2BA"
           />
         )}
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej

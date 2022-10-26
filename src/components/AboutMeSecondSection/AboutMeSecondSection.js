@@ -69,9 +69,10 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               bgColor="var(--creamBg)"
               hasBorder="2px solid var(--primary500)"
               textColor="var(--primary500)"
-              hasDeclaredPadding="10px 36px"
+              hasDeclaredPadding="8px 36px"
               hasFontWeight="500"
               hasFontSize="21px"
+              hoverBgColor="#F6E2BA"
             />
           )}
           {secondData.prawyPrzycisk?.title && (
@@ -82,7 +83,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               textColor="var(--white)"
               bgColor="var(--primary500)"
               hasBorder="2px solid var(--primary500)"
-              hasDeclaredPadding="10px 36px"
+              hasDeclaredPadding="8px 36px"
               hasFontSize="21px"
               hasFontWeight="500"
               hoverBgColor="var(--primary900)"

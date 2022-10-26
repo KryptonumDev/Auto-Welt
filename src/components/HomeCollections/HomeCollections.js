@@ -23,6 +23,7 @@ const HomeCollections = () => {
         nodes {
           kolekcja {
             informacjeGlowne {
+              kolejnoscWyswietlania
               nazwaKolekcji
               miniaturka {
                 altText
@@ -121,7 +122,7 @@ const HomeCollections = () => {
             wpPage.homepage.kolekcje.tytulSekcji}
         </StyledText>
         <StyledImagesWrapper>
-          {allWpKolekcje.nodes?.map((kolekcja) => (
+          {allWpKolekcje.nodes?.sort((a,b) => a.kolekcja.informacjeGlowne.kolejnoscWyswietlania - b.kolekcja.informacjeGlowne.kolejnoscWyswietlania).map((kolekcja) => (
             <HomeCollectionElement
               bgImage={
                 kolekcja.kolekcja.informacjeGlowne

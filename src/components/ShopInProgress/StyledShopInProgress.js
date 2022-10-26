@@ -66,9 +66,10 @@ export const StyledShopInfoWrapper = styled.div`
 `;
 export const StyledTitleWrapper = styled.div`
   font: 48px/1.2em "Nocturne Serif";
-  margin: 80px 0 8px;
+  margin: -40px 0 8px;
   text-align: center;
   color: var(--primary500);
+
   @media only screen and (max-width: 768px) {
     margin-top: 10px;
     font-size: 38px;
@@ -97,9 +98,11 @@ export const StyledTitleWrapper = styled.div`
     }
   }
 `;
+
 export const StyledSubTitleWrapper = styled.div`
   font: 24px/1.2em "Roboto";
   text-align: center;
+
   @media only screen and (max-width: 768px) {
     font-size: 20px;
   }

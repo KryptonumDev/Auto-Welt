@@ -91,9 +91,10 @@ const OfferEvents = ({ dataEvents }) => {
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
             hasFontSize="21px"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hasTarget={dataEvents.przyciskPoLewo?.target}
             bgColor="var(--background500)"
+            hoverBgColor="#F6E2BA"
           />
         )}
         {dataEvents?.przyciskPoPrawo.url && (
@@ -104,7 +105,7 @@ const OfferEvents = ({ dataEvents }) => {
             textColor="var(--white)"
             bgColor="var(--primary500)"
             hasFontSize="21px"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"
           />

@@ -32,5 +32,10 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   &.activeLink {
     color: var(--secondary500);
+    font-weight: 600;
+
+    &:hover{
+      color: var(--secondary500);
+    }
   }
 `;

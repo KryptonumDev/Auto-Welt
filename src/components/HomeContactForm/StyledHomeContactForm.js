@@ -45,15 +45,17 @@ export const StyledInputWrapper = styled.div`
     height: 38px;
     border: 2px solid
       ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     padding: 0 14px;
     font-family: "Roboto";
+    margin-top: 4px;
 
-    &:focus {
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
   }
 
@@ -62,16 +64,18 @@ export const StyledInputWrapper = styled.div`
     height: 164px;
     border: 2px solid
       ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     resize: none;
     font-family: "Roboto";
     padding: 10px;
-
-    &:focus {
+    margin-top: 4px;
+    
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
   }
 
@@ -151,6 +155,7 @@ export const StyledCustomCheckbox = styled.div`
       left: 2px;
       top: 2px;
       z-index: 1;
+      cursor: pointer;
     }
 
     &:after {
@@ -163,6 +168,7 @@ export const StyledCustomCheckbox = styled.div`
       left: 0;
       top: 0;
       background-color: ${({ value }) => (value ? "#3E635D" : "transparent")};
+      cursor: pointer;
     }
   }
 
@@ -176,9 +182,22 @@ export const StyledCustomCheckbox = styled.div`
   label {
     font: 500 16px/19px Roboto;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
+    cursor: pointer;
+    
     a {
       color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
       font: 500 16px/19px "Roboto";
+      transition: color 250ms linear;
+
+      &:hover {
+        color: var(--secondary300);
+      }
+
+      &:focus-visible {
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: #da9610;
+      }
     }
   }
 `;

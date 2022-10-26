@@ -98,7 +98,7 @@ const ScheduleActualExh = ({ dataActual }) => {
             hasTarget={dataActual.przyciskPodSliderem.target}
             textColor="var(--white)"
             bgColor="var(--primary500)"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hoverBgColor="var(--primary900)"
             hasFontSize="21px"
             hasBorder="2px solid var(--primary500)"

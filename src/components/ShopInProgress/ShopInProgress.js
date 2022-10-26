@@ -59,7 +59,8 @@ const ShopInProgress = ({ shopData }) => {
             hasFontSize="21px"
             bgColor="var(--creamBg)"
             hasTarget={shopData.lewyPrzycisk.target}
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
+            hoverBgColor="#F6E2BA"
           />
           <Button
             whereGo={shopData.prawyPrzycisk.url}
@@ -69,7 +70,7 @@ const ShopInProgress = ({ shopData }) => {
             bgColor="var(--primary500)"
             hasFontSize="21px"
             hasTarget={shopData.prawyPrzycisk.target}
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hoverBgColor="var(--primary900)"
           />
         </StyledButtonsWrapper>

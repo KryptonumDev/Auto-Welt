@@ -21,8 +21,11 @@ export const StyledArticleElement = styled(Link)`
   > div {
     &:first-child {
       img {
-        transition: transform 250ms, mix-blend-mode 250ms;
         mix-blend-mode: multiply;
+
+        &:not(:hover){
+          transition: transform 250ms linear, mix-blend-mode 250ms linear;
+        }
       }
     }
   }
@@ -33,6 +36,7 @@ export const StyledArticleElement = styled(Link)`
         img {
           transform: scale(1.1);
           mix-blend-mode: unset;
+          transition: transform 250ms linear, mix-blend-mode 250ms linear;
         }
       }
     }

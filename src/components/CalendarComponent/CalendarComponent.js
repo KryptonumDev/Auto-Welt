@@ -9,6 +9,7 @@ import {
   StyledCalendarComponent,
   StyledCalendar,
   StyledExhibitionTitle,
+  StyledPaginationElement
 } from "./StyledCalendarComponent";
 
 import PrevCalendar from "../../images/prevCalendar.svg";
@@ -176,18 +177,23 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         }}
       >
         {[...Array(2 + futureMonths).keys()].map((key) => (
-          <div
-            className="paginationElement"
+          <StyledPaginationElement
             key={key}
             style={{
               width: key === pagination ? "12px" : "10px",
               height: key === pagination ? "12px" : "10px",
               backgroundColor: key === pagination ? "#DA9610" : "#EDC169",
               borderRadius: "50%",
+              cursor: "pointer"
             }}
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.5 },
+            }}
+            whileTap={{ scale: 0.9 }}
           >
             &nbsp;
-          </div>
+          </StyledPaginationElement>
         ))}
       </div>
     </StyledCalendarComponent>

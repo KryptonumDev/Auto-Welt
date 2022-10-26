@@ -51,7 +51,7 @@ const FooterCenterWrapper = ({ footerData }) => {
         <StyledFastLinks>
           <StyledLink
             to="/kolekcje-modeli"
-            hasdeclaredmargin="0 0 10px"
+            hasdeclaredmargin="0 19px 0 0"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -62,7 +62,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/sklep"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -73,7 +72,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/o-mnie"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -84,7 +82,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/oferta"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -95,7 +92,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/terminarz"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -106,7 +102,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/artykuly"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -117,7 +112,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/kontakt"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -128,7 +122,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/regulamin-wystaw"
-            hasdeclaredmargin="0 35px 10px 0"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -139,7 +132,6 @@ const FooterCenterWrapper = ({ footerData }) => {
           </StyledLink>
           <StyledLink
             to="/polityka-prywatnosci"
-            hasdeclaredmargin="0 0 10px"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"

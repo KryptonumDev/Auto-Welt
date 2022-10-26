@@ -102,7 +102,7 @@ const QuestionContact = () => {
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku
                 .target
             }
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
           />

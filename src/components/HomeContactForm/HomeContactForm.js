@@ -154,20 +154,20 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
-              <button type="submit" disabled={isSubmitting}>
-                <Button
-                  text={
-                    data.wpPage.homepage.formularzKontaktowy
-                      .trescPrzyciskuPotwierdzajacegoWyslanie
-                  }
-                  bgColor="var(--secondary500)"
-                  textColor="var(--primary900)"
-                  hasBorder="2px solid var(--secondary500)"
-                  hasFontSize="21px"
-                  hasDeclaredPadding="10px 33px"
-                  hoverBgColor="var(--secondary700)"
-                />
-              </button>
+              <Button
+                text={
+                  data.wpPage.homepage.formularzKontaktowy
+                    .trescPrzyciskuPotwierdzajacegoWyslanie
+                }
+                bgColor="var(--secondary500)"
+                textColor="var(--primary900)"
+                hasBorder="2px solid var(--secondary500)"
+                hasFontSize="21px"
+                hasDeclaredPadding="8px 33px"
+                hoverBgColor="var(--secondary700)"
+                type="submit"
+                disabled={isSubmitting}
+              />
             </StyledButtonWrapper>
           </Form>
         )}

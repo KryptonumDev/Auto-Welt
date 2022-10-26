@@ -11,7 +11,7 @@ import {
 
 const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
   return (
-    <StyledHomeCollectionElement>
+    <StyledHomeCollectionElement to={`/kolekcje-modeli/${whereGo}`}>
       <StyledBackground>
         {bgImage.localFile && (
           <GatsbyImage
@@ -32,13 +32,13 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
       </StyledImage>
       {buttonText && (
         <Button
-          text={buttonText}
+          text={buttonText.toUpperCase()}
           whereGo={`/kolekcje-modeli/${whereGo}`}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasMaxWidth="323px"
           hasFontSize="21px"
-          hasDeclaredPadding="10px 16px"
+          hasDeclaredPadding="8px 16px"
           hasFontWeight="500"
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"

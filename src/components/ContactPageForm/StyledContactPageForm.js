@@ -124,7 +124,7 @@ export const StyledInputWrapper = styled.div`
     outline-color: var(--primary500);
     font-family: "Roboto";
 
-    &:focus {
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -141,7 +141,7 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto";
     padding: 10px;
 
-    &:focus {
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;

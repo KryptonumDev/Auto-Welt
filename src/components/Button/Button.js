@@ -17,6 +17,7 @@ const Button = ({
   hoverBgColor,
   hasdeclaredmargin,
   onClickHandler,
+  type
 }) => {
   return (
     <>
@@ -50,6 +51,8 @@ const Button = ({
           hasdeclaredhoverbgcolor={hoverBgColor}
           hasdeclaredmargin={hasdeclaredmargin}
           onClick={onClickHandler}
+          type={type}
+          tabIndex="0"
         >
           <span>{text}</span>
         </StyledButtonLinkNoHref>

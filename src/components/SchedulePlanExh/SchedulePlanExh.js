@@ -95,7 +95,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
           text={dataPlan.przyciskPodSliderem.title}
           whereGo={dataPlan.przyciskPodSliderem.url}
           hasTarget={dataPlan.przyciskPodSliderem.target}
-          hasDeclaredPadding="10px 33px"
+          hasDeclaredPadding="8px 33px"
           bgColor="var(--secondary500)"
           textColor="var(--primary900)"
           hasFontSize="21px"

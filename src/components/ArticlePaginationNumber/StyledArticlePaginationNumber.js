@@ -14,7 +14,7 @@ export const StyledArticlePaginationNumber = styled.div`
   cursor: pointer;
 
   p {
-    transition: color 250ms;
+    transition: color 250ms linear;
 
     &:hover {
       color: #edac2a;

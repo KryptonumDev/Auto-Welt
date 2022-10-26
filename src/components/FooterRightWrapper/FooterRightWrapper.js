@@ -93,7 +93,7 @@ const FooterRightWrapper = ({ footerData }) => {
           hasHeight="44px"
           textColor="var(--primary900)"
           hasTarget={footerData.przyciskPrzenoszacyDoTerminarza.target}
-          hasDeclaredPadding="10px 33px"
+          hasDeclaredPadding="8px 33px"
           hasFontSize="21px"
           hasdeclaredmargin="0 0 0 15px"
           hoverBgColor="var(--secondary700)"

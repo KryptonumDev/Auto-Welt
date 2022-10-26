@@ -15,7 +15,7 @@ import {
 const ModelCollection = ({ collectionData, slug }) => {
   const shortDataKey = collectionData.informacjeGlowne;
   return (
-    <StyledModelCollection>
+    <StyledModelCollection to={`/kolekcje-modeli/${slug}`}>
       <StyledImage>
         {shortDataKey.duzaMiniaturka.localFile && (
           <GatsbyImage
@@ -59,7 +59,7 @@ const ModelCollection = ({ collectionData, slug }) => {
             hoverBgColor="#1D2B29"
             hasFontSize="21px"
             hasFontWeight="500"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hasBorder="2px solid var(--primary500)"
           />
         )}

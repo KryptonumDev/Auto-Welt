@@ -38,7 +38,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
             text={dataOffer.przyciskPoLewo.title}
             textColor="var(--white)"
             bgColor="var(--primary500)"
-            hasDeclaredPadding="10px 36px"
+            hasDeclaredPadding="8px 36px"
             hasFontSize="21px"
             hasFontWeight="500"
             hoverBgColor="var(--primary900)"

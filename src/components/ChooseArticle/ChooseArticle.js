@@ -55,7 +55,7 @@ const ChooseArticle = ({ chosenArticle }) => {
             whereGo={`/artykuly/${chosenArticle?.slug}`}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"

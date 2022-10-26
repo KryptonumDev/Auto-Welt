@@ -17,7 +17,7 @@ export const StyledHamburgerButton = styled.button`
     clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
     display: flex;
     justify-content: flex-end;
-    transition: all 250ms;
+    transition: all 250ms linear;
   }
   @media only screen and (max-width: 375px) {
     right: 16px;
@@ -37,7 +37,7 @@ export const StyledHamburgerInner = styled.span`
   left: 0;
   top: 50%;
   transform: translate(-2px, -50%);
-  transition: background-color 50ms ease-in-out;
+  transition: background-color 50ms linear;
   background-color: ${({ hamburger }) =>
     hamburger ? "transparent" : "var(--secondary500)"};
   border-radius: 2px;
@@ -49,7 +49,7 @@ export const StyledHamburgerInner = styled.span`
     position: absolute;
     background-color: var(--secondary500);
     top: 8px;
-    transition: transform 100ms ease-in-out;
+    transition: transform 100ms linear;
     border-radius: 3px;
     transform: ${({ hamburger }) =>
       hamburger
@@ -64,7 +64,7 @@ export const StyledHamburgerInner = styled.span`
     position: absolute;
     background-color: var(--secondary500);
     top: -8px;
-    transition: transform 100ms ease-in-out;
+    transition: transform 100ms linear;
     border-radius: 2px;
     transform: ${({ hamburger }) =>
       hamburger ? "translateY(8px) rotate(135deg)" : "translateY(0) rotate(0)"};

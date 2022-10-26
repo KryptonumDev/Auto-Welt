@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "gatsby";
 
-export const StyledHomeExhibitionsElement = styled(motion.div)`
+export const StyledElementLink = styled(Link)`
+  text-decoration: none;
   width: ${({ isscheduleelement }) =>
     isscheduleelement ? "calc(50% - 15px)" : "33%"};
   max-width: ${({ isscheduleelement }) =>
@@ -14,10 +16,37 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   padding-bottom: 16px;
   background-color: #faf7f1;
   overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    > div {
+      > div {
+        &:nth-child(2){
+          img {
+            transition: transform 250ms linear, mix-blend-mode 250ms linear;
+            transform: scale(1.1);
+            mix-blend-mode: unset;
+          }
+        }
+      }
+    }
+  }
 
   @media only screen and (max-width: 1080px) {
     width: ${({ isscheduleelement }) => (isscheduleelement ? "50%" : "100%")};
   }
+
+  @media only screen and (max-width: 648px) {
+    width: 100%;
+    max-width: unset;
+  }
+`
+
+export const StyledHomeExhibitionsElement = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media only screen and (max-width: 1065px) {
     > a {
@@ -26,7 +55,7 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   }
 
   @media only screen and (max-width: 768px) {
-    a {
+    > a {
       width: ${({ isscheduleelement }) =>
         isscheduleelement ? "82%" : "initial"};
       font-size: 21px;
@@ -37,11 +66,6 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
     > a {
       font-size: 16px;
     }
-  }
-
-  @media only screen and (max-width: 648px) {
-    width: 100%;
-    max-width: unset;
   }
 
   @media only screen and (max-width: 375px) {
@@ -79,15 +103,13 @@ export const StyledLogoWrapper = styled.div`
     mix-blend-mode: multiply;
     width: 100%;
     height: 100%;
-  }
 
-  &:hover {
-    img {
-      transition: transform 250ms, mix-blend-mode 250ms;
-      transform: scale(1.1);
-      mix-blend-mode: unset;
+    &:not(:hover){
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
     }
   }
+
+
 
   .gatsby-image-wrapper {
     width: 100%;

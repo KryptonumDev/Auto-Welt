@@ -121,7 +121,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
       </StyledHomeArticles>
       {isCollectionsModelPage ? (
         <StyledButtonWrapper>
-          {buttonData.title && (
+          {buttonData.title && (data.allWpArtykul.edges.length > 2) ? (
             <Button
               text={buttonData.title}
               whereGo={buttonData.url}
@@ -129,10 +129,11 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
               hasBorder="2px solid var(--primary500)"
               textColor="var(--primary500)"
               hasFontSize="21px"
-              hasDeclaredPadding="10px 33px"
+              hasDeclaredPadding="8px 33px"
               bgColor="var(--background500)"
+              hoverBgColor="#F6E2BA"
             />
-          )}
+          ) : null}
         </StyledButtonWrapper>
       ) : (
         <StyledPaddingWrapper>

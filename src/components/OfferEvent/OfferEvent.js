@@ -65,7 +65,7 @@ const OfferEvent = ({ offerData, slug }) => {
               .tytulPrzyciskuPrzenoszacyDlaStronyWydarzenia
           }
           whereGo={`wystawy/${slug}`}
-          hasDeclaredPadding="10px 33px"
+          hasDeclaredPadding="8px 33px"
           bgColor="var(--secondary500)"
           textColor="var(--primary900)"
           hasFontSize="21px"

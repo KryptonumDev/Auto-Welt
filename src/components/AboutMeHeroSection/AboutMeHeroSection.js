@@ -70,7 +70,7 @@ const AboutMeHeroSection = ({ heroData }) => {
               text={heroData.przyciskPodOpisem?.title}
               whereGo={heroData.przyciskPodOpisem?.url}
               hasTarget={heroData.przyciskPodOpisem?.target}
-              hasDeclaredPadding="10px 33px"
+              hasDeclaredPadding="8px 33px"
               bgColor="var(--secondary500)"
               textColor="var(--primary900)"
               hasFontSize="21px"

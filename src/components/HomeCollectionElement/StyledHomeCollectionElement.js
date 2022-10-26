@@ -1,16 +1,30 @@
 import styled from "styled-components";
+import { Link } from "gatsby"
 
-export const StyledHomeCollectionElement = styled.div`
+export const StyledHomeCollectionElement = styled(Link)`
   position: relative;
   margin-bottom: 70px;
   display: flex;
   flex-direction: column;
   max-width: 325px;
   width: 100%;
+  text-decoration: none;
 
   a {
     margin: 0 auto;
     width: 85%;
+  }
+
+  &:hover {
+    > div {
+      &:nth-child(2){
+        img {
+          transition: transform 250ms linear, mix-blend-mode 250ms linear;
+          transform: scale(1.1);
+          mix-blend-mode: unset;
+        }
+      }
+    }
   }
 
   @media only screen and (max-width: 1065px) {
@@ -58,6 +72,10 @@ export const StyledImage = styled.div`
   img {
     width: 100%;
     height: 100%;
+
+    &:not(:hover){
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
+    }
   }
 
   .gatsby-image-wrapper {

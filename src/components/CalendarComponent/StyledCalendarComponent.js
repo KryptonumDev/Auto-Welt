@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Calendar from "react-calendar";
+import { motion } from "framer-motion";
 
 export const StyledCalendarComponent = styled.div`
   width: 100%;
@@ -275,3 +276,5 @@ export const StyledExhibitionTitle = styled.p`
     bottom: -60px;
   }
 `;
+
+export const StyledPaginationElement = styled(motion.div)``

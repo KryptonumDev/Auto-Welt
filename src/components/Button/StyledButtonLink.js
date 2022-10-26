@@ -17,7 +17,7 @@ export const StyledButtonLink = styled(StyledLink)`
   flex: none;
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
-  transition: background 250ms;
+  transition: background 250ms linear;
 
   > span {
     display: block;
@@ -30,13 +30,14 @@ export const StyledButtonLink = styled(StyledLink)`
   &:hover {
     background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
     border: ${({ hasdeclaredhoverbgcolor }) =>
-      hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
+      hasdeclaredhoverbgcolor ? hasdeclaredhoverbgcolor === '#F6E2BA' ? null : "2px solid transparent" : null};
   }
 
-  &:focus {
+  &:focus-visible {
     outline-width: 1px;
     outline-style: solid;
     outline-color: #da9610;
+    outline-offset: 4px;
   }
 `;
 
@@ -63,7 +64,7 @@ export const StyledButtonLinkNoHref = styled.p`
     hasdeclaredmaxwidth ? hasdeclaredmaxwidth : "unset"};
   min-height: ${({ hasdeclaredminheight }) =>
     hasdeclaredminheight ? hasdeclaredminheight : "unset"};
-  transition: background-color 250ms;
+  transition: background-color 250ms linear;
   margin: ${({ hasdeclaredmargin }) =>
     hasdeclaredmargin ? hasdeclaredmargin : "0"};
   font-family: "Roboto";
@@ -81,13 +82,14 @@ export const StyledButtonLinkNoHref = styled.p`
   &:hover {
     background-color: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor};
-    border: ${({ hasdeclaredhoverbgcolor }) =>
-      hasdeclaredhoverbgcolor ? "2px solid transparent" : null};
+      border: ${({ hasdeclaredhoverbgcolor }) =>
+        hasdeclaredhoverbgcolor ? hasdeclaredhoverbgcolor === '#F6E2BA' ? null : "2px solid transparent" : null};
   }
 
-  &:focus {
+  &:focus-visible {
     outline-width: 1px;
     outline-style: solid;
     outline-color: #da9610;
+    outline-offset: 4px;
   }
 `;

@@ -39,13 +39,13 @@ export const StyledLeftWrapper = styled.div`
   width: 50%;
 
   a {
-    transition: color 250ms;
+    transition: color 250ms linear;
 
     &:hover {
       color: var(--secondary300);
     }
 
-    &:focus {
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -105,13 +105,13 @@ export const StyledRightWrapper = styled.div`
   width: 50%;
 
   a {
-    transition: color 250ms;
+    transition: color 250ms linear;
 
     &:hover {
       color: var(--secondary300);
     }
 
-    &:focus {
+    &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -164,7 +164,7 @@ export const StyledLogoWrapper = styled.div`
   z-index: 2;
 
   > a {
-    &:focus {
+    &:focus-visible {
       outline-style: solid;
       outline-color: #da9610;
     }
@@ -211,7 +211,7 @@ export const StyledIconsWrapper = styled.div`
       width: 24px;
       height: 24px;
       fill: #faf1de;
-      transition: fill 250ms;
+      transition: fill 250ms linear;
     }
     &:hover {
       > svg {

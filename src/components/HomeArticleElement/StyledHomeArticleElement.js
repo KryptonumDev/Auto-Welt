@@ -48,6 +48,7 @@ export const StyledTitleBgWrapper = styled.div`
     height: 100%;
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -64,8 +65,10 @@ export const StyledTextWrapper = styled.div`
       font-family: "Nocturne Serif";
       float: left;
       padding-right: 10px;
+      margin-top: -3px;
     }
   }
+  
   > a {
     margin-top: 30px;
   }

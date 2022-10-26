@@ -10,7 +10,8 @@ export const StyledFooterCenterWrapperArticle = styled(Link)`
 `;
 export const StyledTop = styled.div`
   width: 100%;
-  min-height: 85px;
+  height: 85px;
+  
   img {
     width: 100%;
     height: 100%;

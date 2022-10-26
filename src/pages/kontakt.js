@@ -62,12 +62,13 @@ const Contact = ({ data }) => {
             bgColor="var(--creamBg)"
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
-            hasDeclaredPadding="10px 41px"
+            hasDeclaredPadding="8px 41px"
             hasFontSize={width < 376 ? "15px" : "21px"}
             hasTarget={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.linkPoLewo
                 .target
             }
+            hoverBgColor="#F6E2BA"
           />
           <Button
             whereGo={
@@ -79,7 +80,7 @@ const Contact = ({ data }) => {
             }
             textColor="var(--white)"
             bgColor="var(--primary500)"
-            hasDeclaredPadding="10px 41px"
+            hasDeclaredPadding="8px 41px"
             hasFontSize={width < 376 ? "15px" : "21px"}
             hasTarget={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.linkPoPrawo

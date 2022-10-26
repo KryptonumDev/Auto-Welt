@@ -153,7 +153,7 @@ const HomeContact = () => {
                     }
                     textColor="var(--white)"
                     bgColor="var(--primary500)"
-                    hasDeclaredPadding="10px 36px"
+                    hasDeclaredPadding="8px 36px"
                     hasFontSize="21px"
                     hasFontWeight="500"
                     hasTarget={
@@ -174,7 +174,7 @@ const HomeContact = () => {
                     bgColor="var(--creamBg)"
                     hasBorder="2px solid var(--primary500)"
                     textColor="var(--primary500)"
-                    hasDeclaredPadding="10px 36px"
+                    hasDeclaredPadding="8px 36px"
                     hasFontWeight="500"
                     hasFontSize="21px"
                     onClickHandler={() => setIsSend(false)}

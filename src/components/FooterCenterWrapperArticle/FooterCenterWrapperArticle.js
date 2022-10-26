@@ -18,7 +18,6 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
               articleData.informacjeDoMiniaturki.miniaturka.localFile
             )}
             alt={articleData.informacjeDoMiniaturki.miniaturka.altText}
-            objectFit="fill"
           />
         )}
       </StyledTop>

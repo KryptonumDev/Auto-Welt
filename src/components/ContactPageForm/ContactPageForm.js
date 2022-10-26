@@ -132,7 +132,7 @@ const ContactPageForm = ({ dataForm }) => {
                     text={shortData.przyciskPoLewo.title}
                     textColor="var(--white)"
                     bgColor="var(--primary500)"
-                    hasDeclaredPadding="10px 36px"
+                    hasDeclaredPadding="8px 36px"
                     hasBorder="2px solid var(--primary500)"
                     hasFontSize="21px"
                     hasFontWeight="500"
@@ -146,7 +146,7 @@ const ContactPageForm = ({ dataForm }) => {
                     bgColor="var(--creamBg)"
                     hasBorder="2px solid var(--primary500)"
                     textColor="var(--primary500)"
-                    hasDeclaredPadding="10px 36px"
+                    hasDeclaredPadding="8px 36px"
                     hasFontWeight="500"
                     hasFontSize="21px"
                     onClickHandler={() => setIsSend(false)}
@@ -286,7 +286,7 @@ const ContactPageForm = ({ dataForm }) => {
                           textColor="var(--primary900)"
                           hasBorder="2px solid var(--secondary500)"
                           hasFontSize={width < 376 ? "15px" : "21px"}
-                          hasDeclaredPadding="10px 33px"
+                          hasDeclaredPadding="8px 33px"
                           hoverBgColor="var(--secondary700)"
                         />
                       </button>

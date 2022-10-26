@@ -84,7 +84,7 @@ const HomeCalendar = () => {
             bgColor="var(--primary500)"
             textColor="var(--background50)"
             hasFontSize="21px"
-            hasDeclaredPadding="10px 33px"
+            hasDeclaredPadding="8px 33px"
             hasTarget={
               data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza
                 .target

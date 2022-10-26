@@ -196,9 +196,10 @@ const ScheduleArchExh = ({ dataArch }) => {
                       bgColor="var(--creamBg)"
                       hasBorder="2px solid var(--primary500)"
                       textColor="var(--primary500)"
-                      hasDeclaredPadding="10px 33px"
+                      hasDeclaredPadding="8px 33px"
                       hasFontWeight="500"
                       hasFontSize="21px"
+                      hoverBgColor="#F6E2BA"
                     />
                   </StyledButtonWrapper>
                 </StyledInfoWrapper>
@@ -212,17 +213,18 @@ const ScheduleArchExh = ({ dataArch }) => {
           bgColor="var(--creamBg)"
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
-          hasDeclaredPadding="10px 36px"
+          hasDeclaredPadding="8px 36px"
           hasFontWeight="500"
           hasFontSize="21px"
           onClickHandler={() => setImagesIndex(imagesIndex + 3)}
+          hoverBgColor="#F6E2BA"
         />
         <Button
           whereGo={dataArch.prawyPrzyciskPodSliderem.url}
           text={dataArch.prawyPrzyciskPodSliderem.title}
           textColor="var(--white)"
           bgColor="var(--primary500)"
-          hasDeclaredPadding="10px 36px"
+          hasDeclaredPadding="8px 36px"
           hasFontSize="21px"
           hasFontWeight="500"
           hasTarget={dataArch.prawyPrzyciskPodSliderem.target}

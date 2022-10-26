@@ -49,6 +49,10 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
     mix-blend-mode: multiply;
+
+    &:not(:hover){
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
+    }
   }
 
   .gatsby-image-wrapper {
@@ -58,7 +62,7 @@ export const StyledImageWrapper = styled.div`
 
   &:hover {
     img {
-      transition: transform 250ms, mix-blend-mode 250ms;
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
       transform: scale(1.1);
       mix-blend-mode: unset;
     }

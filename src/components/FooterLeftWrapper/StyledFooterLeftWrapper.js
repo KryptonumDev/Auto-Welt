@@ -49,6 +49,12 @@ export const StyledSubLogoText = styled.div`
   font: 300 18px/1.2em;
   color: #faf6ee;
   font-family: "Roboto";
+
+  strong{
+    font-weight: 300;
+    color: #EDAC2A;
+  }
+
   @media only screen and (max-width: 500px) {
     text-align: center;
     margin-bottom: 40px;
@@ -80,7 +86,7 @@ export const StyledIconsWrapper = styled.div`
       fill: #faf1de;
       width: 100%;
       height: 100%;
-      transition: fill 250ms;
+      transition: fill 250ms linear;
       &:hover {
         fill: #edac2a;
       }
