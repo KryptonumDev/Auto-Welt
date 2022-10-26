@@ -41,7 +41,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
   return (
     <StyledCalendarComponent>
       <p className="calendarTitle">
-        {currentDate.toLocaleString("default", { month: "long" })}{" "}
+        {currentDate.toLocaleString("pl-PL", { month: "long" })}{" "}
         {currentDate.getFullYear()}
       </p>
       <div style={{ display: "flex" }} className="calendarWrapper">
