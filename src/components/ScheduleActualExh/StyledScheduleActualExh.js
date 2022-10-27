@@ -64,7 +64,7 @@ export const StyledButtonsWrapper = styled.div`
 
   @media only screen and (max-width: 375px) {
     margin-top: 95px;
-    
+
     a {
       font-size: 15px;
     }

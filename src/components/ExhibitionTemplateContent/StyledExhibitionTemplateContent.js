@@ -84,7 +84,6 @@ export const StyledContentWrapper = styled.div`
   }
 
   > p {
-    
     &:first-of-type {
       &:first-letter {
         font-size: 48px;

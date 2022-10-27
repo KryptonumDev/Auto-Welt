@@ -78,7 +78,7 @@ export const StyledTextWrapper = styled.div`
       margin-top: -3px;
     }
   }
-  
+
   > a {
     margin-top: 30px;
   }

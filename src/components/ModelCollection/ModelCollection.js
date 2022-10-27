@@ -46,7 +46,8 @@ const ModelCollection = ({ collectionData, slug }) => {
           hasdeclaredtextalign="center"
           as="h2"
         >
-          {shortDataKey.tytulNaDuzejMiniaturce && shortDataKey.tytulNaDuzejMiniaturce}
+          {shortDataKey.tytulNaDuzejMiniaturce &&
+            shortDataKey.tytulNaDuzejMiniaturce}
         </StyledText>
       </StyledTitle>
       <StyledButtonSpace>

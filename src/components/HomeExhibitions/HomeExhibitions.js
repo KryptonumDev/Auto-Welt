@@ -71,27 +71,27 @@ const HomeExhibitions = ({ isAboutPage }) => {
   const now = new Date();
 
   const slidesElements = data.allWpWystawa.edges
-      .map(({ node }) => ({
-        ...node,
-        wystawa: {
-          ...node.wystawa,
-          informacjeOgolne: {
-            ...node.wystawa.informacjeOgolne,
-            data: new Date(node.wystawa.informacjeOgolne.data),
-          },
+    .map(({ node }) => ({
+      ...node,
+      wystawa: {
+        ...node.wystawa,
+        informacjeOgolne: {
+          ...node.wystawa.informacjeOgolne,
+          data: new Date(node.wystawa.informacjeOgolne.data),
         },
-      }))
-      .sort(
-        (a, b) =>
-          new Date(a.wystawa.informacjeOgolne.data).getTime() -
-          new Date(b.wystawa.informacjeOgolne.data).getTime()
-      )
-      .filter(
-        ({ wystawa }) =>
-          wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
-          areDatesEqual(wystawa.informacjeOgolne.data, now)
-      )
-      .slice(0, 3)
+      },
+    }))
+    .sort(
+      (a, b) =>
+        new Date(a.wystawa.informacjeOgolne.data).getTime() -
+        new Date(b.wystawa.informacjeOgolne.data).getTime()
+    )
+    .filter(
+      ({ wystawa }) =>
+        wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
+        areDatesEqual(wystawa.informacjeOgolne.data, now)
+    )
+    .slice(0, 3);
 
   return (
     <StyledHomeExhibitions isaboutpage={isAboutPage}>
@@ -106,14 +106,13 @@ const HomeExhibitions = ({ isAboutPage }) => {
         {data.wpPage.homepage.wystawy?.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper>
-        {slidesElements
-          .map((node) => (
-            <HomeExhibitionsElement
-              exhibitionData={node}
-              buttonVariant="orange"
-              slidesCount={slidesElements.length}
-            />
-          ))}
+        {slidesElements.map((node) => (
+          <HomeExhibitionsElement
+            exhibitionData={node}
+            buttonVariant="orange"
+            slidesCount={slidesElements.length}
+          />
+        ))}
       </StyledElementsWrapper>
       {data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo && (
         <Button

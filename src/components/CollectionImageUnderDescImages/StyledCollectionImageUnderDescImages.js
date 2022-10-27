@@ -61,7 +61,7 @@ export const StyledBottomImage = styled.div`
   @media only screen and (max-width: 375px) {
     bottom: -75px;
   }
-  
+
   @media only screen and (max-width: 335px) {
     bottom: -90px;
   }

@@ -38,9 +38,18 @@ const ModelCollections = ({ data }) => {
     <>
       <StyledModelCollections>
         <StyledContentWrapper>
-          {data.allWpKolekcje.edges.sort((a,b) => a.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania - b.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania).map(({ node }) => (
-            <ModelCollection collectionData={node.kolekcja} slug={node.slug} />
-          ))}
+          {data.allWpKolekcje.edges
+            .sort(
+              (a, b) =>
+                a.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania -
+                b.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania
+            )
+            .map(({ node }) => (
+              <ModelCollection
+                collectionData={node.kolekcja}
+                slug={node.slug}
+              />
+            ))}
         </StyledContentWrapper>
       </StyledModelCollections>
       <StyledReqButton>

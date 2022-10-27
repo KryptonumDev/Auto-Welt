@@ -30,7 +30,11 @@ export const StyledButtonLink = styled(StyledLink)`
   &:hover {
     background: ${({ hasdeclaredhoverbgcolor }) => hasdeclaredhoverbgcolor};
     border: ${({ hasdeclaredhoverbgcolor }) =>
-      hasdeclaredhoverbgcolor ? hasdeclaredhoverbgcolor === '#F6E2BA' ? null : "2px solid transparent" : null};
+      hasdeclaredhoverbgcolor
+        ? hasdeclaredhoverbgcolor === "#F6E2BA"
+          ? null
+          : "2px solid transparent"
+        : null};
   }
 
   &:focus-visible {
@@ -82,8 +86,12 @@ export const StyledButtonLinkNoHref = styled.p`
   &:hover {
     background-color: ${({ hasdeclaredhoverbgcolor }) =>
       hasdeclaredhoverbgcolor};
-      border: ${({ hasdeclaredhoverbgcolor }) =>
-        hasdeclaredhoverbgcolor ? hasdeclaredhoverbgcolor === '#F6E2BA' ? null : "2px solid transparent" : null};
+    border: ${({ hasdeclaredhoverbgcolor }) =>
+      hasdeclaredhoverbgcolor
+        ? hasdeclaredhoverbgcolor === "#F6E2BA"
+          ? null
+          : "2px solid transparent"
+        : null};
   }
 
   &:focus-visible {

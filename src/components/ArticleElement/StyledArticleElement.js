@@ -23,7 +23,7 @@ export const StyledArticleElement = styled(Link)`
       img {
         mix-blend-mode: multiply;
 
-        &:not(:hover){
+        &:not(:hover) {
           transition: transform 250ms linear, mix-blend-mode 250ms linear;
         }
       }

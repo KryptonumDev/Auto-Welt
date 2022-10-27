@@ -40,7 +40,7 @@ export const StyledCollectionElementThreeImages = styled.section`
     > div {
       margin-bottom: 25px;
       gap: 20px;
-     
+
       > div {
         min-height: 205px;
         &:last-child {
@@ -75,7 +75,7 @@ export const StyledCollectionElementThreeImages = styled.section`
       width: 95%;
     }
   }
-  
+
   @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;

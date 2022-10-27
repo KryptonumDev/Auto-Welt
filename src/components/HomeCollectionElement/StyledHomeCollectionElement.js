@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 
 export const StyledHomeCollectionElement = styled(Link)`
   position: relative;
@@ -17,7 +17,7 @@ export const StyledHomeCollectionElement = styled(Link)`
 
   &:hover {
     > div {
-      &:nth-child(2){
+      &:nth-child(2) {
         img {
           transition: transform 250ms linear, mix-blend-mode 250ms linear;
           transform: scale(1.1);
@@ -75,7 +75,7 @@ export const StyledImage = styled.div`
     width: 100%;
     height: 100%;
 
-    &:not(:hover){
+    &:not(:hover) {
       transition: transform 250ms linear, mix-blend-mode 250ms linear;
     }
   }

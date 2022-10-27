@@ -17,7 +17,7 @@ const Button = ({
   hoverBgColor,
   hasdeclaredmargin,
   onClickHandler,
-  hasType
+  hasType,
 }) => {
   return (
     <>

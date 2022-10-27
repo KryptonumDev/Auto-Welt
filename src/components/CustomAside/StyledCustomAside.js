@@ -50,7 +50,7 @@ export const StyledContents = styled.div`
         &:hover {
           color: #f6e2ba;
         }
-  
+
         @media only screen and (max-width: 972px) {
           font-size: 14px;
         }
@@ -62,7 +62,6 @@ export const StyledContents = styled.div`
       margin-left: 45px;
 
       li {
-
         &:hover {
           color: #f6e2ba;
         }

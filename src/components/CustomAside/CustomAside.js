@@ -30,16 +30,16 @@ const CustomAside = ({ tableOfContents, asideData }) => {
           </StyledText>
           <ol>
             {tableOfContents?.map((h2) => (
-                <li>
-                  <a href={`#${h2.id}`}>{h2.name}</a>
-                  {h2.children.map((h3) => (
-                    <ul>
-                      <li>
-                        <a href={`#${h3.id}`}>{h3.name}</a>
-                      </li>
-                    </ul>
-                  ))}
-                </li>
+              <li>
+                <a href={`#${h2.id}`}>{h2.name}</a>
+                {h2.children.map((h3) => (
+                  <ul>
+                    <li>
+                      <a href={`#${h3.id}`}>{h3.name}</a>
+                    </li>
+                  </ul>
+                ))}
+              </li>
             ))}
           </ol>
         </StyledContents>

@@ -230,7 +230,7 @@ export const StyledGreetingText = styled.div`
   line-height: 1.2em;
   padding: 48px 0 48px 59px;
   color: #fff;
-  
+
   @media only screen and (max-width: 542px) {
     font-size: 24px;
   }

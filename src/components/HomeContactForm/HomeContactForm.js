@@ -154,12 +154,12 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
-              <button
-                hasType="submit"
-              >
+              <button hasType="submit">
                 <span>
-                  {data.wpPage.homepage.formularzKontaktowy
-                    .trescPrzyciskuPotwierdzajacegoWyslanie}
+                  {
+                    data.wpPage.homepage.formularzKontaktowy
+                      .trescPrzyciskuPotwierdzajacegoWyslanie
+                  }
                 </span>
               </button>
             </StyledButtonWrapper>

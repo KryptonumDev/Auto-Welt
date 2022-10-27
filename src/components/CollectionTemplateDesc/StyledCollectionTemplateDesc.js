@@ -71,7 +71,7 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   @media only screen and (max-width: 688px) {
     width: 100%;
     min-width: unset;

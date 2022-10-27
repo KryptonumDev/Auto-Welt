@@ -58,9 +58,9 @@ export const StyledSubLogoText = styled.div`
   color: #faf6ee;
   font-family: "Roboto Condensed";
 
-  strong{
+  strong {
     font-weight: 300;
-    color: #EDAC2A;
+    color: #edac2a;
   }
 
   @media only screen and (max-width: 500px) {

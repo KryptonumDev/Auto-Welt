@@ -23,7 +23,7 @@ export const StyledImagesWrapper = styled.div`
   @media only screen and (max-width: 768px) {
     margin-top: 170px;
   }
-  
+
   @media only screen and (max-width: 434px) {
     padding-bottom: 210px;
   }
@@ -94,7 +94,6 @@ export const StyledTitleWrapper = styled.div`
   }
 
   p {
-
     strong,
     em {
       position: relative;
@@ -127,7 +126,6 @@ export const StyledSubTitleWrapper = styled.div`
   }
 
   p {
-
     strong,
     em {
       position: relative;
@@ -193,7 +191,7 @@ export const StyledButtonsWrapper = styled.div`
 
   @media only screen and (max-width: 599px) {
     width: 92%;
-    
+
     a {
       width: 100%;
     }

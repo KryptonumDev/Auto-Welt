@@ -82,13 +82,12 @@ export const StyledTextWrapper = styled.div`
   }
 
   p {
-
     strong,
     em {
       position: relative;
       font-weight: normal;
       font-style: normal;
-      
+
       &:before {
         content: "";
         width: 100%;

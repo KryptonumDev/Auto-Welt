@@ -208,7 +208,6 @@ export const StyledIconsWrapper = styled.div`
   margin-left: 55px;
 
   a {
-
     > svg {
       width: 24px;
       height: 24px;
@@ -236,7 +235,7 @@ export const StyledIconsWrapper = styled.div`
     justify-content: flex-end;
     padding-right: 8px;
     gap: 20px;
-    
+
     a {
       > svg {
         width: 40px;

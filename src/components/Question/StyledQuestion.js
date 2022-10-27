@@ -6,7 +6,7 @@ export const StyledQuestion = styled.div`
   padding-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
   trainsition: padding 250ms;
   cursor: pointer;
-  
+
   @media only screen and (max-width: 768px) {
     padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};
   }
@@ -20,14 +20,13 @@ export const StyledAnswerWrapper = styled(motion.div)`
   font-weight: 500;
   font-family: "Roboto Condensed";
   max-width: 746px;
-  
+
   ul,
   ol {
     margin-left: 20px;
   }
 
   p {
-
     strong,
     em {
       color: #edac2a;
@@ -40,7 +39,7 @@ export const StyledAnswerWrapper = styled(motion.div)`
     color: #23423d;
     font-size: 16px;
   }
-  
+
   @media only screen and (max-width: 420px) {
     padding: 15px 23px 20px 23px;
     max-width: 90%;
@@ -96,7 +95,6 @@ export const StyledQuestionText = styled.div`
   max-width: 70%;
 
   p {
-    
     strong,
     em {
       color: #edac2a;

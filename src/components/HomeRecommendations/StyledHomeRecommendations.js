@@ -116,7 +116,7 @@ export const StyledArrowWrapper = styled(motion.div)`
         hasdeclaredtransform ? hasdeclaredtransform : "0"}
     );
   }
-  
+
   @media only screen and (max-width: 462px) {
     background: transparent;
   }

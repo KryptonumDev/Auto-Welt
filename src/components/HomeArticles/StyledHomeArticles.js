@@ -81,7 +81,7 @@ export const StyledPaddingWrapper = styled.div`
   max-width: 1144px;
   padding: 0 32px;
   margin: 0 auto 120px;
-  
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px 0 0;
     margin: 0 auto 60px;

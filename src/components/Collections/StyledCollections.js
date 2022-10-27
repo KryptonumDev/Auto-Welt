@@ -28,7 +28,7 @@ export const StyledReqButton = styled.section`
   max-width: 1144px;
   padding: 0 32px;
   margin: 0 auto;
-  
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px 0 0;
   }

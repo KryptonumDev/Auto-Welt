@@ -69,7 +69,7 @@ export const StyledOfferEventInfo = styled.div`
       width: 95%;
     }
   }
-  
+
   @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;

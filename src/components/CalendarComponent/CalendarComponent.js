@@ -9,7 +9,7 @@ import {
   StyledCalendarComponent,
   StyledCalendar,
   StyledExhibitionTitle,
-  StyledPaginationElement
+  StyledPaginationElement,
 } from "./StyledCalendarComponent";
 
 import PrevCalendar from "../../images/prevCalendar.svg";
@@ -182,13 +182,13 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             onClick={() => {
               setCurrentDate((date) => {
                 const newDate = new Date(now.getTime());
-  
-                newDate.setMonth(newDate.getMonth() + (key-1));
-  
+
+                newDate.setMonth(newDate.getMonth() + (key - 1));
+
                 if (newDate.getTime() > maxDate.getTime()) {
                   return date;
                 }
-  
+
                 setPagination(key);
                 return newDate;
               });
@@ -198,7 +198,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
               height: key === pagination ? "12px" : "10px",
               backgroundColor: key === pagination ? "#DA9610" : "#EDC169",
               borderRadius: "50%",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
             whileHover={{
               scale: 1.2,

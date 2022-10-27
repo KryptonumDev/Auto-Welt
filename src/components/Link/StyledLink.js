@@ -30,12 +30,12 @@ export const StyledLink = styled(Link)`
     hasdeclaredmaxwidth ? hasdeclaredmaxwidth : "unset"};
   position: relative;
   cursor: pointer;
-  
+
   &.activeLink {
     color: var(--secondary500);
     font-weight: 600;
 
-    &:hover{
+    &:hover {
       color: var(--secondary500);
     }
   }

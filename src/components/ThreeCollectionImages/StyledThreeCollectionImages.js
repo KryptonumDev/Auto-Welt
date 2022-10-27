@@ -23,7 +23,7 @@ export const StyledImageWrapper = styled.div`
   width: 33.33%;
   max-width: 343px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  
+
   @media only screen and (max-width: 488px) {
     width: 100%;
     max-width: unset;

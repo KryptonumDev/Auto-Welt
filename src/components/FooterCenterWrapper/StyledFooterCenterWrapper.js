@@ -22,7 +22,6 @@ export const StyledFooterCenterWrapper = styled.div`
     padding: 0 51px;
 
     > div {
-
       > p {
         text-align: center;
       }

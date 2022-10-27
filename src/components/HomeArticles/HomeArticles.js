@@ -121,7 +121,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
       </StyledHomeArticles>
       {isCollectionsModelPage ? (
         <StyledButtonWrapper>
-          {buttonData.title && (data.allWpArtykul.edges.length > 2) ? (
+          {buttonData.title && data.allWpArtykul.edges.length > 2 ? (
             <Button
               text={buttonData.title}
               whereGo={buttonData.url}

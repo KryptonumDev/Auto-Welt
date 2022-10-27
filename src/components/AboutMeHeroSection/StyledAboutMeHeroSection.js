@@ -57,7 +57,6 @@ export const StyledTitleWrapper = styled.div`
 
   p {
     strong,
-
     em {
       position: relative;
       font-weight: normal;
@@ -92,7 +91,6 @@ export const StyledSubTitleWrapper = styled.div`
 
   p {
     strong,
-
     em {
       position: relative;
       font-weight: normal;
@@ -130,7 +128,6 @@ export const StyledDescWrapper = styled.div`
   }
 
   p {
-
     strong,
     em {
       position: relative;
@@ -155,7 +152,7 @@ export const StyledButtonWrapper = styled.div`
   a {
     margin-left: 15px;
   }
-  
+
   @media only screen and (max-width: 1065px) {
     a {
       font-size: 18px;

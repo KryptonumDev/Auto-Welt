@@ -59,7 +59,7 @@ export const StyledHamburgerInner = styled.span`
         ? "translateY(-8px) rotate(-135deg)"
         : "translateY(0) rotate(0)"};
   }
-  
+
   &::before {
     content: "";
     right: 0;

@@ -78,7 +78,7 @@ export const StyledTitleImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  
+
   img {
     width: 100%;
     height: 100%;
@@ -297,7 +297,7 @@ export const StyledModel = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   @media only screen and (max-width: 972px) {
     width: 100%;
   }

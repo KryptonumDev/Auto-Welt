@@ -280,7 +280,9 @@ const ContactPageForm = ({ dataForm }) => {
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
                       <button type="submit" disabled={isSubmitting}>
-                        <span>{dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}</span>
+                        <span>
+                          {dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}
+                        </span>
                       </button>
                     </StyledButtonWrapper>
                   </Form>

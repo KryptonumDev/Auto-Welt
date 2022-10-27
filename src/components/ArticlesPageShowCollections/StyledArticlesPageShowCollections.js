@@ -55,7 +55,7 @@ export const StyledImageWrapper = styled.div`
     height: 100%;
     mix-blend-mode: multiply;
 
-    &:not(:hover){
+    &:not(:hover) {
       transition: transform 250ms linear, mix-blend-mode 250ms linear;
     }
   }
@@ -66,7 +66,6 @@ export const StyledImageWrapper = styled.div`
   }
 
   &:hover {
-
     img {
       transition: transform 250ms linear, mix-blend-mode 250ms linear;
       transform: scale(1.1);
@@ -136,7 +135,7 @@ export const StyledReqWrapper = styled.div`
     margin-top: 0 auto 60px;
     padding: 0 16px 0 0;
   }
-  
+
   @media only screen and (max-width: 768px) {
     > div {
       margin-top: 0;

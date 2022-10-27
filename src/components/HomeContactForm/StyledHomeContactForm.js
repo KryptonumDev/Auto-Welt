@@ -70,7 +70,7 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto Condensed";
     padding: 10px;
     margin-top: 4px;
-    
+
     &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
@@ -137,7 +137,7 @@ export const StyledButtonWrapper = styled.div`
       line-height: 1.3em;
     }
 
-    &:hover{
+    &:hover {
       background: var(--secondary700);
       border-color: var(--secondary700);
     }
@@ -218,7 +218,7 @@ export const StyledCustomCheckbox = styled.div`
     font: 500 16px/19px Roboto Condensed;
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
     cursor: pointer;
-    
+
     a {
       color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
       font: 500 16px/19px "Roboto Condensed";

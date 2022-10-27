@@ -59,7 +59,7 @@ export const StyledCheckOutButtonsWrapper = styled.div`
   @media only screen and (max-width: 488px) {
     flex-direction: column;
     gap: 12px;
-    
+
     a {
       width: 95%;
     }

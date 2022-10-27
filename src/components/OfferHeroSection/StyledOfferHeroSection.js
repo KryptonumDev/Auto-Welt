@@ -65,9 +65,8 @@ export const StyledImagesWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     gap: 17px;
-    
-    > div {
 
+    > div {
       &:first-child,
       &:nth-child(2) {
         width: calc(50% - 10px);
@@ -94,7 +93,6 @@ export const StyledImagesWrapper = styled.div`
     gap: 9px;
 
     > div {
-
       &:first-child,
       &:nth-child(2) {
         width: calc(50% - 5px);
@@ -156,7 +154,6 @@ export const StyledMoreInfoWrapper = styled.div`
   }
 
   p {
-
     strong,
     em {
       position: relative;
@@ -200,7 +197,7 @@ export const StyledButtonWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    
+
     a {
       margin-left: 0;
       width: 95%;

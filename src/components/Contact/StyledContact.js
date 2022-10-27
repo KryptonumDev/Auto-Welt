@@ -41,7 +41,6 @@ export const StyledDesc = styled.div`
   }
 
   p {
-    
     strong,
     em {
       position: relative;

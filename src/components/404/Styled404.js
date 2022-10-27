@@ -129,7 +129,7 @@ export const StyledImageRightWrapper = styled.div`
   @media only screen and (max-width: 617px) {
     max-width: unset;
     height: auto;
-    
+
     .gatsby-image-wrapper {
       width: 100%;
       height: 100%;

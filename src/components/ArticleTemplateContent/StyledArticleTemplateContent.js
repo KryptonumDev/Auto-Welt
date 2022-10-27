@@ -41,12 +41,12 @@ export const StyledTextContent = styled.div`
   font-family: "Roboto Condensed";
   font-size: 24px;
 
-  .has-text-align-right{
+  .has-text-align-right {
     text-align: right;
-    color: #23423D;
+    color: #23423d;
     margin-top: 20px;
-    font-family: 'Nocturne Serif';
-  } 
+    font-family: "Nocturne Serif";
+  }
 
   strong,
   em {
@@ -95,7 +95,7 @@ export const StyledTextContent = styled.div`
       &:first-letter {
         font-size: 48px;
         color: #edac29;
-        font-family: 'Nocturne Serif' !important;
+        font-family: "Nocturne Serif" !important;
         float: left;
         padding-right: 10px;
       }

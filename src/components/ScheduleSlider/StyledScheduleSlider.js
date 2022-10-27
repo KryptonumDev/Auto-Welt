@@ -78,7 +78,7 @@ export const StyledNextArrow = styled(motion.div)`
     top: 35%;
     transform: translateY(-50%);
   }
-  
+
   @media only screen and (max-width: 375px) {
     top: 109%;
     right: 10%;

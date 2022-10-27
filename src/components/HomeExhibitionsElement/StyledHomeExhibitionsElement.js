@@ -4,8 +4,14 @@ import { Link } from "gatsby";
 
 export const StyledElementLink = styled(Link)`
   text-decoration: none;
-  width: ${({ isscheduleelement, slidesCount }) => slidesCount < 3 ? "calc(50% - 15px)" : (isscheduleelement ? "calc(50% - 15px)" : "33%")};
-  max-width: ${({ isscheduleelement, slidesCount }) => slidesCount < 3 ? "532px" : (isscheduleelement ? "532px" : "340px")};
+  width: ${({ isscheduleelement, slidesCount }) =>
+    slidesCount < 3
+      ? "calc(50% - 15px)"
+      : isscheduleelement
+      ? "calc(50% - 15px)"
+      : "33%"};
+  max-width: ${({ isscheduleelement, slidesCount }) =>
+    slidesCount < 3 ? "532px" : isscheduleelement ? "532px" : "340px"};
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-top: 6px solid var(--borderTopOrange);
   display: flex;
@@ -19,7 +25,7 @@ export const StyledElementLink = styled(Link)`
   &:hover {
     > div {
       > div {
-        &:nth-child(2){
+        &:nth-child(2) {
           img {
             transition: transform 250ms linear, mix-blend-mode 250ms linear;
             transform: scale(1.1);
@@ -38,7 +44,7 @@ export const StyledElementLink = styled(Link)`
     width: 100%;
     max-width: unset;
   }
-`
+`;
 
 export const StyledHomeExhibitionsElement = styled(motion.div)`
   width: 100%;
@@ -103,7 +109,7 @@ export const StyledLogoWrapper = styled.div`
     width: 100%;
     height: 100%;
 
-    &:not(:hover){
+    &:not(:hover) {
       transition: transform 250ms linear, mix-blend-mode 250ms linear;
     }
   }
@@ -149,7 +155,7 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

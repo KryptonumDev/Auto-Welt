@@ -122,17 +122,23 @@ const HomeCollections = () => {
             wpPage.homepage.kolekcje.tytulSekcji}
         </StyledText>
         <StyledImagesWrapper>
-          {allWpKolekcje.nodes?.sort((a,b) => a.kolekcja.informacjeGlowne.kolejnoscWyswietlania - b.kolekcja.informacjeGlowne.kolejnoscWyswietlania).map((kolekcja) => (
-            <HomeCollectionElement
-              bgImage={
-                kolekcja.kolekcja.informacjeGlowne
-                  .tloDlaMiniaturkiNaStroneGlowna
-              }
-              image={kolekcja.kolekcja.informacjeGlowne.miniaturka}
-              buttonText={kolekcja.kolekcja.informacjeGlowne.nazwaKolekcji}
-              whereGo={kolekcja.slug}
-            />
-          ))}
+          {allWpKolekcje.nodes
+            ?.sort(
+              (a, b) =>
+                a.kolekcja.informacjeGlowne.kolejnoscWyswietlania -
+                b.kolekcja.informacjeGlowne.kolejnoscWyswietlania
+            )
+            .map((kolekcja) => (
+              <HomeCollectionElement
+                bgImage={
+                  kolekcja.kolekcja.informacjeGlowne
+                    .tloDlaMiniaturkiNaStroneGlowna
+                }
+                image={kolekcja.kolekcja.informacjeGlowne.miniaturka}
+                buttonText={kolekcja.kolekcja.informacjeGlowne.nazwaKolekcji}
+                whereGo={kolekcja.slug}
+              />
+            ))}
           <StyledImage>
             {wpPage.homepage.kolekcje.duzeZdjeciePrzyczepioneDoPrawejKrawedzi
               .localFile && (

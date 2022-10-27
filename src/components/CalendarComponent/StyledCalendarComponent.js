@@ -275,4 +275,4 @@ export const StyledExhibitionTitle = styled.p`
   }
 `;
 
-export const StyledPaginationElement = styled(motion.div)``
+export const StyledPaginationElement = styled(motion.div)``;

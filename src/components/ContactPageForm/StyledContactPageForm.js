@@ -38,7 +38,7 @@ export const StyledModel = styled.div`
       width: 100%;
       height: 100%;
     }
-    
+
     .gatsby-image-wrapper {
       width: 100%;
       height: 100%;
@@ -160,7 +160,7 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto Condensed";
     padding: 10px;
     margin-top: 4px;
-    
+
     &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
@@ -262,7 +262,7 @@ export const StyledButtonsWrapper = styled.div`
   @media only screen and (max-width: 592px) {
     width: 100%;
     align-items: center;
-    
+
     a,
     p {
       margin-left: 0;
