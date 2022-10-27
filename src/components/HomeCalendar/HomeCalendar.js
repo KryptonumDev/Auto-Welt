@@ -45,6 +45,7 @@ const HomeCalendar = () => {
               }
             }
             title
+            slug
           }
         }
       }
@@ -68,6 +69,7 @@ const HomeCalendar = () => {
           ...edge.node.wystawa.informacjeOgolne,
           data: new Date(edge.node.wystawa.informacjeOgolne.data),
           title: edge.node.title,
+          slug: edge.node.slug
         }))}
       />
       <StyledButtonWrapper>

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
+
 import {
   startOfAdjacentMonth,
   endOfAdjacentMonth,
   areDatesEqual,
 } from "../../utils/date";
 import { motion } from "framer-motion";
+
 import {
   StyledCalendarComponent,
   StyledCalendar,
@@ -106,7 +109,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       areDatesEqual(exhibition_date, date)
                   );
                   return exhibitions_today.length ? (
-                    <p className="activeDay">
+                    <Link className="activeDay" to={`/wystawy/}`}>
                       <ActiveCalendar />
                       <StyledExhibitionTitle
                         isopen={
@@ -128,7 +131,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                           </>
                         ))}
                       </StyledExhibitionTitle>
-                    </p>
+                    </Link>
                   ) : undefined;
                 })()
               : undefined
