@@ -282,7 +282,7 @@ export const StyledCarBgImage = styled.div`
 `;
 
 export const StyledModel = styled.div`
-  width: 584px;
+  width: 596px;
   height: 100%;
   position: absolute;
   top: 0;
