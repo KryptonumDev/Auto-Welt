@@ -117,10 +117,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             ? false
                             : activeDate instanceof Date
                             ? exhibitions_today
-                                .map((exhibition) =>
+                                .filter((exhibition) =>
                                   areDatesEqual(exhibition.data, activeDate)
                                 )
-                                .find((val) => val)
+                                .length
                             : false
                         }
                       >
