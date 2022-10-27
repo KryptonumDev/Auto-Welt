@@ -155,6 +155,7 @@ const HomeHeroSection = () => {
               hasFontSize={width < 376 ? "15px" : "21px"}
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
               hoverBgColor="#F6E2BA"
+              hasFontWeight="500"
             />
           )}
           {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url && (
@@ -168,6 +169,7 @@ const HomeHeroSection = () => {
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
               hoverBgColor="var(--primary900)"
               hasBorder="2px solid var(--primary500)"
+              hasFontWeight="500"
             />
           )}
         </StyledButtonsWrapper>

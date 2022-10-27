@@ -280,15 +280,7 @@ const ContactPageForm = ({ dataForm }) => {
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
                       <button type="submit" disabled={isSubmitting}>
-                        <Button
-                          text={dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}
-                          bgColor="var(--secondary500)"
-                          textColor="var(--primary900)"
-                          hasBorder="2px solid var(--secondary500)"
-                          hasFontSize={width < 376 ? "15px" : "21px"}
-                          hasDeclaredPadding="8px 33px"
-                          hoverBgColor="var(--secondary700)"
-                        />
+                        <span>{dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}</span>
                       </button>
                     </StyledButtonWrapper>
                   </Form>

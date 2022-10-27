@@ -111,8 +111,43 @@ export const StyledButtonWrapper = styled.div`
   margin-top: 6px;
 
   > button {
-    background-color: transparent;
+    transform: skew(-26deg);
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    flex: none;
+    transition: background 250ms linear, border-color 250ms linear;
+
+    background-color: var(--secondary500);
+    color: var(--primary900);
     border: none;
+    border: 2px solid var(--secondary500);
+    font-size: 21px;
+    padding: 10px 33px;
+    cursor: pointer;
+
+    > span {
+      display: block;
+      transform: skew(26deg);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.3em;
+    }
+
+    &:hover{
+      background: var(--secondary700);
+      border-color: var(--secondary700);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
   }
 
   @media only screen and (max-width: 1065px) {

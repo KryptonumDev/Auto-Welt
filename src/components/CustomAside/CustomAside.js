@@ -28,24 +28,26 @@ const CustomAside = ({ tableOfContents, asideData }) => {
           >
             Spis treści:
           </StyledText>
-          {tableOfContents?.map((h2) => (
-            <div>
-              <a href={`#${h2.id}`}>{h2.name}</a>
-              {h2.children.map((h3) => (
-                <ul>
-                  <li>
-                    <a href={`#${h3.id}`}>{h3.name}</a>
-                  </li>
-                </ul>
-              ))}
-            </div>
-          ))}
+          <ol>
+            {tableOfContents?.map((h2) => (
+                <li>
+                  <a href={`#${h2.id}`}>{h2.name}</a>
+                  {h2.children.map((h3) => (
+                    <ul>
+                      <li>
+                        <a href={`#${h3.id}`}>{h3.name}</a>
+                      </li>
+                    </ul>
+                  ))}
+                </li>
+            ))}
+          </ol>
         </StyledContents>
       ) : undefined}
       <StyledChooseCollections>
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
-          hasdeclaredfontsize="28px"
+          hasdeclaredfontsize="24px"
           hasdeclaredfontweight="400"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#EDAC2A"

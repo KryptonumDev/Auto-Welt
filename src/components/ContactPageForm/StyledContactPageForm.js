@@ -13,18 +13,22 @@ export const StyledContactPageForm = styled.section`
     flex-direction: column;
   }
 `;
+
 export const StyledLeftWrapper = styled.div`
   width: 385px;
   height: 100%;
+
   @media only screen and (max-width: 768px) {
     width: 256px;
     height: 832px;
   }
+
   @media only screen and (max-width: 560px) {
     width: 100%;
     height: 440px;
   }
 `;
+
 export const StyledModel = styled.div`
   width: 100%;
   height: 100%;
@@ -40,15 +44,19 @@ export const StyledModel = styled.div`
     }
   }
 `;
+
 export const StyledRightWrapper = styled.div`
   width: calc(100% - 385px);
+
   @media only screen and (max-width: 768px) {
     width: calc(100% - 256px);
   }
+
   @media only screen and (max-width: 560px) {
     width: 100%;
   }
 `;
+
 export const StyledHeading = styled.div`
   width: 100%;
   min-height: 100px;
@@ -56,17 +64,20 @@ export const StyledHeading = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
   @media only screen and (max-width: 972px) {
     p {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     p {
       font-size: 24px;
     }
   }
 `;
+
 export const StyledTitleImage = styled.div`
   width: 100%;
   height: 100%;
@@ -78,14 +89,17 @@ export const StyledTitleImage = styled.div`
     width: 100%;
     height: 100%;
   }
+
   img {
     width: 100%;
     height: 100%;
   }
 `;
+
 export const StyledHomeContactForm = styled.div`
   width: 100%;
-  padding: 30px;
+  padding: 20px 30px;
+
   > form {
     width: 100%;
     display: flex;
@@ -97,12 +111,14 @@ export const StyledHomeContactForm = styled.div`
   @media only screen and (max-width: 1119px) {
     padding: 22px;
   }
+
   @media only screen and (max-width: 768px) {
     > form {
       gap: 24px;
     }
   }
 `;
+
 export const StyledInputWrapper = styled.div`
   width: ${({ fullwidth }) => (fullwidth ? "100%" : "50%")};
   max-width: ${({ fullwidth }) => (fullwidth ? "unset" : "255px")};
@@ -118,49 +134,53 @@ export const StyledInputWrapper = styled.div`
     height: 38px;
     border: 2px solid
       ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     padding: 0 14px;
-    outline-color: var(--primary500);
     font-family: "Roboto Condensed";
+    margin-top: 4px;
 
     &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
   }
+
   textarea {
     width: 100%;
     height: 164px;
     border: 2px solid
       ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     resize: none;
     font-family: "Roboto Condensed";
     padding: 10px;
-
+    margin-top: 4px;
+    
     &:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
   }
 
   @media only screen and (max-width: 1087px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
   }
 
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
 
-  @media only screen and (max-width: 912px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "45%")};
+  @media only screen and (max-width: 657px) {
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 469px) {
     width: 100%;
   }
 `;
@@ -241,6 +261,7 @@ export const StyledButtonsWrapper = styled.div`
   @media only screen and (max-width: 592px) {
     width: 100%;
     align-items: center;
+    
     a,
     p {
       margin-left: 0;

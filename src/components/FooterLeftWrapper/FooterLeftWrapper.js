@@ -74,6 +74,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
+            hasdeclaredfontweight="400"
           >
             {footerData.telefon && footerData.telefon}
           </StyledText>
@@ -81,6 +82,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
+            hasdeclaredfontweight="400"
           >
             {footerData.email && footerData.email}
           </StyledText>

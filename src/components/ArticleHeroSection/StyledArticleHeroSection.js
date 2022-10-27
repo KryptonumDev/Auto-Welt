@@ -7,6 +7,7 @@ export const StyledArticleHeroSection = styled.section`
   flex-direction: column;
   align-items: center;
 `;
+
 export const StyledImage = styled.div`
   width: 100%;
 
@@ -14,6 +15,7 @@ export const StyledImage = styled.div`
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
   }
 `;
+
 export const StyledTag = styled.div`
   position: absolute;
   top: 10%;
@@ -28,6 +30,7 @@ export const StyledTag = styled.div`
     display: none;
   }
 `;
+
 export const StyledTagImage = styled.div`
   position: absolute;
   top: 0;
@@ -39,11 +42,13 @@ export const StyledTagImage = styled.div`
     width: 100%;
     height: 100%;
   }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   width: 95%;
   max-width: 714px;
@@ -61,16 +66,19 @@ export const StyledTextWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     min-height: 141px;
+
     h1 {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     h1 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledTextImage = styled.div`
   position: absolute;
   top: 0;
@@ -82,6 +90,7 @@ export const StyledTextImage = styled.div`
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
