@@ -216,6 +216,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
     padding: 30px 30px 0 5px;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
     transition: background-color 250ms linear;
 
     &:hover{
