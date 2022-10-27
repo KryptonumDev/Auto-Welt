@@ -5,16 +5,20 @@ export const StyledExhibitionTemplateContent = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 70px;
+
   @media only screen and (max-width: 972px) {
     gap: 20px;
   }
+
   @media only screen and (max-width: 768px) {
     margin: 60px 0;
   }
+
   @media only screen and (max-width: 660px) {
     margin: 0 0 60px;
   }
 `;
+
 export const StyledAsideWrapper = styled.div`
   width: calc(40% - 35px);
   max-width: 364px;
@@ -22,13 +26,16 @@ export const StyledAsideWrapper = styled.div`
   @media only screen and (max-width: 972px) {
     margin-left: -32px;
   }
+
   @media only screen and (max-width: 972px) {
     margin-left: -16px;
   }
+
   @media only screen and (max-width: 660px) {
     display: none;
   }
 `;
+
 export const StyledContentWrapper = styled.div`
   width: calc(60% - 35px);
   font-family: "Roboto Condensed";
@@ -39,6 +46,7 @@ export const StyledContentWrapper = styled.div`
     position: relative;
     font-weight: normal;
     font-style: normal;
+
     &:before {
       content: "";
       width: 100%;
@@ -76,6 +84,7 @@ export const StyledContentWrapper = styled.div`
   }
 
   > p {
+    
     &:first-of-type {
       &:first-letter {
         font-size: 48px;
@@ -95,9 +104,11 @@ export const StyledContentWrapper = styled.div`
     > div {
       width: 48%;
       filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+
       img {
         width: 100%;
       }
+
       .gatsby-image-wrapper {
         width: 100%;
       }
@@ -112,10 +123,12 @@ export const StyledContentWrapper = styled.div`
 
   .size-full {
     width: 100%;
+
     img {
       width: 100%;
     }
   }
+
   @media only screen and (max-width: 972px) {
     width: 60%;
   }

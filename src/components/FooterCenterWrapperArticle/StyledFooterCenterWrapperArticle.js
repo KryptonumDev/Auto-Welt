@@ -8,6 +8,7 @@ export const StyledFooterCenterWrapperArticle = styled(Link)`
   display: block;
   text-decoration: none;
 `;
+
 export const StyledTop = styled.div`
   width: 100%;
   height: 85px;
@@ -21,6 +22,7 @@ export const StyledTop = styled.div`
     height: 100%;
   }
 `;
+
 export const StyledBottom = styled.div`
   width: 100%;
   background-color: var(--background500);

@@ -42,6 +42,7 @@ export const StyledArticleElement = styled(Link)`
     }
   }
 `;
+
 export const StyledImageWrapper = styled.div`
   width: 216px;
   min-height: 252px;
@@ -73,6 +74,7 @@ export const StyledImageWrapper = styled.div`
     width: 110px;
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   width: calc(100% - 216px);
   position: relative;
@@ -98,6 +100,7 @@ export const StyledTextWrapper = styled.div`
     width: calc(100% - 110px);
   }
 `;
+
 export const StyledDate = styled.div`
   @media only screen and (max-width: 532px) {
     p {
@@ -105,6 +108,7 @@ export const StyledDate = styled.div`
     }
   }
 `;
+
 export const StyledTitle = styled.div`
   @media only screen and (max-width: 768px) {
     p {
@@ -118,6 +122,7 @@ export const StyledTitle = styled.div`
     }
   }
 `;
+
 export const StyledLinkWrapper = styled.div`
   position: absolute;
   right: 28px;
@@ -128,6 +133,7 @@ export const StyledLinkWrapper = styled.div`
     bottom: 23px;
   }
 `;
+
 export const StyledBgWrapper = styled.div`
   position: absolute;
   top: 0;

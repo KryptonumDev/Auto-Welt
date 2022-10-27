@@ -9,10 +9,12 @@ export const StyledQuestionContact = styled.div`
   max-width: 1144px;
   margin: 60px auto 80px auto;
   padding: 0 32px;
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
   }
 `;
+
 export const StyledInfoWrapper = styled.div`
   max-width: 621px;
   width: 100%;
@@ -35,25 +37,31 @@ export const StyledInfoWrapper = styled.div`
   @media only screen and (max-width: 768px) {
     max-width: 70%;
   }
+
   @media only screen and (max-width: 583px) {
     max-width: 95%;
   }
+
   @media only screen and (max-width: 439px) {
     > p {
       font-size: 13px;
     }
+
     > a {
       font-size: 15px;
       width: 100%;
     }
   }
+
   @media only screen and (max-width: 375px) {
     padding-bottom: 30px;
   }
 `;
+
 export const StyledImageContactWrapper = styled.div`
   width: 100%;
 `;
+
 export const StyledImageInfoWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -65,6 +73,7 @@ export const StyledImageInfoWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

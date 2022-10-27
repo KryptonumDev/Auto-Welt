@@ -13,7 +13,9 @@ export const StyledArticleCustomQuote = styled.div`
   align-items: center;
   gap: 35px;
 `;
+
 export const StyledIconWrapper = styled.div``;
+
 export const StyledTextWrapper = styled.div`
   font-family: "Nocturne Serif";
   font-style: normal;

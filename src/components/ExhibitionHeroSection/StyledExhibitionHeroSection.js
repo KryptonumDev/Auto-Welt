@@ -11,6 +11,7 @@ export const StyledExhibitionHeroSection = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
 export const StyledLeftWrapper = styled.div`
   width: 50%;
   display: flex;
@@ -24,38 +25,43 @@ export const StyledLeftWrapper = styled.div`
     max-width: unset;
   }
 `;
+
 export const StyledRightWrapper = styled.div`
   width: 50%;
   min-height: 384px;
+
   @media only screen and (max-width: 768px) {
     max-width: 272px;
   }
+
   @media only screen and (max-width: 660px) {
     width: 100%;
     max-width: unset;
   }
 `;
+
 export const StyledTag = styled.div`
-    width: 417px;
-    min-height: 32px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    position: relative;
+  width: 417px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  position: relative;
 
-    @media only screen and (max-width: 768px){
-        width: 100%;
+  @media only screen and (max-width: 768px){
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 400px){
+    padding-top 5px;
+    padding-bottom: 5px;
+
+    p{
+        max-width: 80%;
     }
-
-    @media only screen and (max-width: 400px){
-        padding-top 5px;
-        padding-bottom: 5px;
-
-        p{
-            max-width: 80%;
-        }
-    }
+  }
 `;
+
 export const StyledTextWrapper = styled.div`
   font-family: "Roboto Condensed";
   font-style: normal;
@@ -64,23 +70,28 @@ export const StyledTextWrapper = styled.div`
   line-height: 1.2em;
   color: #000000;
   margin-top: 20px;
+
   h1 {
     margin-bottom: 10px;
   }
+
   @media only screen and (max-width: 908px) {
     font-size: 20px;
   }
+
   @media only screen and (max-width: 768px) {
     h1 {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     h1 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledDataWrapper = styled.div`
   position: absolute;
   left: 0;
@@ -102,6 +113,7 @@ export const StyledDataWrapper = styled.div`
     top: auto;
     left: auto;
     margin-top: 30px;
+
     p {
       font-size: 28px;
     }
@@ -111,6 +123,7 @@ export const StyledDataWrapper = styled.div`
     margin-bottom: 60px;
   }
 `;
+
 export const StyledImageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -128,16 +141,19 @@ export const StyledImageWrapper = styled.div`
     height: 384px;
   }
 `;
+
 export const StyledDataImage = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+
   img {
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

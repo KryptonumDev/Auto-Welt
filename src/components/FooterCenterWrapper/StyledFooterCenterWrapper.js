@@ -36,6 +36,7 @@ export const StyledFastLinks = styled.div`
   justify-content: space-between;
   gap: 10px;
 `;
+
 export const StyledArticlesWrapper = styled.div`
   width: 100%;
 `;

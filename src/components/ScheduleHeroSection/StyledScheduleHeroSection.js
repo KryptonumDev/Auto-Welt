@@ -5,22 +5,27 @@ export const StyledScheduleHeroSection = styled.section`
   max-width: 1144px;
   margin: 37px auto 0;
   padding: 0 32px;
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
     margin-top: 130px;
   }
 `;
+
 export const StyledHeroImage = styled.div`
   width: 100%;
+
   img {
     width: 100%;
     height: 100%;
   }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
 `;
+
 export const StyledTitleWrapper = styled.div`
   width: 85%;
   max-width: 641px;
@@ -41,22 +46,26 @@ export const StyledTitleWrapper = styled.div`
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     > h1 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledTitleImage = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+
   img {
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

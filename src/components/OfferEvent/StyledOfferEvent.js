@@ -12,13 +12,16 @@ export const StyledOfferEvent = styled.div`
     flex-direction: column;
   }
 `;
+
 export const StyledOfferEventImage = styled.div`
   width: 50%;
   min-height: 297px;
+
   img {
     width: 100%;
     height: 100%;
   }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
@@ -29,12 +32,14 @@ export const StyledOfferEventImage = styled.div`
     min-height: 202px;
   }
 `;
+
 export const StyledOfferEventInfo = styled.div`
   width: 50%;
   padding: 47px 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   > a {
     margin-left: 15px;
   }
@@ -57,12 +62,14 @@ export const StyledOfferEventInfo = styled.div`
 
   @media only screen and (max-width: 488px) {
     padding: 24px 32px;
+
     > a {
       margin-left: 0;
       align-self: center;
       width: 95%;
     }
   }
+  
   @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;

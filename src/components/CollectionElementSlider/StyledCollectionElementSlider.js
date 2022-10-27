@@ -30,6 +30,7 @@ export const StyledCollectionElementSlider = styled.section`
     margin-bottom: 60px;
   }
 `;
+
 export const StyledLeftArrow = styled(motion.div)`
   background: var(--primary500);
   padding: 5px;
@@ -70,6 +71,7 @@ export const StyledLeftArrow = styled(motion.div)`
     bottom: 0;
   }
 `;
+
 export const StyledRightArrow = styled(motion.div)`
   background: var(--primary500);
   padding: 5px;
@@ -110,6 +112,7 @@ export const StyledRightArrow = styled(motion.div)`
     bottom: 0;
   }
 `;
+
 export const StyledImagesWrapper = styled(motion.div)`
   width: 100%;
   max-width: 943px;
@@ -135,6 +138,7 @@ export const StyledImagesWrapper = styled(motion.div)`
     padding-bottom: 0;
   }
 `;
+
 export const StyledImage = styled(motion.div)`
   max-width: 457px;
   width: 50%;

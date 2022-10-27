@@ -8,6 +8,7 @@ export const StyledFooterLeftWrapper = styled.div`
     max-width: unset;
     display: flex;
     justify-content: space-between;
+
     > div {
       width: 42%;
       &:first-child{
@@ -20,6 +21,7 @@ export const StyledFooterLeftWrapper = styled.div`
     width: 100%;
     flex-wrap: wrap;
     order 1;
+    
     > div {
       width: 100%;
       display: flex;

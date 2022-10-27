@@ -13,10 +13,12 @@ export const StyledScheduleSlider = styled.div`
     width: calc(100% - 30px);
     margin: 0 auto;
   }
+
   @media only screen and (max-width: 375px) {
     width: 100%;
   }
 `;
+
 export const StyledPrevArrow = styled(motion.div)`
   width: 40px;
   height: 56px;
@@ -40,17 +42,20 @@ export const StyledPrevArrow = styled(motion.div)`
     transform: translateY(-50%);
     z-index: 1;
   }
+
   @media only screen and (max-width: 375px) {
     top: 109%;
     left: 10%;
   }
 `;
+
 export const StyledSlides = styled.div`
   display: flex;
   gap: 15px;
   justify-content: space-between;
   width: 100%;
 `;
+
 export const StyledNextArrow = styled(motion.div)`
   width: 40px;
   height: 56px;
@@ -66,12 +71,14 @@ export const StyledNextArrow = styled(motion.div)`
     right: auto;
     transform: translateY(0);
   }
+
   @media only screen and (max-width: 768px) {
     position: absolute;
     right: -20px;
     top: 35%;
     transform: translateY(-50%);
   }
+  
   @media only screen and (max-width: 375px) {
     top: 109%;
     right: 10%;

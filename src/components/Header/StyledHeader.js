@@ -206,13 +206,16 @@ export const StyledIconsWrapper = styled.div`
   gap: 10px;
   align-items: center;
   margin-left: 55px;
+
   a {
+
     > svg {
       width: 24px;
       height: 24px;
       fill: #faf1de;
       transition: fill 250ms linear;
     }
+
     &:hover {
       > svg {
         fill: #edab26;
@@ -233,6 +236,7 @@ export const StyledIconsWrapper = styled.div`
     justify-content: flex-end;
     padding-right: 8px;
     gap: 20px;
+    
     a {
       > svg {
         width: 40px;

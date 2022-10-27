@@ -87,6 +87,7 @@ export const StyledDataWrapper = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   gap: 8px;
+
   @media only screen and (max-width: 768px) {
     align-items: flex-start;
   }
@@ -107,8 +108,6 @@ export const StyledLogoWrapper = styled.div`
     }
   }
 
-
-
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
@@ -126,10 +125,12 @@ export const StyledContentList = styled.div`
   gap: 14px;
   margin-top: 14px;
   width: 100%;
+
   > div {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+
     > svg {
       flex-shrink: 0;
       margin-right: 8px;
@@ -148,6 +149,7 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
+  
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;

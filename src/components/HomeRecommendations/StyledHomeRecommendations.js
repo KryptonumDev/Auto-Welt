@@ -13,25 +13,30 @@ export const StyledHomeRecommendations = styled.section`
   @media only screen and (max-width: 768px) {
     padding: 0;
     margin-bottom: ${({ isaboutpage }) => (isaboutpage ? "0" : "60px")};
+
     > h2 {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 462px) {
     padding: 0 16px;
   }
+
   @media only screen and (max-width: 375px) {
     > h2 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledRecommendationsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 `;
+
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -44,22 +49,27 @@ export const StyledButtonsWrapper = styled.div`
       font-size: 18px;
     }
   }
+
   @media only screen and (max-width: 768px) {
     flex-direction: column;
     gap: 12px;
     margin-top: 30px;
   }
+
   @media only screen and (max-width: 685px) {
     a {
       font-size: 16px;
     }
   }
+
   @media only screen and (max-width: 462px) {
     width: 92%;
+
     a {
       width: 100%;
     }
   }
+
   @media only screen and (max-width: 375px) {
     a {
       font-size: 15px;
@@ -73,6 +83,7 @@ export const StyledSlides = styled.div`
   justify-content: space-between;
   overflow: hidden;
   gap: 10px;
+
   @media only screen and (max-width: 462px) {
     justify-content: center;
   }
@@ -84,6 +95,7 @@ export const StyledArrowWrapper = styled(motion.div)`
   cursor: pointer;
   position: relative;
   z-index: 1;
+
   svg {
     width: 100%;
     height: 100%;
@@ -104,6 +116,7 @@ export const StyledArrowWrapper = styled(motion.div)`
         hasdeclaredtransform ? hasdeclaredtransform : "0"}
     );
   }
+  
   @media only screen and (max-width: 462px) {
     background: transparent;
   }

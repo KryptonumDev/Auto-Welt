@@ -5,16 +5,20 @@ export const StyledArticleTemplateContent = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 70px;
+
   @media only screen and (max-width: 972px) {
     gap: 20px;
   }
+
   @media only screen and (max-width: 768px) {
     margin: 60px 0;
   }
+
   @media only screen and (max-width: 660px) {
     margin: 0 0 60px;
   }
 `;
+
 export const StyledAside = styled.aside`
   width: calc(40% - 35px);
   max-width: 364px;
@@ -22,13 +26,16 @@ export const StyledAside = styled.aside`
   @media only screen and (max-width: 972px) {
     margin-left: -32px;
   }
+
   @media only screen and (max-width: 972px) {
     margin-left: -16px;
   }
+
   @media only screen and (max-width: 660px) {
     display: none;
   }
 `;
+
 export const StyledTextContent = styled.div`
   width: calc(60% - 35px);
   font-family: "Roboto Condensed";
@@ -46,6 +53,7 @@ export const StyledTextContent = styled.div`
     position: relative;
     font-weight: normal;
     font-style: normal;
+
     &:before {
       content: "";
       width: 100%;

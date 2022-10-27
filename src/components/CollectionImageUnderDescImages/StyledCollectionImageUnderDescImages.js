@@ -10,22 +10,28 @@ export const StyledCollectionImageUnderDescImages = styled.section`
     margin-top: 60px;
     padding-left: 16px;
   }
+
   @media only screen and (max-width: 600px) {
     min-height: 500px;
   }
+
   @media only screen and (max-width: 480px) {
     min-height: 400px;
   }
+
   @media only screen and (max-width: 395px) {
     min-height: 280px;
   }
+
   @media only screen and (max-width: 335px) {
     min-height: 230px;
   }
 `;
+
 export const StyledTopImage = styled.div`
   transform: translateX(-6px);
 `;
+
 export const StyledBottomImage = styled.div`
   position: absolute;
   bottom: -50px;
@@ -39,18 +45,23 @@ export const StyledBottomImage = styled.div`
     bottom: 40px;
     right: -110px;
   }
+
   @media only screen and (max-width: 600px) {
     bottom: -10px;
   }
+
   @media only screen and (max-width: 480px) {
     bottom: -40px;
   }
+
   @media only screen and (max-width: 395px) {
     bottom: -60px;
   }
+
   @media only screen and (max-width: 375px) {
     bottom: -75px;
   }
+  
   @media only screen and (max-width: 335px) {
     bottom: -90px;
   }

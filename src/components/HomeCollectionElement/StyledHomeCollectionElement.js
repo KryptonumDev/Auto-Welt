@@ -47,6 +47,7 @@ export const StyledHomeCollectionElement = styled(Link)`
     }
   }
 `;
+
 export const StyledBackground = styled.div`
   width: 294px;
   height: 192px;
@@ -62,6 +63,7 @@ export const StyledBackground = styled.div`
     height: 100%;
   }
 `;
+
 export const StyledImage = styled.div`
   width: 294px;
   height: 192px;

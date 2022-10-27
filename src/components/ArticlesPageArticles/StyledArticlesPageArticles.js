@@ -9,6 +9,7 @@ export const StyledArticlesPageArticles = styled.section`
   @media only screen and (max-width: 768px) {
     margin: 130px auto 0;
     padding: 0 16px;
+    
     > h1 {
       font-size: 38px;
     }

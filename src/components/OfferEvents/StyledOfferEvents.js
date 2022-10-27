@@ -5,18 +5,22 @@ export const StyledOfferEvents = styled.section`
   max-width: 1144px;
   margin: 0 auto;
   padding: 0 32px;
+
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
+
     > h2 {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     > h2 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledEventsWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -28,6 +32,7 @@ export const StyledEventsWrapper = styled.div`
     margin: 40px 0 20px;
   }
 `;
+
 export const StyledEventsButtonWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -40,24 +45,29 @@ export const StyledEventsButtonWrapper = styled.div`
       font-size: 18px;
     }
   }
+
   @media only screen and (max-width: 685px) {
     a {
       font-size: 16px;
     }
   }
+
   @media only screen and (max-width: 488px) {
     flex-direction: column;
+
     gap: 12px;
     a {
       width: 95%;
     }
   }
+
   @media only screen and (max-width: 375px) {
     a {
       font-size: 15px;
     }
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   font: 400 24px/1.2em "Roboto Condensed";
   color: #000;
@@ -66,16 +76,19 @@ export const StyledTextWrapper = styled.div`
   @media only screen and (max-width: 768px) {
     font-size: 20px;
   }
+
   @media only screen and (max-width: 375px) {
     font-size: 16px;
   }
 
   p {
+
     strong,
     em {
       position: relative;
       font-weight: normal;
       font-style: normal;
+      
       &:before {
         content: "";
         width: 100%;

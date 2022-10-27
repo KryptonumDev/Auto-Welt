@@ -6,19 +6,23 @@ export const StyledArticlesPageShowCollections = styled.section`
   max-width: 1144px;
   width: 100%;
   margin: 120px auto;
+
   @media only screen and (max-width: 768px) {
     margin-top: 60px auto;
     padding: 0 16px;
+
     > h2 {
       font-size: 38px;
     }
   }
+
   @media only screen and (max-width: 375px) {
     > h2 {
       font-size: 34px;
     }
   }
 `;
+
 export const StyledSlidesWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -40,6 +44,7 @@ export const StyledSlide = styled(Link)`
     margin-bottom: 40px;
   }
 `;
+
 export const StyledImageWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -61,6 +66,7 @@ export const StyledImageWrapper = styled.div`
   }
 
   &:hover {
+
     img {
       transition: transform 250ms linear, mix-blend-mode 250ms linear;
       transform: scale(1.1);
@@ -72,6 +78,7 @@ export const StyledImageWrapper = styled.div`
     height: 230px;
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   max-width: 386px;
   width: 80%;
@@ -89,6 +96,7 @@ export const StyledTextWrapper = styled.div`
     bottom: -35px;
   }
 `;
+
 export const StyledTitleImage = styled.div`
   width: 100%;
   height: 100%;
@@ -105,6 +113,7 @@ export const StyledTitleImage = styled.div`
     height: 100%;
   }
 `;
+
 export const StyledTitleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -116,15 +125,18 @@ export const StyledTitleWrapper = styled.div`
     font-size: 24px;
   }
 `;
+
 export const StyledReqWrapper = styled.div`
   padding: 0 32px;
   max-width: 1144px;
   width: 100%;
   margin: 0 auto 120px;
+
   @media only screen and (max-width: 768px) {
     margin-top: 0 auto 60px;
     padding: 0 16px 0 0;
   }
+  
   @media only screen and (max-width: 768px) {
     > div {
       margin-top: 0;

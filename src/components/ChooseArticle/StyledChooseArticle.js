@@ -18,6 +18,7 @@ export const StyledChooseArticle = styled.div`
     }
   }
 `;
+
 export const StyledArticle = styled.div`
   width: 100%;
   display: flex;
@@ -28,6 +29,7 @@ export const StyledArticle = styled.div`
   &:hover {
     > div {
       &:first-of-type {
+
         img {
           transition: transform 250ms linear, mix-blend-mode 250ms linear;
           transform: scale(1.1);
@@ -53,6 +55,7 @@ export const StyledImageWrapper = styled.div`
     width: 100%;
   }
 `;
+
 export const StyledTextWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -75,6 +78,7 @@ export const StyledTextWrapper = styled.div`
     }
   }
 `;
+
 export const StyledBgWrapper = styled.div`
   width: 100%;
   height: 100%;

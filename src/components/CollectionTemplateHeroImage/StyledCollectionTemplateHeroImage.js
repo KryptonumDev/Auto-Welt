@@ -17,6 +17,7 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   @media only screen and (max-width: 768px) {
     margin-top: 130px;
     padding-left: 16px;
+
     > a {
       margin-top: -20px;
     }
@@ -77,6 +78,7 @@ export const StyledTitleWrapper = styled.div`
       text-align: center;
       padding: 16px;
       color: #fff;
+
       strong,
       em {
         color: #edac2a;
@@ -115,6 +117,7 @@ export const StyledTitleWrapper = styled.div`
     }
   }
 `;
+
 export const StyledTitleImageWraper = styled.div`
   width: 100%;
   height: 100%;

@@ -38,6 +38,7 @@ export const StyledModel = styled.div`
       width: 100%;
       height: 100%;
     }
+    
     .gatsby-image-wrapper {
       width: 100%;
       height: 100%;

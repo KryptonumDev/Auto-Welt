@@ -46,6 +46,7 @@ export const StyledHeroImage = styled.div`
   @media only screen and (max-width: 768px) {
     max-width: 673px;
   }
+
   @media only screen and (max-width: 434px) {
     max-width: 324px;
   }
@@ -93,11 +94,13 @@ export const StyledTitleWrapper = styled.div`
   }
 
   p {
+
     strong,
     em {
       position: relative;
       font-weight: normal;
       font-style: normal;
+
       &:before {
         content: "";
         width: 100%;
@@ -124,11 +127,13 @@ export const StyledSubTitleWrapper = styled.div`
   }
 
   p {
+
     strong,
     em {
       position: relative;
       font-weight: normal;
       font-style: normal;
+
       &:before {
         content: "";
         width: 100%;
@@ -180,6 +185,7 @@ export const StyledButtonsWrapper = styled.div`
     gap: 10px;
     align-items: center;
     margin: 40px auto;
+
     a {
       font-size: 16px;
     }
@@ -187,6 +193,7 @@ export const StyledButtonsWrapper = styled.div`
 
   @media only screen and (max-width: 599px) {
     width: 92%;
+    
     a {
       width: 100%;
     }

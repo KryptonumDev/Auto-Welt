@@ -19,6 +19,7 @@ export const StyledHamburgerButton = styled.button`
     justify-content: flex-end;
     transition: all 250ms linear;
   }
+
   @media only screen and (max-width: 375px) {
     right: 16px;
   }
@@ -30,6 +31,7 @@ export const StyledHamburgerBox = styled.span`
   display: inline-block;
   position: relative;
 `;
+
 export const StyledHamburgerInner = styled.span`
   width: 30px;
   height: 2px;
@@ -41,6 +43,7 @@ export const StyledHamburgerInner = styled.span`
   background-color: ${({ hamburger }) =>
     hamburger ? "transparent" : "var(--secondary500)"};
   border-radius: 2px;
+
   &::after {
     content: "";
     right: 0;
@@ -56,6 +59,7 @@ export const StyledHamburgerInner = styled.span`
         ? "translateY(-8px) rotate(-135deg)"
         : "translateY(0) rotate(0)"};
   }
+  
   &::before {
     content: "";
     right: 0;
