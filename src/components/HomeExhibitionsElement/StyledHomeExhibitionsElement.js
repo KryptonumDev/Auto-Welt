@@ -4,10 +4,8 @@ import { Link } from "gatsby";
 
 export const StyledElementLink = styled(Link)`
   text-decoration: none;
-  width: ${({ isscheduleelement }) =>
-    isscheduleelement ? "calc(50% - 15px)" : "33%"};
-  max-width: ${({ isscheduleelement }) =>
-    isscheduleelement ? "532px" : "340px"};
+  width: ${({ isscheduleelement, slidesCount }) => slidesCount < 3 ? "calc(50% - 15px)" : (isscheduleelement ? "calc(50% - 15px)" : "33%")};
+  max-width: ${({ isscheduleelement, slidesCount }) => slidesCount < 3 ? "532px" : (isscheduleelement ? "532px" : "340px")};
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-top: 6px solid var(--borderTopOrange);
   display: flex;

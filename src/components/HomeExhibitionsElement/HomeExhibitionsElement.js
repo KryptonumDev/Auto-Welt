@@ -25,6 +25,7 @@ const HomeExhibitionsElement = ({
   buttonVariant,
   isPrev,
   key,
+  slidesCount
 }) => {
   const width = useWindowSize();
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
@@ -32,7 +33,7 @@ const HomeExhibitionsElement = ({
     .split(" ");
 
   return (
-    <StyledElementLink isscheduleelement={isSchdeuleElement} to={`/wystawy/${exhibitionData.slug}`}>
+    <StyledElementLink slidesCount={slidesCount} isscheduleelement={isSchdeuleElement} to={`/wystawy/${exhibitionData.slug}`}>
       <StyledHomeExhibitionsElement
       key={key}
       initial={{ x: isPrev ? -100 : 100 }}
