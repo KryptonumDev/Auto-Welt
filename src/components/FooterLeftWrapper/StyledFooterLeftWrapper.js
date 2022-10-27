@@ -97,13 +97,13 @@ export const StyledIconsWrapper = styled.div`
     height: 42px;
 
     > svg {
-      fill: #faf1de;
+      fill: #edac2a;
       width: 100%;
       height: 100%;
       transition: fill 250ms linear;
 
       &:hover {
-        fill: #edac2a;
+        fill: #faf1de;
       }
     }
   }

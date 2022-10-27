@@ -34,6 +34,20 @@ export const StyledFastLinks = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
+
+  a {
+    transition: color 250ms linear;
+
+    &:hover {
+      color: var(--secondary300);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+    }
+  }
 `;
 
 export const StyledArticlesWrapper = styled.div`

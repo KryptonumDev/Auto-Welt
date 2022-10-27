@@ -212,6 +212,15 @@ export const StyledCustomCheckbox = styled.div`
     height: 0;
     opacity: 0;
     pointer-events: none;
+
+    &:focus-visible + label {
+      &:after{
+        outline-width: 1px;
+        outline-style: solid;
+        outline-offset: 2px;
+        outline-color: #da9610;
+      }
+    }
   }
 
   label {
