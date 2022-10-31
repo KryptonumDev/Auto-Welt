@@ -123,7 +123,7 @@ export const StyledIconsWrapper = styled.div`
 export const StyledAddressWrapper = styled.div`
   > div {
     p {
-      font-weight: 400;
+      font-weight: 500;
     }
 
     &:first-child {
@@ -146,10 +146,10 @@ export const StyledTextKryptonum = styled.div`
   margin-top: 32px;
   color: #fff;
   font-family: "Roboto Condensed";
-  font-weight: 400;
+  font-weight: 500;
   line-height: 21px;
 
   strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 `;

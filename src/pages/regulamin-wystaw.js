@@ -17,7 +17,7 @@ const ExhibitionRegulations = ({ data }) => {
       <StyledContentWrapper>
         <StyledText
           hasdeclaredfontsize="48px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontfamily="Nocturne Serif"

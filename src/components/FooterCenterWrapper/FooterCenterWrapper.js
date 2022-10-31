@@ -41,7 +41,7 @@ const FooterCenterWrapper = ({ footerData }) => {
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
@@ -55,7 +55,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Kolekcje modeli
@@ -65,7 +65,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Sklep
@@ -75,7 +75,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             O mnie
@@ -85,7 +85,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Oferta
@@ -95,7 +95,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Terminarz
@@ -105,7 +105,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Blog
@@ -115,7 +115,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Kontakt
@@ -125,7 +125,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Regulamin wystaw
@@ -135,7 +135,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             activeClassName="activeLink"
           >
             Polityka prywatności
@@ -146,7 +146,7 @@ const FooterCenterWrapper = ({ footerData }) => {
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="42px 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"

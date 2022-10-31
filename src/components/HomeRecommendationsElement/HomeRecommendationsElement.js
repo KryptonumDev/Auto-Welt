@@ -19,7 +19,7 @@ const HomeRecommendationsElement = ({ data, key, isPrev }) => {
     >
       <StyledText
         hasdeclaredfontsize="20px"
-        hasdeclaredfontweight="600"
+        hasdeclaredfontweight="700"
         hasdeclaredlineheight="1.2em"
         hasdeclaredfontcolor="var(--primary800)"
       >
@@ -40,7 +40,7 @@ const HomeRecommendationsElement = ({ data, key, isPrev }) => {
       <StyledImageWrapper>
         <StyledText
           hasdeclaredfontsize="128px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontfamily="Nocturne Serif"
         >

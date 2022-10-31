@@ -46,7 +46,7 @@ const FooterRightWrapper = ({ footerData }) => {
       <StyledText
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredfontsize="24px"
-        hasdeclaredfontweight="400"
+        hasdeclaredfontweight="500"
         hasdeclaredlineheight="1.2em"
         hasdeclaredmargin="0 0 16px"
         hasdeclaredfontcolor="var(--secondary500)"

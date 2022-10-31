@@ -49,7 +49,7 @@ export const StyledTopPaggination = styled.div`
 
   font-family: "Nocturne Serif";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 28px;
   line-height: 1.2em;
 
@@ -79,7 +79,7 @@ export const StyledInput = styled.div`
     padding-left: 5px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 24px;
 
     &:focus-visible {

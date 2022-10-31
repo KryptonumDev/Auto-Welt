@@ -10,7 +10,7 @@ export const StyledCalendarComponent = styled.div`
     text-align: center;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 36px;
     line-height: 1.2em;
     color: #23423d;
@@ -129,7 +129,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
       right: 13px;
       font-family: 'Nocturne Serif';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 32px;
       color: #23423D;
     }
@@ -164,7 +164,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
       text-align: center;
       font-family: 'Roboto Condensed';
       font-style: normal;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 16px;
       line-height: 1.2em;
       color: #23423D;

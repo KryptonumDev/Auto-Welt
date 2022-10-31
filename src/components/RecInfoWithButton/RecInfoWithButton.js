@@ -31,7 +31,7 @@ const RecInfoWithButton = ({
         hasdeclaredfontsize="28px"
         hasdeclaredfontcolor="var(--creamText)"
         hasdeclaredfontfamily="Nocturne Serif"
-        hasdeclaredfontweight="400"
+        hasdeclaredfontweight="500"
         hasdeclaredpadding="0 18px 0 57px"
         as="p"
       >

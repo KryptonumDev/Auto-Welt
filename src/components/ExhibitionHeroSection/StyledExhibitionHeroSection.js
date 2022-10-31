@@ -65,7 +65,7 @@ export const StyledTag = styled.div`
 export const StyledTextWrapper = styled.div`
   font-family: "Roboto Condensed";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 24px;
   line-height: 1.2em;
   color: #000000;

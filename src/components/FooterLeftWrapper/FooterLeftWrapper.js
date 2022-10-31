@@ -39,7 +39,7 @@ const FooterLeftWrapper = ({ footerData }) => {
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredlineheight="1.2em"
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
@@ -74,7 +74,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
           >
             {footerData.telefon && footerData.telefon}
           </StyledText>
@@ -82,7 +82,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
           >
             {footerData.email && footerData.email}
           </StyledText>

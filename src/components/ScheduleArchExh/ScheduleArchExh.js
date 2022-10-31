@@ -151,7 +151,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                   <StyledText
                     hasdeclaredfontsize="16px"
                     hasdeclaredfontcolor="#000"
-                    hasdeclaredfontweight="400"
+                    hasdeclaredfontweight="500"
                     hasdeclaredmargin="-8px 0 25px 0"
                   >
                     {node.wystawa.informacjeOgolne.miejsce &&

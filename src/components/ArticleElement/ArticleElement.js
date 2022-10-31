@@ -39,7 +39,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontsize="14px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="rgba(0, 0, 0, 0.8)"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
           >
             {convertedData[0]} {convertedData[1]} {convertedData[2]}
           </StyledText>

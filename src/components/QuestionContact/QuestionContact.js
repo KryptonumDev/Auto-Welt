@@ -78,7 +78,7 @@ const QuestionContact = () => {
         </StyledImageInfoWrapper>
         <StyledText
           hasdeclaredfontsize="18px"
-          hasdeclaredfontweight="600"
+          hasdeclaredfontweight="700"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredtextalign="center"

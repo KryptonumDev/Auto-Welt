@@ -84,7 +84,7 @@ const HomeExhibitionsElement = ({
             hasdeclaredfontsize="16px"
             hasdeclaredfontcolor="#000"
             hasdeclaredlineheight="1.2em"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
           >
             {exhibitionData.wystawa.informacjeOgolne.miejsce &&
               exhibitionData.wystawa.informacjeOgolne.miejsce}

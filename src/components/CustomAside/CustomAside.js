@@ -21,7 +21,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
           <StyledText
             hasdeclaredfontfamily="Nocturne Serif"
             hasdeclaredfontsize="28px"
-            hasdeclaredfontweight="400"
+            hasdeclaredfontweight="500"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="#EDAC2A"
             hasdeclaredmargin="0 0 15px 0"
@@ -48,7 +48,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredfontsize="24px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#EDAC2A"
           hasdeclaredmargin="0 0 20px 0"

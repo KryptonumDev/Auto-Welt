@@ -38,7 +38,7 @@ const ModelCollection = ({ collectionData, slug }) => {
         </StyledTitleImage>
         <StyledText
           hasdeclaredfontsize="48px"
-          hasdeclaredfontweight="400"
+          hasdeclaredfontweight="500"
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"

@@ -32,7 +32,7 @@ const ArticleHeroSection = ({ heroData }) => {
         </StyledTagImage>
         <StyledText
           hasdeclaredfontsize="18px"
-          hasdeclaredfontweight="600"
+          hasdeclaredfontweight="700"
           hasdeclaredfontcolor="#EDAC2A"
         >
           {heroData?.terms?.nodes[0]?.name}

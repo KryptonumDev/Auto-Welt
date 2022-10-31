@@ -7,7 +7,7 @@ export const StyledArticlePaginationNumber = styled.div`
 
   font-family: "Nocturne Serif";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 28px;
   line-height: 34px;
   color: #000;

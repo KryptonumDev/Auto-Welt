@@ -43,7 +43,7 @@ const OfferEvent = ({ offerData, slug }) => {
           </span>
           {convertedData[1]}
         </StyledText>
-        <StyledText hasdeclaredfontsize="16px" hasdeclaredfontweight="400">
+        <StyledText hasdeclaredfontsize="16px" hasdeclaredfontweight="500">
           {offerData.informacjeOgolne.miejsce &&
             offerData.informacjeOgolne.miejsce}
         </StyledText>

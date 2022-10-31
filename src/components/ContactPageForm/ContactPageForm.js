@@ -254,7 +254,7 @@ const ContactPageForm = ({ dataForm }) => {
                     <div>
                       <StyledText
                         hasdeclaredfontsize="18px"
-                        hasdeclaredfontweight="400"
+                        hasdeclaredfontweight="500"
                         hasdeclaredlineheight="1.2em"
                         hasdeclaredfontcolor="var(--primary500)"
                       >

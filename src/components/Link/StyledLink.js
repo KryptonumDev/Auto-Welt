@@ -33,7 +33,7 @@ export const StyledLink = styled(Link)`
 
   &.activeLink {
     color: var(--secondary500);
-    font-weight: 600;
+    font-weight: 700;
 
     &:hover {
       color: var(--secondary500);
