@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
+
 import {
   startOfAdjacentMonth,
   endOfAdjacentMonth,
   areDatesEqual,
 } from "../../utils/date";
 import { motion } from "framer-motion";
+
 import {
   StyledCalendarComponent,
   StyledCalendar,
@@ -106,7 +109,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       areDatesEqual(exhibition_date, date)
                   );
                   return exhibitions_today.length ? (
-                    <p className="activeDay">
+                    <Link className="activeDay" to={`/wystawy/}`}>
                       <ActiveCalendar />
                       <StyledExhibitionTitle
                         isopen={
@@ -114,10 +117,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             ? false
                             : activeDate instanceof Date
                             ? exhibitions_today
-                                .map((exhibition) =>
+                                .filter((exhibition) =>
                                   areDatesEqual(exhibition.data, activeDate)
                                 )
-                                .find((val) => val)
+                                .length
                             : false
                         }
                       >
@@ -128,7 +131,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                           </>
                         ))}
                       </StyledExhibitionTitle>
-                    </p>
+                    </Link>
                   ) : undefined;
                 })()
               : undefined

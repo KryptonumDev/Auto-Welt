@@ -140,6 +140,13 @@ export const StyledHomeContactForm = styled.div`
       gap: 22px;
     }
   }
+
+  @media only screen and (max-width: 657px) {
+    padding: 10px 22px;
+    > form {
+      gap: 22px;
+    }
+  }
 `;
 
 export const StyledInputWrapper = styled.div`
@@ -199,7 +206,7 @@ export const StyledInputWrapper = styled.div`
   }
 
   @media only screen and (max-width: 1087px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "calc(50% - 13px)")};
   }
 
   @media only screen and (max-width: 1029px) {
