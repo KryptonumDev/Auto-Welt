@@ -70,7 +70,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               hasBorder="2px solid var(--primary500)"
               textColor="var(--primary500)"
               hasDeclaredPadding="8px 36px"
-              hasFontWeight="500"
+              hasFontWeight="700"
               hasFontSize="21px"
               hoverBgColor="#F6E2BA"
             />
@@ -85,7 +85,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               hasBorder="2px solid var(--primary500)"
               hasDeclaredPadding="8px 36px"
               hasFontSize="21px"
-              hasFontWeight="500"
+              hasFontWeight="700"
               hoverBgColor="var(--primary900)"
             />
           )}

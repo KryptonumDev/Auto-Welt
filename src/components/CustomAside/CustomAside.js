@@ -86,7 +86,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             bgColor="var(--primary500)"
             hasDeclaredPadding="8px 36px"
             hasFontSize="21px"
-            hasFontWeight="500"
+            hasFontWeight="700"
             hasTarget={asideData?.drugiPrzycisk?.target}
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"

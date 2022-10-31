@@ -83,7 +83,7 @@ const OfferHeroSection = ({ dataOffer }) => {
                 bgColor="var(--primary500)"
                 hasDeclaredPadding="8px 36px"
                 hasFontSize="21px"
-                hasFontWeight="500"
+                hasFontWeight="700"
                 hoverBgColor="var(--primary900)"
                 hasTarget={dataOffer.przyciskPodOpisem?.target}
                 hasBorder="2px solid var(--primary500)"

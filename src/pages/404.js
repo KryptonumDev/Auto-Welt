@@ -37,7 +37,7 @@ const NotFoundPage = ({ data }) => {
             textColor="var(--primary900)"
             hasFontSize="21px"
             hasDeclaredPadding="8px 33px"
-            hasFontWeight="500"
+            hasFontWeight="700"
             hasTarget={queryData.przycisk.target}
             hoverBgColor="var(--secondary700)"
           />

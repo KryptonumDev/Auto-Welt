@@ -128,6 +128,7 @@ export const StyledButtonWrapper = styled.div`
     outline: 0;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     flex: none;
+    font-weight: 700;
     transition: background 250ms linear, border-color 250ms linear;
 
     background-color: var(--secondary500);

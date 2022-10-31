@@ -66,16 +66,15 @@ export const StyledTextWrapper = styled.div`
   padding: 10px 40px 0;
 
   > p {
-    font: 400 16px "Roboto Condensed";
+    font: 400 18px "Roboto Condensed";
     color: var(--primary500);
 
     &:first-letter {
-      font-size: 44px;
+      font-size: 35px;
       color: #edac29;
       font-family: "Nocturne Serif";
       float: left;
       padding-right: 10px;
-      margin-top: -3px;
     }
   }
 

@@ -44,7 +44,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
           hasBorder="2px solid var(--primary500)"
           textColor="var(--primary500)"
           hasDeclaredPadding="8px 36px"
-          hasFontWeight="500"
+          hasFontWeight="700"
           hasFontSize="21px"
           hasTarget={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.target}
         />

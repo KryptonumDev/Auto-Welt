@@ -38,7 +38,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
           bgColor="var(--primary500)"
           hasMaxWidth="323px"
           hasFontSize="21px"
-          hasDeclaredPadding="8px 16px"
+          hasDeclaredPadding="8px 15px"
           hasFontWeight="500"
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"

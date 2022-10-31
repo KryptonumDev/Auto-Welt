@@ -59,7 +59,7 @@ const ModelCollection = ({ collectionData, slug }) => {
             bgColor="var(--primary500)"
             hoverBgColor="#1D2B29"
             hasFontSize="21px"
-            hasFontWeight="500"
+            hasFontWeight="700"
             hasDeclaredPadding="8px 33px"
             hasBorder="2px solid var(--primary500)"
           />

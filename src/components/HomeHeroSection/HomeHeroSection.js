@@ -108,7 +108,7 @@ const HomeHeroSection = () => {
                 hasBorder="2px solid var(--primary500)"
                 textColor="var(--primary500)"
                 hasDeclaredPadding="8px 36px"
-                hasFontWeight="500"
+                hasFontWeight="700"
                 hasFontSize="21px"
                 hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
                 hoverBgColor="#F6E2BA"
@@ -122,7 +122,7 @@ const HomeHeroSection = () => {
                 bgColor="var(--primary500)"
                 hasDeclaredPadding="8px 36px"
                 hasFontSize="21px"
-                hasFontWeight="500"
+                hasFontWeight="700"
                 hasBorder="2px solid var(--primary500)"
                 hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
                 hoverBgColor="var(--primary900)"
@@ -155,7 +155,7 @@ const HomeHeroSection = () => {
               hasFontSize={width < 376 ? "15px" : "21px"}
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
               hoverBgColor="#F6E2BA"
-              hasFontWeight="500"
+              hasFontWeight="700"
             />
           )}
           {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url && (
@@ -169,7 +169,7 @@ const HomeHeroSection = () => {
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
               hoverBgColor="var(--primary900)"
               hasBorder="2px solid var(--primary500)"
-              hasFontWeight="500"
+              hasFontWeight="700"
             />
           )}
         </StyledButtonsWrapper>
