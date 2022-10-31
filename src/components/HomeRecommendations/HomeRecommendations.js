@@ -106,7 +106,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
     }
 
     setRenderElements(sliderElements);
-  }, [index, width]);
+  }, [index, width, allWpRekomendacja.nodes, isPrev, prevIndex]);
 
   return (
     <StyledHomeRecommendations isaboutpage={isAboutPage}>
@@ -136,15 +136,15 @@ const HomeRecommendations = ({ isAboutPage }) => {
           )}
         </StyledArrowWrapper>
         <StyledSlides>
-          {renderElements?.map((e) => (
-            <AnimatePresence initial={false} exitBeforeEnter>
-              <HomeRecommendationsElement
-                key={e.rekomendacje.imieNazwisko}
-                data={e}
-                isPrev={isPrev}
-              />
-            </AnimatePresence>
-          ))}
+          <AnimatePresence initial={false} exitBeforeEnter>
+            {renderElements?.map((e) => (
+                <HomeRecommendationsElement
+                  key={e.rekomendacje.imieNazwisko}
+                  data={e}
+                  isPrev={isPrev}
+                />
+            ))}
+          </AnimatePresence>
         </StyledSlides>
         <StyledArrowWrapper onClick={handleNext} hasdeclaredtransform="-20px">
           {width <= 768 ? (

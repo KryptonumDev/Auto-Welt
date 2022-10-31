@@ -17,12 +17,6 @@ export const StyledHomeContactForm = styled.div`
     padding: 22px;
   }
 
-  @media only screen and (max-width: 1087px) {
-    form {
-      gap: 10px;
-    }
-  }
-
   @media only screen and (max-width: 972px) {
     form {
       gap: 20px;
@@ -79,29 +73,44 @@ export const StyledInputWrapper = styled.div`
     }
   }
 
-  @media only screen and (max-width: 1087px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
+  @media only screen and (max-width: 1131px) {
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
   }
 
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
-
-  @media only screen and (max-width: 657px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
+  
+  @media only screen and (max-width: 472px){
+    textarea{
+      margin-top: 20px;
+    }
   }
 
   @media only screen and (max-width: 469px) {
     width: 100%;
+    margin-top: ${({ fullwidth }) => (fullwidth ? "20px" : "4px")};
+    textarea{
+      margin-top: 4px;
+    }
   }
+  
 `;
 
 export const StyledErrorMessage = styled(ErrorMessage)`
   position: absolute;
-  bottom: -20px;
+  bottom: ${({ bottommessage }) => bottommessage ? bottommessage : "-20px"};
   left: 0;
   font: 14px "Roboto Condensed";
   color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
+
+  @media only screen and (max-width: 539px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-width: 469px){
+    bottom: ${({ bottommessage }) => bottommessage ? "-30px" : "-20px"};
+  }
 `;
 
 export const StyledButtonWrapper = styled.div`
@@ -180,8 +189,27 @@ export const StyledCustomCheckbox = styled.div`
   position: relative;
 
   label {
+    font: 500 16px/19px Roboto Condensed;
+    color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
+    cursor: pointer;
     position: relative;
     padding-left: 26px;
+
+    a {
+      color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
+      font: 500 16px/19px "Roboto Condensed";
+      transition: color 250ms linear;
+
+      &:hover {
+        color: var(--secondary300);
+      }
+
+      &:focus-visible {
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: #da9610;
+      }
+    }
 
     svg {
       width: 16px;
@@ -212,23 +240,9 @@ export const StyledCustomCheckbox = styled.div`
     height: 0;
     opacity: 0;
     pointer-events: none;
-  }
 
-  label {
-    font: 500 16px/19px Roboto Condensed;
-    color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
-    cursor: pointer;
-
-    a {
-      color: ${({ iserror }) => (iserror ? "#D63D3D" : "#23423D")};
-      font: 500 16px/19px "Roboto Condensed";
-      transition: color 250ms linear;
-
-      &:hover {
-        color: var(--secondary300);
-      }
-
-      &:focus-visible {
+    &:focus-visible + label{
+      &:after{
         outline-width: 1px;
         outline-style: solid;
         outline-color: #da9610;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 
 import HomeContactForm from "../HomeContactForm/HomeContactForm";

@@ -21,7 +21,6 @@ const ModelCollection = ({ collectionData, slug }) => {
           <GatsbyImage
             image={getImage(shortDataKey.duzaMiniaturka.localFile)}
             alt={shortDataKey.duzaMiniaturka.altText}
-            objectFit="fill"
           />
         )}
       </StyledImage>
@@ -33,6 +32,7 @@ const ModelCollection = ({ collectionData, slug }) => {
                 shortDataKey.tloDlaTytuluWDuzejMiniaturce.localFile
               )}
               alt={shortDataKey.tloDlaTytuluWDuzejMiniaturce.altText}
+              objectFit="fill"
             />
           )}
         </StyledTitleImage>

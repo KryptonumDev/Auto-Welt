@@ -130,6 +130,7 @@ const HomeCollections = () => {
             )
             .map((kolekcja) => (
               <HomeCollectionElement
+                key={kolekcja.slug}
                 bgImage={
                   kolekcja.kolekcja.informacjeGlowne
                     .tloDlaMiniaturkiNaStroneGlowna

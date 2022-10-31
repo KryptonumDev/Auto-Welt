@@ -3,7 +3,6 @@ import { Formik, Form, Field } from "formik";
 import { Link } from "gatsby";
 import * as Yup from "yup";
 import axios from "axios";
-import Button from "../Button/Button";
 
 import {
   StyledHomeContactForm,
@@ -13,24 +12,22 @@ import {
   StyledCustomCheckbox,
 } from "./StyledHomeContactForm";
 import { StyledText } from "../Text/StyledText";
-import useWindowSize from "../../utils/getWindowSize";
+
 import AcceptIcon from "../../images/acceptSvg.svg";
 
 const ContactSchema = Yup.object().shape({
-  firstName: Yup.string().min(2, "*za krótkie!").required("*pole wymagane"),
-  lastName: Yup.string().min(2, "*za krótkie").required("*pole wymagane"),
-  email: Yup.string().email("*niepoprawny email").required("*pole wymagane"),
-  tel: Yup.string().length(9).required("*pole wymagane"),
-  message: Yup.string().required("*pole wymagane"),
+  firstName: Yup.string().min(3, "Imię powinno mieć 3-30 znaków.").required("Proszę o podanie imienia.").max(30, "Imię powinno mieć 3-30 znaków."),
+  lastName: Yup.string().min(3, "*za krótkie").required("Proszę o podanie nazwiska.").max(40, "Nazwisko powinno mieć 3-30 znaków."),
+  email: Yup.string().email("Proszę o podanie poprawnego adresu E-mail.").required("Proszę o podanie adresu E-mail."),
+  tel: Yup.string().length(9, 'Proszę o podanie poprawnego numeru telefonu. Np. 504704112.').matches(/^[0-9]{9}$/, 'Proszę o podanie poprawnego numeru telefonu. Np. 504704112.'),
+  message: Yup.string().required("*pole wymagane").max(1200, 'Wiadomość zbyt długa (maks. 1200 znaków).'),
   termsAndConditions: Yup.bool()
-    .required("*musisz zaakceptować")
-    .oneOf([true], "*musisz zaakceptować"),
+    .required("Akceptacja polityki prywatności jest wymagana.")
+    .oneOf([true], "Akceptacja polityki prywatności jest wymagana."),
 });
 
 const HomeContactForm = ({ data, afterSubmit }) => {
-  const width = useWindowSize();
-
-  const handleSubmit = async (data, { setSubmitting }) => {
+  const handleSubmit = async (data, { setSubmitting, resetForm }) => {
     const formData = new FormData();
     for (let field of Object.keys(data)) {
       formData.append(field, data[field]);
@@ -43,6 +40,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
       );
       setSubmitting(false);
       afterSubmit?.();
+      resetForm();
     } catch (err) {
       console.error("handleSubmit", err);
     }
@@ -64,7 +62,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
         validateOnChange={false}
         validateOnBlur={false}
       >
-        {({ isSubmitting, errors, values }) => (
+        {({ errors, values }) => (
           <Form
             method="post"
             netlify-honeypot="bot-field"
@@ -113,6 +111,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
                 iserror={errors.tel}
                 name="tel"
                 component="div"
+                bottommessage="-38px"
               />
             </StyledInputWrapper>
             <StyledInputWrapper fullwidth iserror={errors.message}>
@@ -154,7 +153,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
-              <button hasType="submit">
+              <button type="submit">
                 <span>
                   {
                     data.wpPage.homepage.formularzKontaktowy

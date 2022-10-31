@@ -23,6 +23,10 @@ export const StyledLeftWrapper = styled.div`
     height: 832px;
   }
 
+  @media only screen and (max-width: 638px){
+    height: 898px;
+  }
+
   @media only screen and (max-width: 560px) {
     width: 100%;
     height: 440px;
@@ -113,9 +117,27 @@ export const StyledHomeContactForm = styled.div`
     padding: 22px;
   }
 
+  @media only screen and (max-width: 898px) {
+    > form {
+      gap: 32px;
+    }
+  }
+
   @media only screen and (max-width: 768px) {
     > form {
-      gap: 24px;
+      gap: 22px;
+    }
+  }
+
+  @media only screen and (max-width: 637px) {
+    > form {
+      gap: 26px;
+    }
+  }
+
+  @media only screen and (max-width: 560px){
+    > form {
+      gap: 22px;
     }
   }
 `;
@@ -167,22 +189,83 @@ export const StyledInputWrapper = styled.div`
       outline-color: #da9610;
       outline-offset: 4px;
     }
+
+    @media only screen and (max-width: 898px){
+      height: 120px;
+    }
+    @media only screen and (max-width: 768px){
+      height: 164px;
+    }
   }
 
   @media only screen and (max-width: 1087px) {
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "48%")};
   }
 
+  @media only screen and (max-width: 1029px) {
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
+  }
+
   @media only screen and (max-width: 972px) {
     max-width: unset;
   }
 
-  @media only screen and (max-width: 657px) {
-    width: ${({ fullwidth }) => (fullwidth ? "100%" : "47%")};
+  @media only screen and (max-width: 911px) {
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "46%")};
   }
 
-  @media only screen and (max-width: 469px) {
+  @media only screen and (max-width: 897px){
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "45%")};
+
+    > div {
+      bottom: ${({ telprop }) => (telprop ? "-34px" : "-20px")};
+      font-size: 12px;
+    }
+  }
+
+  @media only screen and (max-width: 846px){
+    > div {
+      bottom: ${({ telprop }) => (telprop ? "-46px" : "-20px")};
+    }
+  }
+
+  @media only screen and (max-width: 830px){
+    > div {
+      bottom: ${({ telprop, emailprop }) => (telprop ? "-46px" : (emailprop ? "-30px" : "-20px"))};
+    }
+  }
+
+  @media only screen and (max-width: 813px){
+    width: ${({ fullwidth }) => (fullwidth ? "100%" : "calc(50% - 16px)")};
+    > div {
+      bottom: ${({ telprop, emailprop }) => (telprop ? "-18px" : (emailprop ? "-18px" : "-18px"))};
+    }
+  }
+
+  @media only screen and (max-width: 768px){
     width: 100%;
+  }
+
+  @media only screen and (max-width: 638px){
+    margin-top: ${({ fullwidth }) => (fullwidth ? "20px" : "4px")};
+    > div {
+      bottom: ${({ telprop, emailprop }) => (telprop ? "-32px" : (emailprop ? "-18px" : "-18px"))};
+    }
+  }
+
+  @media only screen and (max-width: 560px){
+    margin-top: ${({ fullwidth }) => (fullwidth ? "12px" : "4px")};
+    > div {
+      bottom: ${({ telprop, emailprop }) => (telprop ? "-18px" : (emailprop ? "-18px" : "-18px"))};
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 431px){
+    margin-top: ${({ fullwidth }) => (fullwidth ? "18px" : "4px")};
+    > div {
+      bottom: ${({ telprop, emailprop }) => (telprop ? "-34px" : (emailprop ? "-18px" : "-18px"))};
+    }
   }
 `;
 

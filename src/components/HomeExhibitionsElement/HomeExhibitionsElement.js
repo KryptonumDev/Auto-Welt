@@ -34,7 +34,7 @@ const HomeExhibitionsElement = ({
 
   return (
     <StyledElementLink
-      slidesCount={slidesCount}
+      slidescount={slidesCount}
       isscheduleelement={isSchdeuleElement}
       to={`/wystawy/${exhibitionData.slug}`}
     >
@@ -66,7 +66,7 @@ const HomeExhibitionsElement = ({
               hasdeclaredfontsize="32px"
               hasdeclaredfontcolor="var(--secondary500)"
               hasdeclaredlineheight="1.2em"
-              hasdeclaredfontweight="500"
+              hasdeclaredfontweight="700"
             >
               {convertedData[0]}
             </StyledText>
@@ -75,7 +75,7 @@ const HomeExhibitionsElement = ({
               hasdeclaredfontcolor="var(--primary500)"
               hasdeclaredlineheight="1.2em"
               hasdeclaredpadding="0 0 1.5px 0"
-              hasdeclaredfontweight="500"
+              hasdeclaredfontweight="700"
             >
               {convertedData[1]} {convertedData[2]}
             </StyledText>
@@ -118,7 +118,7 @@ const HomeExhibitionsElement = ({
           <StyledContentList>
             {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(
               (element) => (
-                <div>
+                <div key={element.elementListy}>
                   <ListIcon />
                   <StyledText
                     hasdeclaredfontsize="14px"

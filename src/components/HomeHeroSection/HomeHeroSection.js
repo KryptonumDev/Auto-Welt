@@ -63,12 +63,12 @@ const HomeHeroSection = () => {
     const rImages = [];
     wpPage.homepage.maleZdjecia.map((image, index) => {
       if (index < 3) {
-        lImages.push({
+        return lImages.push({
           localFile: getImage(image.localFile),
           alt: image.altText,
         });
       } else {
-        rImages.push({
+        return rImages.push({
           localFile: getImage(image.localFile),
           alt: image.altText,
         });
@@ -82,7 +82,7 @@ const HomeHeroSection = () => {
     <StyledHomeHeroSection>
       <StyledImagesLeftWrapper>
         {leftImages?.map((image) => (
-          <StyledImageWrapper>
+          <StyledImageWrapper key={image.altText}>
             <GatsbyImage
               image={image.localFile}
               alt={image.altText}
@@ -133,7 +133,7 @@ const HomeHeroSection = () => {
       </StyledHeroImageWrapper>
       <StyledImagesRightWrapper>
         {rightImages?.map((image) => (
-          <StyledImageWrapper>
+          <StyledImageWrapper key={image.altText}>
             <GatsbyImage
               image={image.localFile}
               alt={image.altText}
