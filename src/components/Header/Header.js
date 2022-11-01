@@ -52,7 +52,6 @@ const Header = () => {
         <StyledLeftWrapper>
           <StyledLink
             to="/kolekcje-modeli"
-            hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
@@ -61,7 +60,6 @@ const Header = () => {
           </StyledLink>
           <StyledLink
             to="/sklep"
-            hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
@@ -70,7 +68,6 @@ const Header = () => {
           </StyledLink>
           <StyledLink
             to="/o-mnie"
-            hasdeclaredmargin="0 29px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
@@ -79,7 +76,6 @@ const Header = () => {
           </StyledLink>
           <StyledLink
             to="/oferta"
-            hasdeclaredmargin="0 10px 0 0"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}

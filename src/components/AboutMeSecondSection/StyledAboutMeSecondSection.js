@@ -5,7 +5,7 @@ export const StyledAboutMeSecondSection = styled.section`
   background: #faf7f1;
   border-top: 6px solid #edac2a;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  padding: 52px 80px 80px 59px;
+  padding: 52px 80px 20px 59px;
   max-width: 1262px;
   align-self: flex-end;
   display: flex;

@@ -15,44 +15,46 @@ import {
 const AboutMeImagesSection = ({ imagesData }) => {
   return (
     <StyledAboutMeImagesSection>
-      <StyledImagesWrapper>
-        {imagesData?.trzyZdjecia && (
-          <>
-            {imagesData?.trzyZdjecia.map((image, index) => (
-              <StyledImage key={index}>
-                <GatsbyImage
-                  image={getImage(image?.localFile)}
-                  alt={image?.altText}
-                />
-              </StyledImage>
-            ))}
-          </>
-        )}
-        <StyledRightImage>
-          {imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-            ?.localFile && (
-            <GatsbyImage
-              image={getImage(
-                imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-                  ?.localFile
-              )}
-              alt={
-                imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-                  ?.altText
-              }
-            />
+      <div>
+        <StyledImagesWrapper>
+          {imagesData?.trzyZdjecia && (
+            <>
+              {imagesData?.trzyZdjecia.map((image, index) => (
+                <StyledImage key={index}>
+                  <GatsbyImage
+                    image={getImage(image?.localFile)}
+                    alt={image?.altText}
+                  />
+                </StyledImage>
+              ))}
+            </>
           )}
-        </StyledRightImage>
-      </StyledImagesWrapper>
-      <StyledAparatWrapper>
-        <StyledIconWrapper>
-          <StaticImage src="../../images/Aparat.png" />
-        </StyledIconWrapper>
-        <StyledTextWrapper>
-          {imagesData?.tekstPrzyIkonceAparatu &&
-            parse(imagesData?.tekstPrzyIkonceAparatu)}
-        </StyledTextWrapper>
-      </StyledAparatWrapper>
+          <StyledRightImage>
+            {imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
+              ?.localFile && (
+              <GatsbyImage
+                image={getImage(
+                  imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
+                    ?.localFile
+                )}
+                alt={
+                  imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
+                    ?.altText
+                }
+              />
+            )}
+          </StyledRightImage>
+        </StyledImagesWrapper>
+        <StyledAparatWrapper>
+          <StyledIconWrapper href={imagesData.linkDoStronyFotografa}>
+            <StaticImage src="../../images/Aparat.png" />
+          </StyledIconWrapper>
+          <StyledTextWrapper href={imagesData.linkDoStronyFotografa}>
+            {imagesData?.tekstPrzyIkonceAparatu &&
+              parse(imagesData?.tekstPrzyIkonceAparatu)}
+          </StyledTextWrapper>
+        </StyledAparatWrapper>
+      </div>
     </StyledAboutMeImagesSection>
   );
 };

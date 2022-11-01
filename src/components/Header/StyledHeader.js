@@ -33,7 +33,8 @@ export const StyledLeftWrapper = styled.div`
   height: 42px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
+  justify-content: space-evenly;
+  padding-right: 20px;
   clip-path: polygon(0 0, 94.5% 0, 100% 100%, 0% 100%);
   max-width: 439px;
   width: 50%;
@@ -84,7 +85,8 @@ export const StyledLeftWrapper = styled.div`
     clip-path: none;
     background-color: transparent;
     align-self: flex-start;
-
+    padding-right: 0;
+    
     > a {
       width: 100%;
       font-size: 21px;

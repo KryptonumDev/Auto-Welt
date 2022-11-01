@@ -14,63 +14,79 @@ import {
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query footerQuery {
-      wpPage(id: { eq: "cG9zdDozMw==" }) {
-        globalConfig {
-          stopka {
-            stworzonePrzezKryptonumTekst
-            adres {
-              linijkaAdresu
-            }
-            email
-            imie
-            kontaktTytul
-            linkDoFacebooka
-            linkDoInstagrama
-            logo {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
+  query footerQuery {
+    wpPage(id: {eq: "cG9zdDozMw=="}) {
+      globalConfig {
+        stopka {
+          stworzonePrzezKryptonumTekst
+          adres {
+            linijkaAdresu
+          }
+          email
+          imie
+          kontaktTytul
+          linkDoFacebooka
+          linkDoInstagrama
+          logo {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
               }
             }
-            tekstPodLogiem
-            telefon
-            przyciskPrzenoszacyDoTerminarza {
-              target
-              title
-              url
-            }
-            wydarzeniaTytul
-            szybkieLinkiTytul
-            tloDlaStopkiWersjaDesktop {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
+          }
+          tekstPodLogiem
+          telefon
+          przyciskPrzenoszacyDoTerminarza {
+            target
+            title
+            url
+          }
+          wydarzeniaTytul
+          szybkieLinkiTytul
+          tloDlaStopkiWersjaDesktop {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
               }
             }
-            tloDlaStopkiWersjaMobile {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
+          }
+          tloDlaStopkiWersjaMobile {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
               }
             }
-            tloDlaStopkiWersjaTablet {
-              altText
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
+          }
+          tloDlaStopkiWersjaTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          logoMobile {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          logoTablet {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
               }
             }
           }
         }
       }
     }
+  }  
   `);
   const imageShort = data.wpPage.globalConfig.stopka;
   const images = withArtDirection(

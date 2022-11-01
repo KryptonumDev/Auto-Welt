@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledLink } from "../Link/StyledLink";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 
 import {
@@ -18,6 +18,19 @@ import FacebookIcon from "../../images/headerIcons/facebook.svg";
 import InstagramIcon from "../../images/headerIcons/instagram.svg";
 
 const FooterLeftWrapper = ({ footerData }) => {
+  const images = withArtDirection(
+    getImage(footerData.logo.localFile),
+    [
+      {
+        media: "(max-width: 375px)",
+        image: getImage(footerData.logoMobile.localFile),
+      },
+      {
+        media: "(max-width: 768px)",
+        image: getImage(footerData.logoTablet.localFile),
+      },
+    ]
+  );
   return (
     <StyledFooterLeftWrapper>
       <div>
@@ -25,7 +38,7 @@ const FooterLeftWrapper = ({ footerData }) => {
           <StyledLink to="/">
             {footerData.logo.localFile && (
               <GatsbyImage
-                image={getImage(footerData.logo.localFile)}
+                image={images}
                 alt={footerData.logo.altText}
               />
             )}

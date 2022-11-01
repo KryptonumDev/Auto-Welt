@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledAboutMeImagesSection = styled.section`
   width: 100%;
-  max-width: 1144px;
   margin: 120px auto;
   padding: 0 32px;
 
@@ -43,10 +42,11 @@ export const StyledImage = styled.div`
 export const StyledRightImage = styled.div`
   position: absolute;
   bottom: -50px;
-  right: -200px;
+  right: -400px;
 
   @media only screen and (max-width: 960px) {
     max-width: 720px;
+    right: -200px;
   }
 
   @media only screen and (max-width: 768px) {
@@ -84,19 +84,24 @@ export const StyledAparatWrapper = styled.div`
   }
 `;
 
-export const StyledIconWrapper = styled.div``;
+export const StyledIconWrapper = styled.a`
+  text-decoration: none;
+  color: #000;
+`;
 
-export const StyledTextWrapper = styled.div`
+export const StyledTextWrapper = styled.a`
+  text-decoration: none;
+  color: #000;
   font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2em;
 
-  a {
+  a, strong {
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 16px;
     line-height: 1.2em;
     text-decoration-line: underline;
