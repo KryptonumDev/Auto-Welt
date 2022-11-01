@@ -125,7 +125,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                         }
                       >
                         {exhibitions_today.map((exhibition) => (
-                          <Link to={`/wystawy/}`}>
+                          <Link to={`/wystawy/${exhibition.slug}`}>
                             {exhibition.title}
                             <br />
                           </Link>
