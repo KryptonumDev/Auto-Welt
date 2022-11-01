@@ -109,7 +109,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       areDatesEqual(exhibition_date, date)
                   );
                   return exhibitions_today.length ? (
-                    <Link className="activeDay" to={`/wystawy/}`}>
+                    <p className="activeDay">
                       <ActiveCalendar />
                       <StyledExhibitionTitle
                         isopen={
@@ -125,13 +125,13 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                         }
                       >
                         {exhibitions_today.map((exhibition) => (
-                          <>
+                          <Link to={`/wystawy/}`}>
                             {exhibition.title}
                             <br />
-                          </>
+                          </Link>
                         ))}
                       </StyledExhibitionTitle>
-                    </Link>
+                    </p>
                   ) : undefined;
                 })()
               : undefined

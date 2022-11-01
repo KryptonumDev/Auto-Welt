@@ -212,17 +212,11 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
     text-align: center;
     display: flex;
     align-items: center;
-    justify-center;
     padding: 30px 30px 0 5px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     transition: background-color 250ms linear;
-
-    &:hover{
-      background-color: #F6E2BA;
-      cursor: pointer;
-    }
 
     svg {
       position: absolute;
@@ -243,6 +237,24 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
 `;
 
 export const StyledExhibitionTitle = styled.p`
+  a {
+    position: relative;
+    z-index: 2;
+    transition: color 250ms linear;
+    color: #23423D;
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--secondary300);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+    }
+  }
+
   @media only screen and (max-width: 986px) {
     background-color: #23423d;
     font-family: "Roboto Condensed";
