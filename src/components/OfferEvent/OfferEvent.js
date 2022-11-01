@@ -33,8 +33,8 @@ const OfferEvent = ({ offerData, slug }) => {
       </StyledOfferEventImage>
       <StyledOfferEventInfo>
         <StyledText
-          hasdeclaredfontsize="26px"
-          hasdeclaredfontweight="500"
+          hasdeclaredfontsize="32px"
+          hasdeclaredfontweight="700"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="#EDAC2A"
         >

@@ -151,6 +151,26 @@ export const StyledDescription = styled.div`
   margin: 40px 0;
   text-align: center;
 
+  p {
+    strong,
+    em {
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+
+      &:before {
+        content: "";
+        width: 100%;
+        background: #f6e2ba;
+        height: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
+
   @media only screen and (max-width: 768px) {
     font-size: 20px;
     margin-top: 20px;

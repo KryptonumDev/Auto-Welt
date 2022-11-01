@@ -50,9 +50,9 @@ export const StyledBgWrapper = styled.div`
 
 export const StyledImagesWrapper = styled.div`
   width: 456px;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
 
   div {
@@ -171,6 +171,10 @@ export const StyledMoreInfoWrapper = styled.div`
         z-index: -1;
       }
     }
+  }
+  
+  a{
+    color: rgba(35, 66, 61, 1);
   }
 `;
 
