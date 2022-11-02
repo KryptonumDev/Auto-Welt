@@ -9,7 +9,7 @@ import HomeRecommendations from "../components/HomeRecommendations/HomeRecommend
 import HomeExhibitions from "../components/HomeExhibitions/HomeExhibitions";
 import HEAD from "../components/HEAD/HEAD";
 
-import { StyledAboutMe } from "../components/AboutMe/StyledAboutMe";
+import { StyledAboutMe } from "../components/AboutMe/StyledAboutMe"
 
 const AboutMe = ({ data }) => {
   const imageShort = data.wpPage.oMnie.drugaSekcja;

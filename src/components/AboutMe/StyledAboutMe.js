@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledAboutMe = styled.div`
+export const StyledAboutMe = styled.div`
   width: 100%;
   max-width: 2420px;
   margin: 0 auto;
