@@ -11,12 +11,8 @@ export default function HEAD({
             <meta charSet="utf-8" />
             <meta name="robots" content="noindex" />
             <meta property="og:site_name" content={seo.opengraphSiteName} />
-            <meta
-                name="google-site-verification"
-                content="M2kghTKPmXOB2ezGLw7ShbO3sdW6rMn_uhsSVbHCt7I"
-            />
 
-            <script type="application/ld+json">
+            {/* <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@graph": [
@@ -86,7 +82,7 @@ export default function HEAD({
                         },
                     ],
                 })}
-            </script>
+            </script> */}
 
             {canonical ? (
                 <>
@@ -114,7 +110,7 @@ export default function HEAD({
                 </>
             ) : null}
 
-            {seo.opengraphImage?.localFile?.publicURL ? (
+            {/* {seo.opengraphImage?.localFile?.publicURL ? (
                 <>
                     <meta
                         property="og:image"
@@ -131,7 +127,7 @@ export default function HEAD({
                         }
                     />
                 </>
-            ) : null}
+            ) : null} */}
         </>
     );
 }
