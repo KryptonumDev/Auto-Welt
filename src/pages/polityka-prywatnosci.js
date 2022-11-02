@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import parse from "html-react-parser";
 
+import HEAD from "../components/HEAD/HEAD";
+
 import {
   StyledPrivacyPolicy,
   StyledTextWrapper,
@@ -17,6 +19,7 @@ import { StyledText } from "../components/Text/StyledText";
 const PrivacyPolicy = ({ data }) => {
   const [leftData, setLeftData] = useState([]);
   const [rightData, setRightData] = useState([]);
+  
   const queryData = data.wpPage.politykaPrywatnosCi;
 
   useEffect(() => {
@@ -37,6 +40,7 @@ const PrivacyPolicy = ({ data }) => {
 
   return (
     <StyledPrivacyPolicy>
+      <HEAD seo={data.wpPage.seo} />
       <StyledText
         as="h1"
         hasdeclaredfontfamily="Nocturne Serif"
@@ -84,6 +88,17 @@ export default PrivacyPolicy;
 export const query = graphql`
   query privacyPolicyQuery {
     wpPage(id: { eq: "cG9zdDozODU=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       politykaPrywatnosCi {
         lewaOdpowiedzDo
         pierwszePytanieNaCalaStrone

@@ -2,12 +2,14 @@ import React from "react";
 
 import ArticlesPageArticles from "../components/ArticlesPageArticles/ArticlesPageArticles";
 import ArticlesPageShowCollections from "../components/ArticlesPageShowCollections/ArticlesPageShowCollections";
+import HEAD from "../components/HEAD/HEAD";
 
 import { graphql } from "gatsby";
 
 const Articles = ({ data }) => {
   return (
     <>
+      <HEAD seo={data.wpPage.seo} />
       <ArticlesPageArticles
         title={data.wpPage.artykuly.tytulStrony}
         allArticles={data.allWpArtykul.edges}
@@ -44,6 +46,17 @@ export const query = graphql`
       }
     }
     wpPage(id: { eq: "cG9zdDo1MzI=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       artykuly {
         tytulStrony
         zobaczKolekcje {

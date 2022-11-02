@@ -9,6 +9,8 @@ import CollectionImageUnderDescImages from "../../CollectionImageUnderDescImages
 import CollectionElementSlider from "../../CollectionElementSlider/CollectionElementSlider";
 import RecInfoWithButton from "../../RecInfoWithButton/RecInfoWithButton";
 import CollectionElementThreeImages from "../../CollectionElementThreeImages/CollectionElementThreeImages";
+import HEAD from "../../HEAD/HEAD"
+
 import { StyledCollectionTemplate } from "./StyledCollectionTemplate";
 
 const CollectionTemplate = ({ data }) => {
@@ -37,8 +39,10 @@ const CollectionTemplate = ({ data }) => {
       },
     ]
   );
+  
   return (
     <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden" }}>
+      <HEAD seo={data.wpKolekcje.seo} />
       <StyledCollectionTemplate>
         <CollectionTemplateHeroImage
           heroData={shortCollectionData.pierwszaSekcja}
@@ -191,6 +195,17 @@ export const query = graphql`
                 gatsbyImageData
               }
             }
+          }
+        }
+      }
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
           }
         }
       }

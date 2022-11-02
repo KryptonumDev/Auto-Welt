@@ -3,12 +3,15 @@ import { graphql } from "gatsby";
 
 import ArticleHeroSection from "../../ArticleHeroSection/ArticleHeroSection";
 import ArticleTemplateContent from "../../ArticleTemplateContent/ArticleTemplateContent";
+import HEAD from "../../HEAD/HEAD"
 
 import { StyledArticleTemplate } from "./StyledArticleTemplate";
 
 const ArticlesTemplate = ({ data }) => {
+  
   return (
     <StyledArticleTemplate>
+      <HEAD seo={data.wpArtykul.seo} />
       <ArticleHeroSection heroData={data.wpArtykul} />
       <ArticleTemplateContent contentData={data.wpArtykul} />
     </StyledArticleTemplate>
@@ -91,6 +94,17 @@ export const query = graphql`
         nodes {
           ... on WpCategory {
             name
+          }
+        }
+      }
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
           }
         }
       }

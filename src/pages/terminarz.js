@@ -5,11 +5,14 @@ import ScheduleHeroSection from "../components/ScheduleHeroSection/ScheduleHeroS
 import ScheduleActualExh from "../components/ScheduleActualExh/ScheduleActualExh";
 import SchedulePlanExh from "../components/SchedulePlanExh/SchedulePlanExh";
 import ScheduleArchExh from "../components/ScheduleArchExh/ScheduleArchExh";
+import HEAD from "../components/HEAD/HEAD";
 
 const Shedule = ({ data }) => {
   const shortData = data.wpPage.terminarz;
+  
   return (
     <>
+      <HEAD seo={data.wpPage.seo} />
       <ScheduleHeroSection heroData={shortData.sekcjaPowitalna} />
       <ScheduleActualExh dataActual={shortData.wystawyAktualne} />
       <SchedulePlanExh dataPlan={shortData.wystawyPlanowane} />
@@ -23,6 +26,17 @@ export default Shedule;
 export const query = graphql`
   query scheduleQuery {
     wpPage(id: { eq: "cG9zdDoxMDk1" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       terminarz {
         sekcjaPowitalna {
           powitalneZdjecieMobile {

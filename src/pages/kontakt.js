@@ -7,6 +7,7 @@ import GoogleMapsContact from "../components/GoogleMapsContact/GoogleMapsContact
 import ContactPageForm from "../components/ContactPageForm/ContactPageForm";
 import Questions from "../components/Questions/Questions";
 import Button from "../components/Button/Button";
+import HEAD from "../components/HEAD/HEAD";
 
 import {
   StyledContact,
@@ -16,6 +17,7 @@ import {
   StyledBottomSection,
 } from "../components/Contact/StyledContact";
 import { StyledText } from "../components/Text/StyledText";
+
 import useWindowSize from "../utils/getWindowSize";
 
 const Contact = ({ data }) => {
@@ -23,6 +25,7 @@ const Contact = ({ data }) => {
 
   return (
     <StyledContact>
+      <HEAD seo={data.wpPage.seo} />
       <StyledText
         as="h1"
         hasdeclaredfontsize="48px"
@@ -100,6 +103,17 @@ export default Contact;
 export const query = graphql`
   query contactQuery {
     wpPage(id: { eq: "cG9zdDo1NzM=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       kontakt {
         mapa {
           tytulNadMapka

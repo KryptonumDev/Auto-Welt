@@ -2,6 +2,8 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import parse from "html-react-parser";
 
+import HEAD from "../components/HEAD/HEAD";
+
 import {
   StyledExhibitionRegulations,
   StyledContentWrapper,
@@ -12,8 +14,10 @@ import { StyledText } from "../components/Text/StyledText";
 
 const ExhibitionRegulations = ({ data }) => {
   const queryData = data.wpPage.regulaminWystaw;
+  
   return (
     <StyledExhibitionRegulations>
+      <HEAD seo={data.wpPage.seo} />
       <StyledContentWrapper>
         <StyledText
           hasdeclaredfontsize="48px"
@@ -52,6 +56,17 @@ export default ExhibitionRegulations;
 export const query = graphql`
   query cxhibitionRegulationsQuery {
     wpPage(id: { eq: "cG9zdDozNzU=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       regulaminWystaw {
         tytulStrony
         tekstPodTytulem

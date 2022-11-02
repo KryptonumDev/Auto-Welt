@@ -1,9 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { getImage, withArtDirection } from "gatsby-plugin-image";
+
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 import ModelCollection from "../components/ModelCollection/ModelCollection";
 import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
+import HEAD from "../components/HEAD/HEAD";
 
 import {
   StyledContentWrapper,
@@ -36,6 +38,7 @@ const ModelCollections = ({ data }) => {
   );
   return (
     <>
+      <HEAD seo={data.wpPage.seo} />
       <StyledModelCollections>
         <StyledContentWrapper>
           {data.allWpKolekcje.edges
@@ -110,6 +113,17 @@ export const query = graphql`
       }
     }
     wpPage(id: { eq: "cG9zdDo0MDQ=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       kolekcjeModeli {
         przyciskPodArtykulamiNaDoleStrony {
           target

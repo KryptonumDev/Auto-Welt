@@ -3,12 +3,15 @@ import React from "react";
 
 import ExhibitionHeroSection from "../../ExhibitionHeroSection/ExhibitionHeroSection";
 import ExhibitionTemplateContent from "../../ExhibitionTemplateContent/ExhibitionTemplateContent";
+import HEAD from "../../HEAD/HEAD"
 
 import { StyledTemplateExhibitions } from "./StyledTemplateExhibitions";
 
 const TemplateExhibitions = ({ data }) => {
+  
   return (
     <StyledTemplateExhibitions>
+      <HEAD seo={data.wpWystawa.seo} />
       <ExhibitionHeroSection heroData={data?.wpWystawa} />
       <ExhibitionTemplateContent exhibitionData={data?.wpWystawa} />
     </StyledTemplateExhibitions>
@@ -90,6 +93,17 @@ export const query = graphql`
         }
       }
       content
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
     }
   }
 `;

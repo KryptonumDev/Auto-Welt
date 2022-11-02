@@ -7,6 +7,7 @@ import HomeArticles from "../components/HomeArticles/HomeArticles";
 import OfferEvents from "../components/OfferEvents/OfferEvents";
 import OfferHeroSection from "../components/OfferHeroSection/OfferHeroSection";
 import CheckOutWithOffer from "../components/CheckOutWithOffer/CheckOutWithOffer";
+import HEAD from "../components/HEAD/HEAD";
 
 import { StyledReqWrapper } from "../components/Offer/StyledOffer";
 
@@ -28,6 +29,7 @@ const Offer = ({ data }) => {
   );
   return (
     <>
+      <HEAD seo={data.wpPage.seo} />
       <OfferHeroSection dataOffer={shortData.sekcjaPowitalnaStrony} />
       <StyledReqWrapper>
         <RecInfoWithButton
@@ -61,6 +63,17 @@ export default Offer;
 export const query = graphql`
   query ofertaQueryPage {
     wpPage(id: { eq: "cG9zdDo5OTA=" }) {
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
       oferta {
         sekcjaZWydarzeniami {
           przyciskPoLewo {
