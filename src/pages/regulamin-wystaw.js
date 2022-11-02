@@ -14,7 +14,7 @@ import { StyledText } from "../components/Text/StyledText";
 
 const ExhibitionRegulations = ({ data }) => {
   const queryData = data.wpPage.regulaminWystaw;
-  
+
   return (
     <StyledExhibitionRegulations>
       <HEAD seo={data.wpPage.seo} />
@@ -33,18 +33,21 @@ const ExhibitionRegulations = ({ data }) => {
           {parse(queryData.tekstPodTytulem)}
         </StyledTextWrapper>
         <StyledLinkWrapper>
-          <Link
-            to={queryData.pierwszyLink.url}
-            target={queryData.pierwszyLink.target}
+          <a
+            href={queryData.pierwszyLink.link}
           >
-            {queryData.pierwszyLink.title}
-          </Link>
-          <Link
-            to={queryData.drugiLink.url}
-            target={queryData.drugiLink.target}
+            pobierz umowę najmu wystawy
+          </a>
+          <a
+            href={queryData.drugiLink.link}
           >
-            {queryData.drugiLink.title}
-          </Link>
+            pobierz umowę najmu wystawy na powietrzu
+          </a>
+          <a
+            href={queryData.trzeciLink.link}
+          >
+            pobierz umowę najmu powierzchni wystawowej
+          </a>
         </StyledLinkWrapper>
       </StyledContentWrapper>
     </StyledExhibitionRegulations>
@@ -55,7 +58,7 @@ export default ExhibitionRegulations;
 
 export const query = graphql`
   query cxhibitionRegulationsQuery {
-    wpPage(id: { eq: "cG9zdDozNzU=" }) {
+    wpPage(id: {eq: "cG9zdDozNzU="}) {
       seo {
         canonical
         metaDesc
@@ -71,14 +74,13 @@ export const query = graphql`
         tytulStrony
         tekstPodTytulem
         pierwszyLink {
-          target
-          title
-          url
+          link
         }
         drugiLink {
-          target
-          title
-          url
+          link
+        }
+        trzeciLink {
+          link
         }
       }
     }
