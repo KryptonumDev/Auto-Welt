@@ -60,7 +60,6 @@ export const StyledTextWrapper = styled.div`
 export const StyledImageWrapper = styled.div`
   width: 50%;
   min-width: 340px;
-  max-height: 521px;
 
   img {
     width: 100%;
