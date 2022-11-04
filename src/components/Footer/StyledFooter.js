@@ -5,7 +5,6 @@ export const StyledFooter = styled.footer`
   min-height: 700px;
   display: flex;
   position: relative;
-  z-index: 1;
 `;
 
 export const StyledImageWrapper = styled.div`

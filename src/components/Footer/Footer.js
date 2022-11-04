@@ -109,7 +109,6 @@ const Footer = () => {
           <GatsbyImage
             image={images}
             alt={imageShort.tloDlaStopkiWersjaTablet.altText}
-            objectFit="fill"
           />
         )}
       </StyledImageWrapper>

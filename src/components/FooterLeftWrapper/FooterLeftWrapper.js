@@ -40,6 +40,7 @@ const FooterLeftWrapper = ({ footerData }) => {
               <GatsbyImage
                 image={images}
                 alt={footerData.logo.altText}
+                objectFit="fill"
               />
             )}
           </StyledLink>
