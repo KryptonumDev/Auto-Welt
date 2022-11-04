@@ -23,7 +23,7 @@ const FooterEvent = ({ articleData, slug }) => {
         <StyledText
           hasdeclaredfontsize="16px"
           hasdeclaredlineheight="1.2em"
-          hasdeclaredfontweight="500"
+          hasdeclaredfontweight="700"
           hasdeclaredfontcolor="var(--primary500)"
         >
           {articleData.tytulPodZdjeciem && articleData.tytulPodZdjeciem}

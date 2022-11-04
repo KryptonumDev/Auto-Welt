@@ -26,7 +26,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
           hasdeclaredfontsize="16px"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredfontweight="500"
+          hasdeclaredfontweight="700"
         >
           {articleData.informacjeDoMiniaturki.tytul &&
             articleData.informacjeDoMiniaturki.tytul}
