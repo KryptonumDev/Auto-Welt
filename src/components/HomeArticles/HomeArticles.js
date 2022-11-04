@@ -110,7 +110,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
           {data.wpPage.homepage.artykuly.tytulSekcji &&
             data.wpPage.homepage.artykuly.tytulSekcji}
         </StyledText>
-        <StyledArticlesWrapper>
+        <StyledArticlesWrapper slides={data.allWpArtykul?.edges.length}>
           {data.allWpArtykul?.edges.map(({ node }) => (
             <HomeArticleElement
               slug={node.slug}

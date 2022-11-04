@@ -75,13 +75,13 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
   }, [index, width]);
 
   return (
-    <StyledScheduleSlider>
+    <StyledScheduleSlider slides={renderElements.length}>
       {renderElements.length < 3 ? null : (
         <StyledPrevArrow onClick={handlePrev}>
           {variant === "orange" ? <PrevGreenArrow /> : <PrevYellowArrow />}
         </StyledPrevArrow>
       )}
-      <StyledSlides>
+      <StyledSlides slides={renderElements.length}>
         {renderElements.map((e) => (
           <AnimatePresence initial={false} exitBeforeEnter>
             <HomeExhibitionsElement

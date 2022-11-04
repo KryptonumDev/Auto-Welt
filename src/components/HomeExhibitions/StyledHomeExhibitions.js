@@ -59,7 +59,7 @@ export const StyledHomeExhibitions = styled.section`
 export const StyledElementsWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: ${({ slides }) => slides === 1 ? "center" : "space-evenly"};
   gap: 15px;
   margin-bottom: 40px;
 

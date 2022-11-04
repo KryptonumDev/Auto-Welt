@@ -5,7 +5,7 @@ export const StyledScheduleSlider = styled.div`
   width: 100%;
   display: flex;
   position: relative;
-  justify-content: space-between;
+  justify-content: ${({ slides }) => slides === 1 ? "center" : "space-between"};
   align-items: center;
   gap: 10px;
 
@@ -52,7 +52,7 @@ export const StyledPrevArrow = styled(motion.div)`
 export const StyledSlides = styled.div`
   display: flex;
   gap: 15px;
-  justify-content: space-between;
+  justify-content: ${({ slides }) => slides === 1 ? "center" : "space-between"};
   width: 100%;
 `;
 

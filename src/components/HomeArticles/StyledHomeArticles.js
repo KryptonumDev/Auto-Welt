@@ -31,7 +31,7 @@ export const StyledHomeArticles = styled.section`
 export const StyledArticlesWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ slides }) => slides === 1 ? "center" : "space-between"};
   gap: 21px;
 
   @media only screen and (max-width: 640px) {

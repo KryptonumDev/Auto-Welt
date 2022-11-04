@@ -105,7 +105,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
       >
         {data.wpPage.homepage.wystawy?.tytulSekcji}
       </StyledText>
-      <StyledElementsWrapper>
+      <StyledElementsWrapper slides={slidesElements.length}>
         {slidesElements.map((node, index) => (
           <HomeExhibitionsElement
             key={index}
