@@ -110,8 +110,6 @@ const ArticleTemplateContent = ({ contentData, slug }) => {
               ?.linkDoStrony}
           />
         )}
-        {console.log(contentData.artykul?.dedykowanaStronaArtykulu
-          ?.ktoryArtykulPolecicNaDoleStrony.slug, slug)}
         {contentData.artykul?.dedykowanaStronaArtykulu
           ?.ktoryArtykulPolecicNaDoleStrony.slug === slug ? null : (
           <ChooseArticle
