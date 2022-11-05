@@ -8,9 +8,9 @@ import {
   StyledTextWrapper,
 } from "./StyledArticlePhotoInfo";
 
-const ArticlePhotoInfo = ({ desc }) => {
+const ArticlePhotoInfo = ({ desc, link }) => {
   return (
-    <StyledArticlePhotoInfo>
+    <StyledArticlePhotoInfo href={link} target="_blank">
       <StaticImage src="../../images/Aparat.png" />
       <StyledTextWrapper>{desc && parse(desc)}</StyledTextWrapper>
     </StyledArticlePhotoInfo>

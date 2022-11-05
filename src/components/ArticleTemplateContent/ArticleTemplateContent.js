@@ -13,7 +13,7 @@ import {
   StyledTextContent,
 } from "./StyledArticleTemplateContent";
 
-const ArticleTemplateContent = ({ contentData }) => {
+const ArticleTemplateContent = ({ contentData, slug }) => {
   let headerIds = {};
   const content = contentData.content
       ? parse(contentData?.content, {
@@ -106,10 +106,14 @@ const ArticleTemplateContent = ({ contentData }) => {
               contentData.artykul?.dedykowanaStronaArtykulu?.sekcjaZAutoremZdjec
                 ?.opis
             }
+            link={contentData.artykul?.dedykowanaStronaArtykulu?.sekcjaZAutoremZdjec
+              ?.linkDoStrony}
           />
         )}
+        {console.log(contentData.artykul?.dedykowanaStronaArtykulu
+          ?.ktoryArtykulPolecicNaDoleStrony.slug, slug)}
         {contentData.artykul?.dedykowanaStronaArtykulu
-          ?.ktoryArtykulPolecicNaDoleStrony && (
+          ?.ktoryArtykulPolecicNaDoleStrony.slug === slug ? null : (
           <ChooseArticle
             chosenArticle={
               contentData.artykul?.dedykowanaStronaArtykulu

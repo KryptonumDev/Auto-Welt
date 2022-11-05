@@ -47,7 +47,6 @@ export const StyledTextContent = styled.div`
     margin-top: 20px;
     font-family: "Nocturne Serif";
   }
-
   strong,
   em {
     position: relative;
@@ -86,7 +85,7 @@ export const StyledTextContent = styled.div`
 
   ul,
   ol {
-    margin-left: 25px;
+    margin-left: 9px;
     padding-left: 12px;
   }
 
@@ -95,7 +94,7 @@ export const StyledTextContent = styled.div`
       &:first-letter {
         font-size: 48px;
         color: #edac29;
-        font-family: "Nocturne Serif" !important;
+        font-family: "Nocturne Serif";
         float: left;
         padding-right: 10px;
       }
@@ -110,9 +109,11 @@ export const StyledTextContent = styled.div`
     > div {
       width: 48%;
       filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+
       img {
         width: 100%;
       }
+
       .gatsby-image-wrapper {
         width: 100%;
       }
@@ -127,10 +128,12 @@ export const StyledTextContent = styled.div`
 
   .size-full {
     width: 100%;
+
     img {
       width: 100%;
     }
   }
+
   @media only screen and (max-width: 972px) {
     width: 60%;
   }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 export const StyledChooseArticle = styled.div`
   width: 100%;
@@ -19,13 +20,21 @@ export const StyledChooseArticle = styled.div`
   }
 `;
 
-export const StyledArticle = styled.div`
+export const StyledArticle = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
-
+  text-decoration: none;
+  
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+  
   &:hover {
     > div {
       &:first-of-type {

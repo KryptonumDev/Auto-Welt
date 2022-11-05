@@ -25,7 +25,7 @@ const ChooseArticle = ({ chosenArticle }) => {
       >
         Zobacz również:
       </StyledText>
-      <StyledArticle>
+      <StyledArticle to={`/artykuly/${chosenArticle?.slug}`}>
         <StyledImageWrapper>
           <GatsbyImage
             image={getImage(
@@ -52,13 +52,13 @@ const ChooseArticle = ({ chosenArticle }) => {
           </StyledText>
           <Button
             text="Dowiedz się więcej"
-            whereGo={`/artykuly/${chosenArticle?.slug}`}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
             hasDeclaredPadding="8px 33px"
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
+            hasNotTabIndex
           />
         </StyledTextWrapper>
       </StyledArticle>

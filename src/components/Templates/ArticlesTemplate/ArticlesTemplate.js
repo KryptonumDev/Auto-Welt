@@ -11,7 +11,7 @@ const ArticlesTemplate = ({ data }) => {
   return (
     <StyledArticleTemplate>
       <ArticleHeroSection heroData={data.wpArtykul} />
-      <ArticleTemplateContent contentData={data.wpArtykul} />
+      <ArticleTemplateContent contentData={data.wpArtykul} slug={data.wpArtykul.slug}/>
     </StyledArticleTemplate>
   );
 };
@@ -23,6 +23,7 @@ export { Head } from "../../Head/Head"
 export const query = graphql`
   query artykul($articleId: String) {
     wpArtykul(id: { eq: $articleId }) {
+      slug
       artykul {
         dedykowanaStronaArtykulu {
           galeriaNaKoncuArtykulu {
@@ -65,6 +66,7 @@ export const query = graphql`
           }
           sekcjaZAutoremZdjec {
             opis
+            linkDoStrony
           }
           ktoryArtykulPolecicNaDoleStrony {
             ... on WpArtykul {

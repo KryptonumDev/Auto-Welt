@@ -41,6 +41,12 @@ export const StyledContentWrapper = styled.div`
   font-family: "Roboto Condensed";
   font-size: 24px;
 
+  .has-text-align-right {
+    text-align: right;
+    color: #23423d;
+    margin-top: 20px;
+    font-family: "Nocturne Serif";
+  }
   strong,
   em {
     position: relative;
@@ -79,7 +85,7 @@ export const StyledContentWrapper = styled.div`
 
   ul,
   ol {
-    margin-left: 25px;
+    margin-left: 9px;
     padding-left: 12px;
   }
 
