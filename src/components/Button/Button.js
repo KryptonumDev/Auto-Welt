@@ -18,6 +18,7 @@ const Button = ({
   hasdeclaredmargin,
   onClickHandler,
   hasType,
+  hasNotTabIndex
 }) => {
   return (
     <>
@@ -52,7 +53,7 @@ const Button = ({
           hasdeclaredmargin={hasdeclaredmargin}
           onClick={onClickHandler}
           type={hasType}
-          tabIndex="0"
+          tabIndex={hasNotTabIndex ? "-1" : "0"}
         >
           <span>{text}</span>
         </StyledButtonLinkNoHref>

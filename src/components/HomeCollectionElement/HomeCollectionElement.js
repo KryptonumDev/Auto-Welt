@@ -33,7 +33,6 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
       {buttonText && (
         <Button
           text={buttonText.toUpperCase()}
-          whereGo={`/kolekcje-modeli/${whereGo}`}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasMaxWidth="323px"
@@ -42,6 +41,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
           hasFontWeight="500"
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
+          hasNotTabIndex
         />
       )}
     </StyledHomeCollectionElement>
