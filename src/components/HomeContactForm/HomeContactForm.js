@@ -35,7 +35,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
 
     try {
       await axios.post(
-        `${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.GATSBY_WORDPRESS_FORM_ID}/feedback`,
+        `${process.env.GATSBY_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.GATSBY_WORDPRESS_FORM_ID}/feedback`,
         formData
       );
       setSubmitting(false);
