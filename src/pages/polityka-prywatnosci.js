@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import parse from "html-react-parser";
 
-import HEAD from "../components/HEAD/HEAD";
-
 import {
   StyledPrivacyPolicy,
   StyledTextWrapper,
@@ -40,7 +38,6 @@ const PrivacyPolicy = ({ data }) => {
 
   return (
     <StyledPrivacyPolicy>
-      <HEAD seo={data.wpPage.seo} />
       <StyledText
         as="h1"
         hasdeclaredfontfamily="Nocturne Serif"
@@ -84,6 +81,8 @@ const PrivacyPolicy = ({ data }) => {
 };
 
 export default PrivacyPolicy;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query privacyPolicyQuery {

@@ -1,9 +1,10 @@
 /** @format */
-import React from "react"
+import React from "react";
 
-export default function HEAD({
-    seo
+export function Head({
+    data
 }) {
+    const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo
     const canonical = "https://splatapozyczek.pl" + seo.canonical;
 
     return (

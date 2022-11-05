@@ -2,8 +2,6 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import parse from "html-react-parser";
 
-import HEAD from "../components/HEAD/HEAD";
-
 import {
   StyledExhibitionRegulations,
   StyledContentWrapper,
@@ -17,7 +15,6 @@ const ExhibitionRegulations = ({ data }) => {
 
   return (
     <StyledExhibitionRegulations>
-      <HEAD seo={data.wpPage.seo} />
       <StyledContentWrapper>
         <StyledText
           hasdeclaredfontsize="48px"
@@ -55,6 +52,8 @@ const ExhibitionRegulations = ({ data }) => {
 };
 
 export default ExhibitionRegulations;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query cxhibitionRegulationsQuery {

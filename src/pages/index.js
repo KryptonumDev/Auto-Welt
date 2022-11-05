@@ -10,27 +10,27 @@ import Questions from "../components/Questions/Questions";
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 import QuestionContact from "../components/QuestionContact/QuestionContact";
-import HEAD from "../components/HEAD/HEAD";
 
 import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContact";
 import { StyledHomePage } from "../components/HomePage/StyledHomePage";
 
 const IndexPage = ({ data }) => {
   return (
-    <StyledHomePage>
-      <HEAD seo={data.wpPage.seo} />
-      <HomeHeroSection />
-      <HomeCollections />
-      <HomeExhibitions />
-      <HomeRecommendations />
-      <StyledContactWrapper>
-        <HomeContact />
-      </StyledContactWrapper>
-      <Questions />
-      <QuestionContact />
-      <HomeArticles />
-      <HomeCalendar />
-    </StyledHomePage>
+    <>
+      <StyledHomePage>
+        <HomeHeroSection />
+        <HomeCollections />
+        <HomeExhibitions />
+        <HomeRecommendations />
+        <StyledContactWrapper>
+          <HomeContact />
+        </StyledContactWrapper>
+        <Questions />
+        <QuestionContact />
+        <HomeArticles />
+        <HomeCalendar />
+      </StyledHomePage>
+    </>
   );
 };
 

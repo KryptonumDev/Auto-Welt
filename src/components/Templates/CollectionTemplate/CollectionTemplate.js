@@ -9,7 +9,6 @@ import CollectionImageUnderDescImages from "../../CollectionImageUnderDescImages
 import CollectionElementSlider from "../../CollectionElementSlider/CollectionElementSlider";
 import RecInfoWithButton from "../../RecInfoWithButton/RecInfoWithButton";
 import CollectionElementThreeImages from "../../CollectionElementThreeImages/CollectionElementThreeImages";
-import HEAD from "../../HEAD/HEAD"
 
 import { StyledCollectionTemplate } from "./StyledCollectionTemplate";
 
@@ -42,7 +41,6 @@ const CollectionTemplate = ({ data }) => {
   
   return (
     <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden" }}>
-      <HEAD seo={data.wpKolekcje.seo} />
       <StyledCollectionTemplate>
         <CollectionTemplateHeroImage
           heroData={shortCollectionData.pierwszaSekcja}
@@ -83,6 +81,8 @@ const CollectionTemplate = ({ data }) => {
 };
 
 export default CollectionTemplate;
+
+export { Head } from "../../Head/Head"
 
 export const query = graphql`
   query kolekcja($kolekcjaId: String) {

@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Button from "../components/Button/Button";
-import HEAD from "../components/HEAD/HEAD";
 
 import {
   StyledMainContainer,
@@ -19,7 +18,6 @@ const NotFoundPage = ({ data }) => {
   
   return (
     <StyledMainContainer>
-      <HEAD seo={data.wpPage.seo} />
       <StyledLeftWrapper>
         <StyledTextWrapper>
           <StyledText
@@ -59,6 +57,8 @@ const NotFoundPage = ({ data }) => {
 };
 
 export default NotFoundPage;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query page404Query {

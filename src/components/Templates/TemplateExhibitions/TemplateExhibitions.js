@@ -3,7 +3,6 @@ import React from "react";
 
 import ExhibitionHeroSection from "../../ExhibitionHeroSection/ExhibitionHeroSection";
 import ExhibitionTemplateContent from "../../ExhibitionTemplateContent/ExhibitionTemplateContent";
-import HEAD from "../../HEAD/HEAD"
 
 import { StyledTemplateExhibitions } from "./StyledTemplateExhibitions";
 
@@ -11,7 +10,6 @@ const TemplateExhibitions = ({ data }) => {
   
   return (
     <StyledTemplateExhibitions>
-      <HEAD seo={data.wpWystawa.seo} />
       <ExhibitionHeroSection heroData={data?.wpWystawa} />
       <ExhibitionTemplateContent exhibitionData={data?.wpWystawa} />
     </StyledTemplateExhibitions>
@@ -19,6 +17,8 @@ const TemplateExhibitions = ({ data }) => {
 };
 
 export default TemplateExhibitions;
+
+export { Head } from "../../Head/Head"
 
 export const query = graphql`
   query wystawyQuerPage($wystawaId: String) {

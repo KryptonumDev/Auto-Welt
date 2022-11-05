@@ -7,7 +7,6 @@ import AboutMeSecondSection from "../components/AboutMeSecondSection/AboutMeSeco
 import AboutMeImagesSection from "../components/AboutMeImagesSection/AboutMeImagesSection";
 import HomeRecommendations from "../components/HomeRecommendations/HomeRecommendations";
 import HomeExhibitions from "../components/HomeExhibitions/HomeExhibitions";
-import HEAD from "../components/HEAD/HEAD";
 
 import { StyledAboutMe } from "../components/AboutMe/StyledAboutMe"
 
@@ -32,7 +31,6 @@ const AboutMe = ({ data }) => {
   );
   return (
     <StyledAboutMe>
-      <HEAD seo={data.wpPage.seo} />
       <div>
         <AboutMeHeroSection heroData={data.wpPage.oMnie.pierwszaSekcjaStrony} />
         <AboutMeSecondSection
@@ -48,6 +46,8 @@ const AboutMe = ({ data }) => {
 };
 
 export default AboutMe;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
 query AboutMeQuery {

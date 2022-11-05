@@ -2,14 +2,12 @@ import React from "react";
 
 import ArticlesPageArticles from "../components/ArticlesPageArticles/ArticlesPageArticles";
 import ArticlesPageShowCollections from "../components/ArticlesPageShowCollections/ArticlesPageShowCollections";
-import HEAD from "../components/HEAD/HEAD";
 
 import { graphql } from "gatsby";
 
 const Articles = ({ data }) => {
   return (
     <>
-      <HEAD seo={data.wpPage.seo} />
       <ArticlesPageArticles
         title={data.wpPage.artykuly.tytulStrony}
         allArticles={data.allWpArtykul.edges}
@@ -22,6 +20,8 @@ const Articles = ({ data }) => {
 };
 
 export default Articles;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query articlesPageQuery {

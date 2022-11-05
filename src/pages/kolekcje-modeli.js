@@ -5,7 +5,6 @@ import { getImage, withArtDirection } from "gatsby-plugin-image";
 import HomeArticles from "../components/HomeArticles/HomeArticles";
 import ModelCollection from "../components/ModelCollection/ModelCollection";
 import RecInfoWithButton from "../components/RecInfoWithButton/RecInfoWithButton";
-import HEAD from "../components/HEAD/HEAD";
 
 import {
   StyledContentWrapper,
@@ -38,7 +37,6 @@ const ModelCollections = ({ data }) => {
   );
   return (
     <>
-      <HEAD seo={data.wpPage.seo} />
       <StyledModelCollections>
         <StyledContentWrapper>
           {data.allWpKolekcje.edges
@@ -78,6 +76,8 @@ const ModelCollections = ({ data }) => {
 };
 
 export default ModelCollections;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query collectionsQueryD {

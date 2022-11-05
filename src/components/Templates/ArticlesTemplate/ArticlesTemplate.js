@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 
 import ArticleHeroSection from "../../ArticleHeroSection/ArticleHeroSection";
 import ArticleTemplateContent from "../../ArticleTemplateContent/ArticleTemplateContent";
-import HEAD from "../../HEAD/HEAD"
 
 import { StyledArticleTemplate } from "./StyledArticleTemplate";
 
@@ -11,7 +10,6 @@ const ArticlesTemplate = ({ data }) => {
   
   return (
     <StyledArticleTemplate>
-      <HEAD seo={data.wpArtykul.seo} />
       <ArticleHeroSection heroData={data.wpArtykul} />
       <ArticleTemplateContent contentData={data.wpArtykul} />
     </StyledArticleTemplate>
@@ -19,6 +17,8 @@ const ArticlesTemplate = ({ data }) => {
 };
 
 export default ArticlesTemplate;
+
+export { Head } from "../../Head/Head"
 
 export const query = graphql`
   query artykul($articleId: String) {

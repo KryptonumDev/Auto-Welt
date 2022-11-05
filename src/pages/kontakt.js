@@ -7,7 +7,6 @@ import GoogleMapsContact from "../components/GoogleMapsContact/GoogleMapsContact
 import ContactPageForm from "../components/ContactPageForm/ContactPageForm";
 import Questions from "../components/Questions/Questions";
 import Button from "../components/Button/Button";
-import HEAD from "../components/HEAD/HEAD";
 
 import {
   StyledContact,
@@ -25,7 +24,6 @@ const Contact = ({ data }) => {
 
   return (
     <StyledContact>
-      <HEAD seo={data.wpPage.seo} />
       <StyledText
         as="h1"
         hasdeclaredfontsize="48px"

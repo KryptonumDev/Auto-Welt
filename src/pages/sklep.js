@@ -2,18 +2,18 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import ShopInProgress from "../components/ShopInProgress/ShopInProgress";
-import HEAD from "../components/HEAD/HEAD";
 
 const Shop = ({ data }) => {
   return (
     <>
-      <HEAD seo={data.wpPage.seo} />
       <ShopInProgress shopData={data.wpPage.sklep} />
     </>
   );
 };
 
 export default Shop;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query shopQuery {
