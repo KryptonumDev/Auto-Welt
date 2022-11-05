@@ -41,6 +41,17 @@ export const StyledCheckOutButtonsWrapper = styled.div`
       font-size: 16px;
       text-align: center;
       color: #23423d;
+      transition: color 250ms linear;
+  
+      &:hover {
+        color: var(--secondary300);
+      }
+  
+      &:focus-visible {
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: #da9610;
+      }
     }
   }
 

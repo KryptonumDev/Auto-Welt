@@ -46,10 +46,10 @@ const AboutMeImagesSection = ({ imagesData }) => {
           </StyledRightImage>
         </StyledImagesWrapper>
         <StyledAparatWrapper>
-          <StyledIconWrapper href={imagesData.linkDoStronyFotografa}>
+          <StyledIconWrapper href={imagesData.linkDoStronyFotografa} target="_blank">
             <StaticImage src="../../images/Aparat.png" />
           </StyledIconWrapper>
-          <StyledTextWrapper href={imagesData.linkDoStronyFotografa}>
+          <StyledTextWrapper href={imagesData.linkDoStronyFotografa} target="_blank">
             {imagesData?.tekstPrzyIkonceAparatu &&
               parse(imagesData?.tekstPrzyIkonceAparatu)}
           </StyledTextWrapper>

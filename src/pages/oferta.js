@@ -95,7 +95,9 @@ export const query = graphql`
             title
             url
           }
-          tekstDoPobraniaTekstu
+          tekstDoPobraniaTekstu{
+            link
+          }
           tytul
           zdjecieKsiazki {
             altText

@@ -32,16 +32,19 @@ const ExhibitionRegulations = ({ data }) => {
         <StyledLinkWrapper>
           <a
             href={queryData.pierwszyLink.link}
+            target="_blank"
           >
             pobierz umowę najmu wystawy
           </a>
           <a
             href={queryData.drugiLink.link}
+            target="_blank"
           >
             pobierz umowę najmu wystawy na powietrzu
           </a>
           <a
             href={queryData.trzeciLink.link}
+            target="_blank"
           >
             pobierz umowę najmu powierzchni wystawowej
           </a>
