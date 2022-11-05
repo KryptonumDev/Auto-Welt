@@ -201,8 +201,8 @@ const ContactPageForm = ({ dataForm }) => {
                     name="contact"
                   >
                     <StyledInputWrapper iserror={errors.firstName}>
-                      <label>{dataForm.tytulPolaImie}</label>
-                      <Field type="text" name="firstName" />
+                      <label htmlFor="firstName">{dataForm.tytulPolaImie}</label>
+                      <Field type="text" name="firstName" id="firstName"/>
                       <StyledErrorMessage
                         iserror={errors.firstName}
                         name="firstName"
@@ -210,8 +210,8 @@ const ContactPageForm = ({ dataForm }) => {
                       />
                     </StyledInputWrapper>
                     <StyledInputWrapper iserror={errors.lastName}>
-                      <label>{dataForm.tytulPolaNazwisko}</label>
-                      <Field type="text" name="lastName" />
+                      <label htmlFor="lastName">{dataForm.tytulPolaNazwisko}</label>
+                      <Field type="text" name="lastName" id="lastName"/>
                       <StyledErrorMessage
                         iserror={errors.lastName}
                         name="lastName"
@@ -219,8 +219,8 @@ const ContactPageForm = ({ dataForm }) => {
                       />
                     </StyledInputWrapper>
                     <StyledInputWrapper emailprop iserror={errors.email}>
-                      <label>{dataForm.tytulPolaEmail}</label>
-                      <Field type="email" name="email" />
+                      <label htmlFor="email">{dataForm.tytulPolaEmail}</label>
+                      <Field type="email" name="email" id="email"/>
                       <StyledErrorMessage
                         iserror={errors.email}
                         name="email"
@@ -228,11 +228,12 @@ const ContactPageForm = ({ dataForm }) => {
                       />
                     </StyledInputWrapper>
                     <StyledInputWrapper telprop iserror={errors.tel}>
-                      <label>{dataForm.tytulPolaNrTelefonu}</label>
+                      <label htmlFor="tel">{dataForm.tytulPolaNrTelefonu}</label>
                       <Field
                         type="text"
                         placeholder="_ _ _  _ _ _  _ _ _"
                         name="tel"
+                        id="tel"
                       />
                       <StyledErrorMessage
                         iserror={errors.tel}
@@ -242,8 +243,8 @@ const ContactPageForm = ({ dataForm }) => {
                       />
                     </StyledInputWrapper>
                     <StyledInputWrapper fullwidth iserror={errors.message}>
-                      <label>{dataForm.tytulPolaTrescWiadomosci}</label>
-                      <Field as="textarea" name="message" />
+                      <label htmlFor="message">{dataForm.tytulPolaTrescWiadomosci}</label>
+                      <Field as="textarea" name="message" id="message" />
                       <StyledErrorMessage
                         iserror={errors.message}
                         name="message"
@@ -274,7 +275,7 @@ const ContactPageForm = ({ dataForm }) => {
                         style={{ fontWeight: "400" }}
                       >
                         <AcceptIcon />
-                        Akceptuję <Link to="/">politykę prywatności</Link>
+                        Akceptuję <Link to="/polityka-prywatnosci">politykę prywatności</Link>
                       </label>
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>

@@ -70,10 +70,10 @@ const HomeContactForm = ({ data, afterSubmit }) => {
             name="contact"
           >
             <StyledInputWrapper iserror={errors.firstName}>
-              <label>
+              <label htmlFor="firstName">
                 {data.wpPage.homepage.formularzKontaktowy.tytulPolaImie}
               </label>
-              <Field type="text" name="firstName" />
+              <Field type="text" name="firstName" id="firstName"/>
               <StyledErrorMessage
                 iserror={errors.firstName}
                 name="firstName"
@@ -81,10 +81,10 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
             </StyledInputWrapper>
             <StyledInputWrapper iserror={errors.lastName}>
-              <label>
+              <label htmlFor="lastName">
                 {data.wpPage.homepage.formularzKontaktowy.tytulPolaNazwisko}
               </label>
-              <Field type="text" name="lastName" />
+              <Field type="text" name="lastName" id="lastName"/>
               <StyledErrorMessage
                 iserror={errors.lastName}
                 name="lastName"
@@ -92,10 +92,10 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
             </StyledInputWrapper>
             <StyledInputWrapper iserror={errors.email}>
-              <label>
+              <label htmlFor="email">
                 {data.wpPage.homepage.formularzKontaktowy.tytulPolaEMail}
               </label>
-              <Field type="email" name="email" />
+              <Field type="email" name="email" id="email"/>
               <StyledErrorMessage
                 iserror={errors.email}
                 name="email"
@@ -103,10 +103,10 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
             </StyledInputWrapper>
             <StyledInputWrapper iserror={errors.tel}>
-              <label>
+              <label htmlFor="tel">
                 {data.wpPage.homepage.formularzKontaktowy.tytulPolaNrTelefonu}
               </label>
-              <Field type="text" placeholder="_ _ _  _ _ _  _ _ _" name="tel" />
+              <Field type="text" placeholder="_ _ _  _ _ _  _ _ _" name="tel" id="tel"/>
               <StyledErrorMessage
                 iserror={errors.tel}
                 name="tel"
@@ -115,10 +115,10 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
             </StyledInputWrapper>
             <StyledInputWrapper fullwidth iserror={errors.message}>
-              <label>
+              <label htmlFor="message">
                 {data.wpPage.homepage.formularzKontaktowy.tytulPola}
               </label>
-              <Field as="textarea" name="message" />
+              <Field as="textarea" name="message" id="message" />
               <StyledErrorMessage
                 iserror={errors.message}
                 name="message"
@@ -149,7 +149,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
               <label htmlFor="termsAndConditions" style={{ fontWeight: "400" }}>
                 <AcceptIcon />
-                Akceptuję <Link to="/">politykę prywatności</Link>
+                Akceptuję <Link to="/polityka-prywatnosci">politykę prywatności</Link>
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>

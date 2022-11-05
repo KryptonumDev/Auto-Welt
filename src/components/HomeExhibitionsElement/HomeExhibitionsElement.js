@@ -140,7 +140,6 @@ const HomeExhibitionsElement = ({
               exhibitionData.wystawa.informacjeOgolne
                 .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
             }
-            whereGo={`/wystawy/${exhibitionData.slug}`}
             bgColor={
               buttonVariant === "orange" ? "var(--secondary500)" : "#23423D"
             }
@@ -155,6 +154,7 @@ const HomeExhibitionsElement = ({
                 : "var(--primary900)"
             }
             hasBorder="2px solid transparent"
+            hasNotTabIndex
           />
         )}
       </StyledHomeExhibitionsElement>

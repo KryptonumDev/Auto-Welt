@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { getImage, withArtDirection, GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 
@@ -26,13 +26,17 @@ const Question = ({ faqData }) => {
     },
   ]);
 
+  const openAnswer = useCallback(() => {
+    setIsOpen(!isOpen)
+  }, [isOpen])
+
   return (
     <StyledQuestion
       itemscope
       itemprop="mainEntity"
       itemtype="https://schema.org/Question"
       isopen={isOpen}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={openAnswer}
     >
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const StyledQuestion = styled.div`
   width: 100%;
@@ -12,7 +11,7 @@ export const StyledQuestion = styled.div`
   }
 `;
 
-export const StyledAnswerWrapper = styled(motion.div)`
+export const StyledAnswerWrapper = styled.div`
   width: 80%;
   padding: 15px 59px 20px 68px;
   font-size: 18px;

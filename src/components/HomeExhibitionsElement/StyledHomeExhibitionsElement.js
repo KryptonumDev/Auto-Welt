@@ -36,6 +36,13 @@ export const StyledElementLink = styled(Link)`
     }
   }
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   @media only screen and (max-width: 1080px) {
     width: ${({ isscheduleelement }) => (isscheduleelement ? "50%" : "100%")};
   }
@@ -105,6 +112,7 @@ export const StyledLogoWrapper = styled.div`
   overflow: hidden;
 
   img {
+    transition: transform 250ms linear, mix-blend-mode 250ms linear;
     mix-blend-mode: multiply;
     width: 100%;
     height: 100%;

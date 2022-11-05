@@ -18,3 +18,14 @@ exports.onClientEntry = () => {
     gsap.from(body, { opacity: 0, duration: 0.7, ease: "Power3.easeInOut" });
   });
 };
+
+exports.shouldUpdateScroll = ({
+  prevRouterProps,
+  getSavedScrollPosition
+}) => {
+  const currentPosition = prevRouterProps?.location ? getSavedScrollPosition(prevRouterProps?.location) : null;
+
+  window.scrollTo(...(currentPosition || [0, 0]))
+
+  return false
+}

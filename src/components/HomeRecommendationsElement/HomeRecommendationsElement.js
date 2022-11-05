@@ -15,7 +15,7 @@ const HomeRecommendationsElement = ({ data, key, isPrev }) => {
       key={key}
       initial={{ x: isPrev ? -100 : 100 }}
       animate={{ x: 0 }}
-      transition={{ bounce: 0 }}
+      transition={{ type: "spring", stiffness: 100, bounce: 0 }}
     >
       <StyledText
         hasdeclaredfontsize="20px"
