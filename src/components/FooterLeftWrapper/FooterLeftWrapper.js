@@ -11,6 +11,7 @@ import {
   StyledIconsWrapper,
   StyledAddressWrapper,
   StyledTextKryptonum,
+  StyledTelWrapp
 } from "./StyledFooterLeftWrapper";
 import { StyledText } from "../Text/StyledText";
 
@@ -74,7 +75,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             </div>
           ))}
         </StyledAddressWrapper>
-        <div>
+        <StyledTelWrapp>
           <StyledText
             hasdeclaredfontsize="18px"
             hasdeclaredlineheight="1.2em"
@@ -90,7 +91,10 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
             hasdeclaredfontweight="500"
           >
-            {footerData.telefon && footerData.telefon}
+            Tel.: {" "}
+            <a href={`tel:${footerData.telefon && footerData.telefon}`}>
+             {footerData.telefon && footerData.telefon}
+            </a>
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
@@ -98,9 +102,12 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
             hasdeclaredfontweight="500"
           >
-            {footerData.email && footerData.email}
+            E-mail: {" "}
+            <a href={`mailto:${footerData.email && footerData.email}`}>
+              {footerData.email && footerData.email}
+            </a>
           </StyledText>
-        </div>
+        </StyledTelWrapp>
         <StyledIconsWrapper>
           {footerData.linkDoFacebooka && (
             <a href={footerData.linkDoFacebooka}>

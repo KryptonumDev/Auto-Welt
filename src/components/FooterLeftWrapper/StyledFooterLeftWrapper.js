@@ -152,4 +152,38 @@ export const StyledTextKryptonum = styled.div`
   strong {
     font-weight: 700;
   }
+
+  a {
+    text-decoration: none;
+    color: rgba(250, 246, 238, 1);
+    transition: color 250ms linear;
+
+    &:hover {
+      color: var(--secondary300);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+    }
+  }
 `;
+
+export const StyledTelWrapp = styled.div`
+  a {
+    text-decoration: none;
+    color: rgba(250, 246, 238, 1);
+    transition: color 250ms linear;
+
+    &:hover {
+      color: var(--secondary300);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+    }
+  }
+`
