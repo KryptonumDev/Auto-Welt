@@ -98,6 +98,8 @@ const Contact = ({ data }) => {
 
 export default Contact;
 
+export { Head } from "../components/Head/Head"
+
 export const query = graphql`
   query contactQuery {
     wpPage(id: { eq: "cG9zdDo1NzM=" }) {

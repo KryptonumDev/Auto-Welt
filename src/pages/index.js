@@ -13,7 +13,7 @@ import QuestionContact from "../components/QuestionContact/QuestionContact";
 
 import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContact";
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <>
       <HomeHeroSection />
@@ -32,6 +32,8 @@ const IndexPage = ({ data }) => {
 };
 
 export default IndexPage;
+
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query homePageQuerySeo {

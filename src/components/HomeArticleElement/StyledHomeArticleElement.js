@@ -21,6 +21,14 @@ export const StyledHomeArticleElement = styled(Link)`
       }
     }
   }
+
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
   
   @media only screen and (max-width: 640px) {
     width: 100%;

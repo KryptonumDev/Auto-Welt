@@ -14,7 +14,7 @@ import { StyledText } from "../Text/StyledText";
 
 const HomeArticleElement = ({ articleData, slug }) => {
   return (
-    <StyledHomeArticleElement>
+    <StyledHomeArticleElement to={`/artykuly/${slug}`}>
       <StyledImageWrapper>
         {articleData.miniaturka.localFile && (
           <GatsbyImage
@@ -41,7 +41,6 @@ const HomeArticleElement = ({ articleData, slug }) => {
         {articleData.opis && parse(articleData.opis)}
         {articleData.tekstWPrzycisku && (
           <Button
-            whereGo={`/artykuly/${slug}`}
             text={articleData.tekstWPrzycisku}
             bgColor="var(--secondary500)"
             textColor="var(--primary900)"
@@ -49,6 +48,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
+            hasNotTabIndex
           />
         )}
       </StyledTextWrapper>
