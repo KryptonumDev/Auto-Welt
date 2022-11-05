@@ -76,6 +76,29 @@ const ScheduleArchExh = ({ dataArch }) => {
 
   const now = new Date();
 
+  const slidesData = data.allWpWystawa.edges
+  .map(({ node }) => ({
+    ...node,
+    wystawa: {
+      ...node.wystawa,
+      informacjeOgolne: {
+        ...node.wystawa.informacjeOgolne,
+        data: new Date(node.wystawa.informacjeOgolne.data),
+      },
+    },
+  }))
+  .filter(
+    ({ wystawa }) =>
+      wystawa.informacjeOgolne.data.getTime() < now.getTime() &&
+      !areDatesEqual(wystawa.informacjeOgolne.data, now)
+  )
+  .sort(
+    // malejąco - 'b-a'
+    (a, b) =>
+      b.wystawa.informacjeOgolne.data.getTime() -
+      a.wystawa.informacjeOgolne.data.getTime()
+  )
+
   return (
     <StyledScheduleArchExh>
       <StyledText
@@ -89,28 +112,7 @@ const ScheduleArchExh = ({ dataArch }) => {
         {dataArch.tytulNadSliderem}
       </StyledText>
       <StyledElements>
-        {data.allWpWystawa.edges
-          .map(({ node }) => ({
-            ...node,
-            wystawa: {
-              ...node.wystawa,
-              informacjeOgolne: {
-                ...node.wystawa.informacjeOgolne,
-                data: new Date(node.wystawa.informacjeOgolne.data),
-              },
-            },
-          }))
-          .filter(
-            ({ wystawa }) =>
-              wystawa.informacjeOgolne.data.getTime() < now.getTime() &&
-              !areDatesEqual(wystawa.informacjeOgolne.data, now)
-          )
-          .sort(
-            // malejąco - 'b-a'
-            (a, b) =>
-              b.wystawa.informacjeOgolne.data.getTime() -
-              a.wystawa.informacjeOgolne.data.getTime()
-          )
+        {slidesData
           .slice(0, imagesIndex)
           .map((node, index) => {
             const convertedData = node.wystawa.informacjeOgolne.data
@@ -209,17 +211,19 @@ const ScheduleArchExh = ({ dataArch }) => {
           })}
       </StyledElements>
       <StyledbuttonsWrapper>
-        <Button
-          text={dataArch.lewyPrzyciskPodSliderem}
-          bgColor="var(--creamBg)"
-          hasBorder="2px solid var(--primary500)"
-          textColor="var(--primary500)"
-          hasDeclaredPadding="8px 36px"
-          hasFontWeight="700"
-          hasFontSize="21px"
-          onClickHandler={() => setImagesIndex(imagesIndex + 3)}
-          hoverBgColor="#F6E2BA"
-        />
+        {slidesData.length < 4 ? null : 
+          <Button
+            text={dataArch.lewyPrzyciskPodSliderem}
+            bgColor="var(--creamBg)"
+            hasBorder="2px solid var(--primary500)"
+            textColor="var(--primary500)"
+            hasDeclaredPadding="8px 36px"
+            hasFontWeight="700"
+            hasFontSize="21px"
+            onClickHandler={() => setImagesIndex(imagesIndex + 3)}
+            hoverBgColor="#F6E2BA"
+          />
+        }
         <Button
           whereGo={dataArch.prawyPrzyciskPodSliderem.url}
           text={dataArch.prawyPrzyciskPodSliderem.title}

@@ -175,6 +175,17 @@ export const StyledMoreInfoWrapper = styled.div`
   
   a{
     color: rgba(35, 66, 61, 1);
+    transition: color 250ms linear;
+    
+    &:hover {
+      color: var(--secondary300);
+    }
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+    }
   }
 `;
 
