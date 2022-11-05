@@ -12,24 +12,21 @@ import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 import QuestionContact from "../components/QuestionContact/QuestionContact";
 
 import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContact";
-import { StyledHomePage } from "../components/HomePage/StyledHomePage";
 
 const IndexPage = ({ data }) => {
   return (
     <>
-      <StyledHomePage>
-        <HomeHeroSection />
-        <HomeCollections />
-        <HomeExhibitions />
-        <HomeRecommendations />
-        <StyledContactWrapper>
-          <HomeContact />
-        </StyledContactWrapper>
-        <Questions />
-        <QuestionContact />
-        <HomeArticles />
-        <HomeCalendar />
-      </StyledHomePage>
+      <HomeHeroSection />
+      <HomeCollections />
+      <HomeExhibitions />
+      <HomeRecommendations />
+      <StyledContactWrapper>
+        <HomeContact />
+      </StyledContactWrapper>
+      <Questions />
+      <QuestionContact />
+      <HomeArticles />
+      <HomeCalendar />
     </>
   );
 };

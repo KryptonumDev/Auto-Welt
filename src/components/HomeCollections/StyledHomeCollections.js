@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
+
+export const StyledCollectionMain = styled.div`
+  overflow: hidden;
+`
 
 export const StyledHomeCollections = styled.section`
   width: 100%;

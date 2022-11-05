@@ -10,6 +10,7 @@ import {
   StyledImagesWrapper,
   StyledImage,
   StyledRecButtonWrapper,
+  StyledCollectionMain
 } from "./StyledHomeCollections";
 import { StyledText } from "../Text/StyledText";
 
@@ -108,7 +109,7 @@ const HomeCollections = () => {
     ]
   );
   return (
-    <>
+    <StyledCollectionMain>
       <StyledHomeCollections>
         <StyledText
           as="h2"
@@ -175,7 +176,7 @@ const HomeCollections = () => {
           />
         )}
       </StyledRecButtonWrapper>
-    </>
+    </StyledCollectionMain>
   );
 };
 

@@ -31,6 +31,7 @@ export const StyledHomeCalendar = styled.section`
 
 export const StyledFooterCar = styled.div`
   position: absolute;
+  z-index: 2;
   bottom: -20px;
   left: -260px;
 
