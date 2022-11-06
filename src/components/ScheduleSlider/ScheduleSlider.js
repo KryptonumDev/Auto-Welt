@@ -49,7 +49,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
     };
 
     useEffect(() => {
-        if (scheduleData.length < 3) {
+        if (scheduleData.length < 3 && width > 648) {
             return setRenderElements(scheduleData);
         }
 
@@ -77,8 +77,18 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
     }, [index, width]);
 
     return (
-        <StyledScheduleSlider slides={renderElements.length}>
-            {renderElements.length < 3 ? null : (
+        <StyledScheduleSlider slides={scheduleData.length}>
+            {width > 648 ? (
+                scheduleData.length < 3 ? null : (
+                    <StyledPrevArrow onClick={handlePrev}>
+                        {variant === "orange" ? (
+                            <PrevGreenArrow />
+                        ) : (
+                            <PrevYellowArrow />
+                        )}
+                    </StyledPrevArrow>
+                )
+            ) : scheduleData.length === 1 ? null : (
                 <StyledPrevArrow onClick={handlePrev}>
                     {variant === "orange" ? (
                         <PrevGreenArrow />
@@ -87,20 +97,30 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                     )}
                 </StyledPrevArrow>
             )}
-            <StyledSlides slides={renderElements.length}>
-                {renderElements.map((e) => (
-                    <AnimatePresence initial={false} exitBeforeEnter>
+            <StyledSlides slides={scheduleData.length}>
+                <AnimatePresence initial={false} exitBeforeEnter>
+                    {renderElements.map((e) => (
                         <HomeExhibitionsElement
-                            key={e.slug}
+                            key={e.slug + e.node.wystawa.informacjeOgolne.data}
                             exhibitionData={e.node}
                             buttonVariant={variant}
                             isSchdeuleElement
                             isPrev={isPrev}
                         />
-                    </AnimatePresence>
-                ))}
+                    ))}
+                </AnimatePresence>
             </StyledSlides>
-            {renderElements.length < 3 ? null : (
+            {width > 648 ? (
+                scheduleData.length < 3 ? null : (
+                    <StyledNextArrow onClick={handleNext}>
+                        {variant === "orange" ? (
+                            <NextGreenArrow />
+                        ) : (
+                            <NextYellowArrow />
+                        )}
+                    </StyledNextArrow>
+                )
+            ) : scheduleData.length === 1 ? null : (
                 <StyledNextArrow onClick={handleNext}>
                     {variant === "orange" ? (
                         <NextGreenArrow />
