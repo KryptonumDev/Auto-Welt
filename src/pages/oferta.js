@@ -9,8 +9,10 @@ import OfferHeroSection from "../components/OfferHeroSection/OfferHeroSection";
 import CheckOutWithOffer from "../components/CheckOutWithOffer/CheckOutWithOffer";
 
 import { StyledReqWrapper } from "../components/Offer/StyledOffer";
+import useWindowSize from "../utils/getWindowSize";
 
 const Offer = ({ data }) => {
+  const width = useWindowSize();
   const shortData = data.wpPage.oferta;
   const imageShort = data.wpPage.oferta?.zielonyElementZTekstem;
   const images = withArtDirection(
@@ -35,7 +37,7 @@ const Offer = ({ data }) => {
           btnText={shortData.zielonyElementZTekstem.przycisk?.title}
           btnWhereGo={shortData.zielonyElementZTekstem.przycisk?.url}
           hasTarget={shortData.zielonyElementZTekstem.przycisk?.target}
-          btnPadding="10px 33px"
+          btnPadding={width < 500 ? "10px 12px" : "10px 33px"}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
           bgImage={images}
