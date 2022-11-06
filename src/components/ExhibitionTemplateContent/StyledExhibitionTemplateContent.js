@@ -65,6 +65,10 @@ export const StyledContentWrapper = styled.div`
     }
   }
 
+  .wp-block-image.size-full{
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
   h1,
   h2,
   h3,
@@ -92,7 +96,7 @@ export const StyledContentWrapper = styled.div`
   > p {
     &:first-of-type {
       &:first-letter {
-        font-size: 48px;
+        font-size: 47px;
         color: #edac29;
         font-family: "Nocturne Serif";
         float: left;

@@ -233,6 +233,8 @@ export const StyledGreetingText = styled.div`
 
   @media only screen and (max-width: 542px) {
     font-size: 24px;
+    width: 85%;
+    padding-left: 20px;
   }
 
   p {

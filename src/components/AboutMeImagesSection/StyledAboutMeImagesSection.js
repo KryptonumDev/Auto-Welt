@@ -60,7 +60,7 @@ export const StyledRightImage = styled.div`
 
   @media only screen and (max-width: 420px) {
     max-width: 374px;
-    right: -20px;
+    right: -80px;
     bottom: -50px;
   }
 `;
@@ -68,6 +68,7 @@ export const StyledRightImage = styled.div`
 export const StyledAparatWrapper = styled.div`
   display: flex;
   margin-top: 100px;
+  max-width: 505px;
   align-items: center;
   gap: 20px;
 

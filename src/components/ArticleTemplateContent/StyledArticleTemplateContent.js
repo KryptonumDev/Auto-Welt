@@ -73,6 +73,7 @@ export const StyledTextContent = styled.div`
   h6 {
     color: #23423d;
     font-family: "Nocturne Serif";
+    font-weight: 500;
   }
 
   h2 {
@@ -89,10 +90,16 @@ export const StyledTextContent = styled.div`
     padding-left: 12px;
   }
 
+  .wp-block-image.size-full{
+    img{
+      filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+    }
+  }
+
   > p {
     &:first-of-type {
       &:first-letter {
-        font-size: 48px;
+        font-size: 47px;
         color: #edac29;
         font-family: "Nocturne Serif";
         float: left;

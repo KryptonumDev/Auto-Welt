@@ -49,7 +49,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontsize="24px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="#23423D"
-            hasdeclaredfontweight="500"
+            hasdeclaredfontweight="700"
           >
             {articleData.artykul.informacjeDoMiniaturki.tytul}
           </StyledText>

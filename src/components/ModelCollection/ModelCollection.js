@@ -42,7 +42,7 @@ const ModelCollection = ({ collectionData, slug }) => {
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredpadding="0 20px"
+          hasdeclaredpadding="10px 20px"
           hasdeclaredtextalign="center"
           as="h2"
         >

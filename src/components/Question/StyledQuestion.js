@@ -89,7 +89,7 @@ export const StyledQuestionText = styled.div`
   font-family: "Roboto Condensed";
   font-size: 18px;
   line-height: 1.2em;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
   max-width: 70%;
 

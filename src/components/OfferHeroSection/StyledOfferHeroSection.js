@@ -13,6 +13,7 @@ export const StyledOfferHeroSection = styled.section`
 `;
 
 export const StyledTimeInfo = styled.div`
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -32,7 +33,7 @@ export const StyledTimeInfo = styled.div`
 
 export const StyledBgWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: -3px;
   left: 0;
   width: 100%;
   height: 100%;

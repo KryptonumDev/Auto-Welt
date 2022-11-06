@@ -43,6 +43,7 @@ export const StyledInfoWrapper = styled.div`
   }
 
   @media only screen and (max-width: 439px) {
+    border-width: 0px 4px 4px 0px;
     > p {
       font-size: 13px;
     }

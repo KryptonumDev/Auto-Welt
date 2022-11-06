@@ -124,7 +124,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
             ?.tytulSekcji}
       </StyledText>
       <StyledRecommendationsWrapper>
-        <StyledArrowWrapper onClick={handlePrev} hasdeclaredtransform="20px">
+        <StyledArrowWrapper onClick={handlePrev} hasdeclaredtransform={width < 463 ? "-5px" : "20px"}>
           {width <= 768 ? (
             width < 463 ? (
               <LeftArrow />
@@ -146,7 +146,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
             ))}
           </AnimatePresence>
         </StyledSlides>
-        <StyledArrowWrapper onClick={handleNext} hasdeclaredtransform="-20px">
+        <StyledArrowWrapper onClick={handleNext} hasdeclaredtransform={width < 463 ? "5px" : "-20px"}>
           {width <= 768 ? (
             width < 463 ? (
               <RightArrow />

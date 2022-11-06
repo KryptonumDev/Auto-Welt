@@ -7,6 +7,7 @@ export const StyledArticlePhotoInfo = styled.a`
   gap: 20px;
   margin: 70px 0 0;
   text-decoration: none;
+  max-width: 505px;
 
   &:focus-visible {
     outline-width: 1px;

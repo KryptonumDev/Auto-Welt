@@ -28,7 +28,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
           <StaticImage src="../../images/articleMinBackground.png" />
         </StyledTitleBgWrapper>
         <StyledText
-          hasdeclaredfontsize="18px"
+          hasdeclaredfontsize="24px"
           hasdeclaredfontweight="700"
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontcolor="var(--primary500)"
