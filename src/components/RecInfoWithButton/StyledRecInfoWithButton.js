@@ -8,8 +8,8 @@ export const StyledRecInfoWithButton = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding-right: 80px;
-
+  padding: 10px 80px 10px 0;
+  
   > p,
   a {
     position: relative;

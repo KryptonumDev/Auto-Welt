@@ -85,7 +85,6 @@ export const StyledElement = styled.div`
 
 export const StyledImage = styled.div`
   width: 409px;
-  min-height: 372px;
 
   img {
     width: 100%;
@@ -103,8 +102,6 @@ export const StyledImage = styled.div`
 
   @media only screen and (max-width: 648px) {
     width: 100%;
-    height: auto;
-    min-height: 210px;
   }
 `;
 

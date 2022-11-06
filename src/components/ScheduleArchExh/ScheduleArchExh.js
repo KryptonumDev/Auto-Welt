@@ -147,6 +147,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                       hasdeclaredfontsize="32px"
                       hasdeclaredfontcolor="#23423D"
                       hasdeclaredfontweight="700"
+                      hasdeclaredlineheight="1.2em"
                     >
                       {`${convertedData[0]} ${convertedData[1]} ${convertedData[2]}`}
                     </StyledText>
