@@ -97,8 +97,6 @@ export const StyledQuestionText = styled.div`
     strong,
     em {
       color: #edac2a;
-      font-weight: normal;
-      font-style: normal;
     }
   }
 
