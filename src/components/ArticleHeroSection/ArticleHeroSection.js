@@ -24,6 +24,10 @@ const ArticleHeroSection = ({ heroData }) => {
             heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja
               ?.duzeZdjecie?.altText
           }
+          title={
+            heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja
+              ?.duzeZdjecie?.title
+          }
         />
       </StyledImage>
       <StyledTag>

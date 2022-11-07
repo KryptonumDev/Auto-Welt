@@ -18,8 +18,9 @@ const HomeArticleElement = ({ articleData, slug }) => {
       <StyledImageWrapper>
         {articleData.miniaturka.localFile && (
           <GatsbyImage
-            image={getImage(articleData.miniaturka.localFile)}
-            alt={articleData.miniaturka.altText}
+            image={getImage(articleData.miniaturka?.localFile)}
+            alt={articleData.miniaturka?.altText}
+            title={articleData.miniaturka?.title}
           />
         )}
       </StyledImageWrapper>

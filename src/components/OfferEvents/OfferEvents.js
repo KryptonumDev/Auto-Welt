@@ -29,6 +29,7 @@ const OfferEvents = ({ dataEvents }) => {
                 tytulZUwzglednieniemMiasta
                 wiekszaMiniaturkaNaStroneOferty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

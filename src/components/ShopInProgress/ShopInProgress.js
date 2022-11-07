@@ -25,12 +25,14 @@ const ShopInProgress = ({ shopData }) => {
           <GatsbyImage
             image={getImage(shopData.zdjeciePlastra.localFile)}
             alt={shopData.zdjeciePlastra.altText}
+            title={shopData.zdjeciePlastra.title}
           />
         </StyledIconWrapper>
         <StyledHeroImage>
           <GatsbyImage
             image={getImage(shopData.glowneZdjecie.localFile)}
             alt={shopData.glowneZdjecie.altText}
+            title={shopData.glowneZdjecie.title}
           />
         </StyledHeroImage>
         <StyledCarImage>
@@ -39,6 +41,7 @@ const ShopInProgress = ({ shopData }) => {
               shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.localFile
             )}
             alt={shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.altText}
+            title={shopData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie.title}
           />
         </StyledCarImage>
       </StyledImagesWrapper>

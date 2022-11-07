@@ -29,6 +29,7 @@ const Footer = () => {
           linkDoInstagrama
           logo {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -46,6 +47,7 @@ const Footer = () => {
           szybkieLinkiTytul
           tloDlaStopkiWersjaDesktop {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -61,6 +63,7 @@ const Footer = () => {
           }
           tloDlaStopkiWersjaTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -69,6 +72,7 @@ const Footer = () => {
           }
           logoMobile {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -77,6 +81,7 @@ const Footer = () => {
           }
           logoTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -108,7 +113,8 @@ const Footer = () => {
         {images && (
           <GatsbyImage
             image={images}
-            alt={imageShort.tloDlaStopkiWersjaTablet.altText}
+            alt={imageShort.tloDlaStopkiWersjaTablet?.altText}
+            title={imageShort.tloDlaStopkiWersjaTablet?.title}
           />
         )}
       </StyledImageWrapper>

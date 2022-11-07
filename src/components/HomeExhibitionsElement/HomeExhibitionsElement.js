@@ -51,11 +51,15 @@ const HomeExhibitionsElement = ({
               <GatsbyImage
                 image={getImage(
                   exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
-                    .localFile
+                    ?.localFile
                 )}
                 alt={
                   exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
-                    .altText
+                    ?.altText
+                }
+                alt={
+                  exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
+                    ?.title
                 }
                 objectFit="fill"
               />
@@ -96,11 +100,15 @@ const HomeExhibitionsElement = ({
             <GatsbyImage
               image={getImage(
                 exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
-                  .localFile
+                  ?.localFile
               )}
               alt={
                 exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
-                  .altText
+                  ?.altText
+              }
+              alt={
+                exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
+                  ?.title
               }
             />
           )}

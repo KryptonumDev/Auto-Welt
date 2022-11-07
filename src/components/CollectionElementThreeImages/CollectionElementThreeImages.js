@@ -15,6 +15,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
               key={index}
               image={getImage(image?.localFile)}
               alt={image?.altText}
+              title={image?.title}
             />
           ))}
       </div>

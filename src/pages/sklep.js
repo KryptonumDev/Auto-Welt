@@ -35,6 +35,7 @@ export const query = graphql`
         opisPodTytulami
         glowneZdjecie {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -53,6 +54,7 @@ export const query = graphql`
         }
         zdjeciePlastra {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -61,6 +63,7 @@ export const query = graphql`
         }
         zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData

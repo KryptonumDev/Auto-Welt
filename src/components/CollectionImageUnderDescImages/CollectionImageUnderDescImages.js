@@ -15,6 +15,7 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
           <GatsbyImage
             image={getImage(imagesData.prostokatneZdjeciePodOpisem?.localFile)}
             alt={imagesData.prostokatneZdjeciePodOpisem?.altText}
+            title={imagesData.prostokatneZdjeciePodOpisem?.title}
           />
         )}
       </StyledTopImage>
@@ -25,6 +26,7 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
               imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.localFile
             )}
             alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.altText}
+            title={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.title}
           />
         )}
       </StyledBottomImage>

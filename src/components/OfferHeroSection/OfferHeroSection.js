@@ -41,6 +41,7 @@ const OfferHeroSection = ({ dataOffer }) => {
               <GatsbyImage
                 image={getImage(dataOffer.pierwszeZdjeciePoLewo?.localFile)}
                 alt={dataOffer.pierwszeZdjeciePoLewo?.altText}
+                title={dataOffer.pierwszeZdjeciePoLewo?.title}
               />
             )}
           </div>
@@ -49,6 +50,7 @@ const OfferHeroSection = ({ dataOffer }) => {
               <GatsbyImage
                 image={getImage(dataOffer.drugieZdjeciePoLewo?.localFile)}
                 alt={dataOffer.drugieZdjeciePoLewo?.altText}
+                title={dataOffer.drugieZdjeciePoLewo?.title}
               />
             )}
           </div>
@@ -57,6 +59,7 @@ const OfferHeroSection = ({ dataOffer }) => {
               <GatsbyImage
                 image={getImage(dataOffer.trzecieZdjeciePoLewo?.localFile)}
                 alt={dataOffer.trzecieZdjeciePoLewo?.altText}
+                title={dataOffer.trzecieZdjeciePoLewo?.title}
               />
             )}
           </div>

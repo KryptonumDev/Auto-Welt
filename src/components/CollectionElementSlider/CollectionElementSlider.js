@@ -78,7 +78,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                   animate={{ x: 0 }}
                   transition={{ type: "spring", stiffness: 100 }}
                 >
-                  <GatsbyImage image={getImage(e.localFile)} alt={e.altText} />
+                  <GatsbyImage image={getImage(e.localFile)} alt={e.altText} title={e.title} />
                 </StyledImage>
               </AnimatePresence>
             ))}

@@ -29,6 +29,7 @@ const HomeCollections = () => {
               nazwaKolekcji
               miniaturka {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -37,6 +38,7 @@ const HomeCollections = () => {
               }
               tloDlaMiniaturkiNaStroneGlowna {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -54,6 +56,7 @@ const HomeCollections = () => {
             tytulSekcji
             duzeZdjeciePrzyczepioneDoPrawejKrawedzi {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -68,6 +71,7 @@ const HomeCollections = () => {
             }
             tloDlaZielonegoProstokatu {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -76,6 +80,7 @@ const HomeCollections = () => {
             }
             tloMobileDlaZielonegoProsotkatu {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -84,6 +89,7 @@ const HomeCollections = () => {
             }
             tloTabletDlaZielonegoProsotkatu {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -148,11 +154,15 @@ const HomeCollections = () => {
               <GatsbyImage
                 image={getImage(
                   wpPage.homepage.kolekcje
-                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi.localFile
+                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi?.localFile
                 )}
                 alt={
                   wpPage.homepage.kolekcje
-                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi.altText
+                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi?.altText
+                }
+                title={
+                  wpPage.homepage.kolekcje
+                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi?.title
                 }
                 objectFit="fill"
               />

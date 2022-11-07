@@ -91,6 +91,10 @@ const ExhibitionHeroSection = ({ heroData }) => {
               heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
                 ?.duzeZdjeciePoPrawo?.altText
             }
+            title={
+              heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
+                ?.duzeZdjeciePoPrawo?.title
+            }
           />
         </StyledImageWrapper>
       </StyledRightWrapper>

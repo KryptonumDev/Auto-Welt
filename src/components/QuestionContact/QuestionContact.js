@@ -20,6 +20,7 @@ const QuestionContact = () => {
           sekcjaSkontaktujSieZeMna {
             zdjecieTla {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -28,6 +29,7 @@ const QuestionContact = () => {
             }
             tloWProstokacie {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -56,6 +58,9 @@ const QuestionContact = () => {
             alt={
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.altText
             }
+            title={
+              data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.title
+            }
           />
         )}
       </StyledImageContactWrapper>
@@ -71,6 +76,10 @@ const QuestionContact = () => {
               alt={
                 data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie
                   .altText
+              }
+              title={
+                data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie
+                  .title
               }
               objectFit="fill"
             />

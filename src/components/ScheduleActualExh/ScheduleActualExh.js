@@ -37,6 +37,7 @@ const ScheduleActualExh = ({ dataActual }) => {
                 miejsce
                 tloDlaMiejscaIDaty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -47,6 +48,7 @@ const ScheduleActualExh = ({ dataActual }) => {
                 tytulPodZdjeciem
                 zdjecieDoMiniaturki {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

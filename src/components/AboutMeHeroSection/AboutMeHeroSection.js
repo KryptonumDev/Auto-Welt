@@ -29,12 +29,14 @@ const AboutMeHeroSection = ({ heroData }) => {
             <GatsbyImage
               image={getImage(heroData.plasterNadPierwszymZdjeciem?.localFile)}
               alt={heroData.plasterNadPierwszymZdjeciem?.altText}
+              title={heroData.plasterNadPierwszymZdjeciem?.title}
             />
           </StyledTopPlaster>
           <StyledTopImage>
             <GatsbyImage
               image={getImage(heroData.pierwszeZdjecie?.localFile)}
               alt={heroData.pierwszeZdjecie?.altText}
+              title={heroData.pierwszeZdjecie?.title}
             />
           </StyledTopImage>
         </StyledTopImages>
@@ -43,12 +45,14 @@ const AboutMeHeroSection = ({ heroData }) => {
             <GatsbyImage
               image={getImage(heroData.plasterNadDrugimZdjeciem?.localFile)}
               alt={heroData.plasterNadDrugimZdjeciem?.altText}
+              title={heroData.plasterNadDrugimZdjeciem?.title}
             />
           </StyledBottomPlaster>
           <StyledBottomImage>
             <GatsbyImage
               image={getImage(heroData.drugieZdjecie?.localFile)}
               alt={heroData.drugieZdjecie?.altText}
+              title={heroData.drugieZdjecie?.title}
             />
           </StyledBottomImage>
         </StyledBottomImages>

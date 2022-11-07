@@ -103,6 +103,7 @@ export const query = graphql`
           tytul
           zdjecieKsiazki {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -119,6 +120,7 @@ export const query = graphql`
           }
           zdjecieTlaDesktop {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -127,6 +129,7 @@ export const query = graphql`
           }
           zdjecieTlaMobile {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -135,6 +138,7 @@ export const query = graphql`
           }
           zdjecieTlaTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -153,6 +157,7 @@ export const query = graphql`
           tytulPoPrawo
           trzecieZdjeciePoLewo {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -166,6 +171,7 @@ export const query = graphql`
           }
           pierwszeZdjeciePoLewo {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -175,6 +181,7 @@ export const query = graphql`
           opis
           drugieZdjeciePoLewo {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -183,6 +190,7 @@ export const query = graphql`
           }
           tloDesktopDlaOpisu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -191,6 +199,7 @@ export const query = graphql`
           }
           tloMobileDlaOpisu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -199,6 +208,7 @@ export const query = graphql`
           }
           tloTabletDlaOpisu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData

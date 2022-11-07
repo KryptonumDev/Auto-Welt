@@ -25,6 +25,7 @@ const HomeHeroSection = () => {
         homepage {
           duzeZdjecieSrodkowe {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -43,6 +44,7 @@ const HomeHeroSection = () => {
           }
           maleZdjecia {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -66,11 +68,13 @@ const HomeHeroSection = () => {
         return lImages.push({
           localFile: getImage(image.localFile),
           alt: image.altText,
+          title: image.title,
         });
       } else {
         return rImages.push({
           localFile: getImage(image.localFile),
           alt: image.altText,
+          title: image.title,
         });
       }
     });
@@ -86,6 +90,7 @@ const HomeHeroSection = () => {
             <GatsbyImage
               image={image.localFile}
               alt={image.altText}
+              title={image.title}
               objectFit="fill"
             />
           </StyledImageWrapper>
@@ -95,7 +100,8 @@ const HomeHeroSection = () => {
         <StyledHeroImage>
           <GatsbyImage
             image={heroImage}
-            alt={wpPage.homepage?.duzeZdjecieSrodkowe.altText}
+            alt={wpPage.homepage?.duzeZdjecieSrodkowe?.altText}
+            title={wpPage.homepage?.duzeZdjecieSrodkowe?.title}
           />
         </StyledHeroImage>
         {width > 768 ? (
@@ -133,10 +139,11 @@ const HomeHeroSection = () => {
       </StyledHeroImageWrapper>
       <StyledImagesRightWrapper>
         {rightImages?.map((image) => (
-          <StyledImageWrapper key={image.altText}>
+          <StyledImageWrapper key={image?.altText}>
             <GatsbyImage
               image={image.localFile}
-              alt={image.altText}
+              alt={image?.altText}
+              title={image?.title}
               objectFit="fill"
             />
           </StyledImageWrapper>

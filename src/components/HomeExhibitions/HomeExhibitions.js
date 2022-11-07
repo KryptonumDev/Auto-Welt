@@ -32,6 +32,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
                 tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
                 tloDlaMiejscaIDaty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -41,6 +42,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
                 tytulPodZdjeciem
                 zdjecieDoMiniaturki {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

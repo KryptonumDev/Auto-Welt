@@ -90,6 +90,7 @@ export const query = graphql`
               kolejnoscWyswietlania
               duzaMiniaturka {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -101,6 +102,7 @@ export const query = graphql`
               tytulNaDuzejMiniaturce
               tloDlaTytuluWDuzejMiniaturce {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -138,6 +140,7 @@ export const query = graphql`
         }
         tloDlaZielonegoProstokataPodKolekcjami {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -146,6 +149,7 @@ export const query = graphql`
         }
         tloMobileDlaZielonegoProstokataPodKolekcjami {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -154,6 +158,7 @@ export const query = graphql`
         }
         tloTabletDlaZielonegoProstokataPodKolekcjami {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData

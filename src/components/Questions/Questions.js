@@ -18,6 +18,7 @@ const Questions = ({ isContactPage }) => {
               odpowiedz
               zdjecieTla {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -26,6 +27,7 @@ const Questions = ({ isContactPage }) => {
               }
               zdjecieTlaMobile {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData
@@ -34,6 +36,7 @@ const Questions = ({ isContactPage }) => {
               }
               zdjecieTlaTablet {
                 altText
+                title
                 localFile {
                   childImageSharp {
                     gatsbyImageData

@@ -38,7 +38,8 @@ const GoogleMapsContact = ({ mapData }) => {
           <StyledGoogleMapsWrapper>
             <GatsbyImage
               image={images}
-              alt={mapData.zdjecieMapyDesktop.altText}
+              alt={mapData.zdjecieMapyDesktop?.altText}
+              title={mapData.zdjecieMapyDesktop?.title}
             />
           </StyledGoogleMapsWrapper>
         </a>

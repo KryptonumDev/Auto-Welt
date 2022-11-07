@@ -22,11 +22,15 @@ const OfferEvent = ({ offerData, slug }) => {
           <GatsbyImage
             image={getImage(
               offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                .wiekszaMiniaturkaNaStroneOferty.localFile
+                .wiekszaMiniaturkaNaStroneOferty?.localFile
             )}
             alt={
               offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                .wiekszaMiniaturkaNaStroneOferty.altText
+                .wiekszaMiniaturkaNaStroneOferty?.altText
+            }
+            title={
+              offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                .wiekszaMiniaturkaNaStroneOferty?.title
             }
           />
         )}

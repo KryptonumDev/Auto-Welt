@@ -28,6 +28,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
                 tytul
                 miniaturka {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -44,6 +45,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
           artykuly {
             zdjecieTlaWZielonymProstokacie {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -59,6 +61,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
             }
             zdjecieTlaWZielonymProstokacieMobile {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -67,6 +70,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
             }
             zdjecieTlaWZielonymProstokacieTablet {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData

@@ -20,6 +20,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
           <StyledGatsbyImage
             image={getImage(heroData.zdjecieGlowne?.localFile)}
             alt={heroData.zdjecieGlowne?.altText}
+            title={heroData.zdjecieGlowne?.title}
           />
         )}
       </StyledHeroImage>
@@ -31,6 +32,9 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
             )}
             alt={
               heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.altText
+            }
+            title={
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.title
             }
           />
         </StyledTitleImageWraper>

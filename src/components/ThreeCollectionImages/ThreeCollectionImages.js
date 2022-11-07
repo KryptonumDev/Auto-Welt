@@ -16,6 +16,7 @@ const ThreeCollectionImages = ({ imagesData }) => {
               <GatsbyImage
                 image={getImage(image?.localFile)}
                 alt={image?.altText}
+                title={image?.title}
               />
             </StyledImageWrapper>
           );

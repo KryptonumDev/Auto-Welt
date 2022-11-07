@@ -48,7 +48,8 @@ const NotFoundPage = ({ data }) => {
         <StyledImageRightWrapper>
           <GatsbyImage
             image={getImage(queryData.zdjeciePoPrawo.localFile)}
-            alt={queryData.zdjeciePoPrawo.altText}
+            alt={queryData.zdjeciePoPrawo?.altText}
+            title={queryData.zdjeciePoPrawo?.title}
           />
         </StyledImageRightWrapper>
       </StyledRightWrapper>
@@ -83,6 +84,7 @@ export const query = graphql`
         }
         zdjeciePoPrawo {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData

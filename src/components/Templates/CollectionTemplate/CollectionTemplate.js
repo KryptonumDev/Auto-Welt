@@ -94,6 +94,7 @@ export const query = graphql`
         dedykowanaStronaDlaKolekcji {
           zdjecieWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -102,6 +103,7 @@ export const query = graphql`
           }
           zdjeciePojazduPrzyczepioneDoPrawejKrawedzi {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -110,6 +112,7 @@ export const query = graphql`
           }
           zdjeciaDoSlidera {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -128,9 +131,11 @@ export const query = graphql`
               }
             }
             altText
+            title
           }
           trzyMaleZdjeciaModeli {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -154,6 +159,7 @@ export const query = graphql`
             kolorowyTytulNaZieloneTlo
             zdjecieGlowne {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -162,6 +168,7 @@ export const query = graphql`
             }
             zdjecieDlaZielonegoElementuPodGlownymZdjeciem {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -176,6 +183,7 @@ export const query = graphql`
           }
           zdjecieMobileWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -184,6 +192,7 @@ export const query = graphql`
           }
           zdjecieTabletWZielonymProstokaciePolecajacyInnaKolekcje {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -193,6 +202,7 @@ export const query = graphql`
           opisKolekcji
           zdjecieObokOpisu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData

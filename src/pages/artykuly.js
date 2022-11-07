@@ -69,6 +69,7 @@ export const query = graphql`
           }
           zdjecieTlaDlaZielonegoProstokataMobile {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -77,6 +78,7 @@ export const query = graphql`
           }
           zdjecieTlaDlaZielonegoProstokataTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -85,6 +87,7 @@ export const query = graphql`
           }
           zdjecieTlaDlaZielonegoProstokatu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -98,6 +101,7 @@ export const query = graphql`
                 informacjeGlowne {
                   duzaMiniaturka {
                     altText
+                    title
                     localFile {
                       childImageSharp {
                         gatsbyImageData
@@ -117,6 +121,7 @@ export const query = graphql`
                 informacjeGlowne {
                   duzaMiniaturka {
                     altText
+                    title
                     localFile {
                       childImageSharp {
                         gatsbyImageData

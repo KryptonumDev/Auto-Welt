@@ -24,6 +24,7 @@ const FooterRightWrapper = ({ footerData }) => {
                 tytulPodZdjeciem
                 zdjecieDoMiniaturki {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

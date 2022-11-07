@@ -28,6 +28,7 @@ export const query = graphql`
         dedykowanaStronaArtykulu {
           galeriaNaKoncuArtykulu {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -37,6 +38,7 @@ export const query = graphql`
           pierwszaSekcja {
             duzeZdjecie {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -74,6 +76,7 @@ export const query = graphql`
                 informacjeDoMiniaturki {
                   miniaturka {
                     altText
+                    title
                     localFile {
                       childImageSharp {
                         gatsbyImageData

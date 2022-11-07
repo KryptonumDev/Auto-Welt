@@ -41,6 +41,7 @@ export const query = graphql`
         sekcjaPowitalna {
           powitalneZdjecieMobile {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -49,6 +50,7 @@ export const query = graphql`
           }
           powitalneZdjecieTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -58,6 +60,7 @@ export const query = graphql`
           tekstNaTlePowitalnegoZdjecia
           tloDlaTekstuNaTlePowitalnegoZdjecia {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -66,6 +69,7 @@ export const query = graphql`
           }
           powitalneZdjecieDesktop {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData

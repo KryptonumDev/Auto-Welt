@@ -66,6 +66,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                   collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
                     .informacjeGlowne.duzaMiniaturka?.altText
                 }
+                title={
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.title
+                }
               />
             </StyledImageWrapper>
             <StyledTextWrapper>
@@ -100,6 +104,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 alt={
                   collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
                     .informacjeGlowne.duzaMiniaturka?.altText
+                }
+                title={
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.duzaMiniaturka?.title
                 }
               />
             </StyledImageWrapper>

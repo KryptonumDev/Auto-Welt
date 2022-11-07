@@ -41,6 +41,7 @@ const HomeContact = () => {
             podpisPodObszaremDoWyslaniaWiadomosci
             lewyObrazek {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -49,6 +50,7 @@ const HomeContact = () => {
             }
             zdjecieTytulu {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -57,6 +59,7 @@ const HomeContact = () => {
             }
             lewyObrazekTablet {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -76,6 +79,7 @@ const HomeContact = () => {
             }
             lewyObrazekTabletSamochody {
               altText
+              title
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -96,8 +100,9 @@ const HomeContact = () => {
           {width > 973 ? (
             imageShort.lewyObrazek.localFile && (
               <GatsbyImage
-                image={getImage(imageShort.lewyObrazek.localFile)}
-                alt={imageShort.lewyObrazek.altText}
+                image={getImage(imageShort.lewyObrazek?.localFile)}
+                alt={imageShort.lewyObrazek?.altText}
+                title={imageShort.lewyObrazek?.title}
                 objectFit="fill"
               />
             )
@@ -105,16 +110,18 @@ const HomeContact = () => {
             <>
               <StyledBackgroundCar>
                 <GatsbyImage
-                  image={getImage(imageShort.lewyObrazekTablet.localFile)}
-                  alt={imageShort.lewyObrazekTablet.altText}
+                  image={getImage(imageShort.lewyObrazekTablet?.localFile)}
+                  alt={imageShort.lewyObrazekTablet?.altText}
+                  title={imageShort.lewyObrazekTablet?.title}
                 />
               </StyledBackgroundCar>
               <StyledCarBgImage>
                 <GatsbyImage
                   image={getImage(
-                    imageShort.lewyObrazekTabletSamochody.localFile
+                    imageShort.lewyObrazekTabletSamochody?.localFile
                   )}
-                  alt={imageShort.lewyObrazekTabletSamochody.altText}
+                  alt={imageShort.lewyObrazekTabletSamochody?.altText}
+                  title={imageShort.lewyObrazekTabletSamochody?.title}
                 />
               </StyledCarBgImage>
             </>
@@ -190,7 +197,8 @@ const HomeContact = () => {
                 {imageShort.zdjecieTytulu.localFile && (
                   <GatsbyImage
                     image={getImage(imageShort?.zdjecieTytulu?.localFile)}
-                    alt={imageShort?.zdjecieTytulu.altText}
+                    alt={imageShort?.zdjecieTytulu?.altText}
+                    title={imageShort?.zdjecieTytulu?.title}
                     objectFit="fill"
                   />
                 )}

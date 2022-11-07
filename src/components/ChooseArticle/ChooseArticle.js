@@ -35,6 +35,9 @@ const ChooseArticle = ({ chosenArticle }) => {
             alt={
               chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText
             }
+            title={
+              chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.title
+            }
           />
         </StyledImageWrapper>
         <StyledTextWrapper>

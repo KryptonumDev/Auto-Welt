@@ -19,6 +19,7 @@ const CollectionTemplateDesc = ({ descData }) => {
           <GatsbyImage
             image={getImage(descData.zdjecieObokOpisu?.localFile)}
             alt={descData.zdjecieObokOpisu?.altText}
+            title={descData.zdjecieObokOpisu?.title}
           />
         )}
       </StyledImageWrapper>

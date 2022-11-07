@@ -22,6 +22,7 @@ const FooterCenterWrapper = ({ footerData }) => {
                 tytul
                 miniaturka {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

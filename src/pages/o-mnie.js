@@ -67,6 +67,7 @@ query AboutMeQuery {
       drugaSekcja {
         drugieZdjeciePoPrawo {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -86,6 +87,7 @@ query AboutMeQuery {
         }
         pierwszeZdjeciePoPrawo {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -96,6 +98,7 @@ query AboutMeQuery {
         tytul
         zdjecieDlaZielonegoElementuPodOpisem {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -104,6 +107,7 @@ query AboutMeQuery {
         }
         zdjecieMobileDlaZielonegoElementuPodOpisem {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -112,6 +116,7 @@ query AboutMeQuery {
         }
         zdjecieTabletDlaZielonegoElementuPodOpisem {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -123,6 +128,7 @@ query AboutMeQuery {
         tekstPrzyIkonceAparatu
         trzyZdjecia {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -131,6 +137,7 @@ query AboutMeQuery {
         }
         zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -145,6 +152,7 @@ query AboutMeQuery {
         opis
         drugieZdjecie {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -153,6 +161,7 @@ query AboutMeQuery {
         }
         pierwszeZdjecie {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -161,6 +170,7 @@ query AboutMeQuery {
         }
         plasterNadDrugimZdjeciem {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -169,6 +179,7 @@ query AboutMeQuery {
         }
         plasterNadPierwszymZdjeciem {
           altText
+          title
           localFile {
             childImageSharp {
               gatsbyImageData

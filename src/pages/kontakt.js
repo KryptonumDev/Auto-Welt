@@ -48,7 +48,11 @@ const Contact = ({ data }) => {
             )}
             alt={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.duzejZdjecie
-                .altText
+                ?.altText
+            }
+            title={
+              data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.duzejZdjecie
+                ?.title
             }
           />
         </StyledBigImage>
@@ -120,6 +124,7 @@ export const query = graphql`
           linkDoStronyZAdresemFirmy
           zdjecieMapyDesktop {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -135,6 +140,7 @@ export const query = graphql`
           }
           zdjecieMapyTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -150,6 +156,7 @@ export const query = graphql`
           trescPrzyciskuPotwierdzajacegoWyslanie
           zdjecieDlaFormularza {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -158,6 +165,7 @@ export const query = graphql`
           }
           zdjecieDlaTytuluFormularza {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -171,6 +179,7 @@ export const query = graphql`
           tytulPolaTrescWiadomosci
           zdjecieDoFormularzaMobile {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -179,6 +188,7 @@ export const query = graphql`
           }
           zdjecieDoFormularzaTablet {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -199,6 +209,7 @@ export const query = graphql`
           }
           duzejZdjecie {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData

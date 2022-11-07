@@ -37,6 +37,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
                 miejsce
                 tloDlaMiejscaIDaty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -47,6 +48,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
                 tytulPodZdjeciem
                 zdjecieDoMiniaturki {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData

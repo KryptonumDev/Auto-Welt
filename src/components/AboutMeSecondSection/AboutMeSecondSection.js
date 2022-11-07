@@ -37,6 +37,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               <GatsbyImage
                 image={getImage(secondData.pierwszeZdjeciePoPrawo?.localFile)}
                 alt={secondData.pierwszeZdjeciePoPrawo?.altText}
+                title={secondData.pierwszeZdjeciePoPrawo?.title}
               />
             )}
           </StyledTopImage>
@@ -45,6 +46,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               <GatsbyImage
                 image={getImage(secondData.drugieZdjeciePoPrawo?.localFile)}
                 alt={secondData.drugieZdjeciePoPrawo?.altText}
+                title={secondData.drugieZdjeciePoPrawo?.title}
               />
             )}
           </StyledBottomImage>

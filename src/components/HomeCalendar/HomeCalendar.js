@@ -27,6 +27,7 @@ const HomeCalendar = () => {
           }
           zdjecieSamochoduNadStopka {
             altText
+            title
             localFile {
               childImageSharp {
                 gatsbyImageData
@@ -103,6 +104,7 @@ const HomeCalendar = () => {
               data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
             )}
             alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText}
+            title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         )}
       </StyledFooterCar>

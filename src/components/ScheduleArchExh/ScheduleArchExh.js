@@ -40,6 +40,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                 miejsce
                 tloDlaMiejscaIDaty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -50,6 +51,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                 tytulPodZdjeciem
                 zdjecieDoMiniaturki {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -60,6 +62,7 @@ const ScheduleArchExh = ({ dataArch }) => {
               stronaOfertaInformacjeDlaElementowWSekcjiEventy {
                 wiekszaMiniaturkaNaStroneOferty {
                   altText
+                  title
                   localFile {
                     childImageSharp {
                       gatsbyImageData
@@ -127,12 +130,17 @@ const ScheduleArchExh = ({ dataArch }) => {
                       image={getImage(
                         node.wystawa
                           .stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                          .wiekszaMiniaturkaNaStroneOferty.localFile
+                          .wiekszaMiniaturkaNaStroneOferty?.localFile
                       )}
                       alt={
                         node.wystawa
                           .stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                          .wiekszaMiniaturkaNaStroneOferty.altText
+                          .wiekszaMiniaturkaNaStroneOferty?.altText
+                      }
+                      title={
+                        node.wystawa
+                          .stronaOfertaInformacjeDlaElementowWSekcjiEventy
+                          .wiekszaMiniaturkaNaStroneOferty?.title
                       }
                       objectFit="cover"
                     />
