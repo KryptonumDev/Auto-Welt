@@ -34,7 +34,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
       </StyledImage>
       {buttonText && (
         <Button
-          text={buttonText.toUpperCase()}
+          text={buttonText}
           textColor="var(--white)"
           bgColor="var(--primary500)"
           hasMaxWidth="323px"
