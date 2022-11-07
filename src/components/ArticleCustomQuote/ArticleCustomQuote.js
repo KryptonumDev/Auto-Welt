@@ -11,7 +11,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const ArticleCustomQuote = ({ quoteText }) => {
   return (
-    <StyledArticleCustomQuote>
+    <StyledArticleCustomQuote className="customQuote">
       <StyledIconWrapper>
         <StaticImage src="../../images/quote.png" />
       </StyledIconWrapper>

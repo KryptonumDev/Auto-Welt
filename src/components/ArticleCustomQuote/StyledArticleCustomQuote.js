@@ -12,6 +12,7 @@ export const StyledArticleCustomQuote = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 35px;
+  margin: 40px 0 !important;
 `;
 
 export const StyledIconWrapper = styled.div``;

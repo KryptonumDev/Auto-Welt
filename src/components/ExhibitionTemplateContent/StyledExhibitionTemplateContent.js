@@ -37,9 +37,61 @@ export const StyledAsideWrapper = styled.div`
 `;
 
 export const StyledContentWrapper = styled.div`
-  width: calc(60% - 35px);
+width: calc(60% - 35px);
   font-family: "Roboto Condensed";
   font-size: 24px;
+
+  p + h2,
+  p + h3,
+  p + figure,
+  h2 + figure,
+  h3 + figure,
+  ul + figure,
+  ol + figure,
+  div +  figure {
+    margin-top: 40px;
+  }
+
+  p + .customQuote,
+  .customQuote + p {
+    margin-top: 40px;
+  }
+
+  figure + h2,
+  figure + h3,
+  figure + div,
+  figure + ol,
+  figure + ul{
+    margin-top: 60px;
+  }
+
+  figure + p,
+  ul + p,
+  h2 + p,
+  h3 + p,
+  p + div,
+  div + h2,
+  p + p,
+  p + ul,
+  p + ol{
+    margin-top: 1.25rem;
+  }
+
+  p + .wp-block-columns,
+  h2 + .wp-block-columns,
+  h3 + .wp-block-columns,
+  ul + .wp-block-columns,
+  ol + .wp-block-columns,
+  figure + .wp-block-columns,
+  div + .wp-block-columns,
+  .wp-block-columns + h2,
+  .wp-block-columns + h3,
+  .wp-block-columns + ul,
+  .wp-block-columns + ol,
+  .wp-block-columns + figure,
+  .wp-block-columns + div{
+    margin-top: 37px;
+  }
 
   .has-text-align-right {
     text-align: right;
@@ -47,6 +99,7 @@ export const StyledContentWrapper = styled.div`
     margin-top: 20px;
     font-family: "Nocturne Serif";
   }
+
   strong,
   em {
     position: relative;
@@ -65,10 +118,6 @@ export const StyledContentWrapper = styled.div`
     }
   }
 
-  .wp-block-image.size-full{
-    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
-  }
-
   h1,
   h2,
   h3,
@@ -77,6 +126,7 @@ export const StyledContentWrapper = styled.div`
   h6 {
     color: #23423d;
     font-family: "Nocturne Serif";
+    font-weight: 500;
   }
 
   h2 {
@@ -91,6 +141,12 @@ export const StyledContentWrapper = styled.div`
   ol {
     margin-left: 9px;
     padding-left: 12px;
+  }
+
+  .wp-block-image.size-full{
+    img{
+      filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+    }
   }
 
   > p {
@@ -144,6 +200,37 @@ export const StyledContentWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     font-size: 20px;
+
+    p + h2,
+    p + h3,
+    p + figure,
+    h2 + figure,
+    h3 + figure,
+    ul + figure,
+    ol + figure,
+    div +  figure {
+      margin-top: 30px;
+    }
+
+    figure + h2,
+    figure + h3,
+    figure + div,
+    figure + ol,
+    figure + ul{
+      margin-top: 40px;
+    }
+
+    .wp-block-column + .wp-block-column{
+      margin-top: 20px;
+    }
+    
+    > p {
+      &:first-of-type {
+        &:first-letter {
+          font-size: 40px;
+        }
+      }
+    }
   }
 
   @media only screen and (max-width: 660px) {
