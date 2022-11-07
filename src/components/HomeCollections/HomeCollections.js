@@ -1,6 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
+import parse from "html-react-parser";
 
 import RecInfoWithButton from "../RecInfoWithButton/RecInfoWithButton";
 import HomeCollectionElement from "../HomeCollectionElement/HomeCollectionElement";
@@ -137,7 +138,7 @@ const HomeCollections = () => {
                     .tloDlaMiniaturkiNaStroneGlowna
                 }
                 image={kolekcja.kolekcja.informacjeGlowne.miniaturka}
-                buttonText={kolekcja.kolekcja.informacjeGlowne.nazwaKolekcji}
+                buttonText={parse(kolekcja.kolekcja.informacjeGlowne.nazwaKolekcji)}
                 whereGo={kolekcja.slug}
               />
             ))}

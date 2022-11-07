@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 import { StyledText } from "../Text/StyledText";
@@ -47,7 +48,7 @@ const ModelCollection = ({ collectionData, slug }) => {
           as="h2"
         >
           {shortDataKey.tytulNaDuzejMiniaturce &&
-            shortDataKey.tytulNaDuzejMiniaturce}
+            parse(shortDataKey.tytulNaDuzejMiniaturce)}
         </StyledText>
       </StyledTitle>
       <StyledButtonSpace>
