@@ -19,9 +19,13 @@ export const StyledFooterCenterWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 51px;
+    padding: 0;
 
     > div {
+      &:first-child{
+        padding: 0 51px;
+      }
+      
       > p {
         text-align: center;
       }
