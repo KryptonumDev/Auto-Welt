@@ -87,11 +87,12 @@ export const StyledTitleWrapper = styled.div`
         content: "";
         width: 100%;
         background: #f6e2ba;
-        height: 15px;
+        height: 0.5em;
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: -1;
+        display: inline-block;
       }
     }
   }
@@ -107,7 +108,6 @@ export const StyledDescWrapper = styled.div`
   strong,
   em {
     position: relative;
-    z-index: 1;
     font-weight: normal;
     font-style: normal;
 
@@ -115,11 +115,12 @@ export const StyledDescWrapper = styled.div`
       content: "";
       width: 100%;
       background: #f6e2ba;
-      height: 15px;
+      height: 0.5em;
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: -1;
+      display: inline-block;
     }
   }
 

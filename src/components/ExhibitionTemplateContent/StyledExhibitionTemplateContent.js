@@ -110,11 +110,12 @@ width: calc(60% - 35px);
       content: "";
       width: 100%;
       background: #f6e2ba;
-      height: 15px;
+      height: 0.5em;
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: -1;
+      display: inline-block;
     }
   }
 
