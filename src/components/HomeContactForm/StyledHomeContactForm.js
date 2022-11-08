@@ -44,6 +44,7 @@ export const StyledInputWrapper = styled.div`
     padding: 0 14px;
     font-family: "Roboto Condensed";
     margin-top: 4px;
+    border-radius: 0;
 
     &:focus-visible {
       outline-width: 1px;
