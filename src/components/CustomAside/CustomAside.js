@@ -94,7 +94,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
         </StyledButtonsWrapper>
       </StyledChooseCollections>
       <StyledBgContents>
-        <StaticImage src="../../images/asideBg.png" objectFit="fill" />
+        <StaticImage src="../../images/asideBg.png" objectFit="fill" alt="tło" />
       </StyledBgContents>
     </StyledCustomAside>
   );

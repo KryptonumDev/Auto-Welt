@@ -74,7 +74,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
             </StyledImageWrapper>
             <StyledTextWrapper>
               <StyledTitleImage>
-                <StaticImage src="../../images/polecanaKolekcja.png" />
+                <StaticImage src="../../images/polecanaKolekcja.png" alt="tło" />
               </StyledTitleImage>
               <StyledTitleWrapper>
                 <StyledText
@@ -113,7 +113,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
             </StyledImageWrapper>
             <StyledTextWrapper>
               <StyledTitleImage>
-                <StaticImage src="../../images/polecanaKolekcja.png" />
+                <StaticImage src="../../images/polecanaKolekcja.png" alt="tło" />
               </StyledTitleImage>
               <StyledTitleWrapper>
                 <StyledText

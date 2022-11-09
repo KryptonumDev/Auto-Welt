@@ -13,7 +13,7 @@ const ArticleCustomQuote = ({ quoteText }) => {
   return (
     <StyledArticleCustomQuote className="customQuote">
       <StyledIconWrapper>
-        <StaticImage src="../../images/quote.png" />
+        <StaticImage src="../../images/quote.png" alt="quote"/>
       </StyledIconWrapper>
       <StyledTextWrapper>{quoteText && parse(quoteText)}</StyledTextWrapper>
     </StyledArticleCustomQuote>

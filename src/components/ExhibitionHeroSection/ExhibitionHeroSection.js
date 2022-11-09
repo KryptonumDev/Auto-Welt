@@ -29,6 +29,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
             <StaticImage
               src="../../images/wystawaBgActual.png"
               objectFit="fill"
+              alt="tło"
             />
           </StyledTagImage>
           <StyledText
@@ -64,7 +65,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
         </StyledTextWrapper>
         <StyledDataWrapper>
           <StyledDataImage>
-            <StaticImage src="../../images/wydarzenieData.png" />
+            <StaticImage src="../../images/wydarzenieData.png" alt="tło"/>
           </StyledDataImage>
           <StyledText
             hasdeclaredfontfamily="Nocturne Serif"

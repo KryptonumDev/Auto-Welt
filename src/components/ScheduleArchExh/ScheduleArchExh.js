@@ -148,7 +148,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                 </StyledImage>
                 <StyledInfoWrapper>
                   <StyledBgWrapper>
-                    <StaticImage src="../../images/wystawyArchiwalneTło.png" />
+                    <StaticImage src="../../images/wystawyArchiwalneTło.png" alt="tło" />
                   </StyledBgWrapper>
                   <StyledDataWrapper>
                     <StyledText

@@ -42,7 +42,7 @@ const ChooseArticle = ({ chosenArticle }) => {
         </StyledImageWrapper>
         <StyledTextWrapper>
           <StyledBgWrapper>
-            <StaticImage src="../../images/tloPolecenia.png" />
+            <StaticImage src="../../images/tloPolecenia.png" alt="tło" />
           </StyledBgWrapper>
           <StyledText
             hasdeclaredfontweight="500"

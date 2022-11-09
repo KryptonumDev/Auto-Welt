@@ -32,7 +32,7 @@ const ArticleHeroSection = ({ heroData }) => {
       </StyledImage>
       <StyledTag>
         <StyledTagImage>
-          <StaticImage src="../../images/tagImage.png" objectFit="fill" />
+          <StaticImage src="../../images/tagImage.png" objectFit="fill" alt="tag" />
         </StyledTagImage>
         <StyledText
           hasdeclaredfontsize="18px"
@@ -44,7 +44,7 @@ const ArticleHeroSection = ({ heroData }) => {
       </StyledTag>
       <StyledTextWrapper>
         <StyledTextImage>
-          <StaticImage src="../../images/artykulTitleImage.png" />
+          <StaticImage src="../../images/artykulTitleImage.png" alt="tło" />
         </StyledTextImage>
         <StyledText
           as="h1"

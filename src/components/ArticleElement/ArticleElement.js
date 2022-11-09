@@ -33,6 +33,7 @@ const ArticleElement = ({ articleData }) => {
           <StaticImage
             src="../../images/tloDlaMiniaturkiArtykulu.png"
             objectFit="fill"
+            alt="tło"
           />
         </StyledBgWrapper>
         <StyledDate>
