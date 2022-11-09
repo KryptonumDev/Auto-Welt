@@ -102,6 +102,7 @@ const OfferEvents = ({ dataEvents }) => {
             hasTarget={dataEvents.przyciskPoLewo?.target}
             bgColor="var(--background500)"
             hoverBgColor="#F6E2BA"
+            ariaLabel="link"
           />
         )}
         {dataEvents?.przyciskPoPrawo.url && (
@@ -115,6 +116,7 @@ const OfferEvents = ({ dataEvents }) => {
             hasDeclaredPadding="8px 33px"
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         )}
       </StyledEventsButtonWrapper>

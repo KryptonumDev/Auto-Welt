@@ -103,6 +103,7 @@ const SchedulePlanExh = ({ dataPlan }) => {
           hasFontSize="21px"
           hoverBgColor="var(--secondary700)"
           hasBorder="2px solid transparent"
+          ariaLabel="link"
         />
       </StyledButtonsWrapper>
     </StyledSchedulePlanExh>

@@ -137,6 +137,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
               hasDeclaredPadding="8px 33px"
               bgColor="var(--background500)"
               hoverBgColor="#F6E2BA"
+              ariaLabel="link"
             />
           ) : null}
         </StyledButtonWrapper>

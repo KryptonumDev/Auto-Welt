@@ -74,6 +74,7 @@ const Contact = ({ data }) => {
                 .target
             }
             hoverBgColor="#F6E2BA"
+            ariaLabel="link"
           />
           <Button
             whereGo={
@@ -93,6 +94,7 @@ const Contact = ({ data }) => {
             }
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         </StyledButtonsWrapper>
       </StyledBottomSection>

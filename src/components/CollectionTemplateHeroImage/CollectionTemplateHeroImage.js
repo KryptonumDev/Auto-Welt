@@ -51,6 +51,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
           hasFontWeight="700"
           hasFontSize="21px"
           hasTarget={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.target}
+          ariaLabel="link"
         />
       )}
     </StyledCollectionTemplateHeroImage>

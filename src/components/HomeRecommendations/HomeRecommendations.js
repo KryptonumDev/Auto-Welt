@@ -180,6 +180,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                 ?.przyciskLewy?.target
             }
             hoverBgColor="#F6E2BA"
+            ariaLabel="link"
           />
         )}
         {wpPage.globalConfig.informacjeDoRekomendacjiNaStronieGlownej
@@ -203,6 +204,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                 ?.przyciskPrawy?.target
             }
             hoverBgColor="var(--primary900)"
+            ariaLabel="link"
           />
         )}
       </StyledButtonsWrapper>

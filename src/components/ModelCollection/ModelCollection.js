@@ -65,6 +65,7 @@ const ModelCollection = ({ collectionData, slug }) => {
             hasFontWeight="700"
             hasDeclaredPadding="8px 33px"
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         )}
       </StyledButtonSpace>

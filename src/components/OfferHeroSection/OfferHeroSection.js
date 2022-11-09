@@ -90,6 +90,7 @@ const OfferHeroSection = ({ dataOffer }) => {
                 hoverBgColor="var(--primary900)"
                 hasTarget={dataOffer.przyciskPodOpisem?.target}
                 hasBorder="2px solid var(--primary500)"
+                ariaLabel="link"
               />
             )}
           </StyledButtonWrapper>

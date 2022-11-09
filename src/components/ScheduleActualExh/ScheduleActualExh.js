@@ -104,6 +104,7 @@ const ScheduleActualExh = ({ dataActual }) => {
             hoverBgColor="var(--primary900)"
             hasFontSize="21px"
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         )}
       </StyledButtonsWrapper>

@@ -93,7 +93,8 @@ const HomeCalendar = () => {
                 .target
             }
             hoverBgColor="var(--primary900)"
-            hasBorder="2px solid var(--primary500);"
+            hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         )}
       </StyledButtonWrapper>

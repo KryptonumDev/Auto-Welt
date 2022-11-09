@@ -62,6 +62,7 @@ const ChooseArticle = ({ chosenArticle }) => {
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
             hasNotTabIndex
+            ariaLabel="link"
           />
         </StyledTextWrapper>
       </StyledArticle>

@@ -114,6 +114,7 @@ const QuestionContact = () => {
             hasDeclaredPadding="8px 33px"
             hasFontSize="21px"
             hoverBgColor="var(--secondary700)"
+            ariaLabel="link"
           />
         )}
       </StyledInfoWrapper>

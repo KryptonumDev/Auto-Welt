@@ -161,6 +161,7 @@ const HomeExhibitionsElement = ({
             }
             hasBorder="2px solid transparent"
             hasNotTabIndex
+            ariaLabel="link"
           />
         )}
       </StyledHomeExhibitionsElement>

@@ -153,7 +153,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
-              <button type="submit">
+              <button type="submit" ariaLabel="Wyślij wiadomość">
                 <span>
                   {
                     data.wpPage.homepage.formularzKontaktowy

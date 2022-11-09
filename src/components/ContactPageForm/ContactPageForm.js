@@ -137,6 +137,7 @@ const ContactPageForm = ({ dataForm }) => {
                     hasFontWeight="700"
                     hasTarget={shortData.przyciskPoLewo.target}
                     hoverBgColor="var(--primary900)"
+                    ariaLabel="link"
                   />
                 )}
                 {shortData.przyciskPoPrawo && (
@@ -149,6 +150,7 @@ const ContactPageForm = ({ dataForm }) => {
                     hasFontWeight="700"
                     hasFontSize="21px"
                     onClickHandler={() => setIsSend(false)}
+                    ariaLabel="link"
                   />
                 )}
               </StyledButtonsWrapper>
@@ -280,7 +282,7 @@ const ContactPageForm = ({ dataForm }) => {
                       </label>
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
-                      <button type="submit" disabled={isSubmitting}>
+                      <button type="submit" disabled={isSubmitting} ariaLabel="Prześlij formularz">
                         <span>
                           {dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}
                         </span>

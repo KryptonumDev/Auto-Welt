@@ -118,6 +118,7 @@ const HomeHeroSection = () => {
                 hasFontSize="21px"
                 hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
                 hoverBgColor="#F6E2BA"
+                ariaLabel="link"
               />
             )}
             {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title && (
@@ -132,6 +133,7 @@ const HomeHeroSection = () => {
                 hasBorder="2px solid var(--primary500)"
                 hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.target}
                 hoverBgColor="var(--primary900)"
+                ariaLabel="link"
               />
             )}
           </StyledButtonsWrapper>
@@ -163,6 +165,7 @@ const HomeHeroSection = () => {
               hasTarget={wpPage.homepage.gdzieMaPrzeniescLinkLewy.target}
               hoverBgColor="#F6E2BA"
               hasFontWeight="700"
+              ariaLabel="link"
             />
           )}
           {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url && (
@@ -177,6 +180,7 @@ const HomeHeroSection = () => {
               hoverBgColor="var(--primary900)"
               hasBorder="2px solid var(--primary500)"
               hasFontWeight="700"
+              ariaLabel="link"
             />
           )}
         </StyledButtonsWrapper>

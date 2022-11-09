@@ -98,6 +98,7 @@ const FooterRightWrapper = ({ footerData }) => {
           hasFontSize="21px"
           hasdeclaredmargin="0 0 0 15px"
           hoverBgColor="var(--secondary700)"
+          ariaLabel="link"
         />
       )}
     </StyledFooterRightWrapper>

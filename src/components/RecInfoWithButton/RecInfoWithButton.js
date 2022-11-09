@@ -48,6 +48,7 @@ const RecInfoWithButton = ({
         hasFontSize={btnFontSize}
         hasTarget={hasTarget}
         hoverBgColor={btnHoverBg}
+        ariaLabel="link"
       />
     </StyledRecInfoWithButton>
   );

@@ -75,6 +75,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               hasFontWeight="700"
               hasFontSize="21px"
               hoverBgColor="#F6E2BA"
+              ariaLabel="link"
             />
           )}
           {secondData.prawyPrzycisk?.title && (
@@ -89,6 +90,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
               hasFontSize="21px"
               hasFontWeight="700"
               hoverBgColor="var(--primary900)"
+              ariaLabel="link"
             />
           )}
         </StyledButtonsWrapper>

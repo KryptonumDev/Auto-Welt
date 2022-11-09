@@ -64,6 +64,7 @@ const ShopInProgress = ({ shopData }) => {
             hasTarget={shopData.lewyPrzycisk.target}
             hasDeclaredPadding="8px 33px"
             hoverBgColor="#F6E2BA"
+            ariaLabel="link"
           />
           <Button
             whereGo={shopData.prawyPrzycisk.url}
@@ -75,6 +76,7 @@ const ShopInProgress = ({ shopData }) => {
             hasTarget={shopData.prawyPrzycisk.target}
             hasDeclaredPadding="8px 33px"
             hoverBgColor="var(--primary900)"
+            ariaLabel="link"
           />
         </StyledButtonsWrapper>
       </StyledShopInfoWrapper>

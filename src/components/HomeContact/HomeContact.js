@@ -169,6 +169,7 @@ const HomeContact = () => {
                     }
                     hoverBgColor="var(--primary900)"
                     hasBorder="2px solid var(--primary500)"
+                    ariaLabel="link"
                   />
                 )}
                 {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu
@@ -185,6 +186,7 @@ const HomeContact = () => {
                     hasFontWeight="700"
                     hasFontSize="21px"
                     onClickHandler={() => setIsSend(false)}
+                    ariaLabel="link"
                   />
                 )}
               </StyledButtonsWrapper>

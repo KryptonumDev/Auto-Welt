@@ -31,6 +31,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
           hasTarget={linkData?.target}
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
+          ariaLabel="link"
         />
       )}
     </StyledCollectionElementThreeImages>

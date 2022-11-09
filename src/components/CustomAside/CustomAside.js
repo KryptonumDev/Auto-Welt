@@ -78,6 +78,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             hasTarget={asideData?.pierwszyPrzycisk?.target}
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
+            ariaLabel="link"
           />
           <Button
             whereGo={asideData?.drugiPrzycisk?.url}
@@ -90,6 +91,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             hasTarget={asideData?.drugiPrzycisk?.target}
             hoverBgColor="var(--primary900)"
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         </StyledButtonsWrapper>
       </StyledChooseCollections>

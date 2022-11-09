@@ -134,6 +134,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
           hasTarget={
             data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo?.target
           }
+          ariaLabel="link"
         />
       )}
     </StyledHomeExhibitions>

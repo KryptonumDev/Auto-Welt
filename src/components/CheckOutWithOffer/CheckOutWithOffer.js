@@ -45,6 +45,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
             hoverBgColor="var(--primary900)"
             hasTarget={dataOffer.przyciskPoLewo.target}
             hasBorder="2px solid var(--primary500)"
+            ariaLabel="link"
           />
         )}
         {dataOffer.tekstDoPobraniaTekstu && (

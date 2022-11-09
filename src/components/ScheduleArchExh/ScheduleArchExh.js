@@ -212,6 +212,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                       hasFontWeight="700"
                       hasFontSize="21px"
                       hoverBgColor="#F6E2BA"
+                      ariaLabel="link"
                     />
                   </StyledButtonWrapper>
                 </StyledInfoWrapper>
@@ -231,6 +232,7 @@ const ScheduleArchExh = ({ dataArch }) => {
             hasFontSize="21px"
             onClickHandler={() => setImagesIndex(imagesIndex + 3)}
             hoverBgColor="#F6E2BA"
+            ariaLabel="Włącz więcej wydarzeń"
           />
         }
         <Button
@@ -244,6 +246,7 @@ const ScheduleArchExh = ({ dataArch }) => {
           hasTarget={dataArch.prawyPrzyciskPodSliderem.target}
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
+          ariaLabel="link"
         />
       </StyledbuttonsWrapper>
     </StyledScheduleArchExh>
