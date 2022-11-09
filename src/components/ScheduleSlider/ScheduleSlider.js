@@ -104,7 +104,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                             key={e.slug + e.node.wystawa.informacjeOgolne.data}
                             exhibitionData={e.node}
                             buttonVariant={variant}
-                            isSchdeuleElement
+                            isSchdeuleElement="true"
                             isPrev={isPrev}
                         />
                     ))}

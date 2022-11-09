@@ -122,7 +122,7 @@ const ScheduleArchExh = ({ dataArch }) => {
               .toLocaleString("pl", { dateStyle: "long" })
               .split(" ");
             return (
-              <StyledElement key={index}>
+              <StyledElement key={index + node.wystawa.informacjeOgolne.miejsce}>
                 <StyledImage>
                   {node.wystawa.stronaOfertaInformacjeDlaElementowWSekcjiEventy
                     .wiekszaMiniaturkaNaStroneOferty && (
@@ -182,8 +182,8 @@ const ScheduleArchExh = ({ dataArch }) => {
                     </StyledText>
                     <StyledContentList>
                       {node.wystawa.informacjeOgolne.elementyListy.map(
-                        (element) => (
-                          <div>
+                        (element, index) => (
+                          <div key={element.elementListy + index}>
                             <ListIcon />
                             <StyledText
                               hasdeclaredfontsize="14px"

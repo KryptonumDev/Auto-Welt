@@ -24,7 +24,6 @@ const HomeExhibitionsElement = ({
   isSchdeuleElement,
   buttonVariant,
   isPrev,
-  key,
   slidesCount,
 }) => {
   const width = useWindowSize();
@@ -39,7 +38,6 @@ const HomeExhibitionsElement = ({
       to={`/wystawy/${exhibitionData.slug}`}
     >
       <StyledHomeExhibitionsElement
-        key={key}
         initial={{ x: isPrev ? -100 : 100 }}
         animate={{ x: 0 }}
         isscheduleelement={isSchdeuleElement}
@@ -125,8 +123,8 @@ const HomeExhibitionsElement = ({
           </StyledText>
           <StyledContentList>
             {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(
-              (element) => (
-                <div key={element.elementListy}>
+              (element, index) => (
+                <div key={element.elementListy + index}>
                   <ListIcon />
                   <StyledText
                     hasdeclaredfontsize="14px"

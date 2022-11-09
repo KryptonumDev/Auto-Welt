@@ -110,7 +110,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
       <StyledElementsWrapper slides={slidesElements.length}>
         {slidesElements.map((node, index) => (
           <HomeExhibitionsElement
-            key={index}
+            key={index + node.wystawa.informacjeOgolne.miejsce}
             exhibitionData={node}
             buttonVariant="orange"
             slidesCount={slidesElements.length}
