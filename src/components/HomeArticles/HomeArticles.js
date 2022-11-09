@@ -115,8 +115,9 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
             data.wpPage.homepage.artykuly.tytulSekcji}
         </StyledText>
         <StyledArticlesWrapper slides={data.allWpArtykul?.edges.length}>
-          {data.allWpArtykul?.edges.map(({ node }) => (
+          {data.allWpArtykul?.edges.map(({ node }, index) => (
             <HomeArticleElement
+              key={index + `${node.tytul}`}
               slug={node.slug}
               articleData={node.artykul.informacjeDoMiniaturki}
             />

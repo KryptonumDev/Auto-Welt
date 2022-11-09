@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import {
   GatsbyImage,
   getImage,
   StaticImage,
   withArtDirection,
 } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
 import RecInfoWithButton from "../../components/RecInfoWithButton/RecInfoWithButton";
 
@@ -84,9 +84,9 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                   hasdeclaredfontcolor="#23423D"
                   hasdeclaredtextalign="center"
                 >
-                  {
+                  {parse(
                     collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
-                      .informacjeGlowne.nazwaKolekcji
+                      .informacjeGlowne.nazwaKolekcji)
                   }
                 </StyledText>
               </StyledTitleWrapper>
@@ -123,9 +123,9 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                   hasdeclaredfontcolor="#23423D"
                   hasdeclaredtextalign="center"
                 >
-                  {
+                  {parse(
                     collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
-                      .informacjeGlowne.nazwaKolekcji
+                      .informacjeGlowne.nazwaKolekcji)
                   }
                 </StyledText>
               </StyledTitleWrapper>

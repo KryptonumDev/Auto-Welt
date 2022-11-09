@@ -137,9 +137,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
         </StyledArrowWrapper>
         <StyledSlides>
           <AnimatePresence initial={false} exitBeforeEnter>
-            {renderElements?.map((e) => (
+            {renderElements?.map((e, index) => (
                 <HomeRecommendationsElement
-                  key={e.rekomendacje.imieNazwisko}
+                  key={`${e.rekomendacje.imieNazwisko}` + index}
                   data={e}
                   isPrev={isPrev}
                 />

@@ -61,8 +61,8 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
       </StyledText>
       <StyledArticlesSlider>
         <StyledSlidesWrapper>
-          {articles[page].map(({ node }) => (
-            <ArticleElement articleData={node} />
+          {articles[page].map(({ node }, index) => (
+            <ArticleElement key={node.slug + index} articleData={node} />
           ))}
         </StyledSlidesWrapper>
         {allArticles.length < (width < 768 ? 7 : 13) ? null : (

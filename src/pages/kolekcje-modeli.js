@@ -45,8 +45,9 @@ const ModelCollections = ({ data }) => {
                 a.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania -
                 b.node.kolekcja.informacjeGlowne.kolejnoscWyswietlania
             )
-            .map(({ node }) => (
+            .map(({ node }, index) => (
               <ModelCollection
+                key={index + `${node.informacjeGlowne?.tytulNaDuzejMiniaturce}`}
                 collectionData={node.kolekcja}
                 slug={node.slug}
               />
