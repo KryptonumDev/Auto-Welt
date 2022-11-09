@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
     siteMetadata: {
         title: `auto-welt`,
-        siteUrl: `https://www.yourdomain.tld`,
+        siteUrl: `https://www.auto-welt.info`,
     },
     plugins: [
         {
@@ -23,6 +23,7 @@ module.exports = {
                 },
             },
         },
+        "gatsby-plugin-sitemap",
         "gatsby-plugin-image",
         {
             resolve: `gatsby-plugin-sharp`,
@@ -103,6 +104,14 @@ module.exports = {
                     include: /images/,
                 },
             },
+        },
+        {
+          resolve: 'gatsby-plugin-robots-txt',
+          options: {
+            host: 'https://auto-welt.gatsbyjs.io',
+            sitemap: 'https://auto-welt.gatsbyjs.io/sitemap/sitemap-0.xml',
+            policy: [{ userAgent: '*', allow: '/' }]
+          }
         },
     ],
 };
