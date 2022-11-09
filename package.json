@@ -25,6 +25,8 @@
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "^5.0.0",
+    "gatsby-plugin-offline": "^6.0.0",
     "gatsby-plugin-react-helmet": "^5.24.0",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.24.0",
