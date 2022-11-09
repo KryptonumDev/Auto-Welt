@@ -71,7 +71,7 @@ export const StyledButtonLinkNoHref = styled.p`
   transition: background-color 250ms linear;
   margin: ${({ hasdeclaredmargin }) =>
     hasdeclaredmargin ? hasdeclaredmargin : "0"};
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
 
   > span {
     display: block;

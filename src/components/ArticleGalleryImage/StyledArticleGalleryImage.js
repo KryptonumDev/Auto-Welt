@@ -44,7 +44,7 @@ export const StyledArticleGalleryImage = styled.div`
 export const StyledTextWrapper = styled.div`
   p,
   a {
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;

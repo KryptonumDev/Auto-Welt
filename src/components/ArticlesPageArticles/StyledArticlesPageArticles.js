@@ -47,7 +47,7 @@ export const StyledTopPaggination = styled.div`
   display: flex;
   gap: 20px;
 
-  font-family: "Nocturne Serif";
+  font-family: "Nocturne Serif", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -77,7 +77,7 @@ export const StyledInput = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     border: none;
     padding-left: 5px;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -99,7 +99,7 @@ export const StyledInput = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

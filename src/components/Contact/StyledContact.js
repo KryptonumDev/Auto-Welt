@@ -27,7 +27,7 @@ export const StyledDesc = styled.div`
   font-size: 24px;
   line-height: 1.2em;
   max-width: 870px;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   padding-bottom: 60px;
   width: 100%;
 

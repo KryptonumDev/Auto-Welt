@@ -38,7 +38,7 @@ export const StyledAsideWrapper = styled.div`
 
 export const StyledContentWrapper = styled.div`
 width: calc(60% - 35px);
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 
   p + h2,
@@ -97,7 +97,7 @@ width: calc(60% - 35px);
     text-align: right;
     color: #23423d;
     margin-top: 20px;
-    font-family: "Nocturne Serif";
+    font-family: "Nocturne Serif", Arial;
   }
 
   strong,
@@ -126,7 +126,7 @@ width: calc(60% - 35px);
   h5,
   h6 {
     color: #23423d;
-    font-family: "Nocturne Serif";
+    font-family: "Nocturne Serif", Arial;
     font-weight: 500;
   }
 
@@ -155,7 +155,7 @@ width: calc(60% - 35px);
       &:first-letter {
         font-size: 47px;
         color: #edac29;
-        font-family: "Nocturne Serif";
+        font-family: "Nocturne Serif", Arial;
         float: left;
         padding-right: 10px;
       }

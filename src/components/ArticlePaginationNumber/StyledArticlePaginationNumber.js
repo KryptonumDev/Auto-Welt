@@ -5,7 +5,7 @@ export const StyledArticlePaginationNumber = styled.div`
   align-items: center;
   justify-content: center;
 
-  font-family: "Nocturne Serif";
+  font-family: "Nocturne Serif", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;

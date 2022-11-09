@@ -8,7 +8,7 @@ export const StyledCalendarComponent = styled.div`
 
   .calendarTitle {
     text-align: center;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -128,7 +128,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
       z-index: 1;
       top: 9px;
       right: 13px;
-      font-family: 'Nocturne Serif';
+      font-family: 'Nocturne Serif', Arial;
       font-style: normal;
       font-weight: 500;
       font-size: 32px;
@@ -163,7 +163,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
       border-right: 2px solid #23423D;
       border-bottom: 1px solid #23423D;
       text-align: center;
-      font-family: 'Roboto Condensed';
+      font-family: 'Roboto Condensed', Arial;
       font-style: normal;
       font-weight: 700;
       font-size: 16px;
@@ -203,7 +203,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
     width: 100%;
     height: 100%;
     overflow: visible;
-    font-family: 'Roboto Condensed';
+    font-family: 'Roboto Condensed', Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -257,7 +257,7 @@ export const StyledExhibitionTitle = styled.p`
 
   @media only screen and (max-width: 986px) {
     background-color: #23423d;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

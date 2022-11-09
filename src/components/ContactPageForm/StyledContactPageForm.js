@@ -167,7 +167,7 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     padding: 0 14px;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     margin-top: 4px;
     border-radius: 0;
 
@@ -187,7 +187,7 @@ export const StyledInputWrapper = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--creamBg);
     resize: none;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     padding: 10px;
     margin-top: 4px;
 

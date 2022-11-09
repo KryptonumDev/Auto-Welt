@@ -18,7 +18,8 @@ const Button = ({
   hasdeclaredmargin,
   onClickHandler,
   hasType,
-  hasNotTabIndex
+  hasNotTabIndex,
+  ariaLabel
 }) => {
   return (
     <>
@@ -36,11 +37,13 @@ const Button = ({
           hasdeclaredhoverbgcolor={hoverBgColor}
           hasdeclaredmargin={hasdeclaredmargin}
           target={hasTarget}
+          aria-label={ariaLabel}
         >
           <span>{text}</span>
         </StyledButtonLink>
       ) : (
         <StyledButtonLinkNoHref
+          aria-label={ariaLabel}
           hasborder={hasBorder}
           bgcolor={bgColor}
           hasdeclaredfontcolor={textColor}

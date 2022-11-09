@@ -17,7 +17,7 @@ export const StyledAnswerWrapper = styled.div`
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 500;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   max-width: 746px;
 
   ul,
@@ -86,7 +86,7 @@ export const StyledQuestionText = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-size: 18px;
   line-height: 1.2em;
   font-weight: 700;

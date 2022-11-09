@@ -23,7 +23,7 @@ export const StyledArticlePhotoInfo = styled.a`
 
 export const StyledTextWrapper = styled.div`
   p {
-    font-family: 'Roboto Condensed';
+    font-family: 'Roboto Condensed', Arial;
     font-style: normal;
     font-weight: 500;
     font-size: 16px !important;
@@ -31,7 +31,7 @@ export const StyledTextWrapper = styled.div`
     color: #000000;
     
     a, strong{
-      font-family: 'Roboto Condensed';
+      font-family: 'Roboto Condensed', Arial;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;

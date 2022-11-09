@@ -35,7 +35,7 @@ export const StyledCheckOutButtonsWrapper = styled.div`
 
   a {
     &:last-child {
-      font-family: "Roboto Condensed";
+      font-family: "Roboto Condensed", Arial;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;

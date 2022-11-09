@@ -13,7 +13,7 @@ export const StyledText = styled(motion.p)`
   line-height: ${({ hasdeclaredlineheight }) =>
     hasdeclaredlineheight ? hasdeclaredlineheight : "1"};
   font-family: ${({ hasdeclaredfontfamily }) =>
-    hasdeclaredfontfamily ? hasdeclaredfontfamily : "Roboto Condensed"};
+    hasdeclaredfontfamily ? hasdeclaredfontfamily : "Roboto Condensed, Arial"};
   text-decoration: ${({ hasdeclaredtextdecoration }) =>
     hasdeclaredtextdecoration ? hasdeclaredtextdecoration : "none"};
   display: ${({ hasdeclareddisplay }) =>

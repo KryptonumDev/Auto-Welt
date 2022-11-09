@@ -53,7 +53,7 @@ export const StyledTag = styled.div`
   }
 
   @media only screen and (max-width: 400px){
-    padding-top 5px;
+    padding-top: 5px;
     padding-bottom: 5px;
 
     p{
@@ -63,7 +63,7 @@ export const StyledTag = styled.div`
 `;
 
 export const StyledTextWrapper = styled.div`
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

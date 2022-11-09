@@ -93,14 +93,14 @@ export const StyledIconWrapper = styled.a`
 export const StyledTextWrapper = styled.a`
   text-decoration: none;
   color: #000;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2em;
 
   a, strong {
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", Arial;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;

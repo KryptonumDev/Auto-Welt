@@ -38,7 +38,7 @@ export const StyledAside = styled.aside`
 
 export const StyledTextContent = styled.div`
   width: calc(60% - 35px);
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 
   p + h2,
@@ -97,7 +97,7 @@ export const StyledTextContent = styled.div`
     text-align: right;
     color: #23423d;
     margin-top: 20px;
-    font-family: "Nocturne Serif";
+    font-family: "Nocturne Serif", Arial;
   }
 
   strong,
@@ -126,7 +126,7 @@ export const StyledTextContent = styled.div`
   h5,
   h6 {
     color: #23423d;
-    font-family: "Nocturne Serif";
+    font-family: "Nocturne Serif", Arial;
     font-weight: 500;
   }
 
@@ -155,7 +155,7 @@ export const StyledTextContent = styled.div`
       &:first-letter {
         font-size: 47px;
         color: #edac29;
-        font-family: "Nocturne Serif";
+        font-family: "Nocturne Serif", Arial;
         float: left;
         padding-right: 10px;
       }

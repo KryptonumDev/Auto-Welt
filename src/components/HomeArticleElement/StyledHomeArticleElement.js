@@ -100,7 +100,7 @@ export const StyledTextWrapper = styled.div`
     &:first-letter {
       font-size: 35px;
       color: #edac29;
-      font-family: "Nocturne Serif";
+      font-family: "Nocturne Serif", Arial;
       float: left;
       padding-right: 10px;
     }

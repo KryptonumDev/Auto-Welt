@@ -61,7 +61,7 @@ export const StyledRightWrapper = styled.div`
 `;
 
 export const StyledTitleWrapper = styled.div`
-  font-family: "Nocturne Serif";
+  font-family: "Nocturne Serif", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 48px;
@@ -98,7 +98,7 @@ export const StyledTitleWrapper = styled.div`
   }
 `;
 export const StyledDescWrapper = styled.div`
-  font-family: "Roboto Condensed";
+  font-family: "Roboto Condensed", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -224,7 +224,7 @@ export const StyledGreetingText = styled.div`
   width: 70%;
   max-width: 840px;
   height: 100%;
-  font-family: "Nocturne Serif";
+  font-family: "Nocturne Serif", Arial;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
