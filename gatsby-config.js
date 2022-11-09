@@ -46,7 +46,7 @@ module.exports = {
                 description: `Wystawy modeli samochodów`,
                 lang: `pl`,
                 display: `standalone`,
-                //icon: `src/images/icon.png`,
+                icon: `src/images/Aparat.png`,
                 start_url: `/`,
                 background_color: `#fff`,
                 theme_color: `#fff`,
