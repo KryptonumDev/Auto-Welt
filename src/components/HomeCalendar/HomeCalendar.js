@@ -103,7 +103,7 @@ const HomeCalendar = () => {
             image={getImage(
               data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
             )}
-            alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText}
+            alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText || " "}
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         )}

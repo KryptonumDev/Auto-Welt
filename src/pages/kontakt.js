@@ -48,7 +48,7 @@ const Contact = ({ data }) => {
             )}
             alt={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.duzejZdjecie
-                ?.altText
+                ?.altText || " "
             }
             title={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.duzejZdjecie

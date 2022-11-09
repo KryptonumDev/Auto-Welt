@@ -16,7 +16,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
         {bgImage.localFile && (
           <GatsbyImage
             image={getImage(bgImage?.localFile)}
-            alt={bgImage?.altText}
+            alt={bgImage?.altText || " "}
             title={bgImage?.title}
             objectFit="fill"
           />
@@ -26,7 +26,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
         {image.localFile && (
           <GatsbyImage
             image={getImage(image?.localFile)}
-            alt={image?.altText}
+            alt={image?.altText || " "}
             title={image?.title}
             objectFit="fill"
           />

@@ -15,7 +15,7 @@ const FooterEvent = ({ articleData, slug }) => {
         {articleData.zdjecieDoMiniaturki.localFile && (
           <GatsbyImage
             image={getImage(articleData.zdjecieDoMiniaturki?.localFile)}
-            alt={articleData.zdjecieDoMiniaturki?.altText}
+            alt={articleData.zdjecieDoMiniaturki?.altText || " "}
             title={articleData.zdjecieDoMiniaturki?.title}
           />
         )}

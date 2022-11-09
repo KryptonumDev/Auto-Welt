@@ -113,7 +113,7 @@ const Footer = () => {
         {images && (
           <GatsbyImage
             image={images}
-            alt={imageShort.tloDlaStopkiWersjaTablet?.altText}
+            alt={imageShort.tloDlaStopkiWersjaTablet?.altText || " "}
             title={imageShort.tloDlaStopkiWersjaTablet?.title}
           />
         )}

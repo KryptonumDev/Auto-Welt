@@ -56,7 +56,7 @@ const QuestionContact = () => {
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.localFile
             )}
             alt={
-              data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.altText
+              data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.altText || " "
             }
             title={
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.title
@@ -75,7 +75,7 @@ const QuestionContact = () => {
               )}
               alt={
                 data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie
-                  .altText
+                  .altText || " "
               }
               title={
                 data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie

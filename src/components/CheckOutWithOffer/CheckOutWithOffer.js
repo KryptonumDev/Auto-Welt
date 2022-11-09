@@ -27,7 +27,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
         {dataOffer.zdjecieKsiazki.localFile && (
           <GatsbyImage
             image={getImage(dataOffer.zdjecieKsiazki.localFile)}
-            alt={dataOffer.zdjecieKsiazki.altText}
+            alt={dataOffer.zdjecieKsiazki.altText || " "}
             title={dataOffer.zdjecieKsiazki.title}
           />
         )}

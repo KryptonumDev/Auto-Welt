@@ -19,7 +19,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
         {articleData.miniaturka.localFile && (
           <GatsbyImage
             image={getImage(articleData.miniaturka?.localFile)}
-            alt={articleData.miniaturka?.altText}
+            alt={articleData.miniaturka?.altText || " "}
             title={articleData.miniaturka?.title}
           />
         )}

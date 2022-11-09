@@ -89,7 +89,7 @@ const HomeHeroSection = () => {
           <StyledImageWrapper key={image.altText}>
             <GatsbyImage
               image={image.localFile}
-              alt={image.altText}
+              alt={image.altText || " "}
               title={image.title}
               objectFit="fill"
             />
@@ -100,7 +100,7 @@ const HomeHeroSection = () => {
         <StyledHeroImage>
           <GatsbyImage
             image={heroImage}
-            alt={wpPage.homepage?.duzeZdjecieSrodkowe?.altText}
+            alt={wpPage.homepage?.duzeZdjecieSrodkowe?.altText || " "}
             title={wpPage.homepage?.duzeZdjecieSrodkowe?.title}
           />
         </StyledHeroImage>
@@ -142,7 +142,7 @@ const HomeHeroSection = () => {
           <StyledImageWrapper key={image?.altText}>
             <GatsbyImage
               image={image.localFile}
-              alt={image?.altText}
+              alt={image?.altText || " "}
               title={image?.title}
               objectFit="fill"
             />

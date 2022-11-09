@@ -14,7 +14,7 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
         {imagesData?.prostokatneZdjeciePodOpisem && (
           <GatsbyImage
             image={getImage(imagesData.prostokatneZdjeciePodOpisem?.localFile)}
-            alt={imagesData.prostokatneZdjeciePodOpisem?.altText}
+            alt={imagesData.prostokatneZdjeciePodOpisem?.altText || " "}
             title={imagesData.prostokatneZdjeciePodOpisem?.title}
           />
         )}
@@ -25,7 +25,7 @@ const CollectionImageUnderDescImages = ({ imagesData }) => {
             image={getImage(
               imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.localFile
             )}
-            alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.altText}
+            alt={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.altText || " "}
             title={imagesData.zdjeciePojazduPrzyczepioneDoPrawejKrawedzi?.title}
           />
         )}

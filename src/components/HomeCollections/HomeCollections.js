@@ -158,7 +158,7 @@ const HomeCollections = () => {
                 )}
                 alt={
                   wpPage.homepage.kolekcje
-                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi?.altText
+                    .duzeZdjeciePrzyczepioneDoPrawejKrawedzi?.altText || " "
                 }
                 title={
                   wpPage.homepage.kolekcje

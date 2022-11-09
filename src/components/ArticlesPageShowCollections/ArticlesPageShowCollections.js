@@ -64,7 +64,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 )}
                 alt={
                   collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
-                    .informacjeGlowne.duzaMiniaturka?.altText
+                    .informacjeGlowne.duzaMiniaturka?.altText || " "
                 }
                 title={
                   collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
@@ -103,7 +103,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 )}
                 alt={
                   collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
-                    .informacjeGlowne.duzaMiniaturka?.altText
+                    .informacjeGlowne.duzaMiniaturka?.altText || " "
                 }
                 title={
                   collectionData.drugaKolekcjaKtoraPolecasz.kolekcja

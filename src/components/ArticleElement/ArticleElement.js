@@ -24,7 +24,7 @@ const ArticleElement = ({ articleData }) => {
           image={getImage(
             articleData.artykul.informacjeDoMiniaturki?.miniaturka?.localFile
           )}
-          alt={articleData.artykul.informacjeDoMiniaturki?.miniaturka?.altText}
+          alt={articleData.artykul.informacjeDoMiniaturki?.miniaturka?.altText || " "}
           title={articleData.artykul.informacjeDoMiniaturki?.miniaturka?.title}
         />
       </StyledImageWrapper>

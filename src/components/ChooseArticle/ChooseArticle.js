@@ -33,7 +33,7 @@ const ChooseArticle = ({ chosenArticle }) => {
                 ?.localFile
             )}
             alt={
-              chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText
+              chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.altText || " "
             }
             title={
               chosenArticle?.artykul.informacjeDoMiniaturki?.miniaturka?.title

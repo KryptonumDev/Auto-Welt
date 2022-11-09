@@ -89,7 +89,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
             )}
             alt={
               heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
-                ?.duzeZdjeciePoPrawo?.altText
+                ?.duzeZdjeciePoPrawo?.altText || " "
             }
             title={
               heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna

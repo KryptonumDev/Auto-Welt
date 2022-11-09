@@ -115,7 +115,6 @@ export const StyledRightArrow = styled(motion.div)`
 
 export const StyledImagesWrapper = styled(motion.div)`
   width: 100%;
-  max-width: 943px;
   min-height: 346px;
   display: flex;
   align-items: center;
@@ -140,7 +139,6 @@ export const StyledImagesWrapper = styled(motion.div)`
 `;
 
 export const StyledImage = styled(motion.div)`
-  max-width: 457px;
   width: 50%;
   height: 100%;
   flex: 1;

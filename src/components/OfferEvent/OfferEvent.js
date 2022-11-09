@@ -26,7 +26,7 @@ const OfferEvent = ({ offerData, slug }) => {
             )}
             alt={
               offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                .wiekszaMiniaturkaNaStroneOferty?.altText
+                .wiekszaMiniaturkaNaStroneOferty?.altText || " "
             }
             title={
               offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy

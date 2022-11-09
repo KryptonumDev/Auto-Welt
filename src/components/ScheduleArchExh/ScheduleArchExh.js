@@ -135,7 +135,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                       alt={
                         node.wystawa
                           .stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                          .wiekszaMiniaturkaNaStroneOferty?.altText
+                          .wiekszaMiniaturkaNaStroneOferty?.altText || " "
                       }
                       title={
                         node.wystawa

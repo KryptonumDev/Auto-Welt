@@ -23,7 +23,7 @@ const AboutMeImagesSection = ({ imagesData }) => {
                 <StyledImage key={index}>
                   <GatsbyImage
                     image={getImage(image?.localFile)}
-                    alt={image?.altText}
+                    alt={image?.altText || " "}
                     title={image?.title}
                   />
                 </StyledImage>
@@ -40,7 +40,7 @@ const AboutMeImagesSection = ({ imagesData }) => {
                 )}
                 alt={
                   imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-                    ?.altText
+                    ?.altText || " "
                 }
                 title={
                   imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony

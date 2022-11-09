@@ -14,7 +14,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
             <GatsbyImage
               key={index}
               image={getImage(image?.localFile)}
-              alt={image?.altText}
+              alt={image?.altText || " "}
               title={image?.title}
             />
           ))}

@@ -15,7 +15,7 @@ const ArticleGalleryImage = ({ images, photoName }) => {
           <div>
             <GatsbyImage
               image={getImage(image?.localFile)}
-              alt={image?.altText}
+              alt={image?.altText || " "}
               title={image?.title}
             />
           </div>

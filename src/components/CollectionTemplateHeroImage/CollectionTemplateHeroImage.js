@@ -31,7 +31,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
               heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.localFile
             )}
             alt={
-              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.altText
+              heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.altText || " "
             }
             title={
               heroData?.zdjecieDlaZielonegoElementuPodGlownymZdjeciem?.title

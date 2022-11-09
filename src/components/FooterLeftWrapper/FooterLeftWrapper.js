@@ -40,7 +40,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             {footerData.logo.localFile && (
               <GatsbyImage
                 image={images}
-                alt={footerData.logo?.altText}
+                alt={footerData.logo?.altText || " "}
                 objectFit="fill"
                 title={footerData.logo?.title}
               />

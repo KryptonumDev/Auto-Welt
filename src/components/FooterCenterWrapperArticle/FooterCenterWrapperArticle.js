@@ -17,7 +17,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
             image={getImage(
               articleData.informacjeDoMiniaturki.miniaturka.localFile
             )}
-            alt={articleData.informacjeDoMiniaturki.miniaturka?.altText}
+            alt={articleData.informacjeDoMiniaturki.miniaturka?.altText || " "}
             title={articleData.informacjeDoMiniaturki.miniaturka?.title}
           />
         )}

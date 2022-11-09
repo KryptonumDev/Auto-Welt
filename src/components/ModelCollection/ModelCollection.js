@@ -21,7 +21,7 @@ const ModelCollection = ({ collectionData, slug }) => {
         {shortDataKey.duzaMiniaturka.localFile && (
           <GatsbyImage
             image={getImage(shortDataKey.duzaMiniaturka.localFile)}
-            alt={shortDataKey.duzaMiniaturka?.altText}
+            alt={shortDataKey.duzaMiniaturka?.altText || " "}
             title={shortDataKey.duzaMiniaturka?.title}
           />
         )}
@@ -33,7 +33,7 @@ const ModelCollection = ({ collectionData, slug }) => {
               image={getImage(
                 shortDataKey.tloDlaTytuluWDuzejMiniaturce.localFile
               )}
-              alt={shortDataKey.tloDlaTytuluWDuzejMiniaturce?.altText}
+              alt={shortDataKey.tloDlaTytuluWDuzejMiniaturce?.altText || " "}
               title={shortDataKey.tloDlaTytuluWDuzejMiniaturce?.title}
               objectFit="fill"
             />

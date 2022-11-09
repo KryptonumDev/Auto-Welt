@@ -18,7 +18,7 @@ const CollectionTemplateDesc = ({ descData }) => {
         {descData?.zdjecieObokOpisu && (
           <GatsbyImage
             image={getImage(descData.zdjecieObokOpisu?.localFile)}
-            alt={descData.zdjecieObokOpisu?.altText}
+            alt={descData.zdjecieObokOpisu?.altText || " "}
             title={descData.zdjecieObokOpisu?.title}
           />
         )}

@@ -22,7 +22,7 @@ const ArticleHeroSection = ({ heroData }) => {
           )}
           alt={
             heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja
-              ?.duzeZdjecie?.altText
+              ?.duzeZdjecie?.altText || " "
           }
           title={
             heroData.artykul.dedykowanaStronaArtykulu.pierwszaSekcja

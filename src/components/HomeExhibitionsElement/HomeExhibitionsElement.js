@@ -55,9 +55,9 @@ const HomeExhibitionsElement = ({
                 )}
                 alt={
                   exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
-                    ?.altText
+                    ?.altText || " "
                 }
-                alt={
+                title={
                   exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
                     ?.title
                 }
@@ -104,9 +104,9 @@ const HomeExhibitionsElement = ({
               )}
               alt={
                 exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
-                  ?.altText
+                  ?.altText || " "
               }
-              alt={
+              title={
                 exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
                   ?.title
               }

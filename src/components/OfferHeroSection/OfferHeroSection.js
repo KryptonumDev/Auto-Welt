@@ -40,7 +40,7 @@ const OfferHeroSection = ({ dataOffer }) => {
             {dataOffer.pierwszeZdjeciePoLewo?.localFile && (
               <GatsbyImage
                 image={getImage(dataOffer.pierwszeZdjeciePoLewo?.localFile)}
-                alt={dataOffer.pierwszeZdjeciePoLewo?.altText}
+                alt={dataOffer.pierwszeZdjeciePoLewo?.altText || " "}
                 title={dataOffer.pierwszeZdjeciePoLewo?.title}
               />
             )}
@@ -49,7 +49,7 @@ const OfferHeroSection = ({ dataOffer }) => {
             {dataOffer.drugieZdjeciePoLewo?.localFile && (
               <GatsbyImage
                 image={getImage(dataOffer.drugieZdjeciePoLewo?.localFile)}
-                alt={dataOffer.drugieZdjeciePoLewo?.altText}
+                alt={dataOffer.drugieZdjeciePoLewo?.altText || " "}
                 title={dataOffer.drugieZdjeciePoLewo?.title}
               />
             )}
@@ -58,7 +58,7 @@ const OfferHeroSection = ({ dataOffer }) => {
             {dataOffer.trzecieZdjeciePoLewo?.localFile && (
               <GatsbyImage
                 image={getImage(dataOffer.trzecieZdjeciePoLewo?.localFile)}
-                alt={dataOffer.trzecieZdjeciePoLewo?.altText}
+                alt={dataOffer.trzecieZdjeciePoLewo?.altText || " "}
                 title={dataOffer.trzecieZdjeciePoLewo?.title}
               />
             )}

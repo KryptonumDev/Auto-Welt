@@ -36,7 +36,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
             {secondData.pierwszeZdjeciePoPrawo?.localFile && (
               <GatsbyImage
                 image={getImage(secondData.pierwszeZdjeciePoPrawo?.localFile)}
-                alt={secondData.pierwszeZdjeciePoPrawo?.altText}
+                alt={secondData.pierwszeZdjeciePoPrawo?.altText || " "}
                 title={secondData.pierwszeZdjeciePoPrawo?.title}
               />
             )}
@@ -45,7 +45,7 @@ const AboutMeSecondSection = ({ secondData, images }) => {
             {secondData.drugieZdjeciePoPrawo?.localFile && (
               <GatsbyImage
                 image={getImage(secondData.drugieZdjeciePoPrawo?.localFile)}
-                alt={secondData.drugieZdjeciePoPrawo?.altText}
+                alt={secondData.drugieZdjeciePoPrawo?.altText || " "}
                 title={secondData.drugieZdjeciePoPrawo?.title}
               />
             )}

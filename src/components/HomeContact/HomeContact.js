@@ -101,7 +101,7 @@ const HomeContact = () => {
             imageShort.lewyObrazek.localFile && (
               <GatsbyImage
                 image={getImage(imageShort.lewyObrazek?.localFile)}
-                alt={imageShort.lewyObrazek?.altText}
+                alt={imageShort.lewyObrazek?.altText || " "}
                 title={imageShort.lewyObrazek?.title}
                 objectFit="fill"
               />
@@ -111,7 +111,7 @@ const HomeContact = () => {
               <StyledBackgroundCar>
                 <GatsbyImage
                   image={getImage(imageShort.lewyObrazekTablet?.localFile)}
-                  alt={imageShort.lewyObrazekTablet?.altText}
+                  alt={imageShort.lewyObrazekTablet?.altText || " "}
                   title={imageShort.lewyObrazekTablet?.title}
                 />
               </StyledBackgroundCar>
@@ -120,7 +120,7 @@ const HomeContact = () => {
                   image={getImage(
                     imageShort.lewyObrazekTabletSamochody?.localFile
                   )}
-                  alt={imageShort.lewyObrazekTabletSamochody?.altText}
+                  alt={imageShort.lewyObrazekTabletSamochody?.altText || " "}
                   title={imageShort.lewyObrazekTabletSamochody?.title}
                 />
               </StyledCarBgImage>
@@ -197,7 +197,7 @@ const HomeContact = () => {
                 {imageShort.zdjecieTytulu.localFile && (
                   <GatsbyImage
                     image={getImage(imageShort?.zdjecieTytulu?.localFile)}
-                    alt={imageShort?.zdjecieTytulu?.altText}
+                    alt={imageShort?.zdjecieTytulu?.altText || " "}
                     title={imageShort?.zdjecieTytulu?.title}
                     objectFit="fill"
                   />
