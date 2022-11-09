@@ -5,7 +5,7 @@ export function Head({
     data
 }) {
     const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo
-    const canonical = "https://splatapozyczek.pl" + seo.canonical;
+    const canonical = "https://auto-welt.info" + seo.canonical;
 
     return (
         <>
@@ -13,45 +13,44 @@ export function Head({
             <meta name="robots" content="noindex" />
             <meta property="og:site_name" content={seo.opengraphSiteName} />
 
-            {/* <script type="application/ld+json">
+            <script type="application/ld+json">
                 {JSON.stringify({
                     "@context": "https://schema.org",
                     "@graph": [
                         {
                             "@type": "Organization",
-                            "@id": "https://splatapozyczek.pl/#organization",
-                            name: "Splatapozyczek.pl",
-                            url: "https://splatapozyczek.pl/",
+                            "@id": "https://auto-welt.info/#organization",
+                            name: "Auto-welt.info",
+                            url: "https://auto-welt.info/",
                             sameAs: [
-                                "https://www.facebook.com/splatapozyczek",
-                                "https://www.instagram.com/splatapozyczek.pl/",
-                                "https://www.youtube.com/channel/UCdpboPGWbJy_e8Je_Xw9i9Q",
+                                "https://www.facebook.com/auto-welt",
+                                "https://www.instagram.com/auto-welt/",
                             ],
                             logo: {
                                 "@type": "ImageObject",
-                                "@id": "https://splatapozyczek.pl/#logo",
+                                "@id": "https://auto-welt.info/#logo",
                                 inLanguage: "pl-PL",
-                                url: "https://splatapozyczek.pl/wp-content/uploads/2019/01/splatapozyczek-logo-x2.png",
+                                url: "https://data.auto-welt.info/wp-content/uploads/2022/11/logo-footer-desktop.png",
                                 width: 262,
                                 height: 120,
-                                caption: "Splatapozyczek.pl",
+                                caption: "Auto-welt.info",
                             },
-                            image: { "@id": "https://splatapozyczek.pl/#logo" },
+                            image: { "@id": "https://auto-welt.info/#logo" },
                         },
                         {
                             "@type": "WebSite",
-                            "@id": "https://splatapozyczek.pl/#website",
-                            url: "https://splatapozyczek.pl/",
-                            name: "Splatapozyczek.pl",
+                            "@id": "https://auto-welt.info/#website",
+                            url: "https://auto-welt.info/",
+                            name: "Auto-welt.info",
                             description:
-                                "SplataPozyczek.pl \u2013 \u2705 kredyty got\u00f3wkowe, kredyt dla firm, po\u017cyczka konsolidacyjna, odd\u0142u\u017canie.",
+                                "Auto-welt.info wystawy modeli samochodów",
                             publisher: {
-                                "@id": "https://splatapozyczek.pl/#organization",
+                                "@id": "https://auto-welt.info/#organization",
                             },
                             potentialAction: [
                                 {
                                     "@type": "SearchAction",
-                                    target: "https://splatapozyczek.pl/?s={search_term_string}",
+                                    target: "https:/auto-welt.info/?s={search_term_string}",
                                     "query-input":
                                         "required name=search_term_string",
                                 },
@@ -60,30 +59,28 @@ export function Head({
                         },
                         {
                             "@type": "WebPage",
-                            "@id": "https://splatapozyczek.pl/#webpage",
-                            url: "https://splatapozyczek.pl/",
-                            name: "Z nami uzyskasz nawet najtrudniejszy kredyt - Splatapozyczek.pl",
+                            "@id": "https://auto-welt.info/#webpage",
+                            url: "https://auto-welt.info/",
+                            name: "Wystawy modeli samochodów - Auto-welt.info",
                             isPartOf: {
-                                "@id": "https://splatapozyczek.pl/#website",
+                                "@id": "https://auto-welt.info/#website",
                             },
                             about: {
-                                "@id": "https://splatapozyczek.pl/#organization",
+                                "@id": "https://auto-welt.info/#organization",
                             },
                             datePublished: "2015-11-18T08:37:53+00:00",
                             dateModified: "2022-07-20T09:58:31+00:00",
-                            description:
-                                "Niestandardowa umowa pracownicza? Brak zdolno\u015bci kredytowej? Inne zobowi\u0105zania? Mo\u017cemy uzyska\u0107 kredyt dla Ciebie nawet w 24 H.",
                             inLanguage: "pl-PL",
                             potentialAction: [
                                 {
                                     "@type": "ReadAction",
-                                    target: ["https://splatapozyczek.pl/"],
+                                    target: ["https://auto-welt.info/"],
                                 },
                             ],
                         },
                     ],
                 })}
-            </script> */}
+            </script>
 
             {canonical ? (
                 <>
@@ -111,24 +108,24 @@ export function Head({
                 </>
             ) : null}
 
-            {/* {seo.opengraphImage?.localFile?.publicURL ? (
+            {seo.opengraphImage?.localFile?.publicURL ? (
                 <>
                     <meta
                         property="og:image"
                         content={
-                            "https://splatapozyczek.pl" +
+                            "https://auto-welt.info" +
                             seo.opengraphImage.localFile.publicURL
                         }
                     />
                     <meta
                         property="twitter:image"
                         content={
-                            "https://splatapozyczek.pl" +
+                            "https://auto-welt.info" +
                             seo.opengraphImage.localFile.publicURL
                         }
                     />
                 </>
-            ) : null} */}
+            ) : null}
         </>
     );
 }
