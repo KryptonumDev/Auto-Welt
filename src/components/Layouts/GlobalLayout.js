@@ -1,5 +1,6 @@
 import React from "react";
 import { MenuProvider } from "../../context/menuContext";
+import { Helmet } from 'react-helmet'
 import GlobalStyle from "../../styles/GlobalStyle";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -13,6 +14,9 @@ const GlobalLayout = ({ children }) => {
   return (
     <>
       <MenuProvider>
+        <Helmet htmlAttributes={{
+          lang: 'pl',
+        }} />
         <GlobalStyle />
         <StyledOverflowWrapper>
           <Header />
