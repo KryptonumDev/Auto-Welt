@@ -30,7 +30,7 @@ module.exports = {
                 defaults: {
                     formats: [`auto`, `webp`],
                     placeholder: `blurred`,
-                    quality: 100,
+                    quality: 90,
                 },
             },
         },
