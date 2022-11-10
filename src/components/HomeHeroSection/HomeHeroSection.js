@@ -89,7 +89,7 @@ const HomeHeroSection = () => {
           <StyledImageWrapper key={image.altText}>
             <GatsbyImage
               image={image.localFile}
-              alt={image.altText || " "}
+              alt={image.alt || " "}
               title={image.title}
               objectFit="fill"
             />
@@ -144,7 +144,7 @@ const HomeHeroSection = () => {
           <StyledImageWrapper key={image?.altText}>
             <GatsbyImage
               image={image.localFile}
-              alt={image?.altText || " "}
+              alt={image?.alt || " "}
               title={image?.title}
               objectFit="fill"
             />
