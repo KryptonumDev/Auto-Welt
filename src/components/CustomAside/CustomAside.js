@@ -30,10 +30,10 @@ const CustomAside = ({ tableOfContents, asideData }) => {
           </StyledText>
           <ol>
             {tableOfContents?.map((h2) => (
-              <li>
+              <li key={h2.id}>
                 <a href={`#${h2.id}`} aria-label="przejdź do nagłówka">{h2.name}</a>
                 {h2.children.map((h3) => (
-                  <ul>
+                  <ul key={h3.id}>
                     <li>
                       <a href={`#${h3.id}`} aria-label="przejdź do nagłówka">{h3.name}</a>
                     </li>

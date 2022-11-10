@@ -11,8 +11,8 @@ const ArticleGalleryImage = ({ images, photoName }) => {
   return (
     <>
       <StyledArticleGalleryImage>
-        {images?.map((image) => (
-          <div>
+        {images?.map((image, index) => (
+          <div key={index + `${image?.altText}`}>
             <GatsbyImage
               image={getImage(image?.localFile)}
               alt={image?.altText || " "}
