@@ -11,7 +11,9 @@ import {
 const ArticlePhotoInfo = ({ desc, link }) => {
   return (
     <StyledArticlePhotoInfo href={link} target="_blank">
-      <StaticImage src="../../images/Aparat.png" alt="aparat"/>
+      <a href={link} target="_blank">
+        <StaticImage src="../../images/Aparat.png" alt="aparat"/>
+      </a>
       <StyledTextWrapper>{desc && parse(desc)}</StyledTextWrapper>
     </StyledArticlePhotoInfo>
   );

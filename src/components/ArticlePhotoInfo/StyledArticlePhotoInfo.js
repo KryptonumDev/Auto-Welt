@@ -1,19 +1,22 @@
 import styled from "styled-components";
 
-export const StyledArticlePhotoInfo = styled.a`
+export const StyledArticlePhotoInfo = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   gap: 20px;
   margin: 70px 0 0;
-  text-decoration: none;
   max-width: 505px;
 
-  &:focus-visible {
-    outline-width: 1px;
-    outline-style: solid;
-    outline-color: #da9610;
-    outline-offset: 4px;
+  a {
+    text-decoration: none;
+    
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
   }
 
   @media only screen and (max-width: 768px) {
