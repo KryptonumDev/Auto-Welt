@@ -125,7 +125,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                         }
                       >
                         {exhibitions_today.map((exhibition) => (
-                          <Link to={`/wystawy/${exhibition.slug}`}>
+                          <Link to={`/wystawy/${exhibition.slug}`} aria-label="przejdź do wydarzenia">
                             {exhibition.title}
                             <br />
                           </Link>

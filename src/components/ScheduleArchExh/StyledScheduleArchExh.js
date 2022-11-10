@@ -4,7 +4,7 @@ export const StyledScheduleArchExh = styled.section`
   width: 100%;
   max-width: 1144px;
   padding: 0 32px;
-  margin: 120px auto;
+  margin: ${({ hasmargin }) => hasmargin ? "120px auto 0" : "0"};
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;

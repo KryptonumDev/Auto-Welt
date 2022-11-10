@@ -6,16 +6,18 @@ import ScheduleActualExh from "../components/ScheduleActualExh/ScheduleActualExh
 import SchedulePlanExh from "../components/SchedulePlanExh/SchedulePlanExh";
 import ScheduleArchExh from "../components/ScheduleArchExh/ScheduleArchExh";
 
+import { StyledSchedule } from "../components/Schedule/StyledSchedule";
+
 const Shedule = ({ data }) => {
   const shortData = data.wpPage.terminarz;
   
   return (
-    <>
+    <StyledSchedule>
       <ScheduleHeroSection heroData={shortData.sekcjaPowitalna} />
       <ScheduleActualExh dataActual={shortData.wystawyAktualne} />
       <SchedulePlanExh dataPlan={shortData.wystawyPlanowane} />
       <ScheduleArchExh dataArch={shortData.wystawyArchiwalne} />
-    </>
+    </StyledSchedule>
   );
 };
 
