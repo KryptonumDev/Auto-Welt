@@ -143,6 +143,7 @@ export const StyledHomeContactForm = styled.div`
 
   @media only screen and (max-width: 657px) {
     padding: 10px 22px;
+    
     > form {
       gap: 22px;
     }
@@ -172,10 +173,7 @@ export const StyledInputWrapper = styled.div`
     border-radius: 0;
 
     &:focus-visible {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: #da9610;
-      outline-offset: 4px;
+      outline-width: 0;
     }
   }
 
@@ -192,15 +190,13 @@ export const StyledInputWrapper = styled.div`
     margin-top: 4px;
 
     &:focus-visible {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: #da9610;
-      outline-offset: 4px;
+      outline-width: 0;
     }
 
     @media only screen and (max-width: 898px){
       height: 120px;
     }
+
     @media only screen and (max-width: 768px){
       height: 164px;
     }
@@ -245,6 +241,7 @@ export const StyledInputWrapper = styled.div`
 
   @media only screen and (max-width: 813px){
     width: ${({ fullwidth }) => (fullwidth ? "100%" : "calc(50% - 16px)")};
+
     > div {
       bottom: ${({ telprop, emailprop }) => (telprop ? "-18px" : (emailprop ? "-18px" : "-18px"))};
     }
@@ -256,6 +253,7 @@ export const StyledInputWrapper = styled.div`
 
   @media only screen and (max-width: 638px){
     margin-top: ${({ fullwidth }) => (fullwidth ? "20px" : "4px")};
+
     > div {
       bottom: ${({ telprop, emailprop }) => (telprop ? "-32px" : (emailprop ? "-18px" : "-18px"))};
     }
@@ -263,6 +261,7 @@ export const StyledInputWrapper = styled.div`
 
   @media only screen and (max-width: 560px){
     margin-top: ${({ fullwidth }) => (fullwidth ? "12px" : "4px")};
+
     > div {
       bottom: ${({ telprop, emailprop }) => (telprop ? "-18px" : (emailprop ? "-18px" : "-18px"))};
       font-size: 14px;
@@ -271,6 +270,7 @@ export const StyledInputWrapper = styled.div`
 
   @media only screen and (max-width: 431px){
     margin-top: ${({ fullwidth }) => (fullwidth ? "18px" : "4px")};
+    
     > div {
       bottom: ${({ telprop, emailprop }) => (telprop ? "-34px" : (emailprop ? "-18px" : "-18px"))};
     }

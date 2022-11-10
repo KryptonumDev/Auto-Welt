@@ -47,10 +47,7 @@ export const StyledInputWrapper = styled.div`
     border-radius: 0;
 
     &:focus-visible {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: #da9610;
-      outline-offset: 4px;
+      outline-width: 0;
     }
   }
 
@@ -67,10 +64,7 @@ export const StyledInputWrapper = styled.div`
     margin-top: 4px;
 
     &:focus-visible {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: #da9610;
-      outline-offset: 4px;
+      outline-width: 0;
     }
   }
 
@@ -91,6 +85,7 @@ export const StyledInputWrapper = styled.div`
   @media only screen and (max-width: 469px) {
     width: 100%;
     margin-top: ${({ fullwidth }) => (fullwidth ? "20px" : "4px")};
+    
     textarea{
       margin-top: 4px;
     }
