@@ -36,7 +36,7 @@ const FooterLeftWrapper = ({ footerData }) => {
     <StyledFooterLeftWrapper>
       <div>
         <StyledLogoWrapper>
-          <StyledLink to="/">
+          <StyledLink to="/" aria-label="przejdz do strony głównej">
             {footerData.logo.localFile && (
               <GatsbyImage
                 image={images}

@@ -58,6 +58,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Kolekcje modeli
           </StyledLink>
@@ -68,6 +69,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Sklep
           </StyledLink>
@@ -78,6 +80,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             O mnie
           </StyledLink>
@@ -88,6 +91,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Oferta
           </StyledLink>
@@ -98,6 +102,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Terminarz
           </StyledLink>
@@ -108,6 +113,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Blog
           </StyledLink>
@@ -118,6 +124,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Kontakt
           </StyledLink>
@@ -128,6 +135,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Regulamin wystaw
           </StyledLink>
@@ -138,6 +146,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
+            aria-label="przejdz do podstrony"
           >
             Polityka prywatności
           </StyledLink>

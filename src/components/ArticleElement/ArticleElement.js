@@ -64,6 +64,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontweight="500"
             hasdeclaredtextdecoration="underline"
             to={articleData.slug}
+            aria-label="zobacz więcej"
           >
             Zobacz więcej
           </StyledLink>

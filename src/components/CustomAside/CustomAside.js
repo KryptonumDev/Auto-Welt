@@ -63,6 +63,7 @@ const CustomAside = ({ tableOfContents, asideData }) => {
             hasdeclaredfontcolor="#fff"
             hasdeclaredtextdecoration="underline"
             hasdeclaredlineheight="1.2"
+            aria-label="zobacz kolekcje"
           >
             {kolekcja?.title}
           </StyledLink>

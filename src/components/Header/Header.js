@@ -55,6 +55,7 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Kolekcje modeli
           </StyledLink>
@@ -63,6 +64,7 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Sklep
           </StyledLink>
@@ -71,6 +73,7 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             O mnie
           </StyledLink>
@@ -79,12 +82,13 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Oferta
           </StyledLink>
         </StyledLeftWrapper>
         <StyledLogoWrapper isopen={isOpen}>
-          <StyledLink to="/">
+          <StyledLink to="/" aria-label="przejdz do strony głównej">
             <Logo />
           </StyledLink>
         </StyledLogoWrapper>
@@ -95,6 +99,7 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Terminarz
           </StyledLink>
@@ -105,6 +110,7 @@ const Header = () => {
             activeClassName="activeLink"
             partiallyActive={true}
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Blog
           </StyledLink>
@@ -114,6 +120,7 @@ const Header = () => {
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
             onClick={() => setIsOpen(false)}
+            aria-label="przejdz do podstrony"
           >
             Kontakt
           </StyledLink>
@@ -122,6 +129,7 @@ const Header = () => {
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
                 target="_blank"
+                aria-label="facebook"
               >
                 <FacebookIcon />
               </a>
@@ -130,6 +138,7 @@ const Header = () => {
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoInstagrama}
                 target="_blank"
+                aria-label="instagram"
               >
                 <InstagramIcon />
               </a>
@@ -138,7 +147,7 @@ const Header = () => {
         </StyledRightWrapper>
       </StyledNav>
       <StyledLogoMobileWrapper isopen={isOpen}>
-        <StyledLink to="/">
+        <StyledLink to="/" aria-label="przejdz do strony głównej">
           <Logo />
         </StyledLink>
       </StyledLogoMobileWrapper>
