@@ -7,7 +7,7 @@ import {
 
 const HamburgerButton = ({ openMenu, isOpen }) => {
   return (
-    <StyledHamburgerButton onClick={openMenu} isopen={isOpen}>
+    <StyledHamburgerButton aria-label="otwórz menu" onClick={openMenu} isopen={isOpen}>
       <StyledHamburgerBox>
         <StyledHamburgerInner />
       </StyledHamburgerBox>
