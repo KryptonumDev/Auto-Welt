@@ -8,4 +8,5 @@
         url("./NocturneSerif-Regular.woff") format("truetype"),
         local("Nocturne Serif"),
         url("./NocturneSerif-Regular.otf") format("truetype");
+    font-display: swap;
 }
