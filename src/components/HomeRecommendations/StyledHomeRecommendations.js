@@ -7,7 +7,7 @@ export const StyledHomeRecommendations = styled.section`
   align-items: center;
   width: 100%;
   max-width: 1144px;
-  margin: 0 auto 120px auto;
+  margin: ${({ hasmargin }) => hasmargin ? "0 auto 120px auto" : "0"};
   padding: 0 32px;
 
   @media only screen and (max-width: 768px) {
