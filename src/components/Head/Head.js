@@ -23,8 +23,8 @@ export function Head({
                             name: "Auto-welt.info",
                             url: "https://auto-welt.info/",
                             sameAs: [
-                                "https://www.facebook.com/auto-welt",
-                                "https://www.instagram.com/auto-welt/",
+                                "https://www.facebook.com/AutoWeltInfo/",
+                                "https://www.instagram.com/autoweltinfo/",
                             ],
                             logo: {
                                 "@type": "ImageObject",

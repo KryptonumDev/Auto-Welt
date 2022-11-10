@@ -64,6 +64,11 @@ const Style = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
+      font-variant-numeric: ordinal;
+    }
+
+    p{
+      font-variant-numeric: tabular-nums;
     }
 
     *::before,

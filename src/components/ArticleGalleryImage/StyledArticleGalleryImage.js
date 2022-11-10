@@ -8,8 +8,13 @@ export const StyledArticleGalleryImage = styled.div`
   width: 100%;
 
   > div {
-    width: calc(31% - 6px);
+    width: calc(32.3% - 6px);
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+
+    @media only screen and (max-width: 1094px){
+      width: calc(31% - 6px);
+    }
+
     &:last-child {
       width: 100%;
     }

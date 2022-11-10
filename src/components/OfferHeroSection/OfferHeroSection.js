@@ -69,7 +69,7 @@ const OfferHeroSection = ({ dataOffer }) => {
             as="h2"
             hasdeclaredfontsize="48px"
             hasdeclaredfontcolor="var(--primary500)"
-            hasdeclaredmargin="0 0 40px"
+            hasdeclaredmargin="0 0 30px"
             hasdeclaredfontfamily="Nocturne Serif"
           >
             {dataOffer?.tytulPoPrawo && dataOffer?.tytulPoPrawo}

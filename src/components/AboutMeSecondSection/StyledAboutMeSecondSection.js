@@ -5,7 +5,7 @@ export const StyledAboutMeSecondSection = styled.section`
   background: #faf7f1;
   border-top: 6px solid #edac2a;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  padding: 52px 80px 20px 59px;
+  padding: 52px 80px 52px 59px;
   max-width: 1262px;
   align-self: flex-end;
   display: flex;
@@ -46,6 +46,7 @@ export const StyledLeftWrapper = styled.div`
 
 export const StyledRightWrapper = styled.div`
   flex-shrink: 0;
+  padding-top: 56px;
 
   @media only screen and (max-width: 948px) {
     width: 50%;
@@ -105,22 +106,24 @@ export const StyledDescWrapper = styled.div`
   line-height: 1.2em;
   margin-top: 30px;
 
-  strong,
-  em {
-    position: relative;
-    font-weight: normal;
-    font-style: normal;
+  p {
+    strong,
+    em {
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
 
-    &:before {
-      content: "";
-      width: 100%;
-      background: #f6e2ba;
-      height: 0.5em;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      display: inline-block;
+      &:before {
+        content: "";
+        width: 100%;
+        background: #f6e2ba;
+        height: 0.5em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        display: inline-block;
+      }
     }
   }
 

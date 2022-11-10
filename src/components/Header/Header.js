@@ -103,6 +103,7 @@ const Header = () => {
             hasdeclaredmargin="0 0 0 35px"
             hasdeclaredfontcolor="var(--background500)"
             activeClassName="activeLink"
+            partiallyActive={true}
             onClick={() => setIsOpen(false)}
           >
             Blog

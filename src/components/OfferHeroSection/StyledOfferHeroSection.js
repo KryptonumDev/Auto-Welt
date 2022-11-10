@@ -104,7 +104,7 @@ export const StyledImagesWrapper = styled.div`
 
 export const StyledTextWrapper = styled.div`
   width: calc(100% - 456px);
-  padding: 63px 87px 54px 80px;
+  padding: 63px 87px 63px 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
