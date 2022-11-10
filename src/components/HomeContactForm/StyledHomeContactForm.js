@@ -85,7 +85,7 @@ export const StyledInputWrapper = styled.div`
   @media only screen and (max-width: 469px) {
     width: 100%;
     margin-top: ${({ fullwidth }) => (fullwidth ? "20px" : "4px")};
-    
+
     textarea{
       margin-top: 4px;
     }
@@ -202,9 +202,7 @@ export const StyledCustomCheckbox = styled.div`
       }
 
       &:focus-visible {
-        outline-width: 1px;
-        outline-style: solid;
-        outline-color: #da9610;
+        outline-width: 0;
       }
     }
 
@@ -240,9 +238,7 @@ export const StyledCustomCheckbox = styled.div`
 
     &:focus-visible + label{
       &:after{
-        outline-width: 1px;
-        outline-style: solid;
-        outline-color: #da9610;
+        outline-width: 0;
       }
     }
   }
