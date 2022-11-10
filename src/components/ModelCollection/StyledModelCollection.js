@@ -30,14 +30,26 @@ export const StyledTitle = styled.div`
   justify-content: center;
   align-items: center;
 
+  p, h2 {
+    position: relative;
+    z-index: 1;
+  }
+  font-size: 48px;
+  font-weight: 500;
+  font-family: "Nocturne Serif";
+  line-height: 1.2em;
+  color: var(--primary500);
+  padding: 10px 20px;
+  text-align: center;
+
   @media only screen and (max-width: 594px) {
-    h2 {
+    p {
       font-size: 34px;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    h2 {
+    p {
       font-size: 30px;
     }
   }

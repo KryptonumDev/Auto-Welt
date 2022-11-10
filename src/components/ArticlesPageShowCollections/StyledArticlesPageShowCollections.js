@@ -120,6 +120,17 @@ export const StyledTitleWrapper = styled.div`
   min-height: 111px;
   width: 100%;
 
+  p, h2{
+    position: relative;
+    z-index: 1;
+  }
+
+  font-size: 28px;
+  font-family: "Nocturne Serif";
+  line-height: 1.2em;
+  color: #23423D;
+  text-align: center;
+
   @media only screen and (max-width: 375px) {
     font-size: 24px;
   }

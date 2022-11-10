@@ -11,14 +11,13 @@ import {
   StyledBgWrapper,
 } from "./StyledArticleElement";
 import { StyledText } from "../Text/StyledText";
-import { StyledLink } from "../Link/StyledLink";
 
 const ArticleElement = ({ articleData }) => {
   const convertedData = new Date(articleData.date)
     .toLocaleString("pl", { dateStyle: "long" })
     .split(" ");
   return (
-    <StyledArticleElement to={articleData.slug}>
+    <StyledArticleElement to={articleData.slug} aria-label="zobacz więcej">
       <StyledImageWrapper>
         <GatsbyImage
           image={getImage(
@@ -57,17 +56,15 @@ const ArticleElement = ({ articleData }) => {
           </StyledText>
         </StyledTitle>
         <StyledLinkWrapper>
-          <StyledLink
+          <StyledText
             hasdeclaredfontsize="16px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontcolor="#23423D"
             hasdeclaredfontweight="500"
             hasdeclaredtextdecoration="underline"
-            to={articleData.slug}
-            aria-label="zobacz więcej"
           >
             Zobacz więcej
-          </StyledLink>
+          </StyledText>
         </StyledLinkWrapper>
       </StyledTextWrapper>
     </StyledArticleElement>

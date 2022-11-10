@@ -55,6 +55,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
         <StyledSlidesWrapper>
           <StyledSlide
             to={`/kolekcje-modeli/${collectionData.pierwszaKolekcjaKtoraPolecasz.slug}`}
+            aria-label="link"
           >
             <StyledImageWrapper>
               <GatsbyImage
@@ -77,18 +78,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 <StaticImage src="../../images/polecanaKolekcja.png" alt="tło" />
               </StyledTitleImage>
               <StyledTitleWrapper>
-                <StyledText
-                  hasdeclaredfontsize="28px"
-                  hasdeclaredfontfamily="Nocturne Serif"
-                  hasdeclaredlineheight="1.2em"
-                  hasdeclaredfontcolor="#23423D"
-                  hasdeclaredtextalign="center"
-                >
-                  {parse(
-                    collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
-                      .informacjeGlowne.nazwaKolekcji)
-                  }
-                </StyledText>
+                {parse(
+                  collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.nazwaKolekcji)
+                }
               </StyledTitleWrapper>
             </StyledTextWrapper>
           </StyledSlide>
@@ -116,18 +109,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 <StaticImage src="../../images/polecanaKolekcja.png" alt="tło" />
               </StyledTitleImage>
               <StyledTitleWrapper>
-                <StyledText
-                  hasdeclaredfontsize="28px"
-                  hasdeclaredfontfamily="Nocturne Serif"
-                  hasdeclaredlineheight="1.2em"
-                  hasdeclaredfontcolor="#23423D"
-                  hasdeclaredtextalign="center"
-                >
                   {parse(
                     collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
                       .informacjeGlowne.nazwaKolekcji)
                   }
-                </StyledText>
               </StyledTitleWrapper>
             </StyledTextWrapper>
           </StyledSlide>

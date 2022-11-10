@@ -9,10 +9,9 @@ import {
   StyledTextWrapper,
 } from "./StyledHomeRecommendationsElement";
 
-const HomeRecommendationsElement = ({ data, key, isPrev }) => {
+const HomeRecommendationsElement = ({ data, isPrev }) => {
   return (
     <StyledHomeRecommendationsElement
-      key={key}
       initial={{ x: isPrev ? -100 : 100 }}
       animate={{ x: 0 }}
       transition={{ type: "spring", stiffness: 100, bounce: 0 }}

@@ -66,7 +66,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
           <Form
             method="post"
             netlify-honeypot="bot-field"
-            dataForm-netlify="true"
+            dataform-netlify="true"
             name="contact"
           >
             <StyledInputWrapper iserror={errors.firstName}>
@@ -153,7 +153,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
-              <button type="submit" ariaLabel="Wyślij wiadomość">
+              <button type="submit" aria-label="Wyślij wiadomość">
                 <span>
                   {
                     data.wpPage.homepage.formularzKontaktowy

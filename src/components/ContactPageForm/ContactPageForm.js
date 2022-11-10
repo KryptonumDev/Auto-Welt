@@ -200,7 +200,7 @@ const ContactPageForm = ({ dataForm }) => {
                   <Form
                     method="post"
                     netlify-honeypot="bot-field"
-                    dataForm-netlify="true"
+                    dataform-netlify="true"
                     name="contact"
                   >
                     <StyledInputWrapper iserror={errors.firstName}>
@@ -282,7 +282,7 @@ const ContactPageForm = ({ dataForm }) => {
                       </label>
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>
-                      <button type="submit" disabled={isSubmitting} ariaLabel="Prześlij formularz">
+                      <button type="submit" disabled={isSubmitting} aria-label="Prześlij formularz">
                         <span>
                           {dataForm.trescPrzyciskuPotwierdzajacegoWyslanie}
                         </span>
