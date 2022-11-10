@@ -49,7 +49,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
           />
         )}
         {dataOffer.tekstDoPobraniaTekstu && (
-          <a href={dataOffer.tekstDoPobraniaTekstu.link} target="_blank">pobierz katalog</a>
+          <a href={dataOffer.tekstDoPobraniaTekstu.link} target="_blank" aria-label="pobierz katalog">pobierz katalog</a>
         )}
       </StyledCheckOutButtonsWrapper>
     </StyledCheckOutWithOffer>

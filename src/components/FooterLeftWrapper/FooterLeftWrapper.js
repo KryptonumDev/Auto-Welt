@@ -93,7 +93,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
           >
             Tel.: {" "}
-            <a href={`tel:${footerData.telefon && footerData.telefon}`}>
+            <a href={`tel:${footerData.telefon && footerData.telefon}`} aria-label="zadzwoń">
              {footerData.telefon && footerData.telefon}
             </a>
           </StyledText>
@@ -104,19 +104,19 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
           >
             E-mail: {" "}
-            <a href={`mailto:${footerData.email && footerData.email}`}>
+            <a href={`mailto:${footerData.email && footerData.email}`} aria-label="wyslij email">
               {footerData.email && footerData.email}
             </a>
           </StyledText>
         </StyledTelWrapp>
         <StyledIconsWrapper>
           {footerData.linkDoFacebooka && (
-            <a href={footerData.linkDoFacebooka} target="_blank">
+            <a href={footerData.linkDoFacebooka} target="_blank" aria-label="Facebooka">
               <FacebookIcon />
             </a>
           )}
           {footerData.linkDoInstagrama && (
-            <a href={footerData.linkDoInstagrama} target="_blank">
+            <a href={footerData.linkDoInstagrama} target="_blank" aria-label="Instagram">
               <InstagramIcon />
             </a>
           )}
