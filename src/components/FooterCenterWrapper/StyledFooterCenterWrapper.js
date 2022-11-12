@@ -41,7 +41,8 @@ export const StyledFastLinks = styled.div`
 
   a {
     transition: color 250ms linear;
-
+    padding: 8px 0;
+    
     &:hover {
       color: var(--secondary300);
     }

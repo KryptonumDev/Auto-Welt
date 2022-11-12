@@ -71,6 +71,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
             hasdeclaredlineheight="1.2em"
+            hasdeclaredmargin="0 30px 0 0"
             aria-label="przejdz do podstrony"
           >
             Sklep
@@ -94,7 +95,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredtextdecoration="default"
             hasdeclaredfontweight="500"
             activeClassName="activeLink"
-            hasdeclaredlineheight="1.2em"
+            hasdeclaredlineheight="1.2em"           
             aria-label="przejdz do podstrony"
           >
             Oferta
