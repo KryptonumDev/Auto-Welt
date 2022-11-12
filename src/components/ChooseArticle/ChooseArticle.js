@@ -45,7 +45,7 @@ const ChooseArticle = ({ chosenArticle }) => {
             <StaticImage src="../../images/tloPolecenia.png" alt="tło" />
           </StyledBgWrapper>
           <StyledText
-            hasdeclaredfontweight="500"
+            hasdeclaredfontweight="700"
             hasdeclaredfontsize="24px"
             hasdeclaredlineheight="1.2em"
             hasdeclaredtextalign="center"
