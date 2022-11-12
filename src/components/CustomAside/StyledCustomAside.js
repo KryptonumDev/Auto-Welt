@@ -35,9 +35,7 @@ export const StyledContents = styled.div`
 
     > li {
       color: #faf6ee;
-      font-size: 18px;
-      font-weight: 700;
-      font-family: "Roboto Condensed", Arial;
+      font: 700 18px "Roboto Condensed", Arial;
 
       &:hover {
         color: #f6e2ba;
@@ -69,10 +67,8 @@ export const StyledContents = styled.div`
 
       > a {
         color: #faf6ee;
-        font-size: 16px;
-        font-weight: 500;
-        font-family: "Roboto Condensed", Arial;
         text-decoration: none;
+        font: 500 16px "Roboto Condensed", Arial;
 
         &:hover {
           color: #f6e2ba;

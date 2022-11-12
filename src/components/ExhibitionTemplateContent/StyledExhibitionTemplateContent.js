@@ -37,7 +37,7 @@ export const StyledAsideWrapper = styled.div`
 `;
 
 export const StyledContentWrapper = styled.div`
-width: calc(60% - 35px);
+  width: calc(60% - 35px);
   font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 

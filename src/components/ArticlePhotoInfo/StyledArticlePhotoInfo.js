@@ -26,19 +26,11 @@ export const StyledArticlePhotoInfo = styled.div`
 
 export const StyledTextWrapper = styled.div`
   p {
-    font-family: 'Roboto Condensed', Arial;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px !important;
-    line-height: 1.2em;
-    color: #000000;
+    color: #000;
+    font: normal 500 16px/1.2em 'Roboto Condensed', Arial !important;
     
     a, strong{
-      font-family: 'Roboto Condensed', Arial;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 1.2em;
+      font: normal 500 16px/1.2em 'Roboto Condensed', Arial !important;
       text-decoration-line: underline;
       color: #23423D;
       transition: color 250ms linear;

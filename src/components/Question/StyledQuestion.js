@@ -14,12 +14,9 @@ export const StyledQuestion = styled.div`
 export const StyledAnswerWrapper = styled.div`
   width: 80%;
   padding: 15px 59px 20px 68px;
-  font-size: 18px;
-  line-height: 1.2em;
-  font-weight: 500;
-  font-family: "Roboto Condensed", Arial;
   max-width: 746px;
   display: ${({ isopen }) => isopen ? "block" : "none"};
+  font: 500 18px/1.2em "Roboto Condensed", Arial;
 
   ul,
   ol {
@@ -87,10 +84,7 @@ export const StyledQuestionText = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  font-family: "Roboto Condensed", Arial;
-  font-size: 18px;
-  line-height: 1.2em;
-  font-weight: 700;
+  font: 700 18px/1.2em "Roboto Condensed", Arial;
   color: #fff;
   max-width: 70%;
 

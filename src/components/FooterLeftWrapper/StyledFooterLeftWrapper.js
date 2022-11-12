@@ -54,9 +54,8 @@ export const StyledLogoWrapper = styled.div`
 export const StyledSubLogoText = styled.div`
   width: 100%;
   margin-top: 32px;
-  font: 300 18px/1.2em;
+  font: 300 18px/1.2em "Roboto Condensed", Arial;
   color: #faf6ee;
-  font-family: "Roboto Condensed", Arial;
 
   strong {
     font-weight: 500;

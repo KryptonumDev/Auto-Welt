@@ -18,11 +18,7 @@ export const StyledArticleCustomQuote = styled.div`
 export const StyledIconWrapper = styled.div``;
 
 export const StyledTextWrapper = styled.div`
-  font-family: "Nocturne Serif", Arial;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 34px;
+  font: normal 500 28px/1.2em "Nocturne Serif", Arial;
   text-align: center;
   color: #23423d;
 

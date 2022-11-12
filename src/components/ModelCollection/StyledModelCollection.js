@@ -29,18 +29,15 @@ export const StyledTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary500);
+  padding: 10px 20px;
+  text-align: center;
+  font: 500 48px/1.2em "Nocturne Serif";
 
   p, h2 {
     position: relative;
     z-index: 1;
   }
-  font-size: 48px;
-  font-weight: 500;
-  font-family: "Nocturne Serif";
-  line-height: 1.2em;
-  color: var(--primary500);
-  padding: 10px 20px;
-  text-align: center;
 
   @media only screen and (max-width: 594px) {
     p {

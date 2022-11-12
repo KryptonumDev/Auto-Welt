@@ -62,11 +62,7 @@ export const StyledRightWrapper = styled.div`
 `;
 
 export const StyledTitleWrapper = styled.div`
-  font-family: "Nocturne Serif", Arial;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 1.2em;
+  font: normal 500 48px/1.2em "Nocturne Serif", Arial;
   color: #23423d;
 
   @media only screen and (max-width: 1036px) {
@@ -98,12 +94,9 @@ export const StyledTitleWrapper = styled.div`
     }
   }
 `;
+
 export const StyledDescWrapper = styled.div`
-  font-family: "Roboto Condensed", Arial;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.2em;
+  font: normal 500 24px/1.2em "Roboto Condensed", Arial;
   margin-top: 30px;
 
   p {
@@ -227,13 +220,9 @@ export const StyledGreetingText = styled.div`
   width: 70%;
   max-width: 840px;
   height: 100%;
-  font-family: "Nocturne Serif", Arial;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 1.2em;
   padding: 48px 0 48px 59px;
   color: #fff;
+  font: normal 500 28px/1.2em "Nocturne Serif", Arial;
 
   @media only screen and (max-width: 542px) {
     font-size: 24px;

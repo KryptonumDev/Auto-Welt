@@ -82,6 +82,27 @@ export const StyledSubTitleWrapper = styled.div`
   color: #23423d;
   margin-top: 10px;
 
+  p {
+    strong,
+    em {
+      position: relative;
+      font-weight: normal;
+      font-style: normal;
+
+      &:before {
+        content: "";
+        width: 100%;
+        background: #f6e2ba;
+        height: 0.5em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        display: inline-block;
+      }
+    }
+  }
+
   @media only screen and (max-width: 1036px) {
     font-size: 28px;
   }
@@ -89,6 +110,12 @@ export const StyledSubTitleWrapper = styled.div`
   @media only screen and (max-width: 816px) {
     font-size: 24px;
   }
+`;
+
+export const StyledDescWrapper = styled.div`
+  font: 400 24px/1.2em "Roboto Condensed";
+  color: #000;
+  margin: 30px 0 42px;
 
   p {
     strong,
@@ -110,12 +137,6 @@ export const StyledSubTitleWrapper = styled.div`
       }
     }
   }
-`;
-
-export const StyledDescWrapper = styled.div`
-  font: 400 24px/1.2em "Roboto Condensed";
-  color: #000;
-  margin: 30px 0 42px;
 
   @media only screen and (max-width: 1036px) {
     font-size: 20px;
@@ -127,27 +148,6 @@ export const StyledDescWrapper = styled.div`
 
   @media only screen and (max-width: 450px) {
     font-size: 16px;
-  }
-
-  p {
-    strong,
-    em {
-      position: relative;
-      font-weight: normal;
-      font-style: normal;
-
-      &:before {
-        content: "";
-        width: 100%;
-        background: #f6e2ba;
-        height: 0.5em;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        display: inline-block;
-      }
-    }
   }
 `;
 

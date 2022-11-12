@@ -63,12 +63,8 @@ export const StyledTag = styled.div`
 `;
 
 export const StyledTextWrapper = styled.div`
-  font-family: "Roboto Condensed", Arial;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.2em;
-  color: #000000;
+  font: normal 500 24px/1.2em "Roboto Condensed", Arial;
+  color: #000;
   margin-top: 20px;
 
   h1 {

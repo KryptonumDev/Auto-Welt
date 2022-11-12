@@ -138,9 +138,7 @@ export const StyledTextWrapper = styled.div`
 `;
 
 export const StyledMoreInfoWrapper = styled.div`
-  font-size: 24px;
-  font-family: "Roboto Condensed", Arial;
-  line-height: 1.2em;
+  font: 24px/1.2em "Roboto Condensed", Arial;
 
   @media only screen and (max-width: 1052px) {
     font-size: 20px;
