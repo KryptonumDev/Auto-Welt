@@ -10,6 +10,7 @@ export function Head({
     return (
         <>
             <meta charSet="utf-8" />
+            <meta name="robots" content="noindex" />
             <meta property="og:site_name" content={seo.opengraphSiteName} />
 
             <script type="application/ld+json">
