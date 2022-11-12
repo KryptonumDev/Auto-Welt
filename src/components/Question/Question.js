@@ -47,15 +47,14 @@ const Question = ({ faqData }) => {
           {images ? <GatsbyImage image={images} alt="tło" objectFit="fill" /> : null}
         </StyledBgWrapper>
       </StyledQuestionWrapper>
-      {isOpen ? (
-        <StyledAnswerWrapper
-          itemscope
-          itemprop="acceptedAnswer"
-          itemtype="https://schema.org/Answer"
-        >
-          {faqData.odpowiedz ? parse(faqData.odpowiedz) : null}
-        </StyledAnswerWrapper>
-      ) : null}
+      <StyledAnswerWrapper
+        itemscope
+        itemprop="acceptedAnswer"
+        itemtype="https://schema.org/Answer"
+        isopen={isOpen}
+      >
+        {faqData.odpowiedz ? parse(faqData.odpowiedz) : null}
+      </StyledAnswerWrapper>
     </StyledQuestion>
   );
 };

@@ -19,6 +19,7 @@ export const StyledAnswerWrapper = styled.div`
   font-weight: 500;
   font-family: "Roboto Condensed", Arial;
   max-width: 746px;
+  display: ${({ isopen }) => isopen ? "block" : "none"};
 
   ul,
   ol {
