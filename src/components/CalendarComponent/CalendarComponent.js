@@ -51,7 +51,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           (node) => node.querySelector("abbr")
         )
         .forEach(
-          (node) => node.setAttribute("aria-label", "data")
+          (node) => node.removeAttribute("aria-label")
         )
       }
     },
