@@ -39,6 +39,10 @@ export const StyledTop = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media only screen and (max-width: 768px){
+    height: 120px;
+  }
 `;
 
 export const StyledBottom = styled.div`
