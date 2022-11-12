@@ -6,7 +6,6 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 import {
-  StyledMainChildren,
   StyledOverflowWrapper,
 } from "./StyledGlobalLayout";
 

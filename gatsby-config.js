@@ -86,7 +86,7 @@ module.exports = {
                 custom: [
                     {
                         name: "Nocturne Serif",
-                        file: "/src/styles/style.css",
+                        file: "/src/styles/fonts/style.css",
                     },
                 ],
                 web: [
