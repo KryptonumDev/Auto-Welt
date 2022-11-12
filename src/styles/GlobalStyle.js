@@ -64,11 +64,11 @@ const Style = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
-      font-variant-numeric: ordinal;
+      font-variant-numeric: oldstyle-nums;
     }
 
     p{
-      font-variant-numeric: tabular-nums;
+      font-variant-numeric: oldstyle-nums;
     }
 
     *::before,

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { AnimatePresence } from "framer-motion";
 
@@ -65,7 +65,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
     const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
-    const handlePrev = (e) => {
+    const handlePrev = useCallback((e) => {
         e.preventDefault();
         setIsPrev(true);
         setPrevIndex(index);
@@ -74,9 +74,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index - 1);
         }
-    };
+    }, [index]);
 
-    const handleNext = (e) => {
+    const handleNext = useCallback((e) => {
         e.preventDefault();
         setIsPrev(false);
         setPrevIndex(index);
@@ -85,7 +85,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index + 1);
         }
-    };
+    }, [index]);
 
     useEffect(() => {
         let sliderElements = allWpRekomendacja.nodes.slice(
