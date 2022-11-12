@@ -5,6 +5,7 @@ export const StyledArticlesPageArticles = styled.section`
   max-width: 1144px;
   width: 100%;
   margin: 30px auto 0;
+  scroll-behavior: smooth;
 
   @media only screen and (max-width: 768px) {
     margin: 130px auto 0;
@@ -47,7 +48,7 @@ export const StyledTopPaggination = styled.div`
   display: flex;
   gap: 20px;
 
-  font-family: "Nocturne Serif", Arial;
+  font-family: "Nocturne Serif";
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -77,7 +78,7 @@ export const StyledInput = styled.div`
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     border: none;
     padding-left: 5px;
-    font-family: "Roboto Condensed", Arial;
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -99,7 +100,7 @@ export const StyledInput = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  font-family: "Roboto Condensed", Arial;
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

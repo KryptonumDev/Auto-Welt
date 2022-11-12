@@ -46,7 +46,6 @@ const Style = createGlobalStyle`
         --creamText: #F2EBD8;
         --borderTopOrange: #EDAC29;
         --creamBg: #faf7f1;
-        scroll-behavior: smooth;
     }
 
     body {
