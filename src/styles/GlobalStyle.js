@@ -1,7 +1,7 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { useMenuState } from "../context/menuContext";
-import "./fonts/style.css";
+import "../static/fonts/style.css";
 
 const Style = createGlobalStyle`
     html{

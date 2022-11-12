@@ -85,12 +85,6 @@ module.exports = {
                 enableListener: true,
                 interval: 500,
                 timeout: 30000,
-                custom: [
-                    {
-                        name: "Nocturne Serif",
-                        file: "/src/styles/fonts/style.css",
-                    },
-                ],
                 web: [
                     {
                         name: "Roboto Condensed",
