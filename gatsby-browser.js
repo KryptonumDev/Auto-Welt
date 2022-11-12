@@ -5,7 +5,7 @@ const gsap = require("gsap").gsap;
 
 exports.wrapPageElement = ({ element, props }) => {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <GlobalLayout {...props}>{element}</GlobalLayout>
     </AnimatePresence>
   );

@@ -97,7 +97,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                     )}
                     <StyledImagesWrapper>
                         {renderElements.map((e, index) => (
-                            <AnimatePresence initial={false} exitBeforeEnter>
+                            <AnimatePresence initial={false} mode="wait">
                                 <StyledImage
                                     key={Math.random()}
                                     initial={{ x: isPrev ? -100 : 100 }}

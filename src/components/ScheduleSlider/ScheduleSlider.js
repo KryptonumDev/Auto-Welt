@@ -98,7 +98,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                 </StyledPrevArrow>
             )}
             <StyledSlides slides={scheduleData.length}>
-                <AnimatePresence initial={false} exitBeforeEnter>
+                <AnimatePresence initial={false} mode="wait">
                     {renderElements.map((e) => (
                         <HomeExhibitionsElement
                             key={e.slug + e.node.wystawa.informacjeOgolne.data}

@@ -145,7 +145,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                             )}
                         </StyledArrowWrapper>
                         <StyledSlides>
-                            <AnimatePresence initial={false} exitBeforeEnter>
+                            <AnimatePresence initial={false} mode="wait">
                                 {renderElements?.map((e, index) => (
                                     <HomeRecommendationsElement
                                         key={
