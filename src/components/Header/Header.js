@@ -125,7 +125,7 @@ const Header = () => {
             Kontakt
           </StyledLink>
           <StyledIconsWrapper>
-            {data.wpPage.globalConfig.naglowek.linkDoFacebooka && (
+            {data.wpPage.globalConfig.naglowek.linkDoFacebooka ? (
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
                 target="_blank"
@@ -133,8 +133,8 @@ const Header = () => {
               >
                 <FacebookIcon />
               </a>
-            )}
-            {data.wpPage.globalConfig.naglowek.linkDoInstagrama && (
+            ) : null}
+            {data.wpPage.globalConfig.naglowek.linkDoInstagrama ? (
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoInstagrama}
                 target="_blank"
@@ -142,7 +142,7 @@ const Header = () => {
               >
                 <InstagramIcon />
               </a>
-            )}
+            ) : null}
           </StyledIconsWrapper>
         </StyledRightWrapper>
       </StyledNav>

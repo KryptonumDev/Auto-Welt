@@ -37,18 +37,18 @@ const FooterLeftWrapper = ({ footerData }) => {
       <div>
         <StyledLogoWrapper>
           <StyledLink to="/" aria-label="przejdz do strony głównej">
-            {footerData.logo.localFile && (
+            {footerData.logo.localFile ? (
               <GatsbyImage
                 image={images}
                 alt={footerData.logo?.altText || " "}
                 objectFit="fill"
                 title={footerData.logo?.title}
               />
-            )}
+            ) : null}
           </StyledLink>
         </StyledLogoWrapper>
         <StyledSubLogoText>
-          {footerData.tekstPodLogiem && parse(footerData.tekstPodLogiem)}
+          {footerData.tekstPodLogiem ? parse(footerData.tekstPodLogiem) : null}
         </StyledSubLogoText>
       </div>
       <StyledContactWrapper>
@@ -60,7 +60,7 @@ const FooterLeftWrapper = ({ footerData }) => {
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
-          {footerData.kontaktTytul && footerData.kontaktTytul}
+          {footerData.kontaktTytul ? footerData.kontaktTytul : null}
         </StyledText>
         <StyledAddressWrapper>
           {footerData.adres.map((line, index) => (
@@ -71,7 +71,7 @@ const FooterLeftWrapper = ({ footerData }) => {
                 hasdeclaredfontcolor="rgba(250, 246, 238, 1)"
                 as="p"
               >
-                {line.linijkaAdresu && line.linijkaAdresu}
+                {line.linijkaAdresu ? line.linijkaAdresu : null}
               </StyledText>
             </div>
           ))}
@@ -84,7 +84,7 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
             hasdeclaredpadding="16px 0 0"
           >
-            {footerData.imie && footerData.imie}
+            {footerData.imie ? footerData.imie : null}
           </StyledText>
           <StyledText
             hasdeclaredfontsize="18px"
@@ -93,8 +93,8 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
           >
             Tel.: {" "}
-            <a href={`tel:${footerData.telefon && footerData.telefon}`} aria-label="zadzwoń">
-             {footerData.telefon && footerData.telefon}
+            <a href={`tel:${footerData.telefon ? footerData.telefon : null}`} aria-label="zadzwoń">
+             {footerData.telefon ? footerData.telefon : null}
             </a>
           </StyledText>
           <StyledText
@@ -104,26 +104,26 @@ const FooterLeftWrapper = ({ footerData }) => {
             hasdeclaredfontweight="500"
           >
             E-mail: {" "}
-            <a href={`mailto:${footerData.email && footerData.email}`} aria-label="wyslij email">
-              {footerData.email && footerData.email}
+            <a href={`mailto:${footerData.email ? footerData.email : null}`} aria-label="wyslij email">
+              {footerData.email ? footerData.email : null}
             </a>
           </StyledText>
         </StyledTelWrapp>
         <StyledIconsWrapper>
-          {footerData.linkDoFacebooka && (
+          {footerData.linkDoFacebooka ? (
             <a href={footerData.linkDoFacebooka} target="_blank" aria-label="Facebooka">
               <FacebookIcon />
             </a>
-          )}
-          {footerData.linkDoInstagrama && (
+          ) : null}
+          {footerData.linkDoInstagrama ? (
             <a href={footerData.linkDoInstagrama} target="_blank" aria-label="Instagram">
               <InstagramIcon />
             </a>
-          )}
+          ) : null}
         </StyledIconsWrapper>
         <StyledTextKryptonum>
-          {footerData.stworzonePrzezKryptonumTekst &&
-            parse(footerData.stworzonePrzezKryptonumTekst)}
+          {footerData.stworzonePrzezKryptonumTekst ?
+            parse(footerData.stworzonePrzezKryptonumTekst) : null}
         </StyledTextKryptonum>
       </StyledContactWrapper>
     </StyledFooterLeftWrapper>

@@ -52,7 +52,7 @@ const FooterRightWrapper = ({ footerData }) => {
         hasdeclaredmargin="0 0 16px"
         hasdeclaredfontcolor="var(--secondary500)"
       >
-        {footerData.wydarzeniaTytul && footerData.wydarzeniaTytul}
+        {footerData.wydarzeniaTytul ? footerData.wydarzeniaTytul : null}
       </StyledText>
       <StyledEventWrapper>
         {articleData.allWpWystawa?.edges
@@ -85,7 +85,7 @@ const FooterRightWrapper = ({ footerData }) => {
             />
           ))}
       </StyledEventWrapper>
-      {footerData.przyciskPrzenoszacyDoTerminarza.title && (
+      {footerData.przyciskPrzenoszacyDoTerminarza.title ? (
         <Button
           text={footerData.przyciskPrzenoszacyDoTerminarza.title}
           whereGo={footerData.przyciskPrzenoszacyDoTerminarza.url}
@@ -100,7 +100,7 @@ const FooterRightWrapper = ({ footerData }) => {
           hoverBgColor="var(--secondary700)"
           ariaLabel="link"
         />
-      )}
+      ) : null}
     </StyledFooterRightWrapper>
   );
 };

@@ -16,13 +16,13 @@ const HomeArticleElement = ({ articleData, slug }) => {
   return (
     <StyledHomeArticleElement to={`/artykuly/${slug}`}>
       <StyledImageWrapper>
-        {articleData.miniaturka.localFile && (
+        {articleData.miniaturka.localFile ? (
           <GatsbyImage
             image={getImage(articleData.miniaturka?.localFile)}
             alt={articleData.miniaturka?.altText || " "}
             title={articleData.miniaturka?.title}
           />
-        )}
+        ) : null}
       </StyledImageWrapper>
       <StyledTitleWrapper>
         <StyledTitleBgWrapper>
@@ -35,12 +35,12 @@ const HomeArticleElement = ({ articleData, slug }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredpadding="20px 40px"
         >
-          {articleData.tytul && articleData.tytul}
+          {articleData.tytul ? articleData.tytul : null}
         </StyledText>
       </StyledTitleWrapper>
       <StyledTextWrapper>
-        {articleData.opis && parse(articleData.opis)}
-        {articleData.tekstWPrzycisku && (
+        {articleData.opis ? parse(articleData.opis) : null}
+        {articleData.tekstWPrzycisku ? (
           <Button
             text={articleData.tekstWPrzycisku}
             bgColor="var(--secondary500)"
@@ -51,7 +51,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hasBorder="2px solid transparent"
             hasNotTabIndex
           />
-        )}
+        ) : null}
       </StyledTextWrapper>
     </StyledHomeArticleElement>
   );

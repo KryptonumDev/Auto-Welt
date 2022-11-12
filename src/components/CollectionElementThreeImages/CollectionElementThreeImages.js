@@ -9,7 +9,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
   return (
     <StyledCollectionElementThreeImages>
       <div>
-        {imagesData &&
+        {imagesData ?
           imagesData?.map((image, index) => (
             <GatsbyImage
               key={index}
@@ -17,9 +17,9 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
               alt={image?.altText || " "}
               title={image?.title}
             />
-          ))}
+          )) : null}
       </div>
-      {linkData && (
+      {linkData ? (
         <Button
           whereGo={linkData?.url}
           text={linkData?.title}
@@ -33,7 +33,7 @@ const CollectionElementThreeImages = ({ imagesData, linkData }) => {
           hasBorder="2px solid var(--primary500)"
           ariaLabel="link"
         />
-      )}
+      ) : null}
     </StyledCollectionElementThreeImages>
   );
 };

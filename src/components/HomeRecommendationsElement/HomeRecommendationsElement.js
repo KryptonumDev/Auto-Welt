@@ -22,19 +22,19 @@ const HomeRecommendationsElement = ({ data, isPrev }) => {
         hasdeclaredlineheight="1.2em"
         hasdeclaredfontcolor="var(--primary800)"
       >
-        {data.rekomendacje.imieNazwisko && data.rekomendacje.imieNazwisko}
+        {data.rekomendacje.imieNazwisko ? data.rekomendacje.imieNazwisko : null}
       </StyledText>
-      {data.rekomendacje.linkPodImieniem.url && (
+      {data.rekomendacje.linkPodImieniem.url ? (
         <motion.a
           href={data.rekomendacje.linkPodImieniem.url}
           target={data.rekomendacje.linkPodImieniem.target}
         >
           {data.rekomendacje.linkPodImieniem.title}
         </motion.a>
-      )}
+      ) : null}
       <StyledTextWrapper>
-        {data.rekomendacje.rekomendacja &&
-          parse(data.rekomendacje.rekomendacja)}
+        {data.rekomendacje.rekomendacja ?
+          parse(data.rekomendacje.rekomendacja) : null}
       </StyledTextWrapper>
       <StyledImageWrapper>
         <StyledText

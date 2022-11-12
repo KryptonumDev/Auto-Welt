@@ -124,10 +124,10 @@ const HomeRecommendations = ({ isAboutPage }) => {
                     >
                         {wpPage.globalConfig
                             .informacjeDoRekomendacjiNaStronieGlownej
-                            ?.tytulSekcji &&
+                            ?.tytulSekcji ?
                             wpPage.globalConfig
                                 .informacjeDoRekomendacjiNaStronieGlownej
-                                ?.tytulSekcji}
+                                ?.tytulSekcji : null}
                     </StyledText>
                     <StyledRecommendationsWrapper>
                         <StyledArrowWrapper
@@ -176,7 +176,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                     <StyledButtonsWrapper>
                         {wpPage.globalConfig
                             .informacjeDoRekomendacjiNaStronieGlownej
-                            ?.przyciskLewy?.title && (
+                            ?.przyciskLewy?.title ? (
                             <Button
                                 whereGo={
                                     wpPage.globalConfig
@@ -203,10 +203,10 @@ const HomeRecommendations = ({ isAboutPage }) => {
                                 hoverBgColor="#F6E2BA"
                                 ariaLabel="link"
                             />
-                        )}
+                        ) : null}
                         {wpPage.globalConfig
                             .informacjeDoRekomendacjiNaStronieGlownej
-                            ?.przyciskPrawy?.url && (
+                            ?.przyciskPrawy?.url ? (
                             <Button
                                 whereGo={
                                     wpPage.globalConfig
@@ -233,7 +233,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                                 hoverBgColor="var(--primary900)"
                                 ariaLabel="link"
                             />
-                        )}
+                        ) : null}
                     </StyledButtonsWrapper>
                 </>
             ) : null}

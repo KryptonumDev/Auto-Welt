@@ -18,7 +18,7 @@ const OfferEvent = ({ offerData, slug }) => {
     <StyledOfferEvent>
       <StyledOfferEventImage>
         {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-          .wiekszaMiniaturkaNaStroneOferty?.localFile && (
+          .wiekszaMiniaturkaNaStroneOferty?.localFile ? (
           <GatsbyImage
             image={getImage(
               offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
@@ -33,7 +33,7 @@ const OfferEvent = ({ offerData, slug }) => {
                 .wiekszaMiniaturkaNaStroneOferty?.title
             }
           />
-        )}
+        ) : null}
       </StyledOfferEventImage>
       <StyledOfferEventInfo>
         <StyledText
@@ -48,8 +48,8 @@ const OfferEvent = ({ offerData, slug }) => {
           {convertedData[1]}
         </StyledText>
         <StyledText hasdeclaredfontsize="16px" hasdeclaredfontweight="500">
-          {offerData.informacjeOgolne.miejsce &&
-            offerData.informacjeOgolne.miejsce}
+          {offerData.informacjeOgolne.miejsce ?
+            offerData.informacjeOgolne.miejsce : null}
         </StyledText>
         <StyledText
           hasdeclaredfontcolor="#23423D"
@@ -59,9 +59,9 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredmargin="16px 0 20px"
         >
           {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-            .tytulZUwzglednieniemMiasta &&
+            .tytulZUwzglednieniemMiasta ?
             offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-              .tytulZUwzglednieniemMiasta}
+              .tytulZUwzglednieniemMiasta : null}
         </StyledText>
         <Button
           text={

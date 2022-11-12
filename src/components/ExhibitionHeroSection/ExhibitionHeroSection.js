@@ -57,11 +57,11 @@ const ExhibitionHeroSection = ({ heroData }) => {
             {heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem}
           </StyledText>
           {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna
-            ?.krotkiOpisPodTytulem &&
+            ?.krotkiOpisPodTytulem ?
             parse(
               heroData?.wystawa.wydarzenieSzablon?.sekcjaPowitalna
                 ?.krotkiOpisPodTytulem
-            )}
+            ) : null}
         </StyledTextWrapper>
         <StyledDataWrapper>
           <StyledDataImage>

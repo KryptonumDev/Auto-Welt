@@ -46,11 +46,11 @@ const ModelCollection = ({ collectionData, slug }) => {
                         />
                     )}
                 </StyledTitleImage>
-                {shortDataKey.tytulNaDuzejMiniaturce &&
-                    parse(shortDataKey.tytulNaDuzejMiniaturce)}
+                {shortDataKey.tytulNaDuzejMiniaturce ?
+                    parse(shortDataKey.tytulNaDuzejMiniaturce) : null}
             </StyledTitle>
             <StyledButtonSpace>
-                {shortDataKey.trescPrzyciskuNaDuzejMiniaturce && (
+                {shortDataKey.trescPrzyciskuNaDuzejMiniaturce ? (
                     <Button
                         text={shortDataKey.trescPrzyciskuNaDuzejMiniaturce}
                         textColor="var(--white)"
@@ -61,7 +61,7 @@ const ModelCollection = ({ collectionData, slug }) => {
                         hasDeclaredPadding="8px 33px"
                         hasBorder="2px solid var(--primary500)"
                     />
-                )}
+                ) : null}
             </StyledButtonSpace>
         </StyledModelCollection>
     );

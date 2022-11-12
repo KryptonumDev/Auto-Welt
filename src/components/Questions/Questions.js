@@ -59,8 +59,8 @@ const Questions = ({ isContactPage }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.globalConfig.faq.faqTutul &&
-          data.wpPage.globalConfig.faq.faqTutul}
+        {data.wpPage.globalConfig.faq.faqTutul ?
+          data.wpPage.globalConfig.faq.faqTutul : null}
       </StyledText>
       <StyledQuestionsWrapper>
         {data.wpPage.globalConfig?.faq?.faq.map((faq, index) => (

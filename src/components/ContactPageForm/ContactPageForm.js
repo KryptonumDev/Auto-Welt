@@ -118,14 +118,14 @@ const ContactPageForm = ({ dataForm }) => {
           <>
             <StyledMessageWrapper>
               <StyledTitle>
-                {shortData.tytul && parse(shortData.tytul)}
+                {shortData.tytul ? parse(shortData.tytul) : null}
               </StyledTitle>
               <StyledSubTitle>
-                {shortData.podTytul && parse(shortData.podTytul)}
+                {shortData.podTytul ? parse(shortData.podTytul) : null}
               </StyledSubTitle>
-              <StyledDesc>{shortData.opis && parse(shortData.opis)}</StyledDesc>
+              <StyledDesc>{shortData.opis ? parse(shortData.opis) : null}</StyledDesc>
               <StyledButtonsWrapper>
-                {shortData.przyciskPoLewo.title && (
+                {shortData.przyciskPoLewo.title ? (
                   <Button
                     whereGo={shortData.przyciskPoLewo.url}
                     text={shortData.przyciskPoLewo.title}
@@ -139,8 +139,8 @@ const ContactPageForm = ({ dataForm }) => {
                     hoverBgColor="var(--primary900)"
                     ariaLabel="link"
                   />
-                )}
-                {shortData.przyciskPoPrawo && (
+                ) : null}
+                {shortData.przyciskPoPrawo ? (
                   <Button
                     text={shortData.przyciskPoPrawo}
                     bgColor="var(--creamBg)"
@@ -152,7 +152,7 @@ const ContactPageForm = ({ dataForm }) => {
                     onClickHandler={() => setIsSend(false)}
                     ariaLabel="link"
                   />
-                )}
+                ) : null}
               </StyledButtonsWrapper>
             </StyledMessageWrapper>
           </>
@@ -160,7 +160,7 @@ const ContactPageForm = ({ dataForm }) => {
           <>
             <StyledHeading>
               <StyledTitleImage>
-                {dataForm.zdjecieDlaTytuluFormularza.localFile && (
+                {dataForm.zdjecieDlaTytuluFormularza.localFile ? (
                   <GatsbyImage
                     image={getImage(
                       dataForm.zdjecieDlaTytuluFormularza.localFile
@@ -168,7 +168,7 @@ const ContactPageForm = ({ dataForm }) => {
                     alt={dataForm.zdjecieDlaTytuluFormularza.altText || " "}
                     objectFit="fill"
                   />
-                )}
+                ) : null}
               </StyledTitleImage>
               <StyledText
                 hasdeclaredfontsize="48px"
@@ -178,7 +178,7 @@ const ContactPageForm = ({ dataForm }) => {
                 hasdeclaredpadding="0 20px"
                 hasdeclaredlineheight="1.2em"
               >
-                {dataForm.tytulFormularza && dataForm.tytulFormularza}
+                {dataForm.tytulFormularza ? dataForm.tytulFormularza : null}
               </StyledText>
             </StyledHeading>
             <StyledHomeContactForm>

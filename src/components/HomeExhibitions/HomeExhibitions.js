@@ -117,7 +117,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
           />
         ))}
       </StyledElementsWrapper>
-      {data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo && (
+      {data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo ? (
         <Button
           text={
             data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo?.title
@@ -136,7 +136,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
           }
           ariaLabel="link"
         />
-      )}
+      ) : null}
     </StyledHomeExhibitions>
   );
 };

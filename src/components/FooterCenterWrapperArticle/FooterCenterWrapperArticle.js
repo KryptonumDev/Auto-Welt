@@ -12,7 +12,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
   return (
     <StyledFooterCenterWrapperArticle to={`/artykuly/${slug}`}>
       <StyledTop>
-        {articleData.informacjeDoMiniaturki.miniaturka.localFile && (
+        {articleData.informacjeDoMiniaturki.miniaturka.localFile ? (
           <GatsbyImage
             image={getImage(
               articleData.informacjeDoMiniaturki.miniaturka.localFile
@@ -20,7 +20,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
             alt={articleData.informacjeDoMiniaturki.miniaturka?.altText || " "}
             title={articleData.informacjeDoMiniaturki.miniaturka?.title}
           />
-        )}
+        ) : null}
       </StyledTop>
       <StyledBottom>
         <StyledText
@@ -29,8 +29,8 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontweight="700"
         >
-          {articleData.informacjeDoMiniaturki.tytul &&
-            articleData.informacjeDoMiniaturki.tytul}
+          {articleData.informacjeDoMiniaturki.tytul ?
+            articleData.informacjeDoMiniaturki.tytul : null}
         </StyledText>
       </StyledBottom>
     </StyledFooterCenterWrapperArticle>

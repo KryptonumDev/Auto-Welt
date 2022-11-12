@@ -12,16 +12,16 @@ const CollectionTemplateDesc = ({ descData }) => {
   return (
     <StyledCollectionTemplateDesc>
       <StyledTextWrapper>
-        {descData?.opisKolekcji && parse(descData.opisKolekcji)}
+        {descData?.opisKolekcji ? parse(descData.opisKolekcji) : null}
       </StyledTextWrapper>
       <StyledImageWrapper>
-        {descData?.zdjecieObokOpisu && (
+        {descData?.zdjecieObokOpisu ? (
           <GatsbyImage
             image={getImage(descData.zdjecieObokOpisu?.localFile)}
             alt={descData.zdjecieObokOpisu?.altText || " "}
             title={descData.zdjecieObokOpisu?.title}
           />
-        )}
+        ) : null}
       </StyledImageWrapper>
     </StyledCollectionTemplateDesc>
   );

@@ -16,13 +16,13 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
   return (
     <StyledCollectionTemplateHeroImage>
       <StyledHeroImage>
-        {heroData?.zdjecieGlowne && (
+        {heroData?.zdjecieGlowne ? (
           <StyledGatsbyImage
             image={getImage(heroData.zdjecieGlowne?.localFile)}
             alt={heroData.zdjecieGlowne?.altText}
             title={heroData.zdjecieGlowne?.title}
           />
-        )}
+        ) : null}
       </StyledHeroImage>
       <StyledTitleWrapper>
         <StyledTitleImageWraper>
@@ -40,7 +40,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
         </StyledTitleImageWraper>
         <div>{parse(heroData?.kolorowyTytulNaZieloneTlo)}</div>
       </StyledTitleWrapper>
-      {heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym && (
+      {heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym ? (
         <Button
           whereGo={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.url}
           text={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.title}
@@ -53,7 +53,7 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
           hasTarget={heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym?.target}
           ariaLabel="link"
         />
-      )}
+      ) : null}
     </StyledCollectionTemplateHeroImage>
   );
 };

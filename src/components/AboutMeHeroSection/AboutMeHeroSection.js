@@ -59,17 +59,17 @@ const AboutMeHeroSection = ({ heroData }) => {
       </StyledImagesWrapper>
       <StyledTextWrapper>
         <StyledTitleWrapper>
-          {heroData?.tytul && parse(heroData.tytul)}
+          {heroData?.tytul ? parse(heroData.tytul) : null}
         </StyledTitleWrapper>
         <StyledSubTitleWrapper>
-          {heroData?.zielonyOpisPodTytulem &&
-            parse(heroData.zielonyOpisPodTytulem)}
+          {heroData?.zielonyOpisPodTytulem ?
+            parse(heroData.zielonyOpisPodTytulem) : null}
         </StyledSubTitleWrapper>
         <StyledDescWrapper>
-          {heroData.opis && parse(heroData.opis)}
+          {heroData.opis ? parse(heroData.opis) : null}
         </StyledDescWrapper>
         <StyledButtonWrapper>
-          {heroData.przyciskPodOpisem?.title && (
+          {heroData.przyciskPodOpisem?.title ? (
             <Button
               text={heroData.przyciskPodOpisem?.title}
               whereGo={heroData.przyciskPodOpisem?.url}
@@ -82,7 +82,7 @@ const AboutMeHeroSection = ({ heroData }) => {
               hasBorder="2px solid transparent"
               ariaLabel="link"
             />
-          )}
+          ) : null}
         </StyledButtonWrapper>
       </StyledTextWrapper>
     </StyledAboutMeHeroSection>

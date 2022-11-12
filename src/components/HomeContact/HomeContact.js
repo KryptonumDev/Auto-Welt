@@ -133,22 +133,22 @@ const HomeContact = () => {
           <>
             <StyledMessageWrapper>
               <StyledTitle>
-                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.tytul &&
-                  parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.tytul)}
+                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.tytul ?
+                  parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.tytul) : null}
               </StyledTitle>
               <StyledSubTitle>
-                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.podTytul &&
+                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.podTytul ?
                   parse(
                     imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.podTytul
-                  )}
+                  ) : null}
               </StyledSubTitle>
               <StyledDesc>
-                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.opis &&
-                  parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.opis)}
+                {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.opis ?
+                  parse(imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.opis) : null}
               </StyledDesc>
               <StyledButtonsWrapper>
                 {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu.przyciskPoLewo
-                  .title && (
+                  .title ? (
                   <Button
                     whereGo={
                       imageShort.trescWiadomosciPoPoprawnymPrzeslaniu
@@ -171,9 +171,9 @@ const HomeContact = () => {
                     hasBorder="2px solid var(--primary500)"
                     ariaLabel="link"
                   />
-                )}
+                ) : null}
                 {imageShort.trescWiadomosciPoPoprawnymPrzeslaniu
-                  .przyciskPoPrawo && (
+                  .przyciskPoPrawo ? (
                   <Button
                     text={
                       imageShort.trescWiadomosciPoPoprawnymPrzeslaniu
@@ -188,7 +188,7 @@ const HomeContact = () => {
                     onClickHandler={() => setIsSend(false)}
                     ariaLabel="link"
                   />
-                )}
+                ) : null}
               </StyledButtonsWrapper>
             </StyledMessageWrapper>
           </>
@@ -196,14 +196,14 @@ const HomeContact = () => {
           <>
             <StyledHeading>
               <StyledTitleImage>
-                {imageShort.zdjecieTytulu.localFile && (
+                {imageShort.zdjecieTytulu.localFile ? (
                   <GatsbyImage
                     image={getImage(imageShort?.zdjecieTytulu?.localFile)}
                     alt={imageShort?.zdjecieTytulu?.altText || " "}
                     title={imageShort?.zdjecieTytulu?.title}
                     objectFit="fill"
                   />
-                )}
+                ) : null}
               </StyledTitleImage>
               <StyledText
                 as="h2"
@@ -212,7 +212,7 @@ const HomeContact = () => {
                 hasdeclaredfontcolor="var(--primary500)"
                 hasdeclaredfontfamily="Nocturne Serif"
               >
-                {imageShort.tytul && imageShort.tytul}
+                {imageShort.tytul ? imageShort.tytul : null}
               </StyledText>
             </StyledHeading>
             <HomeContactForm data={data} afterSubmit={() => setIsSend(true)} />

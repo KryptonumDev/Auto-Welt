@@ -50,7 +50,7 @@ const QuestionContact = () => {
   return (
     <StyledQuestionContact>
       <StyledImageContactWrapper>
-        {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.localFile && (
+        {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.localFile ? (
           <GatsbyImage
             image={getImage(
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.localFile
@@ -62,12 +62,12 @@ const QuestionContact = () => {
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.zdjecieTla.title
             }
           />
-        )}
+        ) : null}
       </StyledImageContactWrapper>
       <StyledInfoWrapper>
         <StyledImageInfoWrapper>
           {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie
-            .localFile && (
+            .localFile ? (
             <GatsbyImage
               image={getImage(
                 data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tloWProstokacie
@@ -83,7 +83,7 @@ const QuestionContact = () => {
               }
               objectFit="fill"
             />
-          )}
+          ) : null}
         </StyledImageInfoWrapper>
         <StyledText
           hasdeclaredfontsize="18px"
@@ -92,10 +92,10 @@ const QuestionContact = () => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredtextalign="center"
         >
-          {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie &&
-            data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie}
+          {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie ?
+            data.wpPage.homepage.sekcjaSkontaktujSieZeMna.tekstWProstokacie : null}
         </StyledText>
-        {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.title && (
+        {data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.title ? (
           <Button
             whereGo={
               data.wpPage.homepage.sekcjaSkontaktujSieZeMna.linkWPrzycisku.url
@@ -116,7 +116,7 @@ const QuestionContact = () => {
             hoverBgColor="var(--secondary700)"
             ariaLabel="link"
           />
-        )}
+        ) : null}
       </StyledInfoWrapper>
     </StyledQuestionContact>
   );

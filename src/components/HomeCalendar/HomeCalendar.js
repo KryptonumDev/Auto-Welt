@@ -62,8 +62,8 @@ const HomeCalendar = () => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {data.wpPage.homepage.kalendarz.tytulSekcji &&
-          data.wpPage.homepage.kalendarz.tytulSekcji}
+        {data.wpPage.homepage.kalendarz.tytulSekcji ?
+          data.wpPage.homepage.kalendarz.tytulSekcji : null}
       </StyledText>
       <CalendarComponent
         exhibitions={data.allWpWystawa.edges.map((edge) => ({
@@ -75,7 +75,7 @@ const HomeCalendar = () => {
       />
       <StyledButtonWrapper>
         {data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza
-          .title && (
+          .title ? (
           <Button
             text={
               data.wpPage.homepage.kalendarz.przyciskPrzenoszacyDoTerminarza
@@ -96,10 +96,10 @@ const HomeCalendar = () => {
             hasBorder="2px solid var(--primary500)"
             ariaLabel="link"
           />
-        )}
+        ) : null}
       </StyledButtonWrapper>
       <StyledFooterCar>
-        {data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile && (
+        {data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile ? (
           <GatsbyImage
             image={getImage(
               data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
@@ -107,7 +107,7 @@ const HomeCalendar = () => {
             alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText || " "}
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
-        )}
+        ) : null}
       </StyledFooterCar>
     </StyledHomeCalendar>
   );

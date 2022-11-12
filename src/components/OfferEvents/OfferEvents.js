@@ -58,10 +58,10 @@ const OfferEvents = ({ dataEvents }) => {
         hasdeclaredfontcolor="var(--primary500)"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {dataEvents?.tytul && dataEvents?.tytul}
+        {dataEvents?.tytul ? dataEvents?.tytul : null}
       </StyledText>
       <StyledTextWrapper>
-        {dataEvents?.tekstPodTytulem && parse(dataEvents?.tekstPodTytulem)}
+        {dataEvents?.tekstPodTytulem ? parse(dataEvents?.tekstPodTytulem) : null}
       </StyledTextWrapper>
       <StyledEventsWrapper>
         {data.allWpWystawa?.edges
@@ -91,7 +91,7 @@ const OfferEvents = ({ dataEvents }) => {
           ))}
       </StyledEventsWrapper>
       <StyledEventsButtonWrapper>
-        {dataEvents?.przyciskPoLewo.url && (
+        {dataEvents?.przyciskPoLewo.url ? (
           <Button
             whereGo={dataEvents.przyciskPoLewo?.url}
             text={dataEvents.przyciskPoLewo?.title}
@@ -104,8 +104,8 @@ const OfferEvents = ({ dataEvents }) => {
             hoverBgColor="#F6E2BA"
             ariaLabel="link"
           />
-        )}
-        {dataEvents?.przyciskPoPrawo.url && (
+        ) : null}
+        {dataEvents?.przyciskPoPrawo.url ? (
           <Button
             whereGo={dataEvents.przyciskPoPrawo?.url}
             text={dataEvents.przyciskPoPrawo?.title}
@@ -118,7 +118,7 @@ const OfferEvents = ({ dataEvents }) => {
             hasBorder="2px solid var(--primary500)"
             ariaLabel="link"
           />
-        )}
+        ) : null}
       </StyledEventsButtonWrapper>
     </StyledOfferEvents>
   );

@@ -92,8 +92,8 @@ const ScheduleActualExh = ({ dataActual }) => {
                         hasdeclaredtextalign="center"
                         as="h2"
                     >
-                        {dataActual.tytulNadSliderem &&
-                            dataActual.tytulNadSliderem}
+                        {dataActual.tytulNadSliderem ?
+                            dataActual.tytulNadSliderem : null}
                     </StyledText>
                     <StyledSliderWrapper>
                         <ScheduleSlider
@@ -102,7 +102,7 @@ const ScheduleActualExh = ({ dataActual }) => {
                         />
                     </StyledSliderWrapper>
                     <StyledButtonsWrapper>
-                        {dataActual.przyciskPodSliderem.title && (
+                        {dataActual.przyciskPodSliderem.title ? (
                             <Button
                                 text={dataActual.przyciskPodSliderem.title}
                                 whereGo={dataActual.przyciskPodSliderem.url}
@@ -117,7 +117,7 @@ const ScheduleActualExh = ({ dataActual }) => {
                                 hasBorder="2px solid var(--primary500)"
                                 ariaLabel="link"
                             />
-                        )}
+                        ) : null}
                     </StyledButtonsWrapper>
                 </>
             ) : null}

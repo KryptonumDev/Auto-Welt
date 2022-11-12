@@ -21,19 +21,19 @@ const CheckOutWithOffer = ({ dataOffer }) => {
         hasdeclaredmargin="0 0 40px"
         hasdeclaredfontfamily="Nocturne Serif"
       >
-        {dataOffer.tytul && dataOffer.tytul}
+        {dataOffer.tytul ? dataOffer.tytul : null}
       </StyledText>
       <StyledImageWrapper>
-        {dataOffer.zdjecieKsiazki.localFile && (
+        {dataOffer.zdjecieKsiazki.localFile ? (
           <GatsbyImage
             image={getImage(dataOffer.zdjecieKsiazki.localFile)}
             alt={dataOffer.zdjecieKsiazki.altText || " "}
             title={dataOffer.zdjecieKsiazki.title}
           />
-        )}
+        ) : null}
       </StyledImageWrapper>
       <StyledCheckOutButtonsWrapper>
-        {dataOffer.przyciskPoLewo.title && (
+        {dataOffer.przyciskPoLewo.title ? (
           <Button
             whereGo={dataOffer.przyciskPoLewo.url}
             text={dataOffer.przyciskPoLewo.title}
@@ -47,10 +47,10 @@ const CheckOutWithOffer = ({ dataOffer }) => {
             hasBorder="2px solid var(--primary500)"
             ariaLabel="link"
           />
-        )}
-        {dataOffer.tekstDoPobraniaTekstu && (
+        ) : null}
+        {dataOffer.tekstDoPobraniaTekstu ? (
           <a href={dataOffer.tekstDoPobraniaTekstu.link} target="_blank" aria-label="pobierz katalog">pobierz katalog</a>
-        )}
+        ) : null}
       </StyledCheckOutButtonsWrapper>
     </StyledCheckOutWithOffer>
   );

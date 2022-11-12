@@ -111,8 +111,8 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
           hasdeclaredmargin="0 0 40px"
           hasdeclaredfontfamily="Nocturne Serif"
         >
-          {data.wpPage.homepage.artykuly.tytulSekcji &&
-            data.wpPage.homepage.artykuly.tytulSekcji}
+          {data.wpPage.homepage.artykuly.tytulSekcji ?
+            data.wpPage.homepage.artykuly.tytulSekcji : null}
         </StyledText>
         <StyledArticlesWrapper slides={data.allWpArtykul?.edges.length}>
           {data.allWpArtykul?.edges.map(({ node }, index) => (

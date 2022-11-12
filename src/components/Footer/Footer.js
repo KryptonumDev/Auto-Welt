@@ -110,13 +110,13 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledImageWrapper>
-        {images && (
+        {images ? (
           <GatsbyImage
             image={images}
             alt={imageShort.tloDlaStopkiWersjaTablet?.altText || " "}
             title={imageShort.tloDlaStopkiWersjaTablet?.title}
           />
-        )}
+        ) : null}
       </StyledImageWrapper>
       <StyledFooterMainWrapper>
         <FooterLeftWrapper footerData={data.wpPage.globalConfig.stopka} />

@@ -96,16 +96,16 @@ const ArticleTemplateContent = ({ contentData, slug }) => {
             <StyledTextContent>
                 {content}
                 {contentData.artykul?.dedykowanaStronaArtykulu
-                    ?.galeriaNaKoncuArtykulu && (
+                    ?.galeriaNaKoncuArtykulu ? (
                     <ArticleGalleryImage
                         images={
                             contentData.artykul.dedykowanaStronaArtykulu
                                 ?.galeriaNaKoncuArtykulu
                         }
                     />
-                )}
+                ) : null}
                 {contentData.artykul?.dedykowanaStronaArtykulu
-                    ?.sekcjaZAutoremZdjec?.opis && (
+                    ?.sekcjaZAutoremZdjec?.opis ? (
                     <ArticlePhotoInfo
                         desc={
                             contentData.artykul?.dedykowanaStronaArtykulu
@@ -116,7 +116,7 @@ const ArticleTemplateContent = ({ contentData, slug }) => {
                                 ?.sekcjaZAutoremZdjec?.linkDoStrony
                         }
                     />
-                )}
+                ) : null}
                 {contentData.artykul?.dedykowanaStronaArtykulu
                     ?.ktoryArtykulPolecicNaDoleStrony.slug ===
                 slug ? null : contentData.artykul?.dedykowanaStronaArtykulu

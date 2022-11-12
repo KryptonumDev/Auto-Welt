@@ -37,31 +37,31 @@ const OfferHeroSection = ({ dataOffer }) => {
         </StyledBgWrapper>
         <StyledImagesWrapper>
           <div>
-            {dataOffer.pierwszeZdjeciePoLewo?.localFile && (
+            {dataOffer.pierwszeZdjeciePoLewo?.localFile ? (
               <GatsbyImage
                 image={getImage(dataOffer.pierwszeZdjeciePoLewo?.localFile)}
                 alt={dataOffer.pierwszeZdjeciePoLewo?.altText || " "}
                 title={dataOffer.pierwszeZdjeciePoLewo?.title}
               />
-            )}
+            ) : null}
           </div>
           <div>
-            {dataOffer.drugieZdjeciePoLewo?.localFile && (
+            {dataOffer.drugieZdjeciePoLewo?.localFile ? (
               <GatsbyImage
                 image={getImage(dataOffer.drugieZdjeciePoLewo?.localFile)}
                 alt={dataOffer.drugieZdjeciePoLewo?.altText || " "}
                 title={dataOffer.drugieZdjeciePoLewo?.title}
               />
-            )}
+            ) : null}
           </div>
           <div>
-            {dataOffer.trzecieZdjeciePoLewo?.localFile && (
+            {dataOffer.trzecieZdjeciePoLewo?.localFile ? (
               <GatsbyImage
                 image={getImage(dataOffer.trzecieZdjeciePoLewo?.localFile)}
                 alt={dataOffer.trzecieZdjeciePoLewo?.altText || " "}
                 title={dataOffer.trzecieZdjeciePoLewo?.title}
               />
-            )}
+            ) : null}
           </div>
         </StyledImagesWrapper>
         <StyledTextWrapper>
@@ -72,13 +72,13 @@ const OfferHeroSection = ({ dataOffer }) => {
             hasdeclaredmargin="0 0 30px"
             hasdeclaredfontfamily="Nocturne Serif"
           >
-            {dataOffer?.tytulPoPrawo && dataOffer?.tytulPoPrawo}
+            {dataOffer?.tytulPoPrawo ? dataOffer?.tytulPoPrawo : null}
           </StyledText>
           <StyledMoreInfoWrapper>
-            {dataOffer?.opis && parse(dataOffer?.opis)}
+            {dataOffer?.opis ? parse(dataOffer?.opis) : null}
           </StyledMoreInfoWrapper>
           <StyledButtonWrapper>
-            {dataOffer?.przyciskPodOpisem.url && (
+            {dataOffer?.przyciskPodOpisem.url ? (
               <Button
                 whereGo={dataOffer.przyciskPodOpisem?.url}
                 text={dataOffer.przyciskPodOpisem?.title}
@@ -92,7 +92,7 @@ const OfferHeroSection = ({ dataOffer }) => {
                 hasBorder="2px solid var(--primary500)"
                 ariaLabel="link"
               />
-            )}
+            ) : null}
           </StyledButtonWrapper>
         </StyledTextWrapper>
       </StyledTimeInfo>

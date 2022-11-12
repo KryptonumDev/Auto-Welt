@@ -56,24 +56,24 @@ const ExhibitionTemplateContent = ({ exhibitionData }) => {
         />
       </StyledAsideWrapper>
       <StyledContentWrapper>
-        {content && content}
-        {exhibitionData.wystawa.wydarzenieSzablon?.galeriaNaDoleWydarzenia && (
+        {content ? content : null}
+        {exhibitionData.wystawa.wydarzenieSzablon?.galeriaNaDoleWydarzenia ? (
           <ArticleGalleryImage
             images={
               exhibitionData.wystawa.wydarzenieSzablon?.galeriaNaDoleWydarzenia
             }
             photoName={exhibitionData.wystawa.wydarzenieSzablon?.nazwaFotografa}
           />
-        )}
+        ) : null}
         {exhibitionData.wystawa.wydarzenieSzablon
-          .ktoryArtykulPolecicNaDoleStrony && (
+          .ktoryArtykulPolecicNaDoleStrony ? (
           <ChooseArticle
             chosenArticle={
               exhibitionData.wystawa.wydarzenieSzablon
                 ?.ktoryArtykulPolecicNaDoleStrony
             }
           />
-        )}
+        ) : null}
       </StyledContentWrapper>
     </StyledExhibitionTemplateContent>
   );

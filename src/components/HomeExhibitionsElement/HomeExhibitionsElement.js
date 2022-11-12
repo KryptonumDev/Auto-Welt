@@ -45,7 +45,7 @@ const HomeExhibitionsElement = ({
         <StyledDataInformationWrapper>
           <StyledImageWrapper>
             {exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
-              .localFile && (
+              .localFile ? (
               <GatsbyImage
                 image={getImage(
                   exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
@@ -61,7 +61,7 @@ const HomeExhibitionsElement = ({
                 }
                 objectFit="fill"
               />
-            )}
+            ) : null}
           </StyledImageWrapper>
           <StyledDataWrapper>
             <StyledText
@@ -88,13 +88,13 @@ const HomeExhibitionsElement = ({
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontweight="500"
           >
-            {exhibitionData.wystawa.informacjeOgolne.miejsce &&
-              exhibitionData.wystawa.informacjeOgolne.miejsce}
+            {exhibitionData.wystawa.informacjeOgolne.miejsce ?
+              exhibitionData.wystawa.informacjeOgolne.miejsce : null}
           </StyledText>
         </StyledDataInformationWrapper>
         <StyledLogoWrapper>
           {exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
-            .localFile && (
+            .localFile ? (
             <GatsbyImage
               image={getImage(
                 exhibitionData.wystawa.informacjeOgolne.zdjecieDoMiniaturki
@@ -109,7 +109,7 @@ const HomeExhibitionsElement = ({
                   ?.title
               }
             />
-          )}
+          ) : null}
         </StyledLogoWrapper>
         <StyledContentWrapper>
           <StyledText
@@ -118,8 +118,8 @@ const HomeExhibitionsElement = ({
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontweight="700"
           >
-            {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem &&
-              exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem}
+            {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem ?
+              exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem : null}
           </StyledText>
           <StyledContentList>
             {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(
@@ -132,7 +132,7 @@ const HomeExhibitionsElement = ({
                     hasdeclaredfontweight="500"
                     hasdeclaredfontcolor="#000"
                   >
-                    {element.elementListy && element.elementListy}
+                    {element.elementListy ? element.elementListy : null}
                   </StyledText>
                 </div>
               )
@@ -140,7 +140,7 @@ const HomeExhibitionsElement = ({
           </StyledContentList>
         </StyledContentWrapper>
         {exhibitionData.wystawa.informacjeOgolne
-          .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy && (
+          .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy ? (
           <Button
             text={
               exhibitionData.wystawa.informacjeOgolne
@@ -163,7 +163,7 @@ const HomeExhibitionsElement = ({
             hasNotTabIndex
             ariaLabel="link"
           />
-        )}
+        ) : null}
       </StyledHomeExhibitionsElement>
     </StyledElementLink>
   );

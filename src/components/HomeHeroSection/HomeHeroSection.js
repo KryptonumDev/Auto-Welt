@@ -106,7 +106,7 @@ const HomeHeroSection = () => {
         </StyledHeroImage>
         {width > 768 ? (
           <StyledButtonsWrapper>
-            {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title && (
+            {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title ? (
               <Button
                 whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
                 text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
@@ -120,8 +120,8 @@ const HomeHeroSection = () => {
                 hoverBgColor="#F6E2BA"
                 ariaLabel="link"
               />
-            )}
-            {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title && (
+            ) : null}
+            {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title ? (
               <Button
                 whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
                 text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
@@ -135,7 +135,7 @@ const HomeHeroSection = () => {
                 hoverBgColor="var(--primary900)"
                 ariaLabel="link"
               />
-            )}
+            ) : null}
           </StyledButtonsWrapper>
         ) : null}
       </StyledHeroImageWrapper>
@@ -153,7 +153,7 @@ const HomeHeroSection = () => {
       </StyledImagesRightWrapper>
       {width < 769 ? (
         <StyledButtonsWrapper>
-          {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title && (
+          {wpPage.homepage.gdzieMaPrzeniescLinkLewy.title ? (
             <Button
               whereGo={wpPage.homepage.gdzieMaPrzeniescLinkLewy.url}
               text={wpPage.homepage.gdzieMaPrzeniescLinkLewy.title}
@@ -167,8 +167,8 @@ const HomeHeroSection = () => {
               hasFontWeight="700"
               ariaLabel="link"
             />
-          )}
-          {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url && (
+          ) : null}
+          {wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url ? (
             <Button
               whereGo={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.url}
               text={wpPage.homepage.gdzieMaPrzeniescLinkPrawy.title}
@@ -182,7 +182,7 @@ const HomeHeroSection = () => {
               hasFontWeight="700"
               ariaLabel="link"
             />
-          )}
+          ) : null}
         </StyledButtonsWrapper>
       ) : null}
     </StyledHomeHeroSection>

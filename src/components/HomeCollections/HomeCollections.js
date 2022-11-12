@@ -126,8 +126,8 @@ const HomeCollections = () => {
           hasdeclaredmargin="80px 0 40px"
           hasdeclaredfontfamily="Nocturne Serif"
         >
-          {wpPage.homepage.kolekcje.tytulSekcji &&
-            wpPage.homepage.kolekcje.tytulSekcji}
+          {wpPage.homepage.kolekcje.tytulSekcji ?
+            wpPage.homepage.kolekcje.tytulSekcji : null}
         </StyledText>
         <StyledImagesWrapper>
           {allWpKolekcje.nodes
@@ -150,7 +150,7 @@ const HomeCollections = () => {
             ))}
           <StyledImage>
             {wpPage.homepage.kolekcje.duzeZdjeciePrzyczepioneDoPrawejKrawedzi
-              .localFile && (
+              .localFile ? (
               <GatsbyImage
                 image={getImage(
                   wpPage.homepage.kolekcje
@@ -166,12 +166,12 @@ const HomeCollections = () => {
                 }
                 objectFit="fill"
               />
-            )}
+            ) : null}
           </StyledImage>
         </StyledImagesWrapper>
       </StyledHomeCollections>
       <StyledRecButtonWrapper>
-        {wpPage.homepage.kolekcje.trescTekstuWZielonymProstokacie && (
+        {wpPage.homepage.kolekcje.trescTekstuWZielonymProstokacie ? (
           <RecInfoWithButton
             text={wpPage.homepage.kolekcje.trescTekstuWZielonymProstokacie}
             btnText={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.title}
@@ -185,7 +185,7 @@ const HomeCollections = () => {
             btnFontSize="21px"
             btnHoverBg="var(--secondary700)"
           />
-        )}
+        ) : null}
       </StyledRecButtonWrapper>
     </StyledCollectionMain>
   );

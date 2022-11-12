@@ -47,7 +47,7 @@ const FooterCenterWrapper = ({ footerData }) => {
           hasdeclaredmargin="0 0 16px"
           hasdeclaredfontcolor="var(--secondary500)"
         >
-          {footerData.szybkieLinkiTytul && footerData.szybkieLinkiTytul}
+          {footerData.szybkieLinkiTytul ? footerData.szybkieLinkiTytul : null}
         </StyledText>
         <StyledFastLinks>
           <StyledLink

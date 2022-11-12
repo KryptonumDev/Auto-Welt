@@ -31,9 +31,9 @@ const GoogleMapsContact = ({ mapData }) => {
         hasdeclaredfontfamily="Nocturne Serif"
         hasdeclaredlineheight="1.2em"
       >
-        {mapData.tytulNadMapka && mapData.tytulNadMapka}
+        {mapData.tytulNadMapka ? mapData.tytulNadMapka : null}
       </StyledText>
-      {mapData.linkDoStronyZAdresemFirmy && (
+      {mapData.linkDoStronyZAdresemFirmy ? (
         <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank" rel="nofollow noreferrer" aria-label="lokalizacja"> 
           <StyledGoogleMapsWrapper>
             <GatsbyImage
@@ -43,7 +43,7 @@ const GoogleMapsContact = ({ mapData }) => {
             />
           </StyledGoogleMapsWrapper>
         </a>
-      )}
+      ) : null}
     </StyledGoogleMapsContact>
   );
 };

@@ -21,7 +21,7 @@ const ArticleGalleryImage = ({ images, photoName }) => {
           </div>
         ))}
       </StyledArticleGalleryImage>
-      <StyledTextWrapper>{photoName && parse(photoName)}</StyledTextWrapper>
+      <StyledTextWrapper>{photoName ? parse(photoName) : null}</StyledTextWrapper>
     </>
   );
 };

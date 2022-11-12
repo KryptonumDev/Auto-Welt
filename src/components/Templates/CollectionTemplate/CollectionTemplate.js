@@ -56,7 +56,7 @@ const CollectionTemplate = ({ data }) => {
         <CollectionElementSlider
           imagesData={shortCollectionData.zdjeciaDoSlidera}
         />
-        {shortCollectionData.ktoraKolekcjePolecic && images && (
+        {shortCollectionData.ktoraKolekcjePolecic && images ? (
           <RecInfoWithButton
             bgImage={images}
             text={
@@ -71,13 +71,13 @@ const CollectionTemplate = ({ data }) => {
             hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
             btnHoverBg="var(--secondary700)"
           />
-        )}
-        {shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony && (
+        ) : null}
+        {shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony ? (
           <CollectionElementThreeImages
             imagesData={shortCollectionData.trzyZdjeciaNaSamymSpodzieStrony}
             linkData={shortCollectionData.wszystkieKolekcjieLink}
           />
-        )}
+        ) : null}
       </StyledCollectionTemplate>
     </div>
   );

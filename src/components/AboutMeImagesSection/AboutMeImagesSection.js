@@ -17,7 +17,7 @@ const AboutMeImagesSection = ({ imagesData }) => {
     <StyledAboutMeImagesSection>
       <div>
         <StyledImagesWrapper>
-          {imagesData?.trzyZdjecia && (
+          {imagesData?.trzyZdjecia ? (
             <>
               {imagesData?.trzyZdjecia.map((image, index) => (
                 <StyledImage key={index}>
@@ -29,10 +29,10 @@ const AboutMeImagesSection = ({ imagesData }) => {
                 </StyledImage>
               ))}
             </>
-          )}
+          ) : null}
           <StyledRightImage>
             {imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
-              ?.localFile && (
+              ?.localFile ? (
               <GatsbyImage
                 image={getImage(
                   imagesData.zdjecieSamochoduPrzyczepioneDoPrawejKrawedziStrony
@@ -47,7 +47,7 @@ const AboutMeImagesSection = ({ imagesData }) => {
                     ?.title
                 }
               />
-            )}
+            ) : null}
           </StyledRightImage>
         </StyledImagesWrapper>
         <StyledAparatWrapper>
@@ -55,8 +55,8 @@ const AboutMeImagesSection = ({ imagesData }) => {
             <StaticImage src="../../images/Aparat.png" alt="aparat"/>
           </StyledIconWrapper>
           <StyledTextWrapper href={imagesData.linkDoStronyFotografa} target="_blank">
-            {imagesData?.tekstPrzyIkonceAparatu &&
-              parse(imagesData?.tekstPrzyIkonceAparatu)}
+            {imagesData?.tekstPrzyIkonceAparatu ?
+              parse(imagesData?.tekstPrzyIkonceAparatu) : null}
           </StyledTextWrapper>
         </StyledAparatWrapper>
       </div>

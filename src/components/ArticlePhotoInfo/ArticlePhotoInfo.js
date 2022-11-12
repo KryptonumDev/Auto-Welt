@@ -14,7 +14,7 @@ const ArticlePhotoInfo = ({ desc, link }) => {
       <a href={link} target="_blank">
         <StaticImage src="../../images/Aparat.png" alt="aparat"/>
       </a>
-      <StyledTextWrapper>{desc && parse(desc)}</StyledTextWrapper>
+      <StyledTextWrapper>{desc ? parse(desc) : null}</StyledTextWrapper>
     </StyledArticlePhotoInfo>
   );
 };

@@ -41,21 +41,21 @@ const Question = ({ faqData }) => {
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />
         <StyledQuestionText itemprop="name">
-          {faqData.pytanie && parse(faqData.pytanie)}
+          {faqData.pytanie ? parse(faqData.pytanie) : null}
         </StyledQuestionText>
         <StyledBgWrapper>
-          {images && <GatsbyImage image={images} alt="tło" objectFit="fill" />}
+          {images ? <GatsbyImage image={images} alt="tło" objectFit="fill" /> : null}
         </StyledBgWrapper>
       </StyledQuestionWrapper>
-      {isOpen && (
+      {isOpen ? (
         <StyledAnswerWrapper
           itemscope
           itemprop="acceptedAnswer"
           itemtype="https://schema.org/Answer"
         >
-          {faqData.odpowiedz && parse(faqData.odpowiedz)}
+          {faqData.odpowiedz ? parse(faqData.odpowiedz) : null}
         </StyledAnswerWrapper>
-      )}
+      ) : null}
     </StyledQuestion>
   );
 };

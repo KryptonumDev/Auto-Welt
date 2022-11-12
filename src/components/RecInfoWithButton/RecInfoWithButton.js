@@ -35,7 +35,7 @@ const RecInfoWithButton = ({
         hasdeclaredpadding="0 18px 0 57px"
         as="p"
       >
-        {text && text}
+        {text ? text : null}
       </StyledText>
       <Button
         text={btnText}

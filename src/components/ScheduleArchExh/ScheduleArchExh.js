@@ -134,7 +134,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                                     <StyledImage>
                                         {node.wystawa
                                             .stronaOfertaInformacjeDlaElementowWSekcjiEventy
-                                            .wiekszaMiniaturkaNaStroneOferty && (
+                                            .wiekszaMiniaturkaNaStroneOferty ? (
                                             <GatsbyImage
                                                 image={getImage(
                                                     node.wystawa
@@ -156,7 +156,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                                                 }
                                                 objectFit="cover"
                                             />
-                                        )}
+                                        ) : null}
                                     </StyledImage>
                                     <StyledInfoWrapper>
                                         <StyledBgWrapper>
@@ -182,9 +182,9 @@ const ScheduleArchExh = ({ dataArch }) => {
                                             hasdeclaredmargin="-8px 0 25px 0"
                                         >
                                             {node.wystawa.informacjeOgolne
-                                                .miejsce &&
+                                                .miejsce ?
                                                 node.wystawa.informacjeOgolne
-                                                    .miejsce}
+                                                    .miejsce : null}
                                         </StyledText>
                                         <StyledContentWrapper>
                                             <StyledText
@@ -195,10 +195,10 @@ const ScheduleArchExh = ({ dataArch }) => {
                                                 hasdeclaredmargin="0 0 8px 0"
                                             >
                                                 {node.wystawa.informacjeOgolne
-                                                    .tytulPodZdjeciem &&
+                                                    .tytulPodZdjeciem ?
                                                     node.wystawa
                                                         .informacjeOgolne
-                                                        .tytulPodZdjeciem}
+                                                        .tytulPodZdjeciem : null}
                                             </StyledText>
                                             <StyledContentList>
                                                 {node.wystawa.informacjeOgolne.elementyListy.map(
@@ -216,8 +216,8 @@ const ScheduleArchExh = ({ dataArch }) => {
                                                                 hasdeclaredfontweight="500"
                                                                 hasdeclaredfontcolor="#000"
                                                             >
-                                                                {element.elementListy &&
-                                                                    element.elementListy}
+                                                                {element.elementListy ?
+                                                                    element.elementListy : null}
                                                             </StyledText>
                                                         </div>
                                                     )

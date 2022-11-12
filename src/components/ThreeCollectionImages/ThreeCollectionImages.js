@@ -9,7 +9,7 @@ import {
 const ThreeCollectionImages = ({ imagesData }) => {
   return (
     <StyledThreeCollectionImages>
-      {imagesData &&
+      {imagesData ?
         imagesData?.map((image, index) => {
           return (
             <StyledImageWrapper key={index}>
@@ -20,7 +20,7 @@ const ThreeCollectionImages = ({ imagesData }) => {
               />
             </StyledImageWrapper>
           );
-        })}
+        }) : null}
     </StyledThreeCollectionImages>
   );
 };
