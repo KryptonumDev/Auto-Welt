@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 
 import {
@@ -40,6 +40,23 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 : new_date
           : undefined
       );
+
+  const calendar = useRef();
+  useEffect(
+    () => {
+      const { current } = calendar;
+      if (current) {
+        [...current.getElementsByClassName("react-calendar__month-view__days__day")]
+        .map(
+          (node) => node.querySelector("abbr")
+        )
+        .forEach(
+          (node) => node.setAttribute("aria-label", "data")
+        )
+      }
+    },
+    [ calendar ]
+  );
 
   return (
     <StyledCalendarComponent>
@@ -143,6 +160,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           }
           markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
+          inputRef={calendar}
         />
         <motion.div
           whileHover={{
