@@ -3,10 +3,6 @@
 @font-face {
     font-family: "Nocturne Serif";
     src: local("Nocturne Serif"),
-        url("./NocturneSerif-Regular.ttf") format("truetype"),
-        local("Nocturne Serif"),
-        url("./NocturneSerif-Regular.woff") format("truetype"),
-        local("Nocturne Serif"),
-        url("./NocturneSerif-Regular.otf") format("truetype");
+        url("./NocturneSerif-Regular.ttf") format("truetype");
     font-display: swap;
 }
