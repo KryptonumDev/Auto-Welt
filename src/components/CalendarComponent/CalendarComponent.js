@@ -47,11 +47,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       const { current } = calendar;
       if (current) {
         [...current.getElementsByClassName("react-calendar__month-view__days__day")]
-        .map(
-          (node) => node.querySelector("abbr")
-        )
         .forEach(
-          (node) => node.removeAttribute("aria-label")
+          (node) => {
+            node.setAttribute("aria-label", "data");
+            node.querySelector("abbr")
+            .removeAttribute("aria-label");
+          }
         )
       }
     },
