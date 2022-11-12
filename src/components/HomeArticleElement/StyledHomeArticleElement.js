@@ -96,6 +96,7 @@ export const StyledTextWrapper = styled.div`
   > p {
     font: 400 18px "Roboto Condensed";
     color: var(--primary500);
+    margin-bottom: 20px;
 
     &:first-letter {
       font-size: 35px;

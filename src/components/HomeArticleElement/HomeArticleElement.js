@@ -50,7 +50,6 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hoverBgColor="var(--secondary700)"
             hasBorder="2px solid transparent"
             hasNotTabIndex
-            ariaLabel="link"
           />
         )}
       </StyledTextWrapper>

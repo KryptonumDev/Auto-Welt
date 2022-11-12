@@ -85,8 +85,8 @@ const HomeHeroSection = () => {
   return (
     <StyledHomeHeroSection>
       <StyledImagesLeftWrapper>
-        {leftImages?.map((image) => (
-          <StyledImageWrapper key={image.altText}>
+        {leftImages?.map((image, index) => (
+          <StyledImageWrapper key={image.altText + `${index}`}>
             <GatsbyImage
               image={image.localFile}
               alt={image.alt || " "}
@@ -140,8 +140,8 @@ const HomeHeroSection = () => {
         ) : null}
       </StyledHeroImageWrapper>
       <StyledImagesRightWrapper>
-        {rightImages?.map((image) => (
-          <StyledImageWrapper key={image?.altText}>
+        {rightImages?.map((image, index) => (
+          <StyledImageWrapper key={image?.altText + `${index}`}>
             <GatsbyImage
               image={image.localFile}
               alt={image?.alt || " "}

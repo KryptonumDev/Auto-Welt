@@ -44,7 +44,7 @@ const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
           hasNotTabIndex
-          ariaLabel="link"
+          isParse
         />
       )}
     </StyledHomeCollectionElement>

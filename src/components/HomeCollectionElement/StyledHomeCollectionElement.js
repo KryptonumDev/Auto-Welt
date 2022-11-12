@@ -10,7 +10,7 @@ export const StyledHomeCollectionElement = styled(Link)`
   width: 100%;
   text-decoration: none;
 
-  a {
+  p {
     margin: 0 auto;
     width: 85%;
   }
@@ -35,7 +35,7 @@ export const StyledHomeCollectionElement = styled(Link)`
   }
 
   @media only screen and (max-width: 1065px) {
-    a {
+    p {
       font-size: 18px;
       max-width: 289px;
     }
@@ -43,13 +43,13 @@ export const StyledHomeCollectionElement = styled(Link)`
 
   @media only screen and (max-width: 685px) {
     max-width: 339px;
-    a {
+    p {
       font-size: 16px;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    a {
+    p {
       font-size: 15px;
     }
   }
@@ -68,6 +68,10 @@ export const StyledBackground = styled.div`
   .gatsby-image-wrapper {
     widht: 100%;
     height: 100%;
+  }
+
+  @media only screen and (max-width: 350px){
+    width: 100%;
   }
 `;
 
@@ -90,5 +94,9 @@ export const StyledImage = styled.div`
   .gatsby-image-wrapper {
     widht: 100%;
     height: 100%;
+  }
+
+  @media only screen and (max-width: 350px){
+    width: 100%;
   }
 `;
