@@ -10,7 +10,7 @@ export const StyledQuestionContact = styled.div`
   margin: 60px auto 80px auto;
   padding: 0 32px;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     padding: 0 16px;
   }
 `;
@@ -34,7 +34,7 @@ export const StyledInfoWrapper = styled.div`
   flex-direction: column;
   position: relative;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     max-width: 70%;
   }
 
