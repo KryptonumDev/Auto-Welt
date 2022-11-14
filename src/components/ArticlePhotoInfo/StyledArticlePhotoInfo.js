@@ -5,7 +5,7 @@ export const StyledArticlePhotoInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin: 70px 0 0;
+  margin: 60px 0 0;
   max-width: 505px;
 
   a {

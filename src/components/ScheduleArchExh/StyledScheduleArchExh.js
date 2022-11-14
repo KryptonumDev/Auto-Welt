@@ -8,7 +8,7 @@ export const StyledScheduleArchExh = styled.section`
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin: 60px auto;
+    margin: ${({ hasmargin }) => hasmargin ? "60px auto" : "0 auto"};
 
     > h2 {
       font-size: 38px;

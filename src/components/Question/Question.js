@@ -28,7 +28,13 @@ const Question = ({ faqData }) => {
 
   const openAnswer = useCallback(() => {
     setIsOpen(!isOpen)
-  }, [isOpen])
+  })
+
+  const openAnswerOnClick = useCallback((e) => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      setIsOpen(!isOpen)
+    }
+  })
 
   return (
     <StyledQuestion
@@ -37,6 +43,8 @@ const Question = ({ faqData }) => {
       itemtype="https://schema.org/Question"
       isopen={isOpen}
       onClick={openAnswer}
+      onKeyUp={openAnswerOnClick}
+      tabIndex="0"
     >
       <StyledQuestionWrapper isopen={isOpen}>
         <ArrowQuestion />

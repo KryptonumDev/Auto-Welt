@@ -42,6 +42,7 @@ const NotFoundPage = ({ data }) => {
             hasTarget={queryData.przycisk.target}
             hoverBgColor="var(--secondary700)"
             ariaLabel="link"
+            hasBorder="2px solid transparent"
           />
         </StyledTextWrapper>
       </StyledLeftWrapper>

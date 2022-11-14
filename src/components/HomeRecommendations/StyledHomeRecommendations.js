@@ -96,6 +96,13 @@ export const StyledArrowWrapper = styled(motion.div)`
   position: relative;
   z-index: 1;
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   svg {
     width: 100%;
     height: 100%;

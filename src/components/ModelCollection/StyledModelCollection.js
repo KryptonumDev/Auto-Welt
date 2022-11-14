@@ -6,6 +6,13 @@ export const StyledModelCollection = styled(Link)`
   border-top: 6px solid var(--secondary500);
   width: 100%;
   text-decoration: none;
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 `;
 
 export const StyledImage = styled.div`

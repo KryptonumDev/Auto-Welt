@@ -19,6 +19,18 @@ export const StyledHomeRecommendationsElement = styled(motion.div)`
     text-decoration: none;
     color: var(--primary500);
     font: 500 16px/19px "Roboto Condensed";
+    transition: color 250ms linear;
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+
+    &:hover {
+      color: var(--secondary300);
+    }
   }
 
   @media only screen and (max-width: 768px) {

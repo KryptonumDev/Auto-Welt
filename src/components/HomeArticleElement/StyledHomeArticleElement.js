@@ -96,7 +96,6 @@ export const StyledTextWrapper = styled.div`
   > p {
     font: 400 18px "Roboto Condensed";
     color: var(--primary500);
-    margin-bottom: 20px;
 
     &:first-letter {
       font-size: 35px;
@@ -105,29 +104,36 @@ export const StyledTextWrapper = styled.div`
       float: left;
       padding-right: 10px;
     }
-  }
 
-  > a {
-    margin-top: 30px;
+    &:last-child{
+      font-size: 21px;
+      margin-top: 30px;
+    }
   }
 
   @media only screen and (max-width: 1065px) {
-    a {
-      font-size: 18px;
+    > p {
+      &:last-child{
+        font-size: 18px;
+      }
     }
   }
 
   @media only screen and (max-width: 768px) {
     padding: 10px 26px 25px;
 
-    > a {
-      width: 95%;
+    > p {
+      &:last-child{
+        width: 95%;
+      }
     }
   }
 
   @media only screen and (max-width: 685px) {
-    a {
-      font-size: 16px;
+    > p {
+      &:last-child{
+        font-size: 16px;
+      }
     }
   }
 
@@ -136,8 +142,10 @@ export const StyledTextWrapper = styled.div`
       font-size: 14px;
     }
 
-    > a {
-      font-size: 15px;
+    > p {
+      &:last-child{
+        font-size: 15px;
+      }
     }
   }
 `;

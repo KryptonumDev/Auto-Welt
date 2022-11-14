@@ -3,6 +3,15 @@ import styled from "styled-components";
 export const StyledGoogleMapsContact = styled.section`
   margin: 120px 0;
 
+  > a {
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+  }
+
   @media only screen and (max-width: 768px) {
     margin: 60px 0;
   }
@@ -19,7 +28,8 @@ export const StyledGoogleMapsContact = styled.section`
     }
   }
 `;
-export const StyledGoogleMapsWrapper = styled.div`
+
+export const StyledGoogleMapsWrapper = styled.a`
   width: 100%;
   max-width: 1085px;
   height: 411px;

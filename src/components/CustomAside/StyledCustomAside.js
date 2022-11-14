@@ -45,6 +45,13 @@ export const StyledContents = styled.div`
         text-decoration: none;
         color: #faf6ee;
 
+        &:focus-visible {
+          outline-width: 1px;
+          outline-style: solid;
+          outline-color: #da9610;
+          outline-offset: 4px;
+        }
+
         &:hover {
           color: #f6e2ba;
         }
@@ -69,6 +76,13 @@ export const StyledContents = styled.div`
         color: #faf6ee;
         text-decoration: none;
         font: 500 16px "Roboto Condensed", Arial;
+
+        &:focus-visible {
+          outline-width: 1px;
+          outline-style: solid;
+          outline-color: #da9610;
+          outline-offset: 4px;
+        }
 
         &:hover {
           color: #f6e2ba;
@@ -95,6 +109,13 @@ export const StyledChooseCollections = styled.div`
   > a {
     margin-bottom: 10px;
     display: block;
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
 
     &:hover {
       color: #f6e2ba;

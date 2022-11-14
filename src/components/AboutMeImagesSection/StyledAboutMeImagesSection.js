@@ -88,12 +88,26 @@ export const StyledAparatWrapper = styled.div`
 export const StyledIconWrapper = styled.a`
   text-decoration: none;
   color: #000;
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 `;
 
 export const StyledTextWrapper = styled.a`
   text-decoration: none;
   font: normal 500 16px/1.2em "Roboto Condensed", Arial;
   color: #000;
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 
   a, strong {
     font: normal 700 16px/1.2em "Roboto Condensed", Arial;

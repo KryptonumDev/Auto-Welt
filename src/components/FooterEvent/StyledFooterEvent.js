@@ -9,6 +9,13 @@ export const StyledFooterEvent = styled(Link)`
   display: flex;
   text-decoration: none;
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   &:hover {
     > div {
       &:nth-child(1) {

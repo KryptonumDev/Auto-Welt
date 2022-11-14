@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { AnimatePresence } from "framer-motion";
 
@@ -24,7 +24,7 @@ const CollectionElementSlider = ({ imagesData }) => {
     const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
-    const handlePrev = () => {
+    const handlePrev = useCallback(() => {
         setIsPrev(true);
         setPrevIndex(index);
         if (index === 0) {
@@ -32,8 +32,9 @@ const CollectionElementSlider = ({ imagesData }) => {
         } else {
             setIndex(index - 1);
         }
-    };
-    const handleNext = () => {
+    }, [index]);
+
+    const handleNext = useCallback(() => {
         setIsPrev(false);
         setPrevIndex(index);
         if (index === imagesData.length - 1) {
@@ -41,7 +42,19 @@ const CollectionElementSlider = ({ imagesData }) => {
         } else {
             setIndex(index + 1);
         }
-    };
+    }, [index]);
+
+    const handleNextKeyUp = (e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            handleNext()
+        }
+    }
+
+    const handlePrevKeyUp = (e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            handlePrev()
+        }
+    }
 
     useEffect(() => {
         let sliderElements = imagesData.slice(
@@ -73,24 +86,18 @@ const CollectionElementSlider = ({ imagesData }) => {
                     {width > 768 ? (
                         imagesData.length > 2 ? (
                             <StyledLeftArrow
+                                tabIndex="0"
                                 onClick={handlePrev}
-                                whileHover={{
-                                    scale: 1.2,
-                                    transition: { duration: 0.5 },
-                                }}
-                                whileTap={{ scale: 0.9 }}
+                                onKeyUp={handlePrevKeyUp}
                             >
                                 <LeftArrow />
                             </StyledLeftArrow>
                         ) : null
                     ) : imagesData.length < 2 ? null : (
                         <StyledLeftArrow
+                            tabIndex="0"
                             onClick={handlePrev}
-                            whileHover={{
-                                scale: 1.2,
-                                transition: { duration: 0.5 },
-                            }}
-                            whileTap={{ scale: 0.9 }}
+                            onKeyUp={handlePrevKeyUp}
                         >
                             <LeftArrow />
                         </StyledLeftArrow>
@@ -120,11 +127,8 @@ const CollectionElementSlider = ({ imagesData }) => {
                         imagesData.length > 2 ? (
                             <StyledRightArrow
                                 onClick={handleNext}
-                                whileHover={{
-                                    scale: 1.2,
-                                    transition: { duration: 0.5 },
-                                }}
-                                whileTap={{ scale: 0.9 }}
+                                onKeyUp={handleNextKeyUp}
+                                tabIndex="0"
                             >
                                 <RightArrow />
                             </StyledRightArrow>
@@ -132,11 +136,8 @@ const CollectionElementSlider = ({ imagesData }) => {
                     ) : imagesData.length < 2 ? null : (
                         <StyledRightArrow
                             onClick={handleNext}
-                            whileHover={{
-                                scale: 1.2,
-                                transition: { duration: 0.5 },
-                            }}
-                            whileTap={{ scale: 0.9 }}
+                            onKeyUp={handleNextKeyUp}
+                            tabIndex="0"
                         >
                             <RightArrow />
                         </StyledRightArrow>

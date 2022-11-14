@@ -2,9 +2,16 @@ import styled from "styled-components";
 
 export const StyledQuestion = styled.div`
   width: 100%;
-  padding-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
+  margin-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
   trainsition: padding 250ms;
   cursor: pointer;
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 
   @media only screen and (max-width: 768px) {
     padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};

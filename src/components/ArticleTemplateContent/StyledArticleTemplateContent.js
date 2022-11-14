@@ -164,9 +164,11 @@ export const StyledTextContent = styled.div`
 
   .wp-block-columns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
+  }
 
+  .wp-container-3 {
     > div {
       width: 48%;
       filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));

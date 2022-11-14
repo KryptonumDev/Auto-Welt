@@ -30,6 +30,13 @@ export const StyledCalendarComponent = styled.div`
     -ms-user-select: none;
     user-select: none;
 
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+
     > svg {
       width: 100%;
       height: 100%;
@@ -40,11 +47,17 @@ export const StyledCalendarComponent = styled.div`
     width: 26px;
     height: 56px;
     cursor: pointer;
-
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
 
     > svg {
       width: 100%;
@@ -277,4 +290,11 @@ export const StyledExhibitionTitle = styled.p`
   }
 `;
 
-export const StyledPaginationElement = styled(motion.div)``;
+export const StyledPaginationElement = styled(motion.div)`
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+`;

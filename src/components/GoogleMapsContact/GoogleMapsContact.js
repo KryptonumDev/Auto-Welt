@@ -34,15 +34,13 @@ const GoogleMapsContact = ({ mapData }) => {
         {mapData.tytulNadMapka ? mapData.tytulNadMapka : null}
       </StyledText>
       {mapData.linkDoStronyZAdresemFirmy ? (
-        <a href={mapData.linkDoStronyZAdresemFirmy} target="_blank" rel="nofollow noreferrer" aria-label="lokalizacja"> 
-          <StyledGoogleMapsWrapper>
-            <GatsbyImage
-              image={images}
-              alt={mapData.zdjecieMapyDesktop?.altText || " "}
-              title={mapData.zdjecieMapyDesktop?.title}
-            />
-          </StyledGoogleMapsWrapper>
-        </a>
+        <StyledGoogleMapsWrapper href={mapData.linkDoStronyZAdresemFirmy} target="_blank" rel="nofollow noreferrer" aria-label="lokalizacja"> 
+          <GatsbyImage
+            image={images}
+            alt={mapData.zdjecieMapyDesktop?.altText || " "}
+            title={mapData.zdjecieMapyDesktop?.title}
+          />
+        </StyledGoogleMapsWrapper>
       ) : null}
     </StyledGoogleMapsContact>
   );

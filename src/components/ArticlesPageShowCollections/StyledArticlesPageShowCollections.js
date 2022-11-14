@@ -39,6 +39,13 @@ export const StyledSlide = styled(Link)`
   min-height: 305px;
   position: relative;
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin-bottom: 40px;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "gatsby";
 
 import {
@@ -42,6 +42,70 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       );
 
   const calendar = useRef();
+
+  const handlePrev = useCallback(() => {
+    setCurrentDate((date) => {
+      const newDate = new Date(date.getTime());
+
+      newDate.setMonth(newDate.getMonth() - 1);
+
+      if (newDate.getTime() < minDate.getTime()) {
+        return date;
+      }
+
+      setPagination((val) => val - 1);
+      return newDate;
+    });
+  }, [currentDate])
+
+  const handlePrevOnKeyUp = (e) => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      handlePrev();
+    }
+  }
+
+  const handleNext = useCallback(() => {
+    setCurrentDate((date) => {
+      const newDate = new Date(date.getTime());
+
+      newDate.setMonth(newDate.getMonth() + 1);
+
+      if (newDate.getTime() > maxDate.getTime()) {
+        return date;
+      }
+
+      setPagination((val) => val + 1);
+      return newDate;
+    });
+  }, [currentDate])
+
+  const handleNextOnKeyUp = (e) => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      handleNext();
+    }
+  }
+  
+  const handlePagination = useCallback((key) => {
+    setCurrentDate((date) => {
+      const newDate = new Date(now.getTime());
+
+      newDate.setMonth(newDate.getMonth() + (key - 1));
+
+      if (newDate.getTime() > maxDate.getTime()) {
+        return date;
+      }
+
+      setPagination(key);
+      return newDate;
+    });
+  }, [currentDate])
+
+  const handlePaginationOnKeyUp = (e, key) => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      handlePagination(key);
+    }
+  }
+
   useEffect(
     () => {
       const { current } = calendar;
@@ -67,26 +131,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       </p>
       <div style={{ display: "flex" }} className="calendarWrapper">
         <motion.div
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.5 },
-          }}
-          whileTap={{ scale: 0.9 }}
           className="prevArrow"
-          onClick={() => {
-            setCurrentDate((date) => {
-              const newDate = new Date(date.getTime());
-
-              newDate.setMonth(newDate.getMonth() - 1);
-
-              if (newDate.getTime() < minDate.getTime()) {
-                return date;
-              }
-
-              setPagination((val) => val - 1);
-              return newDate;
-            });
-          }}
+          onClick={handlePrev}
+          onKeyUp={handlePrevOnKeyUp}
+          tabIndex="0"
         >
           <PrevCalendar />
         </motion.div>
@@ -164,26 +212,10 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           inputRef={calendar}
         />
         <motion.div
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.5 },
-          }}
-          whileTap={{ scale: 0.9 }}
           className="nextArrow"
-          onClick={() => {
-            setCurrentDate((date) => {
-              const newDate = new Date(date.getTime());
-
-              newDate.setMonth(newDate.getMonth() + 1);
-
-              if (newDate.getTime() > maxDate.getTime()) {
-                return date;
-              }
-
-              setPagination((val) => val + 1);
-              return newDate;
-            });
-          }}
+          onClick={handleNext}
+          onKeyUp={handleNextOnKeyUp}
+          tabIndex="0"
         >
           <NextCalendar />
         </motion.div>
@@ -201,20 +233,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         {[...Array(2 + futureMonths).keys()].map((key) => (
           <StyledPaginationElement
             key={key}
-            onClick={() => {
-              setCurrentDate((date) => {
-                const newDate = new Date(now.getTime());
-
-                newDate.setMonth(newDate.getMonth() + (key - 1));
-
-                if (newDate.getTime() > maxDate.getTime()) {
-                  return date;
-                }
-
-                setPagination(key);
-                return newDate;
-              });
-            }}
+            tabIndex="0"
+            onClick={() => handlePagination(key)}
+            onKeyUp={(e) => handlePaginationOnKeyUp(e, key)}
             style={{
               width: key === pagination ? "12px" : "10px",
               height: key === pagination ? "12px" : "10px",

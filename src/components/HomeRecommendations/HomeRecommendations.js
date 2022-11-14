@@ -65,8 +65,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
     const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
-    const handlePrev = useCallback((e) => {
-        e.preventDefault();
+    const handlePrevFunction = () => {
         setIsPrev(true);
         setPrevIndex(index);
         if (index === 0) {
@@ -74,10 +73,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index - 1);
         }
-    }, [index]);
+    }
 
-    const handleNext = useCallback((e) => {
-        e.preventDefault();
+    const handleNextFunction = () => {
         setIsPrev(false);
         setPrevIndex(index);
         if (index === allWpRekomendacja.nodes.length - 1) {
@@ -85,6 +83,30 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index + 1);
         }
+    }
+
+    const handlePrevOnKeyUp = useCallback((e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            handlePrevFunction();
+        }
+    }, [index]);
+
+    const handlePrev = useCallback((e) => {
+        e.preventDefault();
+        handlePrevFunction();
+    }, [index]);
+
+    const handleNextOnKeyUp = useCallback((e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            handleNextFunction();
+        }
+    }, [index])
+
+    const handleNext = useCallback((e) => {
+        e.preventDefault();
+        handleNextFunction();
     }, [index]);
 
     useEffect(() => {
@@ -132,7 +154,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
                     <StyledRecommendationsWrapper>
                         <StyledArrowWrapper
                             onClick={handlePrev}
+                            onKeyUp={handlePrevOnKeyUp}
                             hasdeclaredtransform={width < 463 ? "-5px" : "20px"}
+                            tabIndex="0"
                         >
                             {width <= 768 ? (
                                 width < 463 ? (
@@ -160,7 +184,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
                         </StyledSlides>
                         <StyledArrowWrapper
                             onClick={handleNext}
+                            onKeyUp={handleNextOnKeyUp}
                             hasdeclaredtransform={width < 463 ? "5px" : "-20px"}
+                            tabIndex="0"
                         >
                             {width <= 768 ? (
                                 width < 463 ? (

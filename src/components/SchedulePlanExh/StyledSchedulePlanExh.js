@@ -8,7 +8,7 @@ export const StyledSchedulePlanExh = styled.section`
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin-top: 60px;
+    margin-top: ${({ hasmargin }) => hasmargin ? "60px" : "0"};
 
     > h2 {
       font-size: 38px;

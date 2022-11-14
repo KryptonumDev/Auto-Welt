@@ -28,6 +28,7 @@ export const StyledFooterLeftWrapper = styled.div`
       flex-direction: column;
       align-items: center;
       text-align: center;
+
       &:first-child{
         width: 100%;
       }
@@ -43,6 +44,13 @@ export const StyledLogoWrapper = styled.div`
   > a {
     width: 100%;
     height: 100%;
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
 
     img{
       width: 100%;
@@ -95,6 +103,13 @@ export const StyledIconsWrapper = styled.div`
     width: 42px;
     height: 42px;
 
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+    
     > svg {
       fill: #edac2a;
       width: 100%;
@@ -183,6 +198,7 @@ export const StyledTelWrapp = styled.div`
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
   }
 `
