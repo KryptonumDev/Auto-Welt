@@ -8,10 +8,26 @@ export const StyledHomeCollections = styled.section`
   width: 100%;
   max-width: 1144px;
   margin: 0 auto;
-  padding: 0 55px 0 32px;
+  padding: 0 32px;
+  
+  @media only screen and (max-width: 1061px) {
+    > h2 {
+      margin-top: 60px;
+    }
+  }
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
+
+    > h2 {
+      font-size: 38px;
+    }
+  }
+
+  @media only screen and (max-width: 375px){
+    > h2 {
+      font-size: 34px;
+    }
   }
 `;
 
@@ -23,8 +39,13 @@ export const StyledImagesWrapper = styled.div`
   position: relative;
   align-items: flex-start;
 
-  @media only screen and (max-width: 936px) {
+  @media only screen and (max-width: 1061px){
+    justify-content: space-around;
     margin-bottom: 260px;
+  }
+
+  @media only screen and (max-width: 768px){
+    justify-content: space-between;
   }
 
   @media only screen and (max-width: 685px) {
@@ -54,7 +75,7 @@ export const StyledImage = styled.div`
     right: -300px;
   }
 
-  @media only screen and (max-width: 936px) {
+  @media only screen and (max-width: 1061px) {
     width: 620px;
     height: 350px;
     right: -120px;

@@ -6,14 +6,18 @@ export const StyledHomeHeroSection = styled.section`
   padding: 0 32px;
   margin: 52px auto 0 auto;
   grid-template-areas: "left center center center right";
+  
 
   @media only screen and (max-width: 768px) {
     margin-top: 0;
-    padding: 0 16px;
     grid-template-areas:
       "center"
       "left"
       "right";
+  }
+
+  @media only screen and (max-width: 767px){
+    padding: 0 16px;
   }
 `;
 
@@ -146,6 +150,18 @@ export const StyledImageWrapper = styled.div`
     width: 33.33%;
     height: auto;
     max-width: 211px;
-    max-height: 164px;
+    height: 164px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 138px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    height: 110px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    height: 80px;
   }
 `;

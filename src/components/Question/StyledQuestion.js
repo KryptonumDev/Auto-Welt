@@ -14,7 +14,7 @@ export const StyledQuestion = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    padding-bottom: ${({ isopen }) => (isopen ? "0" : "15px")};
+    padding-bottom: 0;
   }
 `;
 

@@ -115,12 +115,20 @@ const HomeCollections = () => {
       },
     ]
   );
+
+  const slidesData = allWpKolekcje.nodes
+  ?.sort(
+    (a, b) =>
+      a.kolekcja.informacjeGlowne.kolejnoscWyswietlania -
+      b.kolekcja.informacjeGlowne.kolejnoscWyswietlania
+  )
+
   return (
     <StyledCollectionMain>
       <StyledHomeCollections>
         <StyledText
           as="h2"
-          hasdeclaredfontsize="clamp(24px, 48px, 60px)"
+          hasdeclaredfontsize="48px"
           hasdeclaredtextalign="center"
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredmargin="80px 0 40px"
@@ -130,12 +138,7 @@ const HomeCollections = () => {
             wpPage.homepage.kolekcje.tytulSekcji : null}
         </StyledText>
         <StyledImagesWrapper>
-          {allWpKolekcje.nodes
-            ?.sort(
-              (a, b) =>
-                a.kolekcja.informacjeGlowne.kolejnoscWyswietlania -
-                b.kolekcja.informacjeGlowne.kolejnoscWyswietlania
-            )
+          {slidesData
             .map((kolekcja) => (
               <HomeCollectionElement
                 key={kolekcja.slug}

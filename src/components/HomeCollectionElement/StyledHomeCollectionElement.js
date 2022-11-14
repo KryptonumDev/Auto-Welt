@@ -9,11 +9,8 @@ export const StyledHomeCollectionElement = styled(Link)`
   max-width: 325px;
   width: 100%;
   text-decoration: none;
-
-  p {
-    margin: 0 auto;
-    width: 85%;
-  }
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     > div {
@@ -34,10 +31,24 @@ export const StyledHomeCollectionElement = styled(Link)`
     outline-offset: 4px;
   }
 
+  > div {
+    &:last-child{
+      margin-left: 5%;
+    }
+  }
+
   @media only screen and (max-width: 1065px) {
     p {
       font-size: 18px;
-      max-width: 289px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px){
+    > div {
+      &:last-child{
+        width: 92%;
+        margin-left: 5%;
+      }
     }
   }
 
@@ -70,8 +81,9 @@ export const StyledBackground = styled.div`
     height: 100%;
   }
 
-  @media only screen and (max-width: 350px){
-    width: 100%;
+  @media only screen and (max-width: 1024px){
+    width: 212px;
+    height: 139px;
   }
 `;
 
@@ -80,7 +92,8 @@ export const StyledImage = styled.div`
   height: 192px;
   position: absolute;
   top: 23px;
-  left: 23px;
+  left: 50%;
+  transform: translateX(calc(-50% + 23px));
 
   img {
     width: 100%;
@@ -96,7 +109,8 @@ export const StyledImage = styled.div`
     height: 100%;
   }
 
-  @media only screen and (max-width: 350px){
-    width: 100%;
+  @media only screen and (max-width: 1024px){
+    width: 212px;
+    height: 139px;
   }
 `;

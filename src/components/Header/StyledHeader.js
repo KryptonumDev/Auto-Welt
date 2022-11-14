@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  width: 100%;
-  margin-top: 20px;
+  width: calc(100% - 64px);
+  margin: 20px auto 0;
+
+  @media only screen and (max-width: 767px){
+    width: calc(100% - 32px);
+  }
 `;
 
 export const StyledNav = styled.nav`
