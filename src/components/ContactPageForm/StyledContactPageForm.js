@@ -306,8 +306,11 @@ export const StyledTitle = styled.div`
 
 export const StyledSubTitle = styled.div`
   font: 400 24px/1.2em "Nocturne Serif";
-  color: #1d2b29;
-  margin-top: 10px;
+  color: #1D2B29;
+
+  p{
+    margin-top: 20px;
+  }
 
   @media only screen and (max-width: 375px) {
     font-size: 22px;

@@ -133,7 +133,7 @@ export const StyledMessageWrapper = styled.div`
 `;
 
 export const StyledTitle = styled.div`
-  font: 400 36px/1.2rem "Nocturne Serif";
+  font: 500 36px/1.2rem "Nocturne Serif";
   color: #23423d;
 
   @media only screen and (max-width: 375px) {
@@ -142,9 +142,12 @@ export const StyledTitle = styled.div`
 `;
 
 export const StyledSubTitle = styled.div`
-  font: 400 24px/1.2em "Nocturne Serif";
-  color: #1d2b29;
-  margin-top: 10px;
+  font: 500 24px/1.2em "Nocturne Serif";
+  color: #1D2B29;
+
+  p {
+    margin-top: 20px;
+  }
 
   @media only screen and (max-width: 375px) {
     font-size: 22px;
@@ -152,7 +155,7 @@ export const StyledSubTitle = styled.div`
 `;
 
 export const StyledDesc = styled.div`
-  font: 400 20px/1.4em "Roboto Condensed";
+  font: 500 20px/1.4em "Roboto Condensed";
   color: #000;
   margin-top: 20px;
 

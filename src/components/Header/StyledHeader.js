@@ -93,7 +93,7 @@ export const StyledLeftWrapper = styled.div`
     
     > a {
       width: 100%;
-      font-size: 21px;
+      font-size: 28px;
       text-align: right;
     }
   }
@@ -155,8 +155,9 @@ export const StyledRightWrapper = styled.div`
     clip-path: none;
     align-self: flex-start;
     margin-top: 30px;
+
     > a {
-      font-size: 21px;
+      font-size: 28px;
       margin-left: 0;
       text-align: right;
       width: 100%;

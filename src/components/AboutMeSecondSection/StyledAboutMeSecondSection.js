@@ -100,6 +100,9 @@ export const StyledDescWrapper = styled.div`
   margin-top: 30px;
 
   p {
+    z-index: 1;
+    position: relative;
+
     strong,
     em {
       position: relative;

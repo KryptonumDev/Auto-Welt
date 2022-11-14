@@ -91,7 +91,7 @@ const HomeContact = () => {
       }
     }
   `);
-  const [isSend, setIsSend] = useState(false);
+  const [isSend, setIsSend] = useState(true);
   const imageShort = data.wpPage.homepage.formularzKontaktowy;
   return (
     <StyledHomeContact>
