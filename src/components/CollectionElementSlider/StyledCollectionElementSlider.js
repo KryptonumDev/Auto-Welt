@@ -37,6 +37,13 @@ export const StyledLeftArrow = styled(motion.div)`
   cursor: pointer;
   height: 56px;
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   > svg {
     width: 100%;
     height: 100%;
@@ -77,6 +84,13 @@ export const StyledRightArrow = styled(motion.div)`
   padding: 5px;
   cursor: pointer;
   height: 56px;
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 
   > svg {
     width: 100%;

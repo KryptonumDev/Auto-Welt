@@ -256,7 +256,6 @@ export const StyledExhibitionTitle = styled.p`
   @media only screen and (max-width: 986px) {
     background-color: #23423d;
     font: normal 500 14px/1.2em 'Roboto Condensed', Arial;
-    color: #fefdfb;
     width: 193px;
     height: 70px;
     display: ${({ isopen }) => (isopen ? "flex" : "none")};
@@ -281,6 +280,10 @@ export const StyledExhibitionTitle = styled.p`
       position: absolute;
       top: -15px;
       left: 20px;
+    }
+
+    > a {
+      color: #FEFDFB;
     }
   }
 
