@@ -78,17 +78,10 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
 
     return (
         <StyledScheduleSlider slides={scheduleData.length}>
-            {width > 648 ? (
-                scheduleData.length < 3 ? null : (
-                    <StyledPrevArrow onClick={handlePrev}>
-                        {variant === "orange" ? (
-                            <PrevGreenArrow />
-                        ) : (
-                            <PrevYellowArrow />
-                        )}
-                    </StyledPrevArrow>
-                )
-            ) : scheduleData.length === 1 ? null : (
+            {(
+                (width > 648 && scheduleData.length > 2) ||
+                (width < 649 && scheduleData.length > 1)
+            ) ? (
                 <StyledPrevArrow onClick={handlePrev}>
                     {variant === "orange" ? (
                         <PrevGreenArrow />
@@ -96,7 +89,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                         <PrevYellowArrow />
                     )}
                 </StyledPrevArrow>
-            )}
+            ) : (null)}
             <StyledSlides slides={scheduleData.length}>
                 <AnimatePresence initial={false} mode="wait">
                     {renderElements.map((e) => (
@@ -110,17 +103,10 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                     ))}
                 </AnimatePresence>
             </StyledSlides>
-            {width > 648 ? (
-                scheduleData.length < 3 ? null : (
-                    <StyledNextArrow onClick={handleNext}>
-                        {variant === "orange" ? (
-                            <NextGreenArrow />
-                        ) : (
-                            <NextYellowArrow />
-                        )}
-                    </StyledNextArrow>
-                )
-            ) : scheduleData.length === 1 ? null : (
+            {(
+                (width > 648 && scheduleData.length > 2) ||
+                (width < 649 && scheduleData.length > 1)
+            ) ? (
                 <StyledNextArrow onClick={handleNext}>
                     {variant === "orange" ? (
                         <NextGreenArrow />
@@ -128,7 +114,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                         <NextYellowArrow />
                     )}
                 </StyledNextArrow>
-            )}
+            ) : (null)}
         </StyledScheduleSlider>
     );
 };
