@@ -44,17 +44,17 @@ const CollectionElementSlider = ({ imagesData }) => {
         }
     }, [index]);
 
-    const handleNextKeyUp = (e) => {
+    const handleNextKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             handleNext()
         }
-    }
+    }, [ handleNext ])
 
-    const handlePrevKeyUp = (e) => {
+    const handlePrevKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             handlePrev()
         }
-    }
+    }, [ handlePrev ])
 
     useEffect(() => {
         let sliderElements = imagesData.slice(
