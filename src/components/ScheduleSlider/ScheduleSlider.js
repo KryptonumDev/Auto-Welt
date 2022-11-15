@@ -37,6 +37,13 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
         }
     }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
+    const handlePrevOnKeyUp = useCallback((e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            handlePrev();
+        }
+    }, [handlePrev]);
+
     const handleNext = useCallback(() => {
         setIsPrev(false);
         setPrevIndex(index);
@@ -47,6 +54,13 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
             setIndex(index + 1);
         }
     }, [ index, setIndex, setIsPrev, setPrevIndex ]);
+
+    const handleNextOnKeyUp = useCallback((e) => {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            handleNext();
+        }
+    }, [handleNext]);
 
     useEffect(() => {
         if (scheduleData.length < 3 && width > 648) {
@@ -82,7 +96,11 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                 (width > 648 && scheduleData.length > 2) ||
                 (width < 649 && scheduleData.length > 1)
             ) ? (
-                <StyledPrevArrow onClick={handlePrev}>
+                <StyledPrevArrow
+                    onClick={handlePrev}
+                    onKeyUp={handlePrevOnKeyUp}
+                    tabIndex='0'
+                >
                     {variant === "orange" ? (
                         <PrevGreenArrow />
                     ) : (
@@ -107,7 +125,11 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                 (width > 648 && scheduleData.length > 2) ||
                 (width < 649 && scheduleData.length > 1)
             ) ? (
-                <StyledNextArrow onClick={handleNext}>
+                <StyledNextArrow
+                    onClick={handleNext}
+                    onKeyUp={handleNextOnKeyUp}
+                    tabIndex='0'
+                >
                     {variant === "orange" ? (
                         <NextGreenArrow />
                     ) : (
