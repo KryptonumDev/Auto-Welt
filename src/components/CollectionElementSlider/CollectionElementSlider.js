@@ -58,28 +58,24 @@ const CollectionElementSlider = ({ imagesData }) => {
         }
     }, [ handlePrev ])
 
-    useEffect(() => {
-        let sliderElements = imagesData.slice(
-            index,
-            index + (width < 769 ? 1 : 2)
-        );
-        if (width > 769) {
-            if (index === imagesData.length - 1) {
-                sliderElements = [
-                    imagesData[imagesData.length - 1],
-                    imagesData[0],
-                ];
-            }
-            if (index === 0 && isPrev && prevIndex !== 1) {
-                sliderElements = [
-                    imagesData[imagesData.length - 1],
-                    imagesData[0],
-                ];
-            }
-        }
+    useEffect(
+        () => {
+            const numElements = (width < 769 ? 1 : 2),
+                sliderElements = [...imagesData].slice(index, index + numElements);
 
-        setRenderElements(sliderElements);
-    }, [index, width]);
+            if (sliderElements.length < numElements)
+                sliderElements.push(
+                    ...(
+                        [...imagesData]
+                        .slice(0, numElements - sliderElements.length)
+                    )
+                );
+
+            setRenderElements(sliderElements);
+        },
+        [ index, width, setRenderElements ]
+    );
+
 
     return (
         <StyledCollectionElementSlider>
