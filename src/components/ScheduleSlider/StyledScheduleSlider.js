@@ -28,6 +28,13 @@ export const StyledPrevArrow = styled(motion.div)`
   top: 50%;
   transform: translateY(-50%);
 
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
+
   @media only screen and (max-width: 1244px) {
     position: relative;
     top: auto;
@@ -64,6 +71,13 @@ export const StyledNextArrow = styled(motion.div)`
   right: -70px;
   top: 50%;
   transform: translateY(-50%);
+
+  &:focus-visible {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
 
   @media only screen and (max-width: 1244px) {
     position: relative;
