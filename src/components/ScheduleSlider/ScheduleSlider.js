@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import HomeExhibitionsElement from "../HomeExhibitionsElement/HomeExhibitionsElement";
@@ -26,7 +26,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
     const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
-    const handlePrev = () => {
+    const handlePrev = useCallback(() => {
         setIsPrev(true);
         setPrevIndex(index);
 
@@ -35,9 +35,9 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
         } else {
             setIndex(index - 1);
         }
-    };
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         setIsPrev(false);
         setPrevIndex(index);
 
@@ -46,7 +46,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
         } else {
             setIndex(index + 1);
         }
-    };
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
     useEffect(() => {
         if (scheduleData.length < 3 && width > 648) {
