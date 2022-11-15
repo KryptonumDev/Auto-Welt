@@ -62,33 +62,23 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
         }
     }, [handleNext]);
 
-    useEffect(() => {
-        if (scheduleData.length < 3 && width > 648) {
-            return setRenderElements(scheduleData);
-        }
+    useEffect(
+        () => {
+            const numElements = (width < 649 ? 1 : 2),
+                sliderElements = [...scheduleData].slice(index, index + numElements);
 
-        let sliderElements = scheduleData.slice(
-            index,
-            index + (width < 649 ? 1 : 2)
-        );
+            if (sliderElements.length < numElements)
+                sliderElements.push(
+                    ...(
+                        [...scheduleData]
+                        .slice(0, numElements - sliderElements.length)
+                    )
+                );
 
-        if (width > 648) {
-            if (index === scheduleData.length - 1) {
-                sliderElements = [
-                    scheduleData[scheduleData.length - 1],
-                    scheduleData[0],
-                ];
-            }
-            if (index === 0 && isPrev && prevIndex !== 1) {
-                sliderElements = [
-                    scheduleData[scheduleData.length - 1],
-                    scheduleData[0],
-                ];
-            }
-        }
-
-        setRenderElements(sliderElements);
-    }, [index, width]);
+            setRenderElements(sliderElements);
+        },
+        [ index, width, setRenderElements ]
+    );
 
     return (
         <StyledScheduleSlider slides={scheduleData.length}>
