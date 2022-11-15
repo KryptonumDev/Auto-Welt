@@ -46,12 +46,14 @@ const CollectionElementSlider = ({ imagesData }) => {
 
     const handleNextKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault()
             handleNext()
         }
     }, [ handleNext ])
 
     const handlePrevKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault()
             handlePrev()
         }
     }, [ handlePrev ])
