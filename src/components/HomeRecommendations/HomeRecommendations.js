@@ -65,7 +65,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
     const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
-    const handlePrevFunction = () => {
+    const handlePrevFunction = useCallback(() => {
         setIsPrev(true);
         setPrevIndex(index);
         if (index === 0) {
@@ -73,9 +73,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index - 1);
         }
-    }
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
-    const handleNextFunction = () => {
+    const handleNextFunction = useCallback(() => {
         setIsPrev(false);
         setPrevIndex(index);
         if (index === allWpRekomendacja.nodes.length - 1) {
@@ -83,31 +83,31 @@ const HomeRecommendations = ({ isAboutPage }) => {
         } else {
             setIndex(index + 1);
         }
-    }
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
     const handlePrevOnKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             e.preventDefault();
             handlePrevFunction();
         }
-    }, [index]);
+    }, [handlePrevFunction]);
 
     const handlePrev = useCallback((e) => {
         e.preventDefault();
         handlePrevFunction();
-    }, [index]);
+    }, [handlePrevFunction]);
 
     const handleNextOnKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
             e.preventDefault();
             handleNextFunction();
         }
-    }, [index])
+    }, [handleNextFunction])
 
     const handleNext = useCallback((e) => {
         e.preventDefault();
         handleNextFunction();
-    }, [index]);
+    }, [handleNextFunction]);
 
     useEffect(() => {
         let sliderElements = allWpRekomendacja.nodes.slice(
