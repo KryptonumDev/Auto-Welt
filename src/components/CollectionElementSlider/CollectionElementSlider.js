@@ -81,17 +81,10 @@ const CollectionElementSlider = ({ imagesData }) => {
         <StyledCollectionElementSlider>
             {imagesData && (
                 <>
-                    {width > 768 ? (
-                        imagesData.length > 2 ? (
-                            <StyledLeftArrow
-                                tabIndex="0"
-                                onClick={handlePrev}
-                                onKeyUp={handlePrevKeyUp}
-                            >
-                                <LeftArrow />
-                            </StyledLeftArrow>
-                        ) : null
-                    ) : imagesData.length < 2 ? null : (
+                    {(
+                        (width > 768 && imagesData.length > 2) ||
+                        (width < 769 && imagesData.length > 1)
+                    ) ? (
                         <StyledLeftArrow
                             tabIndex="0"
                             onClick={handlePrev}
@@ -99,7 +92,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                         >
                             <LeftArrow />
                         </StyledLeftArrow>
-                    )}
+                    ) : null}
                     <StyledImagesWrapper>
                         {renderElements.map((e, index) => (
                             <AnimatePresence initial={false} mode="wait">
@@ -121,17 +114,10 @@ const CollectionElementSlider = ({ imagesData }) => {
                             </AnimatePresence>
                         ))}
                     </StyledImagesWrapper>
-                    {width > 768 ? (
-                        imagesData.length > 2 ? (
-                            <StyledRightArrow
-                                onClick={handleNext}
-                                onKeyUp={handleNextKeyUp}
-                                tabIndex="0"
-                            >
-                                <RightArrow />
-                            </StyledRightArrow>
-                        ) : null
-                    ) : imagesData.length < 2 ? null : (
+                    {(
+                        (width > 768 && imagesData.length > 2) ||
+                        (width < 769 && imagesData.length > 1)
+                    ) ? (
                         <StyledRightArrow
                             onClick={handleNext}
                             onKeyUp={handleNextKeyUp}
@@ -139,7 +125,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                         >
                             <RightArrow />
                         </StyledRightArrow>
-                    )}
+                    ) : null}
                 </>
             )}
         </StyledCollectionElementSlider>
