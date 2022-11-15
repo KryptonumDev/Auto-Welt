@@ -32,7 +32,7 @@ const CollectionElementSlider = ({ imagesData }) => {
         } else {
             setIndex(index - 1);
         }
-    }, [index]);
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
     const handleNext = useCallback(() => {
         setIsPrev(false);
@@ -42,7 +42,7 @@ const CollectionElementSlider = ({ imagesData }) => {
         } else {
             setIndex(index + 1);
         }
-    }, [index]);
+    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
 
     const handleNextKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
