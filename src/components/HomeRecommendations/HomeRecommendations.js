@@ -109,28 +109,23 @@ const HomeRecommendations = ({ isAboutPage }) => {
         handleNextFunction();
     }, [handleNextFunction]);
 
-    useEffect(() => {
-        let sliderElements = allWpRekomendacja.nodes.slice(
-            index,
-            index + (width < 649 ? 1 : 2)
-        );
-        if (width > 648) {
-            if (index === allWpRekomendacja.nodes.length - 1) {
-                sliderElements = [
-                    allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1],
-                    allWpRekomendacja.nodes[0],
-                ];
-            }
-            if (index === 0 && isPrev && prevIndex !== 1) {
-                sliderElements = [
-                    allWpRekomendacja.nodes[allWpRekomendacja.nodes.length - 1],
-                    allWpRekomendacja.nodes[0],
-                ];
-            }
-        }
+    useEffect(
+        () => {
+            const numElements = (width < 649 ? 1 : 2),
+                sliderElements = [...allWpRekomendacja.nodes].slice(index, index + numElements);
 
-        setRenderElements(sliderElements);
-    }, [index, width, allWpRekomendacja.nodes, isPrev, prevIndex]);
+            if (sliderElements.length < numElements)
+                sliderElements.push(
+                    ...(
+                        [...allWpRekomendacja.nodes]
+                        .slice(0, numElements - sliderElements.length)
+                    )
+                );
+
+            setRenderElements(sliderElements);
+        },
+        [ index, width, setRenderElements ]
+    );
 
     return (
         <StyledHomeRecommendations hasmargin={allWpRekomendacja.nodes !== 0} isaboutpage={isAboutPage}>
