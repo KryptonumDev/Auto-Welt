@@ -77,8 +77,6 @@ export const StyledBackground = styled.div`
   }
 
   .gatsby-image-wrapper {
-    widht: 100%;
-    height: 100%;
   }
 
   @media only screen and (max-width: 1024px){

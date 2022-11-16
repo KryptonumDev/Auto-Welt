@@ -33,7 +33,8 @@ export const StyledImagesLeftWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     max-width: unset;
-    width: 100%;
+    width: fit-content;
+    margin: 0 auto;
   }
 
   @media only screen and (max-width: 489px) {
@@ -65,7 +66,8 @@ export const StyledImagesRightWrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     max-width: unset;
-    width: 100%;
+    width: fit-content;
+    margin: 0 auto;
     margin-top: 16px;
   }
 
