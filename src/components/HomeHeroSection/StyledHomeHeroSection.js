@@ -133,7 +133,6 @@ export const StyledButtonsWrapper = styled.div`
 
 export const StyledImageWrapper = styled.div`
   width: 167px;
-  height: 128px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
 
   img {
@@ -150,18 +149,5 @@ export const StyledImageWrapper = styled.div`
     width: 33.33%;
     height: auto;
     max-width: 211px;
-    height: 164px;
-  }
-
-  @media only screen and (max-width: 576px) {
-    height: 138px;
-  }
-
-  @media only screen and (max-width: 450px) {
-    height: 110px;
-  }
-
-  @media only screen and (max-width: 375px) {
-    height: 80px;
   }
 `;

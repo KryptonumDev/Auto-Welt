@@ -129,6 +129,7 @@ const Header = () => {
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
                 target="_blank"
+                rel="noreferrer noopener"
                 aria-label="facebook"
               >
                 <FacebookIcon />
@@ -138,6 +139,7 @@ const Header = () => {
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoInstagrama}
                 target="_blank"
+                rel="noreferrer noopener"
                 aria-label="instagram"
               >
                 <InstagramIcon />

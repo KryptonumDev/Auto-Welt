@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import { Formik, Form, Field } from "formik";
 import parse from "html-react-parser";
 import axios from "axios";
-import * as Yup from "yup";
 
 import Button from "../Button/Button";
 

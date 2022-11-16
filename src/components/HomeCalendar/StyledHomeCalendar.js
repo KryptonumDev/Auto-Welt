@@ -25,7 +25,7 @@ export const StyledHomeCalendar = styled.section`
   }
 
   @media only screen and (max-width: 375px) {
-    padding-bottom: 180px;
+    padding: 0 8px 180px 8px;
   }
 `;
 

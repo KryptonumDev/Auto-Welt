@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-import axios from "axios";
 
 export const ContactSchema = Yup.object().shape({
   firstName: Yup.string()

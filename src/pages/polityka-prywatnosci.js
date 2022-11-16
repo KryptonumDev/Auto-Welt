@@ -25,7 +25,7 @@ const PrivacyPolicy = ({ data }) => {
     const right = [];
 
     queryData.pytanieIOdpowiedz.forEach((e, index) => {
-      if (index % 2 == 0) {
+      if (index % 2 === 0) {
         left.push(e);
       } else {
         right.push(e);
@@ -34,7 +34,7 @@ const PrivacyPolicy = ({ data }) => {
 
     setLeftData(left);
     setRightData(right);
-  }, [data]);
+  }, [data, queryData.pytanieIOdpowiedz]);
 
   return (
     <StyledPrivacyPolicy>

@@ -16,12 +16,8 @@ const GlobalLayout = ({ children }) => {
         <Helmet htmlAttributes={{
           lang: 'pl',
         }}>
-          <link rel="preload"
-                as="style"
-                href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" />
           <meta name="robots" content="noindex" data-react-helmet="true" />
         </Helmet>
-        
         <GlobalStyle />
         <StyledOverflowWrapper>
           <Header />

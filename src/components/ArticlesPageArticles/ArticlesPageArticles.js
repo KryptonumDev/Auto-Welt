@@ -36,9 +36,9 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
     numElements = width < 768 ? 6 : 12;
 
   const articles = useMemo(
-      () => sliceIntoChunks(allArticles, numElements),
-      [allArticles]
-    ),
+    () => sliceIntoChunks(allArticles, numElements),
+    [allArticles, numElements]
+  ),
     maxPage = useMemo(() => articles.length, [articles]);
 
   const paginationRef = useRef();

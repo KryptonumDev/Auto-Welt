@@ -49,7 +49,7 @@ const CheckOutWithOffer = ({ dataOffer }) => {
           />
         ) : null}
         {dataOffer.tekstDoPobraniaTekstu ? (
-          <a href={dataOffer.tekstDoPobraniaTekstu.link} target="_blank" aria-label="pobierz katalog">pobierz katalog</a>
+          <a href={dataOffer.tekstDoPobraniaTekstu.link} rel="noreferrer noopener" target="_blank" aria-label="pobierz katalog">pobierz katalog</a>
         ) : null}
       </StyledCheckOutButtonsWrapper>
     </StyledCheckOutWithOffer>

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const StyledQuestion = styled.div`
+export const StyledQuestion = styled.details`
   width: 100%;
-  margin-bottom: ${({ isopen }) => (isopen ? "0" : "20px")};
   trainsition: padding 250ms;
   cursor: pointer;
 
@@ -16,13 +15,19 @@ export const StyledQuestion = styled.div`
   @media only screen and (max-width: 768px) {
     padding-bottom: 0;
   }
+
+  &[open]{
+    svg{
+      transform: rotateZ(180deg);
+    }
+  }
 `;
 
 export const StyledAnswerWrapper = styled.div`
   width: 80%;
-  padding: 15px 59px 20px 68px;
+  padding: 0 59px 0 68px;
   max-width: 746px;
-  display: ${({ isopen }) => isopen ? "block" : "none"};
+  margin-top: 20px;
   font: 500 18px/1.2em "Roboto Condensed", Arial;
 
   ul,
@@ -45,7 +50,7 @@ export const StyledAnswerWrapper = styled.div`
   }
 
   @media only screen and (max-width: 420px) {
-    padding: 15px 23px 20px 23px;
+    padding: 0 23px 0 23px;
     max-width: 90%;
   }
 
@@ -54,7 +59,7 @@ export const StyledAnswerWrapper = styled.div`
   }
 `;
 
-export const StyledQuestionWrapper = styled.div`
+export const StyledQuestionWrapper = styled.summary`
   display: flex;
   align-items: center;
   gap: 17px;
@@ -65,8 +70,7 @@ export const StyledQuestionWrapper = styled.div`
   > svg {
     position: relative;
     z-index: 1;
-    transition: transform 250ms linear;
-    transform: ${({ isopen }) => (isopen ? "rotate(0)" : "rotate(180deg)")};
+    transition: transform 250ms cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 `;
 

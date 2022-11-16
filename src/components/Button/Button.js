@@ -1,7 +1,6 @@
 /** @format */
 
 import React from "react";
-import parse from "html-react-parser";
 
 import {
     StyledButtonLink,

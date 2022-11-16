@@ -21,28 +21,25 @@ const CollectionElementSlider = ({ imagesData }) => {
     const width = useWindowSize();
     const [renderElements, setRenderElements] = useState([]);
     const [index, setIndex] = useState(0);
-    const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
     const handlePrev = useCallback(() => {
         setIsPrev(true);
-        setPrevIndex(index);
         if (index === 0) {
             setIndex(imagesData.length - 1);
         } else {
             setIndex(index - 1);
         }
-    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
+    }, [ imagesData.length, index, setIndex, setIsPrev ]);
 
     const handleNext = useCallback(() => {
         setIsPrev(false);
-        setPrevIndex(index);
         if (index === imagesData.length - 1) {
             setIndex(0);
         } else {
             setIndex(index + 1);
         }
-    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
+    }, [ imagesData.length, index, setIndex, setIsPrev ]);
 
     const handleNextKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -73,7 +70,7 @@ const CollectionElementSlider = ({ imagesData }) => {
 
             setRenderElements(sliderElements);
         },
-        [ index, width, setRenderElements ]
+        [ imagesData, index, width, setRenderElements ]
     );
 
 

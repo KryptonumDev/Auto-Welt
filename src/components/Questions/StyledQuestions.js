@@ -23,4 +23,6 @@ export const StyledQuestions = styled.section`
 
 export const StyledQuestionsWrapper = styled.div`
   width: 100%;
+  display: grid;
+  grid-gap: 20px;
 `;

@@ -111,12 +111,12 @@ const FooterLeftWrapper = ({ footerData }) => {
         </StyledTelWrapp>
         <StyledIconsWrapper>
           {footerData.linkDoFacebooka ? (
-            <a href={footerData.linkDoFacebooka} target="_blank" aria-label="Facebooka">
+            <a href={footerData.linkDoFacebooka} target="_blank" rel="noreferrer noopener" aria-label="Facebooka">
               <FacebookIcon />
             </a>
           ) : null}
           {footerData.linkDoInstagrama ? (
-            <a href={footerData.linkDoInstagrama} target="_blank" aria-label="Instagram">
+            <a href={footerData.linkDoInstagrama} target="_blank" rel="noreferrer noopener" aria-label="Instagram">
               <InstagramIcon />
             </a>
           ) : null}

@@ -62,28 +62,25 @@ const HomeRecommendations = ({ isAboutPage }) => {
 
     const [renderElements, setRenderElements] = useState([]);
     const [index, setIndex] = useState(0);
-    const [prevIndex, setPrevIndex] = useState(0);
     const [isPrev, setIsPrev] = useState(false);
 
     const handlePrevFunction = useCallback(() => {
         setIsPrev(true);
-        setPrevIndex(index);
         if (index === 0) {
             setIndex(allWpRekomendacja.nodes.length - 1);
         } else {
             setIndex(index - 1);
         }
-    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
+    }, [ allWpRekomendacja.nodes.length, index, setIndex, setIsPrev ]);
 
     const handleNextFunction = useCallback(() => {
         setIsPrev(false);
-        setPrevIndex(index);
         if (index === allWpRekomendacja.nodes.length - 1) {
             setIndex(0);
         } else {
             setIndex(index + 1);
         }
-    }, [ index, setIndex, setIsPrev, setPrevIndex ]);
+    }, [ allWpRekomendacja.nodes.length, index, setIndex, setIsPrev ]);
 
     const handlePrevOnKeyUp = useCallback((e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -124,7 +121,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
 
             setRenderElements(sliderElements);
         },
-        [ index, width, setRenderElements ]
+        [ allWpRekomendacja.nodes, index, width, setRenderElements ]
     );
 
     return (

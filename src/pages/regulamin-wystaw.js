@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import parse from "html-react-parser";
 
 import {
@@ -33,6 +33,7 @@ const ExhibitionRegulations = ({ data }) => {
           <a
             href={queryData.pierwszyLink.link}
             target="_blank"
+            rel='noreferrer noopener'
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu wystawy
@@ -40,6 +41,7 @@ const ExhibitionRegulations = ({ data }) => {
           <a
             href={queryData.drugiLink.link}
             target="_blank"
+            rel='noreferrer noopener'
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu wystawy na powietrzu
@@ -47,6 +49,7 @@ const ExhibitionRegulations = ({ data }) => {
           <a
             href={queryData.trzeciLink.link}
             target="_blank"
+            rel='noreferrer noopener'
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu powierzchni wystawowej

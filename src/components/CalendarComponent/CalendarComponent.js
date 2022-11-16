@@ -21,8 +21,8 @@ import ActiveCalendar from "../../images/activeCalendar.svg";
 import useWindowSize from "../../utils/getWindowSize";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
-  const now = new Date(),
-    futureMonths = 3,
+  const [now] = useState(new Date())
+  const futureMonths = 3,
     minDate = startOfAdjacentMonth({ date: now, month: -1 }),
     maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
     [currentDate, setCurrentDate] = useState(now),
@@ -33,11 +33,11 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       setActiveDate(
         new_date instanceof Date
           ? (date) =>
-              date instanceof Date
-                ? areDatesEqual(new_date, date)
-                  ? undefined
-                  : new_date
+            date instanceof Date
+              ? areDatesEqual(new_date, date)
+                ? undefined
                 : new_date
+              : new_date
           : undefined
       );
 
@@ -56,7 +56,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       setPagination((val) => val - 1);
       return newDate;
     });
-  }, [currentDate])
+  }, [minDate])
 
   const handlePrevOnKeyUp = (e) => {
     if (e.key === 'Enter' || e.keyCode === 13) {
@@ -77,14 +77,14 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       setPagination((val) => val + 1);
       return newDate;
     });
-  }, [currentDate])
+  }, [maxDate])
 
   const handleNextOnKeyUp = (e) => {
     if (e.key === 'Enter' || e.keyCode === 13) {
       handleNext();
     }
   }
-  
+
   const handlePagination = useCallback((key) => {
     setCurrentDate((date) => {
       const newDate = new Date(now.getTime());
@@ -98,7 +98,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       setPagination(key);
       return newDate;
     });
-  }, [currentDate])
+  }, [maxDate, now])
 
   const handlePaginationOnKeyUp = (e, key) => {
     if (e.key === 'Enter' || e.keyCode === 13) {
@@ -111,16 +111,16 @@ const CalendarComponent = ({ exhibitions = [] }) => {
       const { current } = calendar;
       if (current) {
         [...current.getElementsByClassName("react-calendar__month-view__days__day")]
-        .forEach(
-          (node) => {
-            node.setAttribute("aria-label", "data");
-            node.querySelector("abbr")
-            .removeAttribute("aria-label");
-          }
-        )
+          .forEach(
+            (node) => {
+              node.setAttribute("aria-label", "data");
+              node.querySelector("abbr")
+                .removeAttribute("aria-label");
+            }
+          )
       }
     },
-    [ calendar ]
+    [calendar]
   );
 
   return (
@@ -147,59 +147,59 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           formatShortWeekday={(locale, date) =>
             width > 986
               ? [
-                  "NIEDZIELA",
-                  "PONIEDZIAŁEK",
-                  "WTOREK",
-                  "ŚRODA",
-                  "CZWARTEK",
-                  "PIĄTEK",
-                  "SOBOTA",
-                ][date.getDay()]
+                "NIEDZIELA",
+                "PONIEDZIAŁEK",
+                "WTOREK",
+                "ŚRODA",
+                "CZWARTEK",
+                "PIĄTEK",
+                "SOBOTA",
+              ][date.getDay()]
               : ["ND", "PON", "WT", "ŚR", "CZW", "PT", "SO"][date.getDay()]
           }
           tileDisabled={
             width > 986
               ? () => true
               : ({ activeStartDate, date, view }) =>
-                  !Boolean(
-                    exhibitions.find(({ data: exhibition_date }) =>
-                      areDatesEqual(exhibition_date, date)
-                    )
+                !Boolean(
+                  exhibitions.find(({ data: exhibition_date }) =>
+                    areDatesEqual(exhibition_date, date)
                   )
+                )
           }
           tileContent={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
-                  const exhibitions_today = exhibitions.filter(
-                    ({ data: exhibition_date }) =>
-                      areDatesEqual(exhibition_date, date)
-                  );
-                  return exhibitions_today.length ? (
-                    <span className="activeDay">
-                      <ActiveCalendar />
-                      <StyledExhibitionTitle
-                        isopen={
-                          width > 986
-                            ? false
-                            : activeDate instanceof Date
+                const exhibitions_today = exhibitions.filter(
+                  ({ data: exhibition_date }) =>
+                    areDatesEqual(exhibition_date, date)
+                );
+                return exhibitions_today.length ? (
+                  <span className="activeDay">
+                    <ActiveCalendar />
+                    <StyledExhibitionTitle
+                      isopen={
+                        width > 986
+                          ? false
+                          : activeDate instanceof Date
                             ? exhibitions_today
-                                .filter((exhibition) =>
-                                  areDatesEqual(exhibition.data, activeDate)
-                                )
-                                .length
+                              .filter((exhibition) =>
+                                areDatesEqual(exhibition.data, activeDate)
+                              )
+                              .length
                             : false
-                        }
-                      >
-                        {exhibitions_today.map((exhibition) => (
-                          <Link to={`/wystawy/${exhibition.slug}`} aria-label="przejdź do wydarzenia" key={exhibition.slug}>
-                            {exhibition.title}
-                            <br />
-                          </Link>
-                        ))}
-                      </StyledExhibitionTitle>
-                    </span>
-                  ) : undefined;
-                })()
+                      }
+                    >
+                      {exhibitions_today.map((exhibition) => (
+                        <Link to={`/wystawy/${exhibition.slug}`} aria-label="przejdź do wydarzenia" key={exhibition.slug}>
+                          {exhibition.title}
+                          <br />
+                        </Link>
+                      ))}
+                    </StyledExhibitionTitle>
+                  </span>
+                ) : undefined;
+              })()
               : undefined
           }
           showNavigation={false}
