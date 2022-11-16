@@ -57,44 +57,24 @@ const HomeHeroSection = () => {
   `);
   const width = getWindowSize();
   const heroImage = getImage(wpPage.homepage.duzeZdjecieSrodkowe.localFile);
-  const [leftImages, setLeftImages] = useState([]);
-  const [rightImages, setRightImages] = useState([]);
-
-  useEffect(() => {
-    const lImages = [];
-    const rImages = [];
-    wpPage.homepage.maleZdjecia.map((image, index) => {
-      if (index < 3) {
-        return lImages.push({
-          localFile: getImage(image.localFile),
-          alt: image.altText,
-          title: image.title,
-        });
-      } else {
-        return rImages.push({
-          localFile: getImage(image.localFile),
-          alt: image.altText,
-          title: image.title,
-        });
-      }
-    });
-    setLeftImages(lImages);
-    setRightImages(rImages);
-  }, [wpPage]);
 
   return (
     <StyledHomeHeroSection>
       <StyledImagesLeftWrapper>
-        {leftImages?.map((image, index) => (
-          <StyledImageWrapper key={image.altText + `${index}`}>
-            <GatsbyImage
-              image={image.localFile}
-              alt={image.alt || " "}
-              title={image.title}
-              objectFit="fill"
-            />
-          </StyledImageWrapper>
-        ))}
+        {wpPage.homepage.maleZdjecia?.map((image, index) => {
+          if (index < 3) {
+            return (
+              <StyledImageWrapper key={image.altText + `${index}`}>
+                <GatsbyImage
+                  image={image.localFile.childImageSharp.gatsbyImageData}
+                  alt={image.altText || " "}
+                  title={image.title}
+                  objectFit="fill"
+                />
+              </StyledImageWrapper>
+            )
+          }
+        })}
       </StyledImagesLeftWrapper>
       <StyledHeroImageWrapper>
         <StyledHeroImage>
@@ -140,16 +120,20 @@ const HomeHeroSection = () => {
         ) : null}
       </StyledHeroImageWrapper>
       <StyledImagesRightWrapper>
-        {rightImages?.map((image, index) => (
-          <StyledImageWrapper key={image?.altText + `${index}`}>
-            <GatsbyImage
-              image={image.localFile}
-              alt={image?.alt || " "}
-              title={image?.title}
-              objectFit="fill"
-            />
-          </StyledImageWrapper>
-        ))}
+        {wpPage.homepage.maleZdjecia?.map((image, index) => {
+          if (index > 2) {
+            return (
+              <StyledImageWrapper key={image?.altText + `${index}`}>
+                <GatsbyImage
+                  image={image.localFile.childImageSharp.gatsbyImageData}
+                  alt={image?.altText || " "}
+                  title={image?.title}
+                  objectFit="fill"
+                />
+              </StyledImageWrapper>
+            )
+          }
+        })}
       </StyledImagesRightWrapper>
       {width < 769 ? (
         <StyledButtonsWrapper>
