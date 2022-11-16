@@ -10,8 +10,8 @@ exports.wrapPageElement = ({ element, props }) => {
   );
 };
 
-exports.onRenderBody = ({ setBodyAttributes }) => {
-  setBodyAttributes({
-    className: "no-js",
-  });
-};
+// exports.onRenderBody = ({ setBodyAttributes }) => {
+//   setBodyAttributes({
+//     className: "no-js",
+//   });
+// };

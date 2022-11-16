@@ -11,10 +11,10 @@ exports.wrapPageElement = ({ element, props }) => {
   );
 };
 
-exports.onClientEntry = () => {
-  window.addEventListener("load", () => {
-    const body = document.querySelector("body");
-    body.className = document.body.className.replace(/\bno-js\b/, "");
-    gsap.from(body, { opacity: 0, duration: 0.7, ease: "Power3.easeInOut" });
-  });
-};
+// exports.onClientEntry = () => {
+//   window.addEventListener("load", () => {
+//     const body = document.querySelector("body");
+//     body.className = document.body.className.replace(/\bno-js\b/, "");
+//     gsap.from(body, { opacity: 0, duration: 0.7, ease: "Power3.easeInOut" });
+//   });
+// };
