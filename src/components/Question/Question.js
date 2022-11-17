@@ -30,7 +30,6 @@ const Question = ({ faqData }) => {
       itemscope
       itemprop="mainEntity"
       itemtype="https://schema.org/Question"
-      tabIndex="0"
     >
       <StyledQuestionWrapper>
         <ArrowQuestion />

@@ -9,12 +9,9 @@ import {
   StyledTextWrapper,
 } from "./StyledHomeRecommendationsElement";
 
-const HomeRecommendationsElement = ({ data, isPrev }) => {
+const HomeRecommendationsElement = ({ data }) => {
   return (
     <StyledHomeRecommendationsElement
-      initial={{ x: isPrev ? -100 : 100 }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 100, bounce: 0 }}
     >
       <StyledText
         hasdeclaredfontsize="20px"
@@ -27,6 +24,7 @@ const HomeRecommendationsElement = ({ data, isPrev }) => {
       {data.rekomendacje.linkPodImieniem.url ? (
         <motion.a
           href={data.rekomendacje.linkPodImieniem.url}
+          tabIndex='-1'
           target={data.rekomendacje.linkPodImieniem.target}
         >
           {data.rekomendacje.linkPodImieniem.title}

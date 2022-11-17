@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const StyledHomeRecommendations = styled.section`
   display: flex;
@@ -11,7 +10,7 @@ export const StyledHomeRecommendations = styled.section`
   padding: 0 32px;
 
   @media only screen and (max-width: 768px) {
-    padding: 0;
+    padding: 0 16px;
     margin-bottom: ${({ isaboutpage }) => (isaboutpage ? "0" : "60px")};
 
     > h2 {
@@ -31,10 +30,16 @@ export const StyledHomeRecommendations = styled.section`
 `;
 
 export const StyledRecommendationsWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  position: relative;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
+
+  .slick-slider {
+    width: 100%;
+  }
 `;
 
 export const StyledButtonsWrapper = styled.div`
@@ -77,19 +82,7 @@ export const StyledButtonsWrapper = styled.div`
   }
 `;
 
-export const StyledSlides = styled.div`
-  width: 87%;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  gap: 10px;
-
-  @media only screen and (max-width: 462px) {
-    justify-content: center;
-  }
-`;
-
-export const StyledArrowWrapper = styled(motion.div)`
+export const StyledArrowWrapper = styled.button`
   width: 30px;
   height: 55px;
   cursor: pointer;
@@ -108,6 +101,33 @@ export const StyledArrowWrapper = styled(motion.div)`
     height: 100%;
   }
 
+  position: absolute;
+  top: 50%;
+  border: none;
+  background-color: transparent;
+  &.left{
+    left: 0;
+    transform: translateY(-50%) translateX(-100%);
+
+    @media (max-width: 768px){
+      transform: translateY(-50%) ;
+    }
+    @media (max-width: 462px){
+      transform: translateY(-50%) translateX(-6px);
+    }
+  }
+
+  &.right{
+    right: 0;
+    transform: translateY(-50%) translateX(100%);
+    @media (max-width: 768px){
+      transform: translateY(-50%) ;
+    }
+    @media (max-width: 462px){
+      transform: translateY(-50%) translateX(6px);
+    }
+  }
+
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -120,7 +140,7 @@ export const StyledArrowWrapper = styled(motion.div)`
     padding: 6px;
     transform: translateX(
       ${({ hasdeclaredtransform }) =>
-        hasdeclaredtransform ? hasdeclaredtransform : "0"}
+    hasdeclaredtransform ? hasdeclaredtransform : "0"}
     );
   }
 

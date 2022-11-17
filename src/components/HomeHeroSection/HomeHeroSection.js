@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -74,6 +74,7 @@ const HomeHeroSection = () => {
               </StyledImageWrapper>
             )
           }
+          return null
         })}
       </StyledImagesLeftWrapper>
       <StyledHeroImageWrapper>
@@ -133,6 +134,7 @@ const HomeHeroSection = () => {
               </StyledImageWrapper>
             )
           }
+          return null
         })}
       </StyledImagesRightWrapper>
       {width < 769 ? (

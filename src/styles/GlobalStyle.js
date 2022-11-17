@@ -67,6 +67,16 @@ const Style = createGlobalStyle`
       font-family: "Roboto Condensed", "Arial";
     }
 
+    *:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+    *:focus {
+      outline: none
+    }
+
     p{
       font-variant-numeric: oldstyle-nums;
     }

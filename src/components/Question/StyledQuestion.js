@@ -67,6 +67,14 @@ export const StyledQuestionWrapper = styled.summary`
   padding: 18px 23px;
   position: relative;
 
+
+  &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 4px;
+    }
+    
   > svg {
     position: relative;
     z-index: 1;

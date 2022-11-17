@@ -1,17 +1,14 @@
 /** @format */
 
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { AnimatePresence } from "framer-motion";
 
 import HomeRecommendationsElement from "../HomeRecommendationsElement/HomeRecommendationsElement";
-import Button from "../Button/Button";
 
 import {
     StyledHomeRecommendations,
     StyledRecommendationsWrapper,
     StyledButtonsWrapper,
-    StyledSlides,
     StyledArrowWrapper,
 } from "./StyledHomeRecommendations";
 import { StyledText } from "../Text/StyledText";
@@ -23,7 +20,29 @@ import RightLightArrow from "../../images/rightLightArrow.svg";
 
 import useWindowSize from "../../utils/getWindowSize";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Button from "../Button/Button";
+
 const HomeRecommendations = ({ isAboutPage }) => {
+    var settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
+    };
+
     const width = useWindowSize();
     const { allWpRekomendacja, wpPage } = useStaticQuery(graphql`
         query rekomendacje {
@@ -59,70 +78,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
             }
         }
     `);
-
-    const [renderElements, setRenderElements] = useState([]);
-    const [index, setIndex] = useState(0);
-    const [isPrev, setIsPrev] = useState(false);
-
-    const handlePrevFunction = useCallback(() => {
-        setIsPrev(true);
-        if (index === 0) {
-            setIndex(allWpRekomendacja.nodes.length - 1);
-        } else {
-            setIndex(index - 1);
-        }
-    }, [ allWpRekomendacja.nodes.length, index, setIndex, setIsPrev ]);
-
-    const handleNextFunction = useCallback(() => {
-        setIsPrev(false);
-        if (index === allWpRekomendacja.nodes.length - 1) {
-            setIndex(0);
-        } else {
-            setIndex(index + 1);
-        }
-    }, [ allWpRekomendacja.nodes.length, index, setIndex, setIsPrev ]);
-
-    const handlePrevOnKeyUp = useCallback((e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault();
-            handlePrevFunction();
-        }
-    }, [handlePrevFunction]);
-
-    const handlePrev = useCallback((e) => {
-        e.preventDefault();
-        handlePrevFunction();
-    }, [handlePrevFunction]);
-
-    const handleNextOnKeyUp = useCallback((e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault();
-            handleNextFunction();
-        }
-    }, [handleNextFunction])
-
-    const handleNext = useCallback((e) => {
-        e.preventDefault();
-        handleNextFunction();
-    }, [handleNextFunction]);
-
-    useEffect(
-        () => {
-            const numElements = (width < 649 ? 1 : 2),
-                sliderElements = [...allWpRekomendacja.nodes].slice(index, index + numElements);
-
-            if (sliderElements.length < numElements)
-                sliderElements.push(
-                    ...(
-                        [...allWpRekomendacja.nodes]
-                        .slice(0, numElements - sliderElements.length)
-                    )
-                );
-
-            setRenderElements(sliderElements);
-        },
-        [ allWpRekomendacja.nodes, index, width, setRenderElements ]
-    );
+    const slider = React.useRef(null);
 
     return (
         <StyledHomeRecommendations hasmargin={allWpRekomendacja.nodes !== 0} isaboutpage={isAboutPage}>
@@ -145,10 +101,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
                     </StyledText>
                     <StyledRecommendationsWrapper>
                         <StyledArrowWrapper
-                            onClick={handlePrev}
-                            onKeyUp={handlePrevOnKeyUp}
+                            className="left"
+                            onClick={() => slider?.current?.slickPrev()}
                             hasdeclaredtransform={width < 463 ? "-5px" : "20px"}
-                            tabIndex="0"
                         >
                             {width <= 768 ? (
                                 width < 463 ? (
@@ -160,25 +115,22 @@ const HomeRecommendations = ({ isAboutPage }) => {
                                 <LeftArrow />
                             )}
                         </StyledArrowWrapper>
-                        <StyledSlides>
-                            <AnimatePresence initial={false} mode="wait">
-                                {renderElements?.map((e, index) => (
-                                    <HomeRecommendationsElement
-                                        key={
-                                            `${e.rekomendacje.imieNazwisko}` +
-                                            index
-                                        }
-                                        data={e}
-                                        isPrev={isPrev}
-                                    />
-                                ))}
-                            </AnimatePresence>
-                        </StyledSlides>
+
+                        <Slider ref={slider} {...settings}>
+                            {allWpRekomendacja.nodes.map((el, index) => (
+                                <HomeRecommendationsElement
+                                    key={
+                                        `${el.rekomendacje.imieNazwisko}` +
+                                        index
+                                    }
+                                    data={el}
+                                />
+                            ))}
+                        </Slider>
                         <StyledArrowWrapper
-                            onClick={handleNext}
-                            onKeyUp={handleNextOnKeyUp}
+                            className="right"
+                            onClick={() => slider?.current?.slickNext()}
                             hasdeclaredtransform={width < 463 ? "5px" : "-20px"}
-                            tabIndex="0"
                         >
                             {width <= 768 ? (
                                 width < 463 ? (

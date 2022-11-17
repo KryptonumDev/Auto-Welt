@@ -1,19 +1,26 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const StyledHomeRecommendationsElement = styled(motion.div)`
+export const StyledHomeRecommendationsElement = styled.div`
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-width: 0px 0px 5px 5px;
   border-style: solid;
   border-color: var(--borderTopOrange);
   overflow: hidden;
-  width: 49%;
-  max-width: 438px;
   height: 228px;
+  margin: 0 20px;
   background: var(--creamBg);
   padding: 43px;
   position: relative;
   flex: 1;
+
+  @media (max-width: 462px) {
+    margin: 0 36px;
+  }
+
+  @media (max-width: 350px){
+    margin: 0 20px;
+  }
 
   a {
     text-decoration: none;
@@ -35,11 +42,6 @@ export const StyledHomeRecommendationsElement = styled(motion.div)`
 
   @media only screen and (max-width: 768px) {
     padding: 43px 33px;
-  }
-
-  @media only screen and (max-width: 648px) {
-    width: 96%;
-    max-width: unset;
   }
 `;
 
