@@ -60,13 +60,13 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   align-items: center;
 
   @media only screen and (max-width: 1065px) {
-    > a {
+    > .a {
       font-size: 18px;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    > a {
+    > .a {
       width: ${({ isscheduleelement }) =>
         isscheduleelement ? "82%" : "initial"};
       font-size: 21px;
@@ -74,13 +74,13 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   }
 
   @media only screen and (max-width: 685px) {
-    > a {
+    > .a {
       font-size: 16px;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    > a {
+    > .a {
       width: 85%;
       max-width: 300px;
       font-size: 15px;

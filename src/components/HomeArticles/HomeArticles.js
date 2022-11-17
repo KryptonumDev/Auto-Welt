@@ -14,7 +14,7 @@ import {
 } from "./StyledHomeArticles";
 import { StyledText } from "../Text/StyledText";
 
-const   HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
+const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
   const data = useStaticQuery(graphql`
     query homeArticle {
       allWpArtykul(limit: 2) {

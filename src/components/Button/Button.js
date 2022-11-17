@@ -32,6 +32,7 @@ const Button = ({
         <>
             {whereGo ? (
                 <StyledButtonLink
+                    className='a'
                     to={whereGo}
                     hasborder={hasBorder}
                     bgcolor={bgColor}
@@ -52,6 +53,7 @@ const Button = ({
                 </StyledButtonLink>
             ) : !isParse ? (
                 <StyledButtonLinkNoHref
+                className='a'
                     aria-label={ariaLabel}
                     hasborder={hasBorder}
                     bgcolor={bgColor}
@@ -71,6 +73,7 @@ const Button = ({
                 </StyledButtonLinkNoHref>
             ) : (
                 <StyledButtonParse
+                className='a'
                     aria-label={ariaLabel}
                     hasborder={hasBorder}
                     bgcolor={bgColor}

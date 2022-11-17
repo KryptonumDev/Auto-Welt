@@ -22,10 +22,8 @@ import {
   StyledCarBgImage,
 } from "./StyledHomeContact";
 import { StyledText } from "../Text/StyledText";
-import useWindowSize from "../../utils/getWindowSize";
 
 const HomeContact = () => {
-  const width = useWindowSize();
   const data = useStaticQuery(graphql`
     query homeContact {
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
@@ -97,35 +95,31 @@ const HomeContact = () => {
     <StyledHomeContact>
       <StyledLeftWrapper>
         <StyledModel>
-          {width > 973 ? (
-            imageShort.lewyObrazek.localFile && (
-              <GatsbyImage
-                image={getImage(imageShort.lewyObrazek?.localFile)}
-                alt={imageShort.lewyObrazek?.altText || " "}
-                title={imageShort.lewyObrazek?.title}
-                objectFit="fill"
-              />
-            )
-          ) : (
-            <>
-              <StyledBackgroundCar>
-                <GatsbyImage
-                  image={getImage(imageShort.lewyObrazekTablet?.localFile)}
-                  alt={imageShort.lewyObrazekTablet?.altText || " "}
-                  title={imageShort.lewyObrazekTablet?.title}
-                />
-              </StyledBackgroundCar>
-              <StyledCarBgImage>
-                <GatsbyImage
-                  image={getImage(
-                    imageShort.lewyObrazekTabletSamochody?.localFile
-                  )}
-                  alt={imageShort.lewyObrazekTabletSamochody?.altText || " "}
-                  title={imageShort.lewyObrazekTabletSamochody?.title}
-                />
-              </StyledCarBgImage>
-            </>
+          {imageShort.lewyObrazek.localFile && (
+            <GatsbyImage
+              className="desctop"
+              image={getImage(imageShort.lewyObrazek?.localFile)}
+              alt={imageShort.lewyObrazek?.altText || " "}
+              title={imageShort.lewyObrazek?.title}
+              objectFit="fill"
+            />
           )}
+          <StyledBackgroundCar className="mobile">
+            <GatsbyImage
+              image={getImage(imageShort.lewyObrazekTablet?.localFile)}
+              alt={imageShort.lewyObrazekTablet?.altText || " "}
+              title={imageShort.lewyObrazekTablet?.title}
+            />
+          </StyledBackgroundCar>
+          <StyledCarBgImage className="mobile">
+            <GatsbyImage
+              image={getImage(
+                imageShort.lewyObrazekTabletSamochody?.localFile
+              )}
+              alt={imageShort.lewyObrazekTabletSamochody?.altText || " "}
+              title={imageShort.lewyObrazekTabletSamochody?.title}
+            />
+          </StyledCarBgImage>
         </StyledModel>
       </StyledLeftWrapper>
       <StyledRightWrapper>

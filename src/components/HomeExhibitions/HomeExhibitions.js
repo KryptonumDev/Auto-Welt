@@ -11,7 +11,6 @@ import {
   StyledElementsWrapper,
 } from "./StyledHomeExhibitions";
 
-import useWindowSize from "../../utils/getWindowSize";
 
 import { areDatesEqual } from "../../utils/date";
 
@@ -68,7 +67,6 @@ const HomeExhibitions = ({ isAboutPage }) => {
       }
     }
   `);
-  const width = useWindowSize();
 
   const now = new Date();
 
@@ -127,8 +125,8 @@ const HomeExhibitions = ({ isAboutPage }) => {
           }
           textColor="var(--white)"
           bgColor="var(--primary500)"
-          hasFontSize={width < 376 ? "15px" : "21px"}
-          hasDeclaredPadding={width < 1081 ? "10px 92px" : "10px 33px"}
+          hasFontSize={"21px"}
+          hasDeclaredPadding={"10px 33px"}
           hoverBgColor="var(--primary900)"
           hasBorder="2px solid var(--primary500)"
           hasTarget={

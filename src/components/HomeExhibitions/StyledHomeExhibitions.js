@@ -14,7 +14,7 @@ export const StyledHomeExhibitions = styled.section`
   }
 
   @media only screen and (max-width: 1065px) {
-    > a {
+    > .a {
       font-size: 18px;
     }
 
@@ -33,19 +33,19 @@ export const StyledHomeExhibitions = styled.section`
   }
 
   @media only screen and (max-width: 685px) {
-    > a {
+    > .a {
       font-size: 16px;
     }
   }
 
   @media only screen and (max-width: 380px) {
-    > a {
+    > .a {
       width: 95%;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    > a {
+    > .a {
       width: 95%;
       font-size: 15px;
     }

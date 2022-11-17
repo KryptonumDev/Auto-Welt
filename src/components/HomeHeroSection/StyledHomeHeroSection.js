@@ -101,6 +101,19 @@ export const StyledButtonsWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
+  &.mobile{
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &.mobile{
+      display: flex;
+    }
+    &.desctop{
+      display: none;
+    }
+  }
+
   @media only screen and (max-width: 1065px) {
     a {
       font-size: 18px;

@@ -18,8 +18,6 @@ import RightArrow from "../../images/right_arrow.svg";
 import LeftLightArrow from "../../images/leftLightArrow.svg";
 import RightLightArrow from "../../images/rightLightArrow.svg";
 
-import useWindowSize from "../../utils/getWindowSize";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -43,7 +41,6 @@ const HomeRecommendations = ({ isAboutPage }) => {
         ]
     };
 
-    const width = useWindowSize();
     const { allWpRekomendacja, wpPage } = useStaticQuery(graphql`
         query rekomendacje {
             allWpRekomendacja {
@@ -103,17 +100,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
                         <StyledArrowWrapper
                             className="left"
                             onClick={() => slider?.current?.slickPrev()}
-                            hasdeclaredtransform={width < 463 ? "-5px" : "20px"}
                         >
-                            {width <= 768 ? (
-                                width < 463 ? (
-                                    <LeftArrow />
-                                ) : (
-                                    <LeftLightArrow />
-                                )
-                            ) : (
-                                <LeftArrow />
-                            )}
+                            <LeftLightArrow className='light' />
+                            <LeftArrow className='regular' />
                         </StyledArrowWrapper>
 
                         <Slider ref={slider} {...settings}>
@@ -130,17 +119,9 @@ const HomeRecommendations = ({ isAboutPage }) => {
                         <StyledArrowWrapper
                             className="right"
                             onClick={() => slider?.current?.slickNext()}
-                            hasdeclaredtransform={width < 463 ? "5px" : "-20px"}
                         >
-                            {width <= 768 ? (
-                                width < 463 ? (
-                                    <RightArrow />
-                                ) : (
-                                    <RightLightArrow />
-                                )
-                            ) : (
-                                <RightArrow />
-                            )}
+                            <RightLightArrow className='light' />
+                            <RightArrow className='regular' />
                         </StyledArrowWrapper>
                     </StyledRecommendationsWrapper>
                     <StyledButtonsWrapper>
@@ -161,9 +142,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                                 hasBorder="2px solid var(--primary500)"
                                 textColor="var(--primary500)"
                                 hasFontSize="21px"
-                                hasDeclaredPadding={
-                                    width < 769 ? "10px 53px" : "10px 33px"
-                                }
+                                hasDeclaredPadding={"10px 33px"}
                                 bgColor="var(--background500)"
                                 hasTarget={
                                     wpPage.globalConfig
@@ -192,9 +171,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                                 bgColor="var(--primary500)"
                                 hasFontSize="21px"
                                 hasBorder="2px solid var(--primary500)"
-                                hasDeclaredPadding={
-                                    width < 769 ? "10px 63px" : "10px 33px"
-                                }
+                                hasDeclaredPadding={"10px 33px"}
                                 hasTarget={
                                     wpPage.globalConfig
                                         .informacjeDoRekomendacjiNaStronieGlownej

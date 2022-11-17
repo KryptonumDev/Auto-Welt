@@ -15,10 +15,8 @@ import {
 } from "./StyledHomeCollections";
 import { StyledText } from "../Text/StyledText";
 
-import useWindowSize from "../../utils/getWindowSize";
 
 const HomeCollections = () => {
-  const width = useWindowSize();
   const { allWpKolekcje, wpPage } = useStaticQuery(graphql`
     query kolekcjeHomePage {
       allWpKolekcje {
@@ -180,7 +178,7 @@ const HomeCollections = () => {
             btnText={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.title}
             btnWhereGo={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.url}
             hasTarget={wpPage.homepage.kolekcje.gdzieMaPrzenosicPrzycisk.target}
-            btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
+            btnPadding={"10px 22px"}
             btnBgColor="var(--secondary500)"
             btnColor="var(--primary900)"
             bgImage={images}

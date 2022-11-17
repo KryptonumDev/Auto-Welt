@@ -15,8 +15,6 @@ import {
   StyledElementLink,
 } from "./StyledHomeExhibitionsElement";
 
-import useWindowSize from "../../utils/getWindowSize";
-
 import ListIcon from "../../images/ListIcon.svg";
 
 const HomeExhibitionsElement = ({
@@ -26,7 +24,6 @@ const HomeExhibitionsElement = ({
   isPrev,
   slidesCount,
 }) => {
-  const width = useWindowSize();
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
     .toLocaleString("pl", { dateStyle: "long" })
     .split(" ");
@@ -152,7 +149,7 @@ const HomeExhibitionsElement = ({
             textColor={
               buttonVariant === "orange" ? "var(--primary900)" : "#fff"
             }
-            hasFontSize={width < 376 ? "15px" : "21px"}
+            hasFontSize={"21px"}
             hasDeclaredPadding="8px 33px"
             hoverBgColor={
               buttonVariant === "orange"

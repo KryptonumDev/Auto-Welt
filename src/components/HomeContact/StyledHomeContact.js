@@ -300,8 +300,19 @@ export const StyledModel = styled.div`
     width: 100%;
     height: 100%;
   }
+    .mobile{
+      display: none;
+    }
 
   @media only screen and (max-width: 972px) {
     width: 100%;
+
+    .mobile{
+      display: block;
+    }
+
+    .desctop{
+      display: none;
+    }
   }
 `;
