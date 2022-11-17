@@ -18,7 +18,6 @@ import {
 import PrevCalendar from "../../images/prevCalendar.svg";
 import NextCalendar from "../../images/nextCalendar.svg";
 import ActiveCalendar from "../../images/activeCalendar.svg";
-import useWindowSize from "../../utils/getWindowSize";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
   const [now] = useState(new Date())
@@ -27,7 +26,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
     maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
     [currentDate, setCurrentDate] = useState(now),
     [pagination, setPagination] = useState(1),
-    width = useWindowSize(),
     [activeDate, setActiveDate] = useState(undefined),
     toggleActiveDate = (new_date) =>
       setActiveDate(
@@ -138,7 +136,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         >
           <PrevCalendar />
         </motion.div>
-        <StyledCalendar
+        {/* <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
           activeStartDate={currentDate}
@@ -210,7 +208,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
           inputRef={calendar}
-        />
+        /> */}
         <motion.div
           className="nextArrow"
           onClick={handleNext}

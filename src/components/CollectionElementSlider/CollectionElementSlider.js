@@ -15,68 +15,11 @@ import {
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 
-import useWindowSize from "../../utils/getWindowSize";
-
 const CollectionElementSlider = ({ imagesData }) => {
-    const width = useWindowSize();
-    const [renderElements, setRenderElements] = useState([]);
-    const [index, setIndex] = useState(0);
-    const [isPrev, setIsPrev] = useState(false);
-
-    const handlePrev = useCallback(() => {
-        setIsPrev(true);
-        if (index === 0) {
-            setIndex(imagesData.length - 1);
-        } else {
-            setIndex(index - 1);
-        }
-    }, [ imagesData.length, index, setIndex, setIsPrev ]);
-
-    const handleNext = useCallback(() => {
-        setIsPrev(false);
-        if (index === imagesData.length - 1) {
-            setIndex(0);
-        } else {
-            setIndex(index + 1);
-        }
-    }, [ imagesData.length, index, setIndex, setIsPrev ]);
-
-    const handleNextKeyUp = useCallback((e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault()
-            handleNext()
-        }
-    }, [ handleNext ])
-
-    const handlePrevKeyUp = useCallback((e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault()
-            handlePrev()
-        }
-    }, [ handlePrev ])
-
-    useEffect(
-        () => {
-            const numElements = (width < 769 ? 1 : 2),
-                sliderElements = [...imagesData].slice(index, index + numElements);
-
-            if (sliderElements.length < numElements)
-                sliderElements.push(
-                    ...(
-                        [...imagesData]
-                        .slice(0, numElements - sliderElements.length)
-                    )
-                );
-
-            setRenderElements(sliderElements);
-        },
-        [ imagesData, index, width, setRenderElements ]
-    );
-
 
     return (
         <StyledCollectionElementSlider>
-            {imagesData && (
+            {/* {imagesData && (
                 <>
                     {(
                         (width > 768 && imagesData.length > 2) ||
@@ -124,7 +67,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                         </StyledRightArrow>
                     ) : null}
                 </>
-            )}
+            )} */}
         </StyledCollectionElementSlider>
     );
 };

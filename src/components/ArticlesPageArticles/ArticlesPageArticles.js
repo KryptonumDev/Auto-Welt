@@ -16,7 +16,6 @@ import {
   StyledButton,
 } from "./StyledArticlesPageArticles";
 import { StyledText } from "../Text/StyledText";
-import useWindowSize from "../../utils/getWindowSize";
 
 import LewoArt from "../../images/lewoArt.svg";
 import PrawoArt from "../../images/prawoArt.svg";
@@ -32,8 +31,7 @@ function sliceIntoChunks(arr, chunkSize) {
 }
 
 const ArticlesPageArticles = ({ title, allArticles }) => {
-  const width = useWindowSize(),
-    numElements = width < 768 ? 6 : 12;
+  const numElements = 12;
 
   const articles = useMemo(
     () => sliceIntoChunks(allArticles, numElements),
@@ -65,7 +63,7 @@ const ArticlesPageArticles = ({ title, allArticles }) => {
             <ArticleElement key={node.slug + index} articleData={node} />
           ))}
         </StyledSlidesWrapper>
-        {allArticles.length < (width < 768 ? 7 : 13) ? null : (
+        {allArticles.length < 13 ? null : (
           <StyledPagginationWrapper>
             <StyledTopPaggination>
               <StyledLeftArrow

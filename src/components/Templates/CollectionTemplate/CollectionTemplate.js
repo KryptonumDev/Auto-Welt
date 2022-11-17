@@ -11,7 +11,6 @@ import RecInfoWithButton from "../../RecInfoWithButton/RecInfoWithButton";
 import CollectionElementThreeImages from "../../CollectionElementThreeImages/CollectionElementThreeImages";
 
 import { StyledCollectionTemplate } from "./StyledCollectionTemplate";
-import useWindowSize from "../../../utils/getWindowSize";
 
 const CollectionTemplate = ({ data }) => {
   const shortCollectionData =
@@ -39,8 +38,6 @@ const CollectionTemplate = ({ data }) => {
       },
     ]
   );
-
-  const width = useWindowSize();
   
   return (
     <div style={{ maxWidth: "1440", margin: "0 auto", overflow: "hidden" }}>
@@ -66,7 +63,7 @@ const CollectionTemplate = ({ data }) => {
             btnBgColor="var(--secondary500)"
             btnColor="var(--primary900)"
             btnWhereGo={shortCollectionData.ktoraKolekcjePolecic.url}
-            btnPadding={width < 433 ? "10px 12px" : "10px 33px"}
+            btnPadding={"10px 33px"}
             btnFontSize="21px"
             hasTarget={shortCollectionData.ktoraKolekcjePolecic.target}
             btnHoverBg="var(--secondary700)"

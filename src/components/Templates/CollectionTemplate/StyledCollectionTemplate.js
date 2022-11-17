@@ -9,4 +9,14 @@ export const StyledCollectionTemplate = styled.section`
   @media only screen and (max-width: 768px) {
     padding: 0 16px 0 0;
   }
+
+  .a{
+    padding: 10px 33px;
+  }
+
+  @media (max-width: 432px) {
+    .a{
+      padding: 10px 12px;
+    }
+  }
 `;

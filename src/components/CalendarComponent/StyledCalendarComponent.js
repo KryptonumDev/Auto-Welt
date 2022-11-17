@@ -197,7 +197,7 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
 
   .react-calendar__month-view__days__day--weekend:last-child {
     background-color: ${({ markLastSunday }) =>
-      markLastSunday ? "#F6E2BA" : "var(--background500)"};
+    markLastSunday ? "#F6E2BA" : "var(--background500)"};
   }
 
   .activeDay{
