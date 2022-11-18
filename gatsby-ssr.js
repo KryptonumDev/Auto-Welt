@@ -10,10 +10,8 @@ exports.wrapPageElement = ({ element, props }) => {
   );
 };
 
-exports.onRenderBody = ({ setBodyAttributes, setHeadComponents, setHtmlAttributes }) => {
-  setBodyAttributes({
-    className: "no-js",
-  });
+exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+
   setHtmlAttributes({ lang: "pl" })
   setHeadComponents([
       <link
