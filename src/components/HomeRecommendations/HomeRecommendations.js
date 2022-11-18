@@ -98,6 +98,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                     </StyledText>
                     <StyledRecommendationsWrapper>
                         <StyledArrowWrapper
+                            aria-label='prev'
                             className="left"
                             onClick={() => slider?.current?.slickPrev()}
                         >
@@ -117,6 +118,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                             ))}
                         </Slider>
                         <StyledArrowWrapper
+                            aria-label='next'
                             className="right"
                             onClick={() => slider?.current?.slickNext()}
                         >
