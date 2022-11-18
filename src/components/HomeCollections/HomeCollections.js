@@ -38,9 +38,7 @@ const HomeCollections = () => {
                 altText
                 title
                 localFile {
-                  childImageSharp {
-                    gatsbyImageData
-                  }
+                  publicURL
                 }
               }
             }
