@@ -20,7 +20,7 @@ export const StyledFooterLeftWrapper = styled.div`
   @media only screen and (max-width: 500px){
     width: 100%;
     flex-wrap: wrap;
-    order 1;
+    order: 1;
     
     > div {
       width: 100%;
@@ -44,6 +44,7 @@ export const StyledLogoWrapper = styled.div`
   > a {
     width: 100%;
     height: 100%;
+    display: block;
 
     &:focus-visible {
       outline-width: 1px;
@@ -54,7 +55,6 @@ export const StyledLogoWrapper = styled.div`
 
     img{
       width: 100%;
-      height: 100%;
     }
   }
 `;
