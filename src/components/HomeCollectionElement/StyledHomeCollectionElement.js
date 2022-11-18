@@ -70,6 +70,10 @@ export const StyledBackground = styled.div`
   width: 294px;
   height: 192px;
   margin-bottom: 53px;
+  background-image: url(${props => props.background});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
 
   img {
     width: 100%;
