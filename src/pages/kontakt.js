@@ -17,10 +17,8 @@ import {
 } from "../components/Contact/StyledContact";
 import { StyledText } from "../components/Text/StyledText";
 
-import useWindowSize from "../utils/getWindowSize";
 
 const Contact = ({ data }) => {
-  const width = useWindowSize();
 
   return (
     <StyledContact>
@@ -68,7 +66,7 @@ const Contact = ({ data }) => {
             hasBorder="2px solid var(--primary500)"
             textColor="var(--primary500)"
             hasDeclaredPadding="8px 41px"
-            hasFontSize={width < 376 ? "15px" : "21px"}
+            hasFontSize={"21px"}
             hasTarget={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.linkPoLewo
                 .target
@@ -87,7 +85,7 @@ const Contact = ({ data }) => {
             textColor="var(--white)"
             bgColor="var(--primary500)"
             hasDeclaredPadding="8px 41px"
-            hasFontSize={width < 376 ? "15px" : "21px"}
+            hasFontSize={"21px"}
             hasTarget={
               data.wpPage.kontakt.sekcjaOTerminarzuNaDoleStrony.linkPoPrawo
                 .target

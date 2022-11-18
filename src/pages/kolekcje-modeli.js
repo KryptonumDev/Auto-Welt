@@ -12,10 +12,8 @@ import {
   StyledReqButton,
 } from "../components/Collections/StyledCollections";
 
-import useWindowSize from "../utils/getWindowSize";
 
 const ModelCollections = ({ data }) => {
-  const width = useWindowSize();
   const greenData = data.wpPage.kolekcjeModeli;
 
   const images = withArtDirection(
@@ -60,7 +58,7 @@ const ModelCollections = ({ data }) => {
           btnText={greenData.linkWZielonymInpucie.title}
           btnWhereGo={greenData.linkWZielonymInpucie.url}
           hasTarget={greenData.linkWZielonymInpucie.target}
-          btnPadding={width < 937 ? "10px 44px" : "10px 22px"}
+          btnPadding={"10px 22px"}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
           bgImage={images}
