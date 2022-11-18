@@ -44,6 +44,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
             {scheduleData.length > 1
                 ? <>
                     <StyledPrevArrow
+                     aria-label='next'
                         onClick={() => slider?.current?.slickPrev()}>
                         {variant === "orange" ? (
                             <PrevGreenArrow />
@@ -62,6 +63,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                         ))}
                     </Slider>
                     <StyledNextArrow
+                     aria-label='next'
                         onClick={() => slider?.current?.slickNext()}>
                         {variant === "orange" ? (
                             <NextGreenArrow />

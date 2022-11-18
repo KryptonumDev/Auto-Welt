@@ -24,7 +24,9 @@ export const StyledScheduleSlider = styled.div`
   }
 `;
 
-export const StyledPrevArrow = styled(motion.div)`
+export const StyledPrevArrow = styled.button`
+border: none;
+background-color: transparent;
   width: 40px;
   height: 56px;
   cursor: pointer;
@@ -58,7 +60,9 @@ export const StyledPrevArrow = styled(motion.div)`
   }
 `;
 
-export const StyledNextArrow = styled(motion.div)`
+export const StyledNextArrow = styled.button`
+border: none;
+background-color: transparent;
   width: 40px;
   height: 56px;
   cursor: pointer;

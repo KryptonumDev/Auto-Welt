@@ -29,7 +29,8 @@ export const StyledCollectionElementSlider = styled.section`
   }
 `;
 
-export const StyledLeftArrow = styled(motion.div)`
+export const StyledLeftArrow = styled.button`
+border: none;
   background: var(--primary500);
   padding: 5px;
   cursor: pointer;
@@ -89,7 +90,8 @@ export const StyledLeftArrow = styled(motion.div)`
   }
 `;
 
-export const StyledRightArrow = styled(motion.div)`
+export const StyledRightArrow = styled.button`
+  border: none;
   background: var(--primary500);
   padding: 5px;
   cursor: pointer;

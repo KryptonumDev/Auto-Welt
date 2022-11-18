@@ -44,7 +44,7 @@ const CollectionElementSlider = ({ imagesData }) => {
 
     return (
         <StyledCollectionElementSlider length={imagesData.length}>
-            <StyledLeftArrow length={imagesData.length} onClick={() => slider?.current?.slickPrev()}>
+            <StyledLeftArrow aria-label='prev' length={imagesData.length} onClick={() => slider?.current?.slickPrev()}>
                 <LeftArrow />
             </StyledLeftArrow>
 
@@ -56,7 +56,7 @@ const CollectionElementSlider = ({ imagesData }) => {
                 ))}
             </Slider>
 
-            <StyledRightArrow length={imagesData.length} onClick={() => slider?.current?.slickNext()}>
+            <StyledRightArrow aria-label='next' length={imagesData.length} onClick={() => slider?.current?.slickNext()}>
                 <RightArrow />
             </StyledRightArrow>
         </StyledCollectionElementSlider>

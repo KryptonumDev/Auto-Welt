@@ -87,7 +87,6 @@ export const StyledBackground = styled.div`
 
 export const StyledImage = styled.div`
   width: 294px;
-  height: 192px;
   position: absolute;
   top: 23px;
   left: 50%;
@@ -109,6 +108,5 @@ export const StyledImage = styled.div`
 
   @media only screen and (max-width: 1024px){
     width: 212px;
-    height: 139px;
   }
 `;
