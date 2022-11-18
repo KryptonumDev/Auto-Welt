@@ -2,8 +2,7 @@ const React = require("react");
 const GlobalLayout = require("./src/components/Layouts/GlobalLayout").default;
 const AnimatePresence = require("framer-motion").AnimatePresence;
 const gsap = require("gsap").gsap;
-import './src/styles/normalize.css'
-import './src/styles/fonts.css'
+
 
 exports.wrapPageElement = ({ element, props }) => {
   return (

@@ -58,13 +58,6 @@ export const StyledPrevArrow = styled(motion.div)`
   }
 `;
 
-export const StyledSlides = styled.div`
-  display: flex;
-  gap: 15px;
-  justify-content: ${({ slides }) => slides === 1 ? "center" : "space-between"};
-  width: 100%;
-`;
-
 export const StyledNextArrow = styled(motion.div)`
   width: 40px;
   height: 56px;

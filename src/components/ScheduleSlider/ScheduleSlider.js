@@ -1,14 +1,12 @@
 /** @format */
 
-import React, { useState, useEffect, useCallback } from "react";
-import { AnimatePresence } from "framer-motion";
+import React from "react";
 
 import HomeExhibitionsElement from "../HomeExhibitionsElement/HomeExhibitionsElement";
 
 import {
     StyledScheduleSlider,
     StyledPrevArrow,
-    StyledSlides,
     StyledNextArrow,
 } from "./StyledScheduleSlider";
 

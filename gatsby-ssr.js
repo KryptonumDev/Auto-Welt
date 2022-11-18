@@ -1,8 +1,6 @@
 const React = require("react");
 const GlobalLayout = require("./src/components/Layouts/GlobalLayout").default;
 const AnimatePresence = require("framer-motion").AnimatePresence;
-import './src/styles/normalize.css'
-import './src/styles/fonts.css'
 
 exports.wrapPageElement = ({ element, props }) => {
   return (
@@ -12,7 +10,7 @@ exports.wrapPageElement = ({ element, props }) => {
   );
 };
 
-export const onRenderBody = ({ setBodyAttributes, setHeadComponents, setHtmlAttributes }) => {
+exports.onRenderBody = ({ setBodyAttributes, setHeadComponents, setHtmlAttributes }) => {
   setBodyAttributes({
     className: "no-js",
   });
