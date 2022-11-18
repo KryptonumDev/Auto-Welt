@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledScheduleActualExh = styled.section`
   width: 100%;
   max-width: 1144px;
-  padding: 0 32px;
+  padding: 0 50px;
   margin: ${({ hasmargin }) => hasmargin ? "80px auto 0" : "0"};
 
   @media only screen and (max-width: 768px) {

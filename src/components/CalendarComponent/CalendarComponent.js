@@ -136,34 +136,22 @@ const CalendarComponent = ({ exhibitions = [] }) => {
         >
           <PrevCalendar />
         </motion.div>
-        {/* <StyledCalendar
+        <StyledCalendar
           minDate={minDate}
           maxDate={maxDate}
           activeStartDate={currentDate}
           value={currentDate}
           defaultView="month"
           formatShortWeekday={(locale, date) =>
-            width > 986
-              ? [
-                "NIEDZIELA",
-                "PONIEDZIAŁEK",
-                "WTOREK",
-                "ŚRODA",
-                "CZWARTEK",
-                "PIĄTEK",
-                "SOBOTA",
-              ][date.getDay()]
-              : ["ND", "PON", "WT", "ŚR", "CZW", "PT", "SO"][date.getDay()]
+            ["ND", "PON", "WT", "ŚR", "CZW", "PT", "SO"][date.getDay()]
           }
           tileDisabled={
-            width > 986
-              ? () => true
-              : ({ activeStartDate, date, view }) =>
-                !Boolean(
-                  exhibitions.find(({ data: exhibition_date }) =>
-                    areDatesEqual(exhibition_date, date)
-                  )
+            ({ activeStartDate, date, view }) =>
+              !Boolean(
+                exhibitions.find(({ data: exhibition_date }) =>
+                  areDatesEqual(exhibition_date, date)
                 )
+              )
           }
           tileContent={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
@@ -177,15 +165,13 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     <ActiveCalendar />
                     <StyledExhibitionTitle
                       isopen={
-                        width > 986
-                          ? false
-                          : activeDate instanceof Date
-                            ? exhibitions_today
-                              .filter((exhibition) =>
-                                areDatesEqual(exhibition.data, activeDate)
-                              )
-                              .length
-                            : false
+                        activeDate instanceof Date
+                          ? exhibitions_today
+                            .filter((exhibition) =>
+                              areDatesEqual(exhibition.data, activeDate)
+                            )
+                            .length
+                          : false
                       }
                     >
                       {exhibitions_today.map((exhibition) => (
@@ -208,7 +194,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
           inputRef={calendar}
-        /> */}
+        />
         <motion.div
           className="nextArrow"
           onClick={handleNext}

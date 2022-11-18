@@ -1,17 +1,8 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { Link } from "gatsby";
 
 export const StyledElementLink = styled(Link)`
   text-decoration: none;
-  width: ${({ isscheduleelement, slidescount }) =>
-    slidescount < 3
-      ? "calc(50% - 15px)"
-      : isscheduleelement
-      ? "calc(50% - 15px)"
-      : "33%"};
-  max-width: ${({ isscheduleelement, slidescount }) =>
-    slidescount < 3 ? "532px" : isscheduleelement ? "532px" : "340px"};
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   border-top: 6px solid var(--borderTopOrange);
   display: flex;
@@ -21,6 +12,16 @@ export const StyledElementLink = styled(Link)`
   background-color: #faf7f1;
   overflow: hidden;
   cursor: pointer;
+  margin: 0 20px;
+  max-width: 502px;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 620px) {
+    max-width: unset;
+    margin: 0 10px;
+  }
 
   &:hover {
     > div {
@@ -43,17 +44,9 @@ export const StyledElementLink = styled(Link)`
     outline-offset: 4px;
   }
 
-  @media only screen and (max-width: 1080px) {
-    width: ${({ isscheduleelement }) => (isscheduleelement ? "50%" : "100%")};
-  }
-
-  @media only screen and (max-width: 648px) {
-    width: 100%;
-    max-width: unset;
-  }
 `;
 
-export const StyledHomeExhibitionsElement = styled(motion.div)`
+export const StyledHomeExhibitionsElement = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -68,7 +61,7 @@ export const StyledHomeExhibitionsElement = styled(motion.div)`
   @media only screen and (max-width: 768px) {
     > .a {
       width: ${({ isscheduleelement }) =>
-        isscheduleelement ? "82%" : "initial"};
+    isscheduleelement ? "82%" : "initial"};
       font-size: 21px;
     }
   }

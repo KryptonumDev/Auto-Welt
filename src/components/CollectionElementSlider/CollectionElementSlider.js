@@ -1,73 +1,64 @@
 /** @format */
 
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { AnimatePresence } from "framer-motion";
 
 import {
     StyledCollectionElementSlider,
     StyledLeftArrow,
     StyledRightArrow,
-    StyledImagesWrapper,
     StyledImage,
 } from "./StyledCollectionElementSlider";
 
 import LeftArrow from "../../images/left_arrow.svg";
 import RightArrow from "../../images/right_arrow.svg";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 const CollectionElementSlider = ({ imagesData }) => {
+    const slider = React.useRef(null);
+    var settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
+    };
 
     return (
-        <StyledCollectionElementSlider>
-            {/* {imagesData && (
-                <>
-                    {(
-                        (width > 768 && imagesData.length > 2) ||
-                        (width < 769 && imagesData.length > 1)
-                    ) ? (
-                        <StyledLeftArrow
-                            tabIndex="0"
-                            onClick={handlePrev}
-                            onKeyUp={handlePrevKeyUp}
-                        >
-                            <LeftArrow />
-                        </StyledLeftArrow>
-                    ) : null}
-                    <StyledImagesWrapper>
-                        {renderElements.map((e, index) => (
-                            <AnimatePresence initial={false} mode="wait">
-                                <StyledImage
-                                    key={Math.random()}
-                                    initial={{ x: isPrev ? -100 : 100 }}
-                                    animate={{ x: 0 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 100,
-                                    }}
-                                >
-                                    <GatsbyImage
-                                        image={getImage(e.localFile)}
-                                        alt={e.altText || " "}
-                                        title={e.title}
-                                    />
-                                </StyledImage>
-                            </AnimatePresence>
-                        ))}
-                    </StyledImagesWrapper>
-                    {(
-                        (width > 768 && imagesData.length > 2) ||
-                        (width < 769 && imagesData.length > 1)
-                    ) ? (
-                        <StyledRightArrow
-                            onClick={handleNext}
-                            onKeyUp={handleNextKeyUp}
-                            tabIndex="0"
-                        >
-                            <RightArrow />
-                        </StyledRightArrow>
-                    ) : null}
-                </>
-            )} */}
+        <StyledCollectionElementSlider length={imagesData.length}>
+            <StyledLeftArrow length={imagesData.length} onClick={() => slider?.current?.slickPrev()}>
+                <LeftArrow />
+            </StyledLeftArrow>
+
+            <Slider ref={slider} {...settings}>
+                {imagesData.map((e, index) => (
+                    <StyledImage key={index}>
+                        <GatsbyImage image={getImage(e.localFile)} alt={e.altText || " "} title={e.title} />
+                    </StyledImage>
+                ))}
+            </Slider>
+
+            <StyledRightArrow length={imagesData.length} onClick={() => slider?.current?.slickNext()}>
+                <RightArrow />
+            </StyledRightArrow>
         </StyledCollectionElementSlider>
     );
 };

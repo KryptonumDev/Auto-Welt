@@ -35,8 +35,6 @@ const HomeExhibitionsElement = ({
       to={`/wystawy/${exhibitionData.slug}`}
     >
       <StyledHomeExhibitionsElement
-        initial={{ x: isPrev ? -100 : 100 }}
-        animate={{ x: 0 }}
         isscheduleelement={isSchdeuleElement}
       >
         <StyledDataInformationWrapper>
@@ -162,7 +160,7 @@ const HomeExhibitionsElement = ({
           />
         ) : null}
       </StyledHomeExhibitionsElement>
-    </StyledElementLink>
+    </StyledElementLink >
   );
 };
 

@@ -3,11 +3,16 @@ import { motion } from "framer-motion";
 
 export const StyledScheduleSlider = styled.div`
   width: 100%;
-  display: flex;
   position: relative;
   justify-content: ${({ slides }) => slides === 1 ? "center" : "space-between"};
   align-items: center;
   gap: 10px;
+
+  .slick-list{
+    padding: 20px 0;
+  }
+
+  .one-el{}
 
   @media only screen and (max-width: 768px) {
     width: calc(100% - 30px);
@@ -35,11 +40,8 @@ export const StyledPrevArrow = styled(motion.div)`
     outline-offset: 4px;
   }
 
-  @media only screen and (max-width: 1244px) {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: translateY(0);
+  @media only screen and (max-width: 1280px) {
+    left: -25px;
   }
 
   @media only screen and (max-width: 768px) {
@@ -79,11 +81,8 @@ export const StyledNextArrow = styled(motion.div)`
     outline-offset: 4px;
   }
 
-  @media only screen and (max-width: 1244px) {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: translateY(0);
+  @media only screen and (max-width: 1280px) {
+    right: -25px;
   }
 
   @media only screen and (max-width: 768px) {
