@@ -12,7 +12,15 @@ import {
 const HomeCollectionElement = ({ bgImage, image, buttonText, whereGo }) => {
   return (
     <StyledHomeCollectionElement to={`/kolekcje-modeli/${whereGo}`}>
-      <StyledBackground background={bgImage?.localFile.publicURL}>
+      <StyledBackground>
+        {bgImage.localFile ? (
+          <GatsbyImage
+            image={getImage(bgImage?.localFile)}
+            alt={bgImage?.altText || " "}
+            title={bgImage?.title}
+            objectFit="fill"
+          />
+        ) : null}
       </StyledBackground>
       <StyledImage>
         {image.localFile ? (
