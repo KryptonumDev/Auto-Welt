@@ -2,6 +2,8 @@ const React = require("react");
 const GlobalLayout = require("./src/components/Layouts/GlobalLayout").default;
 const AnimatePresence = require("framer-motion").AnimatePresence;
 const gsap = require("gsap").gsap;
+import './src/styles/normalize.css'
+import './src/styles/fonts.css'
 
 exports.wrapPageElement = ({ element, props }) => {
   return (
@@ -11,10 +13,10 @@ exports.wrapPageElement = ({ element, props }) => {
   );
 };
 
-// exports.onClientEntry = () => {
-//   window.addEventListener("load", () => {
-//     const body = document.querySelector("body");
-//     body.className = document.body.className.replace(/\bno-js\b/, "");
-//     gsap.from(body, { opacity: 0, duration: 0.7, ease: "Power3.easeInOut" });
-//   });
-// };
+exports.onClientEntry = () => {
+  window.addEventListener("load", () => {
+    const body = document.querySelector("body");
+    body.className = document.body.className.replace(/\bno-js\b/, "");
+    gsap.from(body, { opacity: 0, duration: 0.7, ease: "Power3.easeInOut" });
+  });
+};
