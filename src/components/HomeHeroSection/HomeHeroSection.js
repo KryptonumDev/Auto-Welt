@@ -65,8 +65,6 @@ const HomeHeroSection = () => {
                 <GatsbyImage
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image.altText || " "}
-                  title={image.title}
-                  objectFit="fill"
                 />
               </StyledImageWrapper>
             )
@@ -123,8 +121,6 @@ const HomeHeroSection = () => {
                 <GatsbyImage
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image?.altText || " "}
-                  title={image?.title}
-                  objectFit="fill"
                 />
               </StyledImageWrapper>
             )
