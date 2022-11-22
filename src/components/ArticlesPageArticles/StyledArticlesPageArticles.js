@@ -28,6 +28,7 @@ export const StyledArticlesSlider = styled.div``;
 export const StyledSlidesWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 44px;
 
   @media only screen and (max-width: 768px) {
