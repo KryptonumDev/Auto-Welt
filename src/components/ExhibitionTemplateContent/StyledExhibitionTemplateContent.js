@@ -41,15 +41,31 @@ export const StyledContentWrapper = styled.div`
   font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 
+  .is-layout-flow.wp-block-column + .is-layout-flow.wp-block-column{
+    margin-top: 20px;
+  }
+
+  ul + h1,
+  ul + h2,
+  ul + h3,
+  ul + p,
+  ul + div,
+  ul + figure{
+    margin-top: 40px;
+  }
+
   p + h2,
   p + h3,
   p + figure,
-  h2 + figure,
   h3 + figure,
   ul + figure,
   ol + figure,
   div +  figure {
     margin-top: 40px;
+  }
+
+  h2 + figure{
+    margin-top: 1.25rem;
   }
 
   p + .customQuote,
