@@ -43,6 +43,7 @@ const HomeCalendar = () => {
               informacjeOgolne {
                 data
                 miejsce
+                tytulDoKalendarzaNaStroneGlownaKrotki
               }
             }
             title
@@ -69,7 +70,7 @@ const HomeCalendar = () => {
         exhibitions={data.allWpWystawa.edges.map((edge) => ({
           ...edge.node.wystawa.informacjeOgolne,
           data: new Date(edge.node.wystawa.informacjeOgolne.data),
-          title: edge.node.title,
+          title: edge.node.wystawa.informacjeOgolne.tytulDoKalendarzaNaStroneGlownaKrotki,
           slug: edge.node.slug
         }))}
       />

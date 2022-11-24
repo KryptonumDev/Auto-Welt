@@ -12,16 +12,10 @@ export const StyledElementLink = styled(Link)`
   background-color: #faf7f1;
   overflow: hidden;
   cursor: pointer;
-  margin: 0 20px;
-  max-width: 502px;
-
-  @media (max-width: 768px) {
-    margin: 0 auto;
-  }
-  @media (max-width: 620px) {
-    max-width: unset;
-    margin: 0 10px;
-  }
+  margin: ${({ isscheduleelement }) => isscheduleelement ? "none" : "0 20px"};
+  max-width: ${({ isscheduleelement }) => isscheduleelement ? "unset" : "502px"};
+  width: ${({ isscheduleelement }) => isscheduleelement ? "100%" : "50%"};
+  padding-bottom: 40px;
 
   &:hover {
     > div {
@@ -44,6 +38,13 @@ export const StyledElementLink = styled(Link)`
     outline-offset: 4px;
   }
 
+  @media only screen and (max-width: 1080px) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 768px){
+    max-width: unset;
+  }
 `;
 
 export const StyledHomeExhibitionsElement = styled.div`

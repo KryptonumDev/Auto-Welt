@@ -184,6 +184,14 @@ export const StyledContentWrapper = styled.div`
     flex-wrap: wrap;
   }
 
+  .wp-block-image{
+    width: 100%;
+
+    > img{
+      width: 100%;
+    }
+  }
+
   .wp-container-3 {
     > div {
       width: 48%;

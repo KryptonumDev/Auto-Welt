@@ -27,6 +27,8 @@ export const StyledHomeRecommendationsElement = styled.div`
     color: var(--primary500);
     font: 500 16px/19px "Roboto Condensed";
     transition: color 250ms linear;
+    max-width: 85%;
+    display: block;
 
     &:focus-visible {
       outline-width: 1px;

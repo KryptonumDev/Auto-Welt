@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const StyledScheduleSlider = styled.div`
   width: 100%;
@@ -8,11 +7,20 @@ export const StyledScheduleSlider = styled.div`
   align-items: center;
   gap: 10px;
 
-  .slick-list{
-    padding: 20px 0;
+  .slick-slider{
+    width: 100%;
   }
 
-  .one-el{}
+  .slick-list{
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .slick-track{
+    width: 100%;
+    gap: 20px;
+    display: flex;
+  }
 
   @media only screen and (max-width: 768px) {
     width: calc(100% - 30px);
@@ -25,8 +33,8 @@ export const StyledScheduleSlider = styled.div`
 `;
 
 export const StyledPrevArrow = styled.button`
-border: none;
-background-color: transparent;
+  border: none;
+  background-color: transparent;
   width: 40px;
   height: 56px;
   cursor: pointer;
@@ -34,6 +42,7 @@ background-color: transparent;
   left: -70px;
   top: 50%;
   transform: translateY(-50%);
+  display: ${({ slides }) => slides < 3 ? "none" : "block"};
 
   &:focus-visible {
     outline-width: 1px;
@@ -47,22 +56,23 @@ background-color: transparent;
   }
 
   @media only screen and (max-width: 768px) {
+    display: ${({ slides }) => slides < 2 ? "none" : "block"};
     position: absolute;
     left: -20px;
-    top: 35%;
+    top: 30%;
     transform: translateY(-50%);
     z-index: 1;
   }
 
   @media only screen and (max-width: 375px) {
-    top: 109%;
+    top: 104%;
     left: 10%;
   }
 `;
 
 export const StyledNextArrow = styled.button`
-border: none;
-background-color: transparent;
+  border: none;
+  background-color: transparent;
   width: 40px;
   height: 56px;
   cursor: pointer;
@@ -70,6 +80,7 @@ background-color: transparent;
   right: -70px;
   top: 50%;
   transform: translateY(-50%);
+  display: ${({ slides }) => slides < 3 ? "none" : "block"};
 
   &:focus-visible {
     outline-width: 1px;
@@ -83,14 +94,15 @@ background-color: transparent;
   }
 
   @media only screen and (max-width: 768px) {
+    display: ${({ slides }) => slides < 2 ? "none" : "block"};
     position: absolute;
     right: -20px;
-    top: 35%;
+    top: 30%;
     transform: translateY(-50%);
   }
 
   @media only screen and (max-width: 375px) {
-    top: 109%;
+    top: 104%;
     right: 10%;
   }
 `;

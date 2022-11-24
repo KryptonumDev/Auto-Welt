@@ -39,6 +39,8 @@ export const StyledOfferEventInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
 
   > a {
     margin-left: 15px;
@@ -47,6 +49,14 @@ export const StyledOfferEventInfo = styled.div`
   @media only screen and (max-width: 1065px) {
     > a {
       font-size: 18px;
+    }
+  }
+
+  @media only screen and (max-width: 768px){
+    padding: 24px 32px;
+
+    h3{
+      font-size: 38px;
     }
   }
 
@@ -61,8 +71,6 @@ export const StyledOfferEventInfo = styled.div`
   }
 
   @media only screen and (max-width: 488px) {
-    padding: 24px 32px;
-
     > a {
       margin-left: 0;
       align-self: center;

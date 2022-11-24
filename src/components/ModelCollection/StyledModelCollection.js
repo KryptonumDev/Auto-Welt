@@ -39,7 +39,7 @@ export const StyledTitle = styled.div`
   color: var(--primary500);
   padding: 10px 20px;
   text-align: center;
-  font: 500 48px/1.2em "Nocturne Serif";
+  font: 500 48px/1em "Nocturne Serif";
 
   p, h2 {
     position: relative;

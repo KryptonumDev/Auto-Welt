@@ -1,13 +1,19 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const StyledCollectionElementSlider = styled.section`
   margin-top: 120px;
   width: 100%;
   position: relative;
 
+  .slick-list{
+    width: ${({ length }) => length < 3 ? '100%' : 'calc(100% - 100px)'};
+    margin: 0 auto;
+  }
+
   .slick-track{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
   }
 
@@ -15,6 +21,10 @@ export const StyledCollectionElementSlider = styled.section`
     margin-top: 0;
     margin-left: 8px;
     position: relative;
+
+    .slick-list{
+      width: 95%;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -24,13 +34,12 @@ export const StyledCollectionElementSlider = styled.section`
   @media only screen and (max-width: 546px) {
     min-height: unset;
     margin-top: 60px;
-    margin-bottom: ${props => props.length < 3 ? '20px' : '80px'};
-
+    margin-bottom: ${({ length }) => length < 2 ? '20px' : '80px'};
   }
 `;
 
 export const StyledLeftArrow = styled.button`
-border: none;
+  border: none;
   background: var(--primary500);
   padding: 5px;
   cursor: pointer;
@@ -42,13 +51,9 @@ border: none;
   top: 50%;
   transform: translateY(-50%);
 
-  display: ${props => props.length < 4 ? 'none' : 'block'};
+  display: ${props => props.length < 3 ? 'none' : 'block'};
 
   @media (max-width: 768px) {
-    display: ${props => props.length < 3 ? 'none' : 'block'};
-  }
-
-  @media (max-width: 480px) {
     display: ${props => props.length < 2 ? 'none' : 'block'};
   }
 
@@ -103,10 +108,10 @@ export const StyledRightArrow = styled.button`
   top: 50%;
   transform: translateY(-50%);
 
-  display: ${props => props.length < 4 ? 'none' : 'block'};
+  display: ${props => props.length < 3 ? 'none' : 'block'};
 
   @media (max-width: 768px) {
-    display: ${props => props.length < 3 ? 'none' : 'block'};
+    display: ${props => props.length < 2 ? 'none' : 'block'};
   }
 
   &:focus-visible {

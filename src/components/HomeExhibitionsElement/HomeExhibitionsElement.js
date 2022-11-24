@@ -21,7 +21,6 @@ const HomeExhibitionsElement = ({
   exhibitionData,
   isSchdeuleElement,
   buttonVariant,
-  isPrev,
   slidesCount,
 }) => {
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)

@@ -21,7 +21,7 @@ import Slider from "react-slick";
 
 const ScheduleSlider = ({ scheduleData, variant }) => {
     const slider = React.useRef(null);
-    var settings = {
+    const settings = {
         dots: false,
         arrows: false,
         infinite: true,
@@ -33,19 +33,20 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
-                }
+                },
             },
-        ]
+        ],
     };
 
     return (
         <StyledScheduleSlider slides={scheduleData.length}>
-
-            {scheduleData.length > 1
-                ? <>
+            {scheduleData.length > 1 ? (
+                <>
                     <StyledPrevArrow
-                     aria-label='next'
-                        onClick={() => slider?.current?.slickPrev()}>
+                        aria-label="next"
+                        onClick={() => slider?.current?.slickPrev()}
+                        slides={scheduleData.length}
+                    >
                         {variant === "orange" ? (
                             <PrevGreenArrow />
                         ) : (
@@ -55,16 +56,21 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                     <Slider ref={slider} {...settings}>
                         {scheduleData.map((e) => (
                             <HomeExhibitionsElement
-                                key={e.slug + e.node.wystawa.informacjeOgolne.data}
+                                key={
+                                    e.slug +
+                                    e.node.wystawa.informacjeOgolne.data
+                                }
                                 exhibitionData={e.node}
                                 buttonVariant={variant}
-                                isSchdeuleElement="true"
+                                isSchdeuleElement={true}
                             />
                         ))}
                     </Slider>
                     <StyledNextArrow
-                     aria-label='next'
-                        onClick={() => slider?.current?.slickNext()}>
+                        aria-label="next"
+                        onClick={() => slider?.current?.slickNext()}
+                        slides={scheduleData.length}
+                    >
                         {variant === "orange" ? (
                             <NextGreenArrow />
                         ) : (
@@ -72,7 +78,8 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                         )}
                     </StyledNextArrow>
                 </>
-                : <div className="one-el">
+            ) : (
+                <div className="one-el">
                     {scheduleData.map((e) => (
                         <HomeExhibitionsElement
                             key={e.slug + e.node.wystawa.informacjeOgolne.data}
@@ -81,7 +88,8 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                             isSchdeuleElement="true"
                         />
                     ))}
-                </div>}
+                </div>
+            )}
         </StyledScheduleSlider>
     );
 };

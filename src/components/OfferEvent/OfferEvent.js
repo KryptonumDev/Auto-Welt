@@ -57,6 +57,7 @@ const OfferEvent = ({ offerData, slug }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredfontfamily="Nocturne Serif"
           hasdeclaredmargin="16px 0 20px"
+          as="h3"
         >
           {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
             .tytulZUwzglednieniemMiasta ?

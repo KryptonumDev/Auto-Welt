@@ -19,22 +19,16 @@ import Slider from "react-slick";
 
 const CollectionElementSlider = ({ imagesData }) => {
     const slider = React.useRef(null);
-    var settings = {
+    const settings = {
         dots: false,
         arrows: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
                 }
@@ -47,7 +41,6 @@ const CollectionElementSlider = ({ imagesData }) => {
             <StyledLeftArrow aria-label='prev' length={imagesData.length} onClick={() => slider?.current?.slickPrev()}>
                 <LeftArrow />
             </StyledLeftArrow>
-
             <Slider ref={slider} {...settings}>
                 {imagesData.map((e, index) => (
                     <StyledImage key={index}>
@@ -55,7 +48,6 @@ const CollectionElementSlider = ({ imagesData }) => {
                     </StyledImage>
                 ))}
             </Slider>
-
             <StyledRightArrow aria-label='next' length={imagesData.length} onClick={() => slider?.current?.slickNext()}>
                 <RightArrow />
             </StyledRightArrow>
