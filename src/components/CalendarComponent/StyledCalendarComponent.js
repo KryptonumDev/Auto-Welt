@@ -257,14 +257,15 @@ export const StyledExhibitionTitle = styled.p`
     background-color: #23423d;
     font: normal 500 14px/1.2em 'Roboto Condensed', Arial;
     width: 193px;
-    height: 70px;
+    min-height: 70px;
     display: ${({ isopen }) => (isopen ? "flex" : "none")};
     align-items: center;
     position: absolute;
     left: 20px;
-    bottom: -40px;
+    bottom: -50%;
+    transform: translateY(50%);
     z-index: 2;
-    padding-left: 11px;
+    padding: 20px 20px 20px 11px;
 
     &:hover {
       display: flex;
