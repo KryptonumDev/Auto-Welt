@@ -19,10 +19,12 @@ export const StyledLeftWrapper = styled.div`
   align-items: flex-start;
   position: relative;
   z-index: 1;
+  padding-bottom: 240px;
 
   @media only screen and (max-width: 660px) {
     width: 100%;
     max-width: unset;
+    padding-bottom: 40px;
   }
 `;
 

@@ -51,5 +51,13 @@ export const StyledTextWrapper = styled.div`
   a {
     color: #23423d;
     font: normal 500 16px/1.2em "Roboto Condensed", Arial;
+    margin-top: 8px;
+
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 8px;
+    }
   }
 `;

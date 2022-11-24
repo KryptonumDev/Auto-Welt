@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledArticleTemplateContent = styled.section`
-  margin: 90px 0;
+  margin: 20px 0 90px;
   display: flex;
   justify-content: space-between;
   gap: 70px;
@@ -10,12 +10,12 @@ export const StyledArticleTemplateContent = styled.section`
     gap: 20px;
   }
 
-  @media only screen and (max-width: 768px) {
-    margin: 60px 0;
-  }
-
   @media only screen and (max-width: 660px) {
     margin: 0 0 60px;
+  }
+
+  @media only screen and (max-width: 375px){
+    margin-top: -50px;
   }
 `;
 
@@ -41,10 +41,6 @@ export const StyledTextContent = styled.div`
   font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 
-  .is-layout-flow.wp-block-column + .is-layout-flow.wp-block-column{
-    margin-top: 20px;
-  }
-
   ul + h1,
   ul + h2,
   ul + h3,
@@ -52,6 +48,20 @@ export const StyledTextContent = styled.div`
   ul + div,
   ul + figure{
     margin-top: 40px;
+  }
+
+  .is-layout-flex{
+    gap: 20px;
+
+    > div {
+      width: calc(50% - 10px);
+    }
+
+    @media only screen and (max-width: 768px){
+      > div {
+        width: 100%;
+      }
+    }
   }
 
   p + h2,
@@ -89,7 +99,9 @@ export const StyledTextContent = styled.div`
   div + h2,
   p + p,
   p + ul,
-  p + ol{
+  p + ol,
+  h4 + ul,
+  h3 + ul{
     margin-top: 1.25rem;
   }
 
@@ -107,6 +119,12 @@ export const StyledTextContent = styled.div`
   .wp-block-columns + figure,
   .wp-block-columns + div{
     margin-top: 37px;
+  }
+
+  h2 + h4,
+  h2 + h3,
+  h2 + h5 {
+    margin-top: 40px;
   }
 
   .has-text-align-right {
@@ -182,6 +200,18 @@ export const StyledTextContent = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+
+  .wp-block-image{
+    width: calc(100% - 10px);
+
+    > img{
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 768px){
+      width: 100%;
+    }
   }
 
   .wp-container-3 {

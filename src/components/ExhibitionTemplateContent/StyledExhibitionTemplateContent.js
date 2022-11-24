@@ -41,10 +41,6 @@ export const StyledContentWrapper = styled.div`
   font-family: "Roboto Condensed", Arial;
   font-size: 24px;
 
-  .is-layout-flow.wp-block-column + .is-layout-flow.wp-block-column{
-    margin-top: 20px;
-  }
-
   ul + h1,
   ul + h2,
   ul + h3,
@@ -52,6 +48,20 @@ export const StyledContentWrapper = styled.div`
   ul + div,
   ul + figure{
     margin-top: 40px;
+  }
+
+  .is-layout-flex{
+    gap: 20px;
+
+    > div {
+      width: calc(50% - 10px);
+    }
+
+    @media only screen and (max-width: 768px){
+      > div {
+        width: 100%;
+      }
+    }
   }
 
   p + h2,
@@ -89,7 +99,9 @@ export const StyledContentWrapper = styled.div`
   div + h2,
   p + p,
   p + ul,
-  p + ol{
+  p + ol,
+  h4 + ul,
+  h3 + ul{
     margin-top: 1.25rem;
   }
 
@@ -107,6 +119,12 @@ export const StyledContentWrapper = styled.div`
   .wp-block-columns + figure,
   .wp-block-columns + div{
     margin-top: 37px;
+  }
+
+  h2 + h4,
+  h2 + h3,
+  h2 + h5 {
+    margin-top: 40px;
   }
 
   .has-text-align-right {
@@ -185,9 +203,13 @@ export const StyledContentWrapper = styled.div`
   }
 
   .wp-block-image{
-    width: 100%;
+    width: calc(100% - 10px);
 
     > img{
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 768px){
       width: 100%;
     }
   }
