@@ -2,8 +2,12 @@
 
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import HomeRecommendationsElement from "../HomeRecommendationsElement/HomeRecommendationsElement";
+import Button from "../Button/Button";
 
 import {
     StyledHomeRecommendations,
@@ -18,29 +22,7 @@ import RightArrow from "../../images/right_arrow.svg";
 import LeftLightArrow from "../../images/leftLightArrow.svg";
 import RightLightArrow from "../../images/rightLightArrow.svg";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Button from "../Button/Button";
-
 const HomeRecommendations = ({ isAboutPage }) => {
-    var settings = {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1,
-                }
-            },
-        ]
-    };
-
     const { allWpRekomendacja, wpPage } = useStaticQuery(graphql`
         query rekomendacje {
             allWpRekomendacja {
@@ -77,6 +59,23 @@ const HomeRecommendations = ({ isAboutPage }) => {
     `);
     const slider = React.useRef(null);
 
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: allWpRekomendacja.nodes.length > 1 ? 2 : 1,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
+    };
+
     return (
         <StyledHomeRecommendations hasmargin={allWpRekomendacja.nodes !== 0} isaboutpage={isAboutPage}>
             {allWpRekomendacja.nodes !== 0 ? (
@@ -101,11 +100,11 @@ const HomeRecommendations = ({ isAboutPage }) => {
                             aria-label='prev'
                             className="left"
                             onClick={() => slider?.current?.slickPrev()}
+                            arrowsize={allWpRekomendacja.nodes.length}
                         >
                             <LeftLightArrow className='light' />
                             <LeftArrow className='regular' />
                         </StyledArrowWrapper>
-
                         <Slider ref={slider} {...settings}>
                             {allWpRekomendacja.nodes.map((el, index) => (
                                 <HomeRecommendationsElement
@@ -121,6 +120,7 @@ const HomeRecommendations = ({ isAboutPage }) => {
                             aria-label='next'
                             className="right"
                             onClick={() => slider?.current?.slickNext()}
+                            arrowsize={allWpRekomendacja.nodes.length}
                         >
                             <RightLightArrow className='light' />
                             <RightArrow className='regular' />

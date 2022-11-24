@@ -86,8 +86,12 @@ export const StyledArrowWrapper = styled.button`
   width: 30px;
   height: 55px;
   cursor: pointer;
-  position: relative;
   z-index: 1;
+  position: absolute;
+  top: 50%;
+  border: none;
+  background-color: transparent;
+  display: ${({ arrowsize }) => arrowsize < 3 ? "none" : "block"};
 
   &:focus-visible {
     outline-width: 1px;
@@ -101,11 +105,6 @@ export const StyledArrowWrapper = styled.button`
     height: 100%;
   }
 
-  position: absolute;
-  top: 50%;
-  border: none;
-  background-color: transparent;
-
   .light{
     display: none;
   }
@@ -117,6 +116,7 @@ export const StyledArrowWrapper = styled.button`
     @media (max-width: 768px){
       transform: translateY(-50%) ;
     }
+
     @media (max-width: 462px){
       transform: translateY(-50%) translateX(-6px);
     }
@@ -125,9 +125,11 @@ export const StyledArrowWrapper = styled.button`
   &.right{
     right: 0;
     transform: translateY(-50%) translateX(100%);
+
     @media (max-width: 768px){
       transform: translateY(-50%) ;
     }
+
     @media (max-width: 462px){
       transform: translateY(-50%) translateX(6px);
     }
@@ -143,9 +145,12 @@ export const StyledArrowWrapper = styled.button`
     width: 40px;
     height: 56px;
     padding: 6px;
+    display: ${({ arrowsize }) => arrowsize < 2 ? "none" : "block"};
+
     .light{
       display: block;
     }
+
     .regular{
       display: none;
     }
@@ -153,9 +158,11 @@ export const StyledArrowWrapper = styled.button`
 
   @media only screen and (max-width: 462px) {
     background: transparent;
+
     .light{
       display: none;
     }
+
     .regular{
       display: block;
     }
