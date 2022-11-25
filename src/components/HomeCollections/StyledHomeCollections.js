@@ -45,7 +45,7 @@ export const StyledImagesWrapper = styled.div`
   }
 
   @media only screen and (max-width: 768px){
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   @media only screen and (max-width: 685px) {

@@ -47,7 +47,7 @@ export const StyledHomeCollectionElement = styled(Link)`
     > div {
       &:last-child{
         width: 92%;
-        margin-left: 5%;
+        margin-left: 1%;
       }
     }
   }
