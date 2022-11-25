@@ -223,6 +223,18 @@ export const StyledCalendar = styled((props) => (
       }
     }
   }
+
+  .activeCalendarTileOne {
+    background-color: var(--primary200);
+  }
+
+  .activeCalendarTileStartEnd {
+    background-color: var(--secondary200);
+  }
+
+  .activeCalendarTile {
+    background-color: var(--secondary50);
+  }
 `;
 
 export const StyledExhibitionTitle = styled.p`
