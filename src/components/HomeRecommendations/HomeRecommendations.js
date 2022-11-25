@@ -77,8 +77,8 @@ const HomeRecommendations = ({ isAboutPage }) => {
     };
 
     return (
-        <StyledHomeRecommendations hasmargin={allWpRekomendacja.nodes !== 0} isaboutpage={isAboutPage}>
-            {allWpRekomendacja.nodes !== 0 ? (
+        <StyledHomeRecommendations hasmargin={allWpRekomendacja.nodes.length !== 0} isaboutpage={isAboutPage}>
+            {allWpRekomendacja.nodes.length !== 0 ? (
                 <>
                     <StyledText
                         as="h2"
