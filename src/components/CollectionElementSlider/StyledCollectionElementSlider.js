@@ -8,6 +8,7 @@ export const StyledCollectionElementSlider = styled.section`
   .slick-list{
     width: ${({ length }) => length < 3 ? '100%' : 'calc(100% - 100px)'};
     margin: 0 auto;
+    height: 320px;
   }
 
   .slick-track{
@@ -153,7 +154,7 @@ export const StyledRightArrow = styled.button`
 `;
 
 export const StyledImage = styled.div`
-  height: 100%;
+  height: 320px;
 
   img {
     width: 100%;
