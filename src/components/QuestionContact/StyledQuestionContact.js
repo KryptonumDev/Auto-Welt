@@ -7,7 +7,7 @@ export const StyledQuestionContact = styled.div`
 
   width: 100%;
   max-width: 1144px;
-  margin: 60px auto 80px auto;
+  margin: 60px auto;
   padding: 0 32px;
 
   @media only screen and (max-width: 767px) {
