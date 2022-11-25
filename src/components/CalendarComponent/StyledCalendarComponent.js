@@ -103,7 +103,7 @@ export const StyledCalendarComponent = styled.div`
   }
 `;
 
-export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
+export const StyledCalendar = styled((props) => (
   <Calendar {...props} />
 ))`
   width: 100%;
@@ -189,15 +189,6 @@ export const StyledCalendar = styled(({ markLastSunday, ...props }) => (
         padding: 9px 0;
       }
     }
-  }
-
-  .react-calendar__month-view__days__day--weekend:nth-child(7n) {
-    background-color: #F6E2BA;
-  }
-
-  .react-calendar__month-view__days__day--weekend:last-child {
-    background-color: ${({ markLastSunday }) =>
-    markLastSunday ? "#F6E2BA" : "var(--background500)"};
   }
 
   .activeDay{

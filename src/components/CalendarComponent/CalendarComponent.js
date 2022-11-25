@@ -191,7 +191,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") +
             "\n"
           }
-          markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
           inputRef={calendar}
         />
