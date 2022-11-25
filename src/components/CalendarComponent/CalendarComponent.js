@@ -148,8 +148,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileDisabled={
             ({ activeStartDate, date, view }) =>
               !Boolean(
-                exhibitions.find(({ data: exhibition_date }) =>
-                  areDatesEqual(exhibition_date, date)
+                exhibitions.find(({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                  exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
                 )
               )
           }
@@ -157,8 +157,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             date.getMonth() === currentDate.getMonth()
               ? (() => {
                 const exhibitions_today = exhibitions.filter(
-                  ({ data: exhibition_date }) =>
-                    areDatesEqual(exhibition_date, date)
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                  exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
                 );
                 return exhibitions_today.length ? (
                   <span className="activeDay">
@@ -168,7 +168,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                         activeDate instanceof Date
                           ? exhibitions_today
                             .filter((exhibition) =>
-                              areDatesEqual(exhibition.data, activeDate)
+                              areDatesEqual(date, activeDate)
                             )
                             .length
                           : false
