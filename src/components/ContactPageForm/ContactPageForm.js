@@ -79,10 +79,9 @@ const ContactPageForm = ({ dataForm }) => {
     for (let field of Object.keys(data)) {
       formData.append(field, data[field]);
     }
-
     try {
       await axios.post(
-        `${process.env.GATSBY_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.GATSBY_WORDPRESS_FORM_ID}/feedback`,
+        `${process.env.GATSBY_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/39/feedback`,
         formData
       );
       setSubmitting(false);
