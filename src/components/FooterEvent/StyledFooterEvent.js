@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 export const StyledFooterEvent = styled(Link)`
   width: 100%;
-  min-height: 122px;
+  height: 122px;
   background: var(--background500);
   border-left: 6px solid var(--secondary500);
   display: flex;
@@ -30,8 +30,19 @@ export const StyledFooterEvent = styled(Link)`
 `;
 
 export const StyledFooterEventContent = styled.div`
-  padding: 35px 12px;
+  padding: 12px 12px;
   width: calc(100% - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;  
+  }
 `;
 
 export const StyledFooterEventImage = styled.div`
