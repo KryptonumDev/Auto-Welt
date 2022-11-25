@@ -8,19 +8,6 @@ import {
 import { StyledText } from "../Text/StyledText";
 
 const GoogleMapsContact = ({ mapData }) => {
-  const images = withArtDirection(
-    getImage(mapData.zdjecieMapyDesktop.localFile),
-    [
-      {
-        media: "(max-width: 375px)",
-        image: getImage(mapData.zdjecieMapyMobile.localFile),
-      },
-      {
-        media: "(max-width: 768px)",
-        image: getImage(mapData.zdjecieMapyTablet.localFile),
-      },
-    ]
-  );
   return (
     <StyledGoogleMapsContact>
       <StyledText
@@ -33,15 +20,14 @@ const GoogleMapsContact = ({ mapData }) => {
       >
         {mapData.tytulNadMapka ? mapData.tytulNadMapka : null}
       </StyledText>
-      {mapData.linkDoStronyZAdresemFirmy ? (
-        <StyledGoogleMapsWrapper href={mapData.linkDoStronyZAdresemFirmy} target="_blank" rel="nofollow noreferrer" aria-label="lokalizacja"> 
-          <GatsbyImage
-            image={images}
-            alt={mapData.zdjecieMapyDesktop?.altText || " "}
-            title={mapData.zdjecieMapyDesktop?.title}
-          />
-        </StyledGoogleMapsWrapper>
-      ) : null}
+      <StyledGoogleMapsWrapper>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4957.304738428757!2d19.12880645201214!3d51.592934314422706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a4682803c6339%3A0xb1c9dd3559c7244f!2sPlac%2011%20Listopada%2027%2C%2098-100%20%C5%81ask!5e0!3m2!1sru!2spl!4v1669391567703!5m2!1sru!2spl"
+          style={{border: 'none'}}z
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" />
+      </StyledGoogleMapsWrapper>
     </StyledGoogleMapsContact>
   );
 };

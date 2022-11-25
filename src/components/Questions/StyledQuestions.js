@@ -4,7 +4,7 @@ export const StyledQuestions = styled.section`
   width: 100%;
   max-width: 1144px;
   margin: 0 auto;
-  padding: 0 32px;
+    padding: ${({ iscontactpage }) => (iscontactpage ? "0" : "0 32px")};
 
   @media only screen and (max-width: 767px) {
     padding: ${({ iscontactpage }) => (iscontactpage ? "0" : "0 16px")};

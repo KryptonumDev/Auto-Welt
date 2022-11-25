@@ -25,7 +25,7 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query articlesPageQuery {
-    allWpArtykul {
+    allWpArtykul(sort: {date: DESC}) {
       edges {
         node {
           slug

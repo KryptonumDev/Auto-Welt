@@ -61,7 +61,7 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
-    }
+    } 
   `);
 
   artykulData.data.allWpArtykul.edges.map(({ node }) => {

@@ -34,6 +34,11 @@ export const StyledGoogleMapsWrapper = styled.a`
   max-width: 1085px;
   height: 411px;
 
+  iframe{
+    width: 100%;
+    height: 410px;
+  }
+
   img {
     width: 100%;
     height: 100%;

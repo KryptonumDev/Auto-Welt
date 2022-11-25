@@ -9,37 +9,42 @@ import {
   StyledTitleWrapper,
   StyledTextWrapper,
   StyledTitleBgWrapper,
+  ButtonWrapper
 } from "./StyledHomeArticleElement";
 import { StyledText } from "../Text/StyledText";
 
 const HomeArticleElement = ({ articleData, slug }) => {
   return (
     <StyledHomeArticleElement to={`/artykuly/${slug}`}>
-      <StyledImageWrapper>
-        {articleData.miniaturka.localFile ? (
-          <GatsbyImage
-            image={getImage(articleData.miniaturka?.localFile)}
-            alt={articleData.miniaturka?.altText || " "}
-            title={articleData.miniaturka?.title}
-          />
-        ) : null}
-      </StyledImageWrapper>
-      <StyledTitleWrapper>
-        <StyledTitleBgWrapper>
-          <StaticImage src="../../images/articleMinBackground.png" alt="tło" />
-        </StyledTitleBgWrapper>
-        <StyledText
-          hasdeclaredfontsize="24px"
-          hasdeclaredfontweight="700"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredpadding="20px 40px"
-        >
-          {articleData.tytul ? articleData.tytul : null}
-        </StyledText>
-      </StyledTitleWrapper>
-      <StyledTextWrapper>
-        {articleData.opis ? parse(articleData.opis) : null}
+      <div>
+        <StyledImageWrapper>
+          {articleData.miniaturka.localFile ? (
+            <GatsbyImage
+              image={getImage(articleData.miniaturka?.localFile)}
+              alt={articleData.miniaturka?.altText || " "}
+              title={articleData.miniaturka?.title}
+            />
+          ) : null}
+        </StyledImageWrapper>
+        <StyledTitleWrapper>
+          <StyledTitleBgWrapper>
+            <StaticImage src="../../images/articleMinBackground.png" alt="tło" />
+          </StyledTitleBgWrapper>
+          <StyledText
+            hasdeclaredfontsize="24px"
+            hasdeclaredfontweight="700"
+            hasdeclaredlineheight="1.2em"
+            hasdeclaredfontcolor="var(--primary500)"
+            hasdeclaredpadding="20px 40px"
+          >
+            {articleData.tytul ? articleData.tytul : null}
+          </StyledText>
+        </StyledTitleWrapper>
+        <StyledTextWrapper>
+          {articleData.opis ? parse(articleData.opis) : null}
+        </StyledTextWrapper>
+      </div>
+      <ButtonWrapper>
         {articleData.tekstWPrzycisku ? (
           <Button
             text={articleData.tekstWPrzycisku}
@@ -52,8 +57,8 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hasNotTabIndex
           />
         ) : null}
-      </StyledTextWrapper>
-    </StyledHomeArticleElement>
+      </ButtonWrapper>
+    </StyledHomeArticleElement >
   );
 };
 

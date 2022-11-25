@@ -10,6 +10,10 @@ export const StyledHomeArticleElement = styled(Link)`
   text-decoration: none;
   cursor: pointer;
 
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+
   &:hover {
     > div {
       &:nth-child(1) {
@@ -57,8 +61,8 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledTitleWrapper = styled.div`
   width: 100%;
-  min-height: 60px;
   position: relative;
+  min-height: 100px;
 
   @media only screen and (max-width: 375px) {
     > p {
@@ -85,6 +89,30 @@ export const StyledTitleBgWrapper = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  padding: 10px 40px 0 40px;
+  display: flex;
+  justify-content: center;
+  font-size: 21px;
+  margin-top: 30px;
+
+  @media only screen and (max-width: 1065px) {
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 768px) {
+    padding: 0 26px 0 26px;
+    width: 95%;
+  }
+
+  @media only screen and (max-width: 685px) {
+    font-size: 16px;
+  }
+  @media only screen and (max-width: 375px) {
+    font-size: 15px;
+  }
+
+`
+
 export const StyledTextWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -104,39 +132,10 @@ export const StyledTextWrapper = styled.div`
       float: left;
       padding-right: 10px;
     }
-
-    &:last-child{
-      font-size: 21px;
-      margin-top: 30px;
-    }
   }
-
-  @media only screen and (max-width: 1065px) {
-    > p {
-      &:last-child{
-        font-size: 18px;
-      }
-    }
-  }
-
   @media only screen and (max-width: 768px) {
-    padding: 10px 26px 25px;
-
-    > p {
-      &:last-child{
-        width: 95%;
-      }
-    }
+    padding: 10px 26px 0 26px;
   }
-
-  @media only screen and (max-width: 685px) {
-    > p {
-      &:last-child{
-        font-size: 16px;
-      }
-    }
-  }
-
   @media only screen and (max-width: 375px) {
     > p {
       font-size: 14px;

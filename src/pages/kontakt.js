@@ -121,32 +121,6 @@ export const query = graphql`
       kontakt {
         mapa {
           tytulNadMapka
-          linkDoStronyZAdresemFirmy
-          zdjecieMapyDesktop {
-            altText
-            title
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          zdjecieMapyMobile {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          zdjecieMapyTablet {
-            altText
-            title
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
         }
         pierwszaSekcja {
           tytulFormularza

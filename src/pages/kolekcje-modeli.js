@@ -80,7 +80,7 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query collectionsQueryD {
-    allWpKolekcje {
+    allWpKolekcje(sort: {date: DESC}) {
       edges {
         node {
           slug

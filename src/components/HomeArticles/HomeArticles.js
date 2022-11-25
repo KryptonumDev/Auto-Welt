@@ -17,7 +17,7 @@ import { StyledText } from "../Text/StyledText";
 const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
   const data = useStaticQuery(graphql`
     query homeArticle {
-      allWpArtykul(limit: 2) {
+      allWpArtykul(sort: {date: DESC}, limit: 2) {
         edges {
           node {
             slug
