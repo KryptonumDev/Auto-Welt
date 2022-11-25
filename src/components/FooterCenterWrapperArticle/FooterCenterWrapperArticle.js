@@ -8,7 +8,7 @@ import {
 } from "./StyledFooterCenterWrapperArticle";
 import { StyledText } from "../Text/StyledText";
 
-const FooterCenterWrapperArticle = ({ articleData, slug }) => {
+const FooterCenterWrapperArticle = ({ articleData, slug, title }) => {
   return (
     <StyledFooterCenterWrapperArticle to={`/artykuly/${slug}`}>
       <StyledTop>
@@ -29,8 +29,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug }) => {
           hasdeclaredfontcolor="var(--primary500)"
           hasdeclaredfontweight="700"
         >
-          {articleData.informacjeDoMiniaturki.tytul ?
-            articleData.informacjeDoMiniaturki.tytul : null}
+          {title ? title : null}
         </StyledText>
       </StyledBottom>
     </StyledFooterCenterWrapperArticle>

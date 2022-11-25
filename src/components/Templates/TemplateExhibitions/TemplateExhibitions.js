@@ -76,6 +76,7 @@ export const query = graphql`
           ktoryArtykulPolecicNaDoleStrony {
             ... on WpArtykul {
               id
+              title
               artykul {
                 informacjeDoMiniaturki {
                   miniaturka {
@@ -87,7 +88,6 @@ export const query = graphql`
                       }
                     }
                   }
-                  tytul
                 }
               }
               slug

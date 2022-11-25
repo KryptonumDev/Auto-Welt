@@ -24,6 +24,7 @@ export const query = graphql`
   query artykul($articleId: String) {
     wpArtykul(id: { eq: $articleId }) {
       slug
+      title
       artykul {
         dedykowanaStronaArtykulu {
           galeriaNaKoncuArtykulu {
@@ -72,6 +73,7 @@ export const query = graphql`
           }
           ktoryArtykulPolecicNaDoleStrony {
             ... on WpArtykul {
+              title
               artykul {
                 informacjeDoMiniaturki {
                   miniaturka {
@@ -83,15 +85,11 @@ export const query = graphql`
                       }
                     }
                   }
-                  tytul
                 }
               }
               slug
             }
           }
-        }
-        informacjeDoMiniaturki {
-          tytul
         }
       }
       content

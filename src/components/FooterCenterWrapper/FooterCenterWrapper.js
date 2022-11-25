@@ -17,9 +17,9 @@ const FooterCenterWrapper = ({ footerData }) => {
         edges {
           node {
             slug
+            title
             artykul {
               informacjeDoMiniaturki {
-                tytul
                 miniaturka {
                   altText
                   title
@@ -179,6 +179,7 @@ const FooterCenterWrapper = ({ footerData }) => {
               key={index}
               articleData={node.artykul}
               slug={node.slug}
+              title={node.title}
             />
           ))}
         </StyledArticlesWrapper>

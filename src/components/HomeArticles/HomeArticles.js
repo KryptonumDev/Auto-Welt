@@ -21,11 +21,11 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
         edges {
           node {
             slug
+            title
             artykul {
               informacjeDoMiniaturki {
                 opis
                 tekstWPrzycisku
-                tytul
                 miniaturka {
                   altText
                   title
@@ -120,6 +120,7 @@ const HomeArticles = ({ isCollectionsModelPage, buttonData }) => {
               key={index + `${node.tytul}`}
               slug={node.slug}
               articleData={node.artykul.informacjeDoMiniaturki}
+              title={node.title}
             />
           ))}
         </StyledArticlesWrapper>

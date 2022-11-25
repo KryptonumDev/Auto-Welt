@@ -52,7 +52,7 @@ const ChooseArticle = ({ chosenArticle }) => {
               hasdeclaredtextalign="center"
               hasdeclaredfontcolor="#23423D"
             >
-              {chosenArticle?.artykul?.informacjeDoMiniaturki?.tytul}
+              {chosenArticle?.title}
             </StyledText>
             <Button
               text="Dowiedz się więcej"

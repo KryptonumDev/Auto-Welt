@@ -31,7 +31,6 @@ export const query = graphql`
           slug
           artykul {
             informacjeDoMiniaturki {
-              tytul
               miniaturka {
                 localFile {
                   childImageSharp {
@@ -42,6 +41,7 @@ export const query = graphql`
             }
           }
           date
+          title
         }
       }
     }

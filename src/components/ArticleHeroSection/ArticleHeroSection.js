@@ -54,7 +54,7 @@ const ArticleHeroSection = ({ heroData }) => {
           hasdeclaredlineheight="1.2em"
           hasdeclaredtextalign="center"
         >
-          {heroData.artykul.informacjeDoMiniaturki?.tytul}
+          {heroData.title}
         </StyledText>
       </StyledTextWrapper>
     </StyledArticleHeroSection>

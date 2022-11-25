@@ -15,7 +15,7 @@ import {
     StyledTextContent,
 } from "./StyledArticleTemplateContent";
 
-const ArticleTemplateContent = ({ contentData, slug }) => {
+const ArticleTemplateContent = ({ contentData, slug, title }) => {
     let headerIds = {};
     const content = contentData.content
         ? parse(contentData?.content, {

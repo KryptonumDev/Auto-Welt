@@ -13,7 +13,7 @@ import {
 } from "./StyledHomeArticleElement";
 import { StyledText } from "../Text/StyledText";
 
-const HomeArticleElement = ({ articleData, slug }) => {
+const HomeArticleElement = ({ articleData, slug, title }) => {
   return (
     <StyledHomeArticleElement to={`/artykuly/${slug}`}>
       <div>
@@ -37,7 +37,7 @@ const HomeArticleElement = ({ articleData, slug }) => {
             hasdeclaredfontcolor="var(--primary500)"
             hasdeclaredpadding="20px 40px"
           >
-            {articleData.tytul ? articleData.tytul : null}
+            {title ? title : null}
           </StyledText>
         </StyledTitleWrapper>
         <StyledTextWrapper>
