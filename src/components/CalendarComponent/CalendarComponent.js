@@ -17,7 +17,6 @@ import {
 
 import PrevCalendar from "../../images/prevCalendar.svg";
 import NextCalendar from "../../images/nextCalendar.svg";
-import ActiveCalendar from "../../images/activeCalendar.svg";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
   const [now] = useState(new Date())
@@ -153,16 +152,48 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 )
               )
           }
+          tileClassName={({ activeStartDate, date, view }) => 
+            date.getMonth() === currentDate.getMonth()
+              ? (() => {
+                const exhibitions_today = exhibitions.filter(
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                    areDatesEqual(exhibition_date, date) || areDatesEqual(date, exhibition_end_date)
+                );
+                const exhibitions_between = exhibitions.some(
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                    exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
+                  );
+                const has_one_day_exhibition = exhibitions_today.find(
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                    areDatesEqual(exhibition_date, exhibition_end_date)
+                );
+                return (
+                  has_one_day_exhibition ? "activeCalendarTileOne"
+                  : exhibitions_today.length ? "activeCalendarTileStartEnd"
+                  : exhibitions_between ? "activeCalendarTile"
+                  : undefined
+                );
+              })()
+              : undefined
+          }
           tileContent={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
                 const exhibitions_today = exhibitions.filter(
                   ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                  exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
+                  areDatesEqual(exhibition_date, date) || areDatesEqual(date, exhibition_end_date)
+                  );
+                const has_one_day_exhibition = exhibitions_today.find(
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                  areDatesEqual(exhibition_date, exhibition_end_date)
                 );
                 return exhibitions_today.length ? (
-                  <span className="activeDay">
-                    <ActiveCalendar />
+                  <span className={
+                    [
+                      "activeDay",
+                      ...(has_one_day_exhibition ? ['activeDayOne'] : [])
+                    ].join(' ')
+                  }>
                     <StyledExhibitionTitle
                       isopen={
                         activeDate instanceof Date
@@ -191,7 +222,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") +
             "\n"
           }
-          markLastSunday={maxDate.getDay() === 0}
           onClickDay={(value, event) => toggleActiveDate(value)}
           inputRef={calendar}
         />
