@@ -52,7 +52,7 @@ const ArticleElement = ({ articleData }) => {
             hasdeclaredfontcolor="#23423D"
             hasdeclaredfontweight="700"
           >
-            {articleData.artykul.title}
+            {articleData.title}
           </StyledText>
         </StyledTitle>
         <StyledLinkWrapper>
