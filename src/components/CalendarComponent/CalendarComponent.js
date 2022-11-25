@@ -17,7 +17,6 @@ import {
 
 import PrevCalendar from "../../images/prevCalendar.svg";
 import NextCalendar from "../../images/nextCalendar.svg";
-import ActiveCalendar from "../../images/activeCalendar.svg";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
   const [now] = useState(new Date())
@@ -162,7 +161,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 );
                 return exhibitions_today.length ? (
                   <span className="activeDay">
-                    <ActiveCalendar />
                     <StyledExhibitionTitle
                       isopen={
                         activeDate instanceof Date
