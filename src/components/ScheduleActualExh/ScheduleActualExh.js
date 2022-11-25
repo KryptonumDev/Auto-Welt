@@ -35,6 +35,7 @@ const ScheduleActualExh = ({ dataActual }) => {
                         wystawa {
                             informacjeOgolne {
                                 data
+                                dataZakonczenia
                                 elementyListy {
                                     elementListy
                                 }
@@ -73,10 +74,11 @@ const ScheduleActualExh = ({ dataActual }) => {
         .map((edge) => ({
             ...edge,
             date: new Date(edge.node.wystawa.informacjeOgolne.data),
+            end_date: new Date(edge.node.wystawa.informacjeOgolne.dataZakonczenia),
         }))
         .filter(
-            ({ date }) =>
-                date.getTime() > now.getTime() || areDatesEqual(date, now)
+            ({ end_date }) =>
+                end_date.getTime() > now.getTime() || areDatesEqual(end_date, now)
         )
         .sort((a, b) => a.date.getTime() - b.date.getTime());
 

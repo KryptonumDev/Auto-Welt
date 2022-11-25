@@ -36,6 +36,7 @@ const ScheduleArchExh = ({ dataArch }) => {
                         wystawa {
                             informacjeOgolne {
                                 data
+                                dataZakonczenia
                                 elementyListy {
                                     elementListy
                                 }
@@ -89,13 +90,14 @@ const ScheduleArchExh = ({ dataArch }) => {
                 informacjeOgolne: {
                     ...node.wystawa.informacjeOgolne,
                     data: new Date(node.wystawa.informacjeOgolne.data),
+                    dataZakonczenia: new Date(node.wystawa.informacjeOgolne.dataZakonczenia),
                 },
             },
         }))
         .filter(
             ({ wystawa }) =>
-                wystawa.informacjeOgolne.data.getTime() < now.getTime() &&
-                !areDatesEqual(wystawa.informacjeOgolne.data, now)
+                wystawa.informacjeOgolne.dataZakonczenia.getTime() < now.getTime() &&
+                !areDatesEqual(wystawa.informacjeOgolne.dataZakonczenia, now)
         )
         .sort(
             // malejąco - 'b-a'
