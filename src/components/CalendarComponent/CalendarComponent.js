@@ -175,6 +175,14 @@ const CalendarComponent = ({ exhibitions = [] }) => {
     }
   );
 
+  useEffect(
+    () => {
+      const handler = () => setActiveDate(undefined);
+      window.addEventListener("click", handler);
+      return () => window.removeEventListener("click", handler);
+    }, [setActiveDate]
+  );
+
   return (
     <StyledCalendarComponent>
       <p className="calendarTitle">
@@ -352,7 +360,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             (date.getMonth() === currentDate.getMonth() ? date.getDate() : "") +
             "\n"
           }
-          onClickDay={(value, event) => toggleActiveDate(value)}
+          onClickDay={
+            (value, event) => {
+              event.stopPropagation();
+              toggleActiveDate(value);
+            }
+          }
           inputRef={calendar}
         />
         <motion.div
