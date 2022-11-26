@@ -16,11 +16,13 @@ export const StyledHomeArticleElement = styled(Link)`
 
   &:hover {
     > div {
-      &:nth-child(1) {
-        img {
-          transition: transform 250ms linear, mix-blend-mode 250ms linear;
-          transform: scale(1.1);
-          mix-blend-mode: unset;
+      > div {
+        &:nth-child(1) {
+          img {
+            transition: transform 250ms linear, mix-blend-mode 250ms linear;
+            transform: scale(1.1);
+            mix-blend-mode: unset;
+          }
         }
       }
     }
