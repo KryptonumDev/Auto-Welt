@@ -215,32 +215,39 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     <StyledOpenWrapper 
                       hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDC169' : null}
                     >
-                      <StyledText 
-                        hasdeclaredfontcolor="#23423D" 
-                        hasdeclaredfontsize="13px"
-                      >
-                        {exhibitions_starting_today.length ? 'Początek wystawy' : null}
-                      </StyledText>
-                      <StyledText 
-                        hasdeclaredfontcolor="#23423D" 
-                        hasdeclaredfontsize="13px"
-                      >
-                        {exhibitions_ending_today.length ? 'Koniec wystawy' : null}
-                      </StyledText>
-                      <StyledText 
-                        hasdeclaredfontcolor="#FEFDFB" 
-                        hasdeclaredfontsize="13px"
-                      >
-                        {has_one_day_exhibition ? has_one_day_exhibition.title : null}
-                      </StyledText>
-                      {/* for the future */}
-                      {/* <StyledText>
-                        {
-                          (exhibitions_between.length && !exhibitions_starting_today.length && !exhibitions_ending_today.length) ? 
-                            'tutaj dzien pomiedzy' 
-                          : null
-                        }
-                      </StyledText> */}
+                      {
+                        (has_one_day_exhibition) ? (
+                          <StyledText
+                            hasdeclaredfontcolor="#FEFDFB"
+                            hasdeclaredfontsize="13px"
+                          >
+                            {has_one_day_exhibition.title}
+                          </StyledText>
+                        ) : (
+                          (exhibitions_starting_today.length) ? (
+                            <StyledText
+                              hasdeclaredfontcolor="#23423D"
+                              hasdeclaredfontsize="13px"
+                            >
+                              Początek wystawy
+                            </StyledText>
+                          ) : (
+                            (exhibitions_ending_today.length) ? (
+                              <StyledText
+                                hasdeclaredfontcolor="#23423D"
+                                hasdeclaredfontsize="13px"
+                              >
+                                Koniec wystawy
+                              </StyledText>
+                            ) : (
+                              (exhibitions_between) ? (
+                                // for future use
+                                undefined
+                              ) : (undefined)
+                            )
+                          )
+                        )
+                      }
                       <StyledArrowWrapper 
                         isopen={true} 
                         svgwhitebg={has_one_day_exhibition} 
