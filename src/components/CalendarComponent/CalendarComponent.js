@@ -213,7 +213,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     ].join(' ')
                   }>
                     <StyledOpenWrapper
-                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDC169' : null}
+                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_today.length) ? '#EDC169' : null}
                     >
                       {
                         (has_one_day_exhibition) ? (
@@ -251,9 +251,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       <StyledArrowWrapper
                         isopen={true}
                         svgwhitebg={has_one_day_exhibition}
-                        hasdeclaredbgcolor={has_one_day_exhibition ? '#7A8D8A' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDAC2A' : null}
+                        hasdeclaredbgcolor={has_one_day_exhibition ? '#7A8D8A' : (exhibitions_today.length) ? '#EDAC2A' : null}
                       >
-                        { has_one_day_exhibition || exhibitions_ending_today.length || exhibitions_starting_today.length ?  <ArrowDown />  : null}
+                        { exhibitions_today.length ?  <ArrowDown />  : null}
                       </StyledArrowWrapper>
                     </StyledOpenWrapper>
                     <StyledExhibitionTitle
