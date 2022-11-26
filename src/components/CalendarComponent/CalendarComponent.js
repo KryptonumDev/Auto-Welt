@@ -188,7 +188,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 const exhibitions_starting_today = exhibitions.filter(
                   ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
                 );
-
                 const exhibitions_ending_today = exhibitions.filter(
                   ({ dataZakonczenia: exhibition_end_date }) => areDatesEqual(exhibition_end_date, date)
                 );
@@ -197,7 +196,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
 
                 const has_one_day_exhibition = exhibitions_today.find(
                   ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                  areDatesEqual(exhibition_date, exhibition_end_date)
+                    areDatesEqual(exhibition_date, exhibition_end_date)
                 );
 
                 const exhibitions_between = exhibitions.filter(
@@ -205,15 +204,19 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
                 );
 
-                return exhibitions_today.length || exhibitions_between.length ? (
+                return (exhibitions_today.length || exhibitions_between.length) ? (
                   <StyledCalendarElement tabIndex="0" className={
                     [
                       "activeDay",
-                      ...(has_one_day_exhibition? ['activeDayOne'] : [])
+                      ...(has_one_day_exhibition ? ['activeDayOne'] : [])
                     ].join(' ')
                   }>
                     <StyledOpenWrapper
-                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_today.length) ? '#EDC169' : null}
+                      hasdeclaredbgcolor={
+                        has_one_day_exhibition ? '#3E635D'
+                        : exhibitions_today.length ? '#EDC169'
+                        : null
+                      }
                     >
                       {
                         (has_one_day_exhibition) ? (
@@ -251,9 +254,13 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       <StyledArrowWrapper
                         isopen={true}
                         svgwhitebg={has_one_day_exhibition}
-                        hasdeclaredbgcolor={has_one_day_exhibition ? '#7A8D8A' : (exhibitions_today.length) ? '#EDAC2A' : null}
+                        hasdeclaredbgcolor={
+                          has_one_day_exhibition ? '#7A8D8A'
+                          : exhibitions_today.length ? '#EDAC2A'
+                          : null
+                        }
                       >
-                        { exhibitions_today.length ?  <ArrowDown />  : null}
+                        {exhibitions_today.length ? <ArrowDown /> : null}
                       </StyledArrowWrapper>
                     </StyledOpenWrapper>
                     <StyledExhibitionTitle
