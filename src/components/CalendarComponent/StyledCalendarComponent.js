@@ -199,6 +199,7 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTileOne {
     background-color: var(--primary200);
+    cursor: pointer;
     &:focus-visible {
       z-index: 2;
       outline-width: 1px;
@@ -210,6 +211,7 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTileStartEnd {
     background-color: var(--secondary200);
+    cursor: pointer;
     &:focus-visible {
       z-index: 2;
       outline-width: 1px;
@@ -242,6 +244,7 @@ export const StyledExhibitionTitle = styled.div`
   background-color: #23423D;
   color: #FAF6EE;
   padding: 14px;
+  cursor: default;
 
   > div {
     display: flex;
