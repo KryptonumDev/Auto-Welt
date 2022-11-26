@@ -160,7 +160,7 @@ export const StyledCalendar = styled((props) => (
     @media only screen and (max-width: 516px){
       height: auto;
       width: auto;
-      height: 38px;
+      height: 40px;
       width: 38px;
 
       > abbr {
@@ -250,7 +250,18 @@ export const StyledExhibitionTitle = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 4px;
+    gap: 4px; 
+
+    @media only screen and (max-width: 516px){
+      > p {
+        font-size: 15px;
+      }
+      > div {
+        > p {
+          font-size: 14px;
+        }
+      }
+    }
   }
 
   a {
@@ -271,6 +282,10 @@ export const StyledExhibitionTitle = styled.div`
       outline-style: solid;
       outline-color: #da9610;
       outline-offset: 4px;
+    }
+
+    @media only screen and (max-width: 516px){
+      font-size: 14px;
     }
   }
 `;
@@ -295,6 +310,20 @@ export const StyledOpenWrapper = styled.div`
   align-items: center;
   padding-left: 8px;
   justify-content: space-between;
+  overflow: hidden;
+  
+  @media only screen and (max-width: 740px){
+    height: 24px;
+    justify-content: flex-end;
+
+    p {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 516px){
+    height: 16px;
+  }
 `
 
 export const StyledArrowWrapper = styled.div`
@@ -305,10 +334,21 @@ export const StyledArrowWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4px;
 
   > svg {
     transition: transform 250ms linear;
     transform: ${({ isopen }) => isopen ? "rotate(-180deg)" : "none"};
     color: ${({ svgwhitebg }) => svgwhitebg ? '#fff' : '#23423D'};
+  }
+
+  @media only screen and (max-width: 740px){
+    height: 24px;
+    width: 24px;
+  }
+
+  @media only screen and (max-width: 516px){
+    height: 16px;
+    width: 16px;
   }
 `

@@ -329,6 +329,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             hasdeclaredfontsize="18px"
                             hasdeclaredfontcolor="#FAF6EE"
                             hasdeclaredlineheight="1.2em"
+                            hasdeclaredfontweight="700"
                           >
                             {exhibition.title}
                           </StyledText>
@@ -339,8 +340,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                                   hasdeclaredfontsize="16px"
                                   hasdeclaredfontcolor="#FAF6EE"
                                   hasdeclaredlineheight="1.2em"
+                                  hasdeclaredfontweight="500"
                                 >
-                                  {element.elementListy }
+                                  {element.elementListy}
                                 </StyledText>
                               )}
                           </div>
