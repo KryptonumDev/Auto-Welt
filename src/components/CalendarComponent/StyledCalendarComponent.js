@@ -200,18 +200,46 @@ export const StyledCalendar = styled((props) => (
   .activeCalendarTileOne {
     background-color: var(--primary200);
     cursor: pointer;
+
     &:focus-visible {
       z-index: 2;
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
       outline-offset: 8px;
+    }
+
+    transition: background-color 250ms linear;
+    > div {
+      > div {
+        &:first-child{
+          transition: background-color 250ms linear;
+          > div{
+            transition: background-color 250ms linear;
+          }
+        }
+      }
+    }
+
+    &:hover{
+      background-color: #7A8D8A;
+      > div {
+        > div {
+          &:first-child{
+            background-color: #23423D;
+            > div {
+              background-color: #B0BBBA;
+            }
+          }
+        }
+      }
     }
   }
 
   .activeCalendarTileStartEnd {
     background-color: var(--secondary200);
     cursor: pointer;
+
     &:focus-visible {
       z-index: 2;
       outline-width: 1px;
@@ -219,10 +247,37 @@ export const StyledCalendar = styled((props) => (
       outline-color: #da9610;
       outline-offset: 8px;
     }
+
+    transition: background-color 250ms linear;
+    > div {
+      > div {
+        &:first-child{
+          transition: background-color 250ms linear;
+          > div{
+            transition: background-color 250ms linear;
+          }
+        }
+      }
+    }
+
+    &:hover{
+      background-color: #EDC169;
+      > div {
+        > div {
+          &:first-child{
+            background-color: #EDAC2A;
+            > div {
+              background-color: #DA9610;
+            }
+          }
+        }
+      }
+    }
   }
 
   .activeCalendarTile {
     background-color: var(--secondary50);
+
     &:focus-visible {
       z-index: 2;
       outline-width: 1px;
@@ -311,7 +366,7 @@ export const StyledOpenWrapper = styled.div`
   padding-left: 8px;
   justify-content: space-between;
   overflow: hidden;
-  
+
   @media only screen and (max-width: 740px){
     height: 24px;
     justify-content: flex-end;
