@@ -22,6 +22,7 @@ const HomeExhibitionsElement = ({
   isSchdeuleElement,
   buttonVariant,
   slidesCount,
+  dataLength
 }) => {
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
     .toLocaleString("pl", { dateStyle: "long" })
@@ -32,6 +33,7 @@ const HomeExhibitionsElement = ({
       slidescount={slidesCount}
       isscheduleelement={isSchdeuleElement}
       to={`/wystawy/${exhibitionData.slug}`}
+      datalength={dataLength}
     >
       <StyledHomeExhibitionsElement
         isscheduleelement={isSchdeuleElement}

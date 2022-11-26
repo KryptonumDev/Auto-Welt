@@ -22,6 +22,11 @@ export const StyledScheduleSlider = styled.div`
     display: flex;
   }
 
+  .one-el{
+    display: flex;
+    justify-content: center;
+  }
+
   @media only screen and (max-width: 768px) {
     width: calc(100% - 30px);
     margin: 0 auto;

@@ -12,9 +12,8 @@ export const StyledElementLink = styled(Link)`
   background-color: #faf7f1;
   overflow: hidden;
   cursor: pointer;
-  margin: ${({ isscheduleelement }) => isscheduleelement ? "none" : "0 20px"};
   max-width: ${({ isscheduleelement }) => isscheduleelement ? "unset" : "502px"};
-  width: ${({ isscheduleelement }) => isscheduleelement ? "100%" : "50%"};
+  width: ${({ isscheduleelement, datalength }) => isscheduleelement ? datalength === 1 ? "50%" : "100%" : "50%"};
   padding-bottom: 40px;
 
   &:hover {

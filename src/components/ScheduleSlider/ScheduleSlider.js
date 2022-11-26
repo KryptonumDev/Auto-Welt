@@ -1,6 +1,9 @@
 /** @format */
 
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import HomeExhibitionsElement from "../HomeExhibitionsElement/HomeExhibitionsElement";
 
@@ -14,10 +17,6 @@ import NextGreenArrow from "../../images/nextGreenArrow.svg";
 import PrevGreenArrow from "../../images/prevGreenArrow.svg";
 import NextYellowArrow from "../../images/nextYellowArrow.svg";
 import PrevYellowArrow from "../../images/prevYellowArrow.svg";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 const ScheduleSlider = ({ scheduleData, variant }) => {
     const slider = React.useRef(null);
@@ -86,6 +85,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                             exhibitionData={e.node}
                             buttonVariant={variant}
                             isSchdeuleElement="true"
+                            dataLength={scheduleData.length}
                         />
                     ))}
                 </div>
