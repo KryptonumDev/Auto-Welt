@@ -9,6 +9,10 @@ export const StyledCollectionElementSlider = styled.section`
     width: ${({ length }) => length < 3 ? '100%' : 'calc(100% - 100px)'};
     margin: 0 auto;
     height: 320px;
+
+    @media only screen and (max-width: 546px){
+      height: 50vw;
+    }
   }
 
   .slick-track{
@@ -34,8 +38,8 @@ export const StyledCollectionElementSlider = styled.section`
 
   @media only screen and (max-width: 546px) {
     min-height: unset;
-    margin-top: 60px;
-    margin-bottom: ${({ length }) => length < 2 ? '20px' : '80px'};
+    margin-top: 100px;
+    margin-bottom: ${({ length }) => length < 2 ? '20px' : '100px'};
   }
 `;
 
@@ -169,5 +173,9 @@ export const StyledImage = styled.div`
   @media only screen and (max-width: 768px) {
     width: 100%;
     max-width: unset;
+  }
+
+  @media only screen and (max-width: 546px){
+    height: 50vw;
   }
 `;
