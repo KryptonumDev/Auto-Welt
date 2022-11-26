@@ -275,7 +275,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     <StyledExhibitionTitle
                       isbgcolor={has_one_day_exhibition}
                       isopen={isOpen}
-                      issunday={false}
+                      issunday={date.getDay() === 0}
                     >
                       {exhibitions_today.map((exhibition) => (
                         <div>
