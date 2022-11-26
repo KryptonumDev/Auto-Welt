@@ -41,7 +41,12 @@ const ScheduleHeroSection = ({ heroData }) => {
       </StyledHeroImage>
       <StyledTitleWrapper>
         <StyledTitleImage>
-          <StaticImage src="../../images/scheduleBgTitle.png" alt="tło" loading="eager" />
+          <StaticImage
+            src="../../images/scheduleBgTitle.png" 
+            alt="tło" 
+            loading="eager"
+            placeholder="blurred"
+          />
         </StyledTitleImage>
         <StyledText
           hasdeclaredfontfamily="Nocturne Serif"
