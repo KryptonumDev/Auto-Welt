@@ -153,8 +153,8 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileDisabled={
             ({ activeStartDate, date, view }) =>
               !Boolean(
-                exhibitions.find(({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                  exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
+                exhibitions.some(({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                  areDatesEqual(date, exhibition_date) || areDatesEqual(date, exhibition_end_date)
                 )
               )
           }
