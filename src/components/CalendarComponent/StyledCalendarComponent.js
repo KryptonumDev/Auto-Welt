@@ -222,6 +222,8 @@ export const StyledCalendar = styled((props) => (
 export const StyledExhibitionTitle = styled.div`
   position: absolute;
   z-index: 2;
+  left: ${({ issunday }) => issunday ? "auto" : "0"};
+  right: ${({ issunday }) => issunday ? "0" : "auto"};
   top: 100%;
   width: 250px; 
   background-color: #23423D;

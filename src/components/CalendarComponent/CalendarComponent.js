@@ -260,6 +260,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             .length
                           : false
                       }
+                      issunday={false}
                     >
                       {exhibitions_today.map((exhibition) => (
                         <div>
