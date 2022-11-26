@@ -204,6 +204,15 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
                 );
 
+                const isOpen = (
+                  activeDate instanceof Date
+                  ? exhibitions_today
+                    .some(
+                      (exhibition) => areDatesEqual(date, activeDate)
+                    )
+                  : false
+                );
+
                 return (exhibitions_today.length || exhibitions_between.length) ? (
                   <StyledCalendarElement tabIndex="0" className={
                     [
@@ -252,7 +261,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                         )
                       }
                       <StyledArrowWrapper
-                        isopen={true}
+                        isopen={isOpen}
                         svgwhitebg={has_one_day_exhibition}
                         hasdeclaredbgcolor={
                           has_one_day_exhibition ? '#7A8D8A'
@@ -265,15 +274,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     </StyledOpenWrapper>
                     <StyledExhibitionTitle
                       isbgcolor={has_one_day_exhibition}
-                      isopen={
-                        activeDate instanceof Date
-                          ? exhibitions_starting_today
-                            .filter((exhibition) =>
-                              areDatesEqual(date, activeDate)
-                            )
-                            .length
-                          : false
-                      }
+                      isopen={isOpen}
                       issunday={false}
                     >
                       {exhibitions_today.map((exhibition) => (
