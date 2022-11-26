@@ -158,7 +158,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 )
               )
           }
-          tileClassName={({ activeStartDate, date, view }) => 
+          tileClassName={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
                 const exhibitions_today = exhibitions.filter(
@@ -212,7 +212,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       ...(has_one_day_exhibition? ['activeDayOne'] : [])
                     ].join(' ')
                   }>
-                    <StyledOpenWrapper 
+                    <StyledOpenWrapper
                       hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDC169' : null}
                     >
                       {
@@ -248,9 +248,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                           )
                         )
                       }
-                      <StyledArrowWrapper 
-                        isopen={true} 
-                        svgwhitebg={has_one_day_exhibition} 
+                      <StyledArrowWrapper
+                        isopen={true}
+                        svgwhitebg={has_one_day_exhibition}
                         hasdeclaredbgcolor={has_one_day_exhibition ? '#7A8D8A' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDAC2A' : null}
                       >
                         { has_one_day_exhibition || exhibitions_ending_today.length || exhibitions_starting_today.length ?  <ArrowDown />  : null}
@@ -279,12 +279,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             {exhibition.title}
                           </StyledText>
                           <div>
-                              {exhibition.elementyListy.slice(0,2).map(element =>  
-                                <StyledText 
+                              {exhibition.elementyListy.slice(0,2).map(element =>
+                                <StyledText
                                   hasdeclaredfontsize="16px"
                                   hasdeclaredfontcolor="#FAF6EE"
                                   hasdeclaredlineheight="1.2em"
-                                > 
+                                >
                                   {element.elementListy }
                                 </StyledText>
                               )}
