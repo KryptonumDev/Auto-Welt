@@ -213,7 +213,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     ].join(' ')
                   }>
                     <StyledOpenWrapper 
-                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDAC2A' : null}
+                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDC169' : null}
                     >
                       <StyledText 
                         hasdeclaredfontcolor="#23423D" 
