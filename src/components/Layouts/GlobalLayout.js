@@ -16,7 +16,7 @@ const GlobalLayout = ({ children }) => {
         <Helmet htmlAttributes={{
           lang: 'pl',
         }}>
-          <meta name="robots" content="noindex" data-react-helmet="true" />
+          <meta name="robots" data-react-helmet="true" />
         </Helmet>
         <GlobalStyle />
         <StyledOverflowWrapper>

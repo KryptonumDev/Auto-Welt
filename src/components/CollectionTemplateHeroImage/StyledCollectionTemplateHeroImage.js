@@ -15,7 +15,7 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    margin-top: 130px;
+    margin-top: clamp(100px, 17vw, 150px);
     padding-left: 16px;
 
     > a {

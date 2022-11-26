@@ -9,7 +9,7 @@ export const StyledMainContainer = styled.section`
   margin: 0 auto;
 
   @media only screen and (max-width: 768px) {
-    margin-top: 134px;
+    margin-top: clamp(100px, 17vw, 150px);
     padding: 0 16px 60px;
   }
 

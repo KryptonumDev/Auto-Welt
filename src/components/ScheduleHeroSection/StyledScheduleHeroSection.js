@@ -8,7 +8,7 @@ export const StyledScheduleHeroSection = styled.section`
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin-top: 130px;
+    margin-top: clamp(100px, 17vw, 150px);
   }
 `;
 

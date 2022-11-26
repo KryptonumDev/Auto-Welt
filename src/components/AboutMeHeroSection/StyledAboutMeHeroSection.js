@@ -9,7 +9,8 @@ export const StyledAboutMeHeroSection = styled.section`
   max-width: 1144px;
 
   @media only screen and (max-width: 768px) {
-    margin-top: 130px;
+    margin-top: clamp(100px, 17vw, 120px);
+    margin-bottom: 60px;
     padding: 0 16px;
   }
 
@@ -22,10 +23,6 @@ export const StyledAboutMeHeroSection = styled.section`
 export const StyledImagesWrapper = styled.div`
   width: 50%;
   margin-top: 30px;
-
-  @media only screen and (max-width: 768px) {
-    margin-top: 70px;
-  }
 
   @media only screen and (max-width: 670px) {
     width: 100%;

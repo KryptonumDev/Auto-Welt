@@ -11,6 +11,7 @@ export const StyledContact = styled.section`
 
     > h1 {
       font-size: 38px;
+      margin-top: 0;
     }
   }
 

@@ -8,7 +8,7 @@ export const StyledArticlesPageArticles = styled.section`
   scroll-behavior: smooth;
 
   @media only screen and (max-width: 768px) {
-    margin: 130px auto 0;
+    margin: clamp(120px, 17vw, 150px) auto 0;
     padding: 0 16px;
 
     > h1 {

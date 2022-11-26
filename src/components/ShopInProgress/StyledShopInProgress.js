@@ -21,7 +21,7 @@ export const StyledImagesWrapper = styled.div`
   padding-bottom: 290px;
 
   @media only screen and (max-width: 768px) {
-    margin-top: 170px;
+    margin-top: clamp(150px, 17vw, 170px);
   }
 
   @media only screen and (max-width: 434px) {
