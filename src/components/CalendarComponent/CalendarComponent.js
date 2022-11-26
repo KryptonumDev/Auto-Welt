@@ -1,22 +1,28 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "gatsby";
+import { motion } from "framer-motion";
 
 import {
   startOfAdjacentMonth,
   endOfAdjacentMonth,
   areDatesEqual,
 } from "../../utils/date";
-import { motion } from "framer-motion";
 
 import {
   StyledCalendarComponent,
   StyledCalendar,
   StyledExhibitionTitle,
   StyledPaginationElement,
+  StyledOpenWrapper,
+  StyledArrowWrapper,
+  StyledCalendarElement
 } from "./StyledCalendarComponent";
+
+import { StyledText } from "../Text/StyledText";
 
 import PrevCalendar from "../../images/prevCalendar.svg";
 import NextCalendar from "../../images/nextCalendar.svg";
+import ArrowDown from "../ArrowDown/ArrowDown";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
   const [now] = useState(new Date())
@@ -179,25 +185,75 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileContent={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
-                const exhibitions_today = exhibitions.filter(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                  areDatesEqual(exhibition_date, date) || areDatesEqual(date, exhibition_end_date)
-                  );
+                const exhibitions_starting_today = exhibitions.filter(
+                  ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
+                );
+
+                const exhibitions_ending_today = exhibitions.filter(
+                  ({ dataZakonczenia: exhibition_end_date }) => areDatesEqual(exhibition_end_date, date)
+                );
+
+                const exhibitions_today = exhibitions_starting_today.concat(exhibitions_ending_today);
+
                 const has_one_day_exhibition = exhibitions_today.find(
                   ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
                   areDatesEqual(exhibition_date, exhibition_end_date)
                 );
-                return exhibitions_today.length ? (
-                  <span className={
+
+                const exhibitions_between = exhibitions.filter(
+                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+                    exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
+                );
+
+                return exhibitions_today.length || exhibitions_between.length ? (
+                  <StyledCalendarElement tabIndex="0" className={
                     [
                       "activeDay",
-                      ...(has_one_day_exhibition ? ['activeDayOne'] : [])
+                      ...(has_one_day_exhibition? ['activeDayOne'] : [])
                     ].join(' ')
                   }>
+                    <StyledOpenWrapper 
+                      hasdeclaredbgcolor={has_one_day_exhibition ? '#3E635D' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDAC2A' : null}
+                    >
+                      <StyledText 
+                        hasdeclaredfontcolor="#23423D" 
+                        hasdeclaredfontsize="13px"
+                      >
+                        {exhibitions_starting_today.length ? 'Początek wystawy' : null}
+                      </StyledText>
+                      <StyledText 
+                        hasdeclaredfontcolor="#23423D" 
+                        hasdeclaredfontsize="13px"
+                      >
+                        {exhibitions_ending_today.length ? 'Koniec wystawy' : null}
+                      </StyledText>
+                      <StyledText 
+                        hasdeclaredfontcolor="#FEFDFB" 
+                        hasdeclaredfontsize="13px"
+                      >
+                        {has_one_day_exhibition ? has_one_day_exhibition.title : null}
+                      </StyledText>
+                      {/* for the future */}
+                      {/* <StyledText>
+                        {
+                          (exhibitions_between.length && !exhibitions_starting_today.length && !exhibitions_ending_today.length) ? 
+                            'tutaj dzien pomiedzy' 
+                          : null
+                        }
+                      </StyledText> */}
+                      <StyledArrowWrapper 
+                        isopen={true} 
+                        svgwhitebg={has_one_day_exhibition} 
+                        hasdeclaredbgcolor={has_one_day_exhibition ? '#7A8D8A' : (exhibitions_ending_today.length || exhibitions_starting_today.length) ? '#EDAC2A' : null}
+                      >
+                        { has_one_day_exhibition || exhibitions_ending_today.length || exhibitions_starting_today.length ?  <ArrowDown />  : null}
+                      </StyledArrowWrapper>
+                    </StyledOpenWrapper>
                     <StyledExhibitionTitle
+                      isbgcolor={has_one_day_exhibition}
                       isopen={
                         activeDate instanceof Date
-                          ? exhibitions_today
+                          ? exhibitions_starting_today
                             .filter((exhibition) =>
                               areDatesEqual(date, activeDate)
                             )
@@ -206,13 +262,32 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       }
                     >
                       {exhibitions_today.map((exhibition) => (
-                        <Link to={`/wystawy/${exhibition.slug}`} aria-label="przejdź do wydarzenia" key={exhibition.slug}>
-                          {exhibition.title}
-                          <br />
-                        </Link>
+                        <div>
+                          <StyledText
+                            hasdeclaredfontsize="18px"
+                            hasdeclaredfontcolor="#FAF6EE"
+                            hasdeclaredlineheight="1.2em"
+                          >
+                            {exhibition.title}
+                          </StyledText>
+                          <div>
+                              {exhibition.elementyListy.slice(0,2).map(element =>  
+                                <StyledText 
+                                  hasdeclaredfontsize="16px"
+                                  hasdeclaredfontcolor="#FAF6EE"
+                                  hasdeclaredlineheight="1.2em"
+                                > 
+                                  {element.elementListy }
+                                </StyledText>
+                              )}
+                          </div>
+                          <Link to={`/wystawy/${exhibition.slug}`} aria-label="zobacz więcej" key={exhibition.slug}>
+                            czytaj więcej
+                          </Link>
+                        </div>
                       ))}
                     </StyledExhibitionTitle>
-                  </span>
+                  </StyledCalendarElement>
                 ) : undefined;
               })()
               : undefined

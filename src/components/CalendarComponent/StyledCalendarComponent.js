@@ -103,6 +103,20 @@ export const StyledCalendarComponent = styled.div`
   }
 `;
 
+export const StyledCalendarElement = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+
+  &:focus-visible{
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 8px;
+  }
+`
+
 export const StyledCalendar = styled((props) => (
   <Calendar {...props} />
 ))`
@@ -151,6 +165,7 @@ export const StyledCalendar = styled((props) => (
         right: 12px;
       }
     }
+
     @media only screen and (max-width: 516px){
       height: auto;
       width: auto;
@@ -191,39 +206,6 @@ export const StyledCalendar = styled((props) => (
     }
   }
 
-  .activeDay{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    font: normal 500 14px/1.2em 'Roboto Condensed', Arial;
-    color: #23423D;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    padding: 30px 30px 0 5px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    transition: background-color 250ms linear;
-
-    svg {
-      position: absolute;
-      top: -10px;
-      left: -30px;
-      z-index: 1;
-    }
-
-    @media only screen and (max-width: 768px){
-      svg{
-        width: 120%;
-        height: 120%;
-        top: 0;
-        left: 0;
-      }
-    }
-  }
-
   .activeCalendarTileOne {
     background-color: var(--primary200);
   }
@@ -237,13 +219,30 @@ export const StyledCalendar = styled((props) => (
   }
 `;
 
-export const StyledExhibitionTitle = styled.p`
+export const StyledExhibitionTitle = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  width: 250px; 
+  background-color: #23423D;
+  color: #FAF6EE;
+  padding: 14px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+  }
+
   a {
-    position: relative;
-    z-index: 2;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    align-self: flex-end;
     transition: color 250ms linear;
-    color: #23423D;
-    text-decoration: none;
+    color: #FAF6EE;
     
     &:hover {
       color: var(--secondary300);
@@ -253,47 +252,8 @@ export const StyledExhibitionTitle = styled.p`
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
+      outline-offset: 4px;
     }
-  }
-
-  @media only screen and (max-width: 986px) {
-    background-color: #23423d;
-    font: normal 500 14px/1.2em 'Roboto Condensed', Arial;
-    width: 193px;
-    min-height: 70px;
-    display: ${({ isopen }) => (isopen ? "flex" : "none")};
-    align-items: center;
-    position: absolute;
-    left: 20px;
-    bottom: -50%;
-    transform: translateY(50%);
-    z-index: 2;
-    padding: 20px 20px 20px 11px;
-
-    &:hover {
-      display: flex;
-    }
-
-    &:after {
-      content: "";
-      width: 0;
-      height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-bottom: 15px solid #23423d;
-      position: absolute;
-      top: -15px;
-      left: 20px;
-    }
-
-    > a {
-      color: #FEFDFB;
-    }
-  }
-
-  @media only screen and (max-width: 516px) {
-    left: 0;
-    bottom: -60px;
   }
 `;
 
@@ -305,3 +265,32 @@ export const StyledPaginationElement = styled(motion.div)`
     outline-offset: 4px;
   }
 `;
+
+export const StyledOpenWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 31px;
+  background-color: ${({ hasdeclaredbgcolor }) => hasdeclaredbgcolor ? hasdeclaredbgcolor : "transparent"};
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  justify-content: space-between;
+`
+
+export const StyledArrowWrapper = styled.div`
+  display: flex;
+  height: 100%;
+  width: 25px;
+  background-color: ${({ hasdeclaredbgcolor }) => hasdeclaredbgcolor ? hasdeclaredbgcolor : "transparent"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
+    transition: transform 250ms linear;
+    transform: ${({ isopen }) => isopen ? "rotate(-180deg)" : "none"};
+    color: ${({ svgwhitebg }) => svgwhitebg ? '#fff' : '#23423D'};
+  }
+`

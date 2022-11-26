@@ -45,6 +45,9 @@ const HomeCalendar = () => {
                 dataZakonczenia
                 miejsce
                 tytulDoKalendarzaNaStroneGlownaKrotki
+                elementyListy {
+                  elementListy
+                }
               }
             }
             title
@@ -73,7 +76,8 @@ const HomeCalendar = () => {
           data: new Date(edge.node.wystawa.informacjeOgolne.data),
           dataZakonczenia: new Date(edge.node.wystawa.informacjeOgolne.dataZakonczenia),
           title: edge.node.wystawa.informacjeOgolne.tytulDoKalendarzaNaStroneGlownaKrotki,
-          slug: edge.node.slug
+          slug: edge.node.slug,
+          elementyListy: edge.node.wystawa.informacjeOgolne.elementyListy
         }))}
       />
       <StyledButtonWrapper>
