@@ -238,7 +238,10 @@ export const StyledCustomCheckbox = styled.div`
 
     &:focus-visible + label{
       &:after{
-        outline-width: 0;
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: #da9610;
+        outline-offset: 4px;
       }
     }
   }
