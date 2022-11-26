@@ -154,6 +154,11 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             ({ activeStartDate, date, view }) =>
               !Boolean(
                 exhibitions.some(({ data, dataZakonczenia }) => {
+                  if (
+                    currentDate.getFullYear() !== date.getFullYear() ||
+                    currentDate.getMonth() !== date.getMonth()
+                  )
+                    return false;
                   const exhibition_date = new Date(data.getFullYear(), data.getMonth(), data.getDate()),
                     exhibition_end_date = new Date(dataZakonczenia.getFullYear(), dataZakonczenia.getMonth(), dataZakonczenia.getDate());
                   return exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime();
