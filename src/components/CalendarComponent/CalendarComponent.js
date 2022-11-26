@@ -126,6 +126,24 @@ const CalendarComponent = ({ exhibitions = [] }) => {
     [calendar]
   );
 
+  useEffect(
+    () => {
+      const elements = [...document.getElementsByClassName("react-calendar__tile")],
+        handler = (e) => {
+          if (e.key === "Tab" && e.shiftKey)
+            setActiveDate(undefined);
+        };
+
+      elements.forEach(
+        tile => tile.addEventListener("keydown", handler)
+      );
+
+      return () => elements.forEach(
+        tile => tile.removeEventListener("keydown", handler)
+      );
+    }
+  );
+
   return (
     <StyledCalendarComponent>
       <p className="calendarTitle">
@@ -224,6 +242,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
 
                 return (exhibitions_today.length || exhibitions_between.length) ? (
                   <StyledCalendarElement
+                    onKeyDown={
+                      (e) => {
+                        if (e.key === "Tab" && !e.shiftKey)
+                          setActiveDate(undefined);
+                      }
+                    }
                     className={
                       [
                         "activeDay",
