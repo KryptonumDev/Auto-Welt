@@ -6,6 +6,10 @@ export const StyledArticleHeroSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 375px){
+    padding-bottom: 40px;
+  }
 `;
 
 export const StyledImage = styled.div`
@@ -74,8 +78,12 @@ export const StyledTextWrapper = styled.div`
   }
 
   @media only screen and (max-width: 375px) {
+    transform: translateY(-20%);
+  }
+
+  @media only screen and (max-width: 320px) {
     h1 {
-      font-size: 34px;
+      font-size: 28px;
     }
   }
 `;
