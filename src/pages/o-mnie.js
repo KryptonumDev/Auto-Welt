@@ -57,6 +57,7 @@ query AboutMeQuery {
       metaDesc
       opengraphSiteName
       title
+      opengraphUrl
       opengraphImage {
         localFile {
           publicURL

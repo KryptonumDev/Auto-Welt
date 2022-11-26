@@ -17,7 +17,6 @@ import {
 } from "../components/Contact/StyledContact";
 import { StyledText } from "../components/Text/StyledText";
 
-
 const Contact = ({ data }) => {
 
   return (
@@ -112,6 +111,7 @@ export const query = graphql`
         metaDesc
         opengraphSiteName
         title
+        opengraphUrl
         opengraphImage {
           localFile {
             publicURL

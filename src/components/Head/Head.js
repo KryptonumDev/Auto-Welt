@@ -5,12 +5,12 @@ export function Head({
     data
 }) {
     const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo
-    const canonical = "https://auto-welt.info" + seo.canonical;
+    const canonical = "https://auto-welt.info" + seo.opengraphUrl;
 
     return (
         <>
             <meta charSet="utf-8" />
-            <meta name="robots" content="noindex" />
+            <meta name="robots" />
             <meta property="og:site_name" content={seo.opengraphSiteName} />
 
             <script type="application/ld+json">
@@ -91,7 +91,7 @@ export function Head({
 
             {seo?.title ? (
                 <>
-                    <title>{seo.title}</title>
+                    <title>{seo.title} – Auto-Welt</title>
                     <meta property="twitter:title" content={seo.title} />
                     <meta property="og:title" content={seo.title} />
                 </>

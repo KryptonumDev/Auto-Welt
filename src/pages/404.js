@@ -71,6 +71,7 @@ export const query = graphql`
         metaDesc
         opengraphSiteName
         title
+        opengraphUrl
         opengraphImage {
           localFile {
             publicURL
