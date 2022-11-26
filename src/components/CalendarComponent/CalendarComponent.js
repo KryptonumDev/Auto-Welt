@@ -307,7 +307,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       issunday={date.getDay() === 0}
                     >
                       {exhibitions_today.map((exhibition) => (
-                        <div>
+                        <div key={exhibition.slug}>
                           <StyledText
                             hasdeclaredfontsize="18px"
                             hasdeclaredfontcolor="#FAF6EE"
@@ -316,8 +316,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                             {exhibition.title}
                           </StyledText>
                           <div>
-                              {exhibition.elementyListy.slice(0,2).map(element =>
+                              {exhibition.elementyListy.slice(0,2).map((element, idx) =>
                                 <StyledText
+                                  key={idx}
                                   hasdeclaredfontsize="16px"
                                   hasdeclaredfontcolor="#FAF6EE"
                                   hasdeclaredlineheight="1.2em"
@@ -326,7 +327,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                                 </StyledText>
                               )}
                           </div>
-                          <Link to={`/wystawy/${exhibition.slug}`} aria-label="zobacz więcej" key={exhibition.slug}>
+                          <Link to={`/wystawy/${exhibition.slug}`} aria-label="zobacz więcej">
                             czytaj więcej
                           </Link>
                         </div>
