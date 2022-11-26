@@ -215,7 +215,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
 
                 return (exhibitions_today.length || exhibitions_between.length) ? (
                   <StyledCalendarElement
-                    tabIndex="0"
                     className={
                       [
                         "activeDay",

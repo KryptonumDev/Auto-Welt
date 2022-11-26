@@ -106,15 +106,6 @@ export const StyledCalendarComponent = styled.div`
 export const StyledCalendarElement = styled.div`
   width: 100%;
   height: 100%;
-  z-index: 2;
-  position: relative;
-
-  &:focus-visible{
-    outline-width: 1px;
-    outline-style: solid;
-    outline-color: #da9610;
-    outline-offset: 8px;
-  }
 `
 
 export const StyledCalendar = styled((props) => (
@@ -208,14 +199,35 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTileOne {
     background-color: var(--primary200);
+    z-index: 2;
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 8px;
+    }
   }
 
   .activeCalendarTileStartEnd {
     background-color: var(--secondary200);
+    z-index: 2;
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 8px;
+    }
   }
 
   .activeCalendarTile {
     background-color: var(--secondary50);
+    z-index: 2;
+    &:focus-visible {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #da9610;
+      outline-offset: 8px;
+    }
   }
 `;
 
