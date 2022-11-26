@@ -198,7 +198,7 @@ export const StyledCalendar = styled((props) => (
   }
 
   .activeCalendarTileOne {
-    background-color: var(--primary200);
+    background-color: #B0BBBA;
     cursor: pointer;
 
     &:focus-visible {
@@ -230,6 +230,20 @@ export const StyledCalendar = styled((props) => (
             > div {
               background-color: #B0BBBA;
             }
+          }
+        }
+      }
+    }
+  }
+
+  .selectedCalendarTile.activeCalendarTileOne{
+    background-color: #7A8D8A;
+    > div {
+      > div {
+        &:first-child{
+          background-color: #23423D;
+          > div{
+            background-color: #B0BBBA;
           }
         }
       }
@@ -269,6 +283,20 @@ export const StyledCalendar = styled((props) => (
             > div {
               background-color: #DA9610;
             }
+          }
+        }
+      }
+    }
+  }
+  
+  .selectedCalendarTile.activeCalendarTileStartEnd{
+    background-color: #EDC169;
+    > div {
+      > div {
+        &:first-child{
+          background-color: #EDAC2A;
+          > div{
+            background-color: #DA9610;
           }
         }
       }
