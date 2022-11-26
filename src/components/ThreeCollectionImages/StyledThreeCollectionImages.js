@@ -24,6 +24,14 @@ export const StyledImageWrapper = styled.div`
   max-width: 343px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
 
+  .gatsby-image-wrapper{
+    height: 100%;
+  }
+  
+  img {
+    height: 100%;
+  }
+
   @media only screen and (max-width: 488px) {
     width: 100%;
     max-width: unset;
