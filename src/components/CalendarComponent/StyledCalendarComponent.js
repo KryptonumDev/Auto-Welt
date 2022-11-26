@@ -199,8 +199,8 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTileOne {
     background-color: var(--primary200);
-    z-index: 2;
     &:focus-visible {
+      z-index: 2;
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -210,8 +210,8 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTileStartEnd {
     background-color: var(--secondary200);
-    z-index: 2;
     &:focus-visible {
+      z-index: 2;
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -221,8 +221,8 @@ export const StyledCalendar = styled((props) => (
 
   .activeCalendarTile {
     background-color: var(--secondary50);
-    z-index: 2;
     &:focus-visible {
+      z-index: 2;
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
@@ -234,7 +234,7 @@ export const StyledCalendar = styled((props) => (
 export const StyledExhibitionTitle = styled.div`
   display: ${({ isopen }) => isopen ? "flex" : "none"};
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: ${({ issunday }) => issunday ? "auto" : "0"};
   right: ${({ issunday }) => issunday ? "0" : "auto"};
   top: 100%;
