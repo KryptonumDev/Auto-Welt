@@ -218,7 +218,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                     return false;
                   const exhibition_date = new Date(data.getFullYear(), data.getMonth(), data.getDate()),
                     exhibition_end_date = new Date(dataZakonczenia.getFullYear(), dataZakonczenia.getMonth(), dataZakonczenia.getDate());
-                  return exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime();
+                  return areDatesEqual(date, exhibition_date) || areDatesEqual(date, exhibition_end_date);
                 })
               )
           }
