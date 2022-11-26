@@ -220,6 +220,7 @@ export const StyledCalendar = styled((props) => (
 `;
 
 export const StyledExhibitionTitle = styled.div`
+  display: ${({ isopen }) => isopen ? "flex" : "none"};
   position: absolute;
   z-index: 2;
   left: ${({ issunday }) => issunday ? "auto" : "0"};
