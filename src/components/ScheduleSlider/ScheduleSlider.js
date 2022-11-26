@@ -61,7 +61,7 @@ const ScheduleSlider = ({ scheduleData, variant }) => {
                                 }
                                 exhibitionData={e.node}
                                 buttonVariant={variant}
-                                isSchdeuleElement={true}
+                                isSchdeuleElement="true"
                             />
                         ))}
                     </Slider>
