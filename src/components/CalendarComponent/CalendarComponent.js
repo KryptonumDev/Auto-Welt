@@ -153,7 +153,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileDisabled={
             ({ activeStartDate, date, view }) =>
               !Boolean(
-                exhibitions.find(({ data, dataZakonczenia }) => {
+                exhibitions.some(({ data, dataZakonczenia }) => {
                   const exhibition_date = new Date(data.getFullYear(), data.getMonth(), data.getDate()),
                     exhibition_end_date = new Date(dataZakonczenia.getFullYear(), dataZakonczenia.getMonth(), dataZakonczenia.getDate());
                   return exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime();
