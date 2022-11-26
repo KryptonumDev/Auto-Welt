@@ -192,7 +192,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                   ({ dataZakonczenia: exhibition_end_date }) => areDatesEqual(exhibition_end_date, date)
                 );
 
-                const exhibitions_today = exhibitions_starting_today.concat(exhibitions_ending_today);
+                const exhibitions_today = exhibitions_starting_today
+                  .concat(exhibitions_ending_today)
+                  .filter((val, idx, arr) => arr.indexOf(val) === idx);
 
                 const has_one_day_exhibition = exhibitions_today.find(
                   ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
