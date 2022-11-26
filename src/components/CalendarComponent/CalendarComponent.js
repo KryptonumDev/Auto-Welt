@@ -214,12 +214,15 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                 );
 
                 return (exhibitions_today.length || exhibitions_between.length) ? (
-                  <StyledCalendarElement tabIndex="0" className={
-                    [
-                      "activeDay",
-                      ...(has_one_day_exhibition ? ['activeDayOne'] : [])
-                    ].join(' ')
-                  }>
+                  <StyledCalendarElement
+                    tabIndex="0"
+                    className={
+                      [
+                        "activeDay",
+                        ...(has_one_day_exhibition ? ['activeDayOne'] : [])
+                      ].join(' ')
+                    }
+                  >
                     <StyledOpenWrapper
                       hasdeclaredbgcolor={
                         has_one_day_exhibition ? '#3E635D'
