@@ -91,7 +91,7 @@ export function Head({
 
             {seo?.title ? (
                 <>
-                    <title>{seo.title} – Auto-Welt</title>
+                    <title>{seo.title}</title>
                     <meta property="twitter:title" content={seo.title} />
                     <meta property="og:title" content={seo.title} />
                 </>
