@@ -13,8 +13,8 @@ const ArrowDown = () => (
         <path
             d="M15.1542 9.12521L8.57713 2L2.00002 9.1252"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="square"
+            strokeWidth="2"
+            strokeLinecap="square"
         />
     </svg>
 );
