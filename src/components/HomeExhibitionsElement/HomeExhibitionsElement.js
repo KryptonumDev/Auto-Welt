@@ -13,6 +13,7 @@ import {
   StyledContentList,
   StyledImageWrapper,
   StyledElementLink,
+  StyledButtonWrapper
 } from "./StyledHomeExhibitionsElement";
 
 import ListIcon from "../../images/ListIcon.svg";
@@ -135,31 +136,35 @@ const HomeExhibitionsElement = ({
             )}
           </StyledContentList>
         </StyledContentWrapper>
-        {exhibitionData.wystawa.informacjeOgolne
-          .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy ? (
-          <Button
-            text={
-              exhibitionData.wystawa.informacjeOgolne
-                .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
-            }
-            bgColor={
-              buttonVariant === "orange" ? "var(--secondary500)" : "#23423D"
-            }
-            textColor={
-              buttonVariant === "orange" ? "var(--primary900)" : "#fff"
-            }
-            hasFontSize={"21px"}
-            hasDeclaredPadding="8px 33px"
-            hoverBgColor={
-              buttonVariant === "orange"
-                ? "var(--secondary700)"
-                : "var(--primary900)"
-            }
-            hasBorder="2px solid transparent"
-            hasNotTabIndex
-            ariaLabel="link"
-          />
-        ) : null}
+        <StyledButtonWrapper
+          isscheduleelement={isSchdeuleElement}
+        >
+          {exhibitionData.wystawa.informacjeOgolne
+            .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy ? (
+            <Button
+              text={
+                exhibitionData.wystawa.informacjeOgolne
+                  .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy
+              }
+              bgColor={
+                buttonVariant === "orange" ? "var(--secondary500)" : "#23423D"
+              }
+              textColor={
+                buttonVariant === "orange" ? "var(--primary900)" : "#fff"
+              }
+              hasFontSize={"21px"}
+              hasDeclaredPadding="8px 33px"
+              hoverBgColor={
+                buttonVariant === "orange"
+                  ? "var(--secondary700)"
+                  : "var(--primary900)"
+              }
+              hasBorder="2px solid transparent"
+              hasNotTabIndex
+              ariaLabel="link"
+            />
+          ) : null}
+        </StyledButtonWrapper>
       </StyledHomeExhibitionsElement>
     </StyledElementLink >
   );

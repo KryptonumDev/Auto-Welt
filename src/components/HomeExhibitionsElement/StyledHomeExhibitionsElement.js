@@ -48,37 +48,10 @@ export const StyledElementLink = styled(Link)`
 
 export const StyledHomeExhibitionsElement = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media only screen and (max-width: 1065px) {
-    > .a {
-      font-size: 18px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    > .a {
-      width: ${({ isscheduleelement }) =>
-    isscheduleelement ? "82%" : "initial"};
-      font-size: 21px;
-    }
-  }
-
-  @media only screen and (max-width: 685px) {
-    > .a {
-      font-size: 16px;
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    > .a {
-      width: 85%;
-      max-width: 300px;
-      font-size: 15px;
-    }
-  }
 `;
 
 export const StyledDataInformationWrapper = styled.div`
@@ -120,6 +93,7 @@ export const StyledLogoWrapper = styled.div`
 export const StyledContentWrapper = styled.div`
   padding: 26px 34px;
   width: 100%;
+  flex: 1;
 `;
 
 export const StyledContentList = styled.div`
@@ -158,3 +132,34 @@ export const StyledImageWrapper = styled.div`
     height: 100%;
   }
 `;
+
+export const StyledButtonWrapper = styled.div`
+
+  @media only screen and (max-width: 1065px) {
+    > .a {
+      font-size: 18px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    > .a {
+      width: ${({ isscheduleelement }) =>
+    isscheduleelement ? "82%" : "initial"};
+      font-size: 21px;
+    }
+  }
+
+  @media only screen and (max-width: 685px) {
+    > .a {
+      font-size: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    > .a {
+      width: 85%;
+      max-width: 300px;
+      font-size: 15px;
+    }
+  }
+`
