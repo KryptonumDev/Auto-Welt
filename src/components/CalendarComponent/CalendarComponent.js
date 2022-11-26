@@ -44,6 +44,37 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           : undefined
       );
 
+  const exhibitions_for_date = useCallback((date) => {
+    const exhibitions_starting_today = exhibitions.filter(
+      ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
+    );
+    const exhibitions_ending_today = exhibitions.filter(
+      ({ dataZakonczenia: exhibition_end_date }) => areDatesEqual(exhibition_end_date, date)
+    );
+  
+    const exhibitions_today = exhibitions_starting_today
+      .concat(exhibitions_ending_today)
+      .filter((val, idx, arr) => arr.indexOf(val) === idx);
+  
+    const one_day_exhibition_today = exhibitions_today.find(
+      ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+        areDatesEqual(exhibition_date, exhibition_end_date)
+    );
+  
+    const exhibitions_around = exhibitions.filter(
+      ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
+        exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
+    );
+  
+    return {
+      exhibitions_starting_today,
+      exhibitions_ending_today,
+      exhibitions_today,
+      one_day_exhibition_today,
+      exhibitions_around
+    };
+  }, [exhibitions]);
+
   const calendar = useRef();
 
   const handlePrev = useCallback(() => {
@@ -186,22 +217,12 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileClassName={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
-                const exhibitions_today = exhibitions.filter(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                    areDatesEqual(exhibition_date, date) || areDatesEqual(date, exhibition_end_date)
-                );
-                const exhibitions_between = exhibitions.some(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                    exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
-                  );
-                const has_one_day_exhibition = exhibitions_today.find(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                    areDatesEqual(exhibition_date, exhibition_end_date)
-                );
+                const { exhibitions_today, exhibitions_around, one_day_exhibition_today } = exhibitions_for_date(date);
+
                 return (
-                  has_one_day_exhibition ? "activeCalendarTileOne"
+                  one_day_exhibition_today ? "activeCalendarTileOne"
                   : exhibitions_today.length ? "activeCalendarTileStartEnd"
-                  : exhibitions_between ? "activeCalendarTile"
+                  : exhibitions_around.length ? "activeCalendarTile"
                   : undefined
                 );
               })()
@@ -210,26 +231,13 @@ const CalendarComponent = ({ exhibitions = [] }) => {
           tileContent={({ activeStartDate, date, view }) =>
             date.getMonth() === currentDate.getMonth()
               ? (() => {
-                const exhibitions_starting_today = exhibitions.filter(
-                  ({ data: exhibition_date }) => areDatesEqual(exhibition_date, date)
-                );
-                const exhibitions_ending_today = exhibitions.filter(
-                  ({ dataZakonczenia: exhibition_end_date }) => areDatesEqual(exhibition_end_date, date)
-                );
-
-                const exhibitions_today = exhibitions_starting_today
-                  .concat(exhibitions_ending_today)
-                  .filter((val, idx, arr) => arr.indexOf(val) === idx);
-
-                const has_one_day_exhibition = exhibitions_today.find(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                    areDatesEqual(exhibition_date, exhibition_end_date)
-                );
-
-                const exhibitions_between = exhibitions.filter(
-                  ({ data: exhibition_date, dataZakonczenia: exhibition_end_date }) =>
-                    exhibition_date.getTime() <= date.getTime() && date.getTime() <= exhibition_end_date.getTime()
-                );
+                const {
+                  exhibitions_starting_today,
+                  exhibitions_ending_today,
+                  exhibitions_today,
+                  one_day_exhibition_today,
+                  exhibitions_around
+                } = exhibitions_for_date(date);
 
                 const isOpen = (
                   activeDate instanceof Date
@@ -240,7 +248,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                   : false
                 );
 
-                return (exhibitions_today.length || exhibitions_between.length) ? (
+                return (exhibitions_today.length || exhibitions_around.length) ? (
                   <StyledCalendarElement
                     onKeyDown={
                       (e) => {
@@ -251,18 +259,18 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                   >
                     <StyledOpenWrapper
                       hasdeclaredbgcolor={
-                        has_one_day_exhibition ? '#3E635D'
+                        one_day_exhibition_today ? '#3E635D'
                         : exhibitions_today.length ? '#EDC169'
                         : null
                       }
                     >
                       {
-                        (has_one_day_exhibition) ? (
+                        (one_day_exhibition_today) ? (
                           <StyledText
                             hasdeclaredfontcolor="#FEFDFB"
                             hasdeclaredfontsize="13px"
                           >
-                            {has_one_day_exhibition.title}
+                            {one_day_exhibition_today.title}
                           </StyledText>
                         ) : (
                           (exhibitions_starting_today.length) ? (
@@ -281,7 +289,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                                 Koniec wystawy
                               </StyledText>
                             ) : (
-                              (exhibitions_between) ? (
+                              (exhibitions_around) ? (
                                 // for future use
                                 undefined
                               ) : (undefined)
@@ -291,9 +299,9 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       }
                       <StyledArrowWrapper
                         isopen={isOpen}
-                        svgwhitebg={has_one_day_exhibition}
+                        svgwhitebg={one_day_exhibition_today}
                         hasdeclaredbgcolor={
-                          has_one_day_exhibition ? '#7A8D8A'
+                          one_day_exhibition_today ? '#7A8D8A'
                           : exhibitions_today.length ? '#EDAC2A'
                           : null
                         }
@@ -302,7 +310,7 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                       </StyledArrowWrapper>
                     </StyledOpenWrapper>
                     <StyledExhibitionTitle
-                      isbgcolor={has_one_day_exhibition}
+                      isbgcolor={one_day_exhibition_today}
                       isopen={isOpen}
                       issunday={[0, 6].includes(date.getDay())}
                     >
