@@ -5,3 +5,4 @@ public
 .env.development
 .env.production
 .vscode/
+package-lock.json
