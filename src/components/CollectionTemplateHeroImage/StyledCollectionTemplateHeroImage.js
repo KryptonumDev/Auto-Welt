@@ -44,6 +44,7 @@ export const StyledCollectionTemplateHeroImage = styled.section`
   @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;
+      margin-top: 0;
     }
   }
 `;
@@ -115,6 +116,10 @@ export const StyledTitleWrapper = styled.div`
         font-size: 34px;
       }
     }
+  }
+
+  @media only screen and (max-width: 375px){
+    transform: translateY(-10%);
   }
 `;
 
