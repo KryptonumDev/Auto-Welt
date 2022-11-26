@@ -12,6 +12,7 @@ export const StyledImage = styled.div`
   width: 100%;
 
   .gatsby-image-wrapper {
+    width: 100%;
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
   }
 `;
