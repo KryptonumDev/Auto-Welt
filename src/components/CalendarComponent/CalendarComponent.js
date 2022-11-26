@@ -226,13 +226,20 @@ const CalendarComponent = ({ exhibitions = [] }) => {
             date.getMonth() === currentDate.getMonth()
               ? (() => {
                 const { exhibitions_today, exhibitions_around, one_day_exhibition_today } = exhibitions_for_date(date);
+                let ret = [];
 
-                return (
-                  one_day_exhibition_today ? "activeCalendarTileOne"
-                  : exhibitions_today.length ? "activeCalendarTileStartEnd"
-                  : exhibitions_around.length ? "activeCalendarTile"
-                  : undefined
-                );
+                if (one_day_exhibition_today) {
+                  ret.push("activeCalendarTileOne");
+                } else if (exhibitions_today.length) {
+                  ret.push("activeCalendarTileStartEnd");
+                } else if (exhibitions_around.length) {
+                  ret.push("activeCalendarTile");
+                }
+
+                if (activeDate && areDatesEqual(date, activeDate))
+                  ret.push("selectedCalendarTile");
+
+                return ret.join(' ');
               })()
               : undefined
           }
