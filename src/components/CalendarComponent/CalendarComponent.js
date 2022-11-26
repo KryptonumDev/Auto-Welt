@@ -248,12 +248,6 @@ const CalendarComponent = ({ exhibitions = [] }) => {
                           setActiveDate(undefined);
                       }
                     }
-                    className={
-                      [
-                        "activeDay",
-                        ...(has_one_day_exhibition ? ['activeDayOne'] : [])
-                      ].join(' ')
-                    }
                   >
                     <StyledOpenWrapper
                       hasdeclaredbgcolor={
