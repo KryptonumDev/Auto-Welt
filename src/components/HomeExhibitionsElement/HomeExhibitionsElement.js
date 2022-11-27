@@ -166,7 +166,7 @@ const HomeExhibitionsElement = ({
           ) : null}
         </StyledButtonWrapper>
       </StyledHomeExhibitionsElement>
-    </StyledElementLink >
+    </StyledElementLink>
   );
 };
 

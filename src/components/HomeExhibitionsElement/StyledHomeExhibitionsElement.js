@@ -143,8 +143,6 @@ export const StyledButtonWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     > .a {
-      width: ${({ isscheduleelement }) =>
-    isscheduleelement ? "82%" : "initial"};
       font-size: 21px;
     }
   }
@@ -157,7 +155,8 @@ export const StyledButtonWrapper = styled.div`
 
   @media only screen and (max-width: 375px) {
     > .a {
-      width: 85%;
+      width: ${({ isscheduleelement }) =>
+      isscheduleelement ? "initial" : "85%"};
       max-width: 300px;
       font-size: 15px;
     }
