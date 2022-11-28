@@ -225,7 +225,7 @@ export const StyledGreetingText = styled.div`
   height: 100%;
   padding: 48px 0 48px 59px;
   color: #fff;
-  font: normal 500 28px/1.2em "Nocturne Serif", Arial;
+  font: 500 28px/1.2em "Nocturne Serif";
 
   @media only screen and (max-width: 542px) {
     font-size: 24px;

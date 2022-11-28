@@ -65,7 +65,6 @@ const Style = createGlobalStyle`
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
       font-variant-numeric: oldstyle-nums;
-      font-family: "Roboto Condensed", "Arial";
     }
 
     *:focus-visible {
