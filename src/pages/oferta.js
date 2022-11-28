@@ -35,7 +35,7 @@ const Offer = ({ data }) => {
           btnText={shortData.zielonyElementZTekstem.przycisk?.title}
           btnWhereGo={shortData.zielonyElementZTekstem.przycisk?.url}
           hasTarget={shortData.zielonyElementZTekstem.przycisk?.target}
-          btnPadding={"10px 33px"}
+          btnPadding={"10px 22px"}
           btnBgColor="var(--secondary500)"
           btnColor="var(--primary900)"
           bgImage={images}
