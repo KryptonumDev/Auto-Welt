@@ -140,6 +140,10 @@ export const StyledTopImage = styled.div``;
 
 export const StyledBottomImage = styled.div`
   transform: translateY(-50px);
+
+  img {
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  }
 `;
 
 export const StyledGreetingSection = styled.section`
