@@ -42,8 +42,12 @@ export const StyledFooterCar = styled.div`
   }
 
   @media only screen and (max-width: 375px) {
-    width: 292px;
+    width: 370px;
     left: -50px;
+  }
+
+  @media only screen and (max-width: 332px){
+    width: 292px;
   }
 `;
 
