@@ -51,6 +51,7 @@ const ChooseArticle = ({ chosenArticle }) => {
               hasdeclaredlineheight="1.2em"
               hasdeclaredtextalign="center"
               hasdeclaredfontcolor="#23423D"
+              hasdeclaredtexttransform="uppercase"
             >
               {chosenArticle?.title}
             </StyledText>
