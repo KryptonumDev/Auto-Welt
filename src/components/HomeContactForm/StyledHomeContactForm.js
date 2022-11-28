@@ -62,7 +62,8 @@ export const StyledInputWrapper = styled.div`
     font-family: "Roboto Condensed", Arial;
     padding: 10px;
     margin-top: 4px;
-
+    border-radius: 0;
+    
     &:focus-visible {
       outline-width: 0;
     }
