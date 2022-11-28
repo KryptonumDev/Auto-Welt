@@ -25,7 +25,7 @@ import NextCalendar from "../../images/nextCalendar.svg";
 import ArrowDown from "../ArrowDown/ArrowDown";
 
 const CalendarComponent = ({ exhibitions = [] }) => {
-  const [now] = useState(new Date())
+  const [now] = useState(new Date(new Date().setDate(1)))
   const futureMonths = 3,
     minDate = startOfAdjacentMonth({ date: now, month: -1 }),
     maxDate = endOfAdjacentMonth({ date: now, month: futureMonths }),
