@@ -71,7 +71,11 @@ export const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 36px;
+
+  p + p {
+    margin-top: 0 !important;
+  }
 
   @media only screen and (max-width: 768px) {
     a {
