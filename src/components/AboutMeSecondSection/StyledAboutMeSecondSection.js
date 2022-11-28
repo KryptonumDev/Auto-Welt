@@ -62,7 +62,7 @@ export const StyledRightWrapper = styled.div`
 `;
 
 export const StyledTitleWrapper = styled.div`
-  font: normal 500 48px/1.2em "Nocturne Serif", Arial;
+  font: normal 500 48px/1.2em "Nocturne Serif";
   color: #23423d;
 
   @media only screen and (max-width: 1036px) {
