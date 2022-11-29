@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 
@@ -9,6 +10,7 @@ import {
   StyledImageWrapper,
   StyledTextWrapper,
   StyledBgWrapper,
+  StyledTitleWrapper
 } from "./StyledChooseArticle";
 import { StyledText } from "../Text/StyledText";
 
@@ -45,16 +47,9 @@ const ChooseArticle = ({ chosenArticle }) => {
             <StyledBgWrapper>
               <StaticImage src="../../images/tloPolecenia.png" alt="tło" />
             </StyledBgWrapper>
-            <StyledText
-              hasdeclaredfontweight="700"
-              hasdeclaredfontsize="24px"
-              hasdeclaredlineheight="1.2em"
-              hasdeclaredtextalign="center"
-              hasdeclaredfontcolor="#23423D"
-              hasdeclaredtexttransform="uppercase"
-            >
-              {chosenArticle?.title}
-            </StyledText>
+            <StyledTitleWrapper>
+              {parse(chosenArticle?.title)}
+            </StyledTitleWrapper>
             <Button
               text="Dowiedz się więcej"
               bgColor="var(--secondary500)"

@@ -20,6 +20,17 @@ export const StyledChooseArticle = styled.div`
   }
 `;
 
+export const StyledTitleWrapper = styled.div`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #23423D;
+  position: relative;
+  z-index: 2;
+`
+
 export const StyledArticle = styled(Link)`
   width: 100%;
   display: flex;
