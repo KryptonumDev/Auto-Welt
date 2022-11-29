@@ -118,7 +118,6 @@ export const ButtonWrapper = styled.div`
   }
   @media only screen and (max-width: 768px) {
     padding: 0 26px 0 26px;
-    width: 95%;
   }
 
   @media only screen and (max-width: 685px) {

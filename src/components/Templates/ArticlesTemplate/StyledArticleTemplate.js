@@ -8,6 +8,6 @@ export const StyledArticleTemplate = styled.article`
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin: clamp(100px, 17vw, 150px) auto 0;
+    margin: clamp(120px, 17vw, 150px) auto 0;
   }
 `;

@@ -12,13 +12,6 @@ export const StyledExhibitionHeroSection = styled.div`
   }
 `;
 
-export const StyledTitleWrapper = styled.div`
-  font-size: 48px;
-  line-height: 1.2em;
-  color: #23423D;
-  font-family: "Nocturne Serif";
-`
-
 export const StyledLeftWrapper = styled.div`
   width: 50%;
   display: flex;
@@ -75,27 +68,26 @@ export const StyledTextWrapper = styled.div`
   font: normal 500 24px/1.2em "Roboto Condensed", Arial;
   color: #000;
   margin-top: 20px;
+`;
+
+export const StyledTitleWrapper = styled.div`
+  font-size: 48px;
+  line-height: 1.2em;
+  color: #23423D;
+  font-family: "Nocturne Serif";
 
   h1 {
     margin-bottom: 10px;
   }
 
-  @media only screen and (max-width: 908px) {
-    font-size: 20px;
-  }
-
   @media only screen and (max-width: 768px) {
-    h1 {
-      font-size: 38px;
-    }
+    font-size: 38px;
   }
 
   @media only screen and (max-width: 375px) {
-    h1 {
-      font-size: 34px;
-    }
+    font-size: 34px;
   }
-`;
+`
 
 export const StyledDataWrapper = styled.div`
   position: absolute;

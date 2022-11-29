@@ -9,6 +9,6 @@ export const StyledTemplateExhibitions = styled.article`
 
   @media only screen and (max-width: 768px) {
     padding: 0 16px;
-    margin-top: clamp(100px, 17vw, 150px);
+    margin-top: clamp(120px, 17vw, 150px);
   }
 `;

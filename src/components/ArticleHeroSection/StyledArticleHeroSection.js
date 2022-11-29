@@ -21,16 +21,6 @@ export const StyledImage = styled.div`
   }
 `;
 
-export const StyledTitleWrapper = styled.div`
-  text-align: center;
-  line-height: 1.2em;
-  color: #23423D;
-  font-size: 48px;
-  font-family: Nocturne Serif;
-  position: relative;
-  z-index: 2;
-`
-
 export const StyledTag = styled.div`
   position: absolute;
   top: 10%;
@@ -81,22 +71,30 @@ export const StyledTextWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     min-height: 141px;
-
-    h1 {
-      font-size: 38px;
-    }
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 440px) {
     transform: translateY(-20%);
+  }
+`;
+
+export const StyledTitleWrapper = styled.div`
+  text-align: center;
+  line-height: 1.2em;
+  color: #23423D;
+  font-size: 48px;
+  font-family: Nocturne Serif;
+  position: relative;
+  z-index: 2;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 38px;
   }
 
   @media only screen and (max-width: 320px) {
-    h1 {
-      font-size: 28px;
-    }
+    font-size: 28px;
   }
-`;
+`
 
 export const StyledTextImage = styled.div`
   position: absolute;
