@@ -24,7 +24,7 @@ export const StyledNav = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
     background: var(--primary800);
     flex-direction: column;
     min-height: 600px;

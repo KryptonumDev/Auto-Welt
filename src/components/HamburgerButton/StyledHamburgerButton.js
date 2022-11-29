@@ -5,7 +5,7 @@ export const StyledHamburgerButton = styled.button`
 
   @media only screen and (max-width: 768px) {
     position: ${({ isopen }) => (isopen ? "fixed" : "absolute")};
-    z-index: 3;
+    z-index: 11;
     right: 16px;
     top: 33px;
     cursor: pointer;
