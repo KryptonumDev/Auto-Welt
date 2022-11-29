@@ -21,6 +21,16 @@ export const StyledImage = styled.div`
   }
 `;
 
+export const StyledTitleWrapper = styled.div`
+  text-align: center;
+  line-height: 1.2em;
+  color: #23423D;
+  font-size: 48px;
+  font-family: Nocturne Serif;
+  position: relative;
+  z-index: 2;
+`
+
 export const StyledTag = styled.div`
   position: absolute;
   top: 10%;

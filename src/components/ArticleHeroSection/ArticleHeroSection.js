@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import {
   StyledArticleHeroSection,
@@ -8,6 +9,7 @@ import {
   StyledTagImage,
   StyledTextWrapper,
   StyledTextImage,
+  StyledTitleWrapper
 } from "./StyledArticleHeroSection";
 import { StyledText } from "../Text/StyledText";
 
@@ -46,16 +48,9 @@ const ArticleHeroSection = ({ heroData }) => {
         <StyledTextImage>
           <StaticImage src="../../images/artykulTitleImage.png" alt="tło" />
         </StyledTextImage>
-        <StyledText
-          as="h1"
-          hasdeclaredfontfamily="Nocturne Serif"
-          hasdeclaredfontsize="48px"
-          hasdeclaredfontcolor="#23423D"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredtextalign="center"
-        >
-          {heroData.title}
-        </StyledText>
+        <StyledTitleWrapper>
+          {parse(heroData.title)}
+        </StyledTitleWrapper>
       </StyledTextWrapper>
     </StyledArticleHeroSection>
   );
