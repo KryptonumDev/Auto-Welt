@@ -35,12 +35,6 @@ export const StyledCollectionTemplateHeroImage = styled.section`
     }
   }
 
-  @media only screen and (max-width: 413px) {
-    > a {
-      margin-top: -35px;
-    }
-  }
-
   @media only screen and (max-width: 375px) {
     > a {
       font-size: 15px;
@@ -111,7 +105,11 @@ export const StyledTitleWrapper = styled.div`
   }
 
   @media only screen and (max-width: 440px){
-    transform: translateY(-20%);
+    transform: translateY(-30%);
+  }
+
+  @media only screen and (max-width: 375px){
+    transform: translateY(-10%);
   }
 `;
 
