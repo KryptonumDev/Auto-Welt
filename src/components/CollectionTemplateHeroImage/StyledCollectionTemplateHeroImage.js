@@ -105,21 +105,13 @@ export const StyledTitleWrapper = styled.div`
     > div {
       &:last-child {
         min-height: 83px;
-        font-size: 38px;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    > div {
-      &:last-child {
         font-size: 34px;
       }
     }
   }
 
-  @media only screen and (max-width: 375px){
-    transform: translateY(-10%);
+  @media only screen and (max-width: 440px){
+    transform: translateY(-20%);
   }
 `;
 
