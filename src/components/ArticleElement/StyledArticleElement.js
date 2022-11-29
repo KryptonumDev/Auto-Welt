@@ -100,7 +100,7 @@ export const StyledTextWrapper = styled.div`
 
   @media only screen and (max-width: 532px) {
     width: calc(100% - 169px);
-    padding: 0 18px;
+    padding: 55px 18px;
   }
 
   @media only screen and (max-width: 344px) {
@@ -126,15 +126,11 @@ export const StyledTitle = styled.div`
   font-family: "Roboto Condensed";
   
   @media only screen and (max-width: 768px) {
-    p {
-      font-size: 20px;
-    }
+    font-size: 20px;
   }
 
   @media only screen and (max-width: 532px) {
-    p {
-      font-size: 16px;
-    }
+    font-size: 16px;
   }
 `;
 
