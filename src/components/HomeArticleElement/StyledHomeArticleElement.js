@@ -81,6 +81,10 @@ export const StylexTextTitleWrapper = styled.div`
   > p {
     font-size: 16px;
   }
+
+  @media only screen and (max-width: 768px) {
+    padding: 20px 26px;
+  }
 `
 
 export const StyledTitleBgWrapper = styled.div`
