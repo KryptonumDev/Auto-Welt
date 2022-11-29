@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
 import {
   StyledArticleElement,
@@ -46,14 +47,7 @@ const ArticleElement = ({ articleData }) => {
           </StyledText>
         </StyledDate>
         <StyledTitle>
-          <StyledText
-            hasdeclaredfontsize="24px"
-            hasdeclaredlineheight="1.2em"
-            hasdeclaredfontcolor="#23423D"
-            hasdeclaredfontweight="700"
-          >
-            {articleData.title}
-          </StyledText>
+          {parse(articleData.title)}
         </StyledTitle>
         <StyledLinkWrapper>
           <StyledText

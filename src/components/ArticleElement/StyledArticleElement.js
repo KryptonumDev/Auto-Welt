@@ -117,6 +117,14 @@ export const StyledDate = styled.div`
 `;
 
 export const StyledTitle = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  color: #23423D;
+  line-height: 1.2em;
+  position: relative;
+  z-index: 2;
+  font-family: "Roboto Condensed";
+  
   @media only screen and (max-width: 768px) {
     p {
       font-size: 20px;
