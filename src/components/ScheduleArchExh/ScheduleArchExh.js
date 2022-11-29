@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 
@@ -19,6 +20,7 @@ import {
     StyledContentList,
     StyledButtonWrapper,
     StyledBgWrapper,
+    StyledTitleWrapper
 } from "./StyledScheduleArchExh";
 
 import ListIcon from "../../images/greenIcon.svg";
@@ -189,19 +191,13 @@ const ScheduleArchExh = ({ dataArch }) => {
                                                     .miejsce : null}
                                         </StyledText>
                                         <StyledContentWrapper>
-                                            <StyledText
-                                                hasdeclaredfontcolor="#23423D"
-                                                hasdeclaredfontsize="20px"
-                                                hasdeclaredlineheight="1.2em"
-                                                hasdeclaredfontweight="500"
-                                                hasdeclaredmargin="0 0 8px 0"
-                                            >
+                                            <StyledTitleWrapper>
                                                 {node.wystawa.informacjeOgolne
                                                     .tytulPodZdjeciem ?
-                                                    node.wystawa
+                                                    parse(node.wystawa
                                                         .informacjeOgolne
-                                                        .tytulPodZdjeciem : null}
-                                            </StyledText>
+                                                        .tytulPodZdjeciem) : null}
+                                            </StyledTitleWrapper>
                                             <StyledContentList>
                                                 {node.wystawa.informacjeOgolne.elementyListy.map(
                                                     (element, index) => (

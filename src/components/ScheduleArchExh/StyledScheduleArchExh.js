@@ -22,6 +22,16 @@ export const StyledScheduleArchExh = styled.section`
   }
 `;
 
+export const StyledTitleWrapper = styled.div`
+  color: #23423D;
+  font-size: 20px;
+  line-height: 1.2em;
+  font-weight: 500;
+  color: #23423D;
+  margin: 0 0 8px 0;
+  font-family: "Roboto Condensed";
+`
+
 export const StyledElements = styled.div`
   margin-top: 60px;
   display: flex;
