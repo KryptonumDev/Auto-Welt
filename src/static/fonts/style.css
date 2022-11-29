@@ -1,8 +1,0 @@
-/** @format */
-
-@font-face {
-    font-family: "Nocturne Serif";
-    src: local("Nocturne Serif"),
-        url("./NocturneSerif-Regular.ttf") format("truetype");
-    font-display: swap;
-}
