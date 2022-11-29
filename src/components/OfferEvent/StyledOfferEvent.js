@@ -91,4 +91,12 @@ export const StyledTitleWrapper = styled.div`
   line-height: 1.2em;
   font-family: "Nocturne Serif";
   margin: 16px 0 20px;
+
+  @media only screen and (max-width: 440px){
+    font-size: 36px;
+  }
+
+  @media only screen and (max-width: 352px){
+    font-size: 28px;
+  }
 `
