@@ -65,18 +65,29 @@ export const StyledTitleWrapper = styled.div`
   width: 100%;
   position: relative;
   min-height: 100px;
-
-  @media only screen and (max-width: 375px) {
-    > p {
-      font-size: 16px;
-    }
-  }
 `;
+
+export const StylexTextTitleWrapper = styled.div`
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: var(--primary500);
+  padding: 20px 40px;
+  position: relative;
+  font-family: "Roboto Condensed";
+  z-index: 2;
+
+  > p {
+    font-size: 16px;
+  }
+`
 
 export const StyledTitleBgWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
 

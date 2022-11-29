@@ -1,5 +1,6 @@
 import React from "react";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import parse from "html-react-parser"
 
 import Button from "../Button/Button";
 
@@ -7,6 +8,7 @@ import {
   StyledOfferEvent,
   StyledOfferEventImage,
   StyledOfferEventInfo,
+  StyledTitleWrapper
 } from "./StyledOfferEvent";
 import { StyledText } from "../Text/StyledText";
 
@@ -51,19 +53,12 @@ const OfferEvent = ({ offerData, slug }) => {
           {offerData.informacjeOgolne.miejsce ?
             offerData.informacjeOgolne.miejsce : null}
         </StyledText>
-        <StyledText
-          hasdeclaredfontcolor="#23423D"
-          hasdeclaredfontsize="48px"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontfamily="Nocturne Serif"
-          hasdeclaredmargin="16px 0 20px"
-          as="h3"
-        >
+        <StyledTitleWrapper>
           {offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
             .tytulZUwzglednieniemMiasta ?
-            offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
-              .tytulZUwzglednieniemMiasta : null}
-        </StyledText>
+            parse(offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy
+              .tytulZUwzglednieniemMiasta) : null}
+        </StyledTitleWrapper>
         <Button
           text={
             offerData.stronaOfertaInformacjeDlaElementowWSekcjiEventy

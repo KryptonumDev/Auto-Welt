@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import Button from "../Button/Button";
 
@@ -13,7 +14,8 @@ import {
   StyledContentList,
   StyledImageWrapper,
   StyledElementLink,
-  StyledButtonWrapper
+  StyledButtonWrapper,
+  StyledTitleWrapper,
 } from "./StyledHomeExhibitionsElement";
 
 import ListIcon from "../../images/ListIcon.svg";
@@ -23,7 +25,7 @@ const HomeExhibitionsElement = ({
   isSchdeuleElement,
   buttonVariant,
   slidesCount,
-  dataLength
+  dataLength,
 }) => {
   const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
     .toLocaleString("pl", { dateStyle: "long" })
@@ -36,9 +38,7 @@ const HomeExhibitionsElement = ({
       to={`/wystawy/${exhibitionData.slug}`}
       datalength={dataLength}
     >
-      <StyledHomeExhibitionsElement
-        isscheduleelement={isSchdeuleElement}
-      >
+      <StyledHomeExhibitionsElement isscheduleelement={isSchdeuleElement}>
         <StyledDataInformationWrapper>
           <StyledImageWrapper>
             {exhibitionData.wystawa.informacjeOgolne.tloDlaMiejscaIDaty
@@ -85,8 +85,9 @@ const HomeExhibitionsElement = ({
             hasdeclaredlineheight="1.2em"
             hasdeclaredfontweight="500"
           >
-            {exhibitionData.wystawa.informacjeOgolne.miejsce ?
-              exhibitionData.wystawa.informacjeOgolne.miejsce : null}
+            {exhibitionData.wystawa.informacjeOgolne.miejsce
+              ? exhibitionData.wystawa.informacjeOgolne.miejsce
+              : null}
           </StyledText>
         </StyledDataInformationWrapper>
         <StyledLogoWrapper>
@@ -109,15 +110,11 @@ const HomeExhibitionsElement = ({
           ) : null}
         </StyledLogoWrapper>
         <StyledContentWrapper>
-          <StyledText
-            hasdeclaredfontcolor="var(--primary500)"
-            hasdeclaredfontsize="20px"
-            hasdeclaredlineheight="1.2em"
-            hasdeclaredfontweight="700"
-          >
-            {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem ?
-              exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem : null}
-          </StyledText>
+          <StyledTitleWrapper>
+            {exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem
+              ? parse(exhibitionData.wystawa.informacjeOgolne.tytulPodZdjeciem)
+              : null}
+          </StyledTitleWrapper>
           <StyledContentList>
             {exhibitionData.wystawa.informacjeOgolne.elementyListy.map(
               (element, index) => (
@@ -136,9 +133,7 @@ const HomeExhibitionsElement = ({
             )}
           </StyledContentList>
         </StyledContentWrapper>
-        <StyledButtonWrapper
-          isscheduleelement={isSchdeuleElement}
-        >
+        <StyledButtonWrapper isscheduleelement={isSchdeuleElement}>
           {exhibitionData.wystawa.informacjeOgolne
             .tekstPrzyciskuPrzenoszacegoDoOdpowiednejWystawy ? (
             <Button

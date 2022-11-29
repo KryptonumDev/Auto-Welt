@@ -159,3 +159,11 @@ export const StyledButtonWrapper = styled.div`
     }
   }
 `
+
+export const StyledTitleWrapper = styled.div`
+  color: var(--primary500);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2em;
+  font-family: "Roboto Condensed", Arial;
+`

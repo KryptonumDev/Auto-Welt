@@ -9,9 +9,9 @@ import {
   StyledTitleWrapper,
   StyledTextWrapper,
   StyledTitleBgWrapper,
-  ButtonWrapper
+  ButtonWrapper,
+  StylexTextTitleWrapper
 } from "./StyledHomeArticleElement";
-import { StyledText } from "../Text/StyledText";
 
 const HomeArticleElement = ({ articleData, slug, title }) => {
   return (
@@ -30,15 +30,9 @@ const HomeArticleElement = ({ articleData, slug, title }) => {
           <StyledTitleBgWrapper>
             <StaticImage src="../../images/articleMinBackground.png" alt="tło" />
           </StyledTitleBgWrapper>
-          <StyledText
-            hasdeclaredfontsize="24px"
-            hasdeclaredfontweight="700"
-            hasdeclaredlineheight="1.2em"
-            hasdeclaredfontcolor="var(--primary500)"
-            hasdeclaredpadding="20px 40px"
-          >
-            {title ? title : null}
-          </StyledText>
+          <StylexTextTitleWrapper>
+            {title ? parse(title) : null}
+          </StylexTextTitleWrapper>
         </StyledTitleWrapper>
         <StyledTextWrapper>
           {articleData.opis ? parse(articleData.opis) : null}

@@ -84,3 +84,11 @@ export const StyledOfferEventInfo = styled.div`
     }
   }
 `;
+
+export const StyledTitleWrapper = styled.div`
+  color: #23423D;
+  font-size: 48px;
+  line-height: 1.2em;
+  font-family: "Nocturne Serif";
+  margin: 16px 0 20px;
+`
