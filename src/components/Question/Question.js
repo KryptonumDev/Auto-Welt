@@ -40,7 +40,6 @@ const Question = ({ faqData }) => {
           {images ? <GatsbyImage image={images} alt="tło" objectFit="fill" /> : null}
         </StyledBgWrapper>
       </StyledQuestionWrapper>
-      
       <StyledAnswerWrapper
         itemscope
         itemprop="acceptedAnswer"

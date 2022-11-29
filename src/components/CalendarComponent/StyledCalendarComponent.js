@@ -143,7 +143,7 @@ export const StyledCalendar = styled((props) => (
       top: 9px;
       right: 13px;
       color: #23423D;
-      font: normal 500 32px "Nocturne Serif", Arial;
+      font: normal 500 32px "Nocturne Serif";
     }
 
     @media only screen and (max-width: 768px){

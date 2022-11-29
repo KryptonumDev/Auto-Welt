@@ -131,7 +131,7 @@ export const StyledContentWrapper = styled.div`
     text-align: right;
     color: #23423d;
     margin-top: 20px;
-    font-family: "Nocturne Serif", Arial;
+    font-family: "Nocturne Serif";
   }
 
   strong,
@@ -160,7 +160,7 @@ export const StyledContentWrapper = styled.div`
   h5,
   h6 {
     color: #23423d;
-    font-family: "Nocturne Serif", Arial;
+    font-family: "Nocturne Serif";
     font-weight: 500;
   }
 
@@ -189,7 +189,7 @@ export const StyledContentWrapper = styled.div`
       &:first-letter {
         font-size: 47px;
         color: #edac29;
-        font-family: "Nocturne Serif", Arial;
+        font-family: "Nocturne Serif";
         float: left;
         padding-right: 10px;
       }

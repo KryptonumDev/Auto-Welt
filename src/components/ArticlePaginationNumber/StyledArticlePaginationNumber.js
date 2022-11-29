@@ -6,7 +6,7 @@ export const StyledArticlePaginationNumber = styled.div`
   justify-content: center;
   color: #000;
   cursor: pointer;
-  font: normal 500 28px/1.2em "Nocturne Serif", Arial;
+  font: normal 500 28px/1.2em "Nocturne Serif";
 
   p {
     transition: color 250ms linear;
