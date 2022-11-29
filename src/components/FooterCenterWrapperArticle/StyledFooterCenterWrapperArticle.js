@@ -7,6 +7,7 @@ export const StyledFooterCenterWrapperArticle = styled(Link)`
   margin-bottom: 12px;
   display: block;
   text-decoration: none;
+  color: #23423D;
 
   &:focus-visible {
     outline-width: 1px;
@@ -57,4 +58,11 @@ export const StyledBottom = styled.div`
   background-color: var(--background500);
   flex: 1;
   padding: 17px 18px;
+
+  font-size: 16px;
+  line-height: 1.2em;
+  color: var(--primary500);
+  font-weight: 700;
+  font-family: "Roboto Condensed";
+  color: #23423D;
 `;

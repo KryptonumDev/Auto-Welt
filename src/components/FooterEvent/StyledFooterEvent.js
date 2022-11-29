@@ -42,6 +42,11 @@ export const StyledFooterEventContent = styled.div`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     overflow: hidden;  
+    font-size: 16px;
+    font-family: "Roboto Condensed";
+    line-height: 1.2em;
+    font-weight: 700;
+    color: var(--primary500)
   }
 `;
 

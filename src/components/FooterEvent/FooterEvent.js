@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledText } from "../Text/StyledText";
+import parse from "html-react-parser";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import {
@@ -21,14 +21,7 @@ const FooterEvent = ({ articleData, slug }) => {
         ) : null}
       </StyledFooterEventImage>
       <StyledFooterEventContent>
-        <StyledText
-          hasdeclaredfontsize="16px"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontweight="700"
-          hasdeclaredfontcolor="var(--primary500)"
-        >
-          {articleData.tytulPodZdjeciem ? articleData.tytulPodZdjeciem : null}
-        </StyledText>
+        {articleData.tytulPodZdjeciem ? parse(articleData.tytulPodZdjeciem) : null}
       </StyledFooterEventContent>
     </StyledFooterEvent>
   );

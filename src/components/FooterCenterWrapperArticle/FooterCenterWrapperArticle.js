@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 import {
   StyledFooterCenterWrapperArticle,
@@ -23,14 +24,7 @@ const FooterCenterWrapperArticle = ({ articleData, slug, title }) => {
         ) : null}
       </StyledTop>
       <StyledBottom>
-        <StyledText
-          hasdeclaredfontsize="16px"
-          hasdeclaredlineheight="1.2em"
-          hasdeclaredfontcolor="var(--primary500)"
-          hasdeclaredfontweight="700"
-        >
-          {title ? title : null}
-        </StyledText>
+        {title ? parse(title) : null}
       </StyledBottom>
     </StyledFooterCenterWrapperArticle>
   );
