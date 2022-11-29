@@ -129,24 +129,16 @@ export const StyledHomeContactForm = styled.div`
     }
   }
 
-  @media only screen and (max-width: 637px) {
-    > form {
-      gap: 26px;
-    }
-  }
-
-  @media only screen and (max-width: 560px){
-    > form {
-      gap: 22px;
-    }
-  }
-
   @media only screen and (max-width: 657px) {
     padding: 10px 22px;
     
     > form {
       gap: 22px;
     }
+  }
+
+  @media only screen and (max-width: 560px){
+    padding-bottom: 40px;
   }
 `;
 

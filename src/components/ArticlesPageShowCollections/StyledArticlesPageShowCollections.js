@@ -8,7 +8,7 @@ export const StyledArticlesPageShowCollections = styled.section`
   margin: 120px auto;
 
   @media only screen and (max-width: 768px) {
-    margin-top: 60px auto;
+    margin: 60px auto 50px;
     padding: 0 16px;
 
     > h2 {
@@ -32,6 +32,7 @@ export const StyledSlidesWrapper = styled.div`
   @media only screen and (max-width: 768px) {
     flex-direction: column;
     gap: 40px;
+    margin: 40px 0 70px;
   }
 `;
 export const StyledSlide = styled(Link)`
@@ -150,13 +151,7 @@ export const StyledReqWrapper = styled.div`
   margin: 0 auto 120px;
 
   @media only screen and (max-width: 768px) {
-    margin-top: 0 auto 60px;
+    margin: 0 auto 60px;
     padding: 0 16px 0 0;
-  }
-
-  @media only screen and (max-width: 768px) {
-    > div {
-      margin-top: 0;
-    }
   }
 `;
