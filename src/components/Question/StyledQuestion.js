@@ -12,13 +12,19 @@ export const StyledQuestion = styled.details`
     outline-offset: 4px;
   }
 
+  &[open]{
+    svg{
+      transform: rotateZ(180deg);
+    }
+  }
+
   @media only screen and (max-width: 768px) {
     padding-bottom: 0;
   }
 
-  &[open]{
-    svg{
-      transform: rotateZ(180deg);
+  @media only screen and (max-width: 420px){
+    summary::-webkit-details-marker {
+      display:none;
     }
   }
 `;
@@ -69,11 +75,11 @@ export const StyledQuestionWrapper = styled.summary`
 
 
   &:focus-visible {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: #da9610;
-      outline-offset: 4px;
-    }
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #da9610;
+    outline-offset: 4px;
+  }
     
   > svg {
     position: relative;
@@ -99,6 +105,7 @@ export const StyledBgWrapper = styled.div`
     height: 100%;
   }
 `;
+
 export const StyledQuestionText = styled.div`
   position: relative;
   z-index: 1;
