@@ -12,6 +12,13 @@ export const StyledExhibitionHeroSection = styled.div`
   }
 `;
 
+export const StyledTitleWrapper = styled.div`
+  font-size: 48px;
+  line-height: 1.2em;
+  color: #23423D;
+  font-family: "Nocturne Serif";
+`
+
 export const StyledLeftWrapper = styled.div`
   width: 50%;
   display: flex;

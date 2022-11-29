@@ -11,6 +11,7 @@ import {
   StyledImageWrapper,
   StyledDataWrapper,
   StyledDataImage,
+  StyledTitleWrapper
 } from "./StyledExhibitionHeroSection";
 import { StyledTagImage } from "../ArticleHeroSection/StyledArticleHeroSection";
 import { StyledText } from "../Text/StyledText";
@@ -47,15 +48,9 @@ const ExhibitionHeroSection = ({ heroData }) => {
           </StyledText>
         </StyledTag>
         <StyledTextWrapper>
-          <StyledText
-            hasdeclaredfontfamily="Nocturne Serif"
-            hasdeclaredfontsize="48px"
-            hasdeclaredfontcolor="#23423D"
-            hasdeclaredlineheight="1.2em"
-            as="h1"
-          >
-            {heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem}
-          </StyledText>
+          <StyledTitleWrapper>
+            {parse(heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem)}
+          </StyledTitleWrapper>
           {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna
             ?.krotkiOpisPodTytulem ?
             parse(
