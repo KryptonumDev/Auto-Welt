@@ -142,6 +142,7 @@ export const StyledButtonWrapper = styled.div`
       text-transform: uppercase;
       text-align: center;
       line-height: 1.3em;
+      font-family: "Roboto Condensed";
     }
 
     &:hover {
@@ -187,7 +188,7 @@ export const StyledCustomCheckbox = styled.div`
   position: relative;
 
   label {
-    font: 500 16px/19px Roboto Condensed;
+    font: 500 16px/19px "Roboto Condensed";
     color: ${({ iserror }) => (iserror ? "#D63D3D" : "var(--primary500)")};
     cursor: pointer;
     position: relative;
