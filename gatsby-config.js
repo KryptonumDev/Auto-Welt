@@ -11,6 +11,18 @@ module.exports = {
     },
     plugins: [
         {
+          resolve: `gatsby-plugin-google-analytics`,
+          options: {
+            trackingId: "G-3CW10V0RC3",
+            head: false,
+            pageTransitionDelay: 0,
+            defer: false,
+            sampleRate: 5,
+            siteSpeedSampleRate: 10,
+            enableWebVitalsTracking: true,
+          },
+        },
+        {
             resolve: "gatsby-source-wordpress",
             options: {
                 url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
