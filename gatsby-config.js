@@ -10,17 +10,23 @@ module.exports = {
         siteUrl: `https://www.auto-welt.info`,
     },
     plugins: [
+        // {
+        //     resolve: `gatsby-plugin-facebook-pixel`,
+        //     options: {
+        //         pixelId: "pixel id here",
+        //     },
+        // },
         {
-          resolve: `gatsby-plugin-google-analytics`,
-          options: {
-            trackingId: "G-3CW10V0RC3",
-            head: false,
-            pageTransitionDelay: 0,
-            defer: false,
-            sampleRate: 5,
-            siteSpeedSampleRate: 10,
-            enableWebVitalsTracking: true,
-          },
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "G-3CW10V0RC3",
+                head: false,
+                pageTransitionDelay: 0,
+                defer: false,
+                sampleRate: 5,
+                siteSpeedSampleRate: 10,
+                enableWebVitalsTracking: true,
+            },
         },
         {
             resolve: "gatsby-source-wordpress",
@@ -100,12 +106,12 @@ module.exports = {
             },
         },
         {
-          resolve: 'gatsby-plugin-robots-txt',
-          options: {
-            host: 'https://auto-welt.gatsbyjs.io',
-            sitemap: 'https://auto-welt.gatsbyjs.io/sitemap/sitemap-0.xml',
-            policy: [{ userAgent: '*', allow: '/' }]
-          }
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                host: 'https://auto-welt.gatsbyjs.io',
+                sitemap: 'https://auto-welt.gatsbyjs.io/sitemap/sitemap-0.xml',
+                policy: [{ userAgent: '*', allow: '/' }]
+            }
         },
     ],
 };

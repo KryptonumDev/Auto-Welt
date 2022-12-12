@@ -16,6 +16,7 @@ const GlobalLayout = ({ children }) => {
         <Helmet htmlAttributes={{
           lang: 'pl',
         }}>
+          <meta name="google-site-verification" content="dvUsxpDj30nHWd9APHRk6I-n7020q-Rsz36_akV98rw" />
           <meta name="robots" data-react-helmet="true" />
         </Helmet>
         <GlobalStyle />
