@@ -5,12 +5,17 @@ export function Head({
     data
 }) {
     const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo
-    const canonical = "https://auto-welt.info" + seo.opengraphUrl;
+    const canonical = "https://auto-welt.info" + seo.opengraphUrl + '/';
+
+    if (seo.opengraphUrl === '/404') {
+        return (
+            <title>{seo.title}</title>
+        )
+    }
 
     return (
         <>
             <meta charSet="utf-8" />
-            <meta name="robots" />
             <meta property="og:site_name" content={seo.opengraphSiteName} />
 
             <script type="application/ld+json">

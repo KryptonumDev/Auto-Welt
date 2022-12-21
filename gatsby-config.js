@@ -108,8 +108,8 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: 'https://auto-welt.gatsbyjs.io',
-                sitemap: 'https://auto-welt.gatsbyjs.io/sitemap/sitemap-0.xml',
+                host: 'https://auto-welt.info',
+                sitemap: 'https://auto-welt.info/sitemap-0.xml',
                 policy: [{ userAgent: '*', allow: '/' }]
             }
         },
