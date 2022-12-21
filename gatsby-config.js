@@ -10,12 +10,12 @@ module.exports = {
         siteUrl: `https://www.auto-welt.info`,
     },
     plugins: [
-        // {
-        //     resolve: `gatsby-plugin-facebook-pixel`,
-        //     options: {
-        //         pixelId: "pixel id here",
-        //     },
-        // },
+        {
+            resolve: `gatsby-plugin-facebook-pixel`,
+            options: {
+                pixelId: "699546608231911",
+            },
+        },
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
