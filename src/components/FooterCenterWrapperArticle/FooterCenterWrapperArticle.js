@@ -7,7 +7,6 @@ import {
   StyledTop,
   StyledBottom,
 } from "./StyledFooterCenterWrapperArticle";
-import { StyledText } from "../Text/StyledText";
 
 const FooterCenterWrapperArticle = ({ articleData, slug, title }) => {
   return (
