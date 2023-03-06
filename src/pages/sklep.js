@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import ShopInProgress from "../components/ShopInProgress/ShopInProgress";
+import NewArrivals from "../shop-components/new-arrivals";
 
 const Shop = ({ data }) => {
   return (
     <>
-      <ShopInProgress shopData={data.wpPage.sklep} />
+      <NewArrivals/>
     </>
   );
 };
