@@ -3,6 +3,7 @@ import { MenuProvider } from "../../context/menuContext";
 import { Helmet } from 'react-helmet'
 import GlobalStyle from "../../styles/GlobalStyle";
 import Header from "../Header/Header";
+import { CartProvider } from "react-use-cart";
 import Footer from "../Footer/Footer";
 
 import {
@@ -21,9 +22,11 @@ const GlobalLayout = ({ children }) => {
         </Helmet>
         <GlobalStyle />
         <StyledOverflowWrapper>
-          <Header />
-          {children}
-          <Footer />
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+          </CartProvider>
         </StyledOverflowWrapper>
       </MenuProvider>
     </>

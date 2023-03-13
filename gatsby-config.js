@@ -68,24 +68,6 @@ module.exports = {
                 theme_color: `#fff`,
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-offline`,
-        //     options: {
-        //         precachePages: [
-        //             `/kolekcje-modeli/`,
-        //             `/kolekcje-modeli/*`,
-        //             `/artykuly/*`,
-        //             `/wystawy/*`,
-        //             "/terminarz/",
-        //             "/sklep/",
-        //             "/regulamin-wystaw/",
-        //             "/polityka-prywatnosci/",
-        //             "/oferta/",
-        //             "/o-mnie/",
-        //             "/kontakt/",
-        //         ],
-        //     },
-        // },
         {
             resolve: `gatsby-source-filesystem`,
             options: {

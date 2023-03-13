@@ -75,4 +75,62 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  const { data: { allWpProduct } } = await graphql(`
+    {
+      allWpProduct {
+        nodes {
+          name
+          slug
+          id
+          databaseId
+        }
+      }
+    } 
+  `);
+
+  allWpProduct.nodes.map((el) => {
+
+    createPage({
+      path: `/sklep/modele/MAINCATEGORY/${el.slug}/`,
+      component: require.resolve(
+        "./src/templates/product-page.js"
+      ),
+      context: {
+        itemId: el.databaseId,
+        id: el.id, 
+        title: el.name
+      }, 
+    });
+
+  });
+
+  const { data: { allWpProductCategory } } = await graphql(`
+  {
+    allWpProductCategory { 
+      nodes {
+        id
+        slug
+        name
+      }
+    }
+  }
+  `);
+
+  allWpProductCategory.nodes.map((el) => {
+    createPage({
+      path: `/sklep/modele/${el.slug}/`,
+      component: require.resolve(
+        "./src/templates/category-page.js"
+      ),
+      context: {
+        id: el.id,
+        title: el.name
+      },
+    });
+
+  }); 
+
+
 };
+
