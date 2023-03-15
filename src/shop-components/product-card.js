@@ -1,5 +1,6 @@
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { useMemo } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
@@ -7,18 +8,39 @@ import { Button } from "./button"
 export default function ProductCard({ data }) {
     const { addItem } = useCart()
 
+    let scale = useMemo(() => {
+        let val = null
+
+        data.attributes.every(el => {
+            if (el.name === 'Skala') {
+                val = el.options[0]
+                return false
+            }
+            return true
+        })
+
+        return val
+    }, [data])
+
     return (
         <Wrapper>
-            <GatsbyImage image={data.featuredImage.node.localFile.childImageSharp.gatsbyImageData} alt={data.featuredImage.node.altText} />
+            <Link to={`/sklep/modele/${data.categories[0].slug}/${data.slug}/`} />
+            <GatsbyImage image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
             <TextPart>
                 <div>
                     <Title>{data.name}</Title>
-                    <Scale>Scala: {data.scale ? data.scale : 'nie wskazana'}</Scale>
-                    <Price className={data.onSale ? 'discount' : ""}>
-                        <span className={data.onSale ? 'discount-regular-price' : 'regular-price'} dangerouslySetInnerHTML={{ __html: data.regularPrice.replace(',00', '') }} />
+                    {scale
+                        ? <Scale>Scala: {scale}</Scale>
+                        : null}
+                    <Price className={data.on_sale ? 'discount' : ""}>
+                        <span className={data.on_sale ? 'discount-regular-price' : 'regular-price'} >
+                            {data.regular_price}&nbsp;zł
+                        </span>
 
-                        {data.onSale && (
-                            <span className="discount-price" dangerouslySetInnerHTML={{ __html: data.price.replace(',00', '') }} />
+                        {data.on_sale && (
+                            <span className="discount-price" >
+                                {data.price}&nbsp;zł
+                            </span>
                         )}
                     </Price>
                 </div>
@@ -34,6 +56,10 @@ const Wrapper = styled.div`
     border-top: 4px solid #23423D;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
 
+    a{
+        position: absolute;
+        inset: 0;
+    }
 `
 
 const TextPart = styled.div`

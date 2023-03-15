@@ -2,10 +2,10 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import styled from "styled-components"
 
-export default function Steps({ step }) {
+export default function Steps({ setStep, step }) {
     return (
 
-        <NumbersGrid>
+        <NumbersGrid step={step}>
             <Step className={step > 0 ? 'active' : ''}>
                 <Image>
                     <StaticImage src="../../static/images/circle.png" />
@@ -14,7 +14,7 @@ export default function Steps({ step }) {
                 <p>Wybierz produkty</p>
             </Step>
             <span className={step > 0 ? 'active line' : 'line'} />
-            <Step className={step > 0 ? 'active' : ''}>
+            <Step onClick={() => { setStep(step > 1 ? 1 : step) }} className={step > 0 ? 'active' : ''}>
                 <Image>
                     <StaticImage src="../../static/images/circle.png" />
                     <span>2</span>
@@ -22,7 +22,7 @@ export default function Steps({ step }) {
                 <p>Dane osobowe</p>
             </Step>
             <span className={step > 0 ? 'active line' : 'line'} />
-            <Step className={step > 1 ? 'active' : ''}>
+            <Step onClick={() => { setStep(step > 2 ? 2 : step) }} className={step > 1 ? 'active' : ''}>
                 <Image>
                     <StaticImage src="../../static/images/circle.png" />
                     <span>3</span>
@@ -30,7 +30,7 @@ export default function Steps({ step }) {
                 <p>Opcje dostawy</p>
             </Step>
             <span className={step > 1 ? 'active line' : 'line'} />
-            <Step className={step > 2 ? 'active' : ''}>
+            <Step onClick={() => { setStep(step > 3 ? 3 : step) }} className={step > 2 ? 'active' : ''}>
                 <Image>
                     <StaticImage src="../../static/images/circle.png" />
                     <span>4</span>
@@ -38,7 +38,7 @@ export default function Steps({ step }) {
                 <p>Adres dostawy</p>
             </Step>
             <span className={step > 2 ? 'active line' : 'line'} />
-            <Step className={step > 3 ? 'active' : ''}>
+            <Step onClick={() => { setStep(step > 4 ? 4 : step) }} className={step > 3 ? 'active' : ''}>
                 <Image>
                     <StaticImage src="../../static/images/circle.png" />
                     <span>5</span>
@@ -50,6 +50,18 @@ export default function Steps({ step }) {
 }
 
 const NumbersGrid = styled.div`
+
+    @media(max-width: 840px){
+        min-width: 640px;
+    }
+
+    @media (max-width: 666px) {
+        transition: left .3s ease-out;
+        position: relative;
+        left: ${props => (props.step - 1) * -25}%;
+    }
+
+    align-items: flex-start;
     display: grid;
     grid-template-columns: 68px 1fr 68px 1fr 68px 1fr 68px 1fr 68px;
     grid-gap: 10px;
@@ -81,8 +93,11 @@ const Image = styled.div`
     }
 `
 
-const Step = styled.div`
+const Step = styled.button`
+    border: none;
+    background-color: transparent;
     text-align: center;
+    cursor: pointer;
     p{
         margin-top: 8px;
     }

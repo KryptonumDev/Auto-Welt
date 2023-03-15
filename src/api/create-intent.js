@@ -1,4 +1,9 @@
-const stripe = require("stripe")('sk_test_51MhDaNI9MWE3PvcYwmreLNO7Ge1Jda1RJFTXmKFjvRod9yqpTvGJ0QBvXiaUwoVwoQb35WErvEoewnyzIwKEOLX9003ePuMQ8E');
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
+const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY);
+
 
 export default async function handler(req, res) {
     // Create a PaymentIntent with the order amount and currency
@@ -8,6 +13,7 @@ export default async function handler(req, res) {
         automatic_payment_methods: {
             enabled: true,
         },
+        metadata: { order_id: req.body.id },
     });
     res.send({
         clientSecret: paymentIntent.client_secret,

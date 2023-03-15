@@ -9,7 +9,7 @@ export default function Empty() {
         <Wrapper>
             <StaticImage className="image" src='./../../static/images/cart.png' alt='koszyk zakupowy' />
             <h2>Twój koszyk jest pusty</h2>
-            <YellowButtonLink><span>WRÓĆ DO ZAKUPÓW</span></YellowButtonLink>
+            <YellowButtonLink to='/sklep/'><span>WRÓĆ DO ZAKUPÓW</span></YellowButtonLink>
         </Wrapper>
     )
 }
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
         text-align: center;
         font-family: 'Nocturne Serif';
         color: #23423D;
-        font-size: 48px;
+        font-size: clamp(34px, ${38 / 768 * 100}vw, 48px);
     }
 
     .image{

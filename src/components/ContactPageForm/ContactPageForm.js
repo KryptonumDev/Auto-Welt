@@ -92,10 +92,11 @@ const ContactPageForm = ({ dataForm }) => {
   };
 
   return (
-    <StyledContactPageForm>
-      <StyledLeftWrapper>
+    <StyledContactPageForm className="contact-form">
+      <StyledLeftWrapper className="left">
         <StyledModel>
           <GatsbyImage
+          className="left-image"
             image={images}
             alt={dataForm.zdjecieDoFormularzaMobile?.altText || " "}
             objectFit="fill"

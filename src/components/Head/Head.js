@@ -4,7 +4,7 @@ import React from "react";
 export function Head({
     data
 }) {
-    const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo
+    const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo ?? data.wpProduct.seo
     const canonical = "https://auto-welt.info" + seo.opengraphUrl + '/';
 
     if (seo.opengraphUrl === '/404') {

@@ -6,3 +6,4 @@ public
 .env.production
 .vscode/
 package-lock.json
+.wordpress-cache

@@ -1,5 +1,116 @@
-exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions;
+const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const api = new WooCommerceRestApi({
+  url: `${process.env.GATSBY_WORDPRESS_URL}/`,
+  consumerKey: process.env.GATSBY_WOO_KEY,
+  consumerSecret: process.env.GATSBY_WOO_SECRET,
+  version: 'wc/v3'
+});
+
+
+exports.sourceNodes = async (
+  { actions: { createNode }, createNodeId, createContentDigest, store, cache }) => {
+
+  let products = await api.get("products")
+
+  const processProduct = async (product, args) => {
+
+    product.images = await Promise.all(product.images.map(async image => {
+      let fileNode
+      try {
+        fileNode = await createRemoteFileNode({
+          url: image.src,
+          ...args
+        })
+
+      } catch (e) {
+        console.log("e", e)
+      }
+      if (fileNode) {
+        image.localFile___NODE = fileNode.id
+        return image
+      }
+    }))
+
+    const nodeId = createNodeId(`wc-product-${product.id}`)
+    const nodeContent = JSON.stringify(product)
+
+    return Object.assign({}, product, {
+      id: nodeId,
+      databaseId: product.id,
+      parent: null,
+      children: [],
+      internal: {
+        type: `wcProduct`,
+        content: nodeContent,
+        contentDigest: createContentDigest(product)
+      }
+    })
+  }
+
+  await asyncForEach(products.data, async (product) => {
+    const productNode = await processProduct(product, { store, cache, createNode, createNodeId })
+
+    createNode(productNode)
+  })
+
+};
+
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array)
+  }
+}
+
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+
+  let categories = await api.get("products/categories")
+
+  const { data: { allWcProduct } } = await graphql(`
+    {
+      allWcProduct {
+        nodes {
+          name
+          slug
+          id
+          databaseId
+          categories {
+            slug
+          }
+        }
+      }
+    } 
+  `);
+
+  allWcProduct.nodes.map(el => {
+    createPage({
+      path: `/sklep/modele/${el.categories[0].slug}/${el.slug}/`,
+      component: require.resolve(
+        "./src/templates/product-page.js"
+      ),
+      context: {
+        itemId: el.databaseId,
+        id: el.id,
+        title: el.name
+      },
+    });
+  });
+
+  categories.data.map(el => {
+    createPage({
+      path: `/sklep/modele/${el.slug}/`,
+      component: require.resolve(
+        "./src/templates/category-page.js"
+      ),
+      context: {
+        data: el,
+      },
+    });
+  });
 
   const kolekcjeData = await graphql(`
     {
@@ -76,61 +187,5 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  const { data: { allWpProduct } } = await graphql(`
-    {
-      allWpProduct {
-        nodes {
-          name
-          slug
-          id
-          databaseId
-        }
-      }
-    } 
-  `);
-
-  allWpProduct.nodes.map((el) => {
-
-    createPage({
-      path: `/sklep/modele/MAINCATEGORY/${el.slug}/`,
-      component: require.resolve(
-        "./src/templates/product-page.js"
-      ),
-      context: {
-        itemId: el.databaseId,
-        id: el.id, 
-        title: el.name
-      }, 
-    });
-
-  });
-
-  const { data: { allWpProductCategory } } = await graphql(`
-  {
-    allWpProductCategory { 
-      nodes {
-        id
-        slug
-        name
-      }
-    }
-  }
-  `);
-
-  allWpProductCategory.nodes.map((el) => {
-    createPage({
-      path: `/sklep/modele/${el.slug}/`,
-      component: require.resolve(
-        "./src/templates/category-page.js"
-      ),
-      context: {
-        id: el.id,
-        title: el.name
-      },
-    });
-
-  }); 
-
 
 };
-

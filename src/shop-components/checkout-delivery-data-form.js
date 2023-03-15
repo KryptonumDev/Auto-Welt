@@ -89,4 +89,8 @@ const Wrapper = styled.form`
     .country{
         max-width: 240px;
     }
+    
+    button{
+        margin-left: 10px!important;
+    }
 `

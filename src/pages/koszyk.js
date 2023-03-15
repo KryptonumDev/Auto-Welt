@@ -28,7 +28,7 @@ export default function KoszykPage() {
 
   return (
     <Main>
-      <Title>koszyk</Title>
+      <Title>Koszyk</Title>
       {totalUniqueItems > 0
         ? <CartContent
           items={items}
@@ -65,12 +65,12 @@ export const query = graphql`
 `;
 
 
-const Main = styled.main`
-  max-width: 1080px;
+const Main = styled.div`
+  max-width: 1112px;
   width: 100%;
   margin: 120px auto;
-  padding: 0 32px;
-  box-sizing: content-box;
+  padding: 0 16px;
+  box-sizing: border-box;
 
   *{
     font-family: 'Roboto Condensed';
@@ -82,7 +82,7 @@ const Main = styled.main`
 const Title = styled.h1`
   font-family: 'Nocturne Serif';
   font-weight: 400;
-  font-size: 48px;
+  font-size: clamp(34px, ${38 / 768 * 100}vw, 48px);
   color: #23423D;
-  margin-bottom: 40px;
+  margin-bottom: clamp(25px, ${25 / 768 * 100}vw, 40px);
 `

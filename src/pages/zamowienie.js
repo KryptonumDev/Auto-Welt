@@ -1,5 +1,5 @@
 import React, { useMemo } from "react"
-import { graphql, Link, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import Checkout from "../shop-components/checkout-process"
@@ -20,6 +20,10 @@ const Zamowienie = ({ location }) => {
       navigate('/koszyk/')
     }
   }, []);
+
+  if(typeof window === 'undefined'){
+    return null
+  }
 
   return (
     <Wrapper>
@@ -52,12 +56,13 @@ export const query = graphql`
 `;
 
 
-const Wrapper = styled.main`
-  max-width: 1080px;
+const Wrapper = styled.div`
+  max-width: 1112px;
   width: 100%;
   margin: 120px auto;
-  padding: 0 32px;
-  box-sizing: content-box;
+  padding: 0 16px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 
   *{
     font-family: 'Roboto Condensed';

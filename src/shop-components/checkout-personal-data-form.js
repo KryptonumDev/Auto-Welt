@@ -94,5 +94,9 @@ const Wrapper = styled.form`
         font-size: 18px;
         color: #3E635D;
     }
+    
+    button{
+        margin-left: 10px!important;
+    }
 
 `

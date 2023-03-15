@@ -7,16 +7,18 @@ import Divider from './../shop-components/organize-divider'
 import AllCategories from './../shop-components/all-categories'
 import NewPosts from './../shop-components/new-posts'
 import Hero from "../shop-components/text-hero"
+import Newsletter from "../shop-components/newsletter"
 
-const Shop = ({ data: { allWpProduct } }) => {
+const Shop = ({ data: { allWcProduct } }) => {
   return (
     <main>
       <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
 w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
       {/* <NewArrivals /> */}
-      {/* <ProductListing products={allWpProduct.nodes} /> */}
+      <ProductListing products={allWcProduct.nodes} />
       <Divider />
       <AllCategories />
+      <Newsletter />
       <NewPosts />
     </main>
   );
@@ -28,27 +30,31 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query shopQuery {
-    allWpProduct {
+    allWcProduct {
       nodes {
+        id
         name
+        slug
         databaseId
-        onSale
-        featuredImage {
-          node {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
+        attributes {
+          name
+          options
+        }
+        images {
+          alt
+          name
+          localFile{
+            childImageSharp{
+              gatsbyImageData
             }
           }
         }
-        ... on WpSimpleProduct {
-          id
-          name
-          price
-          regularPrice
+        categories {
+          slug
         }
+        on_sale
+        regular_price
+        price
       }
     }
     wpPage(id: { eq: "cG9zdDo0NjU=" }) {

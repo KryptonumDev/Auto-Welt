@@ -66,4 +66,8 @@ const Wrapper = styled.form`
                 }
             }
     }
+    
+    button{
+        margin-left: 10px !important;
+    }
 `

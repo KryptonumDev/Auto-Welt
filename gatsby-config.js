@@ -35,6 +35,15 @@ module.exports = {
                         },
                     },
                 },
+                schema: {
+                  timeout: 30000000,
+                },
+                production: {
+                    hardCacheMediaFiles: false,
+                },
+                develop: {
+                    hardCacheMediaFiles: false,
+                }
             },
         },
         "gatsby-plugin-sitemap",
