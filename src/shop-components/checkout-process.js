@@ -89,14 +89,15 @@ export default function Checkout({ items, sum }) {
                 },
                 line_items: line_items
             }
-            
+
             WooCommerce.post("orders", params) // add delivery price to params
                 .then((response) => {
                     setOrderNumber(response.data.id)
+                    debugger
                     fetch("/api/create-intent", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ count: sum + delivery.price, id: response.data.id }),
+                        body: JSON.stringify({ count: (sum + delivery.price) * 100, id: response.data.id }),
                     })
                         .then((res) => res.json())
                         .then((data) => {
@@ -108,7 +109,15 @@ export default function Checkout({ items, sum }) {
                             //     .then((response) => {
                             //         console.log(response.data);
                             //     })
-                        });
+                        })
+                        .catch(erorr => {
+                            debugger
+                            // ANULATE order
+                        })
+                })
+                .catch(erorr => {
+                    debugger
+                    // SHOW ERROR
                 })
 
 
@@ -137,7 +146,7 @@ export default function Checkout({ items, sum }) {
                     <>
                         {clientSecret
                             ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
-                                <PopUp />
+                                <PopUp clientSecret={clientSecret} />
                             </Elements>
                             : <div>Loader</div>
                         }

@@ -2,7 +2,7 @@ import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React from "react"
 import styled from "styled-components"
 
-export default function PopUp({ }) {
+export default function PopUp({ clientSecret }) {
     const stripe = useStripe()
     const elements = useElements()
 
@@ -10,32 +10,30 @@ export default function PopUp({ }) {
         event.preventDefault()
         if (!stripe || !elements) return;
 
+        const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+        if (paymentIntent && paymentIntent.status === 'succeeded') {
+            console.log(paymentIntent.status)
+            // Handle successful payment here
+            debugger
+        } else {
+            console.log(paymentIntent.status)
+            // Handle unsuccessful, processing, or canceled payments and API errors here
+            debugger
+        }
 
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: "http://localhost:8000/podziekowanie/", // success url
+                return_url: "http://localhost:8000/podziekowanie/"
             },
+            redirect: 'if_required'
         })
-
-
-        if (result.error) {
-            // Show error to your customer (for example, payment details incomplete)
-            console.log(result.error.message);
-        } else {
-            // Your customer will be redirected to your `return_url`. For some payment
-            // methods like iDEAL, your customer will be redirected to an intermediate
-            // site first to authorize the payment, then redirected to the `return_url`.
-
-
-            // WooCommerce.post("orders", data)
-            // .then((response) => {
-            //   debugger
-            // })
-            // .catch((error) => {
-            //   debugger
-            // });
-        }
+            .then(function (result) {
+                debugger
+                if (result.error) {
+                    // Inform the customer that there was an error.
+                }
+            });
     };
 
     return (
