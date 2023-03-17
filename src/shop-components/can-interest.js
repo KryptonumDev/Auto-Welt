@@ -4,7 +4,7 @@ import styled from "styled-components"
 export default function CanInterest () {
     return(
         <Wrapper>
-            <h2>Mogą cię zainteresować</h2>
+            <h2></h2>
         </Wrapper>
     )
 }

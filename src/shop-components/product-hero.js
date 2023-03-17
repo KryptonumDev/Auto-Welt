@@ -102,7 +102,7 @@ export default function Hero({ data }) {
                         <div className="quantity-calculator__content">
                             <span>Ilość:</span>
                             <div className="calculator">
-                                <button onClick={() => { setQuantity(quantity - 1) }} className="minus">
+                                <button disabled={quantity <= 1} onClick={() => { setQuantity(quantity - 1) }} className="minus">
                                     <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14 0V2H0V0H14Z" fill="#23423D" />
                                     </svg>
@@ -308,9 +308,13 @@ const Content = styled.div`
             height: 42px;
             cursor: pointer;
             border-right: unset;
+
+            &:disabled{
+                cursor: unset;
+            }
         }
 
-            .quantity{
+        .quantity{
             height: 42px;
             width: 42px;
             font-size: 24px;
@@ -322,6 +326,10 @@ const Content = styled.div`
             background-color: #EDAC2A;
             cursor: pointer;
             border-left: unset;
+
+            &:disabled{
+                cursor: unset;
+            }
         }
     }
 

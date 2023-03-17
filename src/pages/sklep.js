@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { graphql } from "gatsby"
 
-import NewArrivals from "../shop-components/new-arrivals"
+import ProductSlider from "../shop-components/product-slider"
 import ProductListing from "../shop-components/product-listing"
 import Divider from './../shop-components/organize-divider'
 import AllCategories from './../shop-components/all-categories'
@@ -10,11 +10,22 @@ import Hero from "../shop-components/text-hero"
 import Newsletter from "../shop-components/newsletter"
 
 const Shop = ({ data: { allWcProduct } }) => {
+
+  const filtredProducts = useMemo(() => {
+    return allWcProduct.nodes.filter((data) => {
+      const createTime = new Date(data.date_created)
+      const currentTime = new Date()
+      const difference = Math.ceil((currentTime - createTime) / (1000 * 60 * 60 * 24))
+
+      return difference <= 31
+    })
+  }, [allWcProduct])
+  
   return (
     <main>
       <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
 w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
-      {/* <NewArrivals /> */}
+      <ProductSlider title={'Nowości'}  products={filtredProducts}/>
       <ProductListing products={allWcProduct.nodes} />
       <Divider />
       <AllCategories />
@@ -32,6 +43,7 @@ export const query = graphql`
   query shopQuery {
     allWcProduct {
       nodes {
+        date_created
         id
         name
         slug

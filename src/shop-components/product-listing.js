@@ -23,6 +23,7 @@ export default function ProductListing({ products }) {
             <Grid>
                 {products.map(el => <ProductCard data={el} />)}
             </Grid>
+            pagination
         </Wrapper>
     )
 }

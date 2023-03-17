@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
@@ -18,7 +18,8 @@ import Logo from "../../images/Logo.svg";
 
 import InstagramIcon from "../../images/headerIcons/instagram.svg";
 import FacebookIcon from "../../images/headerIcons/facebook.svg";
-
+import { StaticImage } from "gatsby-plugin-image";
+import { useCart } from "react-use-cart";
 const Header = () => {
   const data = useStaticQuery(graphql`
     query headerQuery {
@@ -45,6 +46,8 @@ const Header = () => {
       document.body.style.overflow = "unset";
     }
   }, [isOpen]);
+
+  const { totalUniqueItems } = useCart()
 
   return (
     <StyledHeader>
@@ -125,7 +128,11 @@ const Header = () => {
             Kontakt
           </StyledLink>
           <StyledIconsWrapper>
-            {data.wpPage.globalConfig.naglowek.linkDoFacebooka ? (
+            <Link className="cart" to='/koszyk/'>
+              <StaticImage src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
+              <span>{totalUniqueItems}</span>
+            </Link>
+            {/* {data.wpPage.globalConfig.naglowek.linkDoFacebooka ? (
               <a
                 href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
                 target="_blank"
@@ -144,7 +151,7 @@ const Header = () => {
               >
                 <InstagramIcon />
               </a>
-            ) : null}
+            ) : null} */}
           </StyledIconsWrapper>
         </StyledRightWrapper>
       </StyledNav>
@@ -159,3 +166,5 @@ const Header = () => {
 };
 
 export default Header;
+
+//<StaticImage src="./../../../static/images/cart-button-green.png" alt='koszyk zakupowy' />

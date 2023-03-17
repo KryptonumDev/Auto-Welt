@@ -2,8 +2,8 @@ import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import ContactPageForm from "../components/ContactPageForm/ContactPageForm"
-import CanInterest from "../shop-components/can-interest"
 import Hero from "../shop-components/product-hero"
+import ProductSlider from "../shop-components/product-slider"
 
 export default function ProductPage({ data: { wpPage, wcProduct } }) {
   return (
@@ -14,7 +14,7 @@ export default function ProductPage({ data: { wpPage, wcProduct } }) {
         <p className="text"><b>Napisz do mnie.</b> Chętnie rozwieję wszystkie wątpliwości.</p>
         <ContactPageForm dataForm={wpPage.kontakt.pierwszaSekcja} />
       </Contact>
-      <CanInterest />
+      <ProductSlider title={'Mogą cię zainteresować'} products={[]} />
     </Wrapper>
   )
 }

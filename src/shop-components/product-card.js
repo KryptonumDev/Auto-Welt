@@ -1,14 +1,30 @@
-import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { Link, navigate } from "gatsby"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
 
-export default function ProductCard({ data }) {
+export default function ProductCard({
+    onMouseUp = (e, url) => {
+        if (e.button === 0) {
+            e.preventDefault()
+            navigate(url)
+        }
+    },
+    data
+}) {
     const { addItem } = useCart()
 
-    let scale = useMemo(() => {
+    const isNewArrivals = useMemo(() => {
+        const createTime = new Date(data.date_created)
+        const currentTime = new Date()
+        const difference = Math.ceil((currentTime - createTime) / (1000 * 60 * 60 * 24))
+
+        return difference <= 31
+    }, [data])
+
+    const scale = useMemo(() => {
         let val = null
 
         data.attributes.every(el => {
@@ -23,10 +39,24 @@ export default function ProductCard({ data }) {
     }, [data])
 
     return (
-        <Wrapper>
-            <Link to={`/sklep/modele/${data.categories[0].slug}/${data.slug}/`} />
+        <Wrapper className="item">
+            <Link
+                onDragStart={event => event.preventDefault()}
+                onClick={(e) => { e.preventDefault() }}
+                onMouseUp={(e) => { onMouseUp(e, `/sklep/modele/${data.categories[0].slug}/${data.slug}/`) }}
+                to={`/sklep/modele/${data.categories[0].slug}/${data.slug}/`}
+            />
             <GatsbyImage image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
             <TextPart>
+                {(data.on_sale || isNewArrivals) && (
+                    <NewArrivalsLabel>
+                        <StaticImage className="image" src='./../../static/images/product-card-label.png' alt='tło' />
+                        {data.on_sale
+                            ? <span className="yellow">PROMOCJA</span>
+                            : <span>NOWOŚĆ</span>
+                        }
+                    </NewArrivalsLabel>
+                )}
                 <div>
                     <Title>{data.name}</Title>
                     {scale
@@ -36,7 +66,6 @@ export default function ProductCard({ data }) {
                         <span className={data.on_sale ? 'discount-regular-price' : 'regular-price'} >
                             {data.regular_price}&nbsp;zł
                         </span>
-
                         {data.on_sale && (
                             <span className="discount-price" >
                                 {data.price}&nbsp;zł
@@ -50,6 +79,37 @@ export default function ProductCard({ data }) {
     )
 }
 
+const NewArrivalsLabel = styled.div`
+    position: absolute;
+    z-index: 4;
+    min-width: 167px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+
+    .image{
+        position: absolute;
+        inset: 0;
+    }
+
+    span{
+        padding: 6px 14px;
+        font-family: 'Roboto Condensed';
+        font-weight: 600;
+        font-size: 18px;
+        color: #FAF6EE;
+        position: relative;
+        z-index: 3;
+
+        &.yellow{
+            color: #EDAC2A;
+        }
+    }
+`
+
 const Wrapper = styled.div`
     position: relative;
     background: #FAF7F1;
@@ -59,6 +119,14 @@ const Wrapper = styled.div`
     a{
         position: absolute;
         inset: 0;
+        z-index: 10;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .add-to-cart{
+        position: relative;
+        z-index: 11;
     }
 `
 
@@ -66,6 +134,7 @@ const TextPart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 `
 
 const Title = styled.span`

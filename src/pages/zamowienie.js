@@ -12,6 +12,7 @@ const Zamowienie = ({ location }) => {
     items.forEach(el => {
       count += el.price.replace(/[^0-9]/g, '') * el.quantity
     })
+
     return count
   }, [items])
 

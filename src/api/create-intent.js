@@ -9,10 +9,7 @@ export default async function handler(req, res) {
     const paymentIntent = await stripe.paymentIntents.create({
         amount: req.body.count,
         currency: "pln",
-        // payment_method_types: ['p24'],
-        automatic_payment_methods: {
-            enabled: true,
-        },
+        payment_method_types: [req.body.method],
         metadata: { order_id: req.body.id },
     });
 

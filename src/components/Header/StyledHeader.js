@@ -214,7 +214,29 @@ export const StyledIconsWrapper = styled.div`
   align-items: center;
   margin-left: 55px;
 
-  a {
+  .cart{
+    position: relative;
+
+    span{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 10%);
+      width: 18px;
+      height: 18px;
+      background-color: #EDAC2A;
+      color: #23423D;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nocturne Serif';
+      font-weight: 600;
+    }
+  }
+
+
+  /* a {
     > svg {
       width: 24px;
       height: 24px;
@@ -227,7 +249,7 @@ export const StyledIconsWrapper = styled.div`
         fill: #edab26;
       }
     }
-  }
+  } */
 
   @media only screen and (max-width: 1107px) {
     margin-left: 25px;

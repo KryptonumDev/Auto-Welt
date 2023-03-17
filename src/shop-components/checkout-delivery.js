@@ -1,43 +1,49 @@
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { Button } from "./button"
 
-const paymentMethods = [
-    {
-        name: 'Inpost – paczkomaty 24/7',
-        description: '(następny dzień roboczy od momentu nadania)',
-        price: 10
-    },
-    // {
-    //     name: 'Pocztex kurier 48',
-    //     description: '(2 dni robocze od momentu nadania)',
-    //     price: 12
-    // },
-    // {
-    //     name: 'Kurier DPD',
-    //     description: '(1–2 dni robocze od momentu nadania)',
-    //     price: 16
-    // },
-    {
-        name: 'Odbiór osobisty',
-        description: '(po wcześniejszym kontakcie)',
-        price: null
-    }
-]
+export default function Delivery({ delivery, setDelivery, setStep }) {
 
-export default function Delivery({ setDelivery, setStep }) {
+    const { wpPage: { shopParametrs: { deliveryMethods } } } = useStaticQuery(graphql`
+    query deliveryMethods {
+        wpPage(id: {eq: "cG9zdDoyOTI1"}) {
+          shopParametrs {
+            deliveryMethods {
+              price
+              name
+              description
+            }
+          }
+        }
+    }
+  `)
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
+    const [selected, setSelected] = useState(() => {
+        let id = 0
+        deliveryMethods.forEach((el, index) => {
+            if (el.name === delivery.type) {
+                id = index
+            }
+        })
+        return id
+    })
+
+    const handleChange = index => {
+        setSelected(index)
+    }
 
     const submit = (data) => {
-        localStorage.setItem('delivery-type', paymentMethods[data.method].name)
-        localStorage.setItem('delivery-description', paymentMethods[data.method].description)
-        localStorage.setItem('delivery-price', paymentMethods[data.method].price)
+        localStorage.setItem('delivery-type', deliveryMethods[data.method].name)
+        localStorage.setItem('delivery-description', deliveryMethods[data.method].description)
+        localStorage.setItem('delivery-price', deliveryMethods[data.method].price ? deliveryMethods[data.method].price : 0)
 
         setDelivery({
-            type: paymentMethods[data.method].name,
-            description: paymentMethods[data.method].description,
-            price: paymentMethods[data.method].price
+            type: deliveryMethods[data.method].name,
+            description: deliveryMethods[data.method].description,
+            price: deliveryMethods[data.method].price ? deliveryMethods[data.method].price : '0'
         })
         setStep(3)
     }
@@ -47,10 +53,11 @@ export default function Delivery({ setDelivery, setStep }) {
             <h2>3. Wybierz opcję dostawy</h2>
             <h3>Przedpłata</h3>
             <div>
-                {paymentMethods.map((el, index) => (
-                    <label>
+                {deliveryMethods.map((el, index) => (
+                    <label className="radio">
                         <div>
-                            <input value={index} {...register("method")} defaultChecked={!index} type='radio' name='delivery' />
+                            <input onClick={() => { handleChange(index) }} checked={selected === index} value={index} {...register("method")} type='radio' name='method' />
+                            <span className="button" />
                             <div>
                                 <h4>{el.name}</h4>
                                 <p>{el.description}</p>

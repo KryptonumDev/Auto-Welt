@@ -15,9 +15,6 @@ export default async function handler(req, res) {
     api.put(`orders/${req.query.id}`, {
         status: status
     })
-        .then(res => {
-            console.log(res.data)
-        })
         .catch(err => {
             console.log(err)
         })

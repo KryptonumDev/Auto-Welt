@@ -17,7 +17,12 @@ export default function Summary({ delivery, sum }) {
                 </div>
                 <div>
                     <span>Dostawa:</span>
-                    <span>{delivery.type ? delivery.price + ' zł' : delivery.pricetext}</span>
+                    <span>{delivery.type
+                        ? delivery.price !== '0'
+                            ? delivery.price + ' zł'
+                            : 'Gratis'
+                        : delivery.pricetext}
+                    </span>
                 </div>
                 {delivery.type && (
                     <div>

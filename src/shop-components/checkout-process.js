@@ -51,7 +51,6 @@ export default function Checkout({ items, sum }) {
 
     useEffect(() => {
         if (step === 5) {
-
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -87,37 +86,36 @@ export default function Checkout({ items, sum }) {
                     state: "",
                     country: shipingData.country
                 },
-                line_items: line_items
+                line_items: line_items,
+                shipping_lines: [
+                    {
+                        method_id: "flat_rate",
+                        method_title: "Flat Rate",
+                        total: `${delivery.price}`
+                    }
+                ]
             }
-
             WooCommerce.post("orders", params) // add delivery price to params
                 .then((response) => {
                     setOrderNumber(response.data.id)
-                    debugger
                     fetch("/api/create-intent", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ count: (sum + delivery.price) * 100, id: response.data.id }),
+                        body: JSON.stringify({ count: ((+sum) + (+delivery.price)) * 100, id: response.data.id, method: paymentMethod }),
                     })
                         .then((res) => res.json())
                         .then((data) => {
                             setClientSecret(data.clientSecret)
-
-                            // CHANGE STATUS AFTER PAYMENT
-                            // CAN I USE SOME TYPE OF PROMISE IN STRIPE FOR THAT??
-                            // WooCommerce.put(`orders/${orderNumber}`, { status: "processing" })
-                            //     .then((response) => {
-                            //         console.log(response.data);
-                            //     })
                         })
                         .catch(erorr => {
-                            debugger
-                            // ANULATE order
+                            WooCommerce.put(`orders/${response.data.id}`, {
+                                status: 'cancelled'
+                            })
+                            // TODO: SHOW ERROR - CREATE INTENT ERROR
                         })
                 })
                 .catch(erorr => {
-                    debugger
-                    // SHOW ERROR
+                    // TODO: SHOW ERROR - CREATE ORDER ERROR
                 })
 
 
@@ -134,7 +132,7 @@ export default function Checkout({ items, sum }) {
                     <PersonalDataForm personalData={personalData} setPersonalData={setPersonalData} setStep={setStep} />
                 )}
                 {step === 2 && ( // REMEMBER NOT WORK
-                    <Delivery setDelivery={setDelivery} setStep={setStep} />
+                    <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
                 {step === 3 && (
                     <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
@@ -180,6 +178,39 @@ const Wrapper = styled.section`
     h3{
         font-size: 24px;
         color: #23423D;
+    }
+
+    .radio{
+        input{
+            display: none;
+        }
+
+        input:checked ~ .button::after{
+            opacity: 1;
+        }
+
+        .button{
+            position: relative;
+            width: 28px;
+            height: 28px;   
+            border: 2px solid #EDAC2A;
+            border-radius: 50%;
+            display: block;
+
+            &::after{
+                
+            content: "";
+                position: absolute;
+                left: 4px;
+                right: 4px;
+                top: 4px;
+                bottom: 4px;
+                border-radius: 50%;
+                background-color: #EDAC2A;
+                opacity: 0;
+                transition: opacity .2s ease-out;
+            }
+        }
     }
 
     .form{

@@ -7,6 +7,7 @@ import AllCategories from "../shop-components/all-categories"
 import CartContent from "../shop-components/cart-content"
 import Empty from "../shop-components/cart-empty"
 import NewPosts from "../shop-components/new-posts"
+import ProductSlider from "../shop-components/product-slider"
 
 export default function KoszykPage() {
   const {
@@ -38,6 +39,7 @@ export default function KoszykPage() {
         />
         : <Empty />
       }
+      <ProductSlider title={'Zobacz również'} products={[]} />
     </Main>
   )
 }

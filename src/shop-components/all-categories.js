@@ -6,36 +6,36 @@ import { YellowButtonLink } from "./button"
 
 export default function AllCategories() {
 
-  // const data = useStaticQuery(graphql`
-  //   query AllCategoryQuery {
-  //         allWpProductCategory {
-  //           nodes {
-  //               name
-  //               slug
-  //               image {
-  //                   altText
-  //                 localFile {
-  //                   childImageSharp {
-  //                     gatsbyImageData
-  //                   }
-  //                 }
-  //               }
-  //           }
-  //         }
-  //       }
-  // `)
+  const data = useStaticQuery(graphql`
+    query AllCategoryQuery {
+        allWcCategory(filter: {count: {gt: 0}}) {
+            nodes {
+                name
+                slug
+                image {
+                    alt
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData
+                      }
+                    }
+                }
+            }
+          }
+        }
+  `)
 
   return (
     <Wrapper>
       <h2>Wszystkie kategorie</h2>
-      {/* <Grid>
-        {data.allWpProductCategory.nodes.map(el => (
+      <Grid>
+        {data.allWcCategory.nodes.map(el => (
           <Item to={'/sklep/modele/' + el.slug}>
-            <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.altText} />
+            <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt} />
             <p>{el.name}</p>
           </Item>
         ))}
-      </Grid> */}
+      </Grid>
       <Divider>
         <StaticImage className="image" src='./../../static/images/divider.png' alt='tło' />
         <h3>Nie znalazłeś tego, czego szukałeś?</h3>

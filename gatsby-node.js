@@ -16,9 +16,9 @@ exports.sourceNodes = async (
   { actions: { createNode }, createNodeId, createContentDigest, store, cache }) => {
 
   let products = await api.get("products")
+  let categories = await api.get("products/categories")
 
   const processProduct = async (product, args) => {
-
     product.images = await Promise.all(product.images.map(async image => {
       let fileNode
       try {
@@ -52,10 +52,47 @@ exports.sourceNodes = async (
     })
   }
 
+  const processCategory = async (category, args) => {
+
+    if (!Array.isArray(category.image)) {
+      let fileNode
+      try {
+        fileNode = await createRemoteFileNode({
+          url: category.image.src,
+          ...args
+        })
+
+      } catch (e) {
+        console.log("e", e)
+      }
+      if (fileNode) {
+        category.image.localFile___NODE = fileNode.id
+      }
+    }
+
+    const nodeId = createNodeId(`wc-category-${category.id}`)
+    const nodeContent = JSON.stringify(category)
+
+    return Object.assign({}, category, {
+      id: nodeId,
+      databaseId: category.id,
+      parent: null,
+      children: [],
+      internal: {
+        type: `wcCategory`,
+        content: nodeContent,
+        contentDigest: createContentDigest(category)
+      }
+    })
+  }
+
   await asyncForEach(products.data, async (product) => {
     const productNode = await processProduct(product, { store, cache, createNode, createNodeId })
-
     createNode(productNode)
+  })
+  await asyncForEach(categories.data, async (category) => {
+    const categoryNode = await processCategory(category, { store, cache, createNode, createNodeId })
+    createNode(categoryNode)
   })
 
 };
@@ -66,9 +103,8 @@ async function asyncForEach(array, callback) {
   }
 }
 
-exports.createPages = async ({ actions: { createPage }, graphql }) => {
+exports.createPages = async ({ actions: { createPage, createRedirect }, graphql }) => {
 
-  let categories = await api.get("products/categories")
 
   const { data: { allWcProduct } } = await graphql(`
     {
@@ -100,16 +136,40 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     });
   });
 
-  categories.data.map(el => {
+  const { data: { allWcCategory } } = await graphql(`
+    {
+      allWcCategory {
+        nodes {
+          name
+          slug
+          id
+          count
+        }
+      }
+    } 
+  `);
+
+  allWcCategory.nodes.map(el => {
     createPage({
       path: `/sklep/modele/${el.slug}/`,
       component: require.resolve(
         "./src/templates/category-page.js"
       ),
       context: {
-        data: el,
+        id: el.id,
+        title: el.name,
+        slug: el.slug
       },
     });
+
+    // if (el.count < 1) {
+    //   createRedirect({
+    //     fromPath: `/sklep/modele/${el.slug}/`,
+    //     toPath: '/sklep/',
+    //     force: true
+    //   })
+    // }
+
   });
 
   const kolekcjeData = await graphql(`

@@ -295,6 +295,7 @@ const Wrapper = styled.section`
         width: 50px;
         border: none;
         background-color: transparent;
+        cursor: pointer;
       }
     }
   }
