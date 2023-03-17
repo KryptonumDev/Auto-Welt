@@ -2,7 +2,7 @@ import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React from "react"
 import styled from "styled-components"
 
-export default function PopUp({ clientSecret }) {
+export default function PopUp({ orderNumber, clientSecret }) {
     const stripe = useStripe()
     const elements = useElements()
 
@@ -24,9 +24,8 @@ export default function PopUp({ clientSecret }) {
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: "http://localhost:8000/podziekowanie/"
-            },
-            redirect: 'if_required'
+                return_url: `http://localhost:8000/api/complete-payment?id=${orderNumber}`
+            }
         })
             .then(function (result) {
                 debugger

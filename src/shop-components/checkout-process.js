@@ -146,7 +146,7 @@ export default function Checkout({ items, sum }) {
                     <>
                         {clientSecret
                             ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
-                                <PopUp clientSecret={clientSecret} />
+                                <PopUp orderNumber={orderNumber} clientSecret={clientSecret} />
                             </Elements>
                             : <div>Loader</div>
                         }
