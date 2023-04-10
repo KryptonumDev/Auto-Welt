@@ -56,7 +56,7 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
             </label>
             <label className="checkbox">
                 <input {...register("checkbox")} type='checkbox' />
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
                 <span>Dodaj uwagi do zamówienia</span>
             </label>
             <label>

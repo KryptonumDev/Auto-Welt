@@ -16,7 +16,10 @@ export default function Hero({ maintitle, title, text }) {
 }
 
 const Wrapper = styled.section`
-    padding: 0 16px;
+    padding: 0 32px;
+    @media (max-width: 768px) {
+        padding: 0 16px;
+    }
     max-width: 1080px;
     margin: 120px auto 0 auto;
     box-sizing: content-box;
@@ -47,6 +50,7 @@ const Wrapper = styled.section`
             top: 0;
             bottom: 0;
             z-index: -1;
+
 
             @media (max-width: 640px) {
                 right: 0;

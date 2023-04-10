@@ -1,27 +1,110 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import ProductCard from "./product-card"
 
-export default function ProductListing({ products }) {
+export default function ProductListing({ products, categories }) {
+
+    const [filter, setFilter] = useState({
+        search: '',
+        category: '',
+        onlyPromotions: false,
+        sort: '0',
+    })
+
+    const [filtredProducts, setFiltredProducts] = useState(products)
+
+    useEffect(() => {
+        setFiltredProducts(() => {
+            if (!filter.search && !filter.category && !filter.onlyPromotions && filter.sort === '0') {
+                return products
+            }
+
+            const preFiltredProducts = products.filter(el => {
+                let isFilterAccepted = false
+
+                if (filter.search) {
+                    isFilterAccepted = el.name.toLowerCase().includes(filter.search.toLowerCase())
+                }
+                if (filter.category) {
+                    el.categories.forEach(cat => {
+                        if (cat.name === filter.category) {
+                            isFilterAccepted = true
+                        }
+                    })
+                }
+                if (filter.onlyPromotions) {
+                    isFilterAccepted = el.on_sale
+                }
+                if (!filter.search && !filter.category && !filter.onlyPromotions) {
+                    isFilterAccepted = true
+                }
+
+                return isFilterAccepted
+            })
+                debugger
+            switch (filter.sort) {
+                case '1':
+                    return preFiltredProducts.sort((a, b) => a.name > b.name ? 1 : -1)
+                case '2':
+                    return preFiltredProducts.sort((a, b) => a.name < b.name ? 1 : -1)
+                case '3':
+                    return preFiltredProducts.sort((a, b) => a.price - b.price)
+                case '4':
+                    return preFiltredProducts.sort((a, b) => b.price - a.price)
+                default:
+                    return preFiltredProducts
+            }
+        })
+    }, [filter, products])
+
     return (
         <Wrapper>
             <h1>Pełna oferta</h1>
             <Filter>
                 <div className="flex">
-                    <input placeholder="Wyszukaj produkt po nazwie" />
-                    <input placeholder="Wybierz kategorię" />
+                    <input onChange={(e) => {
+                        setFilter({
+                            ...filter,
+                            search: e.target.value
+                        })
+                    }} placeholder="Wyszukaj produkt po nazwie" />
+                    <select onChange={(e) => {
+                        setFilter({
+                            ...filter,
+                            category: e.target.value
+                        })
+                    }} placeholder="" >
+                        <option value="" selected>Wszystkie kategorie</option>
+                        {categories.map(el => <option key={el.name} value={el.slug}>{el.name}</option>)}
+                    </select>
                 </div>
                 <div className="alt-flex">
                     <label className="checkbox">
-                        <input />
-                        <span class="checkmark"></span>
+                        <input onChange={() => {
+                            setFilter({
+                                ...filter,
+                                onlyPromotions: !filter.onlyPromotions
+                            })
+                        }} />
+                        <span className="checkmark"></span>
                         <span>Pokaż tylko promocje</span>
                     </label>
-                    <input className="filter" placeholder='Po nazwie: A-Z' />
+                    <select onChange={(e) => {
+                        setFilter({
+                            ...filter,
+                            sort: e.target.value
+                        })
+                    }} className="filter">
+                        <option value='0'>Po popularności</option>
+                        <option value='1'>Po nazwie: A-Z</option>
+                        <option value='2'>Po nazwie: Z-A</option>
+                        <option value="3">Cena: rosnąco</option>
+                        <option value="4">Cena: malejąco</option>
+                    </select>
                 </div>
             </Filter>
             <Grid>
-                {products.map(el => <ProductCard data={el} />)}
+                {filtredProducts.map(el => <ProductCard key={el.name} data={el} />)}
             </Grid>
             pagination
         </Wrapper>

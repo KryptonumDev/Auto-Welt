@@ -30,7 +30,7 @@ export default function AllCategories() {
       <h2>Wszystkie kategorie</h2>
       <Grid>
         {data.allWcCategory.nodes.map(el => (
-          <Item to={'/sklep/modele/' + el.slug}>
+          <Item key={el.slug} to={'/sklep/modele/' + el.slug}>
             <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt} />
             <p>{el.name}</p>
           </Item>

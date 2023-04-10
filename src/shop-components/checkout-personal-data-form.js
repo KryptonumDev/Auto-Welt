@@ -55,7 +55,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             </label>
             <label className="checkbox">
                 <input {...register("forFirm")} type='checkbox' />
-                <span class="checkmark"></span>
+                <span className="checkmark"></span>
                 <span>Kupuję na firmę</span>
             </label>
             <label>

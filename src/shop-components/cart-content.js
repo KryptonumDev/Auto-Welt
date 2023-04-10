@@ -4,8 +4,6 @@ import React from "react"
 import styled from "styled-components"
 
 export default function CartContent({ items, updateItemQuantity, sum, removeItem }) {
-
-  debugger
   return (
     <Wrapper>
       <Table>
@@ -29,12 +27,12 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
             </td>
             <td>
               <div className="flex">
-                <div className="regular" >
+                <div className={el.on_sale ? "colored regular" : "regular"} >
                   {el.price}&nbsp;zł
                 </div>
-                {el.onSale
+                {el.on_sale
                   && <div className="discount" >
-                    {el.regularPrice}&nbsp;zł
+                    {el.regular_price}&nbsp;zł
                   </div>}
               </div>
             </td>
@@ -60,9 +58,9 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 <div className="regular">
                   {el.price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
                 </div>
-                {el.onSale && (
+                {el.on_sale && (
                   <div className="discount">
-                    {el.regularPrice.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
+                    {el.regular_price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
                   </div>
                 )}
               </div>
@@ -96,8 +94,13 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               Cena jedn.
             </span>
             <div className="param">
-              <div className="regular" dangerouslySetInnerHTML={{ __html: el.price }} />
-              {el.onSale && <div className="discount" dangerouslySetInnerHTML={{ __html: el.regularPrice }} />}
+              <div className={el.on_sale ? "colored regular" : "regular"} >
+                {el.price}&nbsp;zł
+              </div>
+              {el.on_sale
+                && <div className="discount" >
+                  {el.regular_price}&nbsp;zł
+                </div>}
             </div>
           </div>
           <div >
@@ -130,9 +133,9 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               <div className="regular">
                 {el.price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
               </div>
-              {el.onSale && (
+              {el.on_sale && (
                 <div className="discount">
-                  {el.regularPrice.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
+                  {el.regular_price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
                 </div>
               )}
             </div>
@@ -338,6 +341,12 @@ const Wrapper = styled.section`
   .regular{
     font-size: 24px;
     font-family: 'Nocturne Serif';
+
+    &.colored{
+      background: #23423D;
+      color: #EDAC2A;
+      padding: 2px;
+    }
   }
 
   .discount{

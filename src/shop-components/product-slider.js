@@ -33,9 +33,15 @@ export default function ProductSlider({ title, products }) {
       slidesToScroll: 1,
       responsive: [
           {
-              breakpoint: 768,
+              breakpoint: 940,
               settings: {
                   slidesToShow: 2,
+              }
+          },
+          {
+              breakpoint: 640,
+              settings: {
+                  slidesToShow: 1,
               }
           },
       ]
@@ -79,11 +85,41 @@ export default function ProductSlider({ title, products }) {
 const SliderWrapper = styled.div`
   position: relative;
 
+  @media (max-width: 768px){
+    padding-bottom: 86px;
+  }
+
   .left{
     transform: translate(-100%, -50%);
+
+    @media (max-width: 768px){
+      transform: unset;
+      bottom: 0;
+      top: unset;
+      left: 16px;
+      width: 50px;
+      height: 66px;
+
+      svg{
+        padding: 4px;
+      }
+    }
   }
   .right{
     transform: translate(100%, -50%);
+
+    @media (max-width: 768px){
+      transform: unset;
+      bottom: 0;
+      top: unset;
+      right: 16px;
+      width: 50px;
+      height: 66px;
+
+      svg{
+        padding: 4px;
+      }
+    }
   }
 
   .slick-track{
@@ -107,6 +143,9 @@ const SliderWrapper = styled.div`
 
 const Wrapper = styled.section`
     padding: 0 32px;
+    @media (max-width: 768px){
+        padding: 0 ;
+    }
     max-width: 1080px;
     margin: 120px auto 0 auto;
     box-sizing: content-box;
@@ -117,11 +156,18 @@ const Wrapper = styled.section`
         font-weight: 400;
         font-size: 48px;
         color: #23423D;
+
+        @media (max-width: 768px){
+          padding: 0 16px;
+        }
     }
 
     .item{
       width: calc(100% - 36px);
       margin: 0 18px;
+      @media (max-width: 768px){
+        margin: 0 16px;
+      }
     }
 
     .slick-list{
@@ -129,64 +175,3 @@ const Wrapper = styled.section`
       margin: -50px 0;
     }
 `
-
-// const Grid = styled.div`
-//     margin-top: 40px;
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-//     grid-gap: 24px;
-// `
-
-// const Item = styled.div`
-//     background: #FAF7F1;
-//     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-
-//     .image{
-//         width: 100%;
-//         aspect-ratio: 1/1;
-//     }
-
-//     .title{
-//         position: relative;
-
-//         h3{
-//             font-family: 'Roboto Condensed';
-//             font-weight: 600;
-//             font-size: 22px;
-//             color: #23423D;
-//             position: relative;
-//             z-index: 2;
-//             padding: 13px 26px;
-//         }
-//         .background{
-//             position: absolute;
-//             left: 0;
-//             right: 0;
-//             top: 0;
-//             bottom: 0;
-//             display: block;
-//         }
-//     }
-
-//     .text{
-//         font-family: 'Roboto Condensed';
-//         > p {
-//             &:first-child{
-//                 &::first-letter{
-//                 }
-//             }
-//         }
-//     }
-
-//     p{
-//         padding: 13px 26px 24px 26px;
-//     }
-    
-//     a{
-//         margin-bottom: 36px;
-//         margin-top: 0;
-//     }
-// `

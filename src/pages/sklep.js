@@ -9,7 +9,7 @@ import NewPosts from './../shop-components/new-posts'
 import Hero from "../shop-components/text-hero"
 import Newsletter from "../shop-components/newsletter"
 
-const Shop = ({ data: { allWcProduct } }) => {
+const Shop = ({ data: { allWcProduct, allWcCategory } }) => {
 
   const filtredProducts = useMemo(() => {
     return allWcProduct.nodes.filter((data) => {
@@ -26,11 +26,11 @@ const Shop = ({ data: { allWcProduct } }) => {
       <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
 w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
       <ProductSlider title={'Nowości'}  products={filtredProducts}/>
-      <ProductListing products={allWcProduct.nodes} />
-      <Divider />
+      <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
+      {/* 3<Divider />
       <AllCategories />
       <Newsletter />
-      <NewPosts />
+      <NewPosts /> */}
     </main>
   );
 };
@@ -41,6 +41,11 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query shopQuery {
+    allWcCategory(filter: {count: {gt: 0}}) {
+      nodes {
+        name
+      }
+    }
     allWcProduct {
       nodes {
         date_created
@@ -63,6 +68,7 @@ export const query = graphql`
         }
         categories {
           slug
+          name
         }
         on_sale
         regular_price

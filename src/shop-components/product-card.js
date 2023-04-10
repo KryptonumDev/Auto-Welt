@@ -15,7 +15,7 @@ export default function ProductCard({
     data
 }) {
     const { addItem } = useCart()
-
+    
     const isNewArrivals = useMemo(() => {
         const createTime = new Date(data.date_created)
         const currentTime = new Date()
@@ -39,7 +39,7 @@ export default function ProductCard({
     }, [data])
 
     return (
-        <Wrapper className="item">
+        <Wrapper className={data.on_sale || isNewArrivals ? "item yellow" : "item"}>
             <Link
                 onDragStart={event => event.preventDefault()}
                 onClick={(e) => { e.preventDefault() }}
@@ -114,6 +114,11 @@ const Wrapper = styled.div`
     position: relative;
     background: #FAF7F1;
     border-top: 4px solid #23423D;
+
+    &.yellow{
+        border-top: 4px solid #EDAC2A;
+    }
+
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
 
     a{
