@@ -1,8 +1,9 @@
-import React, { useMemo } from "react"
+import React, { useEffect, useMemo } from "react"
 import { graphql, navigate } from "gatsby"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import Checkout from "../shop-components/checkout-process"
+import ProductSlider from "../shop-components/product-slider"
 
 const Zamowienie = ({ location }) => {
   const { items } = useCart()
@@ -16,13 +17,13 @@ const Zamowienie = ({ location }) => {
     return count
   }, [items])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (location?.state?.sum !== sum) {
       navigate('/koszyk/')
     }
   }, []);
 
-  if(typeof window === 'undefined'){
+  if (typeof window === 'undefined') {
     return null
   }
 

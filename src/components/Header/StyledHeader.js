@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  width: calc(100% - 64px);
-  margin: 20px auto 0;
+  width: 100%;
+  margin: 0 auto 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 clamp(16px, 2.08333vw, 32px);
+  background: rgb(250, 247, 241);
 
   @media only screen and (max-width: 767px){
-    width: calc(100% - 32px);
+    position: fixed;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 `;
 
@@ -194,9 +202,7 @@ export const StyledLogoMobileWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     display: ${({ isopen }) => (isopen ? "none" : "block")};
-    position: absolute;
-    top: 32px;
-    left: 16px;
+    position: static;
     z-index: 2;
   }
 

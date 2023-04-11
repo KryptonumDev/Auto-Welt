@@ -118,6 +118,10 @@ export default function Checkout({ items, sum }) {
                     // TODO: SHOW ERROR - CREATE ORDER ERROR
                 })
         }
+
+        if(typeof window !== 'undefined'){
+            window.scrollTo(0, 0)
+        }
     }, [step, shipingData, delivery, personalData, sum, items])
 
     return (
@@ -293,8 +297,9 @@ const Wrapper = styled.section`
 
             &.checkbox{
                 margin-top: 36px;
-                display: flex;
-                align-items: center;
+                display: grid;
+                align-items: flex-start;
+                grid-template-columns: 24px auto;
                 gap: 10px;
                 width: fit-content;
                 input{

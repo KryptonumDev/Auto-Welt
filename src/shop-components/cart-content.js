@@ -14,19 +14,111 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
           <th>Razem</th>
           <th>Usuń</th>
         </tr>
-        {items.map(el => (
-          <tr>
-            <td>
-              <div className="name">
-                <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].alt} />
-                <div className="text">
-                  <span className="title">{el.name}</span>
-                  <span className="scale">Scala: {el.scale ? el.scale : 'nie wskazana'}</span>
+        {items.map(el => {
+          let scale = null
+          el.attributes.every(el => {
+            if (el.name === 'Skala') {
+              scale = el.options[0]
+              return false
+            }
+            return true
+          })
+
+          return (
+            <tr>
+              <td>
+                <Link className="name-wrapper" to={`/sklep/${el.categories[0].slug}/${el.slug}`}>
+                  <div className="name">
+                    <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].alt} />
+                    <div className="text">
+                      <span className="title">{el.name}</span>
+                      {scale && <span className="scale">Scala: {scale}</span>}
+                    </div>
+                  </div>
+                </Link>
+              </td>
+              <td>
+                <div className="flex">
+                  <div className={el.on_sale ? "colored regular" : "regular"} >
+                    {el.price}&nbsp;zł
+                  </div>
+                  {el.on_sale
+                    && <div className="discount" >
+                      {el.regular_price}&nbsp;zł
+                    </div>}
                 </div>
+              </td>
+              <td>
+                <div className="flex quantity-calculator">
+                  <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
+                    <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 0V2H0V0H14Z" fill="#23423D" />
+                    </svg>
+                  </button>
+                  <div className="quantity">
+                    {el.quantity}
+                  </div>
+                  <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
+                    </svg>
+                  </button>
+                </div>
+              </td>
+              <td>
+                <div className="flex">
+                  <div className="regular">
+                    {el.price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
+                  </div>
+                  {el.on_sale && (
+                    <div className="discount">
+                      {el.regular_price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
+                    </div>
+                  )}
+                </div>
+              </td>
+              <td>
+                <div className="flex cube">
+                  <button onClick={() => { removeItem(el.id) }}>
+                    <StaticImage src='./../../static/images/kosz.png' alt='kosz' />
+                  </button>
+                </div>
+              </td>
+            </tr>
+          )
+        })}
+      </Table>
+      {items.map(el => {
+        let scale = null
+        el.attributes.every(el => {
+          if (el.name === 'Skala') {
+            scale = el.options[0]
+            return false
+          }
+          return true
+        })
+
+        return (
+          <MobileTable>
+            <div>
+              <span>
+                Produkt
+              </span>
+              <div>
+                <Link className="name-wrapper" to={`/sklep/${el.categories[0].slug}/${el.slug}`}>
+                  <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].altText} />
+                  <div className="text">
+                    <span className="title">{el.name}</span>
+                    {scale && <span className="scale">Scala: {scale}</span>}
+                  </div>
+                </Link>
               </div>
-            </td>
-            <td>
-              <div className="flex">
+            </div>
+            <div >
+              <span>
+                Cena jedn.
+              </span>
+              <div className="param">
                 <div className={el.on_sale ? "colored regular" : "regular"} >
                   {el.price}&nbsp;zł
                 </div>
@@ -35,26 +127,34 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                     {el.regular_price}&nbsp;zł
                   </div>}
               </div>
-            </td>
-            <td>
-              <div className="flex quantity-calculator">
-                <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
-                  <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 0V2H0V0H14Z" fill="#23423D" />
-                  </svg>
-                </button>
-                <div className="quantity">
-                  {el.quantity}
+            </div>
+            <div >
+              <span>
+                Ilość
+              </span>
+              <div className="param ">
+                <div className="quantity-calculator">
+                  <button onClick={() => { updateItemQuantity(el.id, el.quantity - 1) }} className="minus">
+                    <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 0V2H0V0H14Z" fill="#23423D" />
+                    </svg>
+                  </button>
+                  <div className="quantity">
+                    {el.quantity}
+                  </div>
+                  <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
+                    </svg>
+                  </button>
                 </div>
-                <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
-                  </svg>
-                </button>
               </div>
-            </td>
-            <td>
-              <div className="flex">
+            </div>
+            <div >
+              <span>
+                Razem
+              </span>
+              <div className="param">
                 <div className="regular">
                   {el.price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
                 </div>
@@ -64,94 +164,20 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                   </div>
                 )}
               </div>
-            </td>
-            <td>
-              <div className="flex cube">
+            </div>
+            <div >
+              <span>
+                Usuń
+              </span>
+              <div className="param">
                 <button onClick={() => { removeItem(el.id) }}>
                   <StaticImage src='./../../static/images/kosz.png' alt='kosz' />
                 </button>
               </div>
-            </td>
-          </tr>
-        ))}
-      </Table>
-      {items.map(el => (
-        <MobileTable>
-          <div>
-            <span>
-              Produkt
-            </span>
-            <div>
-              <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].altText} />
-              <div className="text">
-                <span className="title">{el.name}</span>
-                <span className="scale">Scala: {el.scale ? el.scale : 'nie wskazana'}</span>
-              </div>
             </div>
-          </div>
-          <div >
-            <span>
-              Cena jedn.
-            </span>
-            <div className="param">
-              <div className={el.on_sale ? "colored regular" : "regular"} >
-                {el.price}&nbsp;zł
-              </div>
-              {el.on_sale
-                && <div className="discount" >
-                  {el.regular_price}&nbsp;zł
-                </div>}
-            </div>
-          </div>
-          <div >
-            <span>
-              Ilość
-            </span>
-            <div className="param ">
-              <div className="quantity-calculator">
-                <button onClick={() => { updateItemQuantity(el.id, el.quantity - 1) }} className="minus">
-                  <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 0V2H0V0H14Z" fill="#23423D" />
-                  </svg>
-                </button>
-                <div className="quantity">
-                  {el.quantity}
-                </div>
-                <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div >
-            <span>
-              Razem
-            </span>
-            <div className="param">
-              <div className="regular">
-                {el.price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
-              </div>
-              {el.on_sale && (
-                <div className="discount">
-                  {el.regular_price.replace(/[^0-9]/g, '') * el.quantity}&nbsp;zł
-                </div>
-              )}
-            </div>
-          </div>
-          <div >
-            <span>
-              Usuń
-            </span>
-            <div className="param">
-              <button onClick={() => { removeItem(el.id) }}>
-                <StaticImage src='./../../static/images/kosz.png' alt='kosz' />
-              </button>
-            </div>
-          </div>
-        </MobileTable>
-      ))}
+          </MobileTable>
+        )
+      })}
 
       <Checkout>
         <div>
@@ -367,6 +393,10 @@ const Wrapper = styled.section`
     }
   }
 
+  .name-wrapper{
+    text-decoration: none;
+  }
+
   .name{
     display: flex;
     align-items: center;
@@ -381,6 +411,7 @@ const Wrapper = styled.section`
       .title{
         font-family: 'Nocturne Serif';
         font-size: 24px;
+        color: #23423D;
       }
 
       .scale{

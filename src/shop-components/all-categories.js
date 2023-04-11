@@ -4,32 +4,12 @@ import React from "react"
 import styled from "styled-components"
 import { YellowButtonLink } from "./button"
 
-export default function AllCategories({ title }) {
-
-  const data = useStaticQuery(graphql`
-    query AllCategoryQuery {
-        allWcCategory(filter: {count: {gt: 0}}) {
-            nodes {
-                name
-                slug
-                image {
-                    alt
-                    localFile {
-                      childImageSharp {
-                        gatsbyImageData
-                      }
-                    }
-                }
-            }
-          }
-        }
-  `)
-
+export default function AllCategories({ data,  title }) {
   return (
     <Wrapper>
       <h2>{title}</h2>
       <Grid>
-        {data.allWcCategory.nodes.map(el => (
+        {data.map(el => (
           <Item key={el.slug} to={'/sklep/' + el.slug}>
             <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt} />
             <p>{el.name}</p>

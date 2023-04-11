@@ -14,7 +14,7 @@ export default function Divider() {
                     <YellowButtonLink to='/sklep/wystawy/'>
                         <span>DOWIEDZ SIĘ WIĘCEJ</span>
                     </YellowButtonLink>
-                    <StaticImage className="background" src="./../../static/images/organize-exhibition-background.jpg" alt='tył' />
+                    <StaticImage className="background" src="./../../static/images/organize-exhibition-background.jpg" alt='tło' />
                 </div>
             </Content>
         </Wrapper>

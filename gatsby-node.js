@@ -94,7 +94,6 @@ exports.sourceNodes = async (
     const categoryNode = await processCategory(category, { store, cache, createNode, createNodeId })
     createNode(categoryNode)
   })
-
 };
 
 async function asyncForEach(array, callback) {

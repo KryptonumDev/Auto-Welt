@@ -28,7 +28,7 @@ w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wsz
       <ProductSlider title={'Nowości'} products={filtredProducts} />
       <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
       <Divider />
-      <AllCategories title={'Wszystkie kategorie'}/>
+      <AllCategories data={allWcCategory.nodes} title={'Wszystkie kategorie'} />
       <Newsletter />
       <NewPosts />
     </main>
@@ -44,6 +44,15 @@ export const query = graphql`
     allWcCategory(filter: {count: {gt: 0}}) {
       nodes {
         name
+        slug
+        image {
+            alt
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+        }
       }
     }
     allWcProduct(filter: {categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}) {

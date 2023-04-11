@@ -7,7 +7,7 @@ export const StyledHamburgerButton = styled.button`
     position: ${({ isopen }) => (isopen ? "fixed" : "absolute")};
     z-index: 11;
     right: 16px;
-    top: 33px;
+    top: 23px;
     cursor: pointer;
     border: 0;
     width: 70px;
@@ -20,6 +20,9 @@ export const StyledHamburgerButton = styled.button`
     transition: all 250ms linear;
   }
 
+  @media only screen and (max-width: 768px) {
+    position: fixed;
+  }
   @media only screen and (max-width: 375px) {
     right: 16px;
   }

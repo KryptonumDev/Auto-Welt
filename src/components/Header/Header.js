@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
-
+import { Link } from "gatsby";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
-
 import { StyledLink } from "../Link/StyledLink";
 import {
   StyledHeader,
@@ -13,26 +11,11 @@ import {
   StyledIconsWrapper,
   StyledLogoMobileWrapper,
 } from "./StyledHeader";
-
 import Logo from "../../images/Logo.svg";
-
-import InstagramIcon from "../../images/headerIcons/instagram.svg";
-import FacebookIcon from "../../images/headerIcons/facebook.svg";
 import { StaticImage } from "gatsby-plugin-image";
 import { useCart } from "react-use-cart";
+
 const Header = () => {
-  const data = useStaticQuery(graphql`
-    query headerQuery {
-      wpPage(id: { eq: "cG9zdDozMw==" }) {
-        globalConfig {
-          naglowek {
-            linkDoFacebooka
-            linkDoInstagrama
-          }
-        }
-      }
-    }
-  `);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenMenu = () => {
@@ -128,30 +111,10 @@ const Header = () => {
             Kontakt
           </StyledLink>
           <StyledIconsWrapper>
-            <Link className="cart" to='/koszyk/'>
+            <Link onClick={() => setIsOpen(false)} className="cart" to='/koszyk/'>
               <StaticImage src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
               <span>{totalUniqueItems}</span>
             </Link>
-            {/* {data.wpPage.globalConfig.naglowek.linkDoFacebooka ? (
-              <a
-                href={data.wpPage.globalConfig.naglowek.linkDoFacebooka}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="facebook"
-              >
-                <FacebookIcon />
-              </a>
-            ) : null}
-            {data.wpPage.globalConfig.naglowek.linkDoInstagrama ? (
-              <a
-                href={data.wpPage.globalConfig.naglowek.linkDoInstagrama}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="instagram"
-              >
-                <InstagramIcon />
-              </a>
-            ) : null} */}
           </StyledIconsWrapper>
         </StyledRightWrapper>
       </StyledNav>

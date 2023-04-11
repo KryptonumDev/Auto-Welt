@@ -156,7 +156,7 @@ const Title = styled.span`
     font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 24px !important;
     line-height: 124%;
     font-feature-settings: 'pnum' on, 'onum' on;
     color: #23423D;
@@ -183,24 +183,24 @@ const Price = styled.div`
     align-items: center;
     gap: 12px;
     margin-top: 10px;
-
+    
     span{
         font-weight: 400;
         color: #23423D;
-
+        font-family: 'Nocturn Serif';
     }
 
     .regular-price{
-        font-size: 24px;
+        font-size: 24px !important;
     }
 
     .discount-regular-price{
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     .discount-price{
         color: #EDAC2A;
-        font-size: 24px;
+        font-size: 24px !important;
         background: #23423D;
     }
 `

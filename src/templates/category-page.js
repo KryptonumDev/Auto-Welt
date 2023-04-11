@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from "react"
 import { graphql, navigate } from "gatsby"
 
+import ExhibitionListing from './../shop-components/product-exhibition-listing'
 import ProductListing from "../shop-components/product-category-listing"
 import Divider from './../shop-components/organize-divider'
 import AllCategories from './../shop-components/all-categories'
@@ -19,9 +20,12 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
   return (
     <main>
       <Hero title={wcCategory.name} text={wcCategory.description} />
-      <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
-      <Divider />
-      <AllCategories title={'Inne kategorie'}/>
+      {pageContext.slug !== 'wystawy'
+        ? <ProductListing products={allWcProduct.nodes} />
+        : <ExhibitionListing products={allWcProduct.nodes} />}
+      {pageContext.slug !== 'wystawy'
+        && <Divider />}
+      <AllCategories data={allWcCategory.nodes} title={'Inne kategorie'} />
       <Newsletter />
       <NewPosts />
     </main>
@@ -34,6 +38,20 @@ export default Category
 
 export const query = graphql`
   query categoryQuery($id: String!, $slug: String!) {
+    allWcCategory(filter: {count: {gt: 0}, id: {ne: $id}}) {
+        nodes {
+            name
+            slug
+            image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+            }
+        }
+      }
     allWcProduct(filter: {categories: {elemMatch: {slug: {eq: $slug}}}}) {
       nodes {
         date_created
@@ -60,11 +78,6 @@ export const query = graphql`
         on_sale
         regular_price
         price
-      }
-    }
-    allWcCategory(filter: {count: {gt: 0}, id: {ne: $id}}) {
-      nodes {
-        name
       }
     }
     wcCategory(id: { eq: $id }) {
