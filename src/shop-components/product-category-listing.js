@@ -138,7 +138,7 @@ const Wrapper = styled.section`
         color: #23423D;
     }
 `
-
+ 
 const Filter = styled.div`
     margin: clamp(25px, ${25 / 768 * 100}vw, 40px) 0;
 
