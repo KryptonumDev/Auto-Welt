@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form";
 import styled from "styled-components"
 import { Button } from "./button"
@@ -41,7 +41,7 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
                 <input {...register("address")} placeholder="Grzybowska 46/ 6" />
             </label>
             <div className="two-column">
-                <label>
+                <label className="postal-code">
                     <span>Kod pocztowy</span>
                     <input {...register("postcode")} placeholder="00-132" />
                 </label>
@@ -54,12 +54,7 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
                 <span>Kraj</span>
                 <input  {...register("city")} />
             </label>
-            <label className="checkbox">
-                <input {...register("checkbox")} type='checkbox' />
-                <span className="checkmark"></span>
-                <span>Dodaj uwagi do zamówienia</span>
-            </label>
-            <label>
+            <label >
                 <span>Dodaj uwagi odnośnie realizacji zamówienia / informacje dla kuriera</span>
                 <textarea  {...register("additionalinform")} rows='7' />
             </label>
@@ -84,6 +79,14 @@ const Wrapper = styled.form`
         display: grid;
         grid-template-columns: 1fr 4fr;
         grid-gap: 24px;
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+
+            .postal-code{
+                max-width: 180px;
+            }
+        }
     }
 
     .country{

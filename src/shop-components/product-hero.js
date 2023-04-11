@@ -4,13 +4,12 @@ import React, { useMemo, useState } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
+import { LightgalleryItem } from "react-lightgallery";
 
 export default function Hero({ data }) {
 
     const { addItem } = useCart()
-    const [chosenImage, setChosenImage] = useState(0)
     const [quantity, setQuantity] = useState(1)
-    const [isPopupOpened, setIsPopopOpened] = useState(false)
 
     let scale = useMemo(() => {
         let val = null
@@ -28,51 +27,24 @@ export default function Hero({ data }) {
 
     return (
         <Wrapper>
-            <AnimatePresence>
-                {isPopupOpened &&
-                    <Popup initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                        <div onClick={() => { setIsPopopOpened(false) }} className="wrap" />
-                        <div className="content">
-                            <div className="main">
-                                {data.images.map((el, index) => {
-                                    if (index !== chosenImage) return null
-
-                                    return <motion.button onClick={() => { setIsPopopOpened(true) }} >
-                                        <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
-                                    </motion.button>
-                                })}
-                                <span>{chosenImage + 1} z {data.images.length}</span>
-                            </div>
-                            <div className="carousel">
-                                <div className="carousel-content">
-                                    {data.images.map((el, index) => {
-                                        if (index === chosenImage) return null
-
-                                        return <motion.button onClick={() => { setChosenImage(index) }} ><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} /></motion.button>
-                                    })}
-                                </div>
-                            </div>
-                        </div>
-                    </Popup>
-                }
-            </AnimatePresence>
             <Content>
                 <div className="gallery">
                     <div className="main">
                         {data.images.map((el, index) => {
                             if (index) return null
 
-                            return <motion.button onClick={() => { setIsPopopOpened(true) }} >
+                            return <LightgalleryItem src={el.localFile.publicURL}>
                                 <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
                                 <span>1 z {data.images.length}</span>
-                            </motion.button>
+                            </LightgalleryItem>
                         })}
                     </div>
                     <div className="carousel">
                         <div className="carousel-content">
                             {data.images.map((el, index) => {
                                 if (!index) return null
-                                return <motion.button onClick={() => { setIsPopopOpened(true); setChosenImage(index) }} ><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} /></motion.button>
+
+                                return <LightgalleryItem src={el.localFile.publicURL}><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} /></LightgalleryItem>
                             })}
                         </div>
                     </div>
@@ -150,67 +122,6 @@ export default function Hero({ data }) {
 const Wrapper = styled.section`
     *{
         font-family: 'Roboto Condensed';
-    }
-`
-
-const Popup = styled(motion.div)`
-    position: fixed;
-    inset: 0;
-    padding-bottom: 50px;
-    overflow-y: auto;
-    background: rgba(0, 0, 0, 0.22);
-    z-index: 10;
-
-    .wrap{
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-    }
-
-    .content{
-        position: absolute;
-        z-index: 1;
-        max-width: 1080px;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 50px;
-        padding: 76px 130px;
-        background: #FAF6EE;
-        border: 6px solid #23423D;
-        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-
-        button{
-            border: none;
-            background-color: transparent;
-            width: fit-content;
-        }
-
-        .main{
-            position: relative;
-
-            span{
-                position: absolute;
-                right: 24px;
-                bottom: 24px;
-                padding: 10px;
-                font-size: 24px;
-                background: #23423D;
-                color: #fff;
-                font-variant-numeric: initial;
-            }
-        }
-
-        .carousel{
-            margin-top: 20px;
-            overflow: hidden;
-            .carousel-content{
-                display: flex;
-                gap: 16px;
-                button{
-                    width: 40%;
-                }
-            }
-        }
     }
 `
 

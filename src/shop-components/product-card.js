@@ -4,6 +4,7 @@ import React, { useMemo } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
+import { toast } from "react-toastify"
 
 export default function ProductCard({
     onMouseUp = (e, url) => {
@@ -15,7 +16,11 @@ export default function ProductCard({
     data
 }) {
     const { addItem } = useCart()
-    
+    const addToCart = (data) => {
+        addItem(data)
+        toast(`${data.name} - dodano do koszyka`)
+    }
+
     const isNewArrivals = useMemo(() => {
         const createTime = new Date(data.date_created)
         const currentTime = new Date()
@@ -43,10 +48,10 @@ export default function ProductCard({
             <Link
                 onDragStart={event => event.preventDefault()}
                 onClick={(e) => { e.preventDefault() }}
-                onMouseUp={(e) => { onMouseUp(e, `/sklep/modele/${data.categories[0].slug}/${data.slug}/`) }}
-                to={`/sklep/modele/${data.categories[0].slug}/${data.slug}/`}
+                onMouseUp={(e) => { onMouseUp(e, `/sklep/${data.categories[0].slug}/${data.slug}/`) }}
+                to={`/sklep/${data.categories[0].slug}/${data.slug}/`}
             />
-            <GatsbyImage image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
+            <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
             <TextPart>
                 {(data.on_sale || isNewArrivals) && (
                     <NewArrivalsLabel>
@@ -73,7 +78,7 @@ export default function ProductCard({
                         )}
                     </Price>
                 </div>
-                <Button className="add-to-cart" onClick={() => { addItem(data) }}><span>DO KOSZYKA</span></Button>
+                <Button className="add-to-cart" onClick={() => { addToCart(data) }}><span>DO KOSZYKA</span></Button>
             </TextPart>
         </Wrapper>
     )
@@ -114,6 +119,11 @@ const Wrapper = styled.div`
     position: relative;
     background: #FAF7F1;
     border-top: 4px solid #23423D;
+    display: grid;
+
+    .main-image{
+        aspect-ratio: 3/2;
+    }
 
     &.yellow{
         border-top: 4px solid #EDAC2A;

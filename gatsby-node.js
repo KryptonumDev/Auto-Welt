@@ -124,10 +124,10 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
 
   allWcProduct.nodes.map(el => {
     createPage({
-      path: `/sklep/modele/${el.categories[0].slug}/${el.slug}/`,
-      component: require.resolve(
-        "./src/templates/product-page.js"
-      ),
+      path: `/sklep/${el.categories[0].slug}/${el.slug}/`,
+      component: el.categories[0].slug !== 'wystawy'
+        ? require.resolve("./src/templates/product-page.js")
+        : require.resolve("./src/templates/exhibition-page.js"),
       context: {
         itemId: el.databaseId,
         id: el.id,
@@ -151,7 +151,7 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
 
   allWcCategory.nodes.map(el => {
     createPage({
-      path: `/sklep/modele/${el.slug}/`,
+      path: `/sklep/${el.slug}/`,
       component: require.resolve(
         "./src/templates/category-page.js"
       ),

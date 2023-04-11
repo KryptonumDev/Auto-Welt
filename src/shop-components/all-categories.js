@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { YellowButtonLink } from "./button"
 
-export default function AllCategories() {
+export default function AllCategories({ title }) {
 
   const data = useStaticQuery(graphql`
     query AllCategoryQuery {
@@ -27,10 +27,10 @@ export default function AllCategories() {
 
   return (
     <Wrapper>
-      <h2>Wszystkie kategorie</h2>
+      <h2>{title}</h2>
       <Grid>
         {data.allWcCategory.nodes.map(el => (
-          <Item key={el.slug} to={'/sklep/modele/' + el.slug}>
+          <Item key={el.slug} to={'/sklep/' + el.slug}>
             <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt} />
             <p>{el.name}</p>
           </Item>
@@ -39,7 +39,7 @@ export default function AllCategories() {
       <Divider>
         <StaticImage className="image" src='./../../static/images/divider.png' alt='tło' />
         <h3>Nie znalazłeś tego, czego szukałeś?</h3>
-        <YellowButtonLink><span>NAPISZ DO MNIE</span></YellowButtonLink>
+        <YellowButtonLink to='/kontakt/'><span>NAPISZ DO MNIE</span></YellowButtonLink>
       </Divider>
     </Wrapper>
   )
@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     margin-bottom: clamp(25px, ${25 / 768 * 100}vw, 40px);
     font-family: 'Nocturne Serif';
     font-weight: 400;
-    font-size: clamp(32px, ${38 / 768 * 100}vw, 48px);
+    font-size: clamp(34px, ${38 / 768 * 100}vw, 48px);
     color: #23423D;
 
   }

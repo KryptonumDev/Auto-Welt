@@ -9,7 +9,7 @@ import NewPosts from './../shop-components/new-posts'
 import Hero from "../shop-components/text-hero"
 import Newsletter from "../shop-components/newsletter"
 
-const Shop = ({ data: { allWcProduct, allWcCategory } }) => {
+const Shop = ({ data: { wpPage, allWcProduct, allWcCategory } }) => {
 
   const filtredProducts = useMemo(() => {
     return allWcProduct.nodes.filter((data) => {
@@ -20,17 +20,17 @@ const Shop = ({ data: { allWcProduct, allWcCategory } }) => {
       return difference <= 31
     })
   }, [allWcProduct])
-  
+
   return (
     <main>
       <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
 w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
-      <ProductSlider title={'Nowości'}  products={filtredProducts}/>
+      <ProductSlider title={'Nowości'} products={filtredProducts} />
       <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
-      {/* 3<Divider />
-      <AllCategories />
+      <Divider />
+      <AllCategories title={'Wszystkie kategorie'}/>
       <Newsletter />
-      <NewPosts /> */}
+      <NewPosts />
     </main>
   );
 };
@@ -46,7 +46,7 @@ export const query = graphql`
         name
       }
     }
-    allWcProduct {
+    allWcProduct(filter: {categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}) {
       nodes {
         date_created
         id

@@ -25,61 +25,61 @@ export default function ProductSlider({ title, products }) {
 
   const slider = useRef(null);
   const settings = {
-      dots: false,
-      arrows: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      responsive: [
-          {
-              breakpoint: 940,
-              settings: {
-                  slidesToShow: 2,
-              }
-          },
-          {
-              breakpoint: 640,
-              settings: {
-                  slidesToShow: 1,
-              }
-          },
-      ]
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 940,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   };
 
   const [mouseMoved, setMouseMoved] = useState(false)
   const handleClick = (e, url) => {
     e.preventDefault()
     if (!mouseMoved) {
-        if (e.button === 0) {
-            navigate(url)
-        }
+      if (e.button === 0) {
+        navigate(url)
+      }
     }
   }
 
-    return (
-        <Wrapper>
-            <h2>{title}</h2>
-            <SliderWrapper>
-              <StyledLeftArrow className="left" aria-label='prev'  onClick={() => slider?.current?.slickPrev()}>
-                  <LeftArrow />
-              </StyledLeftArrow>
-              <Slider ref={slider} {...settings}>
-                  {filtredProducts.map( (el, index) => (
-                    <div 
-                    onMouseMove={() => setMouseMoved(true)}
-                    onMouseDown={() => setMouseMoved(false)}
-                    key={index}>
-                    <ProductCard onMouseUp={handleClick} data={el}/>
-                    </div>
-                  ))}
-              </Slider>
-              <StyledRightArrow className="right" aria-label='next' onClick={() => slider?.current?.slickNext()}>
-                  <RightArrow />
-              </StyledRightArrow>
-            </SliderWrapper>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <h2>{title}</h2>
+      <SliderWrapper>
+        <StyledLeftArrow className="left" aria-label='prev' onClick={() => slider?.current?.slickPrev()}>
+          <LeftArrow />
+        </StyledLeftArrow>
+        <Slider ref={slider} {...settings}>
+          {filtredProducts.map((el, index) => (
+            <div
+              onMouseMove={() => setMouseMoved(true)}
+              onMouseDown={() => setMouseMoved(false)}
+              key={index}>
+              <ProductCard onMouseUp={handleClick} data={el} />
+            </div>
+          ))}
+        </Slider>
+        <StyledRightArrow className="right" aria-label='next' onClick={() => slider?.current?.slickNext()}>
+          <RightArrow />
+        </StyledRightArrow>
+      </SliderWrapper>
+    </Wrapper>
+  )
 }
 
 const SliderWrapper = styled.div`
@@ -147,14 +147,14 @@ const Wrapper = styled.section`
         padding: 0 ;
     }
     max-width: 1080px;
-    margin: 120px auto 0 auto;
+    margin: clamp(60px, 7.8125vw, 120px) auto 0 auto;
     box-sizing: content-box;
 
     h2{
         margin-bottom: 40px;
         font-family: 'Nocturne Serif';
         font-weight: 400;
-        font-size: 48px;
+        font-size: clamp(34px, ${38 / 768 * 100}vw, 48px);
         color: #23423D;
 
         @media (max-width: 768px){

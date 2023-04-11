@@ -35,7 +35,7 @@ export const Button = styled.button`
     }
 
     &:hover {
-        background: #23423D;
+        background: #1D2B29;
         border: 2px solid transparent;
     }
 
@@ -44,6 +44,11 @@ export const Button = styled.button`
         outline-style: solid;
         outline-color: #da9610;
         outline-offset: 4px;
+    }
+
+    &:disabled{
+        background: #B0BBBA;
+        cursor: default;
     }
 `
 
@@ -80,7 +85,7 @@ text-decoration: unset;
 }
 
 &:hover {
-    background: #EDAC2A;
+    background: #DA9610;
     border: 2px solid transparent;
 }
 

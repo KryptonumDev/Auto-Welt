@@ -5,6 +5,9 @@ import GlobalStyle from "../../styles/GlobalStyle";
 import Header from "../Header/Header";
 import { CartProvider } from "react-use-cart";
 import Footer from "../Footer/Footer";
+import { LightgalleryProvider } from "react-lightgallery";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   StyledOverflowWrapper,
@@ -21,10 +24,13 @@ const GlobalLayout = ({ children }) => {
           <meta name="robots" data-react-helmet="true" />
         </Helmet>
         <GlobalStyle />
+        <ToastContainer />
         <StyledOverflowWrapper>
           <CartProvider>
             <Header />
-            {children}
+            <LightgalleryProvider galleryClassName="gallery">
+              {children}
+            </LightgalleryProvider>
             <Footer />
           </CartProvider>
         </StyledOverflowWrapper>

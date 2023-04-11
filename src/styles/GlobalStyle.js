@@ -49,10 +49,19 @@ const Style = createGlobalStyle`
         --creamBg: #faf7f1;
     }
 
+    .Toastify__progress-bar-theme--light{
+      background: rgb(35, 66, 61) !important;
+    }
+
+    .Toastify__toast-theme--light{
+      background-color: var(--background500) !important;
+    }
+
     body {
       overflow-x: hidden;
       width: 100%;
       background-color: var(--background500);
+      font-family: 'Roboto Condensed', sans-serif;
       
       &.no-js {
         visibility: hidden;

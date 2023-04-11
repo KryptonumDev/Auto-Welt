@@ -38,7 +38,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
             </td>
             <td>
               <div className="flex quantity-calculator">
-                <button onClick={() => { updateItemQuantity(el.id, el.quantity - 1) }} className="minus">
+                <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
                   <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14 0V2H0V0H14Z" fill="#23423D" />
                   </svg>
@@ -483,6 +483,7 @@ const Button = styled(Link)`
   flex: none;
   min-height: unset;
   transition: background 250ms linear;
+  text-decoration: unset;
 
   > span {
       font-family: "Roboto Condensed";
@@ -494,7 +495,7 @@ const Button = styled(Link)`
   }
 
   &:hover {
-      background: #23423D;
+      background: #1D2B29;
       border: 2px solid transparent;
   }
 

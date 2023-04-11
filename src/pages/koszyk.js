@@ -9,7 +9,7 @@ import Empty from "../shop-components/cart-empty"
 import NewPosts from "../shop-components/new-posts"
 import ProductSlider from "../shop-components/product-slider"
 
-export default function KoszykPage() {
+export default function KoszykPage({ data: { allWcProduct } }) {
   const {
     addItem,
     isEmpty,
@@ -39,7 +39,7 @@ export default function KoszykPage() {
         />
         : <Empty />
       }
-      <ProductSlider title={'Zobacz również'} products={[]} />
+      <ProductSlider title={'Zobacz również'} products={allWcProduct.nodes} />
     </Main>
   )
 }
@@ -48,6 +48,35 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query productPageQuery {
+    allWcProduct(filter: {categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
+      nodes {
+        date_created
+        id
+        name
+        slug
+        databaseId
+        attributes {
+          name
+          options
+        }
+        images {
+          alt
+          name
+          localFile{
+            childImageSharp{
+              gatsbyImageData
+            }
+          }
+        }
+        categories {
+          slug
+          name
+        }
+        on_sale
+        regular_price
+        price
+      }
+    }
     wpPage {
       id
       seo {

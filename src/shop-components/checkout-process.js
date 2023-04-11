@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Delivery from "./checkout-delivery"
 import DeliveryDataForm from "./checkout-delivery-data-form"
 import Payment from "./checkout-payment"
@@ -117,27 +117,24 @@ export default function Checkout({ items, sum }) {
                 .catch(erorr => {
                     // TODO: SHOW ERROR - CREATE ORDER ERROR
                 })
-
-
-
         }
     }, [step, shipingData, delivery, personalData, sum, items])
 
     return (
         <Wrapper>
             <div className="content">
-                <Link to='/koszyk/'>Powrót do koszyka</Link>
+                <Link className="back-link" to='/koszyk/'>Powrót do koszyka</Link>
                 <Steps setStep={setStep} step={step} />
                 {step === 1 && (
                     <PersonalDataForm personalData={personalData} setPersonalData={setPersonalData} setStep={setStep} />
                 )}
-                {step === 2 && ( // REMEMBER NOT WORK
+                {step === 2 && (
                     <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
                 {step === 3 && (
                     <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
                 )}
-                {step >= 4 && ( // REMEMBER NOT WORK
+                {step >= 4 && (
                     <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
                 )}
                 {step === 5 && (
@@ -146,7 +143,7 @@ export default function Checkout({ items, sum }) {
                             ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
                                 <PopUp orderNumber={orderNumber} clientSecret={clientSecret} />
                             </Elements>
-                            : <div>Loader</div>
+                            : <Loader><div className="wrap"><div /><div /><div /></div></Loader>
                         }
                     </>
                 )}
@@ -156,10 +153,66 @@ export default function Checkout({ items, sum }) {
     )
 }
 
+const loaderAnimation = keyframes`
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+`
+
+const Loader = styled.div`
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrap{
+        width: 80px;
+        height: 80px;
+        position: relative;
+    }
+
+    .wrap div {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        width: 16px;
+        background: #fff;
+        animation: ${loaderAnimation} 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+    .wrap div:nth-child(1) {
+        left: 8px;
+        animation-delay: -0.24s;
+    }
+    .wrap div:nth-child(2) {
+        left: 32px;
+        animation-delay: -0.12s;
+    }
+    .wrap div:nth-child(3) {
+        left: 56px;
+        animation-delay: 0;
+    }
+`
+
 const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
     gap: 64px;
+
+    .back-link{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+        text-decoration: none;
+    }
 
     @media (max-width: 840px) {
         display: block;
@@ -217,6 +270,12 @@ const Wrapper = styled.section`
         label{
             display: grid;
             grid-gap: 4px;
+            transition: opacity .3s ease-out;
+
+            &.disabled{
+                opacity: .5;
+                pointer-events: none;
+            }
 
             span{
                 font-weight: 600;

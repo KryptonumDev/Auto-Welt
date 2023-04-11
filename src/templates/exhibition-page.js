@@ -2,17 +2,19 @@ import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import ContactPageForm from "../components/ContactPageForm/ContactPageForm"
-import Hero from "../shop-components/product-hero"
+import Hero from "../shop-components/exhibition-hero"
 import ProductSlider from "../shop-components/product-slider"
 import "lightgallery.js/dist/css/lightgallery.css"
+import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 
 export default function ProductPage({ data: { wpPage, wcProduct, allWcProduct } }) {
   return (
     <Wrapper>
       <Hero data={wcProduct} />
+      <HomeCalendar />
       <Contact>
-        <h2 className="title">Masz pytania o&nbsp;produkt?</h2>
-        <p className="text"><b>Napisz do mnie.</b> Chętnie rozwieję wszystkie wątpliwości.</p>
+        <h2 className="title">Chcesz zamówić wystawę?</h2>
+        <p className="text"><b>Napisz do mnie.</b></p>
         <ContactPageForm dataForm={wpPage.kontakt.pierwszaSekcja} />
       </Contact>
       <ProductSlider title={'Mogą cię zainteresować'} products={allWcProduct.nodes} />
@@ -160,6 +162,14 @@ const Wrapper = styled.div`
   margin: 120px auto;
   padding: 0 16px;
   box-sizing: border-box;
+
+  .calendar{
+    margin-top: 120px;
+    padding-bottom: 0;
+    .gatsby-image-wrapper{
+      display: none;
+    }
+  }
 `
 
 const Contact = styled.div`

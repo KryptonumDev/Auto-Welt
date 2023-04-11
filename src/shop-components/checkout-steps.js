@@ -56,9 +56,10 @@ const NumbersGrid = styled.div`
     }
 
     @media (max-width: 666px) {
-        transition: left .3s ease-out;
+        transition: transform .3s ease-out;
         position: relative;
-        left: ${props => (props.step - 1) * -25}%;
+        left: 0;
+        transform: translateX(${props => (props.step - 1) * -15}%);
     }
 
     align-items: flex-start;

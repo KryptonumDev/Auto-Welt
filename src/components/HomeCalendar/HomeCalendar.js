@@ -58,7 +58,7 @@ const HomeCalendar = () => {
     }
   `);
   return (
-    <StyledHomeCalendar>
+    <StyledHomeCalendar className="calendar">
       <StyledText
         as="h2"
         hasdeclaredfontsize="clamp(24px, 48px, 60px)"

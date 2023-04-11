@@ -11,7 +11,7 @@ export default function Divider() {
                 <div>
                     <h2>Zorganizuj wystawę </h2>
                     <p>Przenieś się do niesamowitego świata historycznych modeli kolekcjonerskich</p>
-                    <YellowButtonLink>
+                    <YellowButtonLink to='/sklep/wystawy/'>
                         <span>DOWIEDZ SIĘ WIĘCEJ</span>
                     </YellowButtonLink>
                     <StaticImage className="background" src="./../../static/images/organize-exhibition-background.jpg" alt='tył' />
@@ -80,4 +80,10 @@ const Wrapper = styled.section`
     max-width: 1080px;
     margin: clamp(60px, ${60 / 768 * 100}vw, 120px) auto 0 auto;
     box-sizing: content-box;
+
+    @media (max-width: 380px) {
+        a{
+            margin: 0 auto !important; 
+        }
+    }
 `

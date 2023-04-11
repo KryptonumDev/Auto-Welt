@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { Button } from "./button"
+import { Link } from "gatsby"
 
 const paymentMethods = [
     {
@@ -16,6 +17,8 @@ const paymentMethods = [
 
 export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
+
+    const [checkboxValue, setCheckboxValue] = useState(false)
     const [selected, setSelected] = useState(() => {
         let id = 0
         paymentMethods.forEach((el, index) => {
@@ -37,7 +40,7 @@ export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
     }
 
     return (
-        <Wrapper onSubmit={handleSubmit(submit)} >
+        <Wrapper className="form" onSubmit={handleSubmit(submit)} >
             <h2>5. Wybierz metodę płatności</h2>
             {paymentMethods.map((el, index) => (
                 <label className="radio">
@@ -48,7 +51,12 @@ export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
                     </div>
                 </label>
             ))}
-            <Button >
+            <label className="checkbox">
+                <input onClick={(e) => { setCheckboxValue(e.currentTarget.checked) }}  {...register("checkbox")} type='checkbox' />
+                <span className="checkmark"></span>
+                <span>Akceptuje <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-wystaw/'>Regulamin</Link> sklepu Auto-Welt.info*</span>
+            </label>
+            <Button disabled={!checkboxValue}>
                 <span>
                     KUPUJĘ I PŁACĘ
                 </span>
@@ -92,15 +100,29 @@ const Wrapper = styled.form`
             }
     }
 
-    label{
-        margin-top: 20px;
-        display: grid;
-        grid-gap: 8px;
-        align-items: center;
-        grid-template-columns: 1fr auto;
-        width: fit-content;
+    &.form{ 
+        label{
+            margin-top: 20px;
+            display: grid;
+            grid-gap: 8px;
+            align-items: center;
+            grid-template-columns: 1fr auto;
+            width: fit-content;
+        }
+
+        .checkbox{
+            color: #23423D;
+            a{
+                font-family: 'Roboto Condensed';
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 21px;
+                font-feature-settings: 'pnum' on, 'onum' on;
+                color: #23423D;
+            }
+        }
     }
-    
+        
     button{
         margin-left: 10px !important;
     }
