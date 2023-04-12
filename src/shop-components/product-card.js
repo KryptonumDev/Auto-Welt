@@ -120,10 +120,20 @@ const Wrapper = styled.div`
     background: #FAF7F1;
     border-top: 4px solid #23423D;
     display: grid;
-
     .main-image{
         aspect-ratio: 3/2;
+        img{
+            transition: transform 0.3s ease-in-out;
+        }
     }
+    &:hover{
+      .main-image{
+        img{
+          transform: scale(1.05);
+        }
+      }
+    }
+
 
     &.yellow{
         border-top: 4px solid #EDAC2A;
