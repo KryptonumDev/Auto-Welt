@@ -32,6 +32,7 @@ export const Button = styled.button`
         text-transform: uppercase;
         text-align: center;
         line-height: 1.3em;
+        font-size: clamp(15px, ${21 / 768 * 100}vw, 21px);
     }
 
     &:hover {
@@ -80,7 +81,7 @@ text-decoration: unset;
     text-transform: uppercase;
     text-align: center;
     line-height: 1.3em;
-    font-size: 19px;
+    font-size: clamp(15px, ${21 / 768 * 100}vw, 21px);
       font-weight: 600;
 }
 

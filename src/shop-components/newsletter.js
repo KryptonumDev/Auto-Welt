@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Button } from "./button"
+import { Link } from "gatsby"
 
 export default function Newsletter() {
     return (
@@ -20,13 +21,13 @@ export default function Newsletter() {
                         <span>E-mail</span>
                         <input />
                     </label>
-                    <Button className="button"><span>ZAPISUJE SIĘ</span></Button>
+                    <Button className="button"><span>ZAPISUJĘ SIĘ</span></Button>
                     <label className="checkbox">
                         <input type='checkbox' />
                         <span className="checkmark" />
                         <span>
                             Zapisując się do newslettera, wyrażasz zgodę na przesyłanie Ci informacji o nowościach, promocjach.
-                            Szczegóły związane z przetwarzaniem Twoich danych osobowych znajdziesz w polityce prywatności.
+                            Szczegóły związane z przetwarzaniem Twoich danych osobowych znajdziesz w <Link to='/polityka-prywatnosci/'>polityce prywatności</Link>.
                         </span>
                     </label>
                 </div>
@@ -129,25 +130,31 @@ const Content = styled.form`
         span{
             font-weight: 600;
             font-size: 16px;
+            color: #23423D;
         }
 
         input, textarea{
             width: 100%;
             background-color: transparent;
             border: 2px solid #23423D;
-            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
             padding: 10px 16px;
             font-size: 16px;
         }
 
         &.checkbox{
             display: flex;
-            gap: 10px;
+            gap: 16px;
             width: fit-content;
             span{
                 font-size: clamp(13px, ${16 / 768 * 100}vw, 16px );
                 font-weight: 400;
                 max-width: 560px;
+                color: #000000;
+
+                a{
+                    color: #23423D;
+                    font-weight: 600;
+                }
             }
             input{
                 width: fit-content;

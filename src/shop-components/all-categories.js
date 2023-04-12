@@ -67,6 +67,19 @@ const Item = styled(Link)`
     height: fit-content;
     text-decoration: unset;
 
+    &:hover{
+      .image img{
+        transform: scale(1.05);
+      }
+    }
+
+    .image{
+      img{
+        transition: transform 0.3s ease-in-out;
+      }
+      width: 100%;
+    }
+
     p{
         text-align: center;
         padding: 12px;

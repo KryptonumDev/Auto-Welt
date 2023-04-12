@@ -30,7 +30,7 @@ const Header = () => {
     }
   }, [isOpen]);
 
-  const { totalUniqueItems } = useCart()
+  const { totalItems  } = useCart()
 
   return (
     <StyledHeader>
@@ -113,7 +113,7 @@ const Header = () => {
           <StyledIconsWrapper>
             <Link onClick={() => setIsOpen(false)} className="cart" to='/koszyk/'>
               <StaticImage src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
-              <span>{totalUniqueItems}</span>
+              <span>{totalItems}</span>
             </Link>
           </StyledIconsWrapper>
         </StyledRightWrapper>

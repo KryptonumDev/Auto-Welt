@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from "react"
 import { graphql, navigate } from "gatsby"
 
 import ExhibitionListing from './../shop-components/product-exhibition-listing'
-import ProductListing from "../shop-components/product-category-listing"
+import ProductListing from "../shop-components/product-listing"
 import Divider from './../shop-components/organize-divider'
 import AllCategories from './../shop-components/all-categories'
 import NewPosts from './../shop-components/new-posts'

@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import styled from "styled-components"
@@ -34,10 +34,9 @@ export default function NewPosts() {
     return (
         <Wrapper>
             <h2>Najnowsze artykuły</h2>
-
             <Grid>
                 {nodes.map(el => (
-                    <Item key={el.slug}>
+                    <Item to={`/artykul/${el.slug}/`} key={el.slug}>
                         <div>
                             <GatsbyImage className="image" image={el.artykul.informacjeDoMiniaturki.miniaturka.localFile.childImageSharp.gatsbyImageData} alt={el.artykul.informacjeDoMiniaturki.miniaturka.altText} />
                             <div className="title">
@@ -46,7 +45,7 @@ export default function NewPosts() {
                             </div>
                             <div className="text" dangerouslySetInnerHTML={{ __html: el.artykul.informacjeDoMiniaturki.opis }} />
                         </div>
-                        <YellowButtonLink to={`/artykul/${el.slug}/`}><span>{el.artykul.informacjeDoMiniaturki.tekstWPrzycisku}</span></YellowButtonLink>
+                        <YellowButtonLink as='button'><span>Czytaj więcej</span></YellowButtonLink>
                     </Item>
                 ))}
             </Grid>
@@ -87,16 +86,36 @@ const Grid = styled.div`
     }
 `
 
-const Item = styled.div`
+const Item = styled(Link)`
     background: #FAF7F1;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-decoration: none;
+
+    *{
+        text-decoration: none;
+        color: #000000;
+    }
 
     .image{
         width: 100%;
         aspect-ratio: 1/1;
+
+        img{
+            transition: transform .3s ease-out;
+        }
+    }
+
+    &:hover{
+        .image img{
+            transform: scale(1.05);  
+        }
+
+        button{
+            background: rgb(218, 150, 16);
+        }
     }
 
     .title{
@@ -105,9 +124,10 @@ const Item = styled.div`
         h3{
             font-family: 'Roboto Condensed';
             font-weight: 600;
-            font-size: 22px;
+            font-size: 24px;
             color: #23423D;
             position: relative;
+            text-transform: uppercase;
             z-index: 2;
             padding: 13px 26px;
         }
@@ -126,6 +146,11 @@ const Item = styled.div`
         > p {
             &:first-child{
                 &::first-letter{
+                    /* font-family: 'Nocturne Serif';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 44px;
+                    line-height: 135.19%; */
                 }
             }
         }
@@ -133,9 +158,13 @@ const Item = styled.div`
 
     p{
         padding: 13px 26px 24px 26px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 135.19%;
     }
     
-    a{
+    button{
         margin-bottom: 36px;
         margin-top: 0;
     }

@@ -195,7 +195,21 @@ const Price = styled.div`
     }
 
     .discount-regular-price{
-        font-size: 18px !important;
+        font-size: 18px !important;        
+        position: relative;
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #EDAC2A;
+            left: 0;
+            bottom: 0;
+            transform: rotateZ(-20deg);
+            transform-origin: 0 100%;
+        }
+
     }
 
     .discount-price{

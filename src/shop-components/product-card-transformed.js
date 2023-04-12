@@ -122,7 +122,17 @@ const Wrapper = styled.div`
 
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-gap: 20px;
+
+    .main-image img{
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover{
+      .main-image{
+        img{
+          transform: scale(1.05);
+        }
+      }
+    }
 
     @media (max-width: 840px) {
         grid-template-columns: 163fr 142fr;
@@ -240,12 +250,26 @@ const Price = styled.div`
     }
 
     .discount-regular-price{
-        font-size: 18px;
+      font-size: 18px;
+      position: relative;
+
+      &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #EDAC2A;
+        left: 0;
+        bottom: 0;
+        transform: rotateZ(-20deg);
+        transform-origin: 0 100%;
+      }
     }
 
     .discount-price{
         color: #EDAC2A;
         font-size: 24px;
         background: #23423D;
+        padding: 0 3px;
     }
 `
