@@ -20,32 +20,36 @@ const WooCommerce = new WooCommerceRestApi({
 });
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISH_KEY);
 
+const getItem = (name, altVal = '') => {
+    return localStorage.getItem(name) !== 'null' ? localStorage.getItem(name) : altVal
+}
+
 export default function Checkout({ items, sum }) {
     const [clientSecret, setClientSecret] = useState("");
     const [step, setStep] = useState('2')
-    const [paymentMethod, setPaymentMethod] = useState(localStorage.getItem('paymentMethod'))
     const [orderNumber, setOrderNumber] = useState(null)
+    const [paymentMethod, setPaymentMethod] = useState(getItem('paymentMethod'))
     const [delivery, setDelivery] = useState({
-        type: localStorage.getItem('delivery-type'),
-        description: localStorage.getItem('delivery-description'),
-        price: localStorage.getItem('delivery-price') ? localStorage.getItem('delivery-price') : 10,
+        type: getItem('delivery-type'),
+        description: getItem('delivery-description'),
+        price: getItem('delivery-price', 10),
         pricetext: 'od 10 zł'
     })
     const [personalData, setPersonalData] = useState({
-        name: localStorage.getItem('name'),
-        email: localStorage.getItem('email'),
-        phone: localStorage.getItem('phone'),
-        forFirm: localStorage.getItem('forFirm'),// not used
-        nip: localStorage.getItem('nip'), // not used
-        firmName: localStorage.getItem('firmName'), // not used
-        firmAdres: localStorage.getItem('firmAdres'), // not used
+        name: getItem('name'),
+        email: getItem('email'),
+        phone: getItem('phone'),
+        forFirm: getItem('forFirm'),// not used
+        nip: getItem('nip'), // not used
+        firmName: getItem('firmName'), // not used
+        firmAdres: getItem('firmAdres'), // not used
     })
     const [shipingData, setShipingData] = useState({
-        address: localStorage.getItem('address'),
-        postcode: localStorage.getItem('postcode'),
-        country: localStorage.getItem('country'),
-        city: localStorage.getItem('city'),
-        additionalinform: localStorage.getItem('additionalinform'), // not used
+        address: getItem('address'),
+        postcode: getItem('postcode'),
+        country: getItem('country'),
+        city: getItem('city'),
+        additionalinform: getItem('additionalinform'), // not used
     })
 
 
@@ -91,7 +95,7 @@ export default function Checkout({ items, sum }) {
                     delivery.type === 'Inpost – paczkomaty 24/7' ? {
                         method_id: "easypack_parcel_machines",
                         method_title: "InPost Paczkomat 24/7",
-                        total: delivery.price,
+                        total: `${delivery.price}}`,
                         meta_data: [
                             {
                                 key: "Inpost numer paczkomatu",

@@ -22,7 +22,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
   `)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
-    const [inpostNumber, setInpostNumber] = useState('')
+    const [inpostNumber, setInpostNumber] = useState('WAW171M')
     const [selected, setSelected] = useState(() => {
         let id = 0
         deliveryMethods.forEach((el, index) => {
@@ -94,7 +94,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
                             </>
                         )}
                     </label>
-                ))}f
+                ))}
             </div>
             <Button type='submit' disabled={!inpostNumber && selected === 0}>
                 <span>
