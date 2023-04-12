@@ -13,7 +13,7 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0px solid transparent;
+    border: 2px solid transparent;
     outline: 0;
     background: #23423D;
     color: #fff;
@@ -32,6 +32,60 @@ export const Button = styled.button`
         text-transform: uppercase;
         text-align: center;
         line-height: 1.3em;
+        font-size: clamp(15px, ${21 / 768 * 100}vw, 21px);
+    }
+
+    &:hover {
+        background: #1D2B29;
+        border: 2px solid transparent;
+    }
+
+    &:focus-visible {
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: #da9610;
+        outline-offset: 4px;
+    }
+
+    &:disabled{
+        background: #B0BBBA;
+        cursor: default;
+    }
+`
+export const ButtonLink = styled(Link)`
+    max-width: 288px;
+    width: 100%;
+    margin: 20px 0 30px 0;
+
+    &.add-to-cart{
+        max-width: calc(100% - 80px);
+        margin: 20px auto 30px auto;
+    }
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    outline: 0;
+    background: #23423D;
+    color: #fff;
+    height: 44px;
+    transform: skew(-26deg);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    flex: none;
+    min-height: unset;
+    transition: background 250ms linear;
+    text-decoration: none;
+
+    > span {
+        font-family: "Roboto Condensed";
+        display: block;
+        transform: skew(26deg);
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.3em;
+        text-decoration: none;
         font-size: clamp(15px, ${21 / 768 * 100}vw, 21px);
     }
 

@@ -1,12 +1,9 @@
-import { graphql, Link } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React, { useCallback, useMemo } from "react"
+import React, { useMemo } from "react"
+import { graphql } from "gatsby"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
-import AllCategories from "../shop-components/all-categories"
 import CartContent from "../shop-components/cart-content"
 import Empty from "../shop-components/cart-empty"
-import NewPosts from "../shop-components/new-posts"
 import ProductSlider from "../shop-components/product-slider"
 
 export default function KoszykPage({ data: { allWcProduct } }) {
@@ -26,7 +23,7 @@ export default function KoszykPage({ data: { allWcProduct } }) {
     })
     return count
   }, [items])
-
+  
   return (
     <Main>
       <Title>Koszyk</Title>

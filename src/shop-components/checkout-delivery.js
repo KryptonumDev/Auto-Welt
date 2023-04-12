@@ -3,6 +3,7 @@ import React, { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { Button } from "./button"
+import { InpostGeowidget } from "react-inpost-geowidget";
 
 export default function Delivery({ delivery, setDelivery, setStep }) {
 
@@ -45,7 +46,11 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
             description: deliveryMethods[data.method].description,
             price: deliveryMethods[data.method].price ? deliveryMethods[data.method].price : '0'
         })
-        setStep(3)
+        setStep('4')
+    }
+
+    const onPointCallback = (e) => {
+        console.log(e);
     }
 
     return (
@@ -55,17 +60,25 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
             <div>
                 {deliveryMethods.map((el, index) => (
                     <label className="radio">
-                        <div>
-                            <input onClick={() => { handleChange(index) }} checked={selected === index} value={index} {...register("method")} type='radio' name='method' />
-                            <span className="button" />
+                        <div className="radio-flex">
                             <div>
-                                <h4>{el.name}</h4>
-                                <p>{el.description}</p>
+                                <input onClick={() => { handleChange(index) }} checked={selected === index} value={index} {...register("method")} type='radio' name='method' />
+                                <span className="button" />
+                                <div>
+                                    <h4>{el.name}</h4>
+                                    <p>{el.description}</p>
+                                </div>
                             </div>
+                            <span>
+                                {el.price ? el.price + ' zł' : 'Gratis'}
+                            </span>
                         </div>
-                        <span>
-                            {el.price ? el.price + ' zł' : 'Gratis'}
-                        </span>
+                        {el.name === 'Inpost – paczkomaty 24/7' && (
+                            <InpostGeowidget
+                                token={process.env.INPOST_GEO_KEY}
+                                onPoint={onPointCallback}
+                            />
+                        )}
                     </label>
                 ))}
             </div>
@@ -107,6 +120,13 @@ const Wrapper = styled.form`
     
     button{
         margin-left: 10px!important;
+    }
+
+    .radio{
+        display: block;
+    }
+    .radio-flex{
+        display: flex;
     }
 
 `

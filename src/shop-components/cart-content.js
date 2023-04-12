@@ -351,6 +351,15 @@ const Wrapper = styled.section`
       height: 42px;
       cursor: pointer;
       border-right: unset;
+      transition: background-color .3s ease-out;
+      &:hover{
+          background-color: #EDAC2A;
+      }
+
+      &:disabled{
+          cursor: unset;
+          background-color: transparent;
+      }
     }
 
     .quantity{
@@ -365,6 +374,15 @@ const Wrapper = styled.section`
       background-color: #EDAC2A;
       cursor: pointer;
       border-left: unset;
+      transition: background-color .3s ease-out;
+      &:hover{
+          background-color: transparent;
+      }
+
+      &:disabled{
+          cursor: unset;
+          background-color: #EDAC2A;
+      }
     }
   }
 

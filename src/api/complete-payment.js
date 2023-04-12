@@ -12,12 +12,14 @@ const api = new WooCommerceRestApi({
 
 export default async function handler(req, res) {
     let status = req.query.redirect_status === 'succeeded' ? 'processing' : 'cancelled'
+    
     api.put(`orders/${req.query.id}`, {
         status: status
+    }).catch(err => {
+        console.log(err)
+    }).then(data => {
+        console.log(data)
+        res.redirect(`/podziekowanie?status=${req.query.redirect_status}`)
     })
-        .catch(err => {
-            console.log(err)
-        })
 
-    res.redirect(`/podziekowanie?status=${req.query.redirect_status}`)
 };

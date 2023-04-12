@@ -3,7 +3,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
-import { Button } from "./button"
+import { ButtonLink } from "./button"
 import { toast } from "react-toastify"
 
 export default function ExhibitionCard({ data }) {
@@ -25,7 +25,7 @@ export default function ExhibitionCard({ data }) {
           <p className="text">Organizacja wystawy</p>
         </div>
         <p className="price">Zapytaj o wycenę</p>
-        <Button className="button"><span>KONTAKT</span></Button>
+        <ButtonLink to='/kontakt/' className="button"><span>KONTAKT</span></ButtonLink>
       </TextPart>
     </Wrapper>
   )
@@ -86,6 +86,8 @@ const TextPart = styled.div`
     .button{
       width: calc(100% - 24px);
       margin-top: 12px;
+      position: relative;
+      z-index: 11;
     }
 `
 

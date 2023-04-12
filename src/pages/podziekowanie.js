@@ -4,17 +4,19 @@ import React, { useEffect, useMemo } from "react"
 import styled from "styled-components"
 import { YellowButtonLink } from "../shop-components/button"
 import ProductSlider from "../shop-components/product-slider"
+import { useCart } from "react-use-cart"
 
 export default function Podziekowanie({ location, data: { allWcProduct } }) {
-  // redirect if not order
+  const { emptyCart } = useCart();
   // ?payment_intent=pi_3MmGU4FRHdFp2R5314z7In16&payment_intent_client_secret=pi_3MmGU4FRHdFp2R5314z7In16_secret_my9D243oLmx5UW327fb7uwHVI&redirect_status=succeeded
 
   useEffect(() => {
     let params = new URLSearchParams(location.search);
-    let intent = params.get('payment_intent_client_secret');
-
-    if (!intent) {
+    let status = params.get('status');
+    if (!status) {
       navigate('/sklep/')
+    } else {
+      emptyCart()
     }
   }, [])
 

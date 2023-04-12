@@ -14,31 +14,31 @@ export default function Steps({ setStep, step }) {
                     <p>Wybierz produkty</p>
                 </Step>
                 <span className={step > 0 ? 'active line' : 'line'} />
-                <Step onClick={() => { setStep(step > 1 ? 1 : step) }} className={step > 0 ? 'active' : ''}>
+                <Step className={step > 1 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
                         <span>2</span>
                     </Image>
                     <p>Dane osobowe</p>
                 </Step>
-                <span className={step > 0 ? 'active line' : 'line'} />
-                <Step onClick={() => { setStep(step > 2 ? 2 : step) }} className={step > 1 ? 'active' : ''}>
+                <span className={step > 1 ? 'active line' : 'line'} />
+                <Step className={step > 2 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
                         <span>3</span>
                     </Image>
                     <p>Opcje dostawy</p>
                 </Step>
-                <span className={step > 1 ? 'active line' : 'line'} />
-                <Step onClick={() => { setStep(step > 3 ? 3 : step) }} className={step > 2 ? 'active' : ''}>
+                <span className={step > 2 ? 'active line' : 'line'} />
+                <Step className={step > 3 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
                         <span>4</span>
                     </Image>
                     <p>Adres dostawy</p>
                 </Step>
-                <span className={step > 2 ? 'active line' : 'line'} />
-                <Step onClick={() => { setStep(step > 4 ? 4 : step) }} className={step > 3 ? 'active' : ''}>
+                <span className={step > 3 ? 'active line' : 'line'} />
+                <Step className={step > 4 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
                         <span>5</span>
@@ -143,11 +143,10 @@ const Image = styled.div`
     }
 `
 
-const Step = styled.button`
+const Step = styled.div`
     border: none;
     background-color: transparent;
     text-align: center;
-    cursor: pointer;
     opacity: .5;
 
     &.active{

@@ -29,7 +29,7 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
             city: data.city,
             additionalinform: data.additionalinform
         })
-        setStep(4)
+        setStep('5')
     }
 
     return (

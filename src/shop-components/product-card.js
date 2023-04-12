@@ -132,6 +132,9 @@ const Wrapper = styled.div`
           transform: scale(1.05);
         }
       }
+      button{
+        background: #1D2B29;
+      }
     }
 
 

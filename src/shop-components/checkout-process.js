@@ -22,7 +22,7 @@ const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISH_KEY);
 
 export default function Checkout({ items, sum }) {
     const [clientSecret, setClientSecret] = useState("");
-    const [step, setStep] = useState(1)
+    const [step, setStep] = useState('2')
     const [paymentMethod, setPaymentMethod] = useState(localStorage.getItem('paymentMethod'))
     const [orderNumber, setOrderNumber] = useState(null)
     const [delivery, setDelivery] = useState({
@@ -50,7 +50,7 @@ export default function Checkout({ items, sum }) {
 
 
     useEffect(() => {
-        if (step === 5) {
+        if (step === '6') {
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -88,12 +88,11 @@ export default function Checkout({ items, sum }) {
                 },
                 line_items: line_items,
                 shipping_lines: [
-                    {
+                    delivery.type === 'Inpost – paczkomaty 24/7' ? {
                         method_id: "easypack_parcel_machines",
                         method_title: "InPost Paczkomat 24/7",
                         total: `${delivery.price}`
-                    },
-                    {
+                    } : {
                         method_id: "local_pickup",
                         method_title: "Odbiór osobisty",
                         total: `0`
@@ -124,7 +123,7 @@ export default function Checkout({ items, sum }) {
                 })
         }
 
-        if(typeof window !== 'undefined'){
+        if (typeof window !== 'undefined') {
             window.scrollTo(0, 0)
         }
     }, [step, shipingData, delivery, personalData, sum, items])
@@ -133,20 +132,21 @@ export default function Checkout({ items, sum }) {
         <Wrapper>
             <div className="content">
                 <Link className="back-link" to='/koszyk/'>Powrót do koszyka</Link>
+                <button disabled={step <= '2'} onClick={() => { setStep((step - 1).toString()) }} className="back-link second" to='/koszyk/'>Powrót do poprzedniego kroku</button>
                 <Steps setStep={setStep} step={step} />
-                {step === 1 && (
+                {step === '2' && (
                     <PersonalDataForm personalData={personalData} setPersonalData={setPersonalData} setStep={setStep} />
                 )}
-                {step === 2 && (
+                {step === '3' && (
                     <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
-                {step === 3 && (
+                {step === '4' && (
                     <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
                 )}
-                {step >= 4 && (
+                {step >= '5' && (
                     <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
                 )}
-                {step === 5 && (
+                {step === '6' && (
                     <>
                         {clientSecret
                             ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
@@ -175,7 +175,7 @@ const loaderAnimation = keyframes`
 
 const Loader = styled.div`
     position: fixed;
-    z-index: 20;
+    z-index: 2000;
     inset: 0;
     background: rgba(0, 0, 0, 0.22);
     display: flex;
@@ -221,6 +221,19 @@ const Wrapper = styled.section`
         line-height: 19px;
         color: #000000;
         text-decoration: none;
+
+        &.second{
+            display: block;
+            cursor: pointer;
+            margin-top: 24px;
+            border: none;
+            background-color: transparent;
+
+            &:disabled{
+                cursor: default;
+                opacity: .5;
+            }
+        }
     }
 
     @media (max-width: 840px) {
@@ -289,13 +302,18 @@ const Wrapper = styled.section`
             span{
                 font-weight: 600;
                 font-size: 18px;
+
+                &.error{
+                    font-size: 13px;
+                    color: red;
+                    height: 0;
+                }
             }
 
             input, textarea{
                 width: 100%;
                 background-color: transparent;
                 border: 2px solid #23423D;
-                box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
                 padding: 10px 16px;
                 font-size: 16px;
             }
@@ -310,7 +328,14 @@ const Wrapper = styled.section`
                 input{
                     width: fit-content;
                     box-shadow: unset;
-                    display: none;
+                    opacity: 0;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+
+                    &:focus-visible ~ .checkmark{
+                        outline: 2px solid #EDAC2A;
+                    }
                 }
                 .checkmark{
                     border: 2px solid #3E635D;

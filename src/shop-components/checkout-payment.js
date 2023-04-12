@@ -36,14 +36,14 @@ export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
     const submit = (data) => {
         localStorage.setItem('paymentMethod', paymentMethods[data.paymanet].type)
         setPaymentMethod(paymentMethods[data.paymanet].type)
-        setStep(5)
+        setStep('6')
     }
 
     return (
         <Wrapper className="form" onSubmit={handleSubmit(submit)} >
             <h2>5. Wybierz metodę płatności</h2>
             {paymentMethods.map((el, index) => (
-                <label className="radio">
+                <label key={index} className="radio">
                     <input onClick={() => { handleChange(index) }} checked={selected === index} value={index} {...register("paymanet")} type='radio' name='paymanet' />
                     <span className="button" />
                     <div>

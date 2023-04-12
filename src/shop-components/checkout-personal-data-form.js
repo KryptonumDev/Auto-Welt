@@ -5,8 +5,9 @@ import { Button } from "./button"
 
 export default function PersonalDataForm({ personalData, setPersonalData, setStep }) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
+        mode: "onBlur",
         defaultValues: {
-            name: personalData.name,
+            name: personalData.name || '',
             email: personalData.email,
             phone: personalData.phone,
             forFirm: personalData.forFirm === 'true',
@@ -36,24 +37,49 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             firmName: data.firmName,
             firmAdres: data.firmAdres,
         })
-        setStep(2)
+        setStep('3')
     }
-
     return (
         <Wrapper onSubmit={handleSubmit(submit)} className="form">
             <h2>2. Uzupełnij dane osobiste</h2>
             <h3>Dane do wysyłki</h3>
             <label>
-                <span>Imię i Nazwisko</span>
-                <input {...register("name")} />
+                <span>Imię i Nazwisko*</span>
+                <input {...register("name", { required: true, minLength: 3 })} />
+                {errors.name && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
             </label>
             <label>
-                <span>E-mail</span>
-                <input {...register("email")} />
+                <span>E-mail*</span>
+                <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
+                {errors.email && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
             </label>
             <label>
-                <span>Nr. telefonu</span>
-                <input {...register("phone")} />
+                <span>Nr. telefonu*</span>
+                <input
+                    maxLength={11}
+                    placeholder="_ _ _  _ _ _  _ _ _" {...register("phone", { required: true, minLength: 11})}
+                    onChange={(e) => {
+                        e.target.value = (
+                            [...e.target.value.replaceAll(' ', '')].map((val, idx) => {
+                                if (val === ' ')
+                                    return [val];
+
+                                let ret = [];
+
+                                if (!isNaN(parseInt(val))) {
+                                    if (idx > 0 && idx % 3 === 0)
+                                        ret.push(' ');
+                                    ret.push(val);
+                                }
+
+                                return ret;
+                            })
+                                .reduce((prev, cur) => prev.concat(cur), [])
+                                .reduce((prev, cur) => prev += cur, "")
+                        );
+                        return e;
+                    }} />
+                {errors.phone && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
             </label>
             <label className="checkbox">
                 <input onClick={(e) => { setCheckboxValue(e.currentTarget.checked) }} {...register("forFirm")} type='checkbox' />
@@ -62,15 +88,15 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>NIP</span>
-                <input {...register("nip")} placeholder='___-___-__-__' />
+                <input disabled={!checkboxValue} {...register("nip")} placeholder='___-___-__-__' />
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>Nazwa firmy</span>
-                <input {...register("firmName")} />
+                <input disabled={!checkboxValue} {...register("firmName")} />
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>Adres firmy</span>
-                <input {...register("firmAdres")} />
+                <input disabled={!checkboxValue} {...register("firmAdres")} />
             </label>
 
             <span className="anotation">Upewnij się, że Twoje dane są poprawne.</span>
@@ -100,5 +126,4 @@ const Wrapper = styled.form`
     button{
         margin-left: 10px!important;
     }
-
 `

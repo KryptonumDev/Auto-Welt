@@ -3,7 +3,6 @@ import { graphql, navigate } from "gatsby"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import Checkout from "../shop-components/checkout-process"
-import ProductSlider from "../shop-components/product-slider"
 
 const Zamowienie = ({ location }) => {
   const { items } = useCart()
@@ -23,7 +22,7 @@ const Zamowienie = ({ location }) => {
     }
   }, []);
 
-  if (typeof window === 'undefined') {
+  if(typeof window === 'undefined'){
     return null
   }
 
@@ -35,28 +34,6 @@ const Zamowienie = ({ location }) => {
 }
 
 export default Zamowienie;
-
-export { Head } from "../components/Head/Head"
-
-export const query = graphql`
-  query shopQuery {
-    wpPage(id: { eq: "cG9zdDo0NjU=" }) {
-      seo {
-        canonical
-        metaDesc
-        opengraphSiteName
-        title
-        opengraphUrl
-        opengraphImage {
-          localFile {
-            publicURL
-          }
-        }
-      }
-    }
-  }
-`;
-
 
 const Wrapper = styled.div`
   max-width: 1112px;

@@ -1,10 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo, useState } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
-import { LightgalleryItem } from "react-lightgallery";
+import { LightgalleryItem } from "react-lightgallery"
 
 export default function Hero({ data }) {
 
@@ -34,6 +33,7 @@ export default function Hero({ data }) {
                             if (index) return null
 
                             return <LightgalleryItem src={el.localFile.publicURL}>
+                                <StaticImage className="loupe" src="../../static/images/loupe.png" alt='obrazek dekaracyjny' />
                                 <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
                                 <span>1 z {data.images.length}</span>
                             </LightgalleryItem>
@@ -43,7 +43,6 @@ export default function Hero({ data }) {
                         <div className="carousel-content">
                             {data.images.map((el, index) => {
                                 if (!index) return null
-
                                 return <LightgalleryItem src={el.localFile.publicURL}><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} /></LightgalleryItem>
                             })}
                         </div>
@@ -170,6 +169,10 @@ const Content = styled.div`
         background: #EDAC2A;
         color: #1D2B29;
         font-weight: 600;
+
+        &:hover{
+            background: #DA9610;
+        }
     }
 
     
@@ -219,9 +222,14 @@ const Content = styled.div`
             height: 42px;
             cursor: pointer;
             border-right: unset;
+            transition: background-color .3s ease-out;
+            &:hover{
+                background-color: #EDAC2A;
+            }
 
             &:disabled{
                 cursor: unset;
+                background-color: transparent;
             }
         }
 
@@ -237,9 +245,14 @@ const Content = styled.div`
             background-color: #EDAC2A;
             cursor: pointer;
             border-left: unset;
+            transition: background-color .3s ease-out;
+            &:hover{
+                background-color: transparent;
+            }
 
             &:disabled{
                 cursor: unset;
+                background-color: #EDAC2A;
             }
         }
     }
@@ -298,13 +311,36 @@ const Content = styled.div`
     }
 
     .gallery{
+        .image{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            cursor: pointer;
+        }
         button{
+            cursor: pointer;
             border: none;
             background-color: transparent;
             width: fit-content;
         }
         .main{
             position: relative;
+
+            .loupe{
+                opacity: 0;
+                transition: opacity .3s ease-out;
+                position: absolute;
+                right: 9px;
+                top: 9px;
+                z-index: 4;
+            }
+
+            &:hover{
+                .loupe{
+                    opacity: 1;
+                }
+            }
 
             span{
                 position: absolute;
@@ -321,7 +357,8 @@ const Content = styled.div`
             margin-top: 20px;
             overflow: hidden;
             .carousel-content{
-                display: flex;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 gap: 16px;
                 button{
                     width: 40%;
