@@ -74,10 +74,13 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
                             </span>
                         </div>
                         {el.name === 'Inpost – paczkomaty 24/7' && (
-                            <InpostGeowidget
-                                token={process.env.INPOST_GEO_KEY}
-                                onPoint={onPointCallback}
-                            />
+                            <aside className="geo-widget">
+                                <InpostGeowidget
+                                    token={'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQlpXVzFNZzVlQnpDYU1XU3JvTlBjRWFveFpXcW9Ua2FuZVB3X291LWxvIn0.eyJleHAiOjE5OTY2Nzc0MDEsImlhdCI6MTY4MTMxNzQwMSwianRpIjoiZDgxNDRkNTMtMjI1MS00MDRlLThlZTctYzRiZmQzMjJjYWU1IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5pbnBvc3QucGwvYXV0aC9yZWFsbXMvZXh0ZXJuYWwiLCJzdWIiOiJmOjEyNDc1MDUxLTFjMDMtNGU1OS1iYTBjLTJiNDU2OTVlZjUzNTo3Tm8ydDZILUxqb3V5RklmdmtVVHVwT1RId3VwMnZPYm5nelkwWnBmdkQwIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2hpcHgiLCJzZXNzaW9uX3N0YXRlIjoiNGYzNTcxMDYtOWQxYy00Mjc4LTlmNWQtZWYyNWM4NjYxMmIwIiwic2NvcGUiOiJvcGVuaWQgYXBpOmFwaXBvaW50cyIsInNpZCI6IjRmMzU3MTA2LTlkMWMtNDI3OC05ZjVkLWVmMjVjODY2MTJiMCIsImFsbG93ZWRfcmVmZXJyZXJzIjoiYXV0b3dlbHRzaG9wLmdhdHNieWpzLmlvIiwidXVpZCI6ImZlZDg4NTlhLTY5YTUtNDVlZS1hNmNkLTZjNzNiOWE5YzNkMiJ9.BUTt3DMh_utg06AEPexvCPEYM4ODavkDiJ8tG4CkvrmfsX6Sx2O_C_7KWhO8XK6uBmhvinC0q8Q4DnaE8MNiYO10YdIEPS_7_SWDSYB2euURR6FE87KK3sE6FgqV4xV7P0l5k52Gi3QkrqeUnao2RjgpIyYhM5tRYTXyr4zDbrFuwJjWPdPXZqWNw1KPB9bAOD_gDwYkS13Vz04kSIVH-o1l0ivvIGD5oQYDnzDdZFVLOrPaBduO9Qoen9M3BgJIFWVFaRN1v1DvSc8wH432LdQsvmWZLe-goIa-FGOWNGifhmqJTCGZOwC_GgtY_-zP8t2a7sCIY349PuiLTPIjSw'}
+                                    onPoint={onPointCallback}
+                                    config='parcelCollect'
+                                />
+                            </aside>
                         )}
                     </label>
                 ))}
@@ -94,6 +97,10 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
 const Wrapper = styled.form`
     h3{
         margin-top: 30px;
+    }
+
+    .geo-widget{
+        height: 500px;
     }
 
     > div{
