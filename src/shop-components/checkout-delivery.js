@@ -96,7 +96,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
                     </label>
                 ))}
             </div>
-            <Button type='submit' disabled={inpostNumber && selected === 0}>
+            <Button type='submit' disabled={!inpostNumber && selected === 0}>
                 <span>
                     PRZECHODZĘ DALEJ
                 </span>
