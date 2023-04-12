@@ -48,7 +48,7 @@ export default function ProductCard({ data }) {
       <TextPart>
         <Title>{data.name}</Title>
         {scale
-          ? <Scale>Scala: {scale}</Scale>
+          ? <Scale>Skala: {scale}</Scale>
           : null}
         {data.regular_price && (
           <Price className={data.on_sale ? 'discount' : ""}>

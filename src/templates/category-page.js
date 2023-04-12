@@ -15,11 +15,11 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
     if (wcCategory.count < 1) {
       navigate('/sklep/')
     }
-  }, [wcCategory])
+  }, [wcCategory])  
 
   return (
     <main>
-      <Hero title={wcCategory.name} text={wcCategory.description} />
+      <Hero title={wcCategory.name} text={wcCategory.description} gallery={wcCategory.acf.gallery}/>
       {pageContext.slug !== 'wystawy'
         ? <ProductListing products={allWcProduct.nodes} />
         : <ExhibitionListing products={allWcProduct.nodes} />}
@@ -84,6 +84,16 @@ export const query = graphql`
       description
       name
       count
+      acf {
+        gallery {
+          alt
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
     }
   }
 `;

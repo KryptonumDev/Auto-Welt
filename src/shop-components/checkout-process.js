@@ -89,9 +89,14 @@ export default function Checkout({ items, sum }) {
                 line_items: line_items,
                 shipping_lines: [
                     {
-                        method_id: "flat_rate",
-                        method_title: "Flat Rate",
+                        method_id: "easypack_parcel_machines",
+                        method_title: "InPost Paczkomat 24/7",
                         total: `${delivery.price}`
+                    },
+                    {
+                        method_id: "local_pickup",
+                        method_title: "Odbiór osobisty",
+                        total: `0`
                     }
                 ]
             }

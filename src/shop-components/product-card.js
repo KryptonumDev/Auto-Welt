@@ -65,7 +65,7 @@ export default function ProductCard({
                 <div>
                     <Title>{data.name}</Title>
                     {scale
-                        ? <Scale>Scala: {scale}</Scale>
+                        ? <Scale>Skala: {scale}</Scale>
                         : null}
                     <Price className={data.on_sale ? 'discount' : ""}>
                         <span className={data.on_sale ? 'discount-regular-price' : 'regular-price'} >

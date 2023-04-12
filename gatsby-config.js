@@ -28,22 +28,9 @@ module.exports = {
             resolve: "gatsby-source-wordpress",
             options: {
                 url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
-                type: {
-                    MediaItem: {
-                        localFile: {
-                            requestConcurrency: 10,
-                        },
-                    },
-                },
                 schema: {
                   timeout: 30000000,
                 },
-                production: {
-                    hardCacheMediaFiles: false,
-                },
-                develop: {
-                    hardCacheMediaFiles: false,
-                }
             },
         },
         "gatsby-plugin-sitemap",

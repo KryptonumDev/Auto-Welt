@@ -69,6 +69,24 @@ exports.sourceNodes = async (
         category.image.localFile___NODE = fileNode.id
       }
     }
+    if (Array.isArray(category.acf.gallery)) {
+      category.acf.gallery = await Promise.all(category?.acf?.gallery?.map(async ({ image }) => {
+        let fileNode
+        try {
+          fileNode = await createRemoteFileNode({
+            url: image.url,
+            ...args
+          })
+
+        } catch (e) {
+          console.log("e", e)
+        }
+        if (fileNode) {
+          image.localFile___NODE = fileNode.id
+          return image
+        }
+      }))
+    }
 
     const nodeId = createNodeId(`wc-category-${category.id}`)
     const nodeContent = JSON.stringify(category)
