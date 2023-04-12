@@ -22,7 +22,14 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
   `)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
-    const [inpostNumber, setInpostNumber] = useState('WAW171M')
+    const [inpostNumber, setInpostNumber] = useState(() => {
+        if (typeof window !== 'undefined') {
+            if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
+                return 'WAW171M'
+            }
+        }
+        return ''
+    })
     const [selected, setSelected] = useState(() => {
         let id = 0
         deliveryMethods.forEach((el, index) => {
