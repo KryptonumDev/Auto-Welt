@@ -91,7 +91,13 @@ export default function Checkout({ items, sum }) {
                     delivery.type === 'Inpost – paczkomaty 24/7' ? {
                         method_id: "easypack_parcel_machines",
                         method_title: "InPost Paczkomat 24/7",
-                        total: `${delivery.price}`
+                        total: delivery.price,
+                        meta_data: [
+                            {
+                                key: "Inpost numer paczkomatu",
+                                value: delivery.inpostNumber
+                            }
+                        ]
                     } : {
                         method_id: "local_pickup",
                         method_title: "Odbiór osobisty",

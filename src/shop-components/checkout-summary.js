@@ -48,6 +48,10 @@ const Sticky = styled.div`
     height: fit-content;
     min-width: 350px;
 
+    @media (max-width: 480px) {
+        min-width: unset;
+    }
+
     .title{
         position: relative;
         padding: 12px 28px;
