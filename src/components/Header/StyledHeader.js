@@ -4,10 +4,15 @@ export const StyledHeader = styled.header`
   width: 100%;
   margin: 0 auto 0;
   position: sticky;
+  display: flex;
+  justify-content: space-between;
   top: 0;
   z-index: 1000;
   padding: 0 clamp(16px, 2.08333vw, 32px);
   background: rgb(250, 247, 241);
+  max-width: 1144px;
+  padding: 0px 32px;
+  margin: 0 auto ;
 
   @media only screen and (max-width: 767px){
     position: fixed;
