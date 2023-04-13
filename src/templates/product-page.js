@@ -6,14 +6,15 @@ import Hero from "../shop-components/product-hero"
 import ProductSlider from "../shop-components/product-slider"
 import "lightgallery.js/dist/css/lightgallery.css"
 
-export default function ProductPage({ data: { wpPage, wcProduct, allWcProduct } }) {
+export default function ProductPage({ data: { pageData, wpPage, allWcProduct } }) {
+
   return (
     <Wrapper>
-      <Hero data={wcProduct} />
+      <Hero data={wpPage} />
       <Contact>
         <h2 className="title">Masz pytania o&nbsp;produkt?</h2>
         <p className="text"><b>Napisz do mnie.</b> Chętnie rozwieję wszystkie wątpliwości.</p>
-        <ContactPageForm dataForm={wpPage.kontakt.pierwszaSekcja} />
+        <ContactPageForm dataForm={pageData.kontakt.pierwszaSekcja} />
       </Contact>
       <ProductSlider title={'Mogą cię zainteresować'} products={allWcProduct.nodes} />
     </Wrapper>
@@ -33,11 +34,11 @@ export default function ProductPage({ data: { wpPage, wcProduct, allWcProduct } 
 //     }
 //   }
 // }
-// export { Head } from "../components/Head/Head"
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
 query productPageQuery ($id: String!){
-  wcProduct(id: {eq: $id}) {
+  wpPage: wcProduct(id: {eq: $id}) {
     seo : yoast_head_json{
       metaDesc : og_description
       opengraphSiteName : og_site_name
@@ -99,7 +100,7 @@ query productPageQuery ($id: String!){
       price
     }
   }
-  wpPage(id: { eq: "cG9zdDo1NzM=" }) {
+  pageData : wpPage(id: { eq: "cG9zdDo1NzM=" }) {
     kontakt {
       pierwszaSekcja {
         tytulFormularza

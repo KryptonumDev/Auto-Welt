@@ -82,7 +82,7 @@ export default function Header() {
             </button>
             {leftSideLink.map((item, index) => (
               <li>
-                <Link activeClassName="active" to={item.link} className="desctop">
+                <Link partiallyActive={true} activeClassName="active" to={item.link} className="desctop">
                   {item.name}
                   {item.subArray && (
                     <>
@@ -112,7 +112,7 @@ export default function Header() {
           <RightSide>
             {rightSideLink.map((item, index) => (
               <li>
-                <Link activeClassName="active" to={item.link} className="desctop">
+                <Link partiallyActive={true} activeClassName="active" to={item.link} className="desctop">
                   {item.name}
                 </Link>
               </li>
@@ -127,7 +127,7 @@ export default function Header() {
             <div className="grid">
               {leftSideLink.map((item, index) => (
                 <li>
-                  <Link onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
+                  <Link partiallyActive={true} onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
                     {item.name}
                     {item.subArray && (
                       <>
@@ -151,7 +151,7 @@ export default function Header() {
               ))}
               {rightSideLink.map((item, index) => (
                 <li>
-                  <Link onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
+                  <Link partiallyActive={true} onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
                     {item.name}
                   </Link>
                 </li>
@@ -241,7 +241,7 @@ const Wrapper = styled.header`
   @media (max-width: 1024px) {
     padding: 10px 32px;
   }
-  
+
   @media (max-width: 767px){
     position: fixed;
     right: 0;

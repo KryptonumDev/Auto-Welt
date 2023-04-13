@@ -35,6 +35,30 @@ const Zamowienie = ({ location }) => {
 
 export default Zamowienie;
 
+export { Head } from "../components/Head/Head"
+
+export const query = graphql`
+  query orderPage {
+    wpPage(id: {eq: "cG9zdDoyNzQ1"}) {
+      id
+      seo {
+        canonical
+        metaDesc
+        opengraphSiteName
+        title
+        opengraphUrl
+        opengraphImage {
+          localFile {
+            publicURL
+          }
+        }
+      }
+    }
+  }
+`;
+
+
+
 const Wrapper = styled.div`
   max-width: 1112px;
   width: 100%;

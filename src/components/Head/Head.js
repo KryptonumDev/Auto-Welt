@@ -2,17 +2,17 @@
 import React from "react";
 
 export function Head({
-    data
+    data,
+    pageContext
 }) {
     const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo ?? data.wpProduct.seo
-    const canonical = "https://auto-welt.info" + seo.opengraphUrl + '/';
-
+    let url = seo.opengraphUrl || pageContext.url || '/'
+    const canonical = "https://auto-welt.info" + url + (url.slice(-1) === '/' ? '' : '/');
     if (seo.opengraphUrl === '/404') {
         return (
             <title>{seo.title}</title>
         )
     }
-
     return (
         <>
             <meta charSet="utf-8" />

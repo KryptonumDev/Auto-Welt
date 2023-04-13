@@ -122,7 +122,6 @@ async function asyncForEach(array, callback) {
 
 exports.createPages = async ({ actions: { createPage, createRedirect }, graphql }) => {
 
-
   const { data: { allWcProduct } } = await graphql(`
     {
       allWcProduct {
@@ -148,7 +147,8 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
       context: {
         itemId: el.databaseId,
         id: el.id,
-        title: el.name
+        title: el.name,
+        url: `/sklep/${el.categories[0].slug}/${el.slug}/`
       },
     });
   });
@@ -175,7 +175,8 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
       context: {
         id: el.id,
         title: el.name,
-        slug: el.slug
+        slug: el.slug,
+        url: `/sklep/${el.slug}/`
       },
     });
 
@@ -186,7 +187,6 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
     //     force: true
     //   })
     // }
-
   });
 
   const kolekcjeData = await graphql(`

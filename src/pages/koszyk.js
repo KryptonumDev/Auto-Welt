@@ -74,7 +74,7 @@ export const query = graphql`
         price
       }
     }
-    wpPage {
+    wpPage(id: {eq: "cG9zdDoyNzQy"}) {
       id
       seo {
         canonical
