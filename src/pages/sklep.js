@@ -9,7 +9,7 @@ import NewPosts from './../shop-components/new-posts'
 import Hero from "../shop-components/text-hero"
 import Newsletter from "../shop-components/newsletter"
 
-const Shop = ({ data: { wpPage, allWcProduct, allWcCategory } }) => {
+const Shop = ({ data: { wpPage, news, allWcProduct, allWcCategory } }) => {
 
   const filtredProducts = useMemo(() => {
     return allWcProduct.nodes.filter((data) => {
@@ -17,8 +17,8 @@ const Shop = ({ data: { wpPage, allWcProduct, allWcCategory } }) => {
       const currentTime = new Date()
       const difference = Math.ceil((currentTime - createTime) / (1000 * 60 * 60 * 24))
 
-      return difference <= 31
-    })
+      return difference <= 31 && data.stock_status === 'instock'
+    }).slice(0, 5);
   }, [allWcProduct])
 
   return (
@@ -62,6 +62,7 @@ export const query = graphql`
         name
         slug
         databaseId
+        stock_status
         attributes {
           name
           options

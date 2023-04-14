@@ -75,13 +75,14 @@ query productPageQuery ($id: String!){
     regular_price
     price
   }
-  allWcProduct(filter: {id: {ne: "cG9zdDo1NzM="}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
+  allWcProduct(filter: {id: {ne: $id}, stock_status: {eq: "instock"}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
     nodes {
       date_created
       id
       name
       slug
       databaseId
+      stock_status
       attributes {
         name
         options

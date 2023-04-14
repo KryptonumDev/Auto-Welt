@@ -81,6 +81,7 @@ export const query = graphql`
         name
         slug
         databaseId
+        stock_status
         attributes {
           name
           options

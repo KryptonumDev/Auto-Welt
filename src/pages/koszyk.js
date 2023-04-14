@@ -45,13 +45,15 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query productPageQuery {
-    allWcProduct(filter: {categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
+    allWcProduct(filter: {stock_status: {eq: "instock"}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
       nodes {
         date_created
         id
         name
         slug
         databaseId
+        stock_status
+        stock_quantity
         attributes {
           name
           options

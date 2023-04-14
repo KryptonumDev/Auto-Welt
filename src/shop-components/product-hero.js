@@ -61,10 +61,12 @@ export default function Hero({ data }) {
                             {data.stock_status === 'outofstock' && 'nie dostępny'}
                         </span>
                     </div>
-                    <div className="flex">
-                        <span>Wysyłka w:</span>
-                        <span>24 godziny</span>
-                    </div>
+                    {data.stock_status === 'instock' && (
+                        <div className="flex">
+                            <span>Wysyłka w:</span>
+                            <span>24 godziny</span>
+                        </div>
+                    )}
                     <div className="price">
                         <span className="actual-price">{data.price}&nbsp;zł</span>
                         <span className="omnibus">Najniższa cena z TODO dni: {data.price}&nbsp;zł</span>
@@ -81,14 +83,14 @@ export default function Hero({ data }) {
                                 <div className="quantity">
                                     {quantity}
                                 </div>
-                                <button onClick={() => { setQuantity(quantity + 1) }} className="plus">
+                                <button disabled={quantity >= data.stock_quantity} onClick={() => { setQuantity(quantity + 1) }} className="plus">
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
                                     </svg>
                                 </button>
                             </div>
                         </div>
-                        <Button onClick={() => { addItem(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>
+                        <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>
                     </div>
                 </div>
                 <div className="description">
@@ -97,7 +99,7 @@ export default function Hero({ data }) {
                         <h2>Opis produktu:</h2>
                     </div>
                     <div className="description" dangerouslySetInnerHTML={{ __html: data.description }} />
-                    <Button onClick={() => { addItem(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>
+                    <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>
                 </div>
                 <div className="details">
                     <div className="details-title">

@@ -61,7 +61,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                     <div className="quantity">
                       {el.quantity}
                     </div>
-                    <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                    <button disabled={el.quantity >= el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
                       </svg>
@@ -83,7 +83,8 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 <td>
                   <div className="flex cube">
                     <button onClick={() => { removeItem(el.id) }}>
-                      <StaticImage src='./../../static/images/kosz.png' alt='kosz' />
+                      <StaticImage className="relative" src='./../../static/images/kosz.png' alt='kosz' />
+                      <StaticImage className="absolute" src='./../../static/images/kosz-yellow.png' alt='kosz' />
                     </button>
                   </div>
                 </td>
@@ -325,10 +326,33 @@ const Wrapper = styled.section`
       margin: 0 24px;
       padding: 0;
       button{
-        width: 50px;
+        width: 43px;
+        height: 50px;
         border: none;
         background-color: transparent;
         cursor: pointer;
+        position: relative;
+
+        .relative{
+          transition: opacity .3s ease-out;
+        }
+
+        .absolute{
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          transition: opacity .3s ease-out;
+        }
+
+        &:hover{
+          .relative{
+            opacity: 0;
+          }
+
+          .absolute{
+            opacity: 1;
+          }
+        }
       }
     }
   }

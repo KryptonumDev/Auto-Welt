@@ -63,7 +63,7 @@ export default function ProductCard({ data }) {
           </Price>
         )}
       </TextPart>
-      <Button className="add-to-cart" onClick={() => { addItem(data) }}><span>DO KOSZYKA</span></Button>
+      <Button disabled={data.stock_status !== 'instock'} className="add-to-cart" onClick={() => { addItem(data) }}><span>DO KOSZYKA</span></Button>
     </Wrapper>
   )
 }
