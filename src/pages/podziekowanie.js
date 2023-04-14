@@ -31,15 +31,13 @@ export default function Podziekowanie({ location, data: { allWcProduct } }) {
   }, [allWcProduct])
 
   return (
-    <>
-      <Wrapper>
-        <StaticImage className="image" src="./../../static/images/podziekowanie.png" alt='koszyk zakupowy' />
-        <h1>Dziękuję za złożenie zamówienia {location?.state?.orderNumber ? 'nr. ' + location.state.orderNumber : ''}</h1>
-        <p>Cieszę się, że wybrałaś/ eś właśnie Auto-Welt</p>
-        <YellowButtonLink><span>POWRÓT DO SKLEPU</span></YellowButtonLink>
-        <ProductSlider title={'Nowości'} products={filtredProducts} />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <StaticImage className="image" src="./../../static/images/podziekowanie.png" alt='koszyk zakupowy' />
+      <h1>Dziękuję za złożenie zamówienia {location?.state?.orderNumber ? 'nr. ' + location.state.orderNumber : ''}</h1>
+      <p>Cieszę się, że wybrałaś/ eś właśnie Auto-Welt</p>
+      <YellowButtonLink><span>POWRÓT DO SKLEPU</span></YellowButtonLink>
+      <ProductSlider title={'Nowości'} products={filtredProducts} />
+    </Wrapper>
   )
 }
 

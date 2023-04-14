@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledScheduleHeroSection = styled.section`
   width: 100%;
   max-width: 1144px;
-  margin: 37px auto 0;
+  margin: 37px auto 30px auto;
   padding: 0 32px;
 
   @media only screen and (max-width: 768px) {

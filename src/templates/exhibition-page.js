@@ -6,11 +6,14 @@ import Hero from "../shop-components/exhibition-hero"
 import ProductSlider from "../shop-components/product-slider"
 import "lightgallery.js/dist/css/lightgallery.css"
 import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
+import { LightgalleryProvider } from "react-lightgallery"
 
 export default function ProductPage({ data: { wpPage, wcProduct, allWcProduct } }) {
   return (
     <Wrapper>
-      <Hero data={wcProduct} />
+      <LightgalleryProvider galleryClassName="gallery">
+        <Hero data={wcProduct} />
+      </LightgalleryProvider>
       <HomeCalendar />
       <Contact>
         <h2 className="title">Chcesz zamówić wystawę?</h2>
@@ -156,7 +159,7 @@ query productPageQuery ($id: String!){
 }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   max-width: 1112px;
   width: 100%;
   margin: 120px auto;

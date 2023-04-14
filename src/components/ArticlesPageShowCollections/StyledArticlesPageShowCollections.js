@@ -40,6 +40,14 @@ export const StyledSlide = styled(Link)`
   min-height: 305px;
   position: relative;
 
+  &:hover {
+    .image img {
+      transition: transform 250ms linear, mix-blend-mode 250ms linear;
+      transform: scale(1.1);
+      mix-blend-mode: unset;
+    }
+  }
+
   &:focus-visible {
     outline-width: 1px;
     outline-style: solid;
@@ -71,14 +79,6 @@ export const StyledImageWrapper = styled.div`
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
-  }
-
-  &:hover {
-    img {
-      transition: transform 250ms linear, mix-blend-mode 250ms linear;
-      transform: scale(1.1);
-      mix-blend-mode: unset;
-    }
   }
 
   @media only screen and (max-width: 472px) {

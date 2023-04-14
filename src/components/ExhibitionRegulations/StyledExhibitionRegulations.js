@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledExhibitionRegulations = styled.section`
+export const StyledExhibitionRegulations = styled.main`
   width: 100%;
   margin: 0 auto 120px;
   max-width: 1144px;

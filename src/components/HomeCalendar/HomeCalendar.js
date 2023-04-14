@@ -105,17 +105,6 @@ const HomeCalendar = () => {
           />
         ) : null}
       </StyledButtonWrapper>
-      <StyledFooterCar>
-        {data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile ? (
-          <GatsbyImage
-            image={getImage(
-              data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
-            )}
-            alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText || " "}
-            title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
-          />
-        ) : null}
-      </StyledFooterCar>
     </StyledHomeCalendar>
   );
 };

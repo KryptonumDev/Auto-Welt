@@ -5,7 +5,6 @@ import GlobalStyle from "../../styles/GlobalStyle";
 import Header from "../Header/Header";
 import { CartProvider } from "react-use-cart";
 import Footer from "../Footer/Footer";
-import { LightgalleryProvider } from "react-lightgallery";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,9 +16,7 @@ const GlobalLayout = ({ children }) => {
   return (
     <>
       <MenuProvider>
-        <Helmet htmlAttributes={{
-          lang: 'pl',
-        }}>
+        <Helmet htmlAttributes={{ lang: 'pl', }}>
           <meta name="google-site-verification" content="dvUsxpDj30nHWd9APHRk6I-n7020q-Rsz36_akV98rw" />
           <meta name="robots" data-react-helmet="true" />
         </Helmet>
@@ -28,9 +25,7 @@ const GlobalLayout = ({ children }) => {
         <StyledOverflowWrapper>
           <CartProvider>
             <Header />
-            <LightgalleryProvider galleryClassName="gallery">
               {children}
-            </LightgalleryProvider>
             <Footer />
           </CartProvider>
         </StyledOverflowWrapper>

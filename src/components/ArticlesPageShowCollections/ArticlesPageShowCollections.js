@@ -59,6 +59,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           >
             <StyledImageWrapper>
               <GatsbyImage
+                className="image"
                 image={getImage(
                   collectionData.pierwszaKolekcjaKtoraPolecasz.kolekcja
                     .informacjeGlowne.duzaMiniaturka?.localFile
@@ -90,6 +91,7 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
           >
             <StyledImageWrapper>
               <GatsbyImage
+                className="image"
                 image={getImage(
                   collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
                     .informacjeGlowne.duzaMiniaturka?.localFile
@@ -109,10 +111,10 @@ const ArticlesPageShowCollections = ({ collectionData }) => {
                 <StaticImage src="../../images/polecanaKolekcja.png" alt="tło" />
               </StyledTitleImage>
               <StyledTitleWrapper>
-                  {parse(
-                    collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
-                      .informacjeGlowne.nazwaKolekcji)
-                  }
+                {parse(
+                  collectionData.drugaKolekcjaKtoraPolecasz.kolekcja
+                    .informacjeGlowne.nazwaKolekcji)
+                }
               </StyledTitleWrapper>
             </StyledTextWrapper>
           </StyledSlide>

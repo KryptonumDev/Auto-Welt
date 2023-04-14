@@ -1,10 +1,8 @@
-import { Link, navigate } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React, { useMemo } from "react"
-import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { ButtonLink } from "./button"
-import { toast } from "react-toastify"
 
 export default function ExhibitionCard({ data }) {
   const isNewArrivals = useMemo(() => {

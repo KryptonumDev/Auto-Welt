@@ -93,7 +93,7 @@ export const query = graphql`
 `;
 
 
-const Main = styled.div`
+const Main = styled.main`
   max-width: 1112px;
   width: 100%;
   margin: 120px auto;

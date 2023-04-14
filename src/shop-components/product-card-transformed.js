@@ -179,6 +179,7 @@ const Wrapper = styled.div`
 
         @media (max-width: 840px){
             grid-area: image;
+            height: fit-content;
         }
     }
 
@@ -233,13 +234,15 @@ const Price = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 6px 12px;
     margin-top: 10px;
 
     @media (max-width: 840px){
       margin: 10px 20px 0 20px;
+      gap: 6px ;
       justify-content: flex-start;
       text-align: left;
+      flex-wrap: wrap;
     }
 
     span{

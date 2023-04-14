@@ -12,10 +12,13 @@ import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 import QuestionContact from "../components/QuestionContact/QuestionContact";
 
 import { StyledContactWrapper } from "../components/HomeContact/StyledHomeContact";
+import { StyledFooterCar } from "../components/HomeCalendar/StyledHomeCalendar";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import styled from "styled-components";
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
   return (
-    <>
+    <Wrapper>
       <HomeHeroSection />
       <HomeCollections />
       <HomeExhibitions />
@@ -23,13 +26,37 @@ const IndexPage = () => {
       <StyledContactWrapper>
         <HomeContact />
       </StyledContactWrapper>
+      <HomeCalendar />
       <Questions />
       <QuestionContact />
       <HomeArticles />
-      <HomeCalendar />
-    </>
+      <StyledFooterCar>
+        {data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile ? (
+          <GatsbyImage
+            image={getImage(
+              data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
+            )}
+            alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText || " "}
+            title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
+          />
+        ) : null}
+      </StyledFooterCar>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.main`
+  position: relative;
+  padding: 0 0 435px 0;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 0 185px 0;
+  }
+
+  @media only screen and (max-width: 375px) {
+    padding: 0 0 150px 0;
+  }
+`
 
 export default IndexPage;
 
@@ -38,6 +65,17 @@ export { Head } from "../components/Head/Head"
 export const query = graphql`
   query homePageQuerySeo {
     wpPage(id: {eq: "cG9zdDoxNQ=="}) {
+      homepage{
+        zdjecieSamochoduNadStopka {
+          altText
+          title
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
       seo {
         canonical
         metaDesc

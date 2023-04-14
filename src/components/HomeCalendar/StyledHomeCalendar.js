@@ -8,11 +8,12 @@ export const StyledHomeCalendar = styled.section`
   align-items: center;
   justify-content: center;
   max-width: 1144px;
-  margin: 0 auto;
-  padding: 0 32px 435px 32px;
+  margin: 0 auto 120px auto;
+  padding: 0 32px 0 32px;
 
   @media only screen and (max-width: 768px) {
-    padding: 0 16px 285px 16px;
+    margin: 0 auto 60px auto;
+    padding: 0 16px 0 16px;
     > h2 {
       font-size: 38px;
     }
@@ -25,7 +26,7 @@ export const StyledHomeCalendar = styled.section`
   }
 
   @media only screen and (max-width: 375px) {
-    padding: 0 8px 180px 8px;
+    padding: 0 8px 0 8px;
   }
 `;
 

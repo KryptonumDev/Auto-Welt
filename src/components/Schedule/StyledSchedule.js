@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const StyledSchedule = styled.section`
+export const StyledSchedule = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;

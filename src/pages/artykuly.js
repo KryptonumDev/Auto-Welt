@@ -7,7 +7,7 @@ import { graphql } from "gatsby";
 
 const Articles = ({ data }) => {
   return (
-    <>
+    <main>
       <ArticlesPageArticles
         title={data.wpPage.artykuly.tytulStrony}
         allArticles={data.allWpArtykul.edges}
@@ -15,7 +15,7 @@ const Articles = ({ data }) => {
       <ArticlesPageShowCollections
         collectionData={data.wpPage.artykuly.zobaczKolekcje}
       />
-    </>
+    </main>
   );
 };
 

@@ -7,13 +7,15 @@ import SchedulePlanExh from "../components/SchedulePlanExh/SchedulePlanExh";
 import ScheduleArchExh from "../components/ScheduleArchExh/ScheduleArchExh";
 
 import { StyledSchedule } from "../components/Schedule/StyledSchedule";
+import HomeCalendar from "../components/HomeCalendar/HomeCalendar";
 
 const Shedule = ({ data }) => {
   const shortData = data.wpPage.terminarz;
-  
+
   return (
     <StyledSchedule>
       <ScheduleHeroSection heroData={shortData.sekcjaPowitalna} />
+      <HomeCalendar />
       <ScheduleActualExh dataActual={shortData.wystawyAktualne} />
       <SchedulePlanExh dataPlan={shortData.wystawyPlanowane} />
       <ScheduleArchExh dataArch={shortData.wystawyArchiwalne} />

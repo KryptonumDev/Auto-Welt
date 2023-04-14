@@ -5,12 +5,15 @@ import ContactPageForm from "../components/ContactPageForm/ContactPageForm"
 import Hero from "../shop-components/product-hero"
 import ProductSlider from "../shop-components/product-slider"
 import "lightgallery.js/dist/css/lightgallery.css"
+import { LightgalleryProvider } from "react-lightgallery";
 
 export default function ProductPage({ data: { pageData, wpPage, allWcProduct } }) {
 
   return (
     <Wrapper>
-      <Hero data={wpPage} />
+      <LightgalleryProvider galleryClassName="gallery">
+        <Hero data={wpPage} />
+      </LightgalleryProvider>
       <Contact>
         <h2 className="title">Masz pytania o&nbsp;produkt?</h2>
         <p className="text"><b>Napisz do mnie.</b> Chętnie rozwieję wszystkie wątpliwości.</p>
@@ -155,7 +158,7 @@ query productPageQuery ($id: String!){
 }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   max-width: 1112px;
   width: 100%;
   margin: 120px auto;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPrivacyPolicy = styled.section`
+export const StyledPrivacyPolicy = styled.main`
   width: 100%;
   margin: 30px auto 60px;
   max-width: 1144px;

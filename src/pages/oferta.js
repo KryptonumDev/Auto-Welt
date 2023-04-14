@@ -27,7 +27,7 @@ const Offer = ({ data }) => {
     ]
   );
   return (
-    <>
+    <main>
       <OfferHeroSection dataOffer={shortData.sekcjaPowitalnaStrony} />
       <StyledReqWrapper>
         <RecInfoWithButton
@@ -52,7 +52,7 @@ const Offer = ({ data }) => {
         isCollectionsModelPage
         buttonData={shortData.sekcjaZArtykulami.daneDoPrzycisku}
       />
-    </>
+    </main>
   );
 };
 

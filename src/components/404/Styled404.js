@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMainContainer = styled.section`
+export const StyledMainContainer = styled.main`
   display: flex;
   justify-content: space-between;
   width: 100%;

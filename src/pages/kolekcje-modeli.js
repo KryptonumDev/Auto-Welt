@@ -34,7 +34,7 @@ const ModelCollections = ({ data }) => {
     ]
   );
   return (
-    <>
+    <main>
       <StyledModelCollections>
         <StyledContentWrapper>
           {data.allWpKolekcje.edges
@@ -70,7 +70,7 @@ const ModelCollections = ({ data }) => {
         isCollectionsModelPage={true}
         buttonData={greenData.przyciskPodArtykulamiNaDoleStrony}
       />
-    </>
+    </main>
   );
 };
 

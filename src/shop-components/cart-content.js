@@ -17,7 +17,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
           </tr>
         </thead>
         <tbody>
-          {items.map(el => {
+          {items.map((el, index) => {
             let scale = null
             el.attributes.every(el => {
               if (el.name === 'Skala') {
@@ -28,7 +28,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
             })
 
             return (
-              <tr>
+              <tr key={`line${index}`}>
                 <td>
                   <Link className="name-wrapper" to={`/sklep/${el.categories[0].slug}/${el.slug}`}>
                     <div className="name">
@@ -103,7 +103,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
         })
 
         return (
-          <MobileTable>
+          <MobileTable key={el.slug}>
             <div>
               <span>
                 Produkt

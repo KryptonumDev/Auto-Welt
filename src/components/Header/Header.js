@@ -62,14 +62,15 @@ export default function Header() {
     }
   ]
 
-
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobileSubArrOpened, setIsMobileSubArrOpened] = useState(false);
 
   const handleOpenMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const { totalItems } = useCart()
+
   return (
     <>
       <Wrapper>
@@ -81,27 +82,26 @@ export default function Header() {
               <span />
             </button>
             {leftSideLink.map((item, index) => (
-              <li>
+              <li key={index}>
                 <Link partiallyActive={true} activeClassName="active" to={item.link} className="desctop">
                   {item.name}
                   {item.subArray && (
-                    <>
-                      <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.5 9L8.5 2L1.5 9" stroke="#FEFDFB" stroke-width="2" stroke-linecap="square" />
-                      </svg>
-                      <ul className="sub-arr">
-                        {item.subArray.map((subItem, index) => (
-                          <li>
-                            <Link activeClassName="active" to={subItem.link}>
-                              {subItem.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
+                    <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.5 9L8.5 2L1.5 9" stroke="#FEFDFB" strokeWidth="2" strokeLinecap="square" />
+                    </svg>
                   )}
-
                 </Link>
+                {item.subArray && (
+                  <ul className="sub-arr">
+                    {item.subArray.map((subItem, index) => (
+                      <li key={index}>
+                        <Link activeClassName="active" to={subItem.link}>
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </LeftSide>
@@ -111,7 +111,7 @@ export default function Header() {
           </Link>
           <RightSide>
             {rightSideLink.map((item, index) => (
-              <li>
+              <li key={index}>
                 <Link partiallyActive={true} activeClassName="active" to={item.link} className="desctop">
                   {item.name}
                 </Link>
@@ -126,31 +126,35 @@ export default function Header() {
           <MobileMenu className={isOpen ? 'active' : ''}>
             <div className="grid">
               {leftSideLink.map((item, index) => (
-                <li>
-                  <Link partiallyActive={true} onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
-                    {item.name}
-                    {item.subArray && (
-                      <>
-                        <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M15.5 9L8.5 2L1.5 9" stroke="#FEFDFB" stroke-width="2" stroke-linecap="square" />
-                        </svg>
-                        <ul className="sub-arr">
-                          {item.subArray.map((subItem, index) => (
-                            <li>
-                              <Link activeClassName="active" to={subItem.link}>
-                                {subItem.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-
-                  </Link>
+                <li key={index}>
+                  {item.subArray
+                    ? <button onClick={() => setIsMobileSubArrOpened(!isMobileSubArrOpened)} className={isMobileSubArrOpened ? 'active' : ''} >
+                      {item.name}
+                      <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5 9L8.5 2L1.5 9" stroke="#FEFDFB" strokeWidth="2" strokeLinecap="square" />
+                      </svg>
+                    </button>
+                    : <Link partiallyActive={true} onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >{item.name}</Link>}
+                  {item.subArray && (
+                    <ul className={isMobileSubArrOpened ? 'sub-arr active' : "sub-arr"}>
+                      <li>
+                        <Link onClick={() => setIsOpen(false)} activeClassName="active" to={item.link}>
+                          <span>Wszystkie produkty</span>
+                        </Link>
+                      </li>
+                      {item.subArray.map((subItem, index) => (
+                        <li key={index}>
+                          <Link onClick={() => setIsOpen(false)} activeClassName="active" to={subItem.link}>
+                            {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
               {rightSideLink.map((item, index) => (
-                <li>
+                <li key={index}>
                   <Link partiallyActive={true} onClick={() => setIsOpen(false)} activeClassName="active" to={item.link} >
                     {item.name}
                   </Link>
@@ -183,17 +187,18 @@ const Overlay = styled.div`
 const MobileMenu = styled.div`
   position: fixed;
   z-index: 201;
-  top: 10px;
+  top: 0;
   left: 0;
   bottom: 0;
-  right: 72px;
-  padding-top: clamp(62px, ${99 / 1024 * 100}vw, 99px);
+  right: 68px;
+  padding-top: clamp(82px, ${109 / 1024 * 100}vw, 109px);
   padding-left: 42px;
   padding-right: 26px;
   background-color: #233532;
   max-width: 350px;
   transform: translateX(-100%);
   transition: transform .3s ease-out;
+  min-width: 312px;
 
   &.active{
     transform: translateX(0);
@@ -208,26 +213,42 @@ const MobileMenu = styled.div`
     padding-bottom: 40px;
   }
 
-  a{
+  a, button{
+    border: none;
+    background-color: transparent;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
     color: #FEFDFB;
     text-decoration: none;
+
+    &.active{
+      svg{
+        transform: rotateZ(180deg);
+      }
+    }
   }
 
   svg{
-    margin-left: 50px;
+    margin-left: 20px;
+    transition: transform .3s ease-out;
     margin-bottom: 2px;
-    transform: rotateZ(180deg);
   }
 
   .sub-arr{
     padding-left: 12px;
-    display: grid;
-    gap: 16px;
+    gap: 12px;
     height: fit-content;
+    display: none;
     margin-top: 16px;
+
+    &.active{
+    display: grid;
+    }
+
+    a{
+      font-size: 20px;
+    }
   }
 `
 
@@ -239,7 +260,7 @@ const Wrapper = styled.header`
   z-index: 200;
 
   @media (max-width: 1024px) {
-    padding: 10px 32px;
+    padding: 10px 16px;
   }
 
   @media (max-width: 767px){

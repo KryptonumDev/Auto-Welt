@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContact = styled.section`
+export const StyledContact = styled.main`
   padding: 0 32px 120px;
   max-width: 1144px;
   width: 100%;
