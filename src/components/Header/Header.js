@@ -221,6 +221,7 @@ const MobileMenu = styled.div`
     line-height: 28px;
     color: #FEFDFB;
     text-decoration: none;
+    cursor: pointer;
 
     &.active{
       svg{

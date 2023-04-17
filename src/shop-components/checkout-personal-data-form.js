@@ -45,7 +45,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
     useEffect(() => {
         // https://wl-api.mf.gov.pl/api/search/nip/9512465557?date=2023-04-14
         const date = new Date().toISOString().split('T')[0]
-        if (nipValue.length === 10) {
+        if (nipValue?.length === 10) {
             axios.get(`https://wl-api.mf.gov.pl/api/search/nip/${nipValue}?date=${date}`)
                 .then(res => {
                     setValue('firmName', res.data.result.subject.name)

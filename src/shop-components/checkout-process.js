@@ -44,13 +44,13 @@ export default function Checkout({ items, sum }) {
         firmName: getItem('firmName'),
         firmAdres: getItem('firmAdres'),
     })
-    const [shipingData, setShipingData] = useState({
-        address: getItem('address'),
-        postcode: getItem('postcode'),
-        country: getItem('country'),
-        city: getItem('city'),
-        additionalinform: getItem('additionalinform'),
-    })
+    // const [shipingData, setShipingData] = useState({
+    //     address: getItem('address'),
+    //     postcode: getItem('postcode'),
+    //     country: getItem('country'),
+    //     city: getItem('city'),
+    //     additionalinform: getItem('additionalinform'),
+    // })
 
     useEffect(() => {
         if (step === '6') {
@@ -97,6 +97,10 @@ export default function Checkout({ items, sum }) {
                     {
                         key: '_billing_nip',
                         value: personalData.forFirm ? personalData.nip : null
+                    },
+                    {
+                        key: "parcel_machine_id",
+                        value: delivery.inpostNumber
                     }
                 ],
                 line_items: line_items,
@@ -107,7 +111,7 @@ export default function Checkout({ items, sum }) {
                         total: `${delivery.price}}`,
                         meta_data: [
                             {
-                                key: "Inpost numer paczkomatu",
+                                key: "parcel_machine_id",
                                 value: delivery.inpostNumber
                             }
                         ]
@@ -145,7 +149,8 @@ export default function Checkout({ items, sum }) {
         if (typeof window !== 'undefined') {
             window.scrollTo(0, 0)
         }
-    }, [step, shipingData, delivery, personalData, sum, items])
+    }, [step, delivery, personalData, sum, items])
+    {/*shipingData*/ }
 
     return (
         <Wrapper>
