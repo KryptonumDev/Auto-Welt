@@ -11,7 +11,7 @@ import { StyledLeftArrow, StyledRightArrow } from "../components/CollectionEleme
 import LeftArrow from "./../images/left_arrow.svg"
 import RightArrow from "./../images/right_arrow.svg"
 
-export default function ProductSlider({ title, products }) {
+export default function ProductSlider({ yellow, title, products }) {
 
   const slider = useRef(null);
   const settings = {
@@ -47,13 +47,13 @@ export default function ProductSlider({ title, products }) {
     }
   }
 
-  if(products.length <= 3) return null
+  if (products.length <= 3) return null
 
   return (
     <Wrapper>
       <h2>{title}</h2>
       <SliderWrapper>
-        <StyledLeftArrow className="left" aria-label='prev' onClick={() => slider?.current?.slickPrev()}>
+        <StyledLeftArrow className={yellow ? "yellow left" : "left"} aria-label='prev' onClick={() => slider?.current?.slickPrev()}>
           <LeftArrow />
         </StyledLeftArrow>
         <Slider ref={slider} {...settings}>
@@ -66,7 +66,7 @@ export default function ProductSlider({ title, products }) {
             </div>
           ))}
         </Slider>
-        <StyledRightArrow className="right" aria-label='next' onClick={() => slider?.current?.slickNext()}>
+        <StyledRightArrow className={yellow ? "yellow right" : "right"} aria-label='next' onClick={() => slider?.current?.slickNext()}>
           <RightArrow />
         </StyledRightArrow>
       </SliderWrapper>

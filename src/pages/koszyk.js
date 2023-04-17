@@ -1,5 +1,5 @@
 import React, { useMemo } from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import CartContent from "../shop-components/cart-content"
@@ -8,8 +8,6 @@ import ProductSlider from "../shop-components/product-slider"
 
 export default function KoszykPage({ data: { allWcProduct } }) {
   const {
-    addItem,
-    isEmpty,
     totalUniqueItems,
     items,
     updateItemQuantity,
@@ -26,6 +24,10 @@ export default function KoszykPage({ data: { allWcProduct } }) {
   
   return (
     <Main>
+      <Flex>
+        <Link to='/sklep/'>Sklep /  </Link>
+        <span>Koszyk</span>
+      </Flex>
       <Title>Koszyk</Title>
       {totalUniqueItems > 0
         ? <CartContent
@@ -36,7 +38,7 @@ export default function KoszykPage({ data: { allWcProduct } }) {
         />
         : <Empty />
       }
-      <ProductSlider title={'Zobacz również'} products={allWcProduct.nodes} />
+      <ProductSlider yellow={true} title={'Zobacz również'} products={allWcProduct.nodes} />
     </Main>
   )
 }
@@ -106,6 +108,35 @@ const Main = styled.main`
     font-family: 'Roboto Condensed';
     font-weight: 400;
     font-size: 16px;
+  }
+`
+
+const Flex = styled.div`
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+
+  a, span{
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135.19%;
+    text-decoration: none;
+
+    text-align: center;
+    font-feature-settings: 'pnum' on, 'onum' on;
+
+    color: #000000;
+    white-space: nowrap;
+
+    &:last-child{
+      font-weight: 600;
+    }
+
+  }
+  span{
+    padding: 0 5px 0 3px;
   }
 `
 

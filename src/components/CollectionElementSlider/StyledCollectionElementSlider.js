@@ -58,6 +58,14 @@ export const StyledLeftArrow = styled.button`
 
   display: ${props => props.length < 3 ? 'none' : 'block'};
 
+  &.yellow{
+    background-color: #EDAC2A;
+
+    svg path{
+      stroke: #23423D;
+    }
+  }
+
   @media (max-width: 768px) {
     display: ${props => props.length < 2 ? 'none' : 'block'};
   }
@@ -114,6 +122,14 @@ export const StyledRightArrow = styled.button`
   transform: translateY(-50%);
 
   display: ${props => props.length < 3 ? 'none' : 'block'};
+
+  &.yellow{
+    background-color: #EDAC2A;
+
+    svg path{
+      stroke: #23423D;
+    }
+  }
 
   @media (max-width: 768px) {
     display: ${props => props.length < 2 ? 'none' : 'block'};
