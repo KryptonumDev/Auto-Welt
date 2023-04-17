@@ -13,10 +13,9 @@ export default function Hero({ data }) {
           <div className="main">
             {data.images.map((el, index) => {
               if (index) return null
-
               return <LightgalleryItem src={el.localFile.publicURL}>
                 <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
-                <span>1 z {data.images.length}</span>
+                {data.images.length > 1 && <span>1 z {data.images.length}</span>}
               </LightgalleryItem>
             })}
           </div>

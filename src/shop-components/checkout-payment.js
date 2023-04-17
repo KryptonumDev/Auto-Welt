@@ -54,7 +54,7 @@ export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
             <label className="checkbox">
                 <input onClick={(e) => { setCheckboxValue(e.currentTarget.checked) }}  {...register("checkbox")} type='checkbox' />
                 <span className="checkmark"></span>
-                <span>Akceptuje <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-wystaw/'>Regulamin</Link> sklepu Auto-Welt.info*</span>
+                <span className="text">Akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-wystaw/'>Regulamin</Link> sklepu Auto-Welt.info*</span>
             </label>
             <Button disabled={!checkboxValue}>
                 <span>
@@ -104,10 +104,11 @@ const Wrapper = styled.form`
         label{
             margin-top: 20px;
             display: grid;
-            grid-gap: 8px;
-            align-items: center;
+            gap: 12px;
+            align-items: center !important;
             grid-template-columns: 1fr auto;
             width: fit-content;
+            cursor: pointer;
         }
 
         .checkbox{
@@ -119,6 +120,15 @@ const Wrapper = styled.form`
                 line-height: 21px;
                 font-feature-settings: 'pnum' on, 'onum' on;
                 color: #23423D;
+                transition: color .2s ease-out;
+
+                &:hover{
+                    color: #EDAC2A;
+                }
+            }
+
+            .text{
+                margin-top: 3px;
             }
         }
     }

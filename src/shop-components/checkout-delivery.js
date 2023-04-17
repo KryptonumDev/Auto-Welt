@@ -129,6 +129,7 @@ const Wrapper = styled.form`
     }
 
     label{
+        cursor: pointer;
         span{
             font-size: 18px;
             font-weight: 600;

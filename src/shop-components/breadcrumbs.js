@@ -51,7 +51,7 @@ export default function BreadCrumbs({ pageContext }) {
               <span>/</span>
             </>
           )
-          })}
+        })}
       </Flex>
     </>
   )

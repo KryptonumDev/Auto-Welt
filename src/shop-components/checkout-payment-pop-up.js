@@ -16,11 +16,10 @@ export default function PopUp({ orderNumber, clientSecret }) {
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: `http://localhost:8000/api/complete-payment?id=${orderNumber}`
+                return_url: `https://autoweltshop.gatsbyjs.io/api/complete-payment?id=${orderNumber}`
             }
         })
             .then(function (result) {
-                debugger
                 if (result.error) {
                     // Inform the customer that there was an error.
                 }

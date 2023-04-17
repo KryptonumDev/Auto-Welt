@@ -20,6 +20,7 @@ export default function ProductListing({ products, categories }) {
                     }
                 })}
             </Grid>
+            {filtredProducts.length < 1 && <p className="no-items">Brak produktów spełniających kryteria wyszukiwania</p>}
             <Pagination currentPage={page} itemCount={filtredProducts.length} changeCurrentPage={setPage} />
         </Wrapper>
     )
@@ -30,6 +31,18 @@ const Wrapper = styled.section`
     max-width: 1080px;
     margin: clamp(60px, ${60 / 768 * 100}vw, 120px) auto 0 auto;
     box-sizing: content-box;
+
+    .no-items{
+        margin-top: clamp(36px, ${36 / 768 * 100}vw, 64px);
+        font-family: 'Nocturne Serif';
+        font-style: normal;
+        font-weight: 400;
+        font-size: clamp(34px, ${38 / 768 * 100}vw, 48px);
+        line-height: 58px;
+        text-align: center;
+        font-feature-settings: 'pnum' on, 'onum' on;
+        color: #23423D;
+    }
 
     h1{
         font-family: 'Nocturne Serif';

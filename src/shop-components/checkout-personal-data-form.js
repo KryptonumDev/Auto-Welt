@@ -12,15 +12,24 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             name: personalData.name || '',
             email: personalData.email,
             phone: personalData.phone,
-            forFirm: personalData.forFirm === 'true',
+            forFirm: personalData.forFirm === 'true' || personalData.forFirm === true,
             nip: personalData.nip,
             firmName: personalData.firmName,
             firmAdres: personalData.firmAdres,
         }
     });
 
-    const [checkboxValue, setCheckboxValue] = useState(personalData.forFirm === 'true')
     const [nipValue, setNipValue] = useState(personalData.nip)
+    const [checkboxValue, setCheckboxValue] = useState(personalData.forFirm === 'true' || personalData.forFirm === true)
+    debugger
+    useEffect(() => {
+        if (!checkboxValue) {
+            setValue('nip', '')
+            setValue('firmName', '')
+            setValue('firmAdres', '')
+        }
+    }, [checkboxValue])
+
 
     const submit = (data) => {
         localStorage.setItem('name', data.name)
@@ -42,17 +51,21 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
         })
         setStep('3')
     }
+
     useEffect(() => {
         // https://wl-api.mf.gov.pl/api/search/nip/9512465557?date=2023-04-14
         const date = new Date().toISOString().split('T')[0]
         if (nipValue?.length === 10) {
             axios.get(`https://wl-api.mf.gov.pl/api/search/nip/${nipValue}?date=${date}`)
                 .then(res => {
-                    setValue('firmName', res.data.result.subject.name)
-                    setValue('firmAdres', res.data.result.subject.workingAddress)
+                    if (res.data.result.subject) {
+                        setValue('firmName', res.data.result.subject.name)
+                        setValue('firmAdres', res.data.result.subject.workingAddress)
+                    } else {
+                        toast('Brak informacji w bazie NIP')
+                    }
                 })
                 .catch(err => {
-                    debugger
                     toast(err.response.data.message)
                 })
         }
@@ -108,7 +121,8 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>NIP</span>
-                <input maxLength='10' disabled={!checkboxValue} {...register("nip", { maxLength: 10, minLength: 10, onChange: (e) => { setNipValue(e.currentTarget.value) } })} placeholder='___-___-__-__' />
+                <input maxLength='10' disabled={!checkboxValue} {...register("nip", { required: checkboxValue, maxLength: 10, minLength: 10, onChange: (e) => { setNipValue(e.currentTarget.value) } })} placeholder='___-___-__-__' />
+                {(errors.nip && checkboxValue) && <span className="error">Pole NIP ma zawierać 10 liczb</span>}
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>Nazwa firmy</span>

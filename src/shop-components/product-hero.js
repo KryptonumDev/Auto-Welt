@@ -4,10 +4,11 @@ import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button, ButtonLink } from "./button"
 import { LightgalleryItem } from "react-lightgallery"
+import { toast } from "react-toastify"
 
 export default function Hero({ data }) {
 
-    const { addItem } = useCart()
+    const { addItem, inCart, updateItemQuantity } = useCart()
     const [quantity, setQuantity] = useState(1)
 
     let scale = useMemo(() => {
@@ -24,6 +25,16 @@ export default function Hero({ data }) {
         return val
     }, [data])
 
+    const addToCart = (item, quantity) => {
+        if (inCart(item.id)) {
+            updateItemQuantity(item.id, quantity)
+            toast(`${item.name} ilość w koszyku została zaktualizowana`)
+        } else {
+            addItem(item, quantity)
+            toast(`${item.name} został dodany do koszyka`)
+        }
+    }
+
     return (
         <Wrapper>
             <Content>
@@ -35,7 +46,7 @@ export default function Hero({ data }) {
                             return <LightgalleryItem src={el.localFile.publicURL}>
                                 <StaticImage className="loupe" src="../../static/images/loupe.png" alt='obrazek dekaracyjny' />
                                 <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
-                                <span>1 z {data.images.length}</span>
+                                {data.images.length > 1 && <span>1 z {data.images.length}</span>}
                             </LightgalleryItem>
                         })}
                     </div>
@@ -68,7 +79,15 @@ export default function Hero({ data }) {
                         </div>
                     )}
                     <div className="price">
-                        <span className="actual-price">{data.price}&nbsp;zł</span>
+                        <div className="flex-price">
+                            {data.on_sale
+                                && <div className="discount" >
+                                    {data.regular_price}&nbsp;zł
+                                </div>}
+                            <div className={data.on_sale ? "colored regular" : "regular"} >
+                                {data.price}&nbsp;zł
+                            </div>
+                        </div>
                         <span className="omnibus">Najniższa cena z 30 dni: {data.price}&nbsp;zł</span>
                     </div>
                     <div className="quantity-calculator">
@@ -94,7 +113,7 @@ export default function Hero({ data }) {
                         )}
                         {data.stock_status !== 'instock'
                             ? <ButtonLink to='/kontakt/' className="add-to-cart"><span>ZAPYTAJ O PRODUKT</span></ButtonLink>
-                            : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>}
+                            : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addToCart(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>}
                     </div>
                 </div>
                 <div className="description">
@@ -105,7 +124,7 @@ export default function Hero({ data }) {
                     <div className="description" dangerouslySetInnerHTML={{ __html: data.description }} />
                     {data.stock_status !== 'instock'
                         ? <ButtonLink to='/kontakt/' className="description-add-to-cart"><span>ZAPYTAJ O PRODUKT</span></ButtonLink>
-                        : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>}
+                        : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addToCart(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>}
                 </div>
                 <div className="details">
                     <div className="details-title">
@@ -129,6 +148,43 @@ export default function Hero({ data }) {
 const Wrapper = styled.section`
     *{
         font-family: 'Roboto Condensed';
+    }
+
+    .flex-price{
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+
+        .regular{
+            font-size: 28px;
+            font-family: 'Nocturne Serif';
+
+            &.colored{
+            background: #23423D;
+            color: #EDAC2A;
+            padding: 2px;
+            }
+        }
+
+        .discount{
+            font-size: 24px;
+            font-family: 'Nocturne Serif';
+            position: relative;
+
+            &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #EDAC2A;
+            left: 0;
+            bottom: 0;
+            transform: rotateZ(-20deg);
+            transform-origin: 0 100%;
+            }
+        }
     }
 `
 
@@ -323,6 +379,16 @@ const Content = styled.div`
         .image{
             width: 100%;
             height: 100%;
+
+            img{
+                transition: transform .3s ease-out;
+            }
+
+            &:hover{
+                img{
+                    transform: scale(1.07);
+                }
+            }
         }
         img{
             cursor: pointer;
