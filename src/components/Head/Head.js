@@ -5,7 +5,7 @@ export function Head({
     data,
     pageContext
 }) {
-    const seo = data.wpPage?.seo ?? data.wpArtykul?.seo ?? data.wpKolekcje?.seo ?? data.wpWystawa?.seo ?? data.wpProduct.seo
+    const seo = data.wpPage?.seo || data.wpArtykul?.seo || data.wpKolekcje?.seo || data.wpWystawa?.seo || data.wcProduct?.seo || data.wcCategory?.seo
     let url = seo.opengraphUrl || pageContext.url || '/'
     const canonical = "https://auto-welt.info" + url + (url.slice(-1) === '/' ? '' : '/');
     if (seo.opengraphUrl === '/404') {

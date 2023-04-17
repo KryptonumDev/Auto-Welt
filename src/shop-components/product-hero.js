@@ -69,7 +69,7 @@ export default function Hero({ data }) {
                     )}
                     <div className="price">
                         <span className="actual-price">{data.price}&nbsp;zł</span>
-                        <span className="omnibus">Najniższa cena z TODO dni: {data.price}&nbsp;zł</span>
+                        <span className="omnibus">Najniższa cena z 30 dni: {data.price}&nbsp;zł</span>
                     </div>
                     <div className="quantity-calculator">
                         <div className="quantity-calculator__content">
@@ -225,8 +225,9 @@ const Content = styled.div`
             cursor: pointer;
             border-right: unset;
             transition: background-color .3s ease-out;
+            background-color: #EDAC2A;
             &:hover{
-                background-color: #EDAC2A;
+                background-color: #DA9610;
             }
 
             &:disabled{
@@ -249,12 +250,12 @@ const Content = styled.div`
             border-left: unset;
             transition: background-color .3s ease-out;
             &:hover{
-                background-color: transparent;
+                background-color: #DA9610;
             }
 
             &:disabled{
                 cursor: unset;
-                background-color: #EDAC2A;
+                background-color: transparent;
             }
         }
     }

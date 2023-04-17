@@ -23,20 +23,6 @@ export default function ProductPage({ data: { pageData, wpPage, allWcProduct } }
     </Wrapper>
   )
 }
-
-
-// seo {
-//   canonical
-//   metaDesc
-//   opengraphSiteName
-//   title
-//   opengraphUrl
-//   opengraphImage {
-//     localFile {
-//       publicURL
-//     }
-//   }
-// }
 export { Head } from "../components/Head/Head"
 
 export const query = graphql`

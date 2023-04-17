@@ -97,10 +97,6 @@ export default function Checkout({ items, sum }) {
                     {
                         key: '_billing_nip',
                         value: personalData.forFirm ? personalData.nip : null
-                    },
-                    {
-                        key: "parcel_machine_id",
-                        value: delivery.inpostNumber
                     }
                 ],
                 line_items: line_items,
@@ -111,7 +107,7 @@ export default function Checkout({ items, sum }) {
                         total: `${delivery.price}}`,
                         meta_data: [
                             {
-                                key: "parcel_machine_id",
+                                key: "Numer paczkomatu",
                                 value: delivery.inpostNumber
                             }
                         ]

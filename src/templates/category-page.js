@@ -34,7 +34,7 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
 
 export default Category
 
-// export { Head } from "../components/Head/Head"
+export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query categoryQuery($id: String!, $slug: String!) {
@@ -82,6 +82,11 @@ export const query = graphql`
       }
     }
     wcCategory(id: { eq: $id }) {
+      seo : yoast_head_json{
+        metaDesc : og_description
+        opengraphSiteName : og_site_name
+        title : og_title
+      }
       description
       name
       count

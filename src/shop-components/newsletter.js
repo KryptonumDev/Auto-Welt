@@ -2,11 +2,43 @@ import React from "react"
 import styled from "styled-components"
 import { Button } from "./button"
 import { Link } from "gatsby"
+import { useForm } from "react-hook-form"
+import axios from "axios"
+import { toast } from "react-toastify"
+
+const getItem = (name, altVal = '') => {
+    return localStorage.getItem(name) !== 'null' ? localStorage.getItem(name) : altVal
+}
 
 export default function Newsletter() {
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            name: getItem('name'),
+            email: getItem('email'),
+        }
+    })
+
+    const submit = (data) => {
+        axios.post(`${process.env.GATSBY_WORDPRESS_URL}/wp-json/newsletter/v2/subscribers`, {
+            email: data.email,
+            first_name: data.name.split(' ')[0],
+            last_name: data.name.split(' ')[1],
+            status: "confirmed"
+        }, {
+            auth: {
+                username: process.env.NEWSLETTER_USER,
+                password: process.env.NEWSLETTER_PASSWORD
+            }
+        }).then(() => {
+            toast('Zapisano do newslettera ')
+        }).catch(() => {
+            toast('Wystąpił błąd, spróbuj ponownie później')
+        })
+    }
+
     return (
-        <Wrapper>
-            <Content>
+        <Wrapper >
+            <Content onSubmit={handleSubmit(submit)} >
                 <h2>Newsletter</h2>
                 <p className="text">
                     Bądź na bieżąco! Zapisz się do newslettera Auto-Welt,
@@ -15,29 +47,31 @@ export default function Newsletter() {
                 <div className="flex">
                     <label className="name">
                         <span>Imię</span>
-                        <input />
+                        <input {...register("name", { minLength: 3, required: true })} />
+                        {errors.name && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
                     </label>
                     <label className="email">
                         <span>E-mail</span>
-                        <input />
+                        <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} />
+                        {errors.email && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
                     </label>
-                    <Button className="button"><span>ZAPISUJĘ SIĘ</span></Button>
+                    <Button type="submit" className="button"><span>ZAPISUJĘ SIĘ</span></Button>
                     <label className="checkbox">
-                        <input type='checkbox' />
+                        <input type='checkbox' {...register("check", { required: true })} />
                         <span className="checkmark" />
                         <span>
                             Zapisując się do newslettera, wyrażasz zgodę na przesyłanie Ci informacji o nowościach, promocjach.
                             Szczegóły związane z przetwarzaniem Twoich danych osobowych znajdziesz w <Link to='/polityka-prywatnosci/'>polityce prywatności</Link>.
                         </span>
+                        {errors.check && <span className="error">Ta zgoda jest wymagana</span>}
                     </label>
                 </div>
-
             </Content>
         </Wrapper>
     )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
     padding: 0 16px;
     max-width: 1080px;
     margin: clamp(60px, ${60 / 768 * 100}vw, 120px) auto 0 auto;
@@ -45,6 +79,15 @@ const Wrapper = styled.div`
 
     *{
         font-family: 'Roboto Condensed';
+    }
+
+    .error{
+        font-size: 13px !important;
+        color: red !important;
+        font-weight: 600 !important;
+        height: 0;
+        position: absolute;
+        bottom: -4px;
     }
 `
 
@@ -126,6 +169,7 @@ const Content = styled.form`
         display: grid;
         align-items: flex-end;
         grid-gap: 4px;
+        position: relative;
 
         span{
             font-weight: 600;

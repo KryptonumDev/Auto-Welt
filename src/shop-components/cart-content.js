@@ -139,7 +139,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               </span>
               <div className="param ">
                 <div className="quantity-calculator">
-                  <button onClick={() => { updateItemQuantity(el.id, el.quantity - 1) }} className="minus">
+                  <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
                     <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M14 0V2H0V0H14Z" fill="#23423D" />
                     </svg>
@@ -147,7 +147,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                   <div className="quantity">
                     {el.quantity}
                   </div>
-                  <button onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                  <button disabled={el.quantity >= el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
                     </svg>
@@ -186,7 +186,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
 
       <Checkout>
         <div>
-          <span>
+          <span className="left">
             Wartość zamówienia:
           </span>
           <span>
@@ -194,7 +194,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
           </span>
         </div>
         <div>
-          <span>
+          <span className="left">
             Dostawa:
           </span>
           <span>
@@ -202,7 +202,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
           </span>
         </div>
         <div>
-          <span>
+          <span className="left last">
             Razem:
           </span>
           <span>
@@ -376,8 +376,9 @@ const Wrapper = styled.section`
       cursor: pointer;
       border-right: unset;
       transition: background-color .3s ease-out;
+      background-color: #EDAC2A;
       &:hover{
-          background-color: #EDAC2A;
+          background-color: #DA9610;
       }
 
       &:disabled{
@@ -400,12 +401,12 @@ const Wrapper = styled.section`
       border-left: unset;
       transition: background-color .3s ease-out;
       &:hover{
-          background-color: transparent;
+          background-color: #DA9610;
       }
 
       &:disabled{
           cursor: unset;
-          background-color: #EDAC2A;
+          background-color: transparent;
       }
     }
   }
@@ -538,14 +539,22 @@ const Checkout = styled.div`
     justify-content: space-between;
     
     span{
-      font-size: 24px;
+      font-size: clamp(16px, ${20 / 768 * 100}vw, 24px);
       font-weight: 500;
       line-height: 124%;
     }
 
+    .left{
+      font-weight: 600;
+      color: #23423D;
+    }
+
     &:last-child{
+      @media (max-width: 480px){
+        padding: 0 6px;
+      }
       span{
-        font-size: 28px;
+      font-size: clamp(20px, ${24 / 768 * 100}vw, 28px);
       }
     }
   }
@@ -594,6 +603,8 @@ const Button = styled(Link)`
   }
 
   @media (max-width: 680px){
-    margin-left: 0;
+    margin-left: 11px;
+    margin-right: 11px;
+    width: calc(100% - 22px);
   }
 `
