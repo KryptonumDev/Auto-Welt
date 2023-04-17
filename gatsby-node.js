@@ -139,6 +139,8 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
   `);
 
   allWcProduct.nodes.map(el => {
+    if(!el.categories[0]) return null
+    
     createPage({
       path: `/sklep/${el.categories[0].slug}/${el.slug}/`,
       component: el.categories[0].slug !== 'wystawy'

@@ -13,16 +13,6 @@ import RightArrow from "./../images/right_arrow.svg"
 
 export default function ProductSlider({ title, products }) {
 
-  const filtredProducts = useMemo(() => {
-    return products.filter((data) => {
-      const createTime = new Date(data.date_created)
-      const currentTime = new Date()
-      const difference = Math.ceil((currentTime - createTime) / (1000 * 60 * 60 * 24))
-
-      return difference <= 31
-    })
-  }, [products])
-
   const slider = useRef(null);
   const settings = {
     dots: false,
@@ -57,6 +47,8 @@ export default function ProductSlider({ title, products }) {
     }
   }
 
+  if(products.length <= 3) return null
+
   return (
     <Wrapper>
       <h2>{title}</h2>
@@ -65,7 +57,7 @@ export default function ProductSlider({ title, products }) {
           <LeftArrow />
         </StyledLeftArrow>
         <Slider ref={slider} {...settings}>
-          {filtredProducts.map((el, index) => (
+          {products.map((el, index) => (
             <div
               onMouseMove={() => setMouseMoved(true)}
               onMouseDown={() => setMouseMoved(false)}

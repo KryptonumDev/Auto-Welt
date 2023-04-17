@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
 import styled from "styled-components"
 import { Button } from "./button"
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function PersonalDataForm({ personalData, setPersonalData, setStep }) {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { setValue, register, handleSubmit, watch, formState: { errors } } = useForm({
         mode: "onBlur",
         defaultValues: {
             name: personalData.name || '',
@@ -18,6 +20,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
     });
 
     const [checkboxValue, setCheckboxValue] = useState(personalData.forFirm === 'true')
+    const [nipValue, setNipValue] = useState(personalData.nip)
 
     const submit = (data) => {
         localStorage.setItem('name', data.name)
@@ -39,6 +42,23 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
         })
         setStep('3')
     }
+    useEffect(() => {
+        // https://wl-api.mf.gov.pl/api/search/nip/9512465557?date=2023-04-14
+        const date = new Date().toISOString().split('T')[0]
+        if (nipValue.length === 10) {
+            axios.get(`https://wl-api.mf.gov.pl/api/search/nip/${nipValue}?date=${date}`)
+                .then(res => {
+                    setValue('firmName', res.data.result.subject.name)
+                    setValue('firmAdres', res.data.result.subject.workingAddress)
+                })
+                .catch(err => {
+                    debugger
+                    toast(err.response.data.message)
+                })
+        }
+    }, [nipValue])
+
+
     return (
         <Wrapper onSubmit={handleSubmit(submit)} className="form">
             <h2>2. Uzupełnij dane osobiste</h2>
@@ -57,7 +77,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
                 <span>Nr. telefonu*</span>
                 <input
                     maxLength={11}
-                    placeholder="_ _ _  _ _ _  _ _ _" {...register("phone", { required: true, minLength: 11})}
+                    placeholder="_ _ _  _ _ _  _ _ _" {...register("phone", { required: true, minLength: 11 })}
                     onChange={(e) => {
                         e.target.value = (
                             [...e.target.value.replaceAll(' ', '')].map((val, idx) => {
@@ -88,7 +108,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>NIP</span>
-                <input disabled={!checkboxValue} {...register("nip")} placeholder='___-___-__-__' />
+                <input maxLength='10' disabled={!checkboxValue} {...register("nip", { maxLength: 10, minLength: 10, onChange: (e) => { setNipValue(e.currentTarget.value) } })} placeholder='___-___-__-__' />
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>Nazwa firmy</span>

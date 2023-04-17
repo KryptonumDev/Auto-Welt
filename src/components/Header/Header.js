@@ -406,6 +406,7 @@ const DesctopNav = styled.ul`
 
     a{
       height: 48px;
+      padding-top: 3px;
       display: flex;
       align-items: center;
     }

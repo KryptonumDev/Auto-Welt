@@ -26,8 +26,8 @@ export default function Podziekowanie({ location, data: { allWcProduct } }) {
       const currentTime = new Date()
       const difference = Math.ceil((currentTime - createTime) / (1000 * 60 * 60 * 24))
 
-      return difference <= 31
-    })
+      return difference <= 31 && data.stock_status === 'instock'
+    }).slice(0, 5)
   }, [allWcProduct])
 
   return (

@@ -39,19 +39,18 @@ export default function Checkout({ items, sum }) {
         name: getItem('name'),
         email: getItem('email'),
         phone: getItem('phone'),
-        forFirm: getItem('forFirm'),// not used
-        nip: getItem('nip'), // not used
-        firmName: getItem('firmName'), // not used
-        firmAdres: getItem('firmAdres'), // not used
+        forFirm: getItem('forFirm'),
+        nip: getItem('nip'),
+        firmName: getItem('firmName'),
+        firmAdres: getItem('firmAdres'),
     })
     const [shipingData, setShipingData] = useState({
         address: getItem('address'),
         postcode: getItem('postcode'),
         country: getItem('country'),
         city: getItem('city'),
-        additionalinform: getItem('additionalinform'), // not used
+        additionalinform: getItem('additionalinform'),
     })
-
 
     useEffect(() => {
         if (step === '6') {
@@ -68,28 +67,38 @@ export default function Checkout({ items, sum }) {
                     "products"
                 ],
                 set_paid: false,
+                payment_method_title: 'Stripe',
+                // customer_note: shipingData.additionalinform,
                 billing: {
                     first_name: personalData.name.split(' ')[0],
                     last_name: personalData.name.split(' ')[1],
-                    address_1: shipingData.address,
-                    address_2: "",
-                    city: shipingData.city,
-                    postcode: shipingData.postcode,
-                    state: "",
-                    country: shipingData.country,
+                    // address_1: shipingData.address,
+                    address_2: personalData.forFirm ? personalData.firmAdres : null,
+                    // city: shipingData.city,
+                    // postcode: shipingData.postcode,
+                    // country: shipingData.country,
+                    country: 'Polska',
                     email: personalData.email,
-                    phone: personalData.phone
+                    phone: personalData.phone,
+                    company: personalData.forFirm ? personalData.firmName : null,
+                    // inpost_number: delivery.inpostNumber,
                 },
-                shipping: {
-                    first_name: personalData.name.split(' ')[0],
-                    last_name: personalData.name.split(' ')[1],
-                    address_1: shipingData.address,
-                    address_2: "",
-                    city: shipingData.city,
-                    postcode: shipingData.postcode,
-                    state: "",
-                    country: shipingData.country
-                },
+                // shipping: {
+                //     first_name: personalData.name.split(' ')[0],
+                //     last_name: personalData.name.split(' ')[1],
+                //     address_1: shipingData.address,
+                //     address_2: personalData.firmAdres,
+                //     city: shipingData.city,
+                //     postcode: shipingData.postcode,
+                //     state: "",
+                //     country: shipingData.country
+                // },
+                meta_data: [
+                    {
+                        key: '_billing_nip',
+                        value: personalData.forFirm ? personalData.nip : null
+                    }
+                ],
                 line_items: line_items,
                 shipping_lines: [
                     delivery.type === 'Inpost – paczkomaty 24/7' ? {
@@ -109,7 +118,7 @@ export default function Checkout({ items, sum }) {
                     }
                 ]
             }
-            WooCommerce.post("orders", params) // add delivery price to params
+            WooCommerce.post("orders", params)
                 .then((response) => {
                     setOrderNumber(response.data.id)
                     fetch("/api/create-intent", {
@@ -150,10 +159,10 @@ export default function Checkout({ items, sum }) {
                 {step === '3' && (
                     <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
-                {step === '4' && (
+                {/* {step === '4' && (
                     <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
-                )}
-                {step >= '5' && (
+                )} */}
+                {step >= '4' && (
                     <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
                 )}
                 {step === '6' && (
