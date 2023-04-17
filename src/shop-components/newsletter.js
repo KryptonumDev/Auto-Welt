@@ -7,6 +7,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 
 const getItem = (name, altVal = '') => {
+    if (typeof window === 'undefined') return ''
     return localStorage.getItem(name) !== 'null' ? localStorage.getItem(name) : altVal
 }
 
