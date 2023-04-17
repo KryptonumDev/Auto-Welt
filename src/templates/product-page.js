@@ -6,11 +6,13 @@ import Hero from "../shop-components/product-hero"
 import ProductSlider from "../shop-components/product-slider"
 import "lightgallery.js/dist/css/lightgallery.css"
 import { LightgalleryProvider } from "react-lightgallery";
+import BreadCrumbs from "../shop-components/breadcrumbs"
 
-export default function ProductPage({ data: { pageData, wpPage, allWcProduct } }) {
+export default function ProductPage({ pageContext, data: { pageData, wpPage, allWcProduct } }) {
 
   return (
     <Wrapper>
+      <BreadCrumbs pageContext={pageContext} />
       <LightgalleryProvider galleryClassName="gallery">
         <Hero data={wpPage} />
       </LightgalleryProvider>
@@ -149,7 +151,7 @@ query productPageQuery ($id: String!){
 const Wrapper = styled.main`
   max-width: 1112px;
   width: 100%;
-  margin: 120px auto;
+  margin: clamp(60px, ${60/768*100}vw, 90px) auto;
   padding: 0 16px;
   box-sizing: border-box;
 `

@@ -49,7 +49,7 @@ export const Button = styled.button`
 
     &:disabled{
         background: #B0BBBA !important;
-        cursor: default !important;
+        cursor: not-allowed !important;
     }
 `
 export const ButtonLink = styled(Link)`
@@ -103,7 +103,7 @@ export const ButtonLink = styled(Link)`
 
     &:disabled{
         background: #B0BBBA;
-        cursor: default;
+        cursor: not-allowed !important;
     }
 `
 

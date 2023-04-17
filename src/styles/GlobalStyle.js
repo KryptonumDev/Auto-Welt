@@ -76,14 +76,14 @@ const Style = createGlobalStyle`
       font-variant-numeric: oldstyle-nums;
     }
 
+    *:focus {
+      outline: none
+    }
     *:focus-visible {
       outline-width: 1px;
       outline-style: solid;
       outline-color: #da9610;
       outline-offset: 4px;
-    }
-    *:focus {
-      outline: none
     }
 
     p{

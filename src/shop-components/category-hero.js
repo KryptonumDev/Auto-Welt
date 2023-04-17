@@ -118,7 +118,7 @@ const SliderWrapper = styled.div`
 const Wrapper = styled.section`
     padding: 0 16px;
     max-width: 1080px;
-    margin: 120px auto 0 auto;
+    margin: 0 auto 0 auto;
     box-sizing: content-box;
 
     p{

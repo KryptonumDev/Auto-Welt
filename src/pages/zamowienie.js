@@ -64,7 +64,7 @@ export const query = graphql`
 const Wrapper = styled.main`
   max-width: 1112px;
   width: 100%;
-  margin: 120px auto;
+  margin: clamp(60px, ${60/768*100}vw, 90px) auto;
   padding: 0 16px;
   box-sizing: border-box;
   overflow-x: hidden;

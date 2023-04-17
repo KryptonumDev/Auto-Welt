@@ -45,7 +45,7 @@ export default function NewPosts() {
                             </div>
                             <div className="text" dangerouslySetInnerHTML={{ __html: el.artykul.informacjeDoMiniaturki.opis }} />
                         </div>
-                        <YellowButtonLink as='button'><span>Czytaj więcej</span></YellowButtonLink>
+                        <YellowButtonLink tabIndex='-1' as='button'><span>Czytaj więcej</span></YellowButtonLink>
                     </Item>
                 ))}
             </Grid>

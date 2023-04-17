@@ -15,10 +15,14 @@ export default function ProductCard({
     },
     data
 }) {
-    const { addItem } = useCart()
+    const { addItem, inCart } = useCart()
     const addToCart = (data) => {
-        addItem(data)
-        toast(`${data.name} - dodano do koszyka`)
+        if(!inCart(data.id)){
+            addItem(data)
+            toast(`${data.name} - dodano do koszyka`)
+        } else {
+            toast(`Ten przedmiot już jest w koszyku!`)
+        }
     }
 
     const isNewArrivals = useMemo(() => {

@@ -9,8 +9,8 @@ export default function Hero({ maintitle, title, text }) {
                 <StaticImage className="image" src='./../../static/images/hero-background.png' alt='tło' />
                 <h1>{maintitle}</h1>
             </div>
-            <p className="title">{title}</p>
-            <p className="text">{text}</p>
+            <p className="title" dangerouslySetInnerHTML={{ __html: title }}></p>
+            <p className="text" dangerouslySetInnerHTML={{ __html: text }}></p>
         </Wrapper>
     )
 }
@@ -21,7 +21,7 @@ const Wrapper = styled.section`
         padding: 0 16px;
     }
     max-width: 1080px;
-    margin: 120px auto 0 auto;
+    margin: clamp(60px, ${60/768*100}vw, 90px) auto 0 auto;
     box-sizing: content-box;
 
     h1{
@@ -36,6 +36,23 @@ const Wrapper = styled.section`
     p{
         margin-top: 20px;
         max-width: 800px;
+    }
+
+    strong{
+        font-weight: unset;
+        position: relative;
+        white-space: nowrap;
+
+        &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 50%;
+        background-color: #F6E2BA;
+        z-index: -1;
+        }
     }
 
     .background{

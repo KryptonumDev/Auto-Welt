@@ -12,7 +12,7 @@ import {
   StyledOverflowWrapper,
 } from "./StyledGlobalLayout";
 
-const GlobalLayout = ({ children }) => {
+const GlobalLayout = ({ pageContext, children }) => {
   return (
     <>
       <MenuProvider>
@@ -21,11 +21,11 @@ const GlobalLayout = ({ children }) => {
           <meta name="robots" data-react-helmet="true" />
         </Helmet>
         <GlobalStyle />
-        <ToastContainer />
+        <ToastContainer limit={3} position="bottom-right" />
         <StyledOverflowWrapper>
           <CartProvider>
             <Header />
-              {children}
+            {children}
             <Footer />
           </CartProvider>
         </StyledOverflowWrapper>

@@ -105,7 +105,7 @@ export default function Header() {
               </li>
             ))}
           </LeftSide>
-          <Link to="/" aria-label="przejdz do strony głównej">
+          <Link className="zindex" to="/" aria-label="przejdz do strony głównej">
             <Logo className='desctop logo' />
             <LogoMobile className='mobile logo' />
           </Link>
@@ -185,6 +185,11 @@ const Overlay = styled.div`
 `
 
 const MobileMenu = styled.div`
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+
   position: fixed;
   z-index: 201;
   top: 0;
@@ -259,6 +264,11 @@ const Wrapper = styled.header`
   position: sticky;
   top: 0;
   z-index: 200;
+
+  .zindex{
+    position: relative;
+    z-index: 2;
+  }
 
   @media (max-width: 1024px) {
     padding: 10px 16px;
@@ -407,9 +417,14 @@ const DesctopNav = styled.ul`
 
     a{
       height: 48px;
+      padding: 0 2px;
       padding-top: 3px;
       display: flex;
       align-items: center;
+
+      &:focus-visible{
+        outline-offset: -2px;
+      }
     }
 
     .sub-arr{
@@ -441,7 +456,7 @@ const DesctopNav = styled.ul`
       transition: transform .3s ease-out;
     }
 
-    &:hover{
+    &:hover, &:focus-within{
       .sub-arr{
         opacity: 1;
         pointer-events: all;

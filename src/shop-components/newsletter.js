@@ -204,7 +204,10 @@ const Content = styled.form`
             input{
                 width: fit-content;
                 box-shadow: unset;
-                display: none;
+                position: absolute;
+                height: 0;
+                width: 0;
+                opacity: 0;
             }
             .checkmark{
                 border: 2px solid #3E635D;
@@ -223,6 +226,9 @@ const Content = styled.form`
                     color: #EDAC2A;
                     opacity: 0;
                 }
+            }
+            input:focus-visible ~ .checkmark {
+            border-color: #EDAC2A;
             }
             input:checked ~ .checkmark {
                 &::after{

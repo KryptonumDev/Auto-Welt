@@ -132,6 +132,7 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
           databaseId
           categories {
             slug
+            name
           }
         }
       }
@@ -139,8 +140,7 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
   `);
 
   allWcProduct.nodes.map(el => {
-    if(!el.categories[0]) return null
-    
+    if (!el.categories[0]) return null
     createPage({
       path: `/sklep/${el.categories[0].slug}/${el.slug}/`,
       component: el.categories[0].slug !== 'wystawy'
@@ -150,7 +150,21 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
         itemId: el.databaseId,
         id: el.id,
         title: el.name,
-        url: `/sklep/${el.categories[0].slug}/${el.slug}/`
+        url: `/sklep/${el.categories[0].slug}/${el.slug}/`,
+        breadCrumbs: [
+          {
+            item: 'Sklep',
+            url: '/sklep/'
+          },
+          {
+            item: el.categories[0].name,
+            url: `/sklep/${el.categories[0].slug}/`
+          },
+          {
+            item: el.name,
+            url: `/sklep/${el.categories[0].slug}/${el.slug}/`
+          }
+        ]
       },
     });
   });
@@ -178,7 +192,17 @@ exports.createPages = async ({ actions: { createPage, createRedirect }, graphql 
         id: el.id,
         title: el.name,
         slug: el.slug,
-        url: `/sklep/${el.slug}/`
+        url: `/sklep/${el.slug}/`,
+        breadCrumbs: [
+          {
+            item: 'Sklep',
+            url: '/sklep/'
+          },
+          {
+            item: el.name,
+            url: `/sklep/${el.slug}/`
+          }
+        ]
       },
     });
 

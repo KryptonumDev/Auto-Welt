@@ -4,10 +4,18 @@ import React, { useMemo } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
+import { toast } from "react-toastify"
 
 export default function ProductCard({ data }) {
-  const { addItem } = useCart()
-
+  const { addItem, inCart } = useCart()
+  const addToCart = (data) => {
+      if(!inCart(data.id)){
+          addItem(data)
+          toast(`${data.name} - dodano do koszyka`)
+      } else {
+          toast(`Ten przedmiot już jest w koszyku!`)
+      }
+  }
   const isNewArrivals = useMemo(() => {
     const createTime = new Date(data.date_created)
     const currentTime = new Date()
@@ -63,7 +71,7 @@ export default function ProductCard({ data }) {
           </Price>
         )}
       </TextPart>
-      <Button disabled={data.stock_status !== 'instock'} className="add-to-cart" onClick={() => { addItem(data) }}><span>DO KOSZYKA</span></Button>
+      <Button disabled={data.stock_status !== 'instock'} className="add-to-cart" onClick={() => { addToCart(data) }}><span>DO KOSZYKA</span></Button>
     </Wrapper>
   )
 }

@@ -2,7 +2,7 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo, useState } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
-import { Button } from "./button"
+import { Button, ButtonLink } from "./button"
 import { LightgalleryItem } from "react-lightgallery"
 
 export default function Hero({ data }) {
@@ -72,25 +72,29 @@ export default function Hero({ data }) {
                         <span className="omnibus">Najniższa cena z 30 dni: {data.price}&nbsp;zł</span>
                     </div>
                     <div className="quantity-calculator">
-                        <div className="quantity-calculator__content">
-                            <span>Ilość:</span>
-                            <div className="calculator">
-                                <button disabled={quantity <= 1} onClick={() => { setQuantity(quantity - 1) }} className="minus">
-                                    <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14 0V2H0V0H14Z" fill="#23423D" />
-                                    </svg>
-                                </button>
-                                <div className="quantity">
-                                    {quantity}
+                        {data.stock_status === 'instock' && (
+                            <div className="quantity-calculator__content">
+                                <span>Ilość:</span>
+                                <div className="calculator">
+                                    <button disabled={quantity <= 1} onClick={() => { setQuantity(quantity - 1) }} className="minus">
+                                        <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 0V2H0V0H14Z" fill="#23423D" />
+                                        </svg>
+                                    </button>
+                                    <div className="quantity">
+                                        {quantity}
+                                    </div>
+                                    <button disabled={quantity >= data.stock_quantity} onClick={() => { setQuantity(quantity + 1) }} className="plus">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
+                                        </svg>
+                                    </button>
                                 </div>
-                                <button disabled={quantity >= data.stock_quantity} onClick={() => { setQuantity(quantity + 1) }} className="plus">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
-                                    </svg>
-                                </button>
                             </div>
-                        </div>
-                        <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>
+                        )}
+                        {data.stock_status !== 'instock'
+                            ? <ButtonLink to='/kontakt/' className="add-to-cart"><span>ZAPYTAJ O PRODUKT</span></ButtonLink>
+                            : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="add-to-cart"><span>KUPUJĘ</span></Button>}
                     </div>
                 </div>
                 <div className="description">
@@ -99,7 +103,9 @@ export default function Hero({ data }) {
                         <h2>Opis produktu:</h2>
                     </div>
                     <div className="description" dangerouslySetInnerHTML={{ __html: data.description }} />
-                    <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>
+                    {data.stock_status !== 'instock'
+                        ? <ButtonLink to='/kontakt/' className="description-add-to-cart"><span>ZAPYTAJ O PRODUKT</span></ButtonLink>
+                        : <Button disabled={data.stock_status !== 'instock'} onClick={() => { addItem(data, quantity) }} className="description-add-to-cart"><span>KUPUJĘ</span></Button>}
                 </div>
                 <div className="details">
                     <div className="details-title">

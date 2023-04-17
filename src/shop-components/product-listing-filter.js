@@ -89,7 +89,6 @@ const Wrapper = styled.div`
         width: 100%;
         background-color: transparent;
         border: 2px solid #23423D;
-        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
         padding: 0 0 0 11px;
         font-size: clamp(16px, ${20 / 768 * 100}vw, 20px);
         color: #7A8D8A;
@@ -185,7 +184,10 @@ const Wrapper = styled.div`
         input{
             width: fit-content;
             box-shadow: unset;
-            display: none;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
         }
         .checkmark{
             border: 2px solid #3E635D;
@@ -203,10 +205,19 @@ const Wrapper = styled.div`
                 opacity: 0;
             }
         }
+        input:focus-visible ~ .checkmark {
+          border-color: #EDAC2A;
+        }
         input:checked ~ .checkmark {
             &::after{
                 opacity: 1;
             }
+        }
+
+        span{
+            font-size: clamp(16px, ${20 / 768 * 100}vw, 20px);
+            color: #23423D;
+            font-weight: 600;
         }
     }
 

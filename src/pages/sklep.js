@@ -24,7 +24,7 @@ const Shop = ({ data: { wpPage, news, allWcProduct, allWcCategory } }) => {
   return (
     <main>
       <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
-w Europie. Weryfikujemy ich jakość i dbamy o idealne warunki składowania. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
+w Europie. Weryfikujemy ich jakość i dbamy o <strong>idealne warunki składowania</strong>. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
       <ProductSlider title={'Nowości'} products={filtredProducts} />
       <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
       <Divider />

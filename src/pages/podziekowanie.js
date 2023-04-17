@@ -44,7 +44,7 @@ export default function Podziekowanie({ location, data: { allWcProduct } }) {
 const Wrapper = styled.main`
     max-width: 1060px;
     padding: 0 32px;
-    margin: 120px auto;
+    margin: clamp(60px, ${60/768*100}vw, 90px) auto;
 
     > .image{
         display: block;

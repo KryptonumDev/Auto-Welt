@@ -8,6 +8,8 @@ import AllCategories from './../shop-components/all-categories'
 import NewPosts from './../shop-components/new-posts'
 import Newsletter from "../shop-components/newsletter"
 import Hero from "../shop-components/category-hero"
+import BreadCrumbs from "../shop-components/breadcrumbs"
+import styled from "styled-components"
 
 const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory } }) => {
 
@@ -15,11 +17,12 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
     if (wcCategory.count < 1) {
       navigate('/sklep/')
     }
-  }, [wcCategory])  
+  }, [wcCategory])
 
   return (
-    <main>
-      <Hero title={wcCategory.name} text={wcCategory.description} gallery={wcCategory.acf.gallery}/>
+    <Wrapper>
+      <BreadCrumbs pageContext={pageContext} />
+      <Hero title={wcCategory.name} text={wcCategory.description} gallery={wcCategory.acf.gallery} />
       {pageContext.slug !== 'wystawy'
         ? <ProductListing products={allWcProduct.nodes} />
         : <ExhibitionListing products={allWcProduct.nodes} />}
@@ -28,7 +31,7 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
       <AllCategories data={allWcCategory.nodes} title={'Inne kategorie'} />
       <Newsletter />
       <NewPosts />
-    </main>
+    </Wrapper>
   );
 };
 
@@ -103,3 +106,7 @@ export const query = graphql`
     }
   }
 `;
+
+const Wrapper = styled.main`
+  margin-top: clamp(60px, ${60/768*100}vw, 90px);
+`
