@@ -160,6 +160,19 @@ const Style = createGlobalStyle`
         content: url("/images/left.png") !important;
       }
     }
+
+    .lg-toolbar{
+      background: #23423D !important;
+    }
+
+    .lg-outer .lg-image{
+      max-width: calc(100% - 160px) !important;
+      max-height: 73% !important;
+
+      @media (max-width: 640px) {
+        max-width: 100% !important;
+      }
+    }
 `;
 
 const GlobalStyle = () => {
