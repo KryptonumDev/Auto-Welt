@@ -109,4 +109,8 @@ export const query = graphql`
 
 const Wrapper = styled.main`
   margin-top: clamp(60px, ${60/768*100}vw, 90px);
+
+  @media (max-width: 768px) {
+    margin-top: 90px;
+  }
 `

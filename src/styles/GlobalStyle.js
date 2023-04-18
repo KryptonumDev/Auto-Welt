@@ -59,6 +59,18 @@ const Style = createGlobalStyle`
       background-color: var(--background500) !important;
     }
 
+    .Toastify__progress-bar--warning {
+      background-color: rgb(237, 172, 42) !important;
+    }
+
+    .Toastify__progress-bar--error{
+      background-color: #D63D3D !important;
+    } 
+
+    .Toastify__toast-icon{
+      display: none !important; 
+    }
+
     body {
       overflow-x: hidden;
       width: 100%;
@@ -171,6 +183,12 @@ const Style = createGlobalStyle`
 
       @media (max-width: 640px) {
         max-width: 100% !important;
+      }
+    }
+
+    #lg-counter{
+      @media (max-width: 370px) {
+        display: none !important; 
       }
     }
 `;

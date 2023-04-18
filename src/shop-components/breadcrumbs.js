@@ -38,7 +38,7 @@ export default function BreadCrumbs({ pageContext }) {
           })}
         </script>
       )}
-      <Flex>
+      <Flex className="breadcrumbs">
         {pageContext.breadCrumbs.map((el, index) => {
           if (pageContext.breadCrumbs.length - 1 === index) {
             return (
@@ -61,6 +61,7 @@ const Flex = styled.div`
   max-width: 1080px;
   margin: 0px auto;
   margin-bottom: 30px;
+    padding: 0px 16px;
   display: flex;
   flex-wrap: wrap;
 

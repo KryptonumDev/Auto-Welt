@@ -154,6 +154,13 @@ const Wrapper = styled.main`
   margin: clamp(60px, ${60/768*100}vw, 90px) auto;
   padding: 0 16px;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    margin-top: 90px;
+    .breadcrumbs{
+      padding: 0;
+    }
+  }
 `
 
 const Contact = styled.div`

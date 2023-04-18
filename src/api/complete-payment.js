@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }).catch(err => {
         console.log(err)
     }).then(data => {
-        res.redirect(`/podziekowanie?status=${req.query.redirect_status}`)
+        res.redirect(`/podziekowanie?status=${req.query.redirect_status}&order=${req.query.id}`)
     })
 
 };

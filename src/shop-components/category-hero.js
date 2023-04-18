@@ -56,6 +56,10 @@ const Buttons = styled.div`
     justify-content: center;
     gap: 6px;
     margin-top: 32px;
+
+    @media (max-width: 768px) {
+        gap: 12px;
+    }
     @media (max-width: 546px){
         display: none;
     }
@@ -66,10 +70,14 @@ const Buttons = styled.div`
         border-radius: 50%;
         border: none;
         background-color: #EDC169;
+        transition: transform .2s ease-out;
+        @media (max-width: 768px) {
+            width: 14px;
+            height: 14px;
+        }
 
         &.active{
-            width: 12px;
-            height: 12px;
+            transform: scale(1.2);
             background: #DA9610;
         }
     }

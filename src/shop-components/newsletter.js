@@ -31,9 +31,9 @@ export default function Newsletter() {
                 password: process.env.NEWSLETTER_PASSWORD
             }
         }).then(() => {
-            toast('Zapisano do newslettera ')
+            toast('Zapisano do newslettera')
         }).catch(() => {
-            toast('Wystąpił błąd, spróbuj ponownie później')
+            toast.error('Wystąpił błąd, spróbuj ponownie później')
         })
     }
 
@@ -84,7 +84,7 @@ const Wrapper = styled.section`
 
     .error{
         font-size: 13px !important;
-        color: red !important;
+        color: #D63D3D !important;
         font-weight: 600 !important;
         height: 0;
         position: absolute;
@@ -97,7 +97,7 @@ const Content = styled.form`
     background: #FAF7F1;
     border: 6px solid #23423D;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-    padding: clamp(32px, ${48 / 768 * 100}vw, 64px);
+    padding: clamp(24px, ${48 / 768 * 100}vw, 64px);
 
     h2{
         font-family: 'Nocturne Serif';
@@ -110,6 +110,11 @@ const Content = styled.form`
     .text{
         max-width: 530px;
         font-size: clamp(16px, ${20 / 768 * 100}vw, 24px);
+    }
+
+    .button{
+        margin: 0 11px;
+        width: calc(100% - 22px);
     }
     
     .flex{
@@ -129,7 +134,7 @@ const Content = styled.form`
             'button button';
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             grid-template-columns: auto;
             grid-template-areas: 
             'name'

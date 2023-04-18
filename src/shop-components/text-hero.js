@@ -24,6 +24,13 @@ const Wrapper = styled.section`
     margin: clamp(60px, ${60/768*100}vw, 90px) auto 0 auto;
     box-sizing: content-box;
 
+    @media (max-width: 768px) {
+    margin-top: 90px;
+    .breadcrumbs{
+        padding: 0;
+    }
+    }
+
     h1{
         font-family: 'Roboto Condensed';
         font-weight: 600;

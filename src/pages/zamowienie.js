@@ -69,6 +69,13 @@ const Wrapper = styled.main`
   box-sizing: border-box;
   overflow-x: hidden;
 
+  @media (max-width: 768px) {
+    margin-top: 90px;
+    .breadcrumbs{
+      padding: 0;
+    }
+  }
+
   *{
     font-family: 'Roboto Condensed';
     font-weight: 400;

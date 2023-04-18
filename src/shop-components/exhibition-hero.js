@@ -1,6 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React, { useMemo, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Button } from "./button"
 import { LightgalleryItem } from "react-lightgallery"
@@ -61,9 +60,10 @@ const Wrapper = styled.section`
     }
 
     .ml{
-      margin-left: auto;
-      margin-right: 10px;
+      margin-left: 11px;
+      margin-right: 11px;
       margin-top: 40px;
+      width: calc(100% - 22px);
     }
 `
 
@@ -178,6 +178,10 @@ const Content = styled.div`
         font-size: clamp(16px, ${20 / 768 * 100}vw, 24px);
         line-height: 124%;
         columns: 2;
+
+        @media (max-width: 420px) {
+          columns: 1;
+        }
 
         p+p{
           margin-top: 24px;

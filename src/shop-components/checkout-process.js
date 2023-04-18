@@ -11,6 +11,7 @@ import Summary from "./checkout-summary"
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
+import { toast } from "react-toastify"
 
 const WooCommerce = new WooCommerceRestApi({
     url: `${process.env.GATSBY_WORDPRESS_URL}/`,
@@ -54,6 +55,7 @@ export default function Checkout({ items, sum }) {
 
     useEffect(() => {
         if (step === '6') {
+            debugger
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -73,14 +75,14 @@ export default function Checkout({ items, sum }) {
                     first_name: personalData.name.split(' ')[0],
                     last_name: personalData.name.split(' ')[1],
                     // address_1: shipingData.address,
-                    address_2: personalData.forFirm ? personalData.firmAdres : null,
+                    address_2: personalData.forFirm ? personalData.firmAdres : '',
                     // city: shipingData.city,
                     // postcode: shipingData.postcode,
                     // country: shipingData.country,
                     country: 'Polska',
                     email: personalData.email,
                     phone: personalData.phone,
-                    company: personalData.forFirm ? personalData.firmName : null,
+                    company: personalData.forFirm ? personalData.firmName : '',
                     // inpost_number: delivery.inpostNumber,
                 },
                 // shipping: {
@@ -96,7 +98,7 @@ export default function Checkout({ items, sum }) {
                 meta_data: [
                     {
                         key: '_billing_nip',
-                        value: personalData.forFirm ? personalData.nip : null
+                        value: personalData.forFirm ? personalData.nip : ''
                     }
                 ],
                 line_items: line_items,
@@ -134,11 +136,11 @@ export default function Checkout({ items, sum }) {
                             WooCommerce.put(`orders/${response.data.id}`, {
                                 status: 'cancelled'
                             })
-                            // TODO: SHOW ERROR - CREATE INTENT ERROR
+                            toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
                         })
                 })
                 .catch(erorr => {
-                    // TODO: SHOW ERROR - CREATE ORDER ERROR
+                    toast.error('Nie udało się utworzyć zamówienia. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
                 })
         }
 
@@ -235,6 +237,18 @@ const Wrapper = styled.section`
     justify-content: space-between;
     gap: 64px;
 
+    button{
+        margin-left: 11px !important;
+        margin-right: 11px !important;
+        width: calc(100% - 22px) !important;
+
+        &.back-link{
+            margin-left: 0 !important;
+            width: fit-content !important;
+            text-align: left;
+        }
+    }
+
     .back-link{
         font-weight: 600;
         font-size: 16px;
@@ -325,7 +339,7 @@ const Wrapper = styled.section`
 
                 &.error{
                     font-size: 13px;
-                    color: red;
+                    color: #D63D3D;
                     height: 0;
                 }
             }

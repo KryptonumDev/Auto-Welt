@@ -50,22 +50,22 @@ export default function Steps({ setStep, step }) {
                 <Step as='div'>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
-                        <span>{step + 1}<b> / 5</b></span>
+                        <span>{step}<b> / 4</b></span>
                     </Image>
                     <div>
                         <p className="title">
-                            {step === 0 && 'Wybierz produkty'}
-                            {step === 1 && 'Dane osobowe'}
-                            {step === 2 && 'Opcje dostawy'}
+                            {step === '1' && 'Wybierz produkty'}
+                            {step === '2' && 'Dane osobowe'}
+                            {step === '3' && 'Opcje dostawy'}
                             {/* {step === 3 && 'Adres dostawy'} */}
-                            {step === 3 && 'Płatność'}
+                            {step === '4' && 'Płatność'}
                         </p>
                         <p className="text">
-                            {step === 0 && 'Wybierz produkty, które chcesz zamówić'}
-                            {step === 1 && 'Uzupełnij dane osobowe'}
-                            {step === 2 && 'Wybierz opcję dostawy, która Ci pasuje'}
+                            {step === '1' && 'Wybierz produkty, które chcesz zamówić'}
+                            {step === '2' && 'Uzupełnij dane osobowe'}
+                            {step === '3' && 'Wybierz opcję dostawy, która Ci pasuje'}
                             {/* {step === 3 && 'Wpisz adres, pod który ma być wysłana paczka'} */}
-                            {step === 3 && 'Dokonaj płatności i ciesz się udanym zamówieniem!'}
+                            {step === '4' && 'Dokonaj płatności i ciesz się udanym zamówieniem!'}
                         </p>
                     </div>
                 </Step>

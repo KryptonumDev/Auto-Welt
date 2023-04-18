@@ -20,8 +20,8 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
     });
 
     const [nipValue, setNipValue] = useState(personalData.nip)
+    const [isTrueNip, setIsTrueNip] = useState(false)
     const [checkboxValue, setCheckboxValue] = useState(personalData.forFirm === 'true' || personalData.forFirm === true)
-    debugger
     useEffect(() => {
         if (!checkboxValue) {
             setValue('nip', '')
@@ -29,6 +29,9 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             setValue('firmAdres', '')
         }
     }, [checkboxValue])
+    useEffect(() => {
+        setIsTrueNip(false)
+    }, [nipValue])
 
 
     const submit = (data) => {
@@ -61,12 +64,13 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
                     if (res.data.result.subject) {
                         setValue('firmName', res.data.result.subject.name)
                         setValue('firmAdres', res.data.result.subject.workingAddress)
+                        setIsTrueNip(true)
                     } else {
-                        toast('Brak informacji w bazie NIP')
+                        toast.warn('Brak informacji w bazie NIP')
                     }
                 })
                 .catch(err => {
-                    toast(err.response.data.message)
+                    toast.error(err.response.data.message)
                 })
         }
     }, [nipValue])
@@ -122,7 +126,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>NIP</span>
                 <input maxLength='10' disabled={!checkboxValue} {...register("nip", { required: checkboxValue, maxLength: 10, minLength: 10, onChange: (e) => { setNipValue(e.currentTarget.value) } })} placeholder='___-___-__-__' />
-                {(errors.nip && checkboxValue) && <span className="error">Pole NIP ma zawierać 10 liczb</span>}
+                {((errors.nip && checkboxValue) || (!isTrueNip && checkboxValue)) && <span className="error">Proszę wpisać poprawny NIP</span>}
             </label>
             <label className={checkboxValue ? '' : 'disabled'}>
                 <span>Nazwa firmy</span>
@@ -135,7 +139,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
 
             <span className="anotation">Upewnij się, że Twoje dane są poprawne.</span>
 
-            <Button type='submit' >
+            <Button disabled={!isTrueNip && checkboxValue} type='submit'>
                 <span>
                     PRZECHODZĘ DALEJ
                 </span>

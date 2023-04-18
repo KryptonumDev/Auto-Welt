@@ -8,7 +8,7 @@ import { toast } from "react-toastify"
 
 export default function Hero({ data }) {
 
-    const { addItem, inCart, updateItemQuantity } = useCart()
+    const { addItem, inCart, updateItemQuantity, getItem } = useCart()
     const [quantity, setQuantity] = useState(1)
 
     let scale = useMemo(() => {
@@ -27,8 +27,10 @@ export default function Hero({ data }) {
 
     const addToCart = (item, quantity) => {
         if (inCart(item.id)) {
-            updateItemQuantity(item.id, quantity)
-            toast(`${item.name} ilość w koszyku została zaktualizowana`)
+            if (getItem(item.id).quantity !== quantity) {
+                updateItemQuantity(item.id, quantity)
+                toast.warn(`${item.name} ilość w koszyku została zaktualizowana`)
+            }
         } else {
             addItem(item, quantity)
             toast(`${item.name} został dodany do koszyka`)
@@ -69,7 +71,7 @@ export default function Hero({ data }) {
                         <span>
                             {data.stock_status === 'instock' && 'dostępny'}
                             {data.stock_status === 'onbackorder' && 'na zamówienie'}
-                            {data.stock_status === 'outofstock' && 'nie dostępny'}
+                            {data.stock_status === 'outofstock' && 'niedostępny'}
                         </span>
                     </div>
                     {data.stock_status === 'instock' && (
@@ -229,10 +231,14 @@ const Content = styled.div`
     .description-add-to-cart{
         width: fit-content;
         padding: 0 43px;
-        margin: 40px 0 0 0;
+        margin: 40px 11px 0 11px;
         background: #EDAC2A;
         color: #1D2B29;
         font-weight: 600;
+
+        span{
+            white-space: nowrap;
+        }
 
         &:hover{
             background: #DA9610;
@@ -252,7 +258,14 @@ const Content = styled.div`
         .add-to-cart{
             width: fit-content;
             padding: 0 43px;
-            margin: 0;
+            margin: 0 11px 0 11px;
+
+            @media (max-width: 680px) {
+                max-width: 100%;
+            }
+            span{
+                white-space: nowrap;
+            }
         }
 
         .calculator{

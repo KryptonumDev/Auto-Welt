@@ -1,6 +1,6 @@
 import { Link, navigate } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 import { useCart } from "react-use-cart"
 import styled from "styled-components"
 import { Button } from "./button"
@@ -15,13 +15,15 @@ export default function ProductCard({
     },
     data
 }) {
+    const [isErrorShowed, setIsErrorShowed] = useState(false)
     const { addItem, inCart } = useCart()
     const addToCart = (data) => {
-        if(!inCart(data.id)){
+        if (!inCart(data.id)) {
             addItem(data)
             toast(`${data.name} - dodano do koszyka`)
-        } else {
-            toast(`Ten przedmiot już jest w koszyku!`)
+        } else if (!isErrorShowed) {
+            setIsErrorShowed(true)
+            toast.warn(`Ten przedmiot już jest w koszyku!`)
         }
     }
 

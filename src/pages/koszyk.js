@@ -104,6 +104,13 @@ const Main = styled.main`
   padding: 0 16px;
   box-sizing: border-box;
 
+  @media (max-width: 768px) {
+    margin-top: 90px;
+    .breadcrumbs{
+      padding: 0;
+    }
+  }
+
   *{
     font-family: 'Roboto Condensed';
     font-weight: 400;

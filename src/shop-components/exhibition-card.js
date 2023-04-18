@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr 1fr;
 
     .main-image{
-      aspect-ratio: 259/318;
+      height: 100%;
     }
 
     &.yellow{

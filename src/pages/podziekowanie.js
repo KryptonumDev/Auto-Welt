@@ -9,13 +9,14 @@ import { useCart } from "react-use-cart"
 export default function Podziekowanie({ location, data: { allWcProduct } }) {
   const { emptyCart } = useCart();
   // ?payment_intent=pi_3MmGU4FRHdFp2R5314z7In16&payment_intent_client_secret=pi_3MmGU4FRHdFp2R5314z7In16_secret_my9D243oLmx5UW327fb7uwHVI&redirect_status=succeeded
+  const params = new URLSearchParams(location?.search);
+  const status = params.get('status');
+  const order = params.get('order');
 
   useEffect(() => {
-    let params = new URLSearchParams(location.search);
-    let status = params.get('status');
     if (!status) {
       navigate('/sklep/')
-    } else {
+    } else if (status === 'succeeded') {
       emptyCart()
     }
   }, [])
@@ -33,9 +34,17 @@ export default function Podziekowanie({ location, data: { allWcProduct } }) {
   return (
     <Wrapper>
       <StaticImage className="image" src="./../../static/images/podziekowanie.png" alt='koszyk zakupowy' />
-      <h1>Dziękuję za złożenie zamówienia {location?.state?.orderNumber ? 'nr. ' + location.state.orderNumber : ''}</h1>
-      <p>Cieszę się, że wybrałaś/ eś właśnie Auto-Welt</p>
-      <YellowButtonLink><span>POWRÓT DO SKLEPU</span></YellowButtonLink>
+      <h1>{status !== 'succeeded'
+        ? `Płatność nie powiodła się.`
+        : `Dziękuję za złożenie zamówienia ${order ? 'nr. ' + order : ''}`}</h1>
+      <p>
+        {status !== 'succeeded'
+          ? 'Sprobój ponownie, lub skontaktuj się z nami.'
+          : 'Cieszę się, że wybrałaś/ eś właśnie Auto-Welt'}
+      </p>
+      <YellowButtonLink to={status !== 'succeeded' ? '/koszyk/' : '/sklep/'}><span>
+        {status !== 'succeeded' ? 'POWRÓT DO KOSZYKA' : 'POWRÓT DO SKLEPU'}
+      </span></YellowButtonLink>
       <ProductSlider title={'Nowości'} products={filtredProducts} />
     </Wrapper>
   )
@@ -44,7 +53,7 @@ export default function Podziekowanie({ location, data: { allWcProduct } }) {
 const Wrapper = styled.main`
     max-width: 1060px;
     padding: 0 32px;
-    margin: clamp(60px, ${60/768*100}vw, 90px) auto;
+    margin: clamp(60px, ${60 / 768 * 100}vw, 90px) auto;
 
     > .image{
         display: block;
