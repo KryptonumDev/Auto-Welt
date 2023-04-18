@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 import { useMenuState } from "../context/menuContext";
 import "./fonts.css";
 import "./normalize.css";
+// import Right from './../../static/images/right.png'
+// import Left from './../../static/images/left.svg'
 
 const Style = createGlobalStyle`
     html{
@@ -95,6 +97,68 @@ const Style = createGlobalStyle`
         box-sizing: inherit;
         margin: 0;
         padding: 0;
+    }
+
+    .lg-backdrop{
+      background: rgba(0, 0, 0, 0.22) !important;
+    }
+
+    .lg-image{
+      border: 6px solid #23423D;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+      background: #FAF6EE;
+    }
+
+    .lg-thumb-outer{
+      background: #FAF6EE !important;
+      border-top: 2px solid #23423D !important;
+    }
+
+    .lg-thumb{
+      margin: 0 auto;
+    }
+
+    .lg-thumb-item.active{
+      border-color: #23423D !important;
+    }
+
+    .lg-toggle-thumb{
+      background: #FAF6EE !important;
+      border: 2px solid #23423D !important;
+    }
+
+    .lg-outer .lg-toggle-thumb:after{
+      color: #23423D;
+    }
+
+    .lg-actions .lg-next{
+      width: 50px !important;
+      height: 66px !important;
+      background: #23423D !important;
+      border-radius: 0 !important;
+
+      @media (max-width: 640px) {
+        display: none !important;
+      }
+
+      &::before{
+        content: url("/images/right.png") !important;
+      }
+    }
+
+    .lg-actions .lg-prev{
+      width: 50px !important;
+      height: 66px !important;
+      background: #23423D !important;
+      border-radius: 0 !important;
+
+      @media (max-width: 640px) {
+        display: none !important;
+      }
+
+      &::after{
+        content: url("/images/left.png") !important;
+      }
     }
 `;
 
