@@ -50,7 +50,7 @@ export default function Steps({ setStep, step }) {
                 <Step as='div'>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
-                        <span>{step}<b> / 5</b></span>
+                        <span>{step > 4 ? 5 : step}<b> / 5</b></span>
                     </Image>
                     <div>
                         <p className="title">

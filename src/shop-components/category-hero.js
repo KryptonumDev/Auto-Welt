@@ -28,7 +28,7 @@ export default function Hero({ title, text, gallery }) {
                     </StyledLeftArrow>
                     <Slider ref={slider} {...settings}>
                         {gallery.map((el, index) => (
-                            <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt} />
+                            <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt || ' '} />
                         ))}
                     </Slider>
                     <Buttons>

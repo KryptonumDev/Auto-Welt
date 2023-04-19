@@ -32,7 +32,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 <td>
                   <Link className="name-wrapper" to={`/sklep/${el.categories[0].slug}/${el.slug}`}>
                     <div className="name">
-                      <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].alt} />
+                      <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].alt || ' '} />
                       <div className="text">
                         <span className="title">{el.name}</span>
                         {scale && <span className="scale">Skala: {scale}</span>}
@@ -111,7 +111,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               </span>
               <div>
                 <Link className="name-wrapper" to={`/sklep/${el.categories[0].slug}/${el.slug}`}>
-                  <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].altText} />
+                  <GatsbyImage className="image" image={el.images[0].localFile.childImageSharp.gatsbyImageData} alt={el.images[0].altText || ' '} />
                   <div className="text">
                     <span className="title">{el.name}</span>
                     {scale && <span className="scale">Skala: {scale}</span>}

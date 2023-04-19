@@ -1,15 +1,35 @@
 import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Button } from "./button"
 import { toast } from "react-toastify"
-import { navigate } from "gatsby"
+import axios from "axios"
 
-export default function PopUp({ orderNumber, clientSecret }) {
+export default function PopUp({ intent, step, setStep, changePaymentMethod, orderNumber, clientSecret }) {
     const stripe = useStripe()
     const elements = useElements()
 
+    useEffect(() => {
+        const handleTabClose = event => {
+            axios.post("/api/cancel-intent", {
+                intent: intent,
+                orderNumber: orderNumber
+            }, {
+                headers: { "Content-Type": "application/json" },
+            })
+        };
+
+        if (step === '6') {
+            window.addEventListener('beforeunload', handleTabClose);
+        }
+
+        return () => {
+            window.removeEventListener('beforeunload', handleTabClose);
+        };
+    }, [step])
+
     const handleSubmit = async (event) => {
+        setStep('7')
         event.preventDefault()
         if (!stripe || !elements) return;
 
@@ -25,18 +45,18 @@ export default function PopUp({ orderNumber, clientSecret }) {
             toast.error(error.message)
         }
 
-        if (paymentIntent.status === 'succeeded' && typeof window !== 'undefined') {
+        if (paymentIntent?.status === 'succeeded' && typeof window !== 'undefined') {
             window.location.href = `http://localhost:8000/api/complete-payment?id=${orderNumber}&redirect_status=${paymentIntent.status}&payment_intent=${paymentIntent.id}&payment_intent_client_secret=${clientSecret}`
         }
 
-        if (paymentIntent.last_payment_error) {
+        if (paymentIntent?.last_payment_error) {
             toast.error('Wystąpił błąd podczas płatności. Spróbuj ponownie.')
         }
     };
 
     return (
         <Wrapper onSubmit={handleSubmit}>
-            <Overlay />
+            <Overlay onClick={() => { changePaymentMethod() }} />
             <Content>
                 <PaymentElement />
                 <Button disabled={!stripe} ><span>PŁACĘ</span></Button>
@@ -47,13 +67,13 @@ export default function PopUp({ orderNumber, clientSecret }) {
 
 const Wrapper = styled.form`
     position: fixed;
-    z-index: 20;
+    z-index: 200;
     inset: 0;
 `
 
 const Content = styled.div`
     position: fixed;
-    z-index: 21;
+    z-index: 201;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -81,7 +101,7 @@ const Content = styled.div`
 
 const Overlay = styled.div`
     position: fixed;
-    z-index: 20;
+    z-index: 200;
     inset: 0;
     background: rgba(0, 0, 0, 0.22);
 `

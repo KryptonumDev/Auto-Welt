@@ -1,5 +1,5 @@
 import { Link, navigate } from "gatsby"
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import Delivery from "./checkout-delivery"
 import DeliveryDataForm from "./checkout-delivery-data-form"
@@ -12,6 +12,7 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import { toast } from "react-toastify"
+import axios from "axios"
 
 const WooCommerce = new WooCommerceRestApi({
     url: `${process.env.GATSBY_WORDPRESS_URL}/`,
@@ -27,6 +28,7 @@ const getItem = (name, altVal = '') => {
 
 export default function Checkout({ items, sum }) {
     const [clientSecret, setClientSecret] = useState("");
+    const [paymentIntent, setPaymentIntent] = useState("");
     const [step, setStep] = useState('2')
     const [orderNumber, setOrderNumber] = useState(null)
     const [paymentMethod, setPaymentMethod] = useState(getItem('paymentMethod'))
@@ -53,8 +55,7 @@ export default function Checkout({ items, sum }) {
     })
 
     useEffect(() => {
-        if (step === '6') {
-            debugger
+        if (step === '6' && !orderNumber) {
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -121,26 +122,45 @@ export default function Checkout({ items, sum }) {
             WooCommerce.post("orders", params)
                 .then((response) => {
                     setOrderNumber(response.data.id)
-                    fetch("/api/create-intent", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ count: ((+sum) + (+delivery.price)) * 100, id: response.data.id, method: paymentMethod }),
+                    axios.post("/api/create-intent", {
+                        count: ((+sum) + (+delivery.price)) * 100,
+                        id: response.data.id,
+                        method: paymentMethod
+                    }, {
+                        headers: { "Content-Type": "application/json" }
                     })
-                        .then((res) => res.json())
-                        .then((data) => {
+                        .then(({ data }) => {
                             setClientSecret(data.clientSecret)
+                            setPaymentIntent(data.id)
                         })
-                        .catch(erorr => {
+                        .catch(() => {
                             WooCommerce.put(`orders/${response.data.id}`, {
                                 status: 'cancelled'
                             })
                             toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
-                            setStep('4')
+                            setStep('5')
                         })
                 })
                 .catch(erorr => {
                     toast.error('Nie udało się utworzyć zamówienia. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
-                    setStep('4')
+                    setStep('5')
+                })
+        } else if (step === '6' && orderNumber && !clientSecret) {
+            axios.post("/api/update-intent", {
+                intent: paymentIntent,
+                method: paymentMethod
+            }, {
+                headers: { "Content-Type": "application/json" },
+            })
+                .then(({ data }) => {
+                    setClientSecret(data.clientSecret)
+                })
+                .catch(() => {
+                    WooCommerce.put(`orders/${orderNumber}`, {
+                        status: 'cancelled'
+                    })
+                    toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
+                    setStep('5')
                 })
         }
 
@@ -148,6 +168,11 @@ export default function Checkout({ items, sum }) {
             window.scrollTo(0, 0)
         }
     }, [step, delivery, shipingData, personalData, sum, items])
+
+    const changePaymentMethod = useCallback(() => {
+        setStep('5')
+        setClientSecret('')
+    }, [])
 
     return (
         <Wrapper>
@@ -167,11 +192,11 @@ export default function Checkout({ items, sum }) {
                 {step >= '5' && (
                     <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
                 )}
-                {step === '6' && (
+                {step >= '6' && (
                     <>
                         {clientSecret
                             ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
-                                <PopUp orderNumber={orderNumber} clientSecret={clientSecret} />
+                                <PopUp intent={paymentIntent} step={step} setStep={setStep} changePaymentMethod={changePaymentMethod} orderNumber={orderNumber} clientSecret={clientSecret} />
                             </Elements>
                             : <Loader><div className="wrap"><div /><div /><div /></div></Loader>
                         }

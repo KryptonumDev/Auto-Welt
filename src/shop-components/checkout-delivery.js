@@ -58,18 +58,13 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
         setStep('4')
     }
 
-    const onPointCallback = (e) => {
-        console.log(e);
-        setInpostNumber(e.name)
-    }
-
     return (
         <Wrapper onSubmit={handleSubmit(submit)} >
             <h2>3. Wybierz opcję dostawy</h2>
             <h3>Przedpłata</h3>
             <div>
                 {deliveryMethods.map((el, index) => (
-                    <label className="radio">
+                    <label className="radio" key={index}>
                         <header className="radio-flex">
                             <div>
                                 <input onClick={() => { handleChange(index) }} checked={selected === index} value={index} {...register("method")} type='radio' name='method' />
@@ -92,7 +87,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
                                 ) : (
                                     <aside className={selected === index ? "geo-widget active" : "geo-widget"}>
                                         <InpostGeowidget
-                                            token={process.env.GATSBY_INPOST_TOKEN}
+                                            token={process.env.GATSBY_INPOST_GEO_KEY}
                                             config='parcelCollect'
                                         />
                                     </aside>

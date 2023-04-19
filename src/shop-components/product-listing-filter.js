@@ -82,6 +82,7 @@ const Wrapper = styled.div`
     margin: clamp(25px, ${25 / 768 * 100}vw, 40px) 0;
 
     .react-select__control{
+      box-shadow: none !important;
         cursor: pointer;
         height: 53px;
         display: flex;

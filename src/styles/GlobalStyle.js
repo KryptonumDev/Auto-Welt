@@ -130,7 +130,15 @@ const Style = createGlobalStyle`
       margin: 0 auto;
     }
 
-    .lg-thumb-item.active{
+  .lg-outer .lg-thumb-item{
+    transition: border-color .2s ease-out;
+  }
+
+  .lg-outer .lg-thumb-item:hover{
+    border-color: #E2AC2A !important;
+  }
+
+  .lg-outer .lg-thumb-item.active{
       border-color: #23423D !important;
     }
 

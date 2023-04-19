@@ -16,7 +16,7 @@ export default function ExhibitionCard({ data }) {
   return (
     <Wrapper className={data.on_sale || isNewArrivals ? "item yellow" : "item"}>
       <Link className='wrap-link' to={`/sklep/${data.categories[0].slug}/${data.slug}/`} />
-      <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
+      <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt || ' '} />
       <TextPart>
         <div>
           <Title>{data.name}</Title>

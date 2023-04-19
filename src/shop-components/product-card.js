@@ -57,7 +57,7 @@ export default function ProductCard({
                 onMouseUp={(e) => { onMouseUp(e, `/sklep/${data.categories[0].slug}/${data.slug}/`) }}
                 to={`/sklep/${data.categories[0].slug}/${data.slug}/`}
             />
-            <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
+            <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt || ' '} />
             <TextPart>
                 {(data.on_sale || isNewArrivals) && (
                     <NewArrivalsLabel>

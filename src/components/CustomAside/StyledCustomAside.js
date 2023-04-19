@@ -9,7 +9,11 @@ export const StyledCustomAside = styled.div`
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
   position: -webkit-sticky;
   position: sticky;
-  top: 60px;
+  top: 114px;
+
+  @media (max-width: 1024px) {
+    top: calc(clamp(52px, ${89 / 1024 * 100}vw, 89px) + 20px);
+  }
 
   @media only screen and (max-width: 972px) {
     padding: 31px 16px;

@@ -53,7 +53,7 @@ export default function ProductCard({ data }) {
             }
           </NewArrivalsLabel>
         )}
-        <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt} />
+        <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt || ' '} />
       </div>
       <TextPart>
         <Title>{data.name}</Title>
