@@ -34,7 +34,7 @@ export default function Checkout({ items, sum }) {
         type: getItem('delivery-type'),
         description: getItem('delivery-description'),
         price: getItem('delivery-price', 10),
-        pricetext: 'od 10 zł'
+        pricetext: 'od 20 zł'
     })
     const [personalData, setPersonalData] = useState({
         name: getItem('name'),
@@ -45,16 +45,16 @@ export default function Checkout({ items, sum }) {
         firmName: getItem('firmName'),
         firmAdres: getItem('firmAdres'),
     })
-    // const [shipingData, setShipingData] = useState({
-    //     address: getItem('address'),
-    //     postcode: getItem('postcode'),
-    //     country: getItem('country'),
-    //     city: getItem('city'),
-    //     additionalinform: getItem('additionalinform'),
-    // })
+    const [shipingData, setShipingData] = useState({
+        address: getItem('address'),
+        postcode: getItem('postcode'),
+        city: getItem('city'),
+        additionalinform: getItem('additionalinform'),
+    })
 
     useEffect(() => {
         if (step === '6') {
+            debugger
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -69,31 +69,30 @@ export default function Checkout({ items, sum }) {
                 ],
                 set_paid: false,
                 payment_method_title: 'Stripe',
-                // customer_note: shipingData.additionalinform,
+                customer_note: shipingData.additionalinform,
                 billing: {
                     first_name: personalData.name.split(' ')[0],
                     last_name: personalData.name.split(' ')[1],
-                    // address_1: shipingData.address,
+                    address_1: shipingData.address,
                     address_2: personalData.forFirm ? personalData.firmAdres : '',
-                    // city: shipingData.city,
-                    // postcode: shipingData.postcode,
-                    // country: shipingData.country,
-                    country: 'Polska',
+                    city: shipingData.city,
+                    postcode: shipingData.postcode,
+                    country: 'PL',
                     email: personalData.email,
                     phone: personalData.phone,
                     company: personalData.forFirm ? personalData.firmName : '',
-                    // inpost_number: delivery.inpostNumber,
                 },
-                // shipping: {
-                //     first_name: personalData.name.split(' ')[0],
-                //     last_name: personalData.name.split(' ')[1],
-                //     address_1: shipingData.address,
-                //     address_2: personalData.firmAdres,
-                //     city: shipingData.city,
-                //     postcode: shipingData.postcode,
-                //     state: "",
-                //     country: shipingData.country
-                // },
+                shipping: {
+                    first_name: personalData.name.split(' ')[0],
+                    last_name: personalData.name.split(' ')[1],
+                    address_1: shipingData.address,
+                    address_2: personalData.firmAdres,
+                    city: shipingData.city,
+                    postcode: shipingData.postcode,
+                    state: "",
+                    country: 'PL',
+                    phone: personalData.phone,
+                },
                 meta_data: [
                     {
                         key: '_billing_nip',
@@ -105,7 +104,7 @@ export default function Checkout({ items, sum }) {
                     delivery.type === 'Inpost – paczkomaty 24/7' ? {
                         method_id: "easypack_parcel_machines",
                         method_title: "InPost Paczkomat 24/7",
-                        total: `${delivery.price}}`,
+                        total: `${delivery.price}`,
                         meta_data: [
                             {
                                 key: "Numer paczkomatu",
@@ -148,8 +147,7 @@ export default function Checkout({ items, sum }) {
         if (typeof window !== 'undefined') {
             window.scrollTo(0, 0)
         }
-    }, [step, delivery, personalData, sum, items])
-    {/*shipingData*/ }
+    }, [step, delivery, shipingData, personalData, sum, items])
 
     return (
         <Wrapper>
@@ -163,10 +161,10 @@ export default function Checkout({ items, sum }) {
                 {step === '3' && (
                     <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
-                {/* {step === '4' && (
+                {step === '4' && (
                     <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
-                )} */}
-                {step >= '4' && (
+                )}
+                {step >= '5' && (
                     <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
                 )}
                 {step === '6' && (

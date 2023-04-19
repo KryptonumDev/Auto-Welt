@@ -8,7 +8,6 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
         defaultValues: {
             address: shipingData.address,
             postcode: shipingData.postcode,
-            country: shipingData.country,
             city: shipingData.city,
             additionalinform: shipingData.additionalinform
         }
@@ -17,7 +16,6 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
     const submit = (data) => {
         localStorage.setItem('address', data.address)
         localStorage.setItem('postcode', data.postcode)
-        localStorage.setItem('country', data.country)
         localStorage.setItem('city', data.city)
         localStorage.setItem('additionalinform', data.additionalinform)
 
@@ -25,7 +23,6 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
         setShipingData({
             address: data.address,
             postcode: data.postcode,
-            country: data.country,
             city: data.city,
             additionalinform: data.additionalinform
         })
@@ -47,13 +44,9 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
                 </label>
                 <label>
                     <span>Miejscowość</span>
-                    <input  {...register("country")} />
+                    <input  {...register("city")} />
                 </label>
             </div>
-            <label className="country">
-                <span>Kraj</span>
-                <input  {...register("city")} />
-            </label>
             <label >
                 <span>Dodaj uwagi odnośnie realizacji zamówienia / informacje dla kuriera</span>
                 <textarea  {...register("additionalinform")} rows='7' />

@@ -27,8 +27,8 @@ export default function Newsletter() {
             status: "confirmed"
         }, {
             auth: {
-                username: process.env.NEWSLETTER_USER,
-                password: process.env.NEWSLETTER_PASSWORD
+                username: `${process.env.GATSBY_NEWSLETTER_USER}`,
+                password: `${process.env.GATSBY_NEWSLETTER_PASSWORD}`
             }
         }).then(() => {
             toast('Zapisano do newslettera')

@@ -29,19 +29,19 @@ export default function Steps({ setStep, step }) {
                     </Image>
                     <p>Opcje dostawy</p>
                 </Step>
-                {/* <span className={step > 2 ? 'active line' : 'line'} />
+                <span className={step > 2 ? 'active line' : 'line'} />
                 <Step className={step > 3 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
                         <span>4</span>
                     </Image>
                     <p>Adres dostawy</p>
-                </Step> */}
-                <span className={step > 2 ? 'active line' : 'line'} />
-                <Step className={step > 3 ? 'active' : ''}>
+                </Step>
+                <span className={step > 3 ? 'active line' : 'line'} />
+                <Step className={step > 4 ? 'active' : ''}>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
-                        <span>4</span>
+                        <span>5</span>
                     </Image>
                     <p>Płatność</p>
                 </Step>
@@ -50,22 +50,22 @@ export default function Steps({ setStep, step }) {
                 <Step as='div'>
                     <Image>
                         <StaticImage src="../../static/images/circle.png" alt="tło" />
-                        <span>{step}<b> / 4</b></span>
+                        <span>{step}<b> / 5</b></span>
                     </Image>
                     <div>
                         <p className="title">
                             {step === '1' && 'Wybierz produkty'}
                             {step === '2' && 'Dane osobowe'}
                             {step === '3' && 'Opcje dostawy'}
-                            {/* {step === 3 && 'Adres dostawy'} */}
-                            {step === '4' && 'Płatność'}
+                            {step === '4' && 'Adres dostawy'}
+                            {step >= '5' && 'Płatność'}
                         </p>
                         <p className="text">
                             {step === '1' && 'Wybierz produkty, które chcesz zamówić'}
                             {step === '2' && 'Uzupełnij dane osobowe'}
                             {step === '3' && 'Wybierz opcję dostawy, która Ci pasuje'}
-                            {/* {step === 3 && 'Wpisz adres, pod który ma być wysłana paczka'} */}
-                            {step === '4' && 'Dokonaj płatności i ciesz się udanym zamówieniem!'}
+                            {step === '4' && 'Wpisz adres, pod który ma być wysłana paczka'}
+                            {step >= '5' && 'Dokonaj płatności i ciesz się udanym zamówieniem!'}
                         </p>
                     </div>
                 </Step>
