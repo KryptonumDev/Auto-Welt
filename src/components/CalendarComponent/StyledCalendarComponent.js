@@ -329,6 +329,19 @@ export const StyledExhibitionTitle = styled.div`
   padding: 14px;
   cursor: default;
 
+  @media (max-width: 420px) {
+    width: 220px;
+  }
+  @media (max-width: 390px) {
+    width: 200px;
+  }
+  @media (max-width: 350px) {
+    width: 180px;
+  }
+  @media (max-width: 320px) {
+    width: 160px;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -342,6 +355,18 @@ export const StyledExhibitionTitle = styled.div`
       > div {
         > p {
           font-size: 14px;
+        }
+      }
+    }
+
+    
+    @media (max-width: 350px) {
+      > p {
+        font-size: 13px;
+      }
+      > div {
+        > p {
+          font-size: 12px;
         }
       }
     }
