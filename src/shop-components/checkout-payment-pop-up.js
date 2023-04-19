@@ -2,6 +2,8 @@ import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React from "react"
 import styled from "styled-components"
 import { Button } from "./button"
+import { toast } from "react-toastify"
+import { navigate } from "gatsby"
 
 export default function PopUp({ orderNumber, clientSecret }) {
     const stripe = useStripe()
@@ -11,19 +13,25 @@ export default function PopUp({ orderNumber, clientSecret }) {
         event.preventDefault()
         if (!stripe || !elements) return;
 
-        const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
-
-        const result = await stripe.confirmPayment({
+        const { error, paymentIntent } = await stripe.confirmPayment({
             elements,
+            redirect: 'if_required',
             confirmParams: {
-                return_url: `https://autoweltshop.gatsbyjs.io/api/complete-payment?id=${orderNumber}`
+                return_url: `http://localhost:8000/api/complete-payment?id=${orderNumber}`
             }
         })
-            .then(function (result) {
-                if (result.error) {
-                    // Inform the customer that there was an error.
-                }
-            });
+
+        if (error) {
+            toast.error(error.message)
+        }
+
+        if (paymentIntent.status === 'succeeded' && typeof window !== 'undefined') {
+            window.location.href = `http://localhost:8000/api/complete-payment?id=${orderNumber}&redirect_status=${paymentIntent.status}&payment_intent=${paymentIntent.id}&payment_intent_client_secret=${clientSecret}`
+        }
+
+        if (paymentIntent.last_payment_error) {
+            toast.error('Wystąpił błąd podczas płatności. Spróbuj ponownie.')
+        }
     };
 
     return (

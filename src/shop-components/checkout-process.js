@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import React, { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import Delivery from "./checkout-delivery"
@@ -55,7 +55,6 @@ export default function Checkout({ items, sum }) {
 
     useEffect(() => {
         if (step === '6') {
-            debugger
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
@@ -137,10 +136,12 @@ export default function Checkout({ items, sum }) {
                                 status: 'cancelled'
                             })
                             toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
+                            setStep('4')
                         })
                 })
                 .catch(erorr => {
                     toast.error('Nie udało się utworzyć zamówienia. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
+                    setStep('4')
                 })
         }
 
