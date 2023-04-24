@@ -107,14 +107,14 @@ const HomeExhibitions = ({ isAboutPage }) => {
         {data.wpPage.homepage.wystawy?.tytulSekcji}
       </StyledText>
       <StyledElementsWrapper slides={slidesElements.length}>
-        {slidesElements.map((node, index) => (
+        {/* {slidesElements.map((node, index) => (
           <HomeExhibitionsElement
             key={index + node.wystawa.informacjeOgolne.miejsce}
             exhibitionData={node}
             buttonVariant="orange"
             slidesCount={slidesElements.length}
           />
-        ))}
+        ))} */}
       </StyledElementsWrapper>
       {data.wpPage.homepage.wystawy?.trescPrzyciskuPrzenoszacegoDo ? (
         <Button
