@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 
@@ -27,9 +27,11 @@ const HomeExhibitionsElement = ({
   slidesCount,
   dataLength,
 }) => {
-  const convertedData = new Date(exhibitionData.wystawa.informacjeOgolne.data)
-    .toLocaleString("pl", { dateStyle: "long" })
-    .split(" ");
+  const convertedData = useMemo(() => {
+    return new Date(exhibitionData.wystawa.informacjeOgolne.data)
+      .toLocaleString("pl", { dateStyle: "long" })
+      .split(" ");
+  }, [exhibitionData.wystawa.informacjeOgolne.data])
 
   return (
     <StyledElementLink
