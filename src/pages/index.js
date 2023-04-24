@@ -22,14 +22,14 @@ const IndexPage = ({ data }) => {
       <HomeHeroSection />
       <HomeCollections />
       <HomeExhibitions />
-      <HomeRecommendations />
+      {/* <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
-      </StyledContactWrapper>
+      </StyledContactWrapper> */}
       {/* <HomeCalendar /> */}
-      <Questions />
+      {/* <Questions /> */}
       {/* <QuestionContact />
-      <HomeArticles />
+      <HomeArticles /> */}
       {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
         <StyledFooterCar>
           <GatsbyImage
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         </StyledFooterCar>
-      )} */}
+      )}
     </Wrapper>
   );
 };
