@@ -28,10 +28,10 @@ const IndexPage = ({ data }) => {
       </StyledContactWrapper>
       <HomeCalendar />
       <Questions />
-      <QuestionContact />
+      {/* <QuestionContact />
       <HomeArticles />
-      <StyledFooterCar>
-        {data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile ? (
+      {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
+        <StyledFooterCar>
           <GatsbyImage
             image={getImage(
               data.wpPage.homepage.zdjecieSamochoduNadStopka.localFile
@@ -39,8 +39,8 @@ const IndexPage = ({ data }) => {
             alt={data.wpPage.homepage.zdjecieSamochoduNadStopka.altText || " "}
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
-        ) : null}
-      </StyledFooterCar>
+        </StyledFooterCar>
+      )} */}
     </Wrapper>
   );
 };
