@@ -128,8 +128,8 @@ export default function Header() {
             ))}
             <li>
               <Link onClick={() => setIsOpen(false)} className="cart" to='/koszyk/'>
-                <StaticImage className="desctop" src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
-                <StaticImage className="mobile" src="./../../../static/images/cart-button-green.png" alt='koszyk zakupowy' />
+                <StaticImage quality={100} className="desctop" src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
+                <StaticImage quality={100} className="mobile" src="./../../../static/images/cart-button-green.png" alt='koszyk zakupowy' />
                 <span>{renderedItemsCount}</span>
               </Link>
             </li>
