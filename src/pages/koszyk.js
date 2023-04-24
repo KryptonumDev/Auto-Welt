@@ -1,7 +1,7 @@
-import React, { useMemo } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { Link, graphql } from "gatsby"
 import { useCart } from "react-use-cart"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import CartContent from "../shop-components/cart-content"
 import Empty from "../shop-components/cart-empty"
 import ProductSlider from "../shop-components/product-slider"
@@ -14,6 +14,14 @@ export default function KoszykPage({ data: { allWcProduct } }) {
     removeItem
   } = useCart()
 
+  const [renderedItems, setRenderedItems] = useState([])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderedItems(items)
+    }, 1)
+  }, [items])
+
   const sum = useMemo(() => {
     let count = 0
     items.forEach(el => {
@@ -21,7 +29,7 @@ export default function KoszykPage({ data: { allWcProduct } }) {
     })
     return count
   }, [items])
-  
+
   return (
     <Main>
       <Flex>
@@ -29,7 +37,7 @@ export default function KoszykPage({ data: { allWcProduct } }) {
         <span>Koszyk</span>
       </Flex>
       <Title>Koszyk</Title>
-      {totalUniqueItems > 0
+      {renderedItems.length > 0
         ? <CartContent
           items={items}
           sum={sum}
@@ -96,11 +104,10 @@ export const query = graphql`
   }
 `;
 
-
 const Main = styled.main`
   max-width: 1112px;
   width: 100%;
-  margin: clamp(60px, ${60/768*100}vw, 90px) auto;
+  margin: clamp(60px, ${60 / 768 * 100}vw, 90px) auto;
   padding: 0 16px;
   box-sizing: border-box;
 

@@ -1,6 +1,6 @@
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useCart } from "react-use-cart";
 import styled from "styled-components";
 import Logo from "../../images/Logo.svg";
@@ -70,17 +70,26 @@ export default function Header() {
   };
 
   const { totalItems } = useCart()
+  const [renderedItemsCount, setRenderedItemsCount] = useState(0)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderedItemsCount(totalItems)
+    }, 500)
+  }, [totalItems])
 
   return (
     <>
       <Wrapper>
         <Container>
           <LeftSide>
-            <button onClick={handleOpenMenu} className={isOpen ? "active mobile-burger mobile" : "mobile-burger mobile"}>
-              <span />
-              <span />
-              <span />
-            </button>
+            <li>
+              <button aria-label='burger button' onClick={handleOpenMenu} className={isOpen ? "active mobile-burger mobile" : "mobile-burger mobile"}>
+                <span />
+                <span />
+                <span />
+              </button>
+            </li>
             {leftSideLink.map((item, index) => (
               <li key={index}>
                 <Link partiallyActive={true} activeClassName="active" to={item.link} className="desctop">
@@ -117,14 +126,16 @@ export default function Header() {
                 </Link>
               </li>
             ))}
-            <Link onClick={() => setIsOpen(false)} className="cart" to='/koszyk/'>
-              <StaticImage className="desctop" src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
-              <StaticImage className="mobile" src="./../../../static/images/cart-button-green.png" alt='koszyk zakupowy' />
-              <span>{totalItems}</span>
-            </Link>
+            <li>
+              <Link onClick={() => setIsOpen(false)} className="cart" to='/koszyk/'>
+                <StaticImage className="desctop" src="./../../../static/images/cart-button-white.png" alt='koszyk zakupowy' />
+                <StaticImage className="mobile" src="./../../../static/images/cart-button-green.png" alt='koszyk zakupowy' />
+                <span>{renderedItemsCount}</span>
+              </Link>
+            </li>
           </RightSide>
           <MobileMenu className={isOpen ? 'active' : ''}>
-            <div className="grid">
+            <ul className="grid">
               {leftSideLink.map((item, index) => (
                 <li key={index}>
                   {item.subArray
@@ -160,7 +171,7 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-            </div>
+            </ul>
           </MobileMenu>
           <Overlay onClick={() => setIsOpen(false)} className={isOpen ? 'active' : ''} />
         </Container>
@@ -270,7 +281,7 @@ const Wrapper = styled.header`
     z-index: 2;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1024px) {  
     padding: 10px 16px;
   }
 
@@ -409,6 +420,9 @@ const DesctopNav = styled.ul`
       align-items: center;
       color: #23423D;
       font-weight: 600;
+    }
+    a{
+      height: auto !important;
     }
   }
 

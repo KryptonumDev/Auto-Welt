@@ -16,7 +16,7 @@ import { StyledFooterCar } from "../components/HomeCalendar/StyledHomeCalendar";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   return (
     <Wrapper>
       <HomeHeroSection />
