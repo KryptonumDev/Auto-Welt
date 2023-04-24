@@ -26,8 +26,8 @@ const IndexPage = ({ data }) => {
       <StyledContactWrapper>
         <HomeContact />
       </StyledContactWrapper>
-      <HomeCalendar />
-      <Questions />
+      {/* <HomeCalendar />
+      <Questions /> */}
       {/* <QuestionContact />
       <HomeArticles />
       {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
