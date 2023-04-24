@@ -28,10 +28,7 @@ const HomeExhibitionsElement = ({
   dataLength,
 }) => {
   const convertedData = useMemo(() => {
-    let arr = new Date(exhibitionData.wystawa.informacjeOgolne.data)
-      .toLocaleString("pl", { dateStyle: "long" })
-      .split(" ");
-    return [...arr]
+    return exhibitionData.wystawa.informacjeOgolne.data.split("-");
   }, [exhibitionData.wystawa.informacjeOgolne.data])
   return (
     <StyledElementLink
@@ -69,7 +66,7 @@ const HomeExhibitionsElement = ({
               hasdeclaredlineheight="1.2em"
               hasdeclaredfontweight="700"
             >
-              {convertedData[0]}
+              {convertedData[2]}
             </StyledText>
             <StyledText
               hasdeclaredfontsize="26px"
@@ -78,7 +75,7 @@ const HomeExhibitionsElement = ({
               hasdeclaredpadding="0 0 1.5px 0"
               hasdeclaredfontweight="700"
             >
-              {convertedData[1]} {convertedData[2]}
+              {convertedData[1]} {convertedData[0]}
             </StyledText>
           </StyledDataWrapper>
           <StyledText
