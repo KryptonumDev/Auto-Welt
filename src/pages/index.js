@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
     <Wrapper>
       {/* <HomeHeroSection />
       <HomeCollections />
-      <HomeExhibitions />
+      <HomeExhibitions /> */}
       <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         ) : null}
-      </StyledFooterCar> */}
+      </StyledFooterCar>
     </Wrapper>
   );
 };
