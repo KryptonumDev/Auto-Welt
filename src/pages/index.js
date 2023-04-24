@@ -21,14 +21,14 @@ const IndexPage = ({ data }) => {
     <Wrapper>
       <HomeHeroSection />
       <HomeCollections />
-      <HomeExhibitions /> ERROR FIXED TEST
+      <HomeExhibitions />
       <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
       </StyledContactWrapper>
       {/* <HomeCalendar /> */}
       <Questions />
-      <QuestionContact />
+      {/* <QuestionContact />
       <HomeArticles />
       {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
         <StyledFooterCar>
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         </StyledFooterCar>
-      )}
+      )} */}
     </Wrapper>
   );
 };
