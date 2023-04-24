@@ -19,9 +19,9 @@ import styled from "styled-components";
 const IndexPage = ({ data }) => {
   return (
     <Wrapper>
-      <HomeHeroSection />
-      <HomeCollections />
-      {/* <HomeExhibitions /> */}
+      {/* <HomeHeroSection />
+      <HomeCollections /> */}
+      <HomeExhibitions />
       {/* <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
