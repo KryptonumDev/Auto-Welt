@@ -19,16 +19,16 @@ import styled from "styled-components";
 const IndexPage = ({ data }) => {
   return (
     <Wrapper>
-      {/* <HomeHeroSection /> NO ERROR
-      <HomeCollections /> */}
-      {/* <HomeExhibitions /> ERROR FIXED TEST*/}
-      {/* <HomeRecommendations />
-      <StyledContactWrapper> NO ERROR
+      <HomeHeroSection />
+      <HomeCollections />
+      <HomeExhibitions /> ERROR FIXED TEST
+      <HomeRecommendations />
+      <StyledContactWrapper>
         <HomeContact />
-      </StyledContactWrapper> */}
-      <HomeCalendar />
-      {/* <Questions /> */}
-      {/* <QuestionContact />
+      </StyledContactWrapper>
+      {/* <HomeCalendar /> */}
+      <Questions />
+      <QuestionContact />
       <HomeArticles />
       {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
         <StyledFooterCar>
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         </StyledFooterCar>
-      )} */}
+      )}
     </Wrapper>
   );
 };
