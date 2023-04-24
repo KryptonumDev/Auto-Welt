@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Button from "../Button/Button";
@@ -68,30 +68,31 @@ const HomeExhibitions = ({ isAboutPage }) => {
     }
   `);
 
-  const now = new Date();
-
-  const slidesElements = data.allWpWystawa.edges
-    .map(({ node }) => ({
-      ...node,
-      wystawa: {
-        ...node.wystawa,
-        informacjeOgolne: {
-          ...node.wystawa.informacjeOgolne,
-          data: new Date(node.wystawa.informacjeOgolne.data),
+  const slidesElements = useMemo(() => {
+    const now = new Date();
+    return data.allWpWystawa.edges
+      .map(({ node }) => ({
+        ...node,
+        wystawa: {
+          ...node.wystawa,
+          informacjeOgolne: {
+            ...node.wystawa.informacjeOgolne,
+            data: new Date(node.wystawa.informacjeOgolne.data),
+          },
         },
-      },
-    }))
-    .sort(
-      (a, b) =>
-        new Date(a.wystawa.informacjeOgolne.data).getTime() -
-        new Date(b.wystawa.informacjeOgolne.data).getTime()
-    )
-    .filter(
-      ({ wystawa }) =>
-        wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
-        areDatesEqual(wystawa.informacjeOgolne.data, now)
-    )
-    .slice(0, 3);
+      }))
+      .sort(
+        (a, b) =>
+          new Date(a.wystawa.informacjeOgolne.data).getTime() -
+          new Date(b.wystawa.informacjeOgolne.data).getTime()
+      )
+      .filter(
+        ({ wystawa }) =>
+          wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
+          areDatesEqual(wystawa.informacjeOgolne.data, now)
+      )
+      .slice(0, 3);
+  }, [data.allWpWystawa.edges])
 
   return (
     <StyledHomeExhibitions isaboutpage={isAboutPage}>

@@ -24,7 +24,7 @@ const GlobalLayout = ({ pageContext, children }) => {
         <ToastContainer limit={3} position="bottom-right" />
         <StyledOverflowWrapper>
           <CartProvider>
-            {/* <Header /> */}
+            <Header />
             {children}
             <Footer />
           </CartProvider>

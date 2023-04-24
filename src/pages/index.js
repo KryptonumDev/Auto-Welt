@@ -19,10 +19,10 @@ import styled from "styled-components";
 const IndexPage = ({ data }) => {
   return (
     <Wrapper>
-      {/* <HomeHeroSection />
-      <HomeCollections /> */}
+      <HomeHeroSection />
+      <HomeCollections />
       <HomeExhibitions />
-      {/* <HomeRecommendations />
+      <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
       </StyledContactWrapper>
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             title={data.wpPage.homepage.zdjecieSamochoduNadStopka.title}
           />
         ) : null}
-      </StyledFooterCar> */}
+      </StyledFooterCar>
     </Wrapper>
   );
 };
