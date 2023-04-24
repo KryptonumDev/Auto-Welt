@@ -21,12 +21,12 @@ const IndexPage = ({ data }) => {
     <Wrapper>
       <HomeHeroSection />
       <HomeCollections />
-      {/* <HomeExhibitions /> */}
-      {/* <HomeRecommendations />
+      {/* <HomeExhibitions /> ERROR */}
+      <HomeRecommendations />
       <StyledContactWrapper>
         <HomeContact />
-      </StyledContactWrapper> */}
-      {/* <HomeCalendar /> */}
+      </StyledContactWrapper>
+      {/* <HomeCalendar /> ERROR */}
       <Questions />
       <QuestionContact />
       <HomeArticles />
