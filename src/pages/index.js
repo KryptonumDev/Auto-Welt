@@ -19,15 +19,15 @@ import styled from "styled-components";
 const IndexPage = ({ data }) => {
   return (
     <Wrapper>
-      {/* <HomeHeroSection />
-      <HomeCollections />
-      <HomeExhibitions /> */}
-      <HomeRecommendations />
-      <StyledContactWrapper>
+      {/* <HomeHeroSection /> NO ERROR
+      <HomeCollections /> */}
+      {/* <HomeExhibitions /> ERROR FIXED TEST*/}
+      {/* <HomeRecommendations />
+      <StyledContactWrapper> NO ERROR
         <HomeContact />
-      </StyledContactWrapper>
-      {/* <HomeCalendar />
-      <Questions /> */}
+      </StyledContactWrapper> */}
+      <HomeCalendar />
+      {/* <Questions /> */}
       {/* <QuestionContact />
       <HomeArticles />
       {data.wpPage?.homepage?.zdjecieSamochoduNadStopka?.localFile && (
