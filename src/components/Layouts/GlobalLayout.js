@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MenuProvider } from "../../context/menuContext";
 import { Helmet } from 'react-helmet'
 import GlobalStyle from "../../styles/GlobalStyle";
@@ -12,7 +12,19 @@ import {
   StyledOverflowWrapper,
 } from "./StyledGlobalLayout";
 
-const GlobalLayout = ({ pageContext, children }) => {
+const GlobalLayout = ({ location, children }) => {
+  useEffect(() => {
+    const orphans = ['a', 'i', 'o', 'u', 'w', 'z', 'np.'];
+    const orphansRegex = new RegExp(` (${orphans.join('|')}) `, 'gi');
+    const paragraphs = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, a, button'));
+    
+    paragraphs.forEach(paragraph =>
+      paragraph.childNodes.forEach(node =>
+        node?.nodeType === Node.TEXT_NODE && (node.textContent = node.textContent.replace(orphansRegex, ` $1\u00A0`))
+      )
+    );
+  }, [location])
+
   return (
     <>
       <MenuProvider>

@@ -1,9 +1,16 @@
 import { Link } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { useCallback } from "react"
+import { toast } from "react-toastify"
 import styled from "styled-components"
 
 export default function CartContent({ items, updateItemQuantity, sum, removeItem }) {
+
+  const remove = useCallback((id, item) => {
+    removeItem(id)
+    toast(item.name + ' został usunięty z koszyka')
+  }, [removeItem])
+
   return (
     <Wrapper>
       <Table>
@@ -82,7 +89,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 </td>
                 <td>
                   <div className="flex cube">
-                    <button onClick={() => { removeItem(el.id) }}>
+                    <button onClick={() => { remove(el.id, el) }}>
                       <StaticImage className="relative" src='./../../static/images/kosz.png' alt='kosz' />
                       <StaticImage className="absolute" src='./../../static/images/kosz-yellow.png' alt='kosz' />
                     </button>
@@ -175,7 +182,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 Usuń
               </span>
               <div className="param">
-                <button onClick={() => { removeItem(el.id) }}>
+                <button onClick={() => { remove(el.id, el) }}>
                   <StaticImage src='./../../static/images/kosz.png' alt='kosz' />
                 </button>
               </div>
@@ -514,6 +521,24 @@ const Table = styled.table`
   td{
     border: 2px solid #23423D;
     color: #23423D;
+  }
+
+  tbody tr{
+    :nth-child(1){
+      width: 43%;
+    }
+    :nth-child(2){
+      width: 8%;
+    }
+    :nth-child(3){
+      width: 21%;
+    }
+    :nth-child(4){
+      width: 20%;
+    }
+    :nth-child(5){
+      width: 8%;
+    }
   }
   @media (max-width: 680px) {
     display: none;

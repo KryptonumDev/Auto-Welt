@@ -199,6 +199,17 @@ const Style = createGlobalStyle`
         display: none !important; 
       }
     }
+
+    input:focus-visible, textarea:focus-visible{
+      outline: none !important; 
+      border-color: #EDAC2A !important;
+
+    }
+
+    input:focus-visible + label::after{
+      outline: rgb(237, 172, 42) solid 2px !important;
+      outline-offset: 0 !important;
+    }
 `;
 
 const GlobalStyle = () => {

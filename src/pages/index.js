@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
       <StyledContactWrapper>
         <HomeContact />
       </StyledContactWrapper>
-      {/* <HomeCalendar /> ERROR */}
+      <HomeCalendar />
       <Questions />
       <QuestionContact />
       <HomeArticles />

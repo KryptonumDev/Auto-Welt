@@ -83,7 +83,7 @@ export default function Header() {
       <Wrapper>
         <Container>
           <LeftSide>
-            <li>
+            <li className="mobile-burger-wrap mobile">
               <button aria-label='burger button' onClick={handleOpenMenu} className={isOpen ? "active mobile-burger mobile" : "mobile-burger mobile"}>
                 <span />
                 <span />
@@ -404,6 +404,7 @@ const DesctopNav = styled.ul`
 
   .cart{
     position: relative;
+      height: auto !important;
     @media (max-width: 1024px) {
       margin-right: 5px;
     }
@@ -412,17 +413,16 @@ const DesctopNav = styled.ul`
       right: -10px;
       bottom: -2px;
       background: #EDAC2A;
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
+      line-height: 17px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #23423D;
       font-weight: 600;
-    }
-    a{
-      height: auto !important;
+      font-variant-numeric: normal;
     }
   }
 

@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { YellowButtonLink } from "./button"
 
-export default function AllCategories({ data,  title }) {
+export default function AllCategories({ data, title }) {
   return (
     <Wrapper>
       <h2>{title}</h2>
@@ -89,6 +89,10 @@ const Item = styled(Link)`
         font-size: clamp(20px, ${20 / 768 * 100}vw, 24px);
         color: #FEFDFB;
         text-transform: uppercase;
+        min-height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 

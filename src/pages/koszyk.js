@@ -8,20 +8,13 @@ import ProductSlider from "../shop-components/product-slider"
 
 export default function KoszykPage({ data: { allWcProduct } }) {
   const {
-    totalUniqueItems,
     items,
     updateItemQuantity,
     removeItem
   } = useCart()
 
-  const [renderedItems, setRenderedItems] = useState([])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setRenderedItems(items)
-    }, 1)
-  }, [items])
-
+  const renderedItems = useMemo(() => items, [items])
+  console.log(renderedItems)
   const sum = useMemo(() => {
     let count = 0
     items.forEach(el => {

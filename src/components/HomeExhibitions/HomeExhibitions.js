@@ -80,7 +80,6 @@ const HomeExhibitions = ({ isAboutPage }) => {
         ({ wystawa }) => {
           let firstCondition = new Date(wystawa.informacjeOgolne.data).getTime() > now.getTime()
           let secondCondition = areDatesEqual(new Date(wystawa.informacjeOgolne.data), now)
-          debugger
           return firstCondition || secondCondition
         }
       )
