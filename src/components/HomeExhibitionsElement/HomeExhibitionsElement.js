@@ -27,11 +27,12 @@ const HomeExhibitionsElement = ({
   slidesCount,
   dataLength,
 }) => {
-  const convertedData = useMemo(() => {
-    return new Date(exhibitionData.wystawa.informacjeOgolne.data)
-      .toLocaleString("pl", { dateStyle: "long" })
-      .split(" ");
-  }, [exhibitionData.wystawa.informacjeOgolne.data])
+  // const convertedData = useMemo(() => {
+  //   return new Date(exhibitionData.wystawa.informacjeOgolne.data)
+  //     .toLocaleString("pl", { dateStyle: "long" })
+  //     .split(" ");
+  // }, [exhibitionData.wystawa.informacjeOgolne.data])
+  // debugger
 
   return (
     <StyledElementLink
@@ -63,7 +64,7 @@ const HomeExhibitionsElement = ({
             ) : null}
           </StyledImageWrapper>
           <StyledDataWrapper>
-            <StyledText
+            {/* <StyledText
               hasdeclaredfontsize="32px"
               hasdeclaredfontcolor="var(--secondary500)"
               hasdeclaredlineheight="1.2em"
@@ -79,7 +80,7 @@ const HomeExhibitionsElement = ({
               hasdeclaredfontweight="700"
             >
               {convertedData[1]} {convertedData[2]}
-            </StyledText>
+            </StyledText> */}
           </StyledDataWrapper>
           <StyledText
             hasdeclaredfontsize="16px"
