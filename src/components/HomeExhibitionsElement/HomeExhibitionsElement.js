@@ -31,10 +31,8 @@ const HomeExhibitionsElement = ({
     let arr = new Date(exhibitionData.wystawa.informacjeOgolne.data)
       .toLocaleString("pl", { dateStyle: "long" })
       .split(" ");
-
     return [...arr]
   }, [exhibitionData.wystawa.informacjeOgolne.data])
-
   return (
     <StyledElementLink
       slidescount={slidesCount}

@@ -18,8 +18,7 @@ const HomeExhibitions = ({ isAboutPage }) => {
   const data = useStaticQuery(graphql`
     query currentExhibition {
       allWpWystawa {
-        edges {
-          node {
+        nodes {
             slug
             wystawa {
               informacjeOgolne {
@@ -50,7 +49,6 @@ const HomeExhibitions = ({ isAboutPage }) => {
                 }
               }
             }
-          }
         }
       }
       wpPage(id: { eq: "cG9zdDoxNQ==" }) {
@@ -70,29 +68,26 @@ const HomeExhibitions = ({ isAboutPage }) => {
 
   const slidesElements = useMemo(() => {
     const now = new Date();
-    return data.allWpWystawa.edges
-      .map(({ node }) => ({
-        ...node,
-        wystawa: {
-          ...node.wystawa,
-          informacjeOgolne: {
-            ...node.wystawa.informacjeOgolne,
-            data: new Date(node.wystawa.informacjeOgolne.data),
-          },
-        },
-      }))
+    return data.allWpWystawa.nodes
       .sort(
-        (a, b) =>
-          new Date(a.wystawa.informacjeOgolne.data).getTime() -
-          new Date(b.wystawa.informacjeOgolne.data).getTime()
+        (a, b) => {
+          var aa = a.wystawa.informacjeOgolne.data.split('-').join(),
+            bb = b.wystawa.informacjeOgolne.data.split('-').join();
+          return aa < bb ? -1 : (aa > bb ? 1 : 0);
+        }
       )
       .filter(
-        ({ wystawa }) =>
-          wystawa.informacjeOgolne.data.getTime() > now.getTime() ||
-          areDatesEqual(wystawa.informacjeOgolne.data, now)
+        ({ wystawa }) => {
+          let firstCondition = new Date(wystawa.informacjeOgolne.data).getTime() > now.getTime()
+          let secondCondition = areDatesEqual(new Date(wystawa.informacjeOgolne.data), now)
+          debugger
+          return firstCondition || secondCondition
+        }
       )
       .slice(0, 3);
   }, [data.allWpWystawa.edges])
+
+  if(slidesElements.length === 0) return null
 
   return (
     <StyledHomeExhibitions isaboutpage={isAboutPage}>
