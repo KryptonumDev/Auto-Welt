@@ -47,7 +47,7 @@ export default function Hero({ data }) {
 
                             return <LightgalleryItem src={el.localFile.publicURL}>
                                 <StaticImage className="loupe" src="../../static/images/loupe.png" alt='obrazek dekaracyjny' />
-                                <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt || ' '} />
+                                <GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt || 'obrazek'} />
                                 {data.images.length > 1 && <span>1 z {data.images.length}</span>}
                             </LightgalleryItem>
                         })}
@@ -56,7 +56,7 @@ export default function Hero({ data }) {
                         <div className="carousel-content">
                             {data.images.map((el, index) => {
                                 if (!index) return null
-                                return <LightgalleryItem src={el.localFile.publicURL}><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt || ' '} /></LightgalleryItem>
+                                return <LightgalleryItem src={el.localFile.publicURL}><GatsbyImage className="image" image={el.localFile.childImageSharp.gatsbyImageData} alt={el.alt || 'obrazek'} /></LightgalleryItem>
                             })}
                         </div>
                     </div>

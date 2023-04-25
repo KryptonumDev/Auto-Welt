@@ -11,7 +11,7 @@ export default function AllCategories({ data, title }) {
       <Grid>
         {data.map(el => (
           <Item key={el.slug} to={'/sklep/' + el.slug}>
-            <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt || ' '} />
+            <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt || 'obrazek'} />
             <p>{el.name}</p>
           </Item>
         ))}

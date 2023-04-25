@@ -38,7 +38,7 @@ export default function NewPosts() {
                 {nodes.map(el => (
                     <Item to={`/artykul/${el.slug}/`} key={el.slug}>
                         <div>
-                            <GatsbyImage className="image" image={el.artykul.informacjeDoMiniaturki.miniaturka.localFile.childImageSharp.gatsbyImageData} alt={el.artykul.informacjeDoMiniaturki.miniaturka.altText || ' '} />
+                            <GatsbyImage className="image" image={el.artykul.informacjeDoMiniaturki.miniaturka.localFile.childImageSharp.gatsbyImageData} alt={el.artykul.informacjeDoMiniaturki.miniaturka.altText || 'obrazek'} />
                             <div className="title">
                                 <StaticImage className="background" src='./../../static/images/title-background.jpg' alt='tło' />
                                 <h3>{el.title}</h3>

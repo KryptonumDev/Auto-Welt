@@ -52,12 +52,13 @@ export default function ProductCard({
     return (
         <Wrapper className={data.on_sale || isNewArrivals ? "item yellow" : "item"}>
             <Link
+                aria-label={`strona produktu ${data.name}`}
                 onDragStart={event => event.preventDefault()}
                 onClick={(e) => { e.preventDefault() }}
                 onMouseUp={(e) => { onMouseUp(e, `/sklep/${data.categories[0].slug}/${data.slug}/`) }}
                 to={`/sklep/${data.categories[0].slug}/${data.slug}/`}
             />
-            <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt || ' '} />
+            <GatsbyImage className="main-image" image={data.images[0].localFile.childImageSharp.gatsbyImageData} alt={data.images[0].alt || 'obrazek'} />
             <TextPart>
                 {(data.on_sale || isNewArrivals) && (
                     <NewArrivalsLabel>
