@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MenuProvider } from "../../context/menuContext";
 import { Helmet } from 'react-helmet'
 import GlobalStyle from "../../styles/GlobalStyle";
@@ -8,8 +8,10 @@ import Footer from "../Footer/Footer";
 import {
   StyledOverflowWrapper,
 } from "./StyledGlobalLayout";
+// import Cookies from "../Cookies/Cookies";
 
 const GlobalLayout = ({ children }) => {
+  // const [isCookiesOpened, setCookiesOpened] = useState(false)
   return (
     <>
       <MenuProvider>
@@ -21,6 +23,7 @@ const GlobalLayout = ({ children }) => {
         </Helmet>
         <GlobalStyle />
         <StyledOverflowWrapper>
+          {/* <Cookies isActive={isCookiesOpened} setIsActive={setCookiesOpened} /> */}
           <Header />
           {children}
           <Footer />
