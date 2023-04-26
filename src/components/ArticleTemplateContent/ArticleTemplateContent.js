@@ -21,7 +21,6 @@ const ArticleTemplateContent = ({ contentData, slug, title }) => {
         ? parse(contentData?.content, {
             replace: (domNode) => {
                 if (!domNode.children) return;
-
                 switch (domNode.name) {
                     case "blockquote":
                         return (
@@ -35,6 +34,7 @@ const ArticleTemplateContent = ({ contentData, slug, title }) => {
                         );
                     case "h2":
                     case "h3":
+                        if (!domNode.children[0].data) return;
                         const id = domNode.children[0].data
                             .replace(" ", "_")
                             .normalize("NFKD")
