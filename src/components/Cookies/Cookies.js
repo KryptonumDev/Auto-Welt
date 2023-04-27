@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { getCookie, setCookie, datalayerArguments } from "../../utils/cookie-manager"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Button, OutlinedLink, YellowButtonLink } from "../../shop-components/button"
+import { OutlinedLink, YellowButtonLink } from "../../shop-components/button"
 
 export default function Cookies({ isActive, setIsActive }) {
   const { wpPage: { cookies: { cookiesGlobal: { consent: consentTab, about: aboutCookiesTab, details: detailsTab } } } } = useStaticQuery(graphql`

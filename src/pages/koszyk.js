@@ -14,7 +14,6 @@ export default function KoszykPage({ data: { allWcProduct } }) {
   } = useCart()
 
   const renderedItems = useMemo(() => items, [items])
-  console.log(renderedItems)
   const sum = useMemo(() => {
     let count = 0
     items.forEach(el => {

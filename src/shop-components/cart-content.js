@@ -523,7 +523,7 @@ const Table = styled.table`
     color: #23423D;
   }
 
-  tbody tr{
+  tbody tr td{
     :nth-child(1){
       width: 43%;
     }
