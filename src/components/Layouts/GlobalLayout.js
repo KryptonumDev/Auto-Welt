@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MenuProvider } from "../../context/menuContext";
 import { Helmet } from 'react-helmet'
 import GlobalStyle from "../../styles/GlobalStyle";

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { getCookie, setCookie, datalayerArguments } from "../../utils/cookie-manager"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { Button, OutlinedLink, YellowButtonLink } from "../../shop-components/button"
 
 export default function Cookies({ isActive, setIsActive }) {
   const { wpPage: { cookies: { cookiesGlobal: { consent: consentTab, about: aboutCookiesTab, details: detailsTab } } } } = useStaticQuery(graphql`
@@ -143,7 +144,7 @@ export default function Cookies({ isActive, setIsActive }) {
           <Overlay />
           <Wrapper>
             <Content>
-              <StaticImage className="car" quality='100' src="../../../static/images/car.png" alt='obrazek auta'/>
+              {activeTab === 0 && <StaticImage className="car" quality='100' src="../../../static/images/car.png" alt='obrazek auta' />}
               <TabsControl>
                 <button className={activeTab === 0 ? 'active' : 'FUXK'} tabIndex={isActive ? '0' : '-1'} onClick={() => { setActiveTab(0) }}>
                   Zgoda
@@ -171,15 +172,15 @@ export default function Cookies({ isActive, setIsActive }) {
                       return (
                         <div key={el.partName + index} className="parts">
                           <div className="name">
+                            {el.partName} {count > 0 && `(${count})`}
                             <button
                               tabIndex={isActive ? '0' : '-1'}
                               className={activeCookie[index].isActive ? "radio active" : 'radio'}
                               onClick={() => { changeTabs(index) }}
                               aria-label={el.partName}
                             >
-                              <span></span>
+                              <span />
                             </button>
-                            {el.partName} {count > 0 && `(${count})`}
                           </div>
                           <p className="description">
                             {el.partDescription}
@@ -194,26 +195,26 @@ export default function Cookies({ isActive, setIsActive }) {
                 )}
                 {activeTab === 2 && (
                   <Tab>
-                    <div className="content" dangerouslySetInnerHTML={{ __html: aboutCookiesTab.tabContent }} />
+                    <div className="content content-big" dangerouslySetInnerHTML={{ __html: aboutCookiesTab.tabContent }} />
                   </Tab>
                 )}
               </TabWrapper>
               <Buttons>
-                <button className="cta-secondary" tabIndex={isActive ? '0' : '-1'} onClick={() => { rejectAll() }}>
+                <button className="disallow" tabIndex={isActive ? '0' : '-1'} onClick={() => { rejectAll() }}>
                   <span>Odmowa</span>
                 </button>
                 {activeTab === 1 ? (
-                  <button className="cta-secondary" onClick={() => { acceptPart() }} tabIndex={isActive ? '0' : '-1'}>
+                  <OutlinedLink as='button' className="" onClick={() => { acceptPart() }} tabIndex={isActive ? '0' : '-1'}>
                     <span>Zgoda na wybrane</span>
-                  </button>
+                  </OutlinedLink>
                 ) : (
-                  <button className="cta-secondary" onClick={() => { setActiveTab(1) }} tabIndex={isActive ? '0' : '-1'}>
+                  <OutlinedLink as='button' className="" onClick={() => { setActiveTab(1) }} tabIndex={isActive ? '0' : '-1'}>
                     <span>Ustaw preferencje</span>
-                  </button>
+                  </OutlinedLink>
                 )}
-                <button className="cta-primary allow" tabIndex={isActive ? '0' : '-1'} onClick={() => { acceptAll() }} >
+                <YellowButtonLink as='button' className="allow" tabIndex={isActive ? '0' : '-1'} onClick={() => { acceptAll() }} >
                   <span>Zgoda na wszystkie</span>
-                </button>
+                </YellowButtonLink>
               </Buttons>
             </Content>
           </Wrapper>
@@ -231,6 +232,7 @@ const Grid = ({ isActive, active, el: data }) => {
   return (
     <div className={active ? 'active item-wrapper' : 'item-wrapper'}>
       <p className="grid-name">{data.innerPartName}</p>
+      {data.cookieDescriptionUrl && <a className="readmore" href={data.cookieDescriptionUrl}>Dowiedz się więcej na temat tego dostawcy</a>}
       <div className="grid">
         {data.innerPartCookies.map((el, index) => {
           if (showAll ? true : index < 2) {
@@ -241,8 +243,8 @@ const Grid = ({ isActive, active, el: data }) => {
                   <p className="item-description">{el.cookieDescription}</p>
                 </div>
                 <div className="item-flex">
-                  <p>Data ważności: {el.expireTime}</p>
-                  <p>Rodzaj: {el.cookieType}</p>
+                  <p>Data ważności: <span>{el.expireTime}</span></p>
+                  <p>Rodzaj: <span>{el.cookieType}</span></p>
                 </div>
               </div>
             )
@@ -273,13 +275,7 @@ const Grid = ({ isActive, active, el: data }) => {
 
 const TabWrapper = styled.div`
     overflow: auto;
-    max-height: calc(100vh - 200px - 48px - 48px - 48px - 32px);
     padding-right: 20px;
-    margin-right: -20px;
-
-    @media (max-height: 639px) {
-        max-height: calc(100vh - 48px - 48px - 92px - 32px);
-    }
 `
 
 const Overlay = styled.div`
@@ -308,13 +304,26 @@ const Wrapper = styled.aside`
     background-position: center;
 
     max-width: 940px;
-    width: 100%;
+    width: calc(100% - 12px);
     max-height: calc(100vh - 200px);
+    box-sizing: content-box;
+    
+    @media (max-width: 768px) and (max-height: 720px) {
+        max-height: calc(100vh - 12px);
+    }
     
     .car{
       display: block;
       width: fit-content;
       margin: 0 auto 30px auto;
+
+      @media (max-height: 768px) {
+        display: none;
+      }
+      
+      @media (max-width: 768px) and (max-height: 840px) {
+          display: none;
+      }
     }
 
     .content *{
@@ -330,12 +339,20 @@ const Wrapper = styled.aside`
       color: #12433A;
     }
 
-    .description,.name, .grid-name, .content p{
+    .description, .name,.grid-name, .content p{
       text-decoration-line: unset !important;
-      font-size: clamp(16px, ${16 / 768 * 100}vw, 20px);
+      font-size: 16px;
+      font-weight: 600;
       line-height: 150%;
       color: #12433A;
     }
+    .content p, .description{
+      font-weight: 400;
+    }
+    .name{
+      font-size: 18px;
+    }
+    
 
     .content p em strong, .content p strong em {
       font-family: var(--serif);
@@ -377,6 +394,10 @@ const Wrapper = styled.aside`
     }
 
     .item-wrapper{
+      margin-left: 20px;
+      .grid{
+        margin-left: 20px;
+      }
         *{
             color: #BBBBBB !important;
             transition: color .2s cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -397,6 +418,18 @@ const Wrapper = styled.aside`
             *{
               color: #12433A !important;
             }
+            
+            .item-name{
+              color: #000 !important;
+            }
+
+            .item-flex{
+              span{
+                color: #000 !important;
+                font-weight: 600;
+              }
+            }
+
             svg{
               path{
                 stroke: #12433A;
@@ -413,8 +446,13 @@ const Content = styled.div`
     width: 100%;
     max-width: 794px;
     margin: 0 auto;
-    max-height: 100%;
     padding: clamp(12px, ${20 / 768 * 100}vw, 32px) ;
+    max-height: calc(100vh - 200px);
+    @media (max-width: 768px) and (max-height: 720px) {
+        max-height: calc(100vh - 12px);
+    }
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
 `
 
 const TabsControl = styled.div`
@@ -462,21 +500,42 @@ const Buttons = styled.div`
     gap: 24px;
     align-items: center;
 
-    @media (max-width: 640px) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 16px;
+    button{
+      margin: 0;
+      max-width: unset;
+      width: unset;
+      padding: 0 43px;
 
-        button{
-            padding: 14px 0 ;
-            width: 100%;
-            text-align: center;
-        }
+      span{
+        font-size: clamp(15px, ${21   / 768 * 100}vw, 21px);
+      }
+    }
 
-        .allow{
-            grid-column-end: 3;
-            grid-column-start: 1;
-        }
+    .disallow{
+      padding: 0 23px;
+      border: none;
+      background-color: transparent;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      text-decoration-line: underline;
+      color: #23423D;
+      span{
+        font-weight: 600;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 24px;
+
+      button{
+        max-width: 300px;
+        width: 100%;
+        padding: 0 23px;
+      }
     }
 `
 
@@ -488,12 +547,21 @@ const Tab = styled.div`
         margin-top: 30px;
     }
 
+    .content-big *{
+      color: #000 !important;
+    }
+
+    .readmore{
+      text-decoration: underline;
+    }
+
     .parts{
         margin-top: 26px;
     }
 
     .name{
         display: flex;
+        justify-content: space-between;
         align-items: center;
         gap: 8px;
     }
@@ -512,8 +580,6 @@ const Tab = styled.div`
       align-items: center;
       margin: 0 auto;
 
-      grid-column-start: 1;
-      grid-column-end: 3;
 
       span{
         font-weight: 400;
@@ -529,17 +595,8 @@ const Tab = styled.div`
 
     .grid{
         display: grid;
-        grid-template-columns: 1fr 1fr ;
         grid-gap: 16px;
         margin-top: 12px;
-
-        @media (max-width: 640px){
-            grid-template-columns: 1fr 1fr;
-        }
-
-        @media (max-width: 450px){
-            grid-template-columns: 1fr;
-        }
     }
 
     .desctop{
@@ -607,35 +664,35 @@ const Tab = styled.div`
             flex-wrap: wrap;
         }
     }
+    .parts{
+      .radio{
+          width: 46px;
+          height: 20px;
+          border: 2px solid #F6E2BA;
+          box-sizing: content-box;
+          background-color: transparent;
+          position: relative;
+          cursor: pointer;
+          transition: border-color .2s cubic-bezier(0.47, 0, 0.745, 0.715);
 
-    .radio{
-        width: 45px;
-        height: 24px;
-        border-radius: 42px;
-        background-color: #90999B;
-        border: none;
-        position: relative;
-        cursor: pointer;
-        transition: background-color .2s cubic-bezier(0.47, 0, 0.745, 0.715);
-
-        span{
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 16px;
-            height: 16px;
-            background-color: #EAF0F1;
-            border-radius: 40px;
-            transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
+          span{
+              position: absolute;
+              top: 2px;
+              left: 2px;
+              width: 16px;
+              height: 16px;
+              background-color: #F6E2BA;
+              transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
 
 
-        &.active{
-            background-color: #3DA290;
-            span{
-                left: 25px;
-                background-color: #fff;
-            }
-        }
+          &.active{
+            border-color: #EDAC2A;
+              span{
+                  left: 28px;
+                  background-color: #EDAC2A;
+              }
+          }
+      }
     }
 `
