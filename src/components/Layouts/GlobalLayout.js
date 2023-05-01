@@ -26,7 +26,7 @@ const GlobalLayout = ({ location, children }) => {
     );
   }, [location])
 
-  const [isCookiesOpened, setCookiesOpened] = useState(true)
+  const [isCookiesOpened, setCookiesOpened] = useState(false)
   return (
     <>
       <MenuProvider>

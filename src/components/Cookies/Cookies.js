@@ -64,30 +64,32 @@ export default function Cookies({ isActive, setIsActive }) {
   }
 
   useEffect(() => {
-    if (getCookie('necessary')) {
-      datalayerArguments("consent", "default", {
-        'ad_storage': getCookie('marketing'),
-        'analytics_storage': getCookie('statistics'),
-        'functionality_storage': getCookie('necessary'),
-        'personalization_storage': getCookie('preferences'),
-        'unclassified_storage': getCookie('unclassified'),
-        'wait_for_update': 2500
-      });
-      datalayerArguments("set", "ads_data_redaction", true);
-      setIsActive(false)
-    } else {
-      datalayerArguments("consent", "default", {
-        'ad_storage': "denied",
-        'analytics_storage': "denied",
-        'functionality_storage': "denied",
-        'personalization_storage': "denied",
-        'security_storage': "granted",
-        'unclassified_storage': "denied",
-        'wait_for_update': 2500
-      });
-      datalayerArguments("set", "ads_data_redaction", true);
-      setIsActive(true)
-    }
+    setTimeout(() => {
+      if (getCookie('necessary')) {
+        datalayerArguments("consent", "default", {
+          'ad_storage': getCookie('marketing'),
+          'analytics_storage': getCookie('statistics'),
+          'functionality_storage': getCookie('necessary'),
+          'personalization_storage': getCookie('preferences'),
+          'unclassified_storage': getCookie('unclassified'),
+          'wait_for_update': 2500
+        });
+        datalayerArguments("set", "ads_data_redaction", true);
+        setIsActive(false)
+      } else {
+        datalayerArguments("consent", "default", {
+          'ad_storage': "denied",
+          'analytics_storage': "denied",
+          'functionality_storage': "denied",
+          'personalization_storage': "denied",
+          'security_storage': "granted",
+          'unclassified_storage': "denied",
+          'wait_for_update': 2500
+        });
+        datalayerArguments("set", "ads_data_redaction", true);
+        setIsActive(true)
+      }
+    }, [1])
   }, [setIsActive])
 
   const acceptAll = () => {
@@ -140,6 +142,7 @@ export default function Cookies({ isActive, setIsActive }) {
         <>
           <Overlay />
           <Wrapper>
+            <StaticImage className="background" src="../../../static/images/cookie-background.jpg" alt='tło' />
             <Content>
               {activeTab === 0 && <StaticImage className="car" quality='100' src="../../../static/images/car.png" alt='obrazek auta' />}
               <TabsControl>
@@ -295,10 +298,7 @@ const Wrapper = styled.aside`
     transform: translate(-50%, -50%);
     border: 6px solid #23423D;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-    background-image: url('/images/cookie-background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #fff;
 
     max-width: 940px;
     width: calc(100% - 12px);
@@ -307,6 +307,12 @@ const Wrapper = styled.aside`
     
     @media (max-width: 768px) and (max-height: 720px) {
         max-height: calc(100vh - 12px);
+    }
+
+    .background{
+      position: absolute;
+      inset: 0;
+      z-index: -1;
     }
     
     .car{
@@ -504,7 +510,7 @@ const Buttons = styled.div`
       padding: 0 43px;
 
       span{
-        font-size: clamp(15px, ${21   / 768 * 100}vw, 21px);
+        font-size: clamp(15px, ${21 / 768 * 100}vw, 21px);
       }
     }
 
