@@ -78,7 +78,7 @@ export const StyledTextWrapper = styled.div`
   }
 `;
 
-export const StyledTitleWrapper = styled.div`
+export const StyledTitleWrapper = styled.h1`
   text-align: center;
   line-height: 1.2em;
   color: #23423D;

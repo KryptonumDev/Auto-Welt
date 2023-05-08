@@ -49,6 +49,21 @@ export const StyledHeroImageWrapper = styled.div`
   transform: translateY(-70px);
   grid-area: center;
 
+  h1{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 50px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: normal;
+    color: var(--primary500);
+    letter-spacing: 0px;
+    line-height: 1;
+    font-family: "Nocturne Serif";
+    text-decoration: none;
+  }
+
   @media only screen and (max-width: 768px) {
     transform: translateY(0);
   }

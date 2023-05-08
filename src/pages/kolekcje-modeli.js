@@ -11,6 +11,7 @@ import {
   StyledModelCollections,
   StyledReqButton,
 } from "../components/Collections/StyledCollections";
+import styled from "styled-components";
 
 
 const ModelCollections = ({ data }) => {
@@ -35,6 +36,9 @@ const ModelCollections = ({ data }) => {
   );
   return (
     <main>
+      <Title>
+        Kolekcje samochodów:
+      </Title>
       <StyledModelCollections>
         <StyledContentWrapper>
           {data.allWpKolekcje.edges
@@ -73,6 +77,29 @@ const ModelCollections = ({ data }) => {
     </main>
   );
 };
+
+const Title = styled.h1`
+  width: 100%;
+  max-width: 1144px;
+  margin: 50px auto 30px;
+  padding: 0px 32px;
+
+  color: var(--primary500);
+  font: 500 48px / 1em "Nocturne Serif";
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 130px;
+    padding: 0 16px;
+  }
+
+  @media (max-width: 594px) {
+    font-size: 34px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 30px;
+  }
+`
 
 export default ModelCollections;
 

@@ -38,7 +38,9 @@ const CollectionTemplateHeroImage = ({ heroData }) => {
             }
           />
         </StyledTitleImageWraper>
-        <div>{parse(heroData?.kolorowyTytulNaZieloneTlo)}</div>
+        <div>
+        <h1>{parse(heroData?.kolorowyTytulNaZieloneTlo.replace(/^<p[^>]*>|<\/p>$/g, ''))}</h1>
+        </div>
       </StyledTitleWrapper>
       {heroData?.gdzieMaPrzenosicLinkPodZdjeciemGlownym ? (
         <Button

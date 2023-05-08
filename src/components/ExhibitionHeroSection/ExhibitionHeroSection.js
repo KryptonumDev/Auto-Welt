@@ -43,13 +43,15 @@ const ExhibitionHeroSection = ({ heroData }) => {
               ?.czyWystawaJestAktualnaJezeliNieToJestPlanowana
               ? "aktualna"
               : date.getTime() > now.getTime() || areDatesEqual(date, now)
-              ? "planowana"
-              : "archiwalna"}
+                ? "planowana"
+                : "archiwalna"}
           </StyledText>
         </StyledTag>
         <StyledTextWrapper>
           <StyledTitleWrapper>
-            {parse(heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem)}
+            <h1>
+              {parse(heroData?.wystawa.informacjeOgolne?.tytulPodZdjeciem.replace(/^<p[^>]*>|<\/p>$/g, ''))}
+            </h1>
           </StyledTitleWrapper>
           {heroData.wystawa.wydarzenieSzablon?.sekcjaPowitalna
             ?.krotkiOpisPodTytulem ?
@@ -60,7 +62,7 @@ const ExhibitionHeroSection = ({ heroData }) => {
         </StyledTextWrapper>
         <StyledDataWrapper>
           <StyledDataImage>
-            <StaticImage src="../../images/wydarzenieData.png" alt="tło"/>
+            <StaticImage src="../../images/wydarzenieData.png" alt="tło" />
           </StyledDataImage>
           <StyledText
             hasdeclaredfontfamily="Nocturne Serif"

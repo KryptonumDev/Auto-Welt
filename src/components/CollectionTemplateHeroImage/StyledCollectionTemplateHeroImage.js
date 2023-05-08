@@ -61,33 +61,34 @@ export const StyledTitleWrapper = styled.div`
   transform: translateY(-50%);
   position: relative;
 
-  > div {
-    &:last-child {
-      width: 100%;
-      min-height: 131px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font: 48px "Nocturne Serif";
-      position: relative;
-      text-align: center;
-      padding: 16px;
-      color: #fff;
+  h1 {
+    width: 100%;
+    min-height: 131px;
+    font: 48px "Nocturne Serif";
+    position: relative;
+    text-align: center;
+    padding: 16px;
+    color: #fff;
 
-      strong,
-      em {
-        color: #edac2a;
-        font-weight: normal;
-        font-style: normal;
-      }
+    strong,
+    em {
+      color: #edac2a;
+      font-weight: normal;
+      font-style: normal;
+    }
 
-      @media only screen and (max-width: 768px) {
-        font-size: 38px;
-      }
+    @media only screen and (max-width: 768px) {
+      font-size: 38px;
+    }
 
-      @media only screen and (max-width: 375px) {
-        font-size: 34px;
-      }
+    @media only screen and (max-width: 640px) {
+      font-size: 34px;
+    }
+    @media only screen and (max-width: 480px) {
+      font-size: 28px;
+    }
+    @media only screen and (max-width: 420px) {
+      font-size: 24px;
     }
   }
 
@@ -96,11 +97,9 @@ export const StyledTitleWrapper = styled.div`
     max-width: 595px;
     width: 87%;
 
-    > div {
-      &:last-child {
-        min-height: 83px;
-        font-size: 34px;
-      }
+    > h1 {
+      min-height: 83px;
+      font-size: 34px;
     }
   }
 

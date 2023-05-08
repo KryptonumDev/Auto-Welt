@@ -17,10 +17,6 @@ export const StyledContentWrapper = styled.div`
   flex-direction: column;
   gap: 40px;
   margin: 30px 0 60px;
-
-  @media only screen and (max-width: 768px) {
-    margin-top: 130px;
-  }
 `;
 
 export const StyledReqButton = styled.section`

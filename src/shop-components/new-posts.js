@@ -36,7 +36,7 @@ export default function NewPosts() {
             <h2>Najnowsze artykuły</h2>
             <Grid>
                 {nodes.map(el => (
-                    <Item to={`/artykul/${el.slug}/`} key={el.slug}>
+                    <Item to={`/artykuly/${el.slug}/`} key={el.slug}>
                         <div>
                             <GatsbyImage className="image" image={el.artykul.informacjeDoMiniaturki.miniaturka.localFile.childImageSharp.gatsbyImageData} alt={el.artykul.informacjeDoMiniaturki.miniaturka.altText || 'obrazek'} />
                             <div className="title">

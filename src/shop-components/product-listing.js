@@ -11,7 +11,7 @@ export default function ProductListing({ products, categories }) {
 
     return (
         <Wrapper>
-            <h1>Pełna oferta</h1>
+            <h2>Pełna oferta</h2>
             <Filter filter={filter} setFilter={setFilter} categories={categories} />
             <Grid>
                 {filtredProducts.map((el, index) => {
@@ -44,7 +44,7 @@ const Wrapper = styled.section`
         color: #23423D;
     }
 
-    h1{
+    h2{
         font-family: 'Nocturne Serif';
         font-style: normal;
         font-weight: 400;

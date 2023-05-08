@@ -71,21 +71,20 @@ export const StyledTextWrapper = styled.div`
 `;
 
 export const StyledTitleWrapper = styled.div`
-  font-size: 48px;
-  line-height: 1.2em;
-  color: #23423D;
-  font-family: "Nocturne Serif";
 
   h1 {
     margin-bottom: 10px;
-  }
-
-  @media only screen and (max-width: 768px) {
     font-size: 38px;
-  }
+    line-height: 1.2em;
+    color: #23423D;
+    font-family: "Nocturne Serif";
 
-  @media only screen and (max-width: 375px) {
-    font-size: 34px;
+    @media (max-width: 840px) {
+      font-size: 32px;
+    }
+    @media (max-width: 420px) {
+      font-size: 28px;
+    }
   }
 `
 

@@ -22,13 +22,13 @@ const Category = ({ pageContext, data: { allWcCategory, allWcProduct, wcCategory
   return (
     <Wrapper>
       <BreadCrumbs pageContext={pageContext} />
-      <Hero title={wcCategory.name} text={wcCategory.description} gallery={wcCategory.acf.gallery} />
+      <Hero title={wcCategory.acf.page_title} text={wcCategory.description} gallery={wcCategory.acf.gallery} />
       {pageContext.slug !== 'wystawy'
         ? <ProductListing products={allWcProduct.nodes} />
         : <ExhibitionListing products={allWcProduct.nodes} />}
       {pageContext.slug !== 'wystawy'
         && <Divider />}
-      <AllCategories data={allWcCategory.nodes} title={'Inne kategorie'} />
+      <AllCategories data={allWcCategory.nodes} title={'Inne kategorie modeli'} />
       <Newsletter />
       <NewPosts />
     </Wrapper>
@@ -94,6 +94,7 @@ export const query = graphql`
       name
       count
       acf {
+        page_title
         gallery {
           alt
           localFile {

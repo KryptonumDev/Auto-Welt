@@ -73,6 +73,7 @@ const HomeHeroSection = () => {
         })}
       </StyledImagesLeftWrapper>
       <StyledHeroImageWrapper>
+        <h1>Auto-Welt - wyjątkowe modele samochodów kolekcjonerskich</h1>
         <StyledHeroImage>
           <GatsbyImage
             image={heroImage}
