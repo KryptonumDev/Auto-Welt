@@ -63,6 +63,7 @@ const HomeHeroSection = () => {
             return (
               <StyledImageWrapper key={image.altText + `${index}`}>
                 <GatsbyImage
+                  loading="eager"
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image.altText || " "}
                 />
@@ -76,6 +77,7 @@ const HomeHeroSection = () => {
         <h1>Auto-Welt - wyjątkowe modele samochodów kolekcjonerskich</h1>
         <StyledHeroImage>
           <GatsbyImage
+            loading="eager"
             image={heroImage}
             alt={wpPage.homepage?.duzeZdjecieSrodkowe?.altText || " "}
             title={wpPage.homepage?.duzeZdjecieSrodkowe?.title}
@@ -120,6 +122,7 @@ const HomeHeroSection = () => {
             return (
               <StyledImageWrapper key={image?.altText + `${index}`}>
                 <GatsbyImage
+                  loading="eager"
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image?.altText || " "}
                 />
