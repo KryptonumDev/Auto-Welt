@@ -37,7 +37,7 @@ export default function Filter({ filter, setFilter, categories }) {
         {categories
           ? (
             <Select components={{ DropdownIndicator, NoOptionsMessage }} classNamePrefix="react-select" className="input yellow" placeholder="Wybierz kategorię" onChange={(e) => { setFilter({ ...filter, category: e.value }) }} options={(() => {
-              const categoryArr = categories.filter(el => el.slug !== "wystawy").map(el => {
+              const categoryArr = categories.sort((a, b) => a.acf.order_number - b.acf.order_number).filter(el => el.slug !== "wystawy").map(el => {
                 return { value: el.name, label: el.name }
               })
               return [{ value: '', label: 'Wszystkie kategorie' }, ...categoryArr]

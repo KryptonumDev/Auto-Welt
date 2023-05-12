@@ -190,7 +190,7 @@ const Wrapper = styled.section`
     }
 `
 
-const Content = styled.div`
+const  Content = styled.div`
     display: grid;
     grid-template-columns: 53fr 47fr;
     grid-gap: 60px clamp(25px, ${25 / 768 * 100}vw,100px);

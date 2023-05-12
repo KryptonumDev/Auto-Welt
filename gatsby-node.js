@@ -15,7 +15,7 @@ const api = new WooCommerceRestApi({
 exports.sourceNodes = async (
   { actions: { createNode }, createNodeId, createContentDigest, store, cache }) => {
 
-  let products = await api.get("products")
+  let products = await api.get("products", { per_page: 100, status: 'publish' })
   let categories = await api.get("products/categories")
 
   const processProduct = async (product, args) => {

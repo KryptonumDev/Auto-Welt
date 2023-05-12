@@ -14,6 +14,9 @@ export default function Header() {
       query header {
         allWcCategory(filter: {count: {gt: 0}}) {
           nodes {
+            acf{
+              order_number
+            }
             name
             slug
           }
@@ -30,7 +33,7 @@ export default function Header() {
     {
       name: 'Sklep',
       link: '/sklep/',
-      subArray: allWcCategory.nodes.map(el => {
+      subArray: allWcCategory.nodes.sort((a, b) => a.acf.order_number - b.acf.order_number).map(el => {
         return {
           name: el.name,
           link: `/sklep/${el.slug}`

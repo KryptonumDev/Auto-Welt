@@ -31,25 +31,22 @@ const ExhibitionRegulations = ({ data }) => {
         </StyledTextWrapper>
         <StyledLinkWrapper>
           <a
-            href={queryData.pierwszyLink.link}
-            target="_blank"
-            rel='noreferrer noopener'
+            download
+            href={queryData.pierwszyLink.localFile.publicURL}
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu wystawy
           </a>
           <a
-            href={queryData.drugiLink.link}
-            target="_blank"
-            rel='noreferrer noopener'
+            download
+            href={queryData.drugiLink.localFile.publicURL}
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu wystawy na powietrzu
           </a>
           <a
-            href={queryData.trzeciLink.link}
-            target="_blank"
-            rel='noreferrer noopener'
+            download
+            href={queryData.trzeciLink.localFile.publicURL}
             aria-label="pobierz umowę"
           >
             pobierz umowę najmu powierzchni wystawowej
@@ -83,13 +80,19 @@ export const query = graphql`
         tytulStrony
         tekstPodTytulem
         pierwszyLink {
-          link
+          localFile {
+            publicURL
+          }
         }
         drugiLink {
-          link
+          localFile {
+            publicURL
+          }
         }
         trzeciLink {
-          link
+          localFile {
+            publicURL
+          }
         }
       }
     }

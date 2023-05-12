@@ -45,6 +45,9 @@ export const query = graphql`
       nodes {
         name
         slug
+        acf{
+          order_number
+        }
         image {
             alt
             localFile {
