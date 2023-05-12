@@ -64,32 +64,30 @@ export default function Cookies({ isActive, setIsActive }) {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      if (getCookie('necessary')) {
-        datalayerArguments("consent", "default", {
-          'ad_storage': getCookie('marketing'),
-          'analytics_storage': getCookie('statistics'),
-          'functionality_storage': getCookie('necessary'),
-          'personalization_storage': getCookie('preferences'),
-          'unclassified_storage': getCookie('unclassified'),
-          'wait_for_update': 2500
-        });
-        datalayerArguments("set", "ads_data_redaction", true);
-        setIsActive(false)
-      } else {
-        datalayerArguments("consent", "default", {
-          'ad_storage': "denied",
-          'analytics_storage': "denied",
-          'functionality_storage': "denied",
-          'personalization_storage': "denied",
-          'security_storage': "granted",
-          'unclassified_storage': "denied",
-          'wait_for_update': 2500
-        });
-        datalayerArguments("set", "ads_data_redaction", true);
-        setIsActive(true)
-      }
-    }, [1])
+    if (getCookie('necessary')) {
+      datalayerArguments("consent", "default", {
+        'ad_storage': getCookie('marketing'),
+        'analytics_storage': getCookie('statistics'),
+        'functionality_storage': getCookie('necessary'),
+        'personalization_storage': getCookie('preferences'),
+        'unclassified_storage': getCookie('unclassified'),
+        'wait_for_update': 2500
+      });
+      datalayerArguments("set", "ads_data_redaction", true);
+      setIsActive(false)
+    } else {
+      datalayerArguments("consent", "default", {
+        'ad_storage': "denied",
+        'analytics_storage': "denied",
+        'functionality_storage': "denied",
+        'personalization_storage': "denied",
+        'security_storage': "granted",
+        'unclassified_storage': "denied",
+        'wait_for_update': 2500
+      });
+      datalayerArguments("set", "ads_data_redaction", true);
+      setIsActive(true)
+    }
   }, [setIsActive])
 
   const acceptAll = () => {
