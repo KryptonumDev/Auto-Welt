@@ -89,7 +89,7 @@ export default function Cookies({ isActive, setIsActive }) {
         datalayerArguments("set", "ads_data_redaction", true);
         setIsActive(true)
       }
-    }, 0)
+    }, 1)
   }, [setIsActive])
 
   const acceptAll = () => {
