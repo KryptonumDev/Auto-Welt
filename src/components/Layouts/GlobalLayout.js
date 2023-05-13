@@ -37,7 +37,7 @@ const GlobalLayout = ({ location, children }) => {
         <GlobalStyle />
         <ToastContainer limit={3} position="bottom-right" />
         <StyledOverflowWrapper>
-          {/* <Cookies isActive={isCookiesOpened} setIsActive={setCookiesOpened} /> */}
+          <Cookies isActive={isCookiesOpened} setIsActive={setCookiesOpened} />
           <CartProvider>
             <Header />
             {children}

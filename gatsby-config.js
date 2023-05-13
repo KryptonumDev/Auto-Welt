@@ -31,6 +31,13 @@ module.exports = {
                 schema: {
                   timeout: 30000000,
                 },
+                type: {
+                  MediaItem: {
+                    localFile: {
+                      requestConcurrency: 5,
+                    },
+                  },
+                },
             },
         },
         "gatsby-plugin-sitemap",

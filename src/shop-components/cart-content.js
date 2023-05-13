@@ -33,7 +33,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               }
               return true
             })
-            console.log(el)
+
             return (
               <tr key={`line${index}`}>
                 <td>
@@ -60,7 +60,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                 </td>
                 <td>
                   <div className="flex quantity-calculator">
-                    <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
+                    <button disabled={(el.quantity <= 1) || !el.stock_quantity} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
                       <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 0V2H0V0H14Z" fill="#23423D" />
                       </svg>
@@ -68,7 +68,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                     <div className="quantity">
                       {el.quantity}
                     </div>
-                    <button disabled={el.quantity >= el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                    <button disabled={(el.quantity >= el.stock_quantity) || !el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
                       </svg>
@@ -146,7 +146,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               </span>
               <div className="param ">
                 <div className="quantity-calculator">
-                  <button disabled={el.quantity <= 1} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
+                  <button disabled={(el.quantity <= 1) || !el.stock_quantity} onClick={() => { updateItemQuantity(el.id, (el.quantity > 1 ? el.quantity - 1 : 1)) }} className="minus">
                     <svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M14 0V2H0V0H14Z" fill="#23423D" />
                     </svg>
@@ -154,7 +154,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
                   <div className="quantity">
                     {el.quantity}
                   </div>
-                  <button disabled={el.quantity >= el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
+                  <button disabled={(el.quantity >= el.stock_quantity) || !el.stock_quantity} onClick={() => { updateItemQuantity(el.id, el.quantity + 1) }} className="plus">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11.7243 4.98047V7.01953H0V4.98047H11.7243ZM7.12129 0V12.4219H4.64493V0H7.12129Z" fill="#23423D" />
                     </svg>
@@ -205,7 +205,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
             Dostawa:
           </span>
           <span>
-            od&nbsp;10&nbsp;zł
+            od&nbsp;20&nbsp;zł
           </span>
         </div>
         <div>
@@ -213,7 +213,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
             Razem:
           </span>
           <span>
-            {sum + 10}&nbsp;zł
+            {sum + 20}&nbsp;zł
           </span>
         </div>
       </Checkout>
