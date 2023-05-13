@@ -63,7 +63,6 @@ const HomeHeroSection = () => {
             return (
               <StyledImageWrapper key={image.altText + `${index}`}>
                 <GatsbyImage
-                  loading="eager"
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image.altText || " "}
                 />
@@ -74,7 +73,6 @@ const HomeHeroSection = () => {
         })}
       </StyledImagesLeftWrapper>
       <StyledHeroImageWrapper>
-        <h1>Auto-Welt - wyjątkowe modele samochodów kolekcjonerskich</h1>
         <StyledHeroImage>
           <GatsbyImage
             loading="eager"
@@ -122,7 +120,6 @@ const HomeHeroSection = () => {
             return (
               <StyledImageWrapper key={image?.altText + `${index}`}>
                 <GatsbyImage
-                  loading="eager"
                   image={image.localFile.childImageSharp.gatsbyImageData}
                   alt={image?.altText || " "}
                 />
