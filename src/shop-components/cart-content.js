@@ -33,7 +33,7 @@ export default function CartContent({ items, updateItemQuantity, sum, removeItem
               }
               return true
             })
-
+            console.log(el)
             return (
               <tr key={`line${index}`}>
                 <td>
