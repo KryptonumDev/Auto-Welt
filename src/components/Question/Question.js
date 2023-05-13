@@ -27,13 +27,13 @@ const Question = ({ faqData }) => {
 
   return (
     <StyledQuestion
-      itemscope
-      itemprop="mainEntity"
-      itemtype="https://schema.org/Question"
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
     >
       <StyledQuestionWrapper>
         <ArrowQuestion />
-        <StyledQuestionText itemprop="name">
+        <StyledQuestionText itemProp="name">
           {faqData.pytanie ? parse(faqData.pytanie) : null}
         </StyledQuestionText>
         <StyledBgWrapper>
@@ -41,9 +41,9 @@ const Question = ({ faqData }) => {
         </StyledBgWrapper>
       </StyledQuestionWrapper>
       <StyledAnswerWrapper
-        itemscope
-        itemprop="acceptedAnswer"
-        itemtype="https://schema.org/Answer"
+        itemScope
+        itemProp="acceptedAnswer"
+        itemType="https://schema.org/Answer"
       >
         {faqData.odpowiedz ? parse(faqData.odpowiedz) : null}
       </StyledAnswerWrapper>
