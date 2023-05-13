@@ -35,15 +35,15 @@ const GlobalLayout = ({ location, children }) => {
           <meta name="robots" data-react-helmet="true" />
         </Helmet>
         <GlobalStyle />
-        <ToastContainer limit={3} position="bottom-right" />
-        <StyledOverflowWrapper>
+        {/* <ToastContainer limit={3} position="bottom-right" /> */}
+        {/* <StyledOverflowWrapper> */}
           {/* <Cookies isActive={isCookiesOpened} setIsActive={setCookiesOpened} /> */}
-          <CartProvider>
-            <Header />
+          {/* <CartProvider> */}
+            {/* <Header /> */}
             {children}
-            <Footer />
-          </CartProvider>
-        </StyledOverflowWrapper>
+            {/* <Footer /> */}
+          {/* </CartProvider> */}
+        {/* </StyledOverflowWrapper> */}
       </MenuProvider>
     </>
   );
