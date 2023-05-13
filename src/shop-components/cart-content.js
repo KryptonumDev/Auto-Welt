@@ -523,23 +523,6 @@ const Table = styled.table`
     color: #23423D;
   }
 
-  tbody tr td{
-    :nth-child(1){
-      width: 43%;
-    }
-    :nth-child(2){
-      width: 8%;
-    }
-    :nth-child(3){
-      width: 21%;
-    }
-    :nth-child(4){
-      width: 20%;
-    }
-    :nth-child(5){
-      width: 8%;
-    }
-  }
   @media (max-width: 680px) {
     display: none;
   }
