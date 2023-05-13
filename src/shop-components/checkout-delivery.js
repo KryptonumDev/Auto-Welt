@@ -58,6 +58,10 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
         setStep('4')
     }
 
+    const onPointCallback = (e) => {
+        setInpostNumber(e.name)
+    }
+
     return (
         <Wrapper onSubmit={handleSubmit(submit)} >
             <h2>3. Wybierz opcję dostawy</h2>
@@ -89,6 +93,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
                                         <InpostGeowidget
                                             token={process.env.GATSBY_INPOST_GEO_KEY}
                                             config='parcelCollect'
+                                            onPoint={onPointCallback}
                                         />
                                     </aside>
                                 )}
