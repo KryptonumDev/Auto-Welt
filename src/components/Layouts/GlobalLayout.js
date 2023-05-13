@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   StyledOverflowWrapper,
 } from "./StyledGlobalLayout";
-import Cookies from "../Cookies/Cookies";
+// import Cookies from "../Cookies/Cookies";
 
 const GlobalLayout = ({ location, children }) => {
   useEffect(() => {
