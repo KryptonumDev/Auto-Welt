@@ -34,7 +34,8 @@ module.exports = {
                 type: {
                   MediaItem: {
                     localFile: {
-                      requestConcurrency: 5,
+                        maxFileSizeBytes: 52428800, // 50Mb
+                        requestConcurrency: 5,
                     },
                   },
                 },

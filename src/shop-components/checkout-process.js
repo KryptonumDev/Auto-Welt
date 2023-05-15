@@ -59,7 +59,7 @@ export default function Checkout({ items, sum }) {
             let line_items = items.map(el => {
                 return {
                     product_id: el.databaseId,
-                    quantity: el.quantity
+                    quantity: el.quantity,
                 }
             });
             let params = {
@@ -130,13 +130,16 @@ export default function Checkout({ items, sum }) {
                         headers: { "Content-Type": "application/json" }
                     })
                         .then(({ data }) => {
+                            debugger
                             setClientSecret(data.clientSecret)
                             setPaymentIntent(data.id)
                         })
-                        .catch(() => {
+                        .catch((err) => {
+                            debugger
                             WooCommerce.put(`orders/${response.data.id}`, {
                                 status: 'cancelled'
                             })
+                            debugger
                             toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
                             setStep('5')
                         })

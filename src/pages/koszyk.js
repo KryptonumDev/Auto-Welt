@@ -5,15 +5,47 @@ import styled, { keyframes } from "styled-components"
 import CartContent from "../shop-components/cart-content"
 import Empty from "../shop-components/cart-empty"
 import ProductSlider from "../shop-components/product-slider"
+import { toast } from "react-toastify"
 
-export default function KoszykPage({ data: { allWcProduct } }) {
+export default function KoszykPage({ data: { sliderProducts, allProducts } }) {
   const {
     items,
     updateItemQuantity,
     removeItem
   } = useCart()
 
-  const renderedItems = useMemo(() => items, [items])
+  const renderedItems = useMemo(() => {
+    return items.map(el => {
+      const product = allProducts.nodes.find(product => product.id === el.id)
+      if (!product) {
+        removeItem(el.id)
+        toast(`Produkt ${el.name} nie jest już dostępny`)
+        return null
+      }
+
+      if (!product.stock_quantity) {
+        removeItem(el.id)
+        toast(`Produkt ${product.name} skończył się na magazynie`)
+        return null
+      }
+
+      if (el.stock_quantity < product.stock_quantity) {
+        updateItemQuantity(el.id, product.stock_quantity)
+        toast(`Dostępnych jest tylko ${product.stock_quantity} sztuk produktu ${product.name}`)
+        return {
+          ...el,
+          quantity: product.stock_quantity,
+          stock_quantity: product.stock_quantity
+        }
+      }
+
+      return {
+        ...el,
+        stock_quantity: product.stock_quantity,
+      }
+    }).filter(el => el)
+  }, [items])
+
   const sum = useMemo(() => {
     let count = 0
     items.forEach(el => {
@@ -31,14 +63,14 @@ export default function KoszykPage({ data: { allWcProduct } }) {
       <Title>Koszyk</Title>
       {renderedItems.length > 0
         ? <CartContent
-          items={items}
+          items={renderedItems}
           sum={sum}
           updateItemQuantity={updateItemQuantity}
           removeItem={removeItem}
         />
         : <Empty />
       }
-      <ProductSlider yellow={true} title={'Zobacz również'} products={allWcProduct.nodes} />
+      <ProductSlider yellow={true} title={'Zobacz również'} products={sliderProducts.nodes} />
     </Main>
   )
 }
@@ -47,7 +79,13 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query productPageQuery {
-    allWcProduct(filter: {stock_status: {eq: "instock"}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
+    allProducts : allWcProduct {
+      nodes {
+        stock_quantity
+        id
+      }
+    }
+    sliderProducts : allWcProduct(filter: {stock_status: {eq: "instock"}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
       nodes {
         date_created
         id

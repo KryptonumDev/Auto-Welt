@@ -111,6 +111,7 @@ export default function Hero({ data }) {
                                         </svg>
                                     </button>
                                 </div>
+                                <div className="absolute-quantity">Ilość na stanie: {data.stock_quantity}</div>
                             </div>
                         )}
                         {data.stock_status !== 'instock'
@@ -190,7 +191,7 @@ const Wrapper = styled.section`
     }
 `
 
-const  Content = styled.div`
+const Content = styled.div`
     display: grid;
     grid-template-columns: 53fr 47fr;
     grid-gap: 60px clamp(25px, ${25 / 768 * 100}vw,100px);
@@ -254,6 +255,16 @@ const  Content = styled.div`
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 32px;
+        position: relative;
+
+        .absolute-quantity{
+            position: absolute;
+            left: 0;
+            top: -10px;
+            transform: translateY(-100%);
+            font-size: 14px;
+            color: #7A8D8A;
+        }
 
         .add-to-cart{
             width: fit-content;
