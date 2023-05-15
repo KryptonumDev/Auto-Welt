@@ -130,7 +130,6 @@ export default function Checkout({ items, sum }) {
                         headers: { "Content-Type": "application/json" }
                     })
                         .then(({ data }) => {
-                            debugger
                             setClientSecret(data.clientSecret)
                             setPaymentIntent(data.id)
                         })
