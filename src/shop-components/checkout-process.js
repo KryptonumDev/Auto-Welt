@@ -134,12 +134,10 @@ export default function Checkout({ items, sum }) {
                             setClientSecret(data.clientSecret)
                             setPaymentIntent(data.id)
                         })
-                        .catch((err) => {
-                            debugger
+                        .catch(() => {
                             WooCommerce.put(`orders/${response.data.id}`, {
                                 status: 'cancelled'
                             })
-                            debugger
                             toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
                             setStep('5')
                         })
