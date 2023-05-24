@@ -16,7 +16,7 @@ export default function KoszykPage({ data: { sliderProducts, allProducts } }) {
 
   const renderedItems = useMemo(() => {
     return items.map(el => {
-      const product = allProducts.nodes.find(product => product.databaseId === el.databaseId)
+      const product = allProducts.nodes.find(product => product.id === el.id)
       if (!product) {
         removeItem(el.id)
         toast(`Produkt ${el.name} nie jest już dostępny`)
@@ -79,12 +79,10 @@ export { Head } from "../components/Head/Head"
 
 export const query = graphql`
   query productPageQuery {
-    allProducts : allWpProduct {
-      nodes{
-        ... on WpSimpleProduct {
-          stock_quantity : stockQuantity
-          databaseId
-        }
+    allProducts : allWcProduct {
+      nodes {
+        stock_quantity
+        id
       }
     }
     sliderProducts : allWcProduct(filter: {stock_status: {eq: "instock"}, categories: {elemMatch: {slug: {ne: "wystawy"}}}}, sort: {date_created: DESC}, limit: 5) {
