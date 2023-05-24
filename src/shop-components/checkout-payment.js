@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { Button } from "./button"
@@ -16,7 +16,7 @@ const paymentMethods = [
 ]
 
 export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm()
+    const { register, handleSubmit } = useForm()
 
     const [checkboxValue, setCheckboxValue] = useState(false)
     const [selected, setSelected] = useState(() => {

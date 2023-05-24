@@ -1,5 +1,4 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
 
 import CalendarComponent from "../CalendarComponent/CalendarComponent";
@@ -7,7 +6,6 @@ import Button from "../Button/Button";
 
 import {
   StyledHomeCalendar,
-  StyledFooterCar,
   StyledButtonWrapper,
 } from "./StyledHomeCalendar";
 import { StyledText } from "../Text/StyledText";

@@ -26,7 +26,7 @@ export default function PopUp({ intent, step, setStep, changePaymentMethod, orde
         return () => {
             window.removeEventListener('beforeunload', handleTabClose);
         };
-    }, [step])
+    }, [step, intent, orderNumber])
 
     const handleSubmit = async (event) => {
         setStep('7')
@@ -37,7 +37,7 @@ export default function PopUp({ intent, step, setStep, changePaymentMethod, orde
             elements,
             redirect: 'if_required',
             confirmParams: {
-                return_url: `http://localhost:8000/api/complete-payment?id=${orderNumber}`
+                return_url: `https://auto-welt.info/api/complete-payment?id=${orderNumber}`
             }
         })
 
@@ -46,7 +46,7 @@ export default function PopUp({ intent, step, setStep, changePaymentMethod, orde
         }
 
         if (paymentIntent?.status === 'succeeded' && typeof window !== 'undefined') {
-            window.location.href = `http://localhost:8000/api/complete-payment?id=${orderNumber}&redirect_status=${paymentIntent.status}&payment_intent=${paymentIntent.id}&payment_intent_client_secret=${clientSecret}`
+            window.location.href = `https://auto-welt.info/api/complete-payment?id=${orderNumber}&redirect_status=${paymentIntent.status}&payment_intent=${paymentIntent.id}&payment_intent_client_secret=${clientSecret}`
         }
 
         if (paymentIntent?.last_payment_error) {

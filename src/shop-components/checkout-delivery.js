@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import styled from "styled-components"
 import { Button } from "./button"
@@ -21,7 +21,7 @@ export default function Delivery({ delivery, setDelivery, setStep }) {
     }
   `)
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm()
+    const { register, handleSubmit } = useForm()
     const [inpostNumber, setInpostNumber] = useState(() => {
         if (typeof window !== 'undefined') {
             if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {

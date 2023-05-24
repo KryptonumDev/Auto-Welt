@@ -1,4 +1,4 @@
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { useMemo, useState } from "react"
 import { useCart } from "react-use-cart"

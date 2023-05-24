@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react"
+import React, { useEffect } from "react"
 import { graphql, navigate } from "gatsby"
 
 import ExhibitionListing from './../shop-components/product-exhibition-listing'

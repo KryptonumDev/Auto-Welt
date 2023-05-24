@@ -1,4 +1,4 @@
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import React, { useCallback, useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import Delivery from "./checkout-delivery"

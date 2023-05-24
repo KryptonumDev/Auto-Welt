@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function PersonalDataForm({ personalData, setPersonalData, setStep }) {
-    const { setValue, register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { setValue, register, handleSubmit, formState: { errors } } = useForm({
         mode: "onBlur",
         defaultValues: {
             name: personalData.name || '',
@@ -28,7 +28,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
             setValue('firmName', '')
             setValue('firmAdres', '')
         }
-    }, [checkboxValue])
+    }, [checkboxValue, setValue])
     useEffect(() => {
         setIsTrueNip(false)
     }, [nipValue])
@@ -73,7 +73,7 @@ export default function PersonalDataForm({ personalData, setPersonalData, setSte
                     toast.error(err.response.data.message)
                 })
         }
-    }, [nipValue])
+    }, [nipValue, setValue])
 
 
     return (
