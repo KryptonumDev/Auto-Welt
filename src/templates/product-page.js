@@ -8,8 +8,8 @@ import "lightgallery.js/dist/css/lightgallery.css"
 import { LightgalleryProvider } from "react-lightgallery";
 import BreadCrumbs from "../shop-components/breadcrumbs"
 
-export default function ProductPage({ pageContext, data: { pageData, wpPage, allWcProduct } }) {
-
+export default function ProductPage({ pageContext, data: { pageData, wpPageQunatity, wpPage, allWcProduct } }) {
+  wpPage.stock_quantity = wpPageQunatity.stockQuantity
   return (
     <Wrapper>
       <BreadCrumbs pageContext={pageContext} />
@@ -28,7 +28,12 @@ export default function ProductPage({ pageContext, data: { pageData, wpPage, all
 export { Head } from "../components/Head/Head"
 
 export const query = graphql`
-query productPageQuery ($id: String!){
+query productPageQuery ($id: String!, $itemId: Int!){
+  wpPageQunatity: wpProduct(databaseId: {eq: $itemId}) {
+    ... on WpSimpleProduct {
+    	stockQuantity
+    }
+  }
   wpPage: wcProduct(id: {eq: $id}) {
     seo : yoast_head_json{
       metaDesc : og_description
@@ -151,7 +156,7 @@ query productPageQuery ($id: String!){
 const Wrapper = styled.main`
   max-width: 1112px;
   width: 100%;
-  margin: clamp(60px, ${60/768*100}vw, 90px) auto;
+  margin: clamp(60px, ${60 / 768 * 100}vw, 90px) auto;
   padding: 0 16px;
   box-sizing: border-box;
 
