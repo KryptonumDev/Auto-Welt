@@ -35,16 +35,19 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
             <h3>Adres dostawy</h3>
             <label>
                 <span>Ulica i nr. domu/lokalu</span>
-                <input {...register("address")} placeholder="Grzybowska 46/ 6" />
+                <input {...register("address", { required: true, minLength: 3 })} placeholder="Grzybowska 46/ 6" />
+                {errors.address && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
             </label>
             <div className="two-column">
                 <label className="postal-code">
                     <span>Kod pocztowy</span>
-                    <input {...register("postcode")} placeholder="00-132" />
+                    <input {...register("postcode", { required: true, minLength: 5 })} placeholder="00-132" />
+                    {errors.postcode && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
                 </label>
                 <label>
                     <span>Miejscowość</span>
-                    <input  {...register("city")} />
+                    <input  {...register("city", { required: true, minLength: 3 })} />
+                    {errors.city && <span className="error">Proszę poprawnie uzupełnić to pole</span>}
                 </label>
             </div>
             <label >
