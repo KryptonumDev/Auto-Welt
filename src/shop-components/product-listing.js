@@ -9,16 +9,17 @@ export default function ProductListing({ products, categories }) {
 
     const [filtredProducts, page, setPage, filter, setFilter] = useFiltration(products)
 
+    const startIndex = (page - 1) * 9;
+    const endIndex = startIndex + 9;
+
     return (
         <Wrapper>
             <h2>Pełna oferta</h2>
             <Filter filter={filter} setFilter={setFilter} categories={categories} />
             <Grid>
-                {filtredProducts.map((el, index) => {
-                    if ((index >= (8 * (page - 1) + (page - 1))) && index <= (8 * page) + (page - 1)) {
-                        return <ProductCard key={el.name} data={el} />
-                    }
-                })}
+                {filtredProducts.slice(startIndex, endIndex).map((el, index, arr) => (
+                    <ProductCard key={el.databaseId} data={el} />
+                ))}
             </Grid>
             {filtredProducts.length < 1 && <p className="no-items">Brak produktów spełniających kryteria wyszukiwania</p>}
             <Pagination currentPage={page} itemCount={filtredProducts.length} changeCurrentPage={setPage} />

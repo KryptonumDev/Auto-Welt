@@ -4,8 +4,7 @@ import styled from "styled-components"
 export default function Pagination({ currentPage, itemCount, changeCurrentPage }) {
 
   const pagesCount = useMemo(() => {
-    let count = itemCount - 10
-    return (Math.ceil(count / 9)) + 1
+    return (Math.ceil(itemCount / 9))
   }, [itemCount])
 
   const buttons = useMemo(() => {

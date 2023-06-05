@@ -11,7 +11,9 @@ export default function AllCategories({ data, title }) {
       <Grid>
         {data.sort((a, b) => a.acf.order_number - b.acf.order_number).map(el => (
           <Item key={el.slug} to={'/sklep/' + el.slug}>
-            <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt || 'obrazek'} />
+            {el.image?.localFile && (
+              <GatsbyImage className="image" image={el.image.localFile.childImageSharp.gatsbyImageData} alt={el.image.alt || 'obrazek'} />
+            )}
             <p>{el.name}</p>
           </Item>
         ))}

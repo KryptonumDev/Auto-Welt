@@ -1,6 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 export function useFiltration(products) {
+  const preFiltredProducts = useMemo(() => {
+    const arr = products.map(el => {
+
+    })
+  }, [products])
   const [filtredProducts, setFiltredProducts] = useState(products)
   const [page, setPage] = useState(1)
   const [filter, setFilter] = useState({
@@ -9,7 +14,7 @@ export function useFiltration(products) {
     onlyPromotions: false,
     sort: '0',
   })
-  
+
   useEffect(() => {
     setFiltredProducts(() => {
       if (!filter.search && !filter.category && !filter.onlyPromotions && filter.sort === '0') {
