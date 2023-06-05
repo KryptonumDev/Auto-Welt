@@ -29,15 +29,17 @@ module.exports = {
             options: {
                 url: `${process.env.GATSBY_WORDPRESS_URL}/graphql`,
                 schema: {
-                  timeout: 30000000,
+                    timeout: 30000000,
+                    perPage: 20, // currently set to 100
+                    requestConcurrency: 5, // currently set to 15
                 },
                 type: {
-                  MediaItem: {
-                    localFile: {
-                        maxFileSizeBytes: 52428800, // 50Mb
-                        requestConcurrency: 5,
+                    MediaItem: {
+                        localFile: {
+                            maxFileSizeBytes: 52428800, // 50Mb
+                            requestConcurrency: 5,
+                        },
                     },
-                  },
                 },
             },
         },
