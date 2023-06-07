@@ -69,6 +69,7 @@ exports.sourceNodes = async (
         category.image.localFile___NODE = fileNode.id
       }
     }
+
     if (Array.isArray(category.acf.gallery)) {
       category.acf.gallery = await Promise.all(category?.acf?.gallery?.map(async ({ image }) => {
         let fileNode
@@ -86,6 +87,8 @@ exports.sourceNodes = async (
           return image
         }
       }))
+    } else {
+      category.acf.gallery = []
     }
 
     const nodeId = createNodeId(`wc-category-${category.id}`)
