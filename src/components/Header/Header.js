@@ -27,7 +27,7 @@ export default function Header() {
 
   const leftSideLink = [
     {
-      name: 'Kolekcje modeli',
+      name: 'Kolekcje Modeli',
       link: '/kolekcje-modeli/'
     },
     {
@@ -52,7 +52,7 @@ export default function Header() {
 
   const rightSideLink = [
     {
-      name: 'terminarz',
+      name: 'Terminarz',
       link: '/terminarz/'
     },
     {
