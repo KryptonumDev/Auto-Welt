@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { Button } from "./button"
 
 export default function DeliveryDataForm({ shipingData, setShipingData, setStep }) {
-    const { register, handleSubmit, errors } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             address: shipingData.address,
             postcode: shipingData.postcode,
