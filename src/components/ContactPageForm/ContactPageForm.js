@@ -96,7 +96,7 @@ const ContactPageForm = ({ dataForm }) => {
       <StyledLeftWrapper className="left">
         <StyledModel>
           <GatsbyImage
-          className="left-image"
+            className="left-image"
             image={images}
             alt={dataForm.zdjecieDoFormularzaMobile?.altText || " "}
             objectFit="fill"
@@ -189,7 +189,7 @@ const ContactPageForm = ({ dataForm }) => {
                   >
                     <StyledInputWrapper iserror={errors.firstName}>
                       <label htmlFor="firstName">{dataForm.tytulPolaImie}</label>
-                      <Field type="text" name="firstName" id="firstName"/>
+                      <Field type="text" name="firstName" id="firstName" />
                       <StyledErrorMessage
                         iserror={errors.firstName}
                         name="firstName"
@@ -198,7 +198,7 @@ const ContactPageForm = ({ dataForm }) => {
                     </StyledInputWrapper>
                     <StyledInputWrapper iserror={errors.lastName}>
                       <label htmlFor="lastName">{dataForm.tytulPolaNazwisko}</label>
-                      <Field type="text" name="lastName" id="lastName"/>
+                      <Field type="text" name="lastName" id="lastName" />
                       <StyledErrorMessage
                         iserror={errors.lastName}
                         name="lastName"
@@ -207,7 +207,7 @@ const ContactPageForm = ({ dataForm }) => {
                     </StyledInputWrapper>
                     <StyledInputWrapper emailprop iserror={errors.email}>
                       <label htmlFor="email">{dataForm.tytulPolaEmail}</label>
-                      <Field type="email" name="email" id="email"/>
+                      <Field type="email" name="email" id="email" />
                       <StyledErrorMessage
                         iserror={errors.email}
                         name="email"
@@ -225,28 +225,28 @@ const ContactPageForm = ({ dataForm }) => {
                           (e) => {
                             e.target.value = (
                               [...e.target.value.replaceAll(' ', '')]
-                              .map(
-                                (val, idx) => {
-                                  if (val === ' ')
-                                    return [ val ];
-          
-                                  let ret = [];
+                                .map(
+                                  (val, idx) => {
+                                    if (val === ' ')
+                                      return [val];
 
-                                  if (!isNaN(parseInt(val))) {
-                                    if (idx > 0 && idx % 3 === 0)
-                                      ret.push(' ');
-                                    ret.push(val);
+                                    let ret = [];
+
+                                    if (!isNaN(parseInt(val))) {
+                                      if (idx > 0 && idx % 3 === 0)
+                                        ret.push(' ');
+                                      ret.push(val);
+                                    }
+
+                                    return ret;
                                   }
-                                  
-                                  return ret;
-                                }
-                              )
-                              .reduce(
-                                (prev, cur) => prev.concat(cur), []
-                              )
-                              .reduce(
-                                (prev, cur) => prev += cur, ""
-                              )
+                                )
+                                .reduce(
+                                  (prev, cur) => prev.concat(cur), []
+                                )
+                                .reduce(
+                                  (prev, cur) => prev += cur, ""
+                                )
                             );
 
                             return handleChange(e);
@@ -293,7 +293,7 @@ const ContactPageForm = ({ dataForm }) => {
                         style={{ fontWeight: "400" }}
                       >
                         <AcceptIcon />
-                        Akceptuję <Link to="/polityka-prywatnosci">politykę prywatności</Link>
+                        Zapoznaem się i akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-sklepu/'>Regulamin</Link> sklepu Auto-Welt.info*
                       </label>
                     </StyledCustomCheckbox>
                     <StyledButtonWrapper>

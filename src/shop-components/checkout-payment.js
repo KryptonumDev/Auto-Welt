@@ -54,7 +54,9 @@ export default function Payment({ paymentMethod, setPaymentMethod, setStep }) {
             <label className="checkbox">
                 <input onClick={(e) => { setCheckboxValue(e.currentTarget.checked) }}  {...register("checkbox")} type='checkbox' />
                 <span className="checkmark"></span>
-                <span className="text">Akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-wystaw/'>Regulamin</Link> sklepu Auto-Welt.info*</span>
+                <span className="text">
+                    Zapoznaem się i akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-sklepu/'>Regulamin</Link> sklepu Auto-Welt.info*
+                </span>
             </label>
             <Button disabled={!checkboxValue}>
                 <span>

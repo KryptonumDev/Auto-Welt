@@ -169,7 +169,7 @@ const HomeContactForm = ({ data, afterSubmit }) => {
               />
               <label htmlFor="termsAndConditions" style={{ fontWeight: "400" }}>
                 <AcceptIcon />
-                Akceptuję <Link to="/polityka-prywatnosci">politykę prywatności</Link>
+                    Zapoznaem się i akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-sklepu/'>Regulamin</Link> sklepu Auto-Welt.info*
               </label>
             </StyledCustomCheckbox>
             <StyledButtonWrapper>
