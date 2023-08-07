@@ -30,27 +30,15 @@ const ExhibitionRegulations = ({ data }) => {
           {parse(queryData.tekstPodTytulem)}
         </StyledTextWrapper>
         <StyledLinkWrapper>
-          <a
-            download
-            href={queryData.pierwszyLink.localFile.publicURL}
-            aria-label="pobierz umowę"
-          >
-            pobierz umowę najmu wystawy
-          </a>
-          <a
-            download
-            href={queryData.drugiLink.localFile.publicURL}
-            aria-label="pobierz umowę"
-          >
-            pobierz umowę najmu wystawy na powietrzu
-          </a>
-          <a
-            download
-            href={queryData.trzeciLink.localFile.publicURL}
-            aria-label="pobierz umowę"
-          >
-            pobierz umowę najmu powierzchni wystawowej
-          </a>
+          {queryData.links.map(el => (
+            <a
+              download
+              href={el.file.localFile.publicURL}
+              aria-label="pobierz umowę"
+            >
+              {el.file.title}
+            </a>
+          ))}
         </StyledLinkWrapper>
       </StyledContentWrapper>
     </StyledExhibitionRegulations>
@@ -79,19 +67,12 @@ export const query = graphql`
       regulaminWystaw {
         tytulStrony
         tekstPodTytulem
-        pierwszyLink {
-          localFile {
-            publicURL
-          }
-        }
-        drugiLink {
-          localFile {
-            publicURL
-          }
-        }
-        trzeciLink {
-          localFile {
-            publicURL
+        links{
+          file{
+            title
+            localFile{
+              publicURL
+            }
           }
         }
       }

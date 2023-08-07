@@ -137,7 +137,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             Kontakt
           </StyledLink>
           <StyledLink
-            to="/regulamin-wystaw"
+            to="/regulamin-sklepu"
             hasdeclaredfontcolor="var(--creamText)"
             hasdeclaredfontsize="16px"
             hasdeclaredtextdecoration="default"
@@ -146,7 +146,7 @@ const FooterCenterWrapper = ({ footerData }) => {
             hasdeclaredlineheight="1.2em"
             aria-label="przejdz do podstrony"
           >
-            Regulamin wystaw
+            Regulamin sklepu
           </StyledLink>
           <StyledLink
             to="/polityka-prywatnosci"

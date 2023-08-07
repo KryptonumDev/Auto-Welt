@@ -100,48 +100,6 @@ export const query = graphql`
           }
         }
       }
-      sklep {
-        tytulPodZdjeciami
-        podTytul
-        opisPodTytulami
-        glowneZdjecie {
-          altText
-          title
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        lewyPrzycisk {
-          target
-          title
-          url
-        }
-        prawyPrzycisk {
-          target
-          title
-          url
-        }
-        zdjeciePlastra {
-          altText
-          title
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        zdjecieSamochoduPrzyczepioneDoPrawejKrawedzie {
-          altText
-          title
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
     }
   }
 `;
