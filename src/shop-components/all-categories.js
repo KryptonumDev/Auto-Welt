@@ -76,6 +76,7 @@ const Item = styled(Link)`
     }
 
     .image{
+      aspect-ratio: 338/127;
       img{
         transition: transform 0.3s ease-in-out;
       }

@@ -23,8 +23,7 @@ const Shop = ({ data: { wpPage, news, allWcProduct, allWcCategory } }) => {
 
   return (
     <main>
-      <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Współpracujemy z czołowymi producentami modeli kolekcjonerskich samochodów 
-w Europie. Weryfikujemy ich jakość i dbamy o <strong>idealne warunki składowania</strong>. Wszystko po to, żebyś miał dostęp do szerokiego asortymentu modeli kolekcjonerskich i mógł rozwijać pasję związaną z kolekcjonowaniem.`} />
+      <Hero maintitle={'SKLEP ONLINE MODELI KOLEKCJONERSKICH SAMOCHODÓW'} title={'Wyjątkowe modele kolekcjonerskie'} text={`Oferowane modele w moim sklepie to głównie samochody drugiej połowy XX wieku ponieważ ten okres w historii motoryzacji jest moją pasją. Oferowane modele to samochody osobowe, dostawcze, ciężarowe, czy autobusy zarówno z okresu PRL-u ale i Europy Zachodniej. Coś dla siebie odnajdą też osoby które interesują się samochodami sportowymi czy rajdowymi. Tutaj znaleźć można także różne gadżety motoryzacyjne jak magnesy czy książki. Oferuję modele zarówno takich firm jak np. Welly, ale i także modele dla bardziej wymagających klientów po to abyś mógł rozwijać swoją pasję i zainteresowania związane ze zbieraniem i kolekcjonowaniem modeli. To także oferta dla osób chcących poszerzyć swoją wiedzę o ciekawe książki. Zachęcam do zapoznania się z ofertą na moim sklepie i życzę Ci rozwoju swojej pasji i zainteresowań.`} />
       <ProductSlider title={'Nowości'} products={filtredProducts} />
       <ProductListing categories={allWcCategory.nodes} products={allWcProduct.nodes} />
       <Divider />
