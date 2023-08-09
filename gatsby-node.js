@@ -15,7 +15,29 @@ const api = new WooCommerceRestApi({
 exports.sourceNodes = async (
   { actions: { createNode }, createNodeId, createContentDigest, store, cache }) => {
 
-  let products = await api.get("products", { per_page: 100, status: 'publish' })
+  async function get_products() {
+    const totalProducts = [];
+    let page = 1
+
+    while (true) {
+      const options = { per_page: 100, status: 'publish' };
+      if (page !== 1) {
+        options.page = page
+      }
+
+      const products = await api.get("products", options);
+      totalProducts.push(...products.data);
+      page++
+
+      if (products.data.length != 100) {
+        break;
+      }
+    }
+
+    return totalProducts;
+  }
+
+  let products = await get_products()
   let categories = await api.get("products/categories")
 
   const processProduct = async (product, args) => {
@@ -107,7 +129,7 @@ exports.sourceNodes = async (
     })
   }
 
-  await asyncForEach(products.data, async (product) => {
+  await asyncForEach(products, async (product) => {
     const productNode = await processProduct(product, { store, cache, createNode, createNodeId })
     createNode(productNode)
   })
