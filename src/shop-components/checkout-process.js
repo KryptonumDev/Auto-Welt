@@ -133,7 +133,10 @@ export default function Checkout({ items, sum }) {
                             setClientSecret(data.clientSecret)
                             setPaymentIntent(data.id)
                         })
-                        .catch(() => {
+                        .catch((err) => {
+                            console.log("err " + err)
+                            console.log("err message " + err.message)
+
                             WooCommerce.put(`orders/${response.data.id}`, {
                                 status: 'cancelled'
                             })
