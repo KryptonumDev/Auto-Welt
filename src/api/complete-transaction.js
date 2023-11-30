@@ -1,4 +1,5 @@
 import { P24 } from "@ingameltd/node-przelewy24";
+import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 const p24 = new P24(
   Number(process.env.P24_MERCHANT_ID),
