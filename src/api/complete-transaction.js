@@ -34,10 +34,10 @@ export default async function handler(req, res) {
     api.put(`orders/${id}`, {
       status: "PROCESSING",
       transaction_id: req.query.payment_intent
-    }).catch(err => {
+    }).catch(() => {
       return res.status(500).send('Błąd podczas aktualizacji zamówienia, napisz do nas, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
-    }).then(data => {
-      return res.status(200).json({ res: response, order: data })
+    }).then(() => {
+      return res.status(200).send('Dziękujemy za złożenie zamówienia, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
     })
 
   } catch (err) {
