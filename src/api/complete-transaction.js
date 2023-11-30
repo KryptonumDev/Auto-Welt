@@ -30,19 +30,21 @@ export default async function handler(req, res) {
       orderId: orderId,
       sessionId: sessionId,
     })
-
-    console.log(response)
+    console.log({ 'verify': response })
 
     api.put(`orders/${id}`, {
       status: "PROCESSING",
-      transaction_id: req.query.payment_intent
-    }).catch(() => {
-      console.log('error at seting order')
-      return res.status(500).send('Błąd podczas aktualizacji zamówienia, napisz do nas, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
-    }).then(() => {
-      console.log('its okey')
-      return res.status(200).send('Dziękujemy za złożenie zamówienia, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
+      transaction_id: req.query.id
     })
+      .then((data) => {
+        console.log('its okey')
+        console.log(data)
+        return res.status(200).send('Dziękujemy za złożenie zamówienia, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.id);
+      }).catch((err) => {
+        console.log('error at seting order')
+        console.log(err)
+        return res.status(500).send('Błąd podczas aktualizacji zamówienia, napisz do nas, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.id);
+      })
 
   } catch (err) {
     console.log('error at verify transaction')
