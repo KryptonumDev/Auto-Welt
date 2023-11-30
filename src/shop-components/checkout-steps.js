@@ -37,14 +37,6 @@ export default function Steps({ setStep, step }) {
                     </Image>
                     <p>Adres dostawy</p>
                 </Step>
-                <span className={step > 3 ? 'active line' : 'line'} />
-                <Step className={step > 4 ? 'active' : ''}>
-                    <Image>
-                        <StaticImage src="../../static/images/circle.png" alt="tło" />
-                        <span>5</span>
-                    </Image>
-                    <p>Płatność</p>
-                </Step>
             </NumbersGrid>
             <MobileGrid>
                 <Step as='div'>
@@ -91,7 +83,7 @@ const NumbersGrid = styled.div`
 
     align-items: flex-start;
     display: grid;
-    grid-template-columns: 68px 1fr 68px 1fr 68px 1fr 68px 1fr 68px;
+    grid-template-columns: 68px 1fr 68px 1fr 68px 1fr 68px;
     grid-gap: 10px;
     margin-bottom: 40px;
     margin-top: 30px;

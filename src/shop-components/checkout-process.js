@@ -1,16 +1,12 @@
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import React, { useCallback, useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import Delivery from "./checkout-delivery"
 import DeliveryDataForm from "./checkout-delivery-data-form"
-import Payment from "./checkout-payment"
-import PopUp from "./checkout-payment-pop-up"
 import PersonalDataForm from "./checkout-personal-data-form"
 import Steps from "./checkout-steps"
 import Summary from "./checkout-summary"
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
-import { Elements } from "@stripe/react-stripe-js"
-import { loadStripe } from "@stripe/stripe-js"
 import { toast } from "react-toastify"
 import axios from "axios"
 
@@ -20,18 +16,14 @@ const WooCommerce = new WooCommerceRestApi({
     consumerSecret: process.env.GATSBY_WOO_SECRET,
     version: 'wc/v3'
 });
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISH_KEY);
 
 const getItem = (name, altVal = '') => {
     return localStorage.getItem(name) !== 'null' ? localStorage.getItem(name) : altVal
 }
 
 export default function Checkout({ items, sum }) {
-    const [clientSecret, setClientSecret] = useState("");
-    const [paymentIntent, setPaymentIntent] = useState("");
+    const [loading, setLoading] = useState(false)
     const [step, setStep] = useState('2')
-    const [orderNumber, setOrderNumber] = useState(null)
-    const [paymentMethod, setPaymentMethod] = useState(getItem('paymentMethod'))
     const [delivery, setDelivery] = useState({
         type: getItem('delivery-type'),
         description: getItem('delivery-description'),
@@ -55,115 +47,44 @@ export default function Checkout({ items, sum }) {
     })
 
     useEffect(() => {
-        if (step === '6' && !orderNumber) {
-            let line_items = items.map(el => {
-                return {
-                    product_id: el.databaseId,
-                    quantity: el.quantity,
-                }
-            });
-            let params = {
-                method_title: delivery.type,
-                method_description: delivery.description,
-                method_supports: [
-                    "products"
-                ],
-                set_paid: false,
-                payment_method_title: 'Stripe',
-                customer_note: shipingData.additionalinform,
-                billing: {
-                    first_name: personalData.name.split(' ')[0],
-                    last_name: personalData.name.split(' ')[1],
-                    address_1: shipingData.address,
-                    address_2: personalData.forFirm ? personalData.firmAdres : '',
-                    city: shipingData.city,
-                    postcode: shipingData.postcode,
-                    country: 'PL',
-                    email: personalData.email,
-                    phone: personalData.phone,
-                    company: personalData.forFirm ? personalData.firmName : '',
-                },
-                shipping: {
-                    first_name: personalData.name.split(' ')[0],
-                    last_name: personalData.name.split(' ')[1],
-                    address_1: shipingData.address,
-                    address_2: personalData.firmAdres,
-                    city: shipingData.city,
-                    postcode: shipingData.postcode,
-                    state: "",
-                    country: 'PL',
-                    phone: personalData.phone,
-                },
-                meta_data: [
-                    {
-                        key: '_billing_nip',
-                        value: personalData.forFirm ? personalData.nip : ''
-                    }
-                ],
-                line_items: line_items,
-                shipping_lines: [
-                    delivery.type === 'Inpost – paczkomaty 24/7' ? {
-                        method_id: "easypack_parcel_machines",
-                        method_title: "InPost Paczkomat 24/7",
-                        total: `${delivery.price}`,
-                        meta_data: [
-                            {
-                                key: "Numer paczkomatu",
-                                value: delivery.inpostNumber
-                            }
-                        ]
-                    } : {
-                        method_id: "local_pickup",
-                        method_title: "Odbiór osobisty",
-                        total: `0`
-                    }
-                ]
-            }
+        if (step === '5') {
+            setLoading(true)
+            let line_items = items.map(el => ({
+                product_id: el.databaseId,
+                quantity: el.quantity,
+            }))
+
+            let params = generateParams(line_items, delivery, personalData, shipingData)
+
             WooCommerce.post("orders", params)
                 .then((response) => {
-                    setOrderNumber(response.data.id)
-                    axios.post("/api/create-intent", {
-                        count: ((+sum) + (+delivery.price)) * 100,
-                        id: response.data.id,
-                        method: paymentMethod
-                    }, {
-                        headers: { "Content-Type": "application/json" }
+                    axios.post('/api/create-transaction', {
+                        "description": 'Zamówienie w sklepie Auto Welt nr. ' + response.data.number,
+                        "id": response.data.id,
+                        "key": response.data.number,
+                        "amount": response.data.total * 100,
+                        "sessionId": response.data.number,
+                        "email": response.data.billing.email,
+                        "urlReturn": `${window?.location?.origin}/api/verify-transaction?session=${response.data.number}&id=${response.data.id}&origin=${window?.location?.origin}`,
+                        "urlStatus": `${window?.location?.origin}/api/complete-transaction?session=${response.data.number}&id=${response.data.id}`,
                     })
-                        .then(({ data }) => {
-                            setClientSecret(data.clientSecret)
-                            setPaymentIntent(data.id)
+                        .then(function (value) {
+                            localStorage.setItem('woo-next-cart', null);
+                            localStorage.setItem('payLink', value.data.link)
+                            window.location.href = value.data.link
+                            setLoading(false)
                         })
-                        .catch((err) => {
-                            console.log("err " + err)
-                            console.log("err message " + err.message)
+                        .catch(() => {
+                            toast.error('Nie udało się utworzyć bramkę płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
+                            setStep('4')
+                            setLoading(false)
+                        });
 
-                            WooCommerce.put(`orders/${response.data.id}`, {
-                                status: 'cancelled'
-                            })
-                            toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
-                            setStep('5')
-                        })
-                })
-                .catch(erorr => {
-                    toast.error('Nie udało się utworzyć zamówienia. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
-                    setStep('5')
-                })
-        } else if (step === '6' && orderNumber && !clientSecret) {
-            axios.post("/api/update-intent", {
-                intent: paymentIntent,
-                method: paymentMethod
-            }, {
-                headers: { "Content-Type": "application/json" },
-            })
-                .then(({ data }) => {
-                    setClientSecret(data.clientSecret)
                 })
                 .catch(() => {
-                    WooCommerce.put(`orders/${orderNumber}`, {
-                        status: 'cancelled'
-                    })
-                    toast.error('Problem pod czas tworzenia bramki płatności. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
-                    setStep('5')
+                    toast.error('Nie udało się utworzyć zamówienia. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.')
+                    setStep('4')
+                    setLoading(false)
                 })
         }
 
@@ -171,11 +92,6 @@ export default function Checkout({ items, sum }) {
             window.scrollTo(0, 0)
         }
     }, [step, delivery, shipingData, personalData, sum, items])
-
-    const changePaymentMethod = useCallback(() => {
-        setStep('5')
-        setClientSecret('')
-    }, [])
 
     return (
         <Wrapper>
@@ -189,21 +105,8 @@ export default function Checkout({ items, sum }) {
                 {step === '3' && (
                     <Delivery delivery={delivery} setDelivery={setDelivery} setStep={setStep} />
                 )}
-                {step === '4' && (
-                    <DeliveryDataForm shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
-                )}
-                {step >= '5' && (
-                    <Payment paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} setStep={setStep} />
-                )}
-                {step >= '6' && (
-                    <>
-                        {clientSecret
-                            ? <Elements options={{ clientSecret: clientSecret }} stripe={stripePromise} >
-                                <PopUp intent={paymentIntent} step={step} setStep={setStep} changePaymentMethod={changePaymentMethod} orderNumber={orderNumber} clientSecret={clientSecret} />
-                            </Elements>
-                            : <Loader><div className="wrap"><div /><div /><div /></div></Loader>
-                        }
-                    </>
+                {step >= '4' && (
+                    <DeliveryDataForm loading={loading} shipingData={shipingData} setShipingData={setShipingData} setStep={setStep} />
                 )}
             </div>
             <Summary delivery={delivery} sum={sum} />
@@ -423,3 +326,61 @@ const Wrapper = styled.section`
         }
     }
 `
+
+const generateParams = (line_items, delivery, personalData, shipingData) => ({
+    method_title: delivery.type,
+    method_description: delivery.description,
+    method_supports: [
+        "products"
+    ],
+    set_paid: false,
+    payment_method_title: 'Przelewy24',
+    customer_note: shipingData.additionalinform,
+    billing: {
+        first_name: personalData.name.split(' ')[0],
+        last_name: personalData.name.split(' ')[1],
+        address_1: shipingData.address,
+        address_2: personalData.forFirm ? personalData.firmAdres : '',
+        city: shipingData.city,
+        postcode: shipingData.postcode,
+        country: 'PL',
+        email: personalData.email,
+        phone: personalData.phone,
+        company: personalData.forFirm ? personalData.firmName : '',
+    },
+    shipping: {
+        first_name: personalData.name.split(' ')[0],
+        last_name: personalData.name.split(' ')[1],
+        address_1: shipingData.address,
+        address_2: personalData.firmAdres,
+        city: shipingData.city,
+        postcode: shipingData.postcode,
+        state: "",
+        country: 'PL',
+        phone: personalData.phone,
+    },
+    meta_data: [
+        {
+            key: '_billing_nip',
+            value: personalData.forFirm ? personalData.nip : ''
+        }
+    ],
+    line_items: line_items,
+    shipping_lines: [
+        delivery.type === 'Inpost – paczkomaty 24/7' ? {
+            method_id: "easypack_parcel_machines",
+            method_title: "InPost Paczkomat 24/7",
+            total: `${delivery.price}`,
+            meta_data: [
+                {
+                    key: "Numer paczkomatu",
+                    value: delivery.inpostNumber
+                }
+            ]
+        } : {
+            method_id: "local_pickup",
+            method_title: "Odbiór osobisty",
+            total: `0`
+        }
+    ]
+})

@@ -1886,6 +1886,13 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@ingameltd/node-przelewy24@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ingameltd/node-przelewy24/-/node-przelewy24-2.1.0.tgz#a66f12d6f6da6382f61085a2738faafc8f5876d5"
+  integrity sha512-dE7hZOSpARc8kI21yUTOBkBYmRzthTagG7oYxMWP8a/SBZwA7S19DSP/sga8awVB7A+T6EZvt+UJZn13VjfOcQ==
+  dependencies:
+    axios "^0.21.1"
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -2481,18 +2488,6 @@
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
-"@stripe/react-stripe-js@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.1.0.tgz#71541107628731fb790e1f31d8994fecbcd6cf13"
-  integrity sha512-Zb6Ycrj5QuhYkvtlvvLzo+cysUyA6wkx3zWHQ7uVnHRYRM/n1jtQD6VGBrdmptC8e8PJN6L091gBCyB5P0FqmA==
-  dependencies:
-    prop-types "^15.7.2"
-
-"@stripe/stripe-js@^1.52.1":
-  version "1.52.1"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.52.1.tgz#d821bcd627a34227c20fe87d7c8f8bd4386eaf2e"
-  integrity sha512-fza40OPSpGQlFxc5TZWiYC/6Lk89Sep1fLuv9ss33YS6lCAF8UZbfA1E6W+lwO4c7WRKZIZumHIEbPJfP/O9uw==
-
 "@swc/helpers@^0.4.12":
   version "0.4.14"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.14.tgz#1352ac6d95e3617ccb7c1498ff019654f1e12a74"
@@ -2692,11 +2687,6 @@
   version "18.7.18"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.7.18.tgz"
   integrity sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==
-
-"@types/node@>=8.1.0":
-  version "18.14.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.6.tgz#ae1973dd2b1eeb1825695bb11ebfb746d27e3e93"
-  integrity sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==
 
 "@types/node@^17.0.5":
   version "17.0.45"
@@ -9437,13 +9427,6 @@ qs@6.11.0:
   dependencies:
     side-channel "^1.0.4"
 
-qs@^6.11.0:
-  version "6.11.1"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.1.tgz#6c29dff97f0c0060765911ba65cbc9764186109f"
-  integrity sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==
-  dependencies:
-    side-channel "^1.0.4"
-
 query-string@^6.14.1:
   version "6.14.1"
   resolved "https://registry.npmjs.org/query-string/-/query-string-6.14.1.tgz"
@@ -10735,14 +10718,6 @@ strip-outer@^1.0.1:
   integrity sha512-k55yxKHwaXnpYGsOzg4Vl8+tDrWylxDEpknGjhTiZB8dFRU5rTo9CAzeycivxV3s+zlTKwrs6WxMxR95n26kwg==
   dependencies:
     escape-string-regexp "^1.0.2"
-
-stripe@^12.5.0:
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-12.5.0.tgz#965168a87103a985fac950a7184a71bb107ac904"
-  integrity sha512-eDBh4bv+Uo+GdhjnQ246lM5KaOReoBzxFltgW0HJqco/QEAgSYxZPOpFbd5+gJnZlRqHSB5B+Zqw273SlbdPag==
-  dependencies:
-    "@types/node" ">=8.1.0"
-    qs "^6.11.0"
 
 strtok3@^6.0.3, strtok3@^6.2.4:
   version "6.3.0"

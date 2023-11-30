@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { useForm } from "react-hook-form";
 import styled from "styled-components"
 import { Button } from "./button"
+import { Link } from "gatsby";
 
-export default function DeliveryDataForm({ shipingData, setShipingData, setStep }) {
+export default function DeliveryDataForm({ loading, shipingData, setShipingData, setStep }) {
+    const [checkboxValue, setCheckboxValue] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             address: shipingData.address,
@@ -54,9 +56,16 @@ export default function DeliveryDataForm({ shipingData, setShipingData, setStep 
                 <span>Dodaj uwagi odnośnie realizacji zamówienia / informacje dla kuriera</span>
                 <textarea  {...register("additionalinform")} rows='7' />
             </label>
-            <Button >
+            <label className="checkbox">
+                <input onClick={(e) => { setCheckboxValue(e.currentTarget.checked) }}  {...register("checkbox")} type='checkbox' />
+                <span className="checkmark"></span>
+                <span className="text">
+                    Zapoznaem się i akceptuję <Link to='/polityka-prywatnosci/'>Politykę prywatności</Link> i <Link to='/regulamin-sklepu/'>Regulamin</Link> sklepu Auto-Welt.info*
+                </span>
+            </label>
+            <Button disabled={loading} >
                 <span>
-                    PRZECHODZĘ DALEJ
+                    PRZECHODZĘ DO PŁATNOŚCI
                 </span>
             </Button>
         </Wrapper>
@@ -91,5 +100,26 @@ const Wrapper = styled.form`
     
     button{
         margin-left: 10px!important;
+    }
+
+    .checkbox{
+        color: #23423D;
+        a{
+            font-family: 'Roboto Condensed';
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 21px;
+            font-feature-settings: 'pnum' on, 'onum' on;
+            color: #23423D;
+            transition: color .2s ease-out;
+
+            &:hover{
+                color: #EDAC2A;
+            }
+        }
+
+        .text{
+            margin-top: 3px;
+        }
     }
 `

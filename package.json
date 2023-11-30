@@ -17,8 +17,7 @@
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
-    "@stripe/react-stripe-js": "^2.1.0",
-    "@stripe/stripe-js": "^1.52.1",
+    "@ingameltd/node-przelewy24": "^2.1.0",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "axios": "^1.4.0",
     "babel-plugin-styled-components": "^2.1.1",
@@ -54,7 +53,6 @@
     "react-use-cart": "^1.13.0",
     "slick-carousel": "^1.8.1",
     "stream": "^0.0.2",
-    "stripe": "^12.5.0",
     "styled-components": "^6.0.0-rc.1",
     "yup": "^1.1.1"
   },
