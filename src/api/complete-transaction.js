@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     console.log({ 'verify': response })
 
     api.put(`orders/${id}`, {
-      status: "PROCESSING",
+      status: "processing",
       transaction_id: req.query.id
     })
       .then((data) => {
