@@ -31,16 +31,21 @@ export default async function handler(req, res) {
       sessionId: sessionId,
     })
 
+    console.log(response)
+
     api.put(`orders/${id}`, {
       status: "PROCESSING",
       transaction_id: req.query.payment_intent
     }).catch(() => {
+      console.log('error at seting order')
       return res.status(500).send('Błąd podczas aktualizacji zamówienia, napisz do nas, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
     }).then(() => {
+      console.log('its okey')
       return res.status(200).send('Dziękujemy za złożenie zamówienia, twój numer zamówienia to: ' + req.query.id + ', twój numer płatności to: ' + req.query.payment_intent);
     })
 
   } catch (err) {
+    console.log('error at verify transaction')
     console.log(err)
     return res.status(500).json({ res: err })
   }
