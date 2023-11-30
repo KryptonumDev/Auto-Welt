@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     transactionHeaders.append("Content-Type", "application/json");
     transactionHeaders.append("Authorization", `Basic ${btoa(`${Number(process.env.P24_POS_ID)}:${process.env.P24_REST_API_KEY}`)}`);
 
-    await fetch(`https://sandbox.przelewy24.pl/api/v1/transaction/by/sessionId/${req.query.session}`, {
+    await fetch(`https://secure.przelewy24.pl/api/v1/transaction/by/sessionId/${req.query.session}`, {
       method: 'GET',
       headers: transactionHeaders,
     })

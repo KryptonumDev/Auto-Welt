@@ -12,7 +12,7 @@ const p24 = new P24(
   process.env.P24_REST_API_KEY,
   process.env.P24_CRC,
   {
-    sandbox: true
+    sandbox: false
   }
 );
 
