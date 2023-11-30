@@ -20,7 +20,7 @@ const api = new WooCommerceRestApi({
 
 export default async function handler(req, res) {
   try {
-    const { merchantId, posId, sessionId, amount, originAmount, currency, orderId, methodId, statement, sign } = req.body
+    const { sessionId, amount, currency, orderId } = req.body
 
     const id = req.query.id
 
